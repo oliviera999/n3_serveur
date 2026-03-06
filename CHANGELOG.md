@@ -7,6 +7,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -93,6 +99,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -178,6 +190,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -263,6 +281,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -357,6 +381,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -444,6 +474,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -531,6 +567,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -619,6 +661,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -706,6 +754,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -795,6 +849,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -882,6 +942,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -969,6 +1035,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1056,6 +1128,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1144,6 +1222,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1229,6 +1313,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1319,6 +1409,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1404,6 +1500,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1492,6 +1594,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1578,6 +1686,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1666,6 +1780,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1754,6 +1874,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1841,6 +1967,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -1930,6 +2062,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2016,6 +2154,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2103,6 +2247,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2191,6 +2341,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2279,6 +2435,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2365,6 +2527,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2452,6 +2620,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2541,6 +2715,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2629,6 +2809,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2716,6 +2902,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2803,6 +2995,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2890,6 +3088,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -2977,6 +3181,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3063,6 +3273,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3149,6 +3365,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3235,6 +3457,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3321,6 +3549,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3408,6 +3642,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3499,6 +3739,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3590,6 +3836,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3674,6 +3926,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3758,6 +4016,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3842,6 +4106,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -3926,6 +4196,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4010,6 +4286,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4094,6 +4376,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4195,6 +4483,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4286,6 +4580,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4375,6 +4675,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4465,6 +4771,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4559,6 +4871,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4665,6 +4983,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4753,6 +5077,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4843,6 +5173,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -4933,6 +5269,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5020,6 +5362,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5110,6 +5458,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5197,6 +5551,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5283,6 +5643,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5370,6 +5736,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5467,6 +5839,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5561,6 +5939,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5663,6 +6047,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5769,6 +6159,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5865,6 +6261,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -5953,6 +6355,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6043,6 +6451,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6132,6 +6546,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6221,6 +6641,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6308,6 +6734,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6395,6 +6827,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6484,6 +6922,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6572,6 +7016,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6662,6 +7112,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6757,6 +7213,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6856,6 +7318,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -6951,6 +7419,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7048,6 +7522,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7144,6 +7624,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7235,6 +7721,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7322,6 +7814,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7413,6 +7911,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7501,6 +8005,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7588,6 +8098,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7675,6 +8191,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7764,6 +8286,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7853,6 +8381,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -7941,6 +8475,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8029,6 +8569,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8116,6 +8662,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8203,6 +8755,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8290,6 +8848,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8379,6 +8943,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8468,6 +9038,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8555,6 +9131,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8642,6 +9224,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8729,6 +9317,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8817,6 +9411,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -8907,6 +9507,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9004,6 +9610,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9095,6 +9707,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9193,6 +9811,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9289,6 +9913,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9376,6 +10006,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9496,6 +10132,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9587,6 +10229,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9687,6 +10335,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9797,6 +10451,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9897,6 +10557,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -9987,6 +10653,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -10078,6 +10750,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -10175,6 +10853,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -10382,6 +11066,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -10473,6 +11163,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -10562,6 +11258,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -10652,6 +11354,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -10743,6 +11451,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -10833,6 +11547,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -10925,6 +11645,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -11016,6 +11742,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -11229,6 +11961,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -11319,6 +12057,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -11409,6 +12153,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -11547,6 +12297,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -11646,6 +12402,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -11745,6 +12507,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -11881,6 +12649,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -12028,6 +12802,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -12132,6 +12912,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -12237,6 +13023,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -12332,6 +13124,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -12433,6 +13231,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -12538,6 +13342,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -12641,6 +13451,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -12735,6 +13551,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -12841,6 +13663,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -12979,6 +13807,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -13072,6 +13906,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -13166,6 +14006,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -13259,6 +14105,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -13357,6 +14209,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -13461,6 +14319,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -13563,6 +14427,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -13663,6 +14533,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -13758,6 +14634,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -13854,6 +14736,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -13961,6 +14849,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -14067,6 +14961,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -14176,6 +15076,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -14301,6 +15207,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -14456,6 +15368,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -14552,6 +15470,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -14647,6 +15571,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -14752,6 +15682,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -14847,6 +15783,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -14946,6 +15888,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -15038,6 +15986,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -15132,6 +16086,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -15218,6 +16178,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -15344,6 +16310,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -15442,6 +16414,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -15562,6 +16540,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -15664,6 +16648,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -15762,6 +16752,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -15866,6 +16862,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -15992,6 +16994,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -16103,6 +17111,12 @@ et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -16268,6 +17282,12 @@ Consulter `migrations/README.md` pour la procÃ©dure dÃ©taillÃ©e.
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -16370,6 +17390,12 @@ Consulter `migrations/README.md` pour la procÃ©dure dÃ©taillÃ©e.
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -16474,6 +17500,12 @@ Consulter `migrations/README.md` pour la procÃ©dure dÃ©taillÃ©e.
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -16589,6 +17621,12 @@ ContrÃ´leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -16697,6 +17735,12 @@ Cette correction rÃ©sout le problÃ¨me identifiÃ© lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -16792,6 +17836,12 @@ Cette correction rÃ©sout le problÃ¨me identifiÃ© lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -16887,6 +17937,12 @@ Cette correction rÃ©sout le problÃ¨me identifiÃ© lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -16984,6 +18040,12 @@ Cette correction rÃ©sout le problÃ¨me identifiÃ© lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -17152,6 +18214,12 @@ Cette correction rÃ©sout le problÃ¨me identifiÃ© lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -17268,6 +18336,12 @@ Cette correction rÃ©sout le problÃ¨me identifiÃ© lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -17398,6 +18472,12 @@ Cette correction rÃ©sout le problÃ¨me identifiÃ© lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -17516,6 +18596,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit Ãªtre identi
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -17638,6 +18724,12 @@ Si nÃ©cessaire de revenir Ã  l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -17728,6 +18820,12 @@ Cette version a Ã©tÃ© remplacÃ©e par la v4.5.7 qui corrige le timezone vers Casa
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -17870,6 +18968,12 @@ Les utilisateurs voient maintenant se mettre Ã  jour automatiquement :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -17976,6 +19080,12 @@ Les utilisateurs voient maintenant se mettre Ã  jour automatiquement :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -18069,6 +19179,12 @@ Les utilisateurs voient maintenant se mettre Ã  jour automatiquement :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -18212,6 +19328,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -18334,6 +19456,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -18489,6 +19617,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -18582,6 +19716,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -18734,6 +19874,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -18824,6 +19970,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -18913,6 +20065,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -19006,6 +20164,12 @@ Suite aux erreurs 404 persistantes malgrÃ© la correction des chemins en v4.4.2, 
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -19099,6 +20263,12 @@ Le serveur web pointe dÃ©jÃ  vers le dossier `public/` comme document root, donc
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -19237,6 +20407,12 @@ docs/
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -19398,6 +20574,12 @@ docs/
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -19493,6 +20675,12 @@ docs/
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -19622,6 +20810,12 @@ docs/
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -19716,6 +20910,12 @@ docs/
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -19832,6 +21032,12 @@ docs/
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -19924,6 +21130,12 @@ docs/
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -20205,6 +21417,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -20320,6 +21538,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -20462,6 +21686,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -20590,6 +21820,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -20704,6 +21940,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -20825,6 +22067,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -20938,6 +22186,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -21040,6 +22294,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -21134,6 +22394,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -21244,6 +22510,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -21338,6 +22610,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -21432,6 +22710,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -21528,6 +22812,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -21642,6 +22932,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
@@ -21730,6 +23026,12 @@ ance future
 
 ---
 
+## [5.0.21] - 2026-03-06
+
+### Correctif - correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match)
+- **RÃ©sumÃ©** : correctif galerie: compatibilité PHP 7.4/8.0 (readonly, match).
+
+---
 ## [5.0.20] - 2026-03-06
 
 ### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox

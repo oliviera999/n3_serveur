@@ -44,6 +44,23 @@ class TemplateRenderer
     public function render(string $template, array $context = []): string
     {
         $context['base_path'] = $GLOBALS['base_path'] ?? '';
+        // #region agent log
+        if (
+            \function_exists('n3DebugLog')
+            && \in_array($template, ['msp1_data.twig', 'n3pp_data.twig', 'home.twig'], true)
+        ) {
+            \n3DebugLog(
+                'H5',
+                'serveur/src/Service/TemplateRenderer.php:49',
+                'Rendu template public',
+                [
+                    'template' => $template,
+                    'base_path' => $context['base_path'],
+                    'page_title' => $context['page_title'] ?? null,
+                ]
+            );
+        }
+        // #endregion
         if ($this->csrfService !== null) {
             $context['csrf_token'] = $this->csrfService->getToken();
             $context['csrf_field'] = $this->csrfService->getHiddenField();

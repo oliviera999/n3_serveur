@@ -31,6 +31,27 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Factory\AppFactory;
 
+if (!function_exists('n3DebugLog')) {
+    function n3DebugLog(string $hypothesisId, string $location, string $message, array $data = []): void
+    {
+        $payload = [
+            'sessionId' => '944511',
+            'runId' => isset($_SERVER['REQUEST_TIME_FLOAT']) ? (string) $_SERVER['REQUEST_TIME_FLOAT'] : uniqid('req_', true),
+            'hypothesisId' => $hypothesisId,
+            'location' => $location,
+            'message' => $message,
+            'data' => $data,
+            'timestamp' => (int) round(microtime(true) * 1000),
+        ];
+
+        @file_put_contents(
+            dirname(__DIR__) . '/../debug-944511.log',
+            json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . PHP_EOL,
+            FILE_APPEND
+        );
+    }
+}
+
 // Charge les variables d'environnement (.env)
 Env::load();
 
@@ -67,6 +88,32 @@ if ($basePath !== '' && $basePath !== '/') {
 }
 // Base path pour les templates (assets, liens). Utilisé par TemplateRenderer.
 $GLOBALS['base_path'] = $basePath;
+
+$requestPath = (string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+// #region agent log
+if (
+    $requestPath !== ''
+    && (
+        str_starts_with($requestPath, '/assets/')
+        || str_contains($requestPath, 'msp1-data.php')
+        || str_contains($requestPath, 'n3pp-data.php')
+        || $requestPath === '/'
+    )
+) {
+    n3DebugLog(
+        'H2',
+        'serveur/public/index.php:71',
+        'Bootstrap public/index.php',
+        [
+            'request_uri' => $_SERVER['REQUEST_URI'] ?? null,
+            'request_path' => $requestPath,
+            'script_name' => $_SERVER['SCRIPT_NAME'] ?? null,
+            'base_path' => $basePath,
+            'global_base_path' => $GLOBALS['base_path'] ?? null,
+        ]
+    );
+}
+// #endregion
 
 // ====================================================================
 // Middleware de gestion d'erreurs personnalisé
@@ -603,12 +650,27 @@ $app->get('/assets/css/{filename}', function (Request $request, Response $respon
         'realtime-styles.css',
         'login-styles.css'
     ];
-    
+
+    $filePath = __DIR__ . '/assets/css/' . $filename;
+    // #region agent log
+    n3DebugLog(
+        'H3',
+        'serveur/public/index.php:612',
+        'Route CSS atteinte',
+        [
+            'request_uri' => (string) $request->getUri(),
+            'filename' => $filename,
+            'allowed' => in_array($filename, $allowedFiles, true),
+            'file_path' => $filePath,
+            'file_exists' => is_file($filePath),
+        ]
+    );
+    // #endregion
+
     if (!in_array($filename, $allowedFiles)) {
         return $response->withStatus(404);
     }
-    
-    $filePath = __DIR__ . '/assets/css/' . $filename;
+
     if (file_exists($filePath)) {
         $response->getBody()->write(file_get_contents($filePath));
         return $response->withHeader('Content-Type', 'text/css');
@@ -738,6 +800,19 @@ $errorMiddleware->setErrorHandler(
     HttpNotFoundException::class,
     function (Request $request, Throwable $exception, bool $displayErrorDetails): Response {
         $uri = (string) $request->getUri();
+        // #region agent log
+        n3DebugLog(
+            'H4',
+            'serveur/public/index.php:762',
+            '404 Slim',
+            [
+                'method' => $request->getMethod(),
+                'uri' => $uri,
+                'script_name' => $_SERVER['SCRIPT_NAME'] ?? null,
+                'document_root' => $_SERVER['DOCUMENT_ROOT'] ?? null,
+            ]
+        );
+        // #endregion
         error_log(sprintf('[n3-iot 404] %s %s', $request->getMethod(), $uri));
         $response = new \Slim\Psr7\Response();
         $response->getBody()->write('Not found.');
