@@ -9,6 +9,7 @@ use App\Controller\CacheController;
 use App\Controller\DashboardController;
 use App\Controller\ExportController;
 use App\Controller\Gallery\GalleryUploadController;
+use App\Controller\Gallery\GalleryViewController;
 use App\Controller\HeartbeatController;
 use App\Controller\HomeController;
 use App\Controller\Msp\MspDataController;
@@ -176,6 +177,7 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
         '/msp1gallery/',           // Upload photo ESP32-CAM
         '/n3ppgallery/',           // Upload photo ESP32-CAM
         '/ffp3/ffp3gallery/',      // Upload photo ESP32-CAM vers FFP3
+        '/gallery/',               // Pages galeries photo (consultation)
         '/ffp3datas/',             // Alias legacy (LVGL_Widgets)
         '/ffp3control/',           // Alias legacy (LVGL_Widgets)
     ];
@@ -461,18 +463,6 @@ $app->group('', function ($group) {
     // ====================================================================
     $group->get('/admin/clear-cache', [CacheController::class, 'clearCache']);
     $group->get('/admin/clear-cache-page', [CacheController::class, 'clearCachePage']);
-
-    // ====================================================================
-    // Fichiers statiques PROD (fallback si serveur web ne les sert pas)
-    // ====================================================================
-    $group->get('/manifest.json', function (Request $request, Response $response) {
-        $manifestPath = __DIR__ . '/manifest.json';
-        if (file_exists($manifestPath)) {
-            $response->getBody()->write(file_get_contents($manifestPath));
-            return $response->withHeader('Content-Type', 'application/json');
-        }
-        return $response->withStatus(404);
-    });
 })->add(new EnvironmentMiddleware('prod'))
   ->add($applyAuth);
 
@@ -572,14 +562,23 @@ $app->group('', function ($group) {
 $app->get('/assets/js/{filename}', function (Request $request, Response $response, $args) {
     $filename = $args['filename'];
     $allowedFiles = [
+        'jquery.min.js',
+        'jquery.scrollex.min.js',
+        'jquery.scrolly.min.js',
+        'browser.min.js',
+        'breakpoints.min.js',
+        'util.js',
+        'main.js',
         'control-values-updater.js',
-        'control-sync.js', 
+        'control-sync.js',
         'chart-updater.js',
         'stats-updater.js',
         'realtime-updater.js',
         'toast-notifications.js',
         'pwa-init.js',
-        'mobile-gestures.js'
+        'mobile-gestures.js',
+        'control-actions.js',
+        'control-auto-save.js',
     ];
     
     if (!in_array($filename, $allowedFiles)) {
@@ -677,6 +676,15 @@ $app->get('/service-worker.js', function (Request $request, Response $response) 
     return $response->withStatus(404);
 });
 
+$app->get('/manifest.json', function (Request $request, Response $response) {
+    $manifestPath = __DIR__ . '/manifest.json';
+    if (file_exists($manifestPath)) {
+        $response->getBody()->write(file_get_contents($manifestPath));
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+    return $response->withStatus(404);
+});
+
 // ====================================================================
 // Routes MSP1 — compatibilite firmware msp2_5 (station meteo)
 // ====================================================================
@@ -706,11 +714,18 @@ $app->get('/n3pp/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']
 $app->get('/n3pp/n3ppcontrol/index.php', [N3ppOutputController::class, 'showControlPage']);
 
 // ====================================================================
-// Routes Galeries photo — compatibilite firmwares ESP32-CAM
+// Routes Galeries photo — compatibilite firmwares ESP32-CAM (upload)
 // ====================================================================
 $app->post('/msp1gallery/upload.php', [GalleryUploadController::class, 'handleMsp1']);
 $app->post('/n3ppgallery/upload.php', [GalleryUploadController::class, 'handleN3pp']);
 $app->post('/ffp3/ffp3gallery/upload.php', [GalleryUploadController::class, 'handleFfp3']);
+
+// Galeries photo — pages de consultation (style site actuel)
+// ====================================================================
+$app->get('/gallery/{slug}/files/{filename}', [GalleryViewController::class, 'serveImage']);
+$app->get('/gallery/msp1', [GalleryViewController::class, 'showMsp1']);
+$app->get('/gallery/n3pp', [GalleryViewController::class, 'showN3pp']);
+$app->get('/gallery/ffp3', [GalleryViewController::class, 'showFfp3']);
 
 // ====================================================================
 // Middleware Slim (routing et erreurs)

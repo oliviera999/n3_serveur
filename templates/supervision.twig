@@ -9,12 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="theme-color" content="#008B74" />
     <title>{{ page_title|default('Supervision') }} - n3 iot datas</title>
-    <link rel="stylesheet" href="https://iot.olution.info/assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="https://iot.olution.info/assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="{{ base_path }}/assets/css/noscript.css" /></noscript>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" type="image/png" href="/assets/logo.png"/>
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="shortcut icon" type="image/png" href="{{ base_path }}/assets/logo.png"/>
+    <link rel="manifest" href="{{ base_path }}/manifest.json" />
     <style>
         .section-header {
             display: flex;
@@ -57,7 +57,7 @@
     <div id="page-bg" aria-hidden="true"></div>
     <div id="wrapper" class="fade-in">
         <header id="header">
-            <a href="/" class="logo"><img src="/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
+            <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
         </header>
 
         <nav id="nav">
@@ -141,6 +141,16 @@
                     <a href="/msp1/msp1datas/msp1-data.php" class="link-card"><i class="fas fa-seedling"></i><span class="label">Potager (MSP1)</span><div class="hint">Données station météo / potager</div></a>
                     <a href="/n3pp/n3ppdatas/n3pp-data.php" class="link-card"><i class="fas fa-bug"></i><span class="label">Élevage d'insectes (N3PP)</span><div class="hint">Données N3PP</div></a>
                 </div>
+
+                <div class="section-header">
+                    <i class="fas fa-images"></i>
+                    <h2>Galeries photo (ESP32-CAM)</h2>
+                </div>
+                <div class="links-grid">
+                    <a href="/gallery/msp1" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos du potager (MSP1)</span><div class="hint">Galerie photos station météo</div></a>
+                    <a href="/gallery/n3pp" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos de l'élevage (N3PP)</span><div class="hint">Galerie photos N3PP</div></a>
+                    <a href="/gallery/ffp3" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos aquaponie (FFP3)</span><div class="hint">Galerie photos FFP3</div></a>
+                </div>
             </article>
         </div>
 
@@ -150,12 +160,12 @@
         </footer>
     </div>
 
-    <script src="https://iot.olution.info/assets/js/jquery.min.js"></script>
-    <script src="https://iot.olution.info/assets/js/jquery.scrollex.min.js"></script>
-    <script src="https://iot.olution.info/assets/js/jquery.scrolly.min.js"></script>
-    <script src="https://iot.olution.info/assets/js/browser.min.js"></script>
-    <script src="https://iot.olution.info/assets/js/breakpoints.min.js"></script>
-    <script src="https://iot.olution.info/assets/js/util.js"></script>
-    <script src="https://iot.olution.info/assets/js/main.js"></script>
+    <script src="{{ base_path }}/assets/js/jquery.min.js"></script>
+    <script src="{{ base_path }}/assets/js/jquery.scrollex.min.js"></script>
+    <script src="{{ base_path }}/assets/js/jquery.scrolly.min.js"></script>
+    <script src="{{ base_path }}/assets/js/browser.min.js"></script>
+    <script src="{{ base_path }}/assets/js/breakpoints.min.js"></script>
+    <script src="{{ base_path }}/assets/js/util.js"></script>
+    <script src="{{ base_path }}/assets/js/main.js"></script>
 </body>
 </html>

@@ -355,5 +355,11 @@ return [
             $c->get(\App\Service\LogService::class)
         );
     },
+
+    \App\Controller\Gallery\GalleryViewController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Gallery\GalleryViewController(
+            $c->get(TemplateRenderer::class)
+        );
+    },
 ];
 
