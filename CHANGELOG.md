@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -57,6 +63,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -106,6 +118,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -155,6 +173,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -213,6 +237,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -264,6 +294,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -315,6 +351,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -367,6 +409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -418,6 +466,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -471,6 +525,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -522,6 +582,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -573,6 +639,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -624,6 +696,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -676,6 +754,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -725,6 +809,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -779,6 +869,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -828,6 +924,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -880,6 +982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -930,6 +1038,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -982,6 +1096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1034,6 +1154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1085,6 +1211,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1138,6 +1270,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1188,6 +1326,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1239,6 +1383,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1291,6 +1441,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1343,6 +1499,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1393,6 +1555,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1444,6 +1612,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1497,6 +1671,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1549,6 +1729,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1600,6 +1786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1651,6 +1843,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1702,6 +1900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1753,6 +1957,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1803,6 +2013,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1853,6 +2069,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1903,6 +2125,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -1953,6 +2181,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2004,6 +2238,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2059,6 +2299,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2114,6 +2360,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2162,6 +2414,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2210,6 +2468,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2258,6 +2522,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2306,6 +2576,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2354,6 +2630,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2402,6 +2684,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2467,6 +2755,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2522,6 +2816,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2575,6 +2875,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2629,6 +2935,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2687,6 +2999,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2757,6 +3075,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2809,6 +3133,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2863,6 +3193,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2917,6 +3253,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -2968,6 +3310,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3022,6 +3370,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3073,6 +3427,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3123,6 +3483,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3174,6 +3540,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3235,6 +3607,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3293,6 +3671,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3359,6 +3743,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3429,6 +3819,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3489,6 +3885,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3541,6 +3943,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3595,6 +4003,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3648,6 +4062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3701,6 +4121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3752,6 +4178,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3803,6 +4235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3856,6 +4294,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3908,6 +4352,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -3962,6 +4412,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4021,6 +4477,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4084,6 +4546,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4143,6 +4611,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4204,6 +4678,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4264,6 +4744,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4319,6 +4805,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4370,6 +4862,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4425,6 +4923,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4477,6 +4981,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4528,6 +5038,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4579,6 +5095,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4632,6 +5154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4685,6 +5213,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4737,6 +5271,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4789,6 +5329,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4840,6 +5386,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4891,6 +5443,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4942,6 +5500,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -4995,6 +5559,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5048,6 +5618,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5099,6 +5675,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5150,6 +5732,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5201,6 +5789,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5253,6 +5847,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5307,6 +5907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5368,6 +5974,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5423,6 +6035,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5485,6 +6103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5545,6 +6169,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5596,6 +6226,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5680,6 +6316,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5735,6 +6377,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5799,6 +6447,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5873,6 +6527,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5937,6 +6597,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -5991,6 +6657,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6046,6 +6718,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6107,6 +6785,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6278,6 +6962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6333,6 +7023,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6386,6 +7082,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6440,6 +7142,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6495,6 +7203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6549,6 +7263,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6605,6 +7325,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6660,6 +7386,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6837,6 +7569,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6891,6 +7629,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -6945,6 +7689,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7047,6 +7797,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7110,6 +7866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7173,6 +7935,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7273,6 +8041,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7384,6 +8158,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7452,6 +8232,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7521,6 +8307,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7580,6 +8372,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7645,6 +8443,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7714,6 +8518,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7781,6 +8591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7839,6 +8655,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -7909,6 +8731,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8011,6 +8839,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8068,6 +8902,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8126,6 +8966,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8183,6 +9029,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8245,6 +9097,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8313,6 +9171,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8379,6 +9243,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8443,6 +9313,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8502,6 +9378,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8562,6 +9444,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8633,6 +9521,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8703,6 +9597,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8776,6 +9676,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8865,6 +9771,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -8984,6 +9896,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9044,6 +9962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9103,6 +10027,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9172,6 +10102,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9231,6 +10167,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9294,6 +10236,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9350,6 +10298,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9408,6 +10362,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9458,6 +10418,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9548,6 +10514,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9610,6 +10582,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9694,6 +10672,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9760,6 +10744,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9822,6 +10812,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9890,6 +10886,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -9980,6 +10982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10055,6 +11063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10184,6 +11198,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10250,6 +11270,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10318,6 +11344,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10397,6 +11429,12 @@ Contrôleurs HTML (moins critiques) :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10469,6 +11507,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10528,6 +11572,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10587,6 +11637,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10648,6 +11704,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10780,6 +11842,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10860,6 +11928,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -10954,6 +12028,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11036,6 +12116,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit être identi
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11122,6 +12208,12 @@ Si nécessaire de revenir à l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11176,6 +12268,12 @@ Cette version a été remplacée par la v4.5.7 qui corrige le timezone vers Casa
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11282,6 +12380,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11352,6 +12456,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11409,6 +12519,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11516,6 +12632,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11602,6 +12724,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11721,6 +12849,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11778,6 +12912,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11894,6 +13034,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -11948,6 +13094,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12001,6 +13153,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12058,6 +13216,12 @@ Suite aux erreurs 404 persistantes malgré la correction des chemins en v4.4.2, 
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12115,6 +13279,12 @@ Le serveur web pointe déjà vers le dossier `public/` comme document root, donc
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12217,6 +13387,12 @@ docs/
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12342,6 +13518,12 @@ docs/
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12401,6 +13583,12 @@ docs/
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12494,6 +13682,12 @@ docs/
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12552,6 +13746,12 @@ docs/
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12632,6 +13832,12 @@ docs/
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12688,6 +13894,12 @@ docs/
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -12933,6 +14145,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13012,6 +14230,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13118,6 +14342,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13210,6 +14440,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13288,6 +14524,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13373,6 +14615,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13450,6 +14698,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13516,6 +14770,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13574,6 +14834,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13648,6 +14914,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13706,6 +14978,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13764,6 +15042,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13824,6 +15108,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13902,6 +15192,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController
@@ -13954,6 +15250,12 @@ ance future
 
 ---
 
+## [5.0.15] - 2026-03-06
+
+### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
+- **Résumé** : Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie.
+
+---
 ## [5.0.14] - 2026-03-06
 
 ### Correctif - injection CsrfService pour N3ppDataController et MspDataController

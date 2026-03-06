@@ -169,6 +169,7 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
         '/heartbeat3-test',
         '/ping',                   // Diagnostic latence (GET/POST, réponse minimale)
         '/msp1/',                  // Endpoints firmware msp2_5 (station meteo)
+        '/msp1_data',              // Alias court -> redirection vers page donnees MSP1
         '/n3pp/',                  // Endpoints firmware n3pp4_2 (serre)
         '/msp1gallery/',           // Upload photo ESP32-CAM
         '/n3ppgallery/',           // Upload photo ESP32-CAM
@@ -594,6 +595,8 @@ $app->get('/assets/js/{filename}', function (Request $request, Response $respons
 $app->get('/assets/css/{filename}', function (Request $request, Response $response, $args) {
     $filename = $args['filename'];
     $allowedFiles = [
+        'main.css',
+        'noscript.css',
         'control-styles.css',
         'mobile-optimized.css',
         'realtime-styles.css',
@@ -640,6 +643,15 @@ $app->get('/assets/logo.png', function (Request $request, Response $response) {
     return $response->withStatus(404);
 });
 
+$app->get('/assets/bg-aquaponie.png', function (Request $request, Response $response) {
+    $filePath = __DIR__ . '/assets/bg-aquaponie.png';
+    if (file_exists($filePath)) {
+        $response->getBody()->write(file_get_contents($filePath));
+        return $response->withHeader('Content-Type', 'image/png');
+    }
+    return $response->withStatus(404);
+});
+
 $app->get('/assets/images/aquaponie-description/{filename}', function (Request $request, Response $response, array $args) {
     $allowed = ['introduction.jpg', 'vue-generale.jpg', 'electronique.jpg', 'poissons.jpg'];
     $filename = $args['filename'];
@@ -666,6 +678,14 @@ $app->get('/service-worker.js', function (Request $request, Response $response) 
 // ====================================================================
 // Routes MSP1 — compatibilite firmware msp2_5 (station meteo)
 // ====================================================================
+$app->get('/msp1_data', function (Request $request, Response $response) use ($app) {
+    $uri = $request->getUri();
+    $basePath = rtrim($app->getBasePath(), '/');
+    $path = $basePath . '/msp1/msp1datas/msp1-data.php';
+    $location = $uri->getScheme() . '://' . $uri->getHost() . ($uri->getPort() ? ':' . $uri->getPort() : '')
+        . $path . ($uri->getQuery() ? '?' . $uri->getQuery() : '');
+    return $response->withHeader('Location', $location)->withStatus(301);
+});
 $app->post('/msp1/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
 $app->map(['GET', 'POST'], '/msp1/msp1datas/msp1-data.php', [MspDataController::class, 'show']);
 $app->get('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'getState']);
