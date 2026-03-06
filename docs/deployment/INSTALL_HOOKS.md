@@ -12,16 +12,24 @@ Hook exécuté automatiquement après chaque `git pull` ou `git merge` pour vide
 
 ## 🚀 Installation sur le serveur de production
 
-### Méthode 1 : Copie depuis le fichier versionné (recommandé)
+### Méthode 1 : Script d’installation (recommandé)
 
-Le hook est versionné dans le dépôt sous `bin/hooks/post-merge`. Sur le serveur, après un `git pull` :
+Une seule commande, à exécuter **une fois** après chaque clone ou après mise à jour du hook dans le dépôt :
 
 ```bash
-# Connexion SSH au serveur
-ssh oliviera@toaster
+# Depuis la racine du projet serveur (ex. /home4/oliviera/iot.olution.info)
+bash bin/install-hook-post-merge.sh
+```
 
-# Navigation vers le projet
-cd /home4/oliviera/iot.olution.info/ffp3
+Vérification : `ls -la .git/hooks/post-merge` (doit être exécutable).
+
+### Méthode 2 : Copie manuelle depuis le fichier versionné
+
+Le hook est versionné sous `bin/hooks/post-merge`. Sur le serveur, après un `git pull` :
+
+```bash
+# Navigation vers la racine du projet serveur
+cd /home4/oliviera/iot.olution.info
 
 # Copier le hook et le rendre exécutable
 cp bin/hooks/post-merge .git/hooks/post-merge
@@ -31,9 +39,7 @@ chmod +x .git/hooks/post-merge
 ls -la .git/hooks/post-merge
 ```
 
-À faire **une seule fois** (ou après mise à jour du hook dans le dépôt).
-
-### Méthode 2 : Création manuelle
+### Méthode 3 : Création manuelle
 
 Connectez-vous au serveur et créez le hook :
 
@@ -41,8 +47,8 @@ Connectez-vous au serveur et créez le hook :
 # Connexion SSH au serveur
 ssh oliviera@toaster
 
-# Navigation vers le projet
-cd /home4/oliviera/iot.olution.info/ffp3
+# Navigation vers la racine du projet serveur
+cd /home4/oliviera/iot.olution.info
 
 # Création du fichier hook
 cat > .git/hooks/post-merge << 'EOF'
@@ -80,17 +86,17 @@ chmod +x .git/hooks/post-merge
 ls -la .git/hooks/post-merge
 ```
 
-### Méthode 3 : Copie depuis votre machine locale
+### Méthode 4 : Copie depuis votre machine locale
 
 Si vous avez déjà le hook dans votre dépôt local `.git/hooks/` :
 
 ```bash
 # Sur votre machine locale
-scp .git/hooks/post-merge oliviera@toaster:/home4/oliviera/iot.olution.info/ffp3/.git/hooks/
+scp .git/hooks/post-merge oliviera@toaster:/home4/oliviera/iot.olution.info/.git/hooks/
 
 # Puis sur le serveur
 ssh oliviera@toaster
-cd /home4/oliviera/iot.olution.info/ffp3
+cd /home4/oliviera/iot.olution.info
 chmod +x .git/hooks/post-merge
 ```
 
@@ -187,7 +193,7 @@ Les hooks Git ne sont **jamais** versionnés dans le dépôt pour des raisons de
 Le hook est désormais versionné dans `bin/hooks/post-merge`. Si son contenu change dans le dépôt :
 
 1. Sur le serveur : `git pull`
-2. Réinstaller : `cp bin/hooks/post-merge .git/hooks/post-merge && chmod +x .git/hooks/post-merge`
+2. Réinstaller : `bash bin/install-hook-post-merge.sh` (ou copie manuelle vers `.git/hooks/post-merge`)
 
 ### Alternative sans hook
 
@@ -217,6 +223,5 @@ Ce script intègre le vidage de cache.
 ---
 
 **Document créé le** : 2025-10-13  
-**Dernière mise à jour** : 2025-10-13  
-**Version du projet** : 4.5.33
+**Dernière mise à jour** : 2026-03 (script `install-hook-post-merge.sh`, chemins serveur unifié)
 

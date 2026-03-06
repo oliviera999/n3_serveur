@@ -64,6 +64,7 @@ $basePath = rtrim($basePath, '/');
 if ($basePath !== '' && $basePath !== '/') {
     $app->setBasePath($basePath);
 }
+\App\Util\BasePath::set($basePath);
 
 // ====================================================================
 // Middleware de gestion d'erreurs personnalisé

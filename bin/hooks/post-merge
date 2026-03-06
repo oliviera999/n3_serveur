@@ -2,13 +2,17 @@
 #
 # Hook Git post-merge
 #
-# Exécuté automatiquement après chaque 'git pull' réussi.
+# Exécuté automatiquement après chaque 'git pull' réussi (y compris via cron).
 # Vide les caches de production pour que les modifications soient visibles.
 #
 # Installation sur le serveur : voir bin/hooks/README.md
 
 echo ""
 echo "🔄 Post-merge hook : Vidage automatique des caches..."
+
+# En cron, PATH peut être minimal : inclure les emplacements courants de php
+PATH="/usr/local/bin:/usr/bin:/bin:$PATH"
+export PATH
 
 # Détecter le répertoire racine du projet (depuis .git/hooks/)
 PROJECT_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"

@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -63,6 +69,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -118,6 +130,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -173,6 +191,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -237,6 +261,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -294,6 +324,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -351,6 +387,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -409,6 +451,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -466,6 +514,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -525,6 +579,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -582,6 +642,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -639,6 +705,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -696,6 +768,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -754,6 +832,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -809,6 +893,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -869,6 +959,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -924,6 +1020,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -982,6 +1084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1038,6 +1146,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1096,6 +1210,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1154,6 +1274,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1211,6 +1337,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1270,6 +1402,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1326,6 +1464,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1383,6 +1527,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1441,6 +1591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1499,6 +1655,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1555,6 +1717,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1612,6 +1780,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1671,6 +1845,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1729,6 +1909,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1786,6 +1972,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1843,6 +2035,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1900,6 +2098,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -1957,6 +2161,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2013,6 +2223,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2069,6 +2285,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2125,6 +2347,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2181,6 +2409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2238,6 +2472,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2299,6 +2539,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2360,6 +2606,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2414,6 +2666,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2468,6 +2726,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2522,6 +2786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2576,6 +2846,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2630,6 +2906,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2684,6 +2966,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2755,6 +3043,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2816,6 +3110,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2875,6 +3175,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2935,6 +3241,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -2999,6 +3311,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3075,6 +3393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3133,6 +3457,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3193,6 +3523,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3253,6 +3589,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3310,6 +3652,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3370,6 +3718,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3427,6 +3781,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3483,6 +3843,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3540,6 +3906,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3607,6 +3979,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3671,6 +4049,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3743,6 +4127,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3819,6 +4209,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3885,6 +4281,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -3943,6 +4345,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4003,6 +4411,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4062,6 +4476,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4121,6 +4541,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4178,6 +4604,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4235,6 +4667,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4294,6 +4732,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4352,6 +4796,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4412,6 +4862,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4477,6 +4933,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4546,6 +5008,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4611,6 +5079,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4678,6 +5152,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4744,6 +5224,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4805,6 +5291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4862,6 +5354,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4923,6 +5421,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -4981,6 +5485,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5038,6 +5548,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5095,6 +5611,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5154,6 +5676,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5213,6 +5741,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5271,6 +5805,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5329,6 +5869,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5386,6 +5932,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5443,6 +5995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5500,6 +6058,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5559,6 +6123,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5618,6 +6188,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5675,6 +6251,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5732,6 +6314,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5789,6 +6377,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5847,6 +6441,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5907,6 +6507,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -5974,6 +6580,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6035,6 +6647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6103,6 +6721,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6169,6 +6793,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6226,6 +6856,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6316,6 +6952,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6377,6 +7019,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6447,6 +7095,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6527,6 +7181,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6597,6 +7257,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6657,6 +7323,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6718,6 +7390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6785,6 +7463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -6962,6 +7646,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7023,6 +7713,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7082,6 +7778,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7142,6 +7844,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7203,6 +7911,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7263,6 +7977,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7325,6 +8045,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7386,6 +8112,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7569,6 +8301,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7629,6 +8367,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7689,6 +8433,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7797,6 +8547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7866,6 +8622,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -7935,6 +8697,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8041,6 +8809,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8158,6 +8932,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8232,6 +9012,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8307,6 +9093,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8372,6 +9164,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8443,6 +9241,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8518,6 +9322,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8591,6 +9401,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8655,6 +9471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8731,6 +9553,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8839,6 +9667,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8902,6 +9736,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -8966,6 +9806,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9029,6 +9875,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9097,6 +9949,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9171,6 +10029,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9243,6 +10107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9313,6 +10183,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9378,6 +10254,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9444,6 +10326,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9521,6 +10409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9597,6 +10491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9676,6 +10576,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9771,6 +10677,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9896,6 +10808,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -9962,6 +10880,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10027,6 +10951,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10102,6 +11032,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10167,6 +11103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10236,6 +11178,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10298,6 +11246,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10362,6 +11316,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10418,6 +11378,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10514,6 +11480,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10582,6 +11554,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10672,6 +11650,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10744,6 +11728,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10812,6 +11802,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10886,6 +11882,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -10982,6 +11984,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11063,6 +12071,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11198,6 +12212,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11270,6 +12290,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11344,6 +12370,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11429,6 +12461,12 @@ Contrôleurs HTML (moins critiques) :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11507,6 +12545,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11572,6 +12616,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11637,6 +12687,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11704,6 +12760,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11842,6 +12904,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -11928,6 +12996,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12028,6 +13102,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12116,6 +13196,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit être identi
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12208,6 +13294,12 @@ Si nécessaire de revenir à l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12268,6 +13360,12 @@ Cette version a été remplacée par la v4.5.7 qui corrige le timezone vers Casa
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12380,6 +13478,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12456,6 +13560,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12519,6 +13629,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12632,6 +13748,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12724,6 +13846,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12849,6 +13977,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -12912,6 +14046,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13034,6 +14174,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13094,6 +14240,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13153,6 +14305,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13216,6 +14374,12 @@ Suite aux erreurs 404 persistantes malgré la correction des chemins en v4.4.2, 
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13279,6 +14443,12 @@ Le serveur web pointe déjà vers le dossier `public/` comme document root, donc
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13387,6 +14557,12 @@ docs/
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13518,6 +14694,12 @@ docs/
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13583,6 +14765,12 @@ docs/
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13682,6 +14870,12 @@ docs/
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13746,6 +14940,12 @@ docs/
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13832,6 +15032,12 @@ docs/
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -13894,6 +15100,12 @@ docs/
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14145,6 +15357,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14230,6 +15448,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14342,6 +15566,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14440,6 +15670,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14524,6 +15760,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14615,6 +15857,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14698,6 +15946,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14770,6 +16024,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14834,6 +16094,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14914,6 +16180,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -14978,6 +16250,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -15042,6 +16320,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -15108,6 +16392,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -15192,6 +16482,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie
@@ -15250,6 +16546,12 @@ ance future
 
 ---
 
+## [5.0.16] - 2026-03-06
+
+### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
+- **Résumé** : BasePath pour assets (main.css), templates avec base_path, cache cron/deploy.
+
+---
 ## [5.0.15] - 2026-03-06
 
 ### Correctif - Correctif assets : main.css/noscript.css dans liste CSS, route bg-aquaponie.png, image fond aquaponie

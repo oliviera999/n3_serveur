@@ -1,6 +1,6 @@
-# Scripts utilitaires FFP3
+# Scripts utilitaires — serveur unifié n3 IoT
 
-Ce dossier contient les scripts utilitaires pour le projet FFP3.
+Ce dossier contient les scripts utilitaires pour le serveur (déploiement, cache, hooks).
 
 ## 📜 Scripts disponibles
 
@@ -24,7 +24,7 @@ php bin/clear-cache.php
 - Lorsque les modifications ne sont pas visibles en production
 - Pour forcer la recompilation des caches
 
-**Note** : Ce script est appelé automatiquement par le hook Git `post-merge` après chaque `git pull`. Le hook est versionné dans `bin/hooks/post-merge` (à installer sur le serveur, voir `bin/hooks/README.md`).
+**Note** : Ce script est appelé automatiquement par le hook Git `post-merge` après chaque `git pull`. Le hook est versionné dans `bin/hooks/post-merge` (à installer avec `bash bin/install-hook-post-merge.sh` ou voir `bin/hooks/README.md`).
 
 ---
 
@@ -40,7 +40,7 @@ Script complet de déploiement en production avec vidage de cache intégré.
 ```bash
 # Sur le serveur de production
 ssh oliviera@toaster
-cd /home4/oliviera/iot.olution.info/ffp3
+cd /home4/oliviera/iot.olution.info
 bash bin/deploy.sh
 ```
 
@@ -68,9 +68,11 @@ bash bin/deploy.sh
 bash bin/deploy.sh
 ```
 
-### Méthode 2 : Git pull simple
+### Méthode 2 : Git pull simple (si le hook est installé)
 ```bash
-git pull origin main
+bash bin/install-hook-post-merge.sh   # une fois
+# Puis à chaque mise à jour :
+git pull
 # Le hook post-merge videra automatiquement les caches
 ```
 
@@ -86,12 +88,13 @@ Pour plus d'informations sur la gestion des caches, consultez :
 
 ## 🔗 Fichiers liés
 
-- `hooks/post-merge` : Hook Git versionné (copier vers `.git/hooks/post-merge` sur le serveur)
+- `install-hook-post-merge.sh` : installation du hook en une commande
+- `hooks/post-merge` : Hook Git versionné
 - `hooks/README.md` : Instructions d’installation du hook
 - `src/Service/TemplateRenderer.php` : Configuration du cache Twig
 - `config/container.php` : Configuration du cache DI Container
 
 ---
 
-**Dernière mise à jour** : 2025-10-13 (v4.5.33)
+**Dernière mise à jour** : 2026-03 (vidage auto à chaque mise à jour)
 

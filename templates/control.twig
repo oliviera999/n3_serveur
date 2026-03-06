@@ -8,8 +8,8 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="{{ base_path }}/assets/css/noscript.css" /></noscript>
     
     <!-- Font Awesome avec préchargement et solution de repli SVG -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
@@ -17,14 +17,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <!-- Styles harmonisés avec l'interface aquaponie -->
-    <link rel="stylesheet" href="/assets/css/realtime-styles.css" />
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/realtime-styles.css" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/assets/icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="{{ base_path }}/assets/icons/icon-192.png" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="shortcut icon" type="image/png" href="/assets/logo.png"/>
+    <link rel="shortcut icon" type="image/png" href="{{ base_path }}/assets/logo.png"/>
     
     <!-- Styles de contrôle extraits vers fichier externe -->
-    <link rel="stylesheet" href="/assets/css/control-styles.css" />
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/control-styles.css" />
 </head>
 <body class="is-preload" data-environment="{{ environment }}">
     <div id="page-bg" aria-hidden="true"></div>
@@ -36,7 +36,7 @@
         
         <!-- Header -->
         <header id="header">
-            <a href="/" class="logo"><img src="/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
+            <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
         </header>
 
         <!-- Nav -->
@@ -454,12 +454,12 @@
             </section>
         </div>
 
-        <script src="/assets/js/control-sync.js"></script>
-        <script src="/assets/js/control-values-updater.js"></script>
-        <script src="/assets/js/toast-notifications.js"></script>
-        <script src="/assets/js/control-actions.js"></script>
-        <script src="/assets/js/control-auto-save.js"></script>
-        <script src="/assets/js/realtime-updater.js"></script>
+        <script src="{{ base_path }}/assets/js/control-sync.js"></script>
+        <script src="{{ base_path }}/assets/js/control-values-updater.js"></script>
+        <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+        <script src="{{ base_path }}/assets/js/control-actions.js"></script>
+        <script src="{{ base_path }}/assets/js/control-auto-save.js"></script>
+        <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', () => {
