@@ -54,14 +54,15 @@ if (count(`$missing) > 0) {
 ?>
 "@
 
-# Sauvegarder temporairement
-$phpScript | Out-File -FilePath "ffp3/public/check-structure.php" -Encoding UTF8 -NoNewline
+# Sortie dans public/ du projet ffp3 (répertoire parent de tools/)
+$outPath = Join-Path (Split-Path $PSScriptRoot -Parent) "public\check-structure.php"
+$phpScript | Out-File -FilePath $outPath -Encoding UTF8 -NoNewline
 
-Write-Host "Script PHP créé: ffp3/public/check-structure.php" -ForegroundColor Green
+Write-Host "Script PHP créé: $outPath" -ForegroundColor Green
 Write-Host ""
 Write-Host "Pour tester sur serveur, exécute:" -ForegroundColor Yellow
 Write-Host "  curl.exe http://iot.olution.info/ffp3/public/check-structure.php" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Ou uploade le fichier sur le serveur avec:" -ForegroundColor Yellow
-Write-Host "  scp ffp3/public/check-structure.php user@iot.olution.info:/path/to/ffp3/public/" -ForegroundColor Cyan
+Write-Host "  scp public/check-structure.php user@iot.olution.info:/path/to/ffp3/public/" -ForegroundColor Cyan
 

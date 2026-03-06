@@ -36,6 +36,12 @@ Hooks Git versionnés (à copier dans `.git/hooks/` sur le serveur). Voir **`hoo
 ### `deploy.sh`
 Script complet de déploiement en production avec vidage de cache intégré.
 
+### `deploy_diagnostics.sh`
+Déploie les outils de diagnostic (tables TEST, etc.) sur le serveur. À exécuter depuis le répertoire **parent de ffp3** (racine du dépôt serveur) car il utilise les chemins `ffp3/tools/`.
+
+### `deploy_fix_http500.sh` (obsolète)
+Ce script est obsolète (l’app Slim 4 n’a plus de `post-data.php` standalone). Utiliser `deploy.sh` ou `DEPLOY_NOW.sh` pour un déploiement complet.
+
 **Usage** :
 ```bash
 # Sur le serveur de production

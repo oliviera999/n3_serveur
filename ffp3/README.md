@@ -36,7 +36,7 @@ Application PHP 8.1+ pour la supervision complète d'un système d'aquaponie pi
 ## Architecture & dossiers
 
 **Racine du projet** : dossier qui contient `public/`, `src/`, `templates/`, etc.  
-Sur une machine de développement typique : `C:\ffp5cs\ffp3` (ou le chemin où le dépôt a été cloné).
+Dans le dépôt n3_serveur : `serveur/ffp3/` (submodule du projet IOT_n3).
 
 ```
 ├── public/              # Front controller Slim (index.php, assets exposés)
@@ -143,11 +143,13 @@ Résumé des tables :
 
 ## Lancement & scripts utiles
 
+**Emplacement des scripts** : tous les scripts de déploiement et de test FFP3 se trouvent dans `serveur/ffp3/` (dossiers `bin/`, `tools/`, `scripts/`). Les exécuter **depuis la racine ffp3** (répertoire contenant `composer.json`), sauf indication contraire dans le script.
+
 ```bash
 # Dev : serveur PHP intégré
 php -S localhost:8080 -t public
 
-# Déploiement automatisé (exemples)
+# Déploiement automatisé (exemples, depuis serveur/ffp3/)
 ./deploy-and-test.sh          # Bash
 pwsh ./deploy-and-test.ps1    # PowerShell
 ```

@@ -4,15 +4,16 @@
 Write-Host "=== Déploiement Endpoints POST Data v11.36 ===" -ForegroundColor Cyan
 Write-Host ""
 
-$ffp3Path = "C:\Users\olivi\Mon Drive\travail\##olution\##Projets\##prototypage\platformIO\Projects\ffp5cs\ffp3"
+# Racine ffp3 = répertoire parent de bin/ (script dans serveur/ffp3/bin/)
+$ffp3Path = Split-Path $PSScriptRoot -Parent
 
-# Vérifier qu'on est dans le bon répertoire
-if (-not (Test-Path $ffp3Path)) {
-    Write-Host "✗ Erreur: Répertoire ffp3 introuvable" -ForegroundColor Red
+# Vérifier qu'on est dans le bon répertoire (composer.json présent)
+if (-not (Test-Path (Join-Path $ffp3Path "composer.json"))) {
+    Write-Host "✗ Erreur: composer.json introuvable dans $ffp3Path" -ForegroundColor Red
     exit 1
 }
 
-cd $ffp3Path
+Set-Location $ffp3Path
 
 # === Étape 1: Vérifier l'état Git ===
 Write-Host "1. Vérification état Git..." -ForegroundColor Yellow
@@ -111,7 +112,7 @@ Write-Host "   curl http://iot.olution.info/ffp3/post-data" -ForegroundColor Gra
 Write-Host "   curl http://iot.olution.info/ffp3/post-data-test" -ForegroundColor Gray
 Write-Host ""
 Write-Host "4. Monitor ESP32 (90 secondes)" -ForegroundColor White
-Write-Host "   cd '$($ffp3Path -replace '\\ffp3$','')'" -ForegroundColor Gray
+Write-Host "   cd '$(Split-Path $ffp3Path -Parent)'  # ou vers firmwires/ffp5cs pour pio" -ForegroundColor Gray
 Write-Host "   pio device monitor --baud 115200" -ForegroundColor Gray
 Write-Host ""
 Write-Host "✓ Déploiement local terminé!" -ForegroundColor Green

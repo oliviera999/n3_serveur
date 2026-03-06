@@ -1,7 +1,7 @@
 # Copie les photos depuis le dossier "photos aquaponie" du projet vers public/assets/images/aquaponie-description/
 #
-# Racine du projet : C:\ffp5cs\ffp3 (dossier contenant public/, templates/, src/, etc.)
-# Source par defaut : <racine projet>\photos aquaponie  (ex. C:\ffp5cs\ffp3\photos aquaponie)
+# Racine du projet ffp3 : dossier contenant public/, templates/, src/ (parent du dossier scripts/)
+# Source par defaut : <racine projet>\photos aquaponie
 # Destination : <racine projet>\public\assets\images\aquaponie-description\
 #
 # Usage (depuis la racine du projet) :

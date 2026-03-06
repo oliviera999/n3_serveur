@@ -36,7 +36,7 @@ else
     
     # Test POST
     RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
-        "https://iot.olution.info/ffp3/public/post-data" \
+        "https://iot.olution.info/ffp3/post-data" \
         -H "Content-Type: application/x-www-form-urlencoded" \
         -d "api_key=${API_KEY}&sensor=DIAG-SHELL&version=1.0&TempAir=22.5" \
         2>&1)
@@ -215,7 +215,7 @@ elif [ "$HTTP_CODE" = "200" ] && [ "$MINUTES_AGO" -gt 60 ]; then
     echo "2. Vérifier la connexion WiFi de l'ESP32"
     echo "3. Vérifier les logs série de l'ESP32 (USB)"
     echo "4. Vérifier l'URL dans le code ESP32:"
-    echo "   └─ Doit être: https://iot.olution.info/ffp3/public/post-data"
+    echo "   └─ Doit être: https://iot.olution.info/ffp3/post-data"
     echo "5. Vérifier l'API Key dans le code ESP32:"
     echo "   └─ Doit être: $API_KEY"
     echo ""

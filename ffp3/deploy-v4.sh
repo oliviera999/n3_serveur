@@ -12,7 +12,7 @@ echo ""
 
 # 1. Vérifier qu'on est dans le bon dossier
 if [ ! -f "composer.json" ]; then
-    echo "❌ Erreur: composer.json non trouvé. Êtes-vous dans ffp3datas/ ?"
+    echo "❌ Erreur: composer.json non trouvé. Êtes-vous dans ffp3/ ?"
     exit 1
 fi
 
