@@ -5,7 +5,10 @@
     # Example: if URL is http://example.com/myapp/, RewriteBase should be /myapp/
     RewriteBase /
 
-    # Retrocompatibilite firmware ffp5cs : /ffp3/post-data -> /post-data, etc.
+    # Liens externes (GET) : redirection 301 /ffp3/* -> /* (nouveaux chemins)
+    RewriteCond %{REQUEST_METHOD} GET
+    RewriteRule ^ffp3/(.*)$ /$1 [R=301,L]
+    # Firmware (POST) : reecriture interne sans redirection (conserver le corps de la requete)
     RewriteRule ^ffp3/(.*)$ $1 [L]
 
     # Forcer la route racine (/) à passer par index.php pour éviter l'affichage de l'arborescence

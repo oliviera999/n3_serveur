@@ -15,10 +15,10 @@
         <noscript><link rel="stylesheet" href="https://iot.olution.info/assets/css/noscript.css" /></noscript>
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="shortcut icon" type="image/png" href="/ffp3/assets/logo.png"/>
-        <link rel="manifest" href="/ffp3/manifest.json" />
-        <link rel="apple-touch-icon" href="/ffp3/assets/icons/icon-192.png" />
-        <link rel="stylesheet" href="/ffp3/assets/css/realtime-styles.css" />
+        <link rel="shortcut icon" type="image/png" href="/assets/logo.png"/>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/assets/icons/icon-192.png" />
+        <link rel="stylesheet" href="/assets/css/realtime-styles.css" />
         
         <style>
             #header .logo img { height: 2rem; width: auto; display: block; vertical-align: middle; }
@@ -195,16 +195,16 @@
         <div id="wrapper" class="fade-in">
             <!-- Header -->
             <header id="header">
-                <a href="https://iot.olution.info/ffp3/" class="logo"><img src="/ffp3/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
+                <a href="/" class="logo"><img src="/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
             </header>
 
             <!-- Nav -->
             <nav id="nav">
                 <ul class="links">
-                    <li class="active"><a href="https://iot.olution.info/ffp3/">Accueil</a></li>
-                    <li><a href="https://iot.olution.info/ffp3/aquaponie">L'aquaponie (FFP3)</a></li>
-                    <li><a href="https://iot.olution.info/msp1/msp1datas/msp1-data.php">Le potager</a></li>
-                    <li><a href="https://iot.olution.info/n3pp/n3ppdatas/n3pp-data.php">L'élevage d'insectes</a></li>
+                    <li class="active"><a href="/">Accueil</a></li>
+                    <li><a href="/aquaponie">L'aquaponie (FFP3)</a></li>
+                    <li><a href="/msp1/msp1datas/msp1-data.php">Le potager</a></li>
+                    <li><a href="/n3pp/n3ppdatas/n3pp-data.php">L'élevage d'insectes</a></li>
                 </ul>
                 <ul class="icons">
                     <li><a href="https://olution.info/course/view.php?id=511" class="icon solid fa-leaf"><span class="label">olution</span></a></li>
@@ -223,23 +223,29 @@
                             <i class="icon solid fa-microchip"></i>
                         </h1>
                         <p style="font-size: 1.2em; line-height: 1.6;">
-                            Plateforme de supervision et de contrôle pour les projets IoT d'<strong>olution</strong>.
-                            <br>
-                            Collecte, analyse et visualisation de données en temps réel depuis des capteurs ESP32.
+                            Toutes les données de suivi des objets connectés de la salle aérée n<sup>3</sup>.
                         </p>
                         <hr />
                     </header>
 
-                    <!-- Banner info -->
-                    <div class="info-banner">
-                        <h3><i class="fas fa-graduation-cap"></i> Projet pédagogique olution</h3>
+                    <!-- Texte de présentation (ancienne page d'accueil) -->
+                    <div class="info-banner" style="text-align: left;">
+                        <h3><i class="fas fa-water"></i> L'internet des objets à n<sup>3</sup></h3>
                         <p>
-                            Cette plateforme a été développée dans le cadre des projets pédagogiques d'<strong>olution</strong>,
-                            permettant aux élèves d'apprendre l'IoT, la programmation ESP32, l'analyse de données et la visualisation web.
+                            Ce site permet le suivi des prototypes d'objets connectés de la salle aérée n<sup>3</sup> et les mesures réalisées par les élèves.
                         </p>
                         <p>
-                            <i class="fas fa-chart-line"></i> Visualisation en temps réel • 
-                            <i class="fas fa-database"></i> Historisation des données • 
+                            Le projet de salle aérée n<sup>3</sup> permet de faire cours dehors, et bien plus, au sein du lycée Lyautey de Casablanca au Maroc. L'ensemble de ce que cette salle de cours d'un nouveau genre propose a été développé pour et par les élèves accompagnés d'autres usagers de l'établissement, cela est donc tout à fait expérimental.
+                        </p>
+                        <p>
+                            Plus d'informations sur <a href="https://www.lyceelyautey.org/?s=n3" style="color: rgba(255,255,255,0.95); text-decoration: underline;">le site officiel de l'établissement</a>. La salle aérée n<sup>3</sup> est un projet proposé par olution, <a href="https://olution.info/course/view.php?id=511" style="color: rgba(255,255,255,0.95); text-decoration: underline;">voir l'espace pédagogique en lien</a>.
+                        </p>
+                        <p>
+                            Pour toutes questions, n'hésitez pas à prendre contact auprès de <a href="mailto:oarnould@lyceelyautey.org" style="color: rgba(255,255,255,0.95); text-decoration: underline;">Olivier ARNOULD-LAURENT</a> ou <a href="mailto:abesteiro@lyceelyautey.org" style="color: rgba(255,255,255,0.95); text-decoration: underline;">Anne BESTEIRO</a>.
+                        </p>
+                        <p style="margin-top: 20px; font-size: 0.95em;">
+                            <i class="fas fa-chart-line"></i> Visualisation en temps réel •
+                            <i class="fas fa-database"></i> Historisation des données •
                             <i class="fas fa-download"></i> Export CSV
                         </p>
                     </div>
@@ -273,7 +279,7 @@
                                     <span class="stat-label">2 Pompes</span>
                                 </div>
                             </div>
-                            <a href="https://iot.olution.info/ffp3/aquaponie" class="project-link">
+                            <a href="/aquaponie" class="project-link">
                                 <i class="fas fa-chart-line"></i> Voir les données
                             </a>
                         </div>
@@ -300,7 +306,7 @@
                                     <span class="stat-label">Température</span>
                                 </div>
                             </div>
-                            <a href="https://iot.olution.info/msp1/msp1datas/msp1-data.php" class="project-link">
+                            <a href="/msp1/msp1datas/msp1-data.php" class="project-link">
                                 <i class="fas fa-chart-line"></i> Voir les données
                             </a>
                         </div>
@@ -327,7 +333,7 @@
                                     <span class="stat-label">Éclairage</span>
                                 </div>
                             </div>
-                            <a href="https://iot.olution.info/n3pp/n3ppdatas/n3pp-data.php" class="project-link">
+                            <a href="/n3pp/n3ppdatas/n3pp-data.php" class="project-link">
                                 <i class="fas fa-chart-line"></i> Voir les données
                             </a>
                         </div>
@@ -398,7 +404,7 @@
             <footer id="footer" style="text-align: center; padding: 20px 0; color: #999; font-size: 0.9em;">
                 <p>N3 IoT Datas Platform | © 2025 olution | Projets pédagogiques connectés</p>
                 <p style="margin-top: 10px;">
-                    <a href="https://iot.olution.info/ffp3/supervision" style="color: #999; text-decoration: none; font-size: 0.85em; opacity: 0.7;">
+                    <a href="/supervision" style="color: #999; text-decoration: none; font-size: 0.85em; opacity: 0.7;">
                         <i class="fas fa-cog"></i> Administration
                     </a>
                 </p>

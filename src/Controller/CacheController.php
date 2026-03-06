@@ -197,7 +197,7 @@ class CacheController
         <p>Cette action va supprimer les caches Twig et DI Container pour forcer la recompilation.</p>
         
         <button id="clearBtn" class="btn" onclick="clearCache()">Vider le cache</button>
-        <a href="https://iot.olution.info/ffp3/" class="btn" style="background: #6c757d;">Retour à l'accueil</a>
+        <a href="/" class="btn" style="background: #6c757d;">Retour à l'accueil</a>
         
         <div id="loading" class="loading">
             <div class="spinner"></div>
@@ -218,7 +218,7 @@ class CacheController
             result.style.display = 'none';
             
             try {
-                const response = await fetch(window.location.origin + '/ffp3/admin/clear-cache');
+                const response = await fetch(window.location.origin + '/admin/clear-cache');
                 const data = await response.json();
                 
                 loading.style.display = 'none';

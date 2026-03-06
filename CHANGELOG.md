@@ -7,6 +7,15 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.3] - 2025-03-06
+
+### Liens internes et redirections
+- **Liens internes** : tous les templates utilisent les nouveaux chemins (sans préfixe `/ffp3/`) — `/`, `/aquaponie`, `/assets/...`, `/api/...`, `/msp1/...`, `/n3pp/...`. CacheController : fetch `/admin/clear-cache`, lien Retour vers `/`.
+- **Redirections 301** : les requêtes GET vers `/ffp3/*` (liens externes, signets) redirigent vers `/*`. Les POST (firmware) restent en réécriture interne sans redirection.
+- **Page d'accueil** : texte de l'ancienne page d'accueil intégré sur la nouvelle (présentation salle aérée n³, lycée Lyautey, olution, contacts Olivier ARNOULD-LAURENT et Anne BESTEIRO).
+
+---
+
 ## [5.0.2] - 2025-03-06
 
 ### Ajout - Pages données et contrôle MSP1 / N3PP
