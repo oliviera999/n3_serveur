@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -87,6 +93,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -166,6 +178,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -245,6 +263,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -333,6 +357,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -414,6 +444,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -495,6 +531,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -577,6 +619,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -658,6 +706,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -741,6 +795,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -822,6 +882,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -903,6 +969,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -984,6 +1056,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1066,6 +1144,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1145,6 +1229,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1229,6 +1319,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1308,6 +1404,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1390,6 +1492,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1470,6 +1578,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1552,6 +1666,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1634,6 +1754,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1715,6 +1841,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1798,6 +1930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1878,6 +2016,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -1959,6 +2103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2041,6 +2191,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2123,6 +2279,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2203,6 +2365,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2284,6 +2452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2367,6 +2541,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2449,6 +2629,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2530,6 +2716,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2611,6 +2803,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2692,6 +2890,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2773,6 +2977,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2853,6 +3063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -2933,6 +3149,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3013,6 +3235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3093,6 +3321,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3174,6 +3408,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3259,6 +3499,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3344,6 +3590,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3422,6 +3674,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3500,6 +3758,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3578,6 +3842,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3656,6 +3926,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3734,6 +4010,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3812,6 +4094,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3907,6 +4195,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -3992,6 +4286,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4075,6 +4375,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4159,6 +4465,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4247,6 +4559,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4347,6 +4665,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4429,6 +4753,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4513,6 +4843,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4597,6 +4933,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4678,6 +5020,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4762,6 +5110,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4843,6 +5197,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -4923,6 +5283,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5004,6 +5370,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5095,6 +5467,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5183,6 +5561,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5279,6 +5663,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5379,6 +5769,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5469,6 +5865,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5551,6 +5953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5635,6 +6043,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5718,6 +6132,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5801,6 +6221,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5882,6 +6308,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -5963,6 +6395,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6046,6 +6484,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6128,6 +6572,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6212,6 +6662,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6301,6 +6757,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6394,6 +6856,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6483,6 +6951,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6574,6 +7048,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6664,6 +7144,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6749,6 +7235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6830,6 +7322,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6915,6 +7413,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -6997,6 +7501,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7078,6 +7588,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7159,6 +7675,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7242,6 +7764,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7325,6 +7853,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7407,6 +7941,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7489,6 +8029,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7570,6 +8116,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7651,6 +8203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7732,6 +8290,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7815,6 +8379,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7898,6 +8468,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -7979,6 +8555,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8060,6 +8642,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8141,6 +8729,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8223,6 +8817,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8307,6 +8907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8398,6 +9004,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8483,6 +9095,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8575,6 +9193,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8665,6 +9289,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8746,6 +9376,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8860,6 +9496,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -8945,6 +9587,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -9039,6 +9687,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -9143,6 +9797,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -9237,6 +9897,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -9321,6 +9987,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -9406,6 +10078,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -9497,6 +10175,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -9698,6 +10382,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -9783,6 +10473,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -9866,6 +10562,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -9950,6 +10652,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -10035,6 +10743,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -10119,6 +10833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -10205,6 +10925,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -10290,6 +11016,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -10497,6 +11229,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -10581,6 +11319,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -10665,6 +11409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -10797,6 +11547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -10890,6 +11646,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -10983,6 +11745,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -11113,6 +11881,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -11254,6 +12028,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -11352,6 +12132,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -11451,6 +12237,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -11540,6 +12332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -11635,6 +12433,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -11734,6 +12538,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -11831,6 +12641,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -11919,6 +12735,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12019,6 +12841,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12151,6 +12979,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12238,6 +13072,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12326,6 +13166,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12413,6 +13259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12505,6 +13357,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12603,6 +13461,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12699,6 +13563,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12793,6 +13663,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12882,6 +13758,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -12972,6 +13854,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -13073,6 +13961,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -13173,6 +14067,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -13276,6 +14176,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -13395,6 +14301,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -13544,6 +14456,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -13634,6 +14552,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -13723,6 +14647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -13822,6 +14752,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -13911,6 +14847,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14004,6 +14946,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14090,6 +15038,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14178,6 +15132,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14258,6 +15218,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14378,6 +15344,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14470,6 +15442,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14584,6 +15562,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14680,6 +15664,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14772,6 +15762,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14870,6 +15866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -14990,6 +15992,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -15095,6 +16103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -15254,6 +16268,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -15350,6 +16370,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -15448,6 +16474,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -15557,6 +16589,12 @@ Contrôleurs HTML (moins critiques) :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -15659,6 +16697,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -15748,6 +16792,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -15837,6 +16887,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -15928,6 +16984,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -16090,6 +17152,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -16200,6 +17268,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -16324,6 +17398,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -16436,6 +17516,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit être identi
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -16552,6 +17638,12 @@ Si nécessaire de revenir à l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -16636,6 +17728,12 @@ Cette version a été remplacée par la v4.5.7 qui corrige le timezone vers Casa
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -16772,6 +17870,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -16872,6 +17976,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -16959,6 +18069,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -17096,6 +18212,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -17212,6 +18334,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -17361,6 +18489,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -17448,6 +18582,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -17594,6 +18734,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -17678,6 +18824,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -17761,6 +18913,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -17848,6 +19006,12 @@ Suite aux erreurs 404 persistantes malgré la correction des chemins en v4.4.2, 
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -17935,6 +19099,12 @@ Le serveur web pointe déjà vers le dossier `public/` comme document root, donc
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -18067,6 +19237,12 @@ docs/
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -18222,6 +19398,12 @@ docs/
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -18311,6 +19493,12 @@ docs/
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -18434,6 +19622,12 @@ docs/
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -18522,6 +19716,12 @@ docs/
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -18632,6 +19832,12 @@ docs/
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -18718,6 +19924,12 @@ docs/
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -18993,6 +20205,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -19102,6 +20320,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -19238,6 +20462,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -19360,6 +20590,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -19468,6 +20704,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -19583,6 +20825,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -19690,6 +20938,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -19786,6 +21040,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -19874,6 +21134,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -19978,6 +21244,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -20066,6 +21338,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -20154,6 +21432,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -20244,6 +21528,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -20352,6 +21642,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
@@ -20434,6 +21730,12 @@ ance future
 
 ---
 
+## [5.0.20] - 2026-03-06
+
+### Ajout - pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox
+- **Résumé** : pages galeries photo (MSP1, N3PP, FFP3) style site actuel, pagination, lightbox.
+
+---
 ## [5.0.19] - 2026-03-06
 
 ### Correctif - manifest public, logos/scripts avec base_path, route manifest hors auth
