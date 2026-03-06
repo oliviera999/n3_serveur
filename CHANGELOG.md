@@ -21,12 +21,6 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.8] - 2026-03-06
-
-### Modifié - test script publish-cycle
-- **Résumé** : test script publish-cycle.
-
----
 ## [5.0.6] - 2025-03-06
 
 ### Refonte complète - Pages de contrôle MSP et N3PP (alignement aquaponie-control)
