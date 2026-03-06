@@ -120,6 +120,7 @@ Les tables FFP3 (ffp3Data, ffp3Outputs, etc.) restent inchangées.
   - `https://iot.olution.info/ping` → réponse `OK`
   - `https://iot.olution.info/login` → page de connexion
   - Les firmwares continuent d’appeler les mêmes URLs (`/msp1/msp1datas/post-msp1-data.php`, `/n3pp/...`, etc.) : pas de changement côté firmware.
+- **En cas d’erreur 500** (ex. sur msp1-datas / n3pp-datas) : consulter le log PHP (`error_log` ou log Apache/Nginx). Le middleware d’erreur écrit une ligne `[n3 500]` avec la méthode, l’URL, la classe d’exception, le message, le fichier et la ligne, puis la stack trace, pour identifier la cause sans l’exposer à l’utilisateur.
 
 ---
 

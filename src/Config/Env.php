@@ -45,15 +45,16 @@ class Env
     }
 
     /**
-     * Valide les variables d'environnement critiques
+     * Valide les variables d'environnement critiques.
+     * Aligné sur TableConfig::ENVIRONMENTS (prod, test, test3, s3).
      */
     private static function validateEnvironment(): void
     {
-        // Validation de la variable ENV (doit être 'prod' ou 'test')
+        $allowed = ['prod', 'test', 'test3', 's3'];
         $env = $_ENV['ENV'] ?? 'prod';
-        if (!in_array($env, ['prod', 'test'], true)) {
+        if (!in_array($env, $allowed, true)) {
             throw new \RuntimeException(
-                "Variable ENV invalide: '{$env}'. Valeurs autorisées: 'prod' ou 'test'"
+                "Variable ENV invalide: '{$env}'. Valeurs autorisées: " . implode(', ', $allowed)
             );
         }
     }
