@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller\Msp;
 
+use App\Config\TableConfig;
+use App\Config\Version;
 use App\Repository\MspSensorRepository;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -33,6 +35,8 @@ class MspDataController
             'latest' => $latest,
             'recent' => $recent,
             'board' => self::BOARD,
+            'version' => Version::getWithPrefix(),
+            'environment' => TableConfig::getEnvironment(),
         ]);
 
         $response->getBody()->write($html);

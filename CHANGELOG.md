@@ -7,6 +7,15 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.4] - 2025-03-06
+
+### Modifié - Pages données MSP et N3PP (visuel aligné aquaponie)
+- **Pages données** : refonte des templates `msp1_data.twig` et `n3pp_data.twig` sur le modèle de la page aquaponie (référence) : même structure (wrapper, header, nav, main), bandeau hero (modern-header), cartes de statistiques (stat-card avec variantes temp/humidity/light/water), sections avec titres (section-header), tableau d’historique stylé, footer avec version.
+- **Données affichées** : MSP — dernière mesure (TempAirInt/Ext, HumidAirInt/Ext, LuminositeMoy, TempEau, HumidSol, Pluie) + historique récent avec toutes les colonnes ; N3PP — dernière mesure (TempAir, Humidite, Luminosite, HumidMoy, Humid1–4, etatPompe) + historique récent complet.
+- **Contrôleurs** : MspDataController et N3ppDataController passent désormais `version` et `environment` aux templates pour une nav et un footer cohérents avec le reste du site.
+
+---
+
 ## [5.0.3] - 2025-03-06
 
 ### Liens internes et redirections
