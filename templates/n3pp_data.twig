@@ -8,113 +8,80 @@
     <link rel="stylesheet" href="https://iot.olution.info/assets/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
     <link rel="shortcut icon" type="image/png" href="/assets/logo.png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <style>
         body { background: #e8f4f2 !important; }
         #page-bg { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background-color: #e8f4f2; }
-        .modern-header {
-            background: linear-gradient(145deg, #008B74 0%, #007A61 25%, #00B794 50%, #008B74 100%);
-            color: white;
-            padding: 58px 0;
-            margin: -20px -20px 20px -20px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 0 0 16px 16px;
-        }
-        .modern-header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23g)"/></svg>');
-            opacity: 0.2;
-        }
+        .modern-header { background: linear-gradient(145deg, #008B74 0%, #007A61 25%, #00B794 50%, #008B74 100%); color: white; padding: 48px 0; margin: -20px -20px 20px -20px; position: relative; overflow: hidden; border-radius: 0 0 16px 16px; }
+        .modern-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23g)"/></svg>'); opacity: 0.2; }
         .header-content { position: relative; z-index: 2; text-align: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .header-title {
-            font-size: 2.2em;
-            font-weight: bold;
-            margin: 0 0 15px 0;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-        .header-title i { font-size: 0.9em; }
-        .header-subtitle { font-size: 1.15em; margin: 0; opacity: 0.9; font-weight: 300; }
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin: 40px 0 20px 0;
-            padding-bottom: 12px;
-            border-bottom: 3px solid #008B74;
-            position: relative;
-        }
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: #00B794;
-            border-radius: 2px;
-        }
-        .section-header h3 { margin: 0; color: #008B74; font-size: 1.5em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .section-header i { font-size: 1.8em; color: #008B74; padding: 10px; background: rgba(0,139,116,0.1); border-radius: 12px; }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .stat-card {
-            background: white;
-            border-radius: 16px;
-            padding: 22px;
-            box-shadow: 0 4px 20px rgba(0,139,116,0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,139,116,0.08);
-            position: relative;
-            overflow: hidden;
-        }
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #008B74, #00B794);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        .stat-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,139,116,0.2); }
+        .header-title { font-size: 2.2em; font-weight: bold; margin: 0 0 12px 0; text-shadow: 0 1px 2px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; gap: 15px; }
+        .header-subtitle { font-size: 1.1em; margin: 0; opacity: 0.9; font-weight: 300; }
+        .header-synthesis { display: inline-block; font-size: 0.92em; margin: 12px 0 0 0; padding: 8px 16px; background: rgba(255,255,255,0.18); border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); color: white; }
+        .section-header { display: flex; align-items: center; gap: 16px; margin: 35px 0 18px 0; padding-bottom: 10px; border-bottom: 3px solid #008B74; position: relative; }
+        .section-header::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 60px; height: 3px; background: #00B794; border-radius: 2px; }
+        .section-header h3 { margin: 0; color: #008B74; font-size: 1.4em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .section-header i { font-size: 1.6em; color: #008B74; padding: 8px; background: rgba(0,139,116,0.1); border-radius: 10px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 16px; margin: 16px 0; }
+        .stat-card { background: white; border-radius: 14px; padding: 18px; box-shadow: 0 3px 16px rgba(0,139,116,0.1); text-align: center; transition: all 0.3s ease; border: 1px solid rgba(0,139,116,0.08); position: relative; overflow: hidden; }
+        .stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #008B74, #00B794); transform: scaleX(0); transition: transform 0.3s ease; }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,139,116,0.18); }
         .stat-card:hover::before { transform: scaleX(1); }
-        .stat-card-icon { font-size: 2.5em; margin-bottom: 12px; display: block; }
-        .stat-card-value { font-size: 2em; font-weight: bold; color: #2c3e50; margin: 10px 0; line-height: 1; }
-        .stat-card-label { font-size: 0.9em; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-        .stat-card-unit { font-size: 0.7em; color: #95a5a6; font-weight: 400; }
-        .stat-card.temp { border-left: 5px solid #e74c3c; background: linear-gradient(180deg, #ffffff 0%, #fef5f1 100%); }
+        .stat-card-icon { font-size: 2.2em; margin-bottom: 8px; display: block; }
+        .stat-card-value { font-size: 1.8em; font-weight: bold; color: #2c3e50; margin: 8px 0; line-height: 1; }
+        .stat-card-label { font-size: 0.85em; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .stat-card-unit { font-size: 0.65em; color: #95a5a6; font-weight: 400; }
+        .stat-card-secondary { font-size: 0.75em; color: #6c757d; margin-top: 6px; line-height: 1.3; }
+        .stat-card.temp { border-left: 5px solid #e74c3c; background: linear-gradient(180deg, #fff 0%, #fef5f1 100%); }
         .stat-card.temp .stat-card-icon { color: #e74c3c; }
-        .stat-card.humidity { border-left: 5px solid #3498db; background: linear-gradient(180deg, #ffffff 0%, #f4f8fb 100%); }
+        .stat-card.humidity { border-left: 5px solid #3498db; background: linear-gradient(180deg, #fff 0%, #f4f8fb 100%); }
         .stat-card.humidity .stat-card-icon { color: #3498db; }
-        .stat-card.light { border-left: 5px solid #f39c12; background: linear-gradient(180deg, #ffffff 0%, #fef9f3 100%); }
+        .stat-card.light { border-left: 5px solid #f39c12; background: linear-gradient(180deg, #fff 0%, #fef9f3 100%); }
         .stat-card.light .stat-card-icon { color: #f39c12; }
-        .stat-card.pump { border-left: 5px solid #008B74; background: linear-gradient(180deg, #ffffff 0%, #f0faf8 100%); }
+        .stat-card.pump { border-left: 5px solid #008B74; background: linear-gradient(180deg, #fff 0%, #f0faf8 100%); }
         .stat-card.pump .stat-card-icon { color: #008B74; }
-        .data-meta { font-size: 0.9em; color: #7f8c8d; margin-top: 10px; }
-        .data-table-wrap { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,139,116,0.1); margin: 20px 0; }
-        .data-table-wrap table { width: 100%; border-collapse: collapse; }
-        .data-table-wrap th, .data-table-wrap td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #eee; }
-        .data-table-wrap th { background: #008B74; color: white; font-size: 0.85em; }
+        .stat-card.system { border-left: 5px solid #95a5a6; background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%); }
+        .stat-card.system .stat-card-icon { color: #95a5a6; }
+        .filter-section { background: white; border-radius: 16px; padding: 20px; margin: 20px 0; box-shadow: 0 3px 16px rgba(0,139,116,0.08); border-top: 5px solid #008B74; }
+        .filter-section h3 { margin: 0 0 14px 0; color: #008B74; font-size: 1.1em; }
+        .filter-section form { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+        .filter-section label { font-size: 0.85em; color: #555; display: block; margin-bottom: 4px; }
+        .filter-section input[type="datetime-local"] { padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9em; }
+        .filter-section .btn { padding: 8px 18px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9em; }
+        .filter-section .btn-primary { background: #008B74; color: white; }
+        .filter-section .btn-primary:hover { background: #007A61; }
+        .filter-section .btn-secondary { background: #6c757d; color: white; }
+        .quick-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .quick-filter-btn { padding: 5px 12px; background: rgba(0,139,116,0.1); border: 1px solid rgba(0,139,116,0.2); border-radius: 20px; cursor: pointer; font-size: 0.82em; font-weight: 600; color: #008B74; transition: all 0.2s; }
+        .quick-filter-btn:hover { background: #008B74; color: white; }
+        .period-info { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 0.88em; color: #555; }
+        .period-info span { background: rgba(0,139,116,0.08); padding: 4px 10px; border-radius: 8px; }
+        .chart-container { background: white; border-radius: 16px; padding: 14px; margin: 20px 0; box-shadow: 0 3px 16px rgba(0,139,116,0.08); min-height: 350px; }
+        .chart-container-title { font-size: 1.1em; font-weight: bold; color: #2c3e50; margin: 0 0 10px 0; padding-left: 8px; border-left: 4px solid #008B74; }
+        .system-health-panel { background: white; border-radius: 16px; padding: 18px; box-shadow: 0 3px 16px rgba(0,139,116,0.08); border-top: 5px solid #008B74; margin: 20px 0; }
+        .system-health-panel h3 { margin: 0 0 12px 0; color: #008B74; }
+        .health-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+        .health-item { background: #f8f9fa; padding: 10px; border-radius: 10px; text-align: center; }
+        .health-item-label { font-size: 0.8em; color: #7f8c8d; text-transform: uppercase; margin-bottom: 4px; }
+        .health-item-value { font-size: 1.15em; font-weight: bold; color: #2c3e50; }
+        .data-table-wrap { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 16px rgba(0,139,116,0.08); margin: 20px 0; max-height: 500px; overflow-y: auto; }
+        .data-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.88em; }
+        .data-table-wrap th, .data-table-wrap td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee; }
+        .data-table-wrap th { background: #008B74; color: white; font-size: 0.82em; position: sticky; top: 0; }
         .data-table-wrap tr:hover { background: #f8f9fa; }
-        .no-data { text-align: center; padding: 50px 20px; color: #7f8c8d; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,139,116,0.08); }
+        .no-data { text-align: center; padding: 50px 20px; color: #7f8c8d; background: white; border-radius: 16px; }
         #footer { text-align: center; padding: 1.5rem 2rem; margin-top: 2rem; color: #6c757d; font-size: 0.9em; border-top: 1px solid rgba(0,139,116,0.15); background: rgba(255,255,255,0.92); }
-        #footer .footer-copyright { margin: 0; }
-        .context-badges { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 1rem; }
-        .context-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; font-size: 0.82em; font-weight: 600; background: rgba(0,0,0,0.05); color: #666; border: 1px solid rgba(0,0,0,0.1); }
+        .context-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 1rem; }
+        .context-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 0.82em; font-weight: 600; background: rgba(0,0,0,0.05); color: #666; border: 1px solid rgba(0,0,0,0.1); }
         @media (max-width: 768px) {
-            .header-title { font-size: 1.7em; flex-direction: column; gap: 10px; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .header-title { font-size: 1.6em; flex-direction: column; gap: 8px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .health-grid { grid-template-columns: 1fr 1fr; }
+            .filter-section form { flex-direction: column; }
         }
     </style>
 </head>
@@ -127,30 +94,87 @@
         <nav id="nav">
             <ul class="links">
                 <li><a href="/">Accueil</a></li>
-                <li><a href="/{{ environment == 'test' ? 'aquaponie-test' : (environment == 'test3' ? 'aquamobile-test' : (environment == 's3' ? 'aquamobile' : 'aquaponie')) }}">L'aquaponie (FFP3)</a></li>
-                <li><a href="/{{ environment == 'test' ? 'aquaponie-alt-test' : (environment == 'test3' ? 'aquamobile-alt-test' : (environment == 's3' ? 'aquamobile-alt' : 'aquaponie-alt')) }}">Vue classique</a></li>
+                <li><a href="/{{ environment == 'test' ? 'aquaponie-test' : 'aquaponie' }}">L'aquaponie (FFP3)</a></li>
                 <li><a href="/aquaponie-description">Caractéristiques</a></li>
                 <li><a href="/msp1/msp1datas/msp1-data.php">Le potager</a></li>
                 <li class="active"><a href="/n3pp/n3ppdatas/n3pp-data.php">L'élevage d'insectes</a></li>
             </ul>
             <ul class="icons">
                 <li><a href="https://olution.info/course/view.php?id=511" class="icon solid fa-leaf"><span class="label">olution</span></a></li>
-                <li><a href="https://farmflow.marout.org/" class="icon solid fa-fish"><span class="label">farmflow</span></a></li>
             </ul>
         </nav>
+
         <div id="main">
+            {# ===== HERO ===== #}
             <div class="modern-header">
                 <div class="header-content">
                     <div class="header-title">
                         <i class="fas fa-leaf" aria-hidden="true"></i>
                         L'élevage d'insectes – Serre
                     </div>
-                    <p class="header-subtitle">Données en direct de la serre (température, humidité air et sol, luminosité, état pompe).</p>
-                    <p class="header-more" style="margin-top:1rem;"><a href="/n3pp/n3ppcontrol/">Contrôle des sorties</a></p>
+                    <p class="header-subtitle">Supervision des capteurs de la serre (température, humidité air et sol, luminosité, état pompe).</p>
+                    <p class="header-synthesis">📊 Synthèse du {{ start_date|date('d/m/Y H:i') }} au {{ end_date|date('d/m/Y H:i') }} — {{ measure_count }} mesures — {{ duration_str }}</p>
                 </div>
             </div>
+
             <article class="post featured">
+
+                {# ===== FILTRAGE ===== #}
+                <div class="filter-section">
+                    <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
+                    <form method="POST" action="/n3pp/n3ppdatas/n3pp-data.php">
+                        {{ csrf_field|raw }}
+                        <div>
+                            <label for="start_datetime">Début</label>
+                            <input type="datetime-local" id="start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d\\TH:i') }}">
+                        </div>
+                        <div>
+                            <label for="end_datetime">Fin</label>
+                            <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d\\TH:i') }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Afficher</button>
+                        <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-download"></i> CSV</button>
+                    </form>
+                    <div class="quick-filters">
+                        <span class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(3,'h')">3h</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(6,'h')">6h</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(12,'h')">12h</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(1,'d')">1 jour</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(7,'d')">1 sem</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(30,'d')">1 mois</span>
+                    </div>
+                    <div class="period-info">
+                        <span><i class="fas fa-database"></i> {{ measure_count }} mesures</span>
+                        <span><i class="fas fa-clock"></i> {{ duration_str }}</span>
+                    </div>
+                </div>
+
+                {# ===== ÉTAT DU SYSTÈME ===== #}
+                <div class="system-health-panel">
+                    <h3><i class="fas fa-heartbeat"></i> État du système</h3>
+                    <div class="health-grid">
+                        <div class="health-item">
+                            <div class="health-item-label">Firmware</div>
+                            <div class="health-item-value">v{{ firmware_version }}</div>
+                        </div>
+                        <div class="health-item">
+                            <div class="health-item-label">Serveur</div>
+                            <div class="health-item-value">{{ version }}</div>
+                        </div>
+                        <div class="health-item">
+                            <div class="health-item-label">Mesures affichées</div>
+                            <div class="health-item-value">{{ measure_count }}</div>
+                        </div>
+                        <div class="health-item">
+                            <div class="health-item-label">Environnement</div>
+                            <div class="health-item-value">{{ environment }}</div>
+                        </div>
+                    </div>
+                </div>
+
                 {% if latest %}
+                    {# ===== DERNIÈRE MESURE ===== #}
                     <div class="section-header">
                         <i class="fas fa-chart-line"></i>
                         <h3>Dernière mesure</h3>
@@ -161,6 +185,7 @@
                             <i class="fas fa-thermometer-half stat-card-icon"></i>
                             <div class="stat-card-label">Temp. air</div>
                             <div class="stat-card-value">{{ latest.TempAir|number_format(1) }} <span class="stat-card-unit">°C</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_tempAir is defined and avg_tempAir ? avg_tempAir|number_format(1) : '-' }} | Min: {{ min_tempAir is defined and min_tempAir ? min_tempAir|number_format(1) : '-' }} | Max: {{ max_tempAir is defined and max_tempAir ? max_tempAir|number_format(1) : '-' }}</div>
                         </div>
                         {% endif %}
                         {% if latest.Humidite is defined and latest.Humidite is not null %}
@@ -168,6 +193,7 @@
                             <i class="fas fa-tint stat-card-icon"></i>
                             <div class="stat-card-label">Humidité air</div>
                             <div class="stat-card-value">{{ latest.Humidite|number_format(0) }} <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_humidite is defined and avg_humidite ? avg_humidite|number_format(0) : '-' }}% | Min: {{ min_humidite is defined and min_humidite ? min_humidite|number_format(0) : '-' }}% | Max: {{ max_humidite is defined and max_humidite ? max_humidite|number_format(0) : '-' }}%</div>
                         </div>
                         {% endif %}
                         {% if latest.Luminosite is defined and latest.Luminosite is not null %}
@@ -175,6 +201,7 @@
                             <i class="fas fa-sun stat-card-icon"></i>
                             <div class="stat-card-label">Luminosité</div>
                             <div class="stat-card-value">{{ latest.Luminosite|number_format(0) }}</div>
+                            <div class="stat-card-secondary">Moy: {{ avg_luminosite is defined and avg_luminosite ? avg_luminosite|number_format(0) : '-' }} | Min: {{ min_luminosite is defined and min_luminosite ? min_luminosite|number_format(0) : '-' }} | Max: {{ max_luminosite is defined and max_luminosite ? max_luminosite|number_format(0) : '-' }}</div>
                         </div>
                         {% endif %}
                         {% if latest.HumidMoy is defined and latest.HumidMoy is not null %}
@@ -182,36 +209,21 @@
                             <i class="fas fa-seedling stat-card-icon"></i>
                             <div class="stat-card-label">Humid. sol moy.</div>
                             <div class="stat-card-value">{{ latest.HumidMoy|number_format(0) }} <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_humidMoy is defined and avg_humidMoy ? avg_humidMoy|number_format(0) : '-' }}% | Min: {{ min_humidMoy is defined and min_humidMoy ? min_humidMoy|number_format(0) : '-' }}% | Max: {{ max_humidMoy is defined and max_humidMoy ? max_humidMoy|number_format(0) : '-' }}%</div>
                         </div>
                         {% endif %}
-                        {% if latest.Humid1 is defined and latest.Humid1 is not null %}
+                        {% for i in 1..4 %}
+                        {% set col = 'Humid' ~ i %}
+                        {% if latest[col] is defined and latest[col] is not null %}
                         <div class="stat-card humidity">
                             <i class="fas fa-droplet stat-card-icon"></i>
-                            <div class="stat-card-label">Humid. sol 1</div>
-                            <div class="stat-card-value">{{ latest.Humid1|number_format(0) }} <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-label">Humid. sol {{ i }}</div>
+                            <div class="stat-card-value">{{ latest[col]|number_format(0) }} <span class="stat-card-unit">%</span></div>
+                            {% set lc = 'humid' ~ i %}
+                            <div class="stat-card-secondary">Moy: {{ attribute(_context, 'avg_' ~ lc) is defined and attribute(_context, 'avg_' ~ lc) ? attribute(_context, 'avg_' ~ lc)|number_format(0) : '-' }}% | Min: {{ attribute(_context, 'min_' ~ lc) is defined and attribute(_context, 'min_' ~ lc) ? attribute(_context, 'min_' ~ lc)|number_format(0) : '-' }}% | Max: {{ attribute(_context, 'max_' ~ lc) is defined and attribute(_context, 'max_' ~ lc) ? attribute(_context, 'max_' ~ lc)|number_format(0) : '-' }}%</div>
                         </div>
                         {% endif %}
-                        {% if latest.Humid2 is defined and latest.Humid2 is not null %}
-                        <div class="stat-card humidity">
-                            <i class="fas fa-droplet stat-card-icon"></i>
-                            <div class="stat-card-label">Humid. sol 2</div>
-                            <div class="stat-card-value">{{ latest.Humid2|number_format(0) }} <span class="stat-card-unit">%</span></div>
-                        </div>
-                        {% endif %}
-                        {% if latest.Humid3 is defined and latest.Humid3 is not null %}
-                        <div class="stat-card humidity">
-                            <i class="fas fa-droplet stat-card-icon"></i>
-                            <div class="stat-card-label">Humid. sol 3</div>
-                            <div class="stat-card-value">{{ latest.Humid3|number_format(0) }} <span class="stat-card-unit">%</span></div>
-                        </div>
-                        {% endif %}
-                        {% if latest.Humid4 is defined and latest.Humid4 is not null %}
-                        <div class="stat-card humidity">
-                            <i class="fas fa-droplet stat-card-icon"></i>
-                            <div class="stat-card-label">Humid. sol 4</div>
-                            <div class="stat-card-value">{{ latest.Humid4|number_format(0) }} <span class="stat-card-unit">%</span></div>
-                        </div>
-                        {% endif %}
+                        {% endfor %}
                         {% if latest.etatPompe is defined and latest.etatPompe is not null %}
                         <div class="stat-card pump">
                             <i class="fas fa-water stat-card-icon"></i>
@@ -220,63 +232,152 @@
                         </div>
                         {% endif %}
                     </div>
-                    {% if latest.sensor is defined or latest.version is defined %}
-                    <p class="data-meta">Capteur : {{ latest.sensor|default('-') }} | Version firmware : {{ latest.version|default('-') }}</p>
-                    {% endif %}
+                    {% if latest.sensor is defined %}<p style="font-size:0.9em;color:#7f8c8d;">Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}</p>{% endif %}
                 {% else %}
-                    <div class="no-data">Aucune donnée enregistrée pour le moment.</div>
+                    <div class="no-data"><i class="fas fa-database" style="font-size:2em;margin-bottom:10px;color:#bbb;"></i><br>Aucune donnée enregistrée.</div>
                 {% endif %}
 
-                {% if recent is not empty %}
-                    <div class="section-header">
-                        <i class="fas fa-history"></i>
-                        <h3>Historique récent ({{ recent|length }} mesures)</h3>
-                    </div>
-                    <div class="data-table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Temp. air</th>
-                                    <th>Humidité</th>
-                                    <th>Luminosité</th>
-                                    <th>Humid. moy.</th>
-                                    <th>Humid. 1</th>
-                                    <th>Humid. 2</th>
-                                    <th>Humid. 3</th>
-                                    <th>Humid. 4</th>
-                                    <th>État pompe</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for row in recent %}
-                                <tr>
-                                    <td>{{ row.id|default(loop.index) }}</td>
-                                    <td>{{ row.TempAir is defined and row.TempAir is not null ? (row.TempAir|number_format(1)) ~ ' °C' : '-' }}</td>
-                                    <td>{{ row.Humidite is defined and row.Humidite is not null ? (row.Humidite|number_format(0)) ~ ' %' : '-' }}</td>
-                                    <td>{{ row.Luminosite is defined and row.Luminosite is not null ? row.Luminosite|number_format(0) : '-' }}</td>
-                                    <td>{{ row.HumidMoy is defined and row.HumidMoy is not null ? (row.HumidMoy|number_format(0)) ~ ' %' : '-' }}</td>
-                                    <td>{{ row.Humid1 is defined and row.Humid1 is not null ? (row.Humid1|number_format(0)) ~ ' %' : '-' }}</td>
-                                    <td>{{ row.Humid2 is defined and row.Humid2 is not null ? (row.Humid2|number_format(0)) ~ ' %' : '-' }}</td>
-                                    <td>{{ row.Humid3 is defined and row.Humid3 is not null ? (row.Humid3|number_format(0)) ~ ' %' : '-' }}</td>
-                                    <td>{{ row.Humid4 is defined and row.Humid4 is not null ? (row.Humid4|number_format(0)) ~ ' %' : '-' }}</td>
-                                    <td>{{ row.etatPompe is defined and row.etatPompe is not null ? row.etatPompe : '-' }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
+                {# ===== GRAPHIQUES ===== #}
+                {% if measure_count > 0 %}
+                <div class="section-header">
+                    <i class="fas fa-chart-area"></i>
+                    <h3>Graphiques</h3>
+                </div>
+
+                <div class="chart-container">
+                    <p class="chart-container-title"><i class="fas fa-seedling"></i> Humidité du sol</p>
+                    <div id="chart-niveauxeaux" style="min-height:350px;"></div>
+                </div>
+
+                <div class="chart-container">
+                    <p class="chart-container-title"><i class="fas fa-thermometer-half"></i> Température, Humidité air & Luminosité</p>
+                    <div id="chart-temperatures" style="min-height:350px;"></div>
+                </div>
+
+                <div class="chart-container">
+                    <p class="chart-container-title"><i class="fas fa-cog"></i> Autonomie & Système</p>
+                    <div id="chart-cycles" style="min-height:300px;"></div>
+                </div>
+                {% endif %}
+
+                {# ===== HISTORIQUE ===== #}
+                {% if measure_count > 0 %}
+                <div class="section-header">
+                    <i class="fas fa-history"></i>
+                    <h3>Historique ({{ measure_count }} mesures)</h3>
+                </div>
+                <div class="data-table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th><th>Date</th><th>T°air</th><th>H%air</th><th>Lum.</th><th>H%moy</th><th>H%1</th><th>H%2</th><th>H%3</th><th>H%4</th><th>Pompe</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
                 {% endif %}
             </article>
         </div>
+
         <footer id="footer">
             <div class="context-badges">
-                {% if version %}
+                <span class="context-badge"><i class="fas fa-globe"></i> {{ environment }}</span>
+                <span class="context-badge"><i class="fas fa-database"></i> n3ppData</span>
                 <span class="context-badge"><i class="fas fa-code-branch"></i> {{ version }}</span>
-                {% endif %}
+                {% if firmware_version %}<span class="context-badge"><i class="fas fa-microchip"></i> Firmware v{{ firmware_version }}</span>{% endif %}
             </div>
-            <p class="footer-copyright">Données serre / élevage (n3pp) | n3 IoT | © 2025 olution</p>
+            <p style="margin:0;">Serre / élevage d'insectes (n3pp) | n3 IoT | © 2025 olution</p>
         </footer>
     </div>
+
+    <script>
+    var reading_time = {{ reading_time|json_encode|raw }};
+    var TempAir = {{ TempAir|json_encode|raw }};
+    var Humidite = {{ Humidite|json_encode|raw }};
+    var Luminosite = {{ Luminosite|json_encode|raw }};
+    var HumidMoy = {{ HumidMoy|json_encode|raw }};
+    var Humid1 = {{ Humid1|json_encode|raw }};
+    var Humid2 = {{ Humid2|json_encode|raw }};
+    var Humid3 = {{ Humid3|json_encode|raw }};
+    var Humid4 = {{ Humid4|json_encode|raw }};
+    var PontDiv = {{ PontDiv|json_encode|raw }};
+    var bootCount = {{ bootCount|json_encode|raw }};
+    var etatPompe = {{ etatPompe|json_encode|raw }};
+    var resetMode = {{ resetMode|json_encode|raw }};
+
+    function zipSeries(values) {
+        var r = [];
+        for (var i = 0; i < reading_time.length; i++) {
+            r.push([reading_time[i], values[i]]);
+        }
+        return r;
+    }
+
+    function setPeriod(val, unit) {
+        var now = new Date();
+        var start = new Date(now);
+        if (unit === 'h') start.setHours(start.getHours() - val);
+        else if (unit === 'd') start.setDate(start.getDate() - val);
+        function fmt(d) { return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+'T'+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'); }
+        document.getElementById('start_datetime').value = fmt(start);
+        document.getElementById('end_datetime').value = fmt(now);
+        document.querySelector('.filter-section form').submit();
+    }
+
+    Highcharts.setOptions({ time: { timezone: 'Africa/Casablanca' }, lang: { months: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'], shortMonths: ['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'], weekdays: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'], decimalPoint: ',', thousandsSep: ' ', loading: 'Chargement...', noData: 'Aucune donnée', resetZoom: 'Reset zoom' }});
+
+    {% if measure_count > 0 %}
+    Highcharts.stockChart('chart-niveauxeaux', {
+        rangeSelector: { enabled: false },
+        title: { text: 'Humidité du sol' },
+        yAxis: [{ title: { text: 'Humidité (UA / %)' }, opposite: false }],
+        series: [
+            { name: 'Humid. moy.', data: zipSeries(HumidMoy), type: 'spline', color: '#27ae60', lineWidth: 3, tooltip: { valueSuffix: ' %' }},
+            { name: 'Humid. 1', data: zipSeries(Humid1), type: 'spline', color: '#3498db', dashStyle: 'Dash' },
+            { name: 'Humid. 2', data: zipSeries(Humid2), type: 'spline', color: '#2980b9', dashStyle: 'Dash' },
+            { name: 'Humid. 3', data: zipSeries(Humid3), type: 'spline', color: '#1abc9c', dashStyle: 'Dash' },
+            { name: 'Humid. 4', data: zipSeries(Humid4), type: 'spline', color: '#16a085', dashStyle: 'Dash' },
+            { name: 'État pompe', data: zipSeries(etatPompe), type: 'column', color: '#008B74', opacity: 0.5 },
+            { name: 'Reset', data: zipSeries(resetMode), type: 'column', color: '#bdc3c7' }
+        ],
+        chart: { backgroundColor: 'transparent' },
+        credits: { enabled: false }
+    });
+
+    Highcharts.stockChart('chart-temperatures', {
+        rangeSelector: { enabled: false },
+        title: { text: 'Température, Humidité air & Luminosité' },
+        yAxis: [
+            { title: { text: 'Température (°C)' }, opposite: false },
+            { title: { text: 'Humidité (%)' }, opposite: true },
+            { title: { text: 'Luminosité (UA)' }, opposite: true, offset: 60 }
+        ],
+        series: [
+            { name: 'Temp. air', data: zipSeries(TempAir), type: 'spline', color: '#e74c3c', yAxis: 0, tooltip: { valueSuffix: ' °C' }},
+            { name: 'Humidité', data: zipSeries(Humidite), type: 'spline', color: '#3498db', yAxis: 1, tooltip: { valueSuffix: ' %' }},
+            { name: 'Luminosité', data: zipSeries(Luminosite), type: 'spline', color: '#f39c12', yAxis: 2 }
+        ],
+        chart: { backgroundColor: 'transparent' },
+        credits: { enabled: false }
+    });
+
+    Highcharts.stockChart('chart-cycles', {
+        rangeSelector: { enabled: false },
+        title: { text: 'Autonomie & Système' },
+        yAxis: [
+            { title: { text: 'Cycles' }, opposite: false },
+            { title: { text: 'Batterie' }, opposite: true }
+        ],
+        series: [
+            { name: 'bootCount', data: zipSeries(bootCount), type: 'spline', color: '#2c3e50', yAxis: 0 },
+            { name: 'PontDiv', data: zipSeries(PontDiv), type: 'spline', color: '#e74c3c', yAxis: 1 }
+        ],
+        chart: { backgroundColor: 'transparent' },
+        credits: { enabled: false }
+    });
+    {% endif %}
+    </script>
 </body>
 </html>

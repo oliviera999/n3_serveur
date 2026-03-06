@@ -71,6 +71,34 @@ if ($basePath !== '' && $basePath !== '/') {
 $app->add($container->get(\App\Middleware\ErrorHandlerMiddleware::class));
 
 // ====================================================================
+// Redirections 301 : anciens liens iot.olution.info/ffp3/* vers les nouvelles pages /*
+// (Fonctionne même si .htaccess n'est pas appliqué, ex. nginx)
+// ====================================================================
+$app->add(function (Request $request, $handler) {
+    $path = $request->getUri()->getPath();
+    $method = $request->getMethod();
+    // Redirection GET uniquement (pages), pas les POST API (ex. ffp3gallery/upload.php)
+    if ($method !== 'GET') {
+        return $handler->handle($request);
+    }
+    // /ffp3 ou /ffp3/ -> /
+    if ($path === '/ffp3' || $path === '/ffp3/') {
+        $location = '/';
+        $response = new \Slim\Psr7\Response();
+        return $response->withHeader('Location', $location)->withStatus(301);
+    }
+    // /ffp3/xxx -> /xxx (sauf /ffp3/ffp3gallery/ pour ne pas casser les liens vers l'API galerie)
+    if (strpos($path, '/ffp3/') === 0 && strpos($path, '/ffp3/ffp3gallery/') !== 0) {
+        $target = '/' . substr($path, 6); // enlever '/ffp3/'
+        $query = $request->getUri()->getQuery();
+        $location = $target . ($query !== '' ? '?' . $query : '');
+        $response = new \Slim\Psr7\Response();
+        return $response->withHeader('Location', $location)->withStatus(301);
+    }
+    return $handler->handle($request);
+});
+
+// ====================================================================
 // Routes d'authentification (publiques - pas d'auth requise)
 // ====================================================================
 $app->get('/login', [AuthController::class, 'showLogin']);
@@ -639,7 +667,7 @@ $app->get('/service-worker.js', function (Request $request, Response $response) 
 // Routes MSP1 — compatibilite firmware msp2_5 (station meteo)
 // ====================================================================
 $app->post('/msp1/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
-$app->get('/msp1/msp1datas/msp1-data.php', [MspDataController::class, 'show']);
+$app->map(['GET', 'POST'], '/msp1/msp1datas/msp1-data.php', [MspDataController::class, 'show']);
 $app->get('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'getState']);
 $app->post('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'setOutput']);
 $app->get('/msp1/msp1control/', [MspOutputController::class, 'showControlPage']);
@@ -649,7 +677,7 @@ $app->get('/msp1/msp1control/index.php', [MspOutputController::class, 'showContr
 // Routes N3PP — compatibilite firmware n3pp4_2 (serre/aquaponie)
 // ====================================================================
 $app->post('/n3pp/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);
-$app->get('/n3pp/n3ppdatas/n3pp-data.php', [N3ppDataController::class, 'show']);
+$app->map(['GET', 'POST'], '/n3pp/n3ppdatas/n3pp-data.php', [N3ppDataController::class, 'show']);
 $app->get('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'getState']);
 $app->post('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
 $app->get('/n3pp/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']);

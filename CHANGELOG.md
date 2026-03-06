@@ -7,6 +7,29 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.5] - 2025-03-06
+
+### Modifié - Redirections 301 /ffp3/* en PHP
+- **Liens legacy** : middleware PHP ajouté pour rediriger en 301 les requêtes GET `iot.olution.info/ffp3/aquaponie` (et tout `/ffp3/*`) vers les nouvelles pages `/*`. Garantit le fonctionnement même sans Apache (.htaccess), par ex. avec nginx. Exclusion de `/ffp3/ffp3gallery/` pour ne pas casser l’API galerie.
+
+---
+
+## [5.0.5] - 2025-03-06
+
+### Refonte complète - Pages données MSP et N3PP (alignement aquaponie)
+- **Graphiques Highcharts** : ajout de graphiques interactifs (StockChart) pour les deux pages — MSP : Températures & Humidité, Luminosité (moy + A/B/C/D), Humidité sol & Eau, Autonomie (bootCount, PontDiv, Servos) ; N3PP : Humidité sol (moy + 4 capteurs + état pompe), Température/Humidité/Luminosité, Autonomie.
+- **Filtrage par dates** : formulaire POST avec datetime-local, boutons de filtres rapides (1h, 3h, 6h, 12h, 1j, 1sem, 1mois), protection CSRF, affichage durée et nombre de mesures.
+- **Export CSV** : bouton d'export intégré au formulaire de filtrage pour les deux pages.
+- **Statistiques** : chaque carte affiche Moy/Min/Max sur la période filtrée (stat-card-secondary).
+- **Panneau état du système** : version firmware, version serveur, nombre de mesures, environnement.
+- **Badges contextuels** (footer) : environnement, table BDD, version serveur, version firmware.
+- **Mesures manuelles** (MSP) : iframes Google Sheets (3 graphiques) rétablies.
+- **Repositories enrichis** : MspSensorRepository et N3ppSensorRepository — ajout fetchBetween, getColumnStats, getLastReadingDate, exportCsv, countAll, getFirmwareVersion.
+- **Contrôleurs refondus** : MspDataController et N3ppDataController — gestion POST (filtrage + CSV), calcul stats, préparation séries graphiques, passage version/environment/csrf.
+- **Routes** : `/msp1/msp1datas/msp1-data.php` et `/n3pp/n3ppdatas/n3pp-data.php` acceptent désormais GET et POST.
+
+---
+
 ## [5.0.4] - 2025-03-06
 
 ### Modifié - Pages données MSP et N3PP (visuel aligné aquaponie)

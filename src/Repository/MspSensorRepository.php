@@ -7,12 +7,20 @@ namespace App\Repository;
 use App\Domain\MspSensorData;
 
 /**
- * Repository pour l'insertion des mesures station meteo (msp2_5) dans msp1Data.
+ * Repository pour l'insertion et la lecture des mesures station meteo (msp2_5) dans msp1Data.
  * Requetes preparees PDO uniquement.
  */
 class MspSensorRepository extends AbstractRepository
 {
     private const TABLE = 'msp1Data';
+
+    /** Colonnes de capteurs disponibles pour les statistiques et graphiques. */
+    public const SENSOR_COLUMNS = [
+        'TempAirInt', 'TempAirExt', 'HumidAirInt', 'HumidAirExt',
+        'LuminositeA', 'LuminositeB', 'LuminositeC', 'LuminositeD', 'LuminositeMoy',
+        'HumidSol', 'Pluie', 'TempEau', 'PontDiv', 'bootCount',
+        'ServoHB', 'ServoGD', 'resetMode',
+    ];
 
     public function insert(MspSensorData $data): void
     {
@@ -61,25 +69,82 @@ class MspSensorRepository extends AbstractRepository
         ]);
     }
 
-    /**
-     * Dernière mesure enregistrée (pour affichage page datas).
-     *
-     * @return array<string, mixed>|null
-     */
     public function getLatest(): ?array
     {
         $sql = "SELECT * FROM `" . self::TABLE . "` ORDER BY id DESC LIMIT 1";
         return $this->fetchOne($sql);
     }
 
-    /**
-     * Dernières mesures (pour historique court).
-     *
-     * @return array<int, array<string, mixed>>
-     */
     public function getRecent(int $limit = 50): array
     {
         $sql = "SELECT * FROM `" . self::TABLE . "` ORDER BY id DESC LIMIT " . max(1, min(200, $limit));
         return $this->fetchAll($sql);
+    }
+
+    public function getLastReadingDate(): ?string
+    {
+        $sql = "SELECT reading_time FROM `" . self::TABLE . "` ORDER BY id DESC LIMIT 1";
+        $val = $this->fetchScalar($sql);
+        return $val !== null ? (string) $val : null;
+    }
+
+    /** @return array<int, array<string, mixed>> */
+    public function fetchBetween(string $start, string $end): array
+    {
+        $sql = "SELECT * FROM `" . self::TABLE . "` WHERE reading_time BETWEEN :s AND :e ORDER BY id ASC";
+        return $this->fetchAll($sql, [':s' => $start, ':e' => $end]);
+    }
+
+    /**
+     * Statistiques (min, max, avg, stddev) pour une colonne sur une plage de dates.
+     * @return array{min: float|null, max: float|null, avg: float|null, stddev: float|null}
+     */
+    public function getColumnStats(string $column, string $start, string $end): array
+    {
+        $allowed = self::SENSOR_COLUMNS;
+        if (!in_array($column, $allowed, true)) {
+            return ['min' => null, 'max' => null, 'avg' => null, 'stddev' => null];
+        }
+        $sql = "SELECT MIN(`$column`) AS `min`, MAX(`$column`) AS `max`,
+                       AVG(`$column`) AS `avg`, STDDEV(`$column`) AS `stddev`
+                FROM `" . self::TABLE . "` WHERE reading_time BETWEEN :s AND :e";
+        $row = $this->fetchOne($sql, [':s' => $start, ':e' => $end]);
+        return [
+            'min' => $row['min'] ?? null,
+            'max' => $row['max'] ?? null,
+            'avg' => $row['avg'] ?? null,
+            'stddev' => $row['stddev'] ?? null,
+        ];
+    }
+
+    /** Nombre total d'enregistrements. */
+    public function countAll(): int
+    {
+        $sql = "SELECT COUNT(*) FROM `" . self::TABLE . "`";
+        return (int) ($this->fetchScalar($sql) ?? 0);
+    }
+
+    /** Version firmware de la dernière mesure. */
+    public function getFirmwareVersion(): string
+    {
+        $sql = "SELECT version FROM `" . self::TABLE . "` ORDER BY id DESC LIMIT 1";
+        return (string) ($this->fetchScalar($sql) ?? '-');
+    }
+
+    /** Export CSV vers un fichier temporaire. */
+    public function exportCsv(string $start, string $end, string $tmpFile): void
+    {
+        $rows = $this->fetchBetween($start, $end);
+        $fp = fopen($tmpFile, 'w');
+        if ($fp === false) {
+            return;
+        }
+        if (!empty($rows)) {
+            fputcsv($fp, array_keys($rows[0]), ';');
+            foreach ($rows as $row) {
+                fputcsv($fp, $row, ';');
+            }
+        }
+        fclose($fp);
     }
 }
