@@ -1,0 +1,133 @@
+================================================================================
+🚀 INSTRUCTIONS DE DÉPLOIEMENT FFP3 v4.4.1
+================================================================================
+
+Date: 2025-10-11
+Objectif: Déployer v4.4.1 avec WaterBalanceService et affichage firmware ESP32
+
+================================================================================
+ÉTAPE 1 : CONNEXION AU SERVEUR
+================================================================================
+
+Ouvrir un terminal et se connecter :
+
+    ssh oliviera@toaster
+
+Puis naviguer vers le dossier FFP3 :
+
+    cd /home4/oliviera/iot.olution.info/ffp3
+
+================================================================================
+ÉTAPE 2 : VÉRIFIER LA VERSION ACTUELLE (optionnel)
+================================================================================
+
+    cat VERSION
+
+(devrait afficher une version inférieure à 4.4.1)
+
+================================================================================
+ÉTAPE 3 : EXÉCUTER LE SCRIPT DE DÉPLOIEMENT
+================================================================================
+
+Lancer le script de déploiement :
+
+    bash DEPLOY_NOW.sh
+
+Le script va automatiquement :
+✓ Pull depuis GitHub (origin/main)
+✓ Supprimer vendor/ corrompu
+✓ Réinstaller les dépendances Composer
+✓ Vérifier l'intégrité (PHP-DI, web-push, bacon-qr-code)
+✓ Ajuster les permissions
+✓ Afficher la version déployée (4.4.1)
+
+⏱️  Durée estimée : 1-2 minutes
+
+================================================================================
+ÉTAPE 4 : VÉRIFICATION POST-DÉPLOIEMENT
+================================================================================
+
+1. Ouvrir dans le navigateur :
+   
+   https://iot.olution.info/ffp3/aquaponie
+
+2. Vérifier que les éléments suivants sont présents :
+
+   ✅ Section "Bilan Hydrique" avec :
+      - Réserve d'eau (consommation/ravitaillement/bilan)
+      - Cycles de marée (marnage/fréquence/cycles)
+   
+   ✅ Footer en bas de page avec :
+      "v4.4.1 | Firmware ESP32: v11.05 | Système d'aquaponie FFP3"
+   
+   ✅ Badge "LIVE" en haut à droite (vert après 15 secondes)
+   
+   ✅ Graphiques s'affichent correctement
+
+3. Tester aussi la page de contrôle :
+   
+   https://iot.olution.info/ffp3/control
+
+4. Comparer PROD et TEST (doivent être identiques maintenant) :
+   
+   https://iot.olution.info/ffp3/aquaponie         (PROD)
+   https://iot.olution.info/ffp3/aquaponie-test    (TEST)
+
+================================================================================
+ÉTAPE 5 : TESTS FONCTIONNELS
+================================================================================
+
+1. Ouvrir la console du navigateur (F12) :
+   - Onglet "Console"
+   - Chercher logs "[RealtimeUpdater]"
+   - Vérifier absence d'erreurs JavaScript
+
+2. Tester l'API en direct :
+   
+   curl https://iot.olution.info/ffp3/api/realtime/sensors/latest
+   
+   (doit retourner JSON avec dernières mesures)
+
+3. Vérifier les logs serveur (si erreur) :
+   
+   tail -n 50 error_log
+
+================================================================================
+EN CAS DE PROBLÈME
+================================================================================
+
+Si le déploiement échoue au niveau de Composer :
+
+    composer clear-cache
+    composer update --no-dev --optimize-autoloader
+
+Si erreur 500 après déploiement :
+
+    # Vérifier les logs
+    tail -n 100 error_log
+    
+    # Vérifier les permissions
+    chmod -R 755 public/
+    chmod -R 775 var/cache/
+
+Si autoload ne fonctionne pas :
+
+    rm -rf vendor/
+    composer install --no-dev --optimize-autoloader
+
+================================================================================
+SUCCÈS !
+================================================================================
+
+Une fois le déploiement réussi, vous devriez voir :
+
+✅ Version v4.4.1 affichée
+✅ Bilan Hydrique présent sur /aquaponie
+✅ Firmware ESP32 affiché dans le footer
+✅ Badge LIVE fonctionnel
+✅ Aucune erreur dans la console
+
+Le système PROD a maintenant toutes les fonctionnalités de TEST !
+
+================================================================================
+
