@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [5.0.7] - 2025-03-06
 
 ### Modifié - Version du projet dans le footer de la page d'accueil
@@ -15,6 +21,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [5.0.6] - 2025-03-06
 
 ### Refonte complète - Pages de contrôle MSP et N3PP (alignement aquaponie-control)
@@ -28,6 +40,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [5.0.5] - 2025-03-06
 
 ### Modifié - Redirections 301 /ffp3/* en PHP
@@ -35,6 +53,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [5.0.5] - 2025-03-06
 
 ### Refonte complète - Pages données MSP et N3PP (alignement aquaponie)
@@ -51,6 +75,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [5.0.4] - 2025-03-06
 
 ### Modifié - Pages données MSP et N3PP (visuel aligné aquaponie)
@@ -60,6 +90,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [5.0.3] - 2025-03-06
 
 ### Liens internes et redirections
@@ -69,6 +105,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [5.0.2] - 2025-03-06
 
 ### Ajout - Pages données et contrôle MSP1 / N3PP
@@ -79,6 +121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [5.0.1] - 2025-03-06
 
 ### Correctif - Audit structure serveur (rétrocompatibilité)
@@ -88,6 +136,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [5.0.0] - 2025-03-06
 
 ### Changement majeur - Serveur unifié n3 IoT
@@ -99,6 +153,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.93] - 2026-03-05
 
 ### Correctif - Mise à jour temps réel : graphiques et badges après init
@@ -108,6 +168,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.92] - 2026-03-04
 
 ### Correctif - Tuile Eau potager : même largeur que les autres et centrée sur la 2e ligne
@@ -117,6 +183,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.91] - 2026-03-04
 
 ### Changement - Suivi : courbe eau réserve cachée par défaut, axe températures adapté à la gamme
@@ -126,6 +198,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.90] - 2026-03-04
 
 ### Changement - Inversion pages de suivi : vue paysage = principale, vue classique = alternative
@@ -136,6 +214,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.89] - 2026-03-04
 
 ### Divers
@@ -143,6 +227,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.88] - 2026-03-04
 
 ### Changement - Page aquaponie-description : hero et esthétique alignés sur aquaponie-alt
@@ -155,6 +245,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.87] - 2026-03-04
 
 ### Divers
@@ -162,6 +258,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.86] - 2026-03-04
 
 ### Changement - Audit page aquaponie-description (contenu et mise en page)
@@ -172,6 +274,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.85] - 2026-03-04
 
 ### Correctif - Bouton « En savoir plus » : couleur du texte au survol
@@ -180,6 +288,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.84] - 2026-03-04
 
 ### Changement - Bouton « En savoir plus sur le module » (hero aquaponie)
@@ -190,6 +304,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.83] - 2026-03-04
 
 ### Changement - Audit webdesign aquaponie-alt (implémentation)
@@ -200,6 +320,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.82] - 2026-03-04
 
 ### Changement - Vue paysage (aquaponie-alt)
@@ -209,6 +335,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.81] - 2026-03-04
 
 ### Changement - Vue paysage : Filtrage et État du système empilés, contenu en colonnes
@@ -220,6 +352,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.80] - 2026-03-04
 
 ### Correctif - Aquaponie-alt : fond de page comme l'accueil (fondu + preload)
@@ -228,6 +366,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.79] - 2026-03-04
 
 ### Changement - Vue paysage (aquaponie-alt) : boutons filtres et marges
@@ -237,6 +381,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.78] - 2026-03-04
 
 ### Correctif - Fondu image de fond : calque HTML #page-bg
@@ -247,6 +397,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.77] - 2026-03-03
 
 ### Correctif - Image de fond en fondu sur toutes les pages (aquaponie, etc.)
@@ -257,6 +413,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.76] - 2026-03-03
 
 ### Changement - Photo de fond avec fondu sur toutes les pages
@@ -265,6 +427,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.75] - 2026-03-03
 
 ### Correctif - Vue paysage : Filtrage et État du système en hauteur naturelle
@@ -274,6 +442,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.74] - 2026-03-03
 
 ### Changement - Vue paysage (aquaponie-alt) : visuels et layout
@@ -285,6 +459,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.73] - 2026-03-03
 
 ### Changement - Bloc IP locale supprimé, badges Niveaux d'eau, filtres
@@ -295,6 +475,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.72] - 2026-03-03
 
 ### Correctif - Vue paysage : cadres Filtrage et État du système lisibles, contenu contenu
@@ -304,6 +490,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.71] - 2026-03-03
 
 ### Correctif - Vue paysage : superposition section chimie / cadres Filtrage et État du système
@@ -313,6 +505,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.70] - 2026-03-03
 
 ### Changement - Vue paysage : Suivi des paramètres chimiques aligné sur Niveaux d'eau / Paramètres physiques
@@ -322,6 +520,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.69] - 2026-03-03
 
 ### Correctif - Vue paysage : Filtrage des données et État du système
@@ -331,6 +535,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.68] - 2026-03-03
 
 ### Changement - Vue paysage : hauteur des graphiques = hauteur des colonnes de badges
@@ -339,6 +549,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.67] - 2026-03-03
 
 ### Correctif - Vue paysage : panneau 2 Paramètres physiques jusqu'à l'axe des abscisses
@@ -347,6 +563,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.66] - 2026-03-03
 
 ### Changement - Vue paysage : LEDs et Nourriture sur le panneau Humidité/Luminosité
@@ -355,6 +577,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.65] - 2026-03-03
 
 ### Changement - Vue paysage : Humidité et Luminosité sur un même panneau (2 axes Y)
@@ -363,6 +591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.64] - 2026-03-03
 
 ### Changement - Vue paysage (aquaponie-alt) : Réserve d'eau et Cycles de marée sous le graphique
@@ -372,6 +606,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.63] - 2026-03-01
 
 ### Changement - Schéma de nommage des pages aquamobile et control
@@ -385,6 +625,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.62] - 2026-02-26
 
 ### Ajout - Page Caractéristiques du module FFP3
@@ -398,42 +644,84 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.61] - 2026-02-15
 
 ### Bump version
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.60] - 2026-02-12
 
 ### Bump version
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.59] - 2026-02-12
 
 ### Bump version
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.58] - 2026-02-12
 
 ### Bump version
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.57] - 2026-02-12
 
 ### Bump version
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.56] - 2026-02-12
 
 ### Bump version
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.55] - 2026-02-12
 
 ### 🐛 Correction - Endpoints API bloqués par authentification
@@ -457,6 +745,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.54] - 2026-02-12
 
 ### 🐛 Correction - Middleware global pour protéger les routes avant le routage
@@ -470,6 +764,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.53] - 2026-02-12
 
 ### 🔗 Amélioration - Lien Administration vers page Supervision
@@ -481,6 +781,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.52] - 2026-02-12
 
 ### 🐛 Correction - Authentification des pages d'administration
@@ -493,6 +799,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.51] - 2026-02-12
 
 ### 🔓 Accessibilité - Pages aquaponie et accueil rendues publiques
@@ -509,6 +821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.50] - 2026-02-12
 
 ### 🔒 Sécurité - Système d'authentification pour les pages d'administration
@@ -537,6 +855,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.49] - 2026-02-12
 
 ### 🐛 Correction - Calcul du basePath pour l'accès via index.php racine
@@ -547,6 +871,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.48] - 2026-02-12
 
 ### 🐛 Correction - Création d'un index.php racine pour éviter l'arborescence Apache
@@ -559,6 +889,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.47] - 2026-02-12
 
 ### 🐛 Correction - Configuration Apache pour éviter l'affichage de l'arborescence
@@ -571,6 +907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.45] - 2026-02-02
 
 ### 🐛 Correction - Page de contrôle : prise en compte des changements issus du serveur distant
@@ -580,6 +922,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.44] - 2026-02-02
 
 ### 🐛 Correction - Page de contrôle (env test) : API outputs-test et cohérence env
@@ -592,6 +940,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.43] - 2026-02-01
 
 ### 🐛 Correction - API outputs/state : Content-Length pour lecture fiable côté ESP32
@@ -601,6 +955,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.42] - 2026-02-01
 
 ### 🐛 Correction - API outputs/state : JSON compact + cohérence types
@@ -609,6 +969,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.41] - 2026-02-01
 
 ### 🐛 Correction - API outputs/state retournait un JSON vide (table vide)
@@ -618,6 +984,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.39] - 2026-01-31
 
 ### 🐛 Correction - Graphiques disparus sur smartphone (à nouveau)
@@ -637,6 +1009,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.38] - 2026-01-26
 
 ### 🐛 Correction - Graphiques affichés en colonnes au lieu de courbes sur laptop
@@ -653,6 +1031,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.37] - 2026-01-14
 
 ### 🐛 Correction - Affichage graphiques Highcharts sur mobile
@@ -677,6 +1061,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.36] - 2026-01-14
 
 ### ✨ Administration - Vidage du cache
@@ -705,6 +1095,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.34] - 2025-01-27
 
 ### 🐛 Correction Critique - Page de contrôle distant
@@ -723,6 +1119,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.33] - 2025-01-20
 
 ### 🎨 Interface - Suppression du texte d'introduction redondant
@@ -733,6 +1135,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.32] - 2025-01-20
 
 ### 🔧 Amélioration - Script de déploiement avec gestion automatique des modifications locales
@@ -745,6 +1153,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.31] - 2025-01-20
 
 ### 🔧 Correction - Comptage des cycles complets de marée
@@ -756,6 +1170,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.30] - 2025-01-20
 
 ### 🔧 Amélioration - Seuil de variation pour la détection des cycles de marée
@@ -767,6 +1187,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.29] - 2025-01-20
 
 ### 🎨 Graphique - Suppression des zones d'alerte sur le graphique des niveaux d'eau
@@ -776,6 +1202,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.28] - 2025-01-20
 
 ### 🎨 Interface - Suppression des tuiles statistiques redondantes
@@ -785,6 +1217,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.27] - 2025-01-20
 
 ### 🔄 Réorganisation - Intégration des informations de connexion dans le bloc Connexions
@@ -796,6 +1234,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.26] - 2025-01-20
 
 ### 🎨 Layout - Déplacement des actions rapides en bas de page
@@ -806,6 +1250,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.25] - 2025-01-20
 
 ### 🎨 Layout - Page de contrôle en une seule colonne
@@ -818,6 +1268,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.24] - 2025-01-20
 
 ### 🧹 Suppression - Système de logs temps réel
@@ -835,6 +1291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.23] - 2025-01-17
 
 ### 🎨 Harmonisation complète - Animations, transitions et états interactifs
@@ -856,6 +1318,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.22] - 2025-01-17
 
 ### 🧹 Nettoyage et harmonisation - Templates dupliqués et cohérence
@@ -873,6 +1341,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.21] - 2025-01-17
 
 ### 🎨 Harmonisation - Espacements et responsive design
@@ -892,6 +1366,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.20] - 2025-01-17
 
 ### 🎨 Harmonisation complète - Layout, badges et typographie
@@ -910,6 +1390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.19] - 2025-01-17
 
 ### 🎨 Harmonisation - Système de design unifié (couleurs, border-radius, box-shadow)
@@ -923,6 +1409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.18] - 2025-01-17
 
 ### 🧹 Refactoring - Suppression des styles inline restants
@@ -932,6 +1424,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.17] - 2025-01-17
 
 ### 🧹 Refactoring - Correction de l'indentation et structure HTML
@@ -945,6 +1443,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.16] - 2025-01-17
 
 ### 🎨 Refactoring - Extraction du CSS inline vers fichier externe
@@ -955,6 +1459,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.15] - 2025-01-17
 
 ### 🗑️ Suppression - Désactivation du rangeSelector (zoom) sur les graphiques
@@ -964,6 +1474,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.14] - 2025-01-17
 
 ### ✨ Amélioration - Ajout d'options de filtrage 3h et 12h
@@ -973,6 +1489,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.13] - 2025-01-17
 
 ### 🔍 Diagnostic renforcé - Debug espacement proportionnel avec retry
@@ -984,6 +1506,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.12] - 2025-01-17
 
 ### 🔍 Diagnostic - Amélioration des messages de debug pour espacement proportionnel
@@ -995,6 +1523,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.11] - 2025-01-17
 
 ### 🔧 Renforcement - Configuration espacement proportionnel des graphiques
@@ -1005,6 +1539,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.10] - 2025-01-17
 
 ### 🐛 Correction - Espacement proportionnel des points sur les graphiques
@@ -1015,6 +1555,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.9] - 2025-01-17
 
 ### ✨ Amélioration - Espacement proportionnel des points sur les graphiques
@@ -1024,6 +1570,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.8] - 2025-01-17
 
 ### 🐛 Correction - Suppression scrollbars indésirables page contrôle
@@ -1033,6 +1585,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.7] - 2025-01-17
 
 ### 🐛 Correction - Suppression badge dupliqué page contrôle
@@ -1042,6 +1600,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.6] - 2025-01-17
 
 ### 🐛 Correction - Badge de synchronisation page contrôle
@@ -1053,6 +1617,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.5] - 2025-10-22
 
 ### 🛠️ Durcissement backend & alertes
@@ -1064,6 +1634,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.4] - 2025-10-21
 
 ### 🛠️ Sync badges & indicateurs temps réel
@@ -1073,6 +1649,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.3] - 2025-10-21
 
 ### ⚡ Contrôle des actionneurs
@@ -1082,6 +1664,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.2] - 2025-10-21
 
 ### 🔧 Realtime Logger
@@ -1091,6 +1679,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.1] - 2025-10-21
 
 ### ⚙️ Auto-save formulaires contrôle
@@ -1101,6 +1695,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.9.0] - 2025-10-20
 
 ### 🎨 Refonte UI/UX – Page contrôle
@@ -1113,6 +1713,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.8.9] - 2025-10-20
 
 ### 🎨 Améliorations UI/UX
@@ -1132,6 +1738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.8.8] - 2025-10-20
 
 ### 🎨 Améliorations UI/UX
@@ -1145,6 +1757,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.8.7] - 2025-10-20
 
 ### 📚 Documentation majeure
@@ -1165,6 +1783,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.8.6] - 2025-10-20
 
 ### 🚿 Nettoyage des endpoints legacy
@@ -1183,6 +1807,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.8.4] - 2025-10-20
 
 ### 🐛 Correction - Traitement GPIO directs
@@ -1192,6 +1822,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.8.3] - 2025-01-16
 
 ### 🐛 Correction - Logique GPIO 18
@@ -1234,6 +1870,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.7.6] - 2025-01-16
 
 ### 🎨 Amélioré - Interface Logs Temps Réel
@@ -1247,6 +1889,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.7.5] - 2025-01-16
 
 ### 🐛 Corrigé - Régénération Automatique de Lignes NULL
@@ -1269,6 +1917,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.7.4] - 2025-01-15
 
 ### 🔄 Corrigé - Synchronisation Bidirectionnelle Interface Web ↔ ESP32
@@ -1301,6 +1955,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.7.2] - 2025-01-27
 
 ### 🧹 Nettoyage
@@ -1323,6 +1983,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.33] - 2025-01-27
 
 ### 🔄 Modifié
@@ -1335,6 +2001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.39] - 2025-01-27
 
 ### 🔄 Modifié
@@ -1348,6 +2020,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.38] - 2025-01-27
 
 ### ✨ Ajouté
@@ -1367,6 +2045,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.7.1] - 2025-01-27
 
 ### 🐛 Corrigé - Erreur 500 API et amélioration affichage GPIO
@@ -1496,6 +2180,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.35] - 2025-01-27
 
 ### 🗑️ Supprimé
@@ -1509,6 +2199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.34] - 2025-01-27
 
 ### 🐛 Corrigé
@@ -1520,6 +2216,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.33] - 2025-01-27
 
 ### 🐛 Corrigé
@@ -1532,6 +2234,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.32] - 2025-01-27
 
 ### 🐛 Corrigé
@@ -1545,6 +2253,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.31] - 2025-01-27
 
 ### 🎨 Amélioré
@@ -1557,6 +2271,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.30] - 2025-01-27
 
 ### 🔧 Corrigé
@@ -1571,6 +2291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.29] - 2025-10-16
 
 ### 🔧 Corrigé
@@ -1584,6 +2310,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.26] - 2025-01-27
 
 ### ✨ Amélioration - Panneau d'état du système sur la page de contrôle
@@ -1719,6 +2451,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.21] - 2025-01-27
 
 ### 🐛 Correction - Route API pour sauvegarde des paramètres
@@ -1731,6 +2469,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.20] - 2025-01-27
 
 ### 🐛 Correction - Interface de contrôle
@@ -1743,6 +2487,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.19] - 2025-10-16
 
 ### 🎨 Amélioration - Interface de contrôle harmonisée
@@ -1803,6 +2553,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.17] - 2025-10-16
 
 ### 🐛 Correction - Erreur de syntaxe OutputRepository
@@ -1824,6 +2580,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.16] - 2025-10-16
 
 ### 🐛 Correction - Erreur fatale TableConfig
@@ -1845,6 +2607,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.15] - 2025-10-15
 
 ### 🔍 ANALYSE - Régression interface de contrôle et diagnostic avancé
@@ -1903,6 +2671,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.11] - 2024-12-19
 
 ### 🧪 TEST - Script de test automatique PowerShell
@@ -1972,6 +2746,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.5] - 2025-01-27 🔧 CORRECTION - Erreurs 500 API temps réel et contrôle
 
 ### 🐛 Corrections critiques
@@ -1998,6 +2778,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.7.6] - 2025-01-27 🗂️ ARCHIVAGE - Nettoyage fichiers legacy
 
 ### 🧹 Archivage et nettoyage
@@ -2025,6 +2811,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.3] - 2025-01-27 🔧 CORRECTION - Erreur 500 page de contrôle
 
 ### 🐛 Correction bug critique
@@ -2042,6 +2834,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.4] - 2025-01-27 🎨 OPTIMISATION UX - Colonnes équilibrées et formulaire unifié
 
 ### 🎨 Amélioration interface
@@ -2065,6 +2863,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.3] - 2025-01-27 🎨 AMÉLIORATION UX - Organisation en 2 colonnes équilibrées
 
 ### 🎨 Amélioration interface
@@ -2092,6 +2896,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.2] - 2025-01-27 🎨 AMÉLIORATION MAJEURE - Interface pleine largeur et regroupement final
 
 ### 🎨 Amélioration interface majeure
@@ -2117,6 +2927,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.1] - 2025-01-27 🎨 AMÉLIORATION UX - Regroupement des contrôles Chauffage & Lumière
 
 ### 🎨 Amélioration interface
@@ -2133,6 +2949,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.2] - 2025-01-27 🚀 RÉVOLUTION UX - Sauvegarde automatique des paramètres
 
 ### 🚀 Fonctionnalité révolutionnaire
@@ -2161,6 +2983,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.1] - 2025-01-27 🎨 HARMONISATION COMPLÈTE - Interface cohérente et esthétique
 
 ### 🎨 Interface harmonisée
@@ -2221,6 +3049,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.46] - 2025-01-27 🎨 AMÉLIORATION UX - Harmonisation des sections Chauffage et Système
 
 ### 🎨 Amélioration interface
@@ -2236,6 +3070,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.45] - 2025-01-27 🎨 AMÉLIORATION UX - Regroupement des contrôles de gestion de l'eau
 
 ### 🎨 Amélioration interface
@@ -2252,6 +3092,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.44] - 2025-01-27 🎨 AMÉLIORATION UX - Regroupement des contrôles de nourrissage
 
 ### 🎨 Amélioration interface
@@ -2267,6 +3113,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.43] - 2025-01-27 🎨 AMÉLIORATION UX - Suppression du bouton d'enregistrement manuel
 
 ### 🎨 Amélioration interface
@@ -2287,6 +3139,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.42] - 2025-01-27 ✨ AMÉLIORATION UX - Enregistrement automatique du formulaire de contrôle
 
 ### ✨ Nouvelle fonctionnalité
@@ -2313,6 +3171,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.41] - 2025-10-14 🔧 CORRECTION CRITIQUE - Force environnement PROD pour garantir bonnes tables
 
 ### 🚨 Correction critique
@@ -2337,6 +3201,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.40] - 2025-10-14 🔧 CRITIQUE - Mise à jour SÉLECTIVE des outputs (évite écrasement)
 
 ### 🚨 Correction critique
@@ -2359,6 +3229,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.39] - 2025-10-14 🔧 Correction GPIO 100 - Mise à jour email dans outputs
 
 ### 🔧 Correction importante
@@ -2376,6 +3252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.38] - 2025-10-14 🔧 Correction structure BDD - GPIO 111-116 dans outputs uniquement
 
 ### 🔧 Correction importante
@@ -2394,6 +3276,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.37] - 2025-10-14 🔄 Synchronisation complète ESP32 - Nouveaux GPIO virtuels 111-116
 
 ### ✨ Nouveaux paramètres ESP32
@@ -2423,6 +3311,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.36] - 2025-10-13 ✨ Amélioration UI - Intégration des contrôles Mode Live
 
 ### ✨ Amélioration de l'interface
@@ -2451,6 +3345,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.35] - 2025-10-13 🐛 Correction - Badge LIVE trompeur quand système hors ligne
 
 ### 🐛 Problème résolu
@@ -2482,6 +3382,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.34] - 2025-10-13 🐛 Correction - Redirection des liens index.html
 
 ### 🐛 Problème résolu
@@ -2529,6 +3435,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.33] - 2025-10-13 🐛 Correction - Problème de cache en production
 
 ### 🐛 Corrections critiques
@@ -2606,6 +3518,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.32] - 2025-10-13 🐛 Correction - Affichage version firmware ESP32
 
 ### 🐛 Corrections
@@ -2624,6 +3542,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.31] - 2025-10-13 ✨ Amélioration - Centrage barre mode live
 
 ### ✨ Améliorations UI
@@ -2641,6 +3565,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.30] - 2025-10-13 🐛 Correction - Redirections ffp3datas obsolètes
 
 ### 🐛 Corrections critiques
@@ -2668,6 +3598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.29] - 2025-10-13 🐛 Correction ULTIME - Icônes actions simplifiées au maximum
 
 ### 🐛 Correction critique
@@ -2685,6 +3621,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.28] - 2025-10-13 🐛 Correction - Icônes invisibles dans le bloc Actions
 
 ### 🐛 Correction critique
@@ -2706,6 +3648,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.27] - 2025-10-13 🐛 Correction - Formatage des dates de connexion des boards
 
 ### 🐛 Corrections
@@ -2720,6 +3668,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.26] - 2025-10-13 🎨 Optimisation UI - Équilibrage des colonnes
 
 ### ✨ Améliorations
@@ -2736,6 +3690,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.25] - 2025-10-13 🎨 Amélioration UI - Label Fréquence WakeUp
 
 ### ✨ Améliorations
@@ -2744,6 +3704,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.24] - 2025-10-13 🔧 CORRECTION DÉFINITIVE - Icônes Font Awesome invisibles
 
 ### 🐛 Correction critique
@@ -2792,6 +3758,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.23] - 2025-10-13 🎨 Chauffage et Système côte à côte
 
 ### ✨ Améliorations
@@ -2812,6 +3784,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.22] - 2025-10-13 🔧 CORRECTION DÉFINITIVE - Icônes Font Awesome invisibles
 
 ### 🐛 Correction critique
@@ -2854,6 +3832,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.22] - 2025-10-13 🎨 Interface compacte - Paramètres sur lignes multiples
 
 ### ✨ Améliorations
@@ -2878,6 +3862,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.21] - 2025-10-13 🎨 Amélioration interface nourrissage
 
 ### ✨ Améliorations
@@ -2898,6 +3888,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.20] - 2025-10-13 🔧 Renforcement affichage icônes Font Awesome
 
 ### 🐛 Corrections de bugs
@@ -2924,6 +3920,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.19] - 2025-10-13 🐛 Correction cycle infini pompe réservoir (logique inversée)
 
 ### 🐛 Corrections de bugs
@@ -2972,6 +3974,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.18] - 2025-10-13 🐛 Correction erreur JavaScript dans ChartUpdater
 
 ### 🐛 Corrections de bugs
@@ -3005,6 +4013,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.17] - 2025-10-13 🐛 Correction création automatique de doublons GPIO
 
 ### 🐛 Corrections de bugs
@@ -3092,6 +4106,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.16] - 2025-10-13 🐛 Correction bug ChartUpdater temps réel
 
 ### 🐛 Corrections de bugs
@@ -3116,6 +4136,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.15] - 2025-10-13 🐛 Correction des liens de navigation
 
 ### 🐛 Corrections de bugs
@@ -3142,6 +4168,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.14] - 2025-10-13 🐛 Correction ExportController vers PSR-7
 
 ### 🐛 Corrections de bugs
@@ -3179,6 +4211,12 @@ Contrôleurs HTML (moins critiques) :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.13] - 2025-10-13 🐛 Correction critique HTTP 500 sur endpoint ESP32
 
 ### 🐛 Corrections de bugs
@@ -3209,6 +4247,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.12] - 2025-10-13 🐛 Correction logs "GPIO NaN" dans la synchronisation
 
 ### 🐛 Corrections de bugs
@@ -3226,6 +4270,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.11] - 2025-10-13 🐛 Correction décalage horaire au chargement initial
 
 ### 🐛 Corrections de bugs
@@ -3243,6 +4293,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.10] - 2025-10-13 🐛 Correction affichage email
 
 ### 🐛 Corrections de bugs
@@ -3262,6 +4318,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.7.0] - 2025-10-13 🌍 Gestion timezone et fenêtre glissante améliorées
 
 ### ✨ Nouvelles fonctionnalités
@@ -3352,6 +4414,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.9] - 2025-10-13 🔧 Correction icônes Font Awesome Control
 
 ### 🐛 Corrigé - Icônes invisibles
@@ -3390,6 +4458,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.6.0] - 2025-10-13 🎨 Interface de contrôle modernisée et responsive
 
 ### ✨ Amélioration majeure de l'UI des boutons d'actions
@@ -3442,6 +4516,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.8] - 2025-10-12 ✅ Correction finale timezone - Africa/Casablanca confirmé
 
 ### 🐛 Corrigé - CONFIRMATION
@@ -3482,6 +4562,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit être identi
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.7] - 2025-10-12 🌍 Changement timezone → Africa/Casablanca (lieu physique)
 
 ### 🔧 Changement majeur - Fuseau horaire
@@ -3526,6 +4612,12 @@ Si nécessaire de revenir à l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.6] - 2025-10-12 🕐 Tentative correction fuseau horaire (remplacée par v4.5.7)
 
 ### 📝 Note
@@ -3538,6 +4630,12 @@ Cette version a été remplacée par la v4.5.7 qui corrige le timezone vers Casa
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.5] - 2025-10-12 ✨ Mode live COMPLET - Toutes les informations en temps réel
 
 ### ✨ Ajouté
@@ -3602,6 +4700,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.4] - 2025-10-12 🐛 Correction critique - Double déclaration realtimeUpdater
 
 ### 🐛 Corrigé
@@ -3630,6 +4734,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.3] - 2025-10-12 📝 Documentation - Plan de correction
 
 ### 📝 Ajouté
@@ -3645,6 +4755,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.2] - 2025-10-12 🔧 Correction mode live - Cartes de statistiques complètes
 
 ### 🐛 Corrigé
@@ -3710,6 +4826,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.4.8] - 2025-10-12 🎨 Refonte Design - Boutons de Contrôle
 
 ### ✨ Nouveau Design
@@ -3754,6 +4876,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.5.0] - 2025-10-12 🎬 Mode Live - Mise à jour temps réel des graphiques
 
 ### ✨ Ajouté
@@ -3831,6 +4959,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.4.7] - 2025-10-12 ⚙️ Amélioration UX - Période par défaut
 
 ### 🔧 Amélioré
@@ -3846,6 +4980,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.4.6] - 2025-10-12 🔧 Audit & Corrections Critiques
 
 ### 🚨 Corrigé (CRITIQUE)
@@ -3920,6 +5060,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.4.5] - 2025-10-12 🔗 Fix Navigation Links
 
 ### 🐛 Corrigé
@@ -3932,6 +5078,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.4.4] - 2025-10-11 🔧 Fix Service Worker Asset Paths
 
 ### 🐛 Corrigé
@@ -3943,6 +5095,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.4.3] - 2025-10-11 🔧 Fix Asset Paths with Symbolic Links
 
 ### 🐛 Corrigé
@@ -3958,6 +5116,12 @@ Suite aux erreurs 404 persistantes malgré la correction des chemins en v4.4.2, 
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.4.2] - 2025-10-11 🔧 Fix Asset Paths
 
 ### 🐛 Corrigé
@@ -3973,6 +5137,12 @@ Le serveur web pointe déjà vers le dossier `public/` comme document root, donc
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.4.1] - 2025-10-11 📚 Major Documentation Cleanup
 
 ### 📚 Amélioré
@@ -4033,6 +5203,12 @@ docs/
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.4.0] - 2025-10-11 🔄 Homogénéisation PROD/TEST et modernisation interfaces
 
 ### ✨ Ajouté
@@ -4116,6 +5292,12 @@ docs/
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.3.1] - 2025-10-11 📱 Amélioration de l'affichage mobile de la page de contrôle
 
 ### 🐛 Corrigé
@@ -4133,6 +5315,12 @@ docs/
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.3.0] - 2025-10-11 💧 Ajout du bloc Bilan Hydrique
 
 ### ✨ Ajouté
@@ -4184,6 +5372,12 @@ docs/
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.2.1] - 2025-10-11 🎨 Amélioration visuelle des graphiques
 
 ### 🔧 Modifié
@@ -4200,6 +5394,12 @@ docs/
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.2.0] - 2025-10-11 🔄 Synchronisation temps réel de l'interface de contrôle
 
 ### ✨ Ajouté
@@ -4238,6 +5438,12 @@ docs/
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.1.0] - 2025-10-11 ✨ Affichage version firmware ESP32
 
 ### ✨ Ajouté
@@ -4252,6 +5458,12 @@ docs/
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [4.0.0] - 2025-10-11 🚀 MAJOR RELEASE - Temps Réel & PWA
 
 ### 💥 Breaking Changes
@@ -4455,6 +5667,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [3.1.0] - 2025-10-10
 
 ### 🐛 Sprint 3 - Améliorations Qualité & Corrections
@@ -4492,6 +5710,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [3.0.0] - 2025-10-10 🚀 BREAKING CHANGES
 
 ### ⚡ Sprint 2 - Refactoring Architectural Majeur
@@ -4556,6 +5780,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.9.0] - 2025-10-10
 
 ### 🐛 Corrigé (Sprint 1 - Corrections Critiques)
@@ -4606,6 +5836,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.8.0] - 2025-10-10
 
 ### ✨ Ajouté
@@ -4642,6 +5878,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.7.0] - 2025-10-10
 
 ### ✨ Ajouté
@@ -4685,6 +5927,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.6.0] - 2025-10-10
 
 ### ✨ Ajouté
@@ -4720,6 +5968,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.5.0] - 2025-10-10
 
 ### ✨ Décision finale
@@ -4744,6 +5998,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.4.1] - 2025-10-10
 
 ### 🎯 Modifié
@@ -4760,6 +6020,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.4.0] - 2025-10-10
 
 ### ✨ Ajouté
@@ -4792,6 +6058,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.3.3] - 2025-10-10
 
 ### 🐛 Corrigé
@@ -4808,6 +6080,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.3.2] - 2025-10-10
 
 ### 🐛 Corrigé
@@ -4824,6 +6102,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.3.1] - 2025-10-10
 
 ### 🐛 Corrigé
@@ -4842,6 +6126,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.3.0] - 2025-10-10
 
 ### ✨ Ajouté
@@ -4878,6 +6168,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.2.4] - 2025-10-10
 
 ### 🐛 Corrigé
@@ -4888,6 +6184,12 @@ ance future
 
 ---
 
+## [5.0.8] - 2026-03-06
+
+### Modifié - test script publish-cycle
+- **Résumé** : test script publish-cycle.
+
+---
 ## [2.2.3] - 2025-10-10
 
 ### 🐛 Corrigé

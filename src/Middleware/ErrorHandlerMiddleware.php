@@ -44,6 +44,27 @@ class ErrorHandlerMiddleware implements MiddlewareInterface
         } catch (Throwable $e) {
             $errorMessage = 'Exception non gérée';
 
+            // #region agent log
+            $logPath = dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . 'debug-bef9f6.log';
+            $payload = [
+                'sessionId' => 'bef9f6',
+                'location' => __FILE__ . ':' . (string) __LINE__,
+                'message' => 'Exception caught in ErrorHandlerMiddleware',
+                'data' => [
+                    'exception_class' => get_class($e),
+                    'exception_message' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine(),
+                    'url' => (string) $request->getUri(),
+                    'method' => $request->getMethod(),
+                    'trace' => $e->getTraceAsString(),
+                ],
+                'timestamp' => (int) (microtime(true) * 1000),
+                'hypothesisId' => 'A',
+            ];
+            @file_put_contents($logPath, json_encode($payload) . "\n", FILE_APPEND | LOCK_EX);
+            // #endregion
+
             // Logger l'erreur avec contexte
             $this->logger->error($errorMessage, [
                 'message' => $e->getMessage(),
