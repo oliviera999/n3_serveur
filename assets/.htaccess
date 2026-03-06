@@ -1,0 +1,8 @@
+RewriteEngine On
+Options -Indexes
+
+# Pont statique pour les assets quand le DocumentRoot pointe sur serveur/
+# et que le serveur web tente de servir /assets/* avant d'entrer dans Slim.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /public/assets/$1 [L]
