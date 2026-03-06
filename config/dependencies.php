@@ -321,7 +321,8 @@ return [
     \App\Controller\Msp\MspDataController::class => function (ContainerInterface $c) {
         return new \App\Controller\Msp\MspDataController(
             $c->get(TemplateRenderer::class),
-            $c->get(MspSensorRepository::class)
+            $c->get(MspSensorRepository::class),
+            $c->get(CsrfService::class)
         );
     },
 
@@ -344,7 +345,8 @@ return [
     \App\Controller\N3pp\N3ppDataController::class => function (ContainerInterface $c) {
         return new \App\Controller\N3pp\N3ppDataController(
             $c->get(TemplateRenderer::class),
-            $c->get(N3ppSensorRepository::class)
+            $c->get(N3ppSensorRepository::class),
+            $c->get(CsrfService::class)
         );
     },
 

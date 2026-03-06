@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -51,6 +57,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -94,6 +106,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -137,6 +155,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -189,6 +213,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -234,6 +264,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -279,6 +315,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -325,6 +367,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -370,6 +418,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -417,6 +471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -462,6 +522,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -507,6 +573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -552,6 +624,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -598,6 +676,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -641,6 +725,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -689,6 +779,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -732,6 +828,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -778,6 +880,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -822,6 +930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -868,6 +982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -914,6 +1034,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -959,6 +1085,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1006,6 +1138,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1050,6 +1188,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1095,6 +1239,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1141,6 +1291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1187,6 +1343,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1231,6 +1393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1276,6 +1444,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1323,6 +1497,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1369,6 +1549,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1414,6 +1600,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1459,6 +1651,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1504,6 +1702,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1549,6 +1753,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1593,6 +1803,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1637,6 +1853,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1681,6 +1903,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1725,6 +1953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1770,6 +2004,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1819,6 +2059,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1868,6 +2114,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1910,6 +2162,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1952,6 +2210,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -1994,6 +2258,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2036,6 +2306,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2078,6 +2354,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2120,6 +2402,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2179,6 +2467,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2228,6 +2522,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2275,6 +2575,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2323,6 +2629,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2375,6 +2687,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2439,6 +2757,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2485,6 +2809,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2533,6 +2863,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2581,6 +2917,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2626,6 +2968,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2674,6 +3022,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2719,6 +3073,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2763,6 +3123,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2808,6 +3174,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2863,6 +3235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2915,6 +3293,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -2975,6 +3359,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3039,6 +3429,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3093,6 +3489,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3139,6 +3541,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3187,6 +3595,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3234,6 +3648,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3281,6 +3701,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3326,6 +3752,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3371,6 +3803,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3418,6 +3856,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3464,6 +3908,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3512,6 +3962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3565,6 +4021,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3622,6 +4084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3675,6 +4143,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3730,6 +4204,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3784,6 +4264,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3833,6 +4319,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3878,6 +4370,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3927,6 +4425,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -3973,6 +4477,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4018,6 +4528,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4063,6 +4579,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4110,6 +4632,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4157,6 +4685,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4203,6 +4737,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4249,6 +4789,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4294,6 +4840,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4339,6 +4891,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4384,6 +4942,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4431,6 +4995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4478,6 +5048,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4523,6 +5099,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4568,6 +5150,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4613,6 +5201,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4659,6 +5253,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4707,6 +5307,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4762,6 +5368,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4811,6 +5423,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4867,6 +5485,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4921,6 +5545,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -4966,6 +5596,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5044,6 +5680,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5093,6 +5735,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5151,6 +5799,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5219,6 +5873,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5277,6 +5937,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5325,6 +5991,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5374,6 +6046,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5429,6 +6107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5594,6 +6278,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5643,6 +6333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5690,6 +6386,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5738,6 +6440,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5787,6 +6495,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5835,6 +6549,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5885,6 +6605,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -5934,6 +6660,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6105,6 +6837,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6153,6 +6891,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6201,6 +6945,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6297,6 +7047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6354,6 +7110,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6411,6 +7173,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6505,6 +7273,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6610,6 +7384,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6672,6 +7452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6735,6 +7521,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6788,6 +7580,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6847,6 +7645,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6910,6 +7714,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -6971,6 +7781,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7023,6 +7839,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7087,6 +7909,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7183,6 +8011,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7234,6 +8068,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7286,6 +8126,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7337,6 +8183,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7393,6 +8245,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7455,6 +8313,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7515,6 +8379,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7573,6 +8443,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7626,6 +8502,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7680,6 +8562,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7745,6 +8633,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7809,6 +8703,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7876,6 +8776,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -7959,6 +8865,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8072,6 +8984,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8126,6 +9044,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8179,6 +9103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8242,6 +9172,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8295,6 +9231,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8352,6 +9294,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8402,6 +9350,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8454,6 +9408,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8498,6 +9458,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8582,6 +9548,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8638,6 +9610,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8716,6 +9694,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8776,6 +9760,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8832,6 +9822,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8894,6 +9890,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -8978,6 +9980,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9047,6 +10055,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9170,6 +10184,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9230,6 +10250,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9292,6 +10318,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9365,6 +10397,12 @@ Contrôleurs HTML (moins critiques) :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9431,6 +10469,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9484,6 +10528,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9537,6 +10587,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9592,6 +10648,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9718,6 +10780,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9792,6 +10860,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9880,6 +10954,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -9956,6 +11036,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit être identi
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10036,6 +11122,12 @@ Si nécessaire de revenir à l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10084,6 +11176,12 @@ Cette version a été remplacée par la v4.5.7 qui corrige le timezone vers Casa
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10184,6 +11282,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10248,6 +11352,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10299,6 +11409,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10400,6 +11516,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10480,6 +11602,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10593,6 +11721,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10644,6 +11778,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10754,6 +11894,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10802,6 +11948,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10849,6 +12001,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10900,6 +12058,12 @@ Suite aux erreurs 404 persistantes malgré la correction des chemins en v4.4.2, 
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -10951,6 +12115,12 @@ Le serveur web pointe déjà vers le dossier `public/` comme document root, donc
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11047,6 +12217,12 @@ docs/
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11166,6 +12342,12 @@ docs/
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11219,6 +12401,12 @@ docs/
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11306,6 +12494,12 @@ docs/
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11358,6 +12552,12 @@ docs/
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11432,6 +12632,12 @@ docs/
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11482,6 +12688,12 @@ docs/
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11721,6 +12933,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11794,6 +13012,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11894,6 +13118,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -11980,6 +13210,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12052,6 +13288,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12131,6 +13373,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12202,6 +13450,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12262,6 +13516,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12314,6 +13574,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12382,6 +13648,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12434,6 +13706,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12486,6 +13764,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12540,6 +13824,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12612,6 +13902,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
@@ -12658,6 +13954,12 @@ ance future
 
 ---
 
+## [5.0.14] - 2026-03-06
+
+### Correctif - injection CsrfService pour N3ppDataController et MspDataController
+- **Résumé** : injection CsrfService pour N3ppDataController et MspDataController.
+
+---
 ## [5.0.13] - 2026-03-06
 
 ### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
