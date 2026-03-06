@@ -1,0 +1,8 @@
+[Sun, 14 Jul 2024 02:01:26] démarrage cron
+Nombre de valeurs aberrantes : 
+[Sun, 14 Jul 2024 02:03:22] démarrage cron
+Nombre de valeurs aberrantes : 
+[Sun, 14 Jul 2024 02:03:30] démarrage cron
+Nombre de valeurs aberrantes : 
+[Sun, 14 Jul 2024 02:04:43] démarrage cron
+Nombre de valeurs aberrantes : 

@@ -1,0 +1,218 @@
+[Sun, 14 Jul 2024 02:49:26] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 160
+Niveau d'eau de l'aquarium max : 153
+1223 valeurs supprimées pour sol
+1883 valeurs supprimées pour Humid2
+1559 valeurs supprimées pour la température de l'eau
+1984 valeurs supprimées pour la température de l'eau
+482 valeurs supprimées pour la température de l'eau 25
+153 valeurs supprimées pour la température de l'air
+160 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 02:58:47] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1853
+1853 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 02:59:55] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:00:55] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:00:57] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:02:36] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:02:37] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:02:38] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:02:38] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:02:38] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:06:02] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:08:13] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:08:15] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:08:15] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:08:16] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:08:16] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:10:19] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:10:20] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:10:20] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:10:21] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:11:07] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:11:27] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le niveau d'eau de réserve
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:11:44] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le pontdiv
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:12:43] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 1857
+1857 valeurs supprimées minimum pour le pontdiv
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:12:45] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 0
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:13:46] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 0
+Cron correctement executé.
+ 
+[Sun, 14 Jul 2024 03:13:47] démarrage cron
+Nombre de valeurs aberrantes : 
+Niveau d'eau de la réserve min : 0
+Niveau d'eau de l'aquarium max : 0
+Niveau d'eau de l'aquarium max : 0
+Cron correctement executé.
+ 
