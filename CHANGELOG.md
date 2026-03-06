@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -39,6 +45,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -70,6 +82,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -101,6 +119,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -141,6 +165,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -174,6 +204,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -207,6 +243,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -241,6 +283,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -274,6 +322,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -309,6 +363,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -342,6 +402,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -375,6 +441,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -408,6 +480,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -442,6 +520,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -473,6 +557,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -509,6 +599,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -540,6 +636,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -574,6 +676,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -606,6 +714,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -640,6 +754,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -674,6 +794,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -707,6 +833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -742,6 +874,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -774,6 +912,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -807,6 +951,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -841,6 +991,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -875,6 +1031,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -907,6 +1069,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -940,6 +1108,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -975,6 +1149,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1009,6 +1189,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1042,6 +1228,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1075,6 +1267,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1108,6 +1306,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1141,6 +1345,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1173,6 +1383,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1205,6 +1421,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1237,6 +1459,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1269,6 +1497,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1302,6 +1536,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1339,6 +1579,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1376,6 +1622,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1406,6 +1658,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1436,6 +1694,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1466,6 +1730,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1496,6 +1766,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1526,6 +1802,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1556,6 +1838,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1603,6 +1891,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1640,6 +1934,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1675,6 +1975,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1711,6 +2017,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1751,6 +2063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1803,6 +2121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1837,6 +2161,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1873,6 +2203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1909,6 +2245,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1942,6 +2284,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -1978,6 +2326,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2011,6 +2365,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2043,6 +2403,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2076,6 +2442,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2119,6 +2491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2159,6 +2537,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2207,6 +2591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2259,6 +2649,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2301,6 +2697,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2335,6 +2737,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2371,6 +2779,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2406,6 +2820,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2441,6 +2861,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2474,6 +2900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2507,6 +2939,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2542,6 +2980,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2576,6 +3020,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2612,6 +3062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2653,6 +3109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2698,6 +3160,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2739,6 +3207,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2782,6 +3256,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2824,6 +3304,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2861,6 +3347,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2894,6 +3386,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2931,6 +3429,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2965,6 +3469,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -2998,6 +3508,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3031,6 +3547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3066,6 +3588,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3101,6 +3629,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3135,6 +3669,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3169,6 +3709,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3202,6 +3748,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3235,6 +3787,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3268,6 +3826,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3303,6 +3867,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3338,6 +3908,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3371,6 +3947,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3404,6 +3986,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3437,6 +4025,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3471,6 +4065,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3507,6 +4107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3550,6 +4156,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3587,6 +4199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3631,6 +4249,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3673,6 +4297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3706,6 +4336,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3772,6 +4408,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3809,6 +4451,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3855,6 +4503,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3911,6 +4565,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3957,6 +4617,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -3993,6 +4659,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4030,6 +4702,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4073,6 +4751,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4226,6 +4910,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4263,6 +4953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4298,6 +4994,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4334,6 +5036,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4371,6 +5079,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4407,6 +5121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4445,6 +5165,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4482,6 +5208,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4641,6 +5373,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4677,6 +5415,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4713,6 +5457,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4797,6 +5547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4842,6 +5598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4887,6 +5649,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -4969,6 +5737,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5062,6 +5836,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5112,6 +5892,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5163,6 +5949,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5204,6 +5996,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5251,6 +6049,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5302,6 +6106,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5351,6 +6161,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5391,6 +6207,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5443,6 +6265,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5527,6 +6355,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5566,6 +6400,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5606,6 +6446,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5645,6 +6491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5689,6 +6541,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5739,6 +6597,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5787,6 +6651,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5833,6 +6703,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5874,6 +6750,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5916,6 +6798,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -5969,6 +6857,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6021,6 +6915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6076,6 +6976,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6147,6 +7053,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6248,6 +7160,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6290,6 +7208,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6331,6 +7255,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6382,6 +7312,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6423,6 +7359,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6468,6 +7410,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6506,6 +7454,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6546,6 +7500,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6578,6 +7538,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6650,6 +7616,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6694,6 +7666,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6760,6 +7738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6808,6 +7792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6852,6 +7842,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6902,6 +7898,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -6974,6 +7976,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7031,6 +8039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7142,6 +8156,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7190,6 +8210,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7240,6 +8266,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7301,6 +8333,12 @@ Contrôleurs HTML (moins critiques) :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7355,6 +8393,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7396,6 +8440,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7437,6 +8487,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7480,6 +8536,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7594,6 +8656,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7656,6 +8724,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7732,6 +8806,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7796,6 +8876,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit être identi
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7864,6 +8950,12 @@ Si nécessaire de revenir à l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7900,6 +8992,12 @@ Cette version a été remplacée par la v4.5.7 qui corrige le timezone vers Casa
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -7988,6 +9086,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8040,6 +9144,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8079,6 +9189,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8168,6 +9284,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8236,6 +9358,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8337,6 +9465,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8376,6 +9510,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8474,6 +9614,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8510,6 +9656,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8545,6 +9697,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8584,6 +9742,12 @@ Suite aux erreurs 404 persistantes malgré la correction des chemins en v4.4.2, 
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8623,6 +9787,12 @@ Le serveur web pointe déjà vers le dossier `public/` comme document root, donc
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8707,6 +9877,12 @@ docs/
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8814,6 +9990,12 @@ docs/
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8855,6 +10037,12 @@ docs/
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8930,6 +10118,12 @@ docs/
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -8970,6 +10164,12 @@ docs/
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9032,6 +10232,12 @@ docs/
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9070,6 +10276,12 @@ docs/
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9297,6 +10509,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9358,6 +10576,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9446,6 +10670,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9520,6 +10750,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9580,6 +10816,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9647,6 +10889,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9706,6 +10954,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9754,6 +11008,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9794,6 +11054,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9850,6 +11116,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9890,6 +11162,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9930,6 +11208,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -9972,6 +11256,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -10032,6 +11322,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
@@ -10066,6 +11362,12 @@ ance future
 
 ---
 
+## [5.0.12] - 2026-03-06
+
+### Modifié - mise a jour publication
+- **Résumé** : mise a jour publication.
+
+---
 ## [5.0.11] - 2026-03-06
 
 ### Modifié - integration contenu index historique (salle n3, lycee Lyautey, contacts) sur page d'accueil
