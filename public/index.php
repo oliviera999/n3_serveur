@@ -64,11 +64,8 @@ $basePath = rtrim($basePath, '/');
 if ($basePath !== '' && $basePath !== '/') {
     $app->setBasePath($basePath);
 }
-// Chargement explicite au cas où l'autoload n'a pas été régénéré (composer dump-autoload)
-if (!class_exists('App\Util\BasePath', false)) {
-    require_once __DIR__ . '/../src/Util/BasePath.php';
-}
-\App\Util\BasePath::set($basePath);
+// Base path pour les templates (assets, liens). Utilisé par TemplateRenderer.
+$GLOBALS['base_path'] = $basePath;
 
 // ====================================================================
 // Middleware de gestion d'erreurs personnalisé

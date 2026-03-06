@@ -3,7 +3,6 @@
 namespace App\Service;
 
 use App\Security\CsrfService;
-use App\Util\BasePath;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -44,7 +43,7 @@ class TemplateRenderer
      */
     public function render(string $template, array $context = []): string
     {
-        $context['base_path'] = BasePath::get();
+        $context['base_path'] = $GLOBALS['base_path'] ?? '';
         if ($this->csrfService !== null) {
             $context['csrf_token'] = $this->csrfService->getToken();
             $context['csrf_field'] = $this->csrfService->getHiddenField();
