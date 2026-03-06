@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -45,6 +51,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -82,6 +94,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -119,6 +137,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -165,6 +189,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -204,6 +234,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -243,6 +279,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -283,6 +325,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -322,6 +370,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -363,6 +417,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -402,6 +462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -441,6 +507,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -480,6 +552,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -520,6 +598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -557,6 +641,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -599,6 +689,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -636,6 +732,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -676,6 +778,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -714,6 +822,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -754,6 +868,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -794,6 +914,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -833,6 +959,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -874,6 +1006,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -912,6 +1050,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -951,6 +1095,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -991,6 +1141,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1031,6 +1187,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1069,6 +1231,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1108,6 +1276,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1149,6 +1323,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1189,6 +1369,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1228,6 +1414,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1267,6 +1459,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1306,6 +1504,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1345,6 +1549,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1383,6 +1593,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1421,6 +1637,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1459,6 +1681,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1497,6 +1725,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1536,6 +1770,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1579,6 +1819,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1622,6 +1868,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1658,6 +1910,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1694,6 +1952,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1730,6 +1994,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1766,6 +2036,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1802,6 +2078,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1838,6 +2120,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1891,6 +2179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1934,6 +2228,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -1975,6 +2275,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2017,6 +2323,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2063,6 +2375,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2121,6 +2439,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2161,6 +2485,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2203,6 +2533,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2245,6 +2581,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2284,6 +2626,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2326,6 +2674,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2365,6 +2719,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2403,6 +2763,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2442,6 +2808,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2491,6 +2863,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2537,6 +2915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2591,6 +2975,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2649,6 +3039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2697,6 +3093,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2737,6 +3139,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2779,6 +3187,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2820,6 +3234,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2861,6 +3281,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2900,6 +3326,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2939,6 +3371,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -2980,6 +3418,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3020,6 +3464,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3062,6 +3512,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3109,6 +3565,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3160,6 +3622,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3207,6 +3675,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3256,6 +3730,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3304,6 +3784,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3347,6 +3833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3386,6 +3878,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3429,6 +3927,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3469,6 +3973,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3508,6 +4018,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3547,6 +4063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3588,6 +4110,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3629,6 +4157,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3669,6 +4203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3709,6 +4249,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3748,6 +4294,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3787,6 +4339,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3826,6 +4384,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3867,6 +4431,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3908,6 +4478,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3947,6 +4523,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -3986,6 +4568,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4025,6 +4613,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4065,6 +4659,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4107,6 +4707,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4156,6 +4762,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4199,6 +4811,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4249,6 +4867,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4297,6 +4921,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4336,6 +4966,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4408,6 +5044,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4451,6 +5093,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4503,6 +5151,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4565,6 +5219,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4617,6 +5277,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4659,6 +5325,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4702,6 +5374,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4751,6 +5429,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4910,6 +5594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4953,6 +5643,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -4994,6 +5690,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5036,6 +5738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5079,6 +5787,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5121,6 +5835,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5165,6 +5885,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5208,6 +5934,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5373,6 +6105,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5415,6 +6153,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5457,6 +6201,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5547,6 +6297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5598,6 +6354,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5649,6 +6411,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5737,6 +6505,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5836,6 +6610,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5892,6 +6672,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5949,6 +6735,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -5996,6 +6788,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6049,6 +6847,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6106,6 +6910,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6161,6 +6971,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6207,6 +7023,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6265,6 +7087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6355,6 +7183,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6400,6 +7234,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6446,6 +7286,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6491,6 +7337,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6541,6 +7393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6597,6 +7455,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6651,6 +7515,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6703,6 +7573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6750,6 +7626,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6798,6 +7680,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6857,6 +7745,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6915,6 +7809,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -6976,6 +7876,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7053,6 +7959,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7160,6 +8072,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7208,6 +8126,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7255,6 +8179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7312,6 +8242,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7359,6 +8295,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7410,6 +8352,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7454,6 +8402,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7500,6 +8454,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7538,6 +8498,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7616,6 +8582,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7666,6 +8638,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7738,6 +8716,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7792,6 +8776,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7842,6 +8832,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7898,6 +8894,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -7976,6 +8978,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8039,6 +9047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8156,6 +9170,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8210,6 +9230,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8266,6 +9292,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8333,6 +9365,12 @@ Contrôleurs HTML (moins critiques) :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8393,6 +9431,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8440,6 +9484,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8487,6 +9537,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8536,6 +9592,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8656,6 +9718,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8724,6 +9792,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8806,6 +9880,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8876,6 +9956,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit être identi
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8950,6 +10036,12 @@ Si nécessaire de revenir à l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -8992,6 +10084,12 @@ Cette version a été remplacée par la v4.5.7 qui corrige le timezone vers Casa
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9086,6 +10184,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9144,6 +10248,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9189,6 +10299,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9284,6 +10400,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9358,6 +10480,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9465,6 +10593,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9510,6 +10644,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9614,6 +10754,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9656,6 +10802,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9697,6 +10849,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9742,6 +10900,12 @@ Suite aux erreurs 404 persistantes malgré la correction des chemins en v4.4.2, 
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9787,6 +10951,12 @@ Le serveur web pointe déjà vers le dossier `public/` comme document root, donc
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9877,6 +11047,12 @@ docs/
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -9990,6 +11166,12 @@ docs/
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10037,6 +11219,12 @@ docs/
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10118,6 +11306,12 @@ docs/
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10164,6 +11358,12 @@ docs/
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10232,6 +11432,12 @@ docs/
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10276,6 +11482,12 @@ docs/
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10509,6 +11721,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10576,6 +11794,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10670,6 +11894,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10750,6 +11980,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10816,6 +12052,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10889,6 +12131,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -10954,6 +12202,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -11008,6 +12262,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -11054,6 +12314,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -11116,6 +12382,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -11162,6 +12434,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -11208,6 +12486,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -11256,6 +12540,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -11322,6 +12612,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
@@ -11362,6 +12658,12 @@ ance future
 
 ---
 
+## [5.0.13] - 2026-03-06
+
+### Correctif - correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable
+- **Résumé** : correction 404 assets (main.css, jQuery, scripts) et meta PWA mobile-web-app-capable.
+
+---
 ## [5.0.12] - 2026-03-06
 
 ### Modifié - mise a jour publication
