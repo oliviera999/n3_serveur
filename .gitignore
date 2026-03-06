@@ -1,1 +1,31 @@
+# Composer
+/vendor/
+composer.phar
+
+# Environnement (secrets)
+.env
+.env.local
+
+# Logs
+error_log
+cronlog.txt
+cronlog*.txt
+
+# Fichiers temporaires / exports
+*.csv
+/tmp/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+desktop.ini
+
+# Cache
+/var/cache/
+
+# Anciens dossiers (a supprimer apres migration)
 ffp3_backup/
+
+# PHP
+.phpunit.result.cache

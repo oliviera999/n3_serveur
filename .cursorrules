@@ -1,0 +1,187 @@
+# Règles du projet FFP3 Datas - Plateforme Aquaponie & IoT
+
+## 🎯 Vue d'ensemble du projet
+
+Application PHP 8+ de supervision d'un système d'aquaponie avec ESP32, utilisant Slim 4, Twig et Monolog.
+
+## 🏗️ Architecture
+
+### Stack technique
+- **Framework**: Slim 4 (routing, middleware)
+- **Template**: Twig (Bootstrap 5)
+- **Logs**: Monolog
+- **Tests**: PHPUnit
+- **Base de données**: MySQL/MariaDB avec PDO
+- **Dépendances**: Gérées via Composer
+
+### Structure des dossiers
+```
+├── public/              # Front-controller Slim (point d'entrée)
+├── src/
+│   ├── Config/          # Configuration (.env, PDO, TableConfig)
+│   ├── Controller/      # Endpoints HTTP (callbacks Slim)
+│   ├── Domain/          # DTO métier (ex: SensorData)
+│   ├── Repository/      # Accès base de données (PDO)
+│   ├── Service/         # Services métier (logs, stats, pompes, notifications)
+│   └── Command/         # Jobs CRON
+├── templates/           # Vues Twig
+└── tests/              # Tests unitaires PHPUnit
+```
+
+## 🗄️ Environnements et Tables
+
+### Environnements
+- **PRODUCTION**: Tables `ffp3Data` et `ffp3Outputs`
+- **TEST**: Tables `ffp3Data2` et `ffp3Outputs2`
+
+### Configuration via .env
+- Variable `ENV=prod` ou `ENV=test` détermine l'environnement par défaut
+- **TOUJOURS** utiliser `TableConfig::getEnvironment()` et `TableConfig::getDataTable()` pour accéder aux bonnes tables
+- Ne JAMAIS coder en dur les noms de tables
+
+### Routes
+- Routes PROD: `/aquaponie`, `/dashboard`, `/post-data`, etc.
+- Routes TEST: `/aquaponie-test`, `/dashboard-test`, `/post-data-test`, etc.
+
+## ⏰ Gestion du fuseau horaire
+
+**IMPORTANT**: Le fuseau horaire est unifié sur **Europe/Paris** pour tout le projet.
+
+- Configuration centralisée via `APP_TIMEZONE=Europe/Paris` dans `.env`
+- Le timezone est configuré automatiquement par `Env::load()`
+- **Ne JAMAIS** appeler `date_default_timezone_set()` manuellement dans les contrôleurs
+- Highcharts dans les templates Twig doit utiliser moment-timezone avec Europe/Paris
+
+## 🔒 Sécurité
+
+### API POST `/post-data`
+- Authentification par `api_key` (legacy) ET/OU signature HMAC-SHA256
+- Variables `.env`: `API_KEY`, `API_SIG_SECRET`, `SIG_VALID_WINDOW`
+- Validation via `SignatureValidator` service
+
+### Fichier .env
+- ⚠️ **PARTICULARITÉ**: Le `.env` est versionné dans Git pour ce projet (contrairement aux conventions usuelles)
+- Assurer la protection des informations sensibles par d'autres moyens si nécessaire
+
+## 📋 Conventions de code
+
+### PHP
+- Version minimale: PHP 8.1
+- PSR-4 autoloading via Composer
+- Utiliser le type hinting strict
+- Préférer les méthodes statiques pour les services utilitaires
+
+### Base de données
+- Utiliser PDO avec prepared statements
+- Les repositories encapsulent l'accès aux données
+- Pas d'ORM, requêtes SQL directes pour la performance
+
+### Gestion des erreurs
+- Logs via Monolog dans `cronlog.txt` (ou `LOG_FILE_PATH` du .env)
+- Réponses HTTP appropriées (200, 400, 401, 500)
+
+## 🔧 Développement
+
+### Installation
+```bash
+composer install --no-dev   # Production
+composer install            # Développement (avec PHPUnit)
+```
+
+### Tests
+```bash
+./vendor/bin/phpunit
+```
+
+### Serveur de développement
+```bash
+php -S localhost:8080 -t public
+```
+
+## 🤖 Tâches CRON
+
+- `CleanDataCommand`: Nettoyage des anciennes données (toutes les 5 min recommandé)
+- `ProcessTasksCommand`: Traitement des tâches périodiques (toutes les heures)
+- Verrouillage par `flock` pour éviter les chevauchements
+- Scripts wrapper dans `bin/` (si existants)
+
+## 📊 Services métier importants
+
+- `SensorStatisticsService`: Calculs statistiques sur les capteurs
+- `PumpService`: Contrôle GPIO des pompes (aqua, tank)
+- `NotificationService`: Envoi d'emails d'alerte
+- `LogService`: Centralisation des logs Monolog
+
+## 🚫 À NE PAS FAIRE
+
+1. ❌ Ne JAMAIS coder en dur les noms de tables (`ffp3Data`, `ffp3Data2`) → utiliser `TableConfig`
+2. ❌ Ne JAMAIS appeler `date_default_timezone_set()` dans les contrôleurs → timezone centralisé
+3. ❌ Ne PAS utiliser `mail()` directement → utiliser `NotificationService`
+4. ❌ Ne PAS créer de nouvelles connexions PDO manuelles → utiliser `Database::getConnection()`
+5. ❌ Ne PAS ignorer la validation de signature pour les endpoints POST d'API
+6. ❌ Ne JAMAIS oublier d'incrémenter la version après chaque modification significative → mettre à jour `ffp3datas/VERSION` et `CHANGELOG.md`
+
+## 📚 Documentation de référence
+
+- `README.md`: Documentation principale et roadmap
+- `RESUME_MODIFICATIONS.md`: Historique de l'unification timezone
+- `ENVIRONNEMENT_TEST.md`: Guide détaillé des environnements PROD/TEST
+- `TIMEZONE_UNIFICATION.md`: Documentation technique timezone (si existe)
+
+## 🎯 Workflow recommandé
+
+1. Développer et tester sur l'environnement TEST (`/aquaponie-test`, tables `*2`)
+2. **Incrémenter la version** dans `ffp3datas/VERSION` et documenter dans `CHANGELOG.md`
+3. Valider les modifications (tests unitaires, vérification graphiques, vérification affichage version)
+4. Déployer en PROD (les routes et code sont déjà partagés)
+
+---
+
+## 🔄 Règles supplémentaires spécifiques au projet
+
+### ⏰ Timezone - Particularité géographique
+
+**IMPORTANT**: Différence entre timezone du projet et du serveur :
+- 🌍 **Projet physique** (aquaponie, ESP32) : Situé à **Casablanca** (`Africa/Casablanca`)
+- 🖥️ **Serveur web** : Hébergé à **Paris** (`Europe/Paris`)
+- ⚙️ **Configuration actuelle** : `APP_TIMEZONE=Europe/Paris` (à vérifier si conforme aux besoins)
+
+**À considérer lors des développements** :
+- Les timestamps affichés sont actuellement en heure de Paris
+- Vérifier si les utilisateurs s'attendent à voir l'heure de Casablanca
+- Les ESP32 doivent envoyer des timestamps cohérents avec cette configuration
+- En cas de modification de timezone, penser à mettre à jour Highcharts (moment-timezone)
+
+### 📌 Versionnage du projet
+
+**🚨 OBLIGATOIRE - À FAIRE SYSTÉMATIQUEMENT** : 
+
+À chaque modification du code (ajout de fonctionnalité, correction de bug, amélioration) :
+
+1. **Incrémenter IMMÉDIATEMENT la version** dans `ffp3datas/VERSION` selon Semantic Versioning (MAJOR.MINOR.PATCH)
+   - MAJOR (x.0.0) : Changements incompatibles avec les versions précédentes (breaking changes)
+   - MINOR (0.x.0) : Ajout de fonctionnalités rétrocompatibles (nouvelles features)
+   - PATCH (0.0.x) : Corrections de bugs et améliorations mineures
+
+2. **Documenter la modification** dans `ffp3datas/CHANGELOG.md` avec :
+   - Le numéro de version
+   - La date
+   - La description claire de la modification
+
+3. **Vérifier l'affichage** : La version doit être visible sur toutes les pages web (header, footer ou coin de page)
+
+**Processus à suivre** :
+```
+Modification du code → Incrémenter VERSION → Mettre à jour CHANGELOG.md → Tester → Commit
+```
+
+**Exemples concrets** :
+- Ajout d'un nouveau graphique → MINOR (0.x.0)
+- Correction d'un bug d'affichage → PATCH (0.0.x)
+- Changement de structure de base de données → MAJOR (x.0.0)
+- Amélioration de performance → PATCH (0.0.x)
+
+**⚠️ NE PAS oublier** : L'incrémentation de version fait partie intégrante de chaque modification, pas une étape optionnelle !
+
+<!-- Ajoutez d'autres règles personnalisées ci-dessous -->
+

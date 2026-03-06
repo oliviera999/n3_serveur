@@ -2,6 +2,10 @@
 /vendor/
 composer.phar
 
+# Environnement (secrets)
+.env
+.env.local
+
 # Logs
 error_log
 cronlog.txt

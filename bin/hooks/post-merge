@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# Hook Git post-merge
+#
+# Exécuté automatiquement après chaque 'git pull' réussi.
+# Vide les caches de production pour que les modifications soient visibles.
+#
+# Installation sur le serveur : voir bin/hooks/README.md
+
+echo ""
+echo "🔄 Post-merge hook : Vidage automatique des caches..."
+
+# Détecter le répertoire racine du projet (depuis .git/hooks/)
+PROJECT_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+
+# Exécuter le script de vidage de cache
+if [ -f "$PROJECT_ROOT/bin/clear-cache.php" ]; then
+    php "$PROJECT_ROOT/bin/clear-cache.php"
+else
+    echo "⚠️  ATTENTION : Script bin/clear-cache.php introuvable !"
+    echo "   Les caches n'ont pas été vidés automatiquement."
+    echo "   Exécutez manuellement : php bin/clear-cache.php"
+    exit 1
+fi
+
+exit 0

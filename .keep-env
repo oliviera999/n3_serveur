@@ -1,0 +1,15 @@
+# Configuration Projet FFP3 - Ne PAS ignorer .env
+
+Ce projet nécessite que le fichier .env soit versionné dans Git.
+Contrairement à la pratique habituelle, .env doit être commité et poussé vers le dépôt.
+
+IMPORTANT: Ne pas ajouter .env dans .gitignore ou .cursorignore !
+
+Raisons:
+- Configuration centralisée pour tous les déploiements
+- Cohérence du fuseau horaire (APP_TIMEZONE=Europe/Paris)
+- Évite les problèmes de décalage horaire entre graphiques et données
+
+Si vous avez des informations sensibles, utilisez d'autres méthodes de protection
+(ex: variables d'environnement serveur, secrets management).
+

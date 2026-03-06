@@ -1,35 +1,27 @@
-# o2switch pagespeed start / DO NOT REMOVE OR EDIT
-<IfModule pagespeed_module>
-ModPagespeed on
-ModPagespeedRewriteLevel PassThrough
-ModPagespeedEnableFilters add_head,make_google_analytics_async,canonicalize_javascript_libraries,collapse_whitespace,combine_css,combine_javascript,combine_heads,convert_meta_tags,dedup_inlined_images,defer_javascript,elide_attributes,extend_cache,recompress_images,flatten_css_imports,hint_preload_subresources,inline_css,inline_javascript,lazyload_images,rewrite_javascript,move_css_above_scripts,move_css_to_head,insert_dns_prefetch,remove_comments,remove_quotes,rewrite_images,strip_image_meta_data,sprite_images
-</IfModule>
-# o2switch pagespeed end / DO NOT REMOVE OR EDIT
+RewriteEngine On
+Options -Indexes
 
+# ====================================================================
+# Retrocompatibilite : anciennes URLs /ffp3/* → routes racine
+# Les firmwares ffp5cs et les liens existants utilisent /ffp3/...
+# ====================================================================
+RewriteRule ^ffp3/(.*)$ $1 [L,DPI]
 
+# ====================================================================
+# Redirections legacy FFP3 (anciennes URLs .php)
+# ====================================================================
+RewriteRule ^ffp3datas/(.*)$ $1 [R=301,L]
+RewriteRule ^export-data\.php$ export-data [R=308,L]
+RewriteRule ^ffp3-data\.php$ aquaponie [R=308,L]
 
+# ====================================================================
+# DirectoryIndex
+# ====================================================================
+DirectoryIndex index.php
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# ====================================================================
+# Router principal : toute requete non fichier/dossier → public/index.php
+# ====================================================================
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ public/index.php [L]
