@@ -7,6 +7,14 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.7] - 2025-03-06
+
+### Modifié - Version du projet dans le footer de la page d'accueil
+- **Page d'accueil** : affichage de la version du serveur (fichier `VERSION`) dans le footer, via `Version::getWithPrefix()` et la variable Twig `version`.
+- **HomeController** : passage de la variable `version` au template `home.twig`.
+
+---
+
 ## [5.0.6] - 2025-03-06
 
 ### Refonte complète - Pages de contrôle MSP et N3PP (alignement aquaponie-control)

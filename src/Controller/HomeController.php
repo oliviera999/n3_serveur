@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Config\Version;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -22,7 +23,8 @@ class HomeController
     {
         $html = $this->renderer->render('home.twig', [
             'page_title' => 'n3 iot datas - olution',
-            'active_page' => 'home'
+            'active_page' => 'home',
+            'version' => Version::getWithPrefix(),
         ]);
 
         $response->getBody()->write($html);
