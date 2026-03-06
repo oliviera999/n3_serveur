@@ -4,19 +4,16 @@ declare(strict_types=1);
 
 namespace App\Controller\N3pp;
 
+use App\Config\TableConfig;
+use App\Config\Version;
 use App\Repository\N3ppOutputRepository;
+use App\Repository\N3ppSensorRepository;
 use App\Service\LogService;
 use App\Service\TemplateRenderer;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-/**
- * Controle et etat des outputs pour la serre (n3pp4_2).
- * GET /n3pp/n3ppcontrol/n3pp-outputs-action.php?action=outputs_state&board=3 (API firmware)
- * GET /n3pp/n3ppcontrol/ ou index.php (page de controle)
- * GET/POST /n3pp/n3ppcontrol/n3pp-outputs-action.php?action=set&gpio=...&state=...&board=3 (mise a jour)
- */
 class N3ppOutputController
 {
     private const BOARD = 3;
@@ -24,6 +21,7 @@ class N3ppOutputController
     public function __construct(
         private LogService $logger,
         private N3ppOutputRepository $outputRepo,
+        private N3ppSensorRepository $sensorRepo,
         private TemplateRenderer $renderer,
     ) {
     }
@@ -47,27 +45,27 @@ class N3ppOutputController
         }
     }
 
-    /**
-     * Page de controle (interface web).
-     */
     public function showControlPage(Request $request, Response $response): Response
     {
         $board = (int) ($request->getQueryParams()['board'] ?? self::BOARD);
         $outputs = $this->outputRepo->getAllForBoard($board);
+        $lastBoardRequest = $this->outputRepo->getLastBoardRequest($board);
+        $firmwareVersion = $this->sensorRepo->getFirmwareVersion();
 
         $html = $this->renderer->render('n3pp_control.twig', [
             'page_title' => 'Contrôle serre / élevage - n3 iot',
             'outputs' => $outputs,
             'board' => $board,
+            'last_board_request' => $lastBoardRequest,
+            'version' => Version::getWithPrefix(),
+            'firmware_version' => $firmwareVersion,
+            'environment' => TableConfig::getEnvironment(),
         ]);
 
         $response->getBody()->write($html);
         return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
     }
 
-    /**
-     * Mise a jour d'un output (action=set&gpio=...&state=...&board=3).
-     */
     public function setOutput(Request $request, Response $response): Response
     {
         $params = $request->getMethod() === 'POST' ? $request->getParsedBody() ?? [] : $request->getQueryParams();

@@ -7,6 +7,19 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.6] - 2025-03-06
+
+### Refonte complète - Pages de contrôle MSP et N3PP (alignement aquaponie-control)
+- **Visuel aquaponie-control** : layout sidebar + zone principale, cartes d'action avec modern-switch, badges contextuels, panneau connexion board, footer badges.
+- **MspOutputController** enrichi : injection MspSensorRepository, passage version serveur, firmware, environnement, dernière requête board au template.
+- **N3ppOutputController** enrichi : injection N3ppSensorRepository, mêmes données contextuelles.
+- **Repositories** : getAllForBoard retourne désormais id, name, gpio, state ; ajout getLastBoardRequest.
+- **msp1_control.twig** : refonte complète — sidebar (badges, stats, connexion board), zone principale avec sorties (GPIO < 100) et paramètres (GPIO ≥ 100) en cartes action, switches modernes, toast notifications, quick actions.
+- **n3pp_control.twig** : refonte identique adaptée aux paramètres n3pp (arrosage, seuils, éco-énergie).
+- **DI container** : injection MspSensorRepository et N3ppSensorRepository dans les controllers de contrôle.
+
+---
+
 ## [5.0.5] - 2025-03-06
 
 ### Modifié - Redirections 301 /ffp3/* en PHP

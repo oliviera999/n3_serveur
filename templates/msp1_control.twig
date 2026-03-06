@@ -1,86 +1,267 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page_title }}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#008B74" />
     <link rel="stylesheet" href="https://iot.olution.info/assets/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
     <link rel="shortcut icon" type="image/png" href="/assets/logo.png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
-        .page-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 3px solid #008B74; }
-        .page-header h1 { margin: 0; color: #2c3e50; font-size: 1.6em; }
-        .page-header a { color: #008B74; text-decoration: none; font-weight: 600; }
-        .page-header a:hover { text-decoration: underline; }
-        .output-list { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,139,116,0.1); }
-        .output-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; gap: 15px; flex-wrap: wrap; }
-        .output-row:last-child { border-bottom: none; }
-        .output-name { font-weight: 600; color: #2c3e50; }
-        .output-state { font-size: 0.9em; color: #7f8c8d; }
-        .btn-toggle { padding: 8px 18px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9em; transition: all 0.2s; }
-        .btn-on { background: #008B74; color: white; }
-        .btn-off { background: #e0e0e0; color: #555; }
-        .btn-toggle:hover { opacity: 0.9; transform: scale(1.02); }
-        .no-outputs { text-align: center; padding: 40px 20px; color: #7f8c8d; }
-        .msg { margin-top: 15px; padding: 10px; border-radius: 8px; display: none; }
-        .msg.success { background: #d4edda; color: #155724; }
-        .msg.error { background: #f8d7da; color: #721c24; }
+        body { background: #e8f4f2 !important; }
+        #page-bg { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background-color: #e8f4f2; }
+
+        .control-layout { display: grid; grid-template-columns: 300px 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        @media (max-width: 900px) { .control-layout { grid-template-columns: 1fr; } }
+
+        .panel { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 4px 20px rgba(0,139,116,0.1); }
+
+        .context-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+        .context-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 0.8em; font-weight: 600; background: rgba(0,139,116,0.1); color: #008B74; border: 1px solid rgba(0,139,116,0.2); }
+        .context-summary h2 { margin: 0 0 8px 0; color: #008B74; font-size: 1.3em; }
+        .context-description { color: #666; font-size: 0.9em; line-height: 1.5; margin: 0 0 12px 0; }
+        .context-stats { display: flex; gap: 16px; }
+        .context-stat { flex: 1; background: #f8f9fa; padding: 10px; border-radius: 10px; text-align: center; }
+        .stat-label { display: block; font-size: 0.75em; color: #7f8c8d; text-transform: uppercase; }
+        .stat-value { display: block; font-size: 1.4em; font-weight: bold; color: #2c3e50; }
+
+        .boards-status h3 { color: #008B74; margin: 20px 0 12px 0; font-size: 1.1em; }
+        .board-card { background: #f8f9fa; border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+        .board-card header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+        .board-title { font-weight: 700; color: #2c3e50; font-size: 0.95em; }
+        .board-last { font-size: 0.8em; color: #7f8c8d; }
+
+        .control-main-header h1 { margin: 0 0 8px 0; color: #008B74; font-size: 1.5em; }
+        .control-main-header p { color: #666; font-size: 0.95em; margin: 0 0 12px 0; }
+        .callout { display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 10px; font-size: 0.88em; margin-bottom: 20px; }
+        .callout-warning { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+        .callout i { font-size: 1.1em; margin-top: 2px; }
+
+        .controls-section h2 { color: #008B74; font-size: 1.2em; margin: 24px 0 12px 0; display: flex; align-items: center; gap: 10px; }
+
+        .control-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 16px; }
+        .action-card { background: white; border: 1px solid rgba(0,139,116,0.15); border-radius: 14px; padding: 16px; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .action-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #008B74, #00B794); transform: scaleX(0); transition: transform 0.3s ease; }
+        .action-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,139,116,0.15); }
+        .action-card:hover::before { transform: scaleX(1); }
+        .action-card[data-state="1"] { border-color: #008B74; background: linear-gradient(180deg, #f0faf8 0%, #fff 100%); }
+        .action-card.warning { border-color: #ffc107; }
+        .action-card.warning[data-state="1"] { background: linear-gradient(180deg, #fffbf0 0%, #fff 100%); }
+        .action-card header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .action-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3em; background: rgba(0,139,116,0.1); color: #008B74; }
+        .action-card header h3 { margin: 0; font-size: 0.95em; color: #2c3e50; }
+        .action-description { font-size: 0.82em; color: #7f8c8d; margin: 0 0 10px 0; line-height: 1.4; }
+        .action-card footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+        .action-card footer [data-state-label] { font-size: 0.82em; font-weight: 600; color: #7f8c8d; }
+
+        .modern-switch { position: relative; display: inline-block; width: 52px; height: 28px; cursor: pointer; }
+        .modern-switch input { opacity: 0; width: 0; height: 0; }
+        .modern-switch-slider { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #ccc; border-radius: 28px; transition: 0.3s; }
+        .modern-switch-slider .modern-switch-button { position: absolute; height: 22px; width: 22px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+        .modern-switch input:checked + .modern-switch-slider { background: #008B74; }
+        .modern-switch input:checked + .modern-switch-slider .modern-switch-button { transform: translateX(24px); }
+
+        .parameters-panel { background: #f8f9fa; border-radius: 12px; padding: 14px; margin-top: 12px; }
+        .parameters-panel h3 { margin: 0 0 10px 0; color: #008B74; font-size: 1em; }
+        .parameters-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+        .parameter-item { display: flex; flex-direction: column; gap: 4px; }
+        .parameter-item span { font-size: 0.82em; color: #555; font-weight: 600; }
+        .parameter-item input, .parameter-item select { padding: 8px 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9em; }
+        .parameter-item input:focus { border-color: #008B74; outline: none; box-shadow: 0 0 0 2px rgba(0,139,116,0.2); }
+
+        .quick-actions { margin-top: 20px; }
+        .quick-actions h3 { color: #008B74; margin: 0 0 12px 0; }
+        .quick-actions-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+        .quick-action-card { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(0,139,116,0.08); border: 1px solid rgba(0,139,116,0.15); border-radius: 10px; color: #008B74; font-weight: 600; font-size: 0.9em; text-decoration: none; transition: all 0.2s; }
+        .quick-action-card:hover { background: #008B74; color: white; }
+
+        #footer { text-align: center; padding: 1.5rem 2rem; color: #6c757d; font-size: 0.9em; border-top: 1px solid rgba(0,139,116,0.15); background: rgba(255,255,255,0.92); margin-top: 20px; grid-column: 1 / -1; }
+        .footer-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 8px; }
+        .footer-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 0.8em; background: rgba(0,0,0,0.05); color: #666; border: 1px solid rgba(0,0,0,0.08); }
+
+        .msg-toast { position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; border-radius: 10px; color: white; font-weight: 600; z-index: 1000; display: none; animation: fadeIn 0.3s ease; }
+        .msg-toast.success { background: #008B74; }
+        .msg-toast.error { background: #e74c3c; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body>
-    <div class="page-header">
-        <h1><i class="fas fa-sliders-h"></i> {{ page_title }}</h1>
-        <nav>
-            <a href="/"><i class="fas fa-home"></i> Accueil</a>
-            &nbsp;|&nbsp;
-            <a href="/msp1/msp1datas/msp1-data.php">Données</a>
+<body class="is-preload">
+    <div id="page-bg" aria-hidden="true"></div>
+    <div id="wrapper" class="fade-in">
+        <header id="header">
+            <a href="/" class="logo"><img src="/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
+        </header>
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/{{ environment == 'test' ? 'aquaponie-test' : 'aquaponie' }}">L'aquaponie (FFP3)</a></li>
+                <li><a href="/msp1/msp1datas/msp1-data.php">Le potager</a></li>
+                <li class="active"><a href="/msp1/msp1control/">Contrôle MSP</a></li>
+                <li><a href="/n3pp/n3ppdatas/n3pp-data.php">L'élevage</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://olution.info/course/view.php?id=511" class="icon solid fa-leaf"><span class="label">olution</span></a></li>
+            </ul>
         </nav>
-    </div>
 
-    <div class="output-list">
-        {% if outputs is not empty %}
-            {% for row in outputs %}
-            <div class="output-row" data-name="{{ row.name }}">
-                <div>
-                    <span class="output-name">{{ row.name }}</span>
-                    <span class="output-state">({{ row.state == '1' ? 'ON' : 'OFF' }})</span>
+        <div id="main" class="control-layout">
+            {# ===== SIDEBAR ===== #}
+            <aside class="panel">
+                <section>
+                    <div class="context-badges">
+                        <span class="context-badge"><i class="fas fa-globe"></i> {{ environment|upper }}</span>
+                        <span class="context-badge"><i class="fas fa-code-branch"></i> {{ version }}</span>
+                        {% if firmware_version %}<span class="context-badge"><i class="fas fa-microchip"></i> FW {{ firmware_version }}</span>{% endif %}
+                    </div>
+                    <div class="context-summary">
+                        <h2><i class="fas fa-sliders-h"></i> Station météo</h2>
+                        <p class="context-description">Contrôle des sorties et paramètres de la station météo (Le potager). Les commandes sont transmises à l'ESP32 au prochain cycle de synchronisation.</p>
+                        <div class="context-stats">
+                            <div class="context-stat">
+                                <span class="stat-label">Sorties</span>
+                                <span class="stat-value">{{ outputs|length }}</span>
+                            </div>
+                            <div class="context-stat">
+                                <span class="stat-label">Board</span>
+                                <span class="stat-value">{{ board }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="boards-status">
+                    <h3><i class="fas fa-satellite-dish"></i> Connexion</h3>
+                    <div class="board-card">
+                        <header>
+                            <span class="board-title"><i class="fas fa-microchip"></i> Board {{ board }}</span>
+                            <span class="board-last">{{ last_board_request|default('N/A') }}</span>
+                        </header>
+                    </div>
+                </section>
+            </aside>
+
+            {# ===== MAIN ===== #}
+            <section class="panel control-main">
+                <header class="control-main-header">
+                    <h1><i class="fas fa-sun"></i> Contrôle MSP – Le potager</h1>
+                    <p>Activez/désactivez les sorties et configurez les paramètres du firmware msp2_5.</p>
+                    <div class="callout callout-warning">
+                        <i class="fas fa-triangle-exclamation"></i>
+                        <span>Les commandes agissent sur le système physique. Vérifiez sur site avant d'activer les sorties.</span>
+                    </div>
+                </header>
+
+                <section class="controls-section">
+                    {# ===== SORTIES (premiers GPIO : actionneurs physiques) ===== #}
+                    <h2><i class="fas fa-bolt"></i> Sorties</h2>
+                    <div class="control-cards-grid">
+                        {% for output in outputs %}
+                            {% if output.gpio is defined and output.gpio < 100 %}
+                            <article class="action-card" data-state="{{ output.state }}" data-gpio="{{ output.gpio }}">
+                                <header>
+                                    <div class="action-icon"><i class="fas fa-plug"></i></div>
+                                    <div><h3>{{ output.name|default('GPIO ' ~ output.gpio) }}</h3></div>
+                                </header>
+                                <footer>
+                                    <span data-state-label>{{ output.state == '1' ? 'Activé' : 'Désactivé' }}</span>
+                                    <label class="modern-switch">
+                                        <input type="checkbox" onchange="toggleOutput(this)" data-name="{{ output.name }}" data-gpio="{{ output.gpio }}" {{ output.state == '1' ? 'checked' : '' }}>
+                                        <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                                    </label>
+                                </footer>
+                            </article>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    {# ===== PARAMÈTRES (GPIO 100+) ===== #}
+                    <h2><i class="fas fa-cog"></i> Paramètres</h2>
+                    <div class="control-cards-grid">
+                        {% for output in outputs %}
+                            {% if output.gpio is defined and output.gpio >= 100 %}
+                            {% set labels = { '100': 'Mail', '101': 'Notification mail', '102': 'Seuil sécheresse', '103': 'Seuil pont diviseur', '104': 'Servo HB', '105': 'Servo GD', '106': 'Éco énergie (WakeUp)', '107': 'Fréquence réveil', '110': 'Reset ESP' } %}
+                            {% set icons = { '100': 'fa-envelope', '101': 'fa-bell', '102': 'fa-seedling', '103': 'fa-battery-half', '104': 'fa-arrows-up-down', '105': 'fa-arrows-left-right', '106': 'fa-moon', '107': 'fa-clock', '110': 'fa-arrows-rotate' } %}
+                            {% set gpioStr = output.gpio|string %}
+                            <article class="action-card {{ output.gpio == 110 ? 'warning' : '' }}" data-state="{{ output.state }}" data-gpio="{{ output.gpio }}">
+                                <header>
+                                    <div class="action-icon"><i class="fas {{ icons[gpioStr]|default('fa-cog') }}"></i></div>
+                                    <div><h3>{{ labels[gpioStr]|default(output.name|default('GPIO ' ~ output.gpio)) }}</h3></div>
+                                </header>
+                                <footer>
+                                    <span data-state-label>{{ output.state }}</span>
+                                    <label class="modern-switch">
+                                        <input type="checkbox" onchange="toggleOutput(this)" data-name="{{ output.name }}" data-gpio="{{ output.gpio }}" {{ output.state == '1' ? 'checked' : '' }}>
+                                        <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                                    </label>
+                                </footer>
+                            </article>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="quick-actions">
+                    <h3><i class="fas fa-bolt"></i> Actions rapides</h3>
+                    <div class="quick-actions-grid">
+                        <a href="/msp1/msp1datas/msp1-data.php" class="quick-action-card"><i class="fas fa-chart-line"></i> Retour aux données</a>
+                        <a href="/" class="quick-action-card"><i class="fas fa-home"></i> Accueil</a>
+                    </div>
+                </section>
+            </section>
+
+            <footer id="footer">
+                <div class="footer-badges">
+                    <span class="footer-badge"><i class="fas fa-globe"></i> {{ environment }}</span>
+                    <span class="footer-badge"><i class="fas fa-database"></i> msp1Outputs</span>
+                    <span class="footer-badge"><i class="fas fa-code-branch"></i> {{ version }}</span>
+                    {% if firmware_version %}<span class="footer-badge"><i class="fas fa-microchip"></i> FW {{ firmware_version }}</span>{% endif %}
                 </div>
-                <form method="post" action="/msp1/msp1control/msp1-outputs-action.php" class="form-toggle" style="display:inline;">
-                    <input type="hidden" name="action" value="set" />
-                    <input type="hidden" name="name" value="{{ row.name }}" />
-                    <input type="hidden" name="board" value="{{ board }}" />
-                    <input type="hidden" name="state" value="{{ row.state == '1' ? '0' : '1' }}" />
-                    <button type="submit" class="btn-toggle {{ row.state == '1' ? 'btn-on' : 'btn-off' }}">
-                        {{ row.state == '1' ? 'Éteindre' : 'Allumer' }}
-                    </button>
-                </form>
-            </div>
-            {% endfor %}
-        {% else %}
-            <div class="no-outputs">Aucun output configuré pour cette board (board={{ board }}).</div>
-        {% endif %}
+                <p style="margin:0;">Station météo (Le potager) | n3 IoT | © 2025 olution</p>
+            </footer>
+        </div>
     </div>
 
-    <div id="msg" class="msg"></div>
+    <div id="msg-toast" class="msg-toast"></div>
 
     <script>
-        document.querySelectorAll('.form-toggle').forEach(function(form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                var f = this;
-                var btn = f.querySelector('button[type="submit"]');
-                btn.disabled = true;
-                fetch(f.action, { method: 'POST', body: new FormData(f) })
-                    .then(function(r) { return r.json(); })
-                    .then(function(data) {
-                        if (data.success) { window.location.reload(); }
-                        else { document.getElementById('msg').textContent = data.error || 'Erreur'; document.getElementById('msg').className = 'msg error'; document.getElementById('msg').style.display = 'block'; }
-                    })
-                    .catch(function() { document.getElementById('msg').textContent = 'Erreur réseau'; document.getElementById('msg').className = 'msg error'; document.getElementById('msg').style.display = 'block'; })
-                    .finally(function() { btn.disabled = false; });
+    function toggleOutput(el) {
+        var name = el.getAttribute('data-name');
+        var newState = el.checked ? '1' : '0';
+        var card = el.closest('.action-card');
+        var label = card.querySelector('[data-state-label]');
+
+        var formData = new FormData();
+        formData.append('action', 'set');
+        formData.append('name', name);
+        formData.append('state', newState);
+        formData.append('board', '{{ board }}');
+
+        fetch('/msp1/msp1control/msp1-outputs-action.php', { method: 'POST', body: formData })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    card.setAttribute('data-state', newState);
+                    label.textContent = newState === '1' ? 'Activé' : 'Désactivé';
+                    showToast('Commande envoyée', 'success');
+                } else {
+                    el.checked = !el.checked;
+                    showToast(data.error || 'Erreur', 'error');
+                }
+            })
+            .catch(function() {
+                el.checked = !el.checked;
+                showToast('Erreur réseau', 'error');
             });
-        });
+    }
+
+    function showToast(msg, type) {
+        var t = document.getElementById('msg-toast');
+        t.textContent = msg;
+        t.className = 'msg-toast ' + type;
+        t.style.display = 'block';
+        setTimeout(function() { t.style.display = 'none'; }, 3000);
+    }
     </script>
 </body>
 </html>

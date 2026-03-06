@@ -46,13 +46,18 @@ class N3ppOutputRepository extends AbstractRepository
     }
 
     /**
-     * Tous les outputs d'une board (pour la page de contrôle).
-     *
      * @return array<int, array<string, mixed>>
      */
     public function getAllForBoard(int $board): array
     {
-        $sql = "SELECT gpio, state FROM `" . self::TABLE . "` WHERE board = :board ORDER BY gpio ASC";
+        $sql = "SELECT id, name, gpio, state FROM `" . self::TABLE . "` WHERE board = :board ORDER BY gpio ASC";
         return $this->fetchAll($sql, [':board' => $board]);
+    }
+
+    public function getLastBoardRequest(int $board): ?string
+    {
+        $sql = "SELECT last_request FROM `Boards` WHERE board = :board LIMIT 1";
+        $val = $this->fetchScalar($sql, [':board' => $board]);
+        return $val !== null ? (string) $val : null;
     }
 }

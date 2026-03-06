@@ -4,19 +4,16 @@ declare(strict_types=1);
 
 namespace App\Controller\Msp;
 
+use App\Config\TableConfig;
+use App\Config\Version;
 use App\Repository\MspOutputRepository;
+use App\Repository\MspSensorRepository;
 use App\Service\LogService;
 use App\Service\TemplateRenderer;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-/**
- * Controle et etat des outputs pour la station meteo (msp2_5).
- * GET /msp1/msp1control/msp1-outputs-action.php?action=outputs_state&board=2 (API firmware)
- * GET /msp1/msp1control/ ou index.php (page de controle)
- * GET/POST /msp1/msp1control/msp1-outputs-action.php?action=set&name=...&state=...&board=2 (mise a jour)
- */
 class MspOutputController
 {
     private const BOARD = 2;
@@ -24,6 +21,7 @@ class MspOutputController
     public function __construct(
         private LogService $logger,
         private MspOutputRepository $outputRepo,
+        private MspSensorRepository $sensorRepo,
         private TemplateRenderer $renderer,
     ) {
     }
@@ -47,27 +45,27 @@ class MspOutputController
         }
     }
 
-    /**
-     * Page de controle (interface web).
-     */
     public function showControlPage(Request $request, Response $response): Response
     {
         $board = (int) ($request->getQueryParams()['board'] ?? self::BOARD);
         $outputs = $this->outputRepo->getAllForBoard($board);
+        $lastBoardRequest = $this->outputRepo->getLastBoardRequest($board);
+        $firmwareVersion = $this->sensorRepo->getFirmwareVersion();
 
         $html = $this->renderer->render('msp1_control.twig', [
             'page_title' => 'Contrôle station météo - Le potager',
             'outputs' => $outputs,
             'board' => $board,
+            'last_board_request' => $lastBoardRequest,
+            'version' => Version::getWithPrefix(),
+            'firmware_version' => $firmwareVersion,
+            'environment' => TableConfig::getEnvironment(),
         ]);
 
         $response->getBody()->write($html);
         return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
     }
 
-    /**
-     * Mise a jour d'un output (action=set&name=...&state=...&board=2).
-     */
     public function setOutput(Request $request, Response $response): Response
     {
         $params = $request->getMethod() === 'POST' ? $request->getParsedBody() ?? [] : $request->getQueryParams();
