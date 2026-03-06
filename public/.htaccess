@@ -5,6 +5,9 @@
     # Example: if URL is http://example.com/myapp/, RewriteBase should be /myapp/
     RewriteBase /
 
+    # Retrocompatibilite firmware ffp5cs : /ffp3/post-data -> /post-data, etc.
+    RewriteRule ^ffp3/(.*)$ $1 [L]
+
     # Forcer la route racine (/) à passer par index.php pour éviter l'affichage de l'arborescence
     RewriteRule ^$ index.php [L]
 

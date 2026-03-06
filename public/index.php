@@ -11,8 +11,10 @@ use App\Controller\ExportController;
 use App\Controller\Gallery\GalleryUploadController;
 use App\Controller\HeartbeatController;
 use App\Controller\HomeController;
+use App\Controller\Msp\MspDataController;
 use App\Controller\Msp\MspOutputController;
 use App\Controller\Msp\MspPostDataController;
+use App\Controller\N3pp\N3ppDataController;
 use App\Controller\N3pp\N3ppOutputController;
 use App\Controller\N3pp\N3ppPostDataController;
 use App\Controller\OutputController;
@@ -143,6 +145,8 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
         '/msp1gallery/',           // Upload photo ESP32-CAM
         '/n3ppgallery/',           // Upload photo ESP32-CAM
         '/ffp3/ffp3gallery/',      // Upload photo ESP32-CAM vers FFP3
+        '/ffp3datas/',             // Alias legacy (LVGL_Widgets)
+        '/ffp3control/',           // Alias legacy (LVGL_Widgets)
     ];
     
     // Vérifier si le chemin est public (GET /api/outputs*/state uniquement)
@@ -366,7 +370,9 @@ $app->map(['GET', 'POST'], '/ping', function (Request $request, Response $respon
 $app->group('', function ($group) {
     $group->post('/post-data', [PostDataController::class, 'handle']);
     $group->post('/post-ffp3-data.php', [PostDataController::class, 'handle']); // Alias legacy
+    $group->post('/ffp3datas/post-ffp3-data2.php', [PostDataController::class, 'handle']); // Alias legacy (LVGL_Widgets)
     $group->get('/api/outputs/state', [OutputController::class, 'getOutputsState']);
+    $group->get('/ffp3control/ffp3-outputs-action2.php', [OutputController::class, 'getOutputsState']); // Alias legacy (LVGL_Widgets)
     $group->post('/heartbeat', [HeartbeatController::class, 'handle']);
     $group->post('/heartbeat.php', [HeartbeatController::class, 'handle']); // Alias legacy
 })->add(new EnvironmentMiddleware('prod'));
@@ -631,17 +637,23 @@ $app->get('/service-worker.js', function (Request $request, Response $response) 
 
 // ====================================================================
 // Routes MSP1 — compatibilite firmware msp2_5 (station meteo)
-// URLs identiques a l'ancien backend procedural
 // ====================================================================
 $app->post('/msp1/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
+$app->get('/msp1/msp1datas/msp1-data.php', [MspDataController::class, 'show']);
 $app->get('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'getState']);
+$app->post('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'setOutput']);
+$app->get('/msp1/msp1control/', [MspOutputController::class, 'showControlPage']);
+$app->get('/msp1/msp1control/index.php', [MspOutputController::class, 'showControlPage']);
 
 // ====================================================================
 // Routes N3PP — compatibilite firmware n3pp4_2 (serre/aquaponie)
-// URLs identiques a l'ancien backend procedural
 // ====================================================================
 $app->post('/n3pp/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);
+$app->get('/n3pp/n3ppdatas/n3pp-data.php', [N3ppDataController::class, 'show']);
 $app->get('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'getState']);
+$app->post('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
+$app->get('/n3pp/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']);
+$app->get('/n3pp/n3ppcontrol/index.php', [N3ppOutputController::class, 'showControlPage']);
 
 // ====================================================================
 // Routes Galeries photo — compatibilite firmwares ESP32-CAM

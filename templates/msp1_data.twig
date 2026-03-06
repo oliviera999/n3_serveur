@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_title }}</title>
+    <link rel="stylesheet" href="https://iot.olution.info/assets/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+    <link rel="shortcut icon" type="image/png" href="/ffp3/assets/logo.png"/>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .page-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 3px solid #008B74; }
+        .page-header h1 { margin: 0; color: #2c3e50; font-size: 1.6em; }
+        .page-header a { color: #008B74; text-decoration: none; font-weight: 600; }
+        .page-header a:hover { text-decoration: underline; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-card { background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,139,116,0.12); border-top: 4px solid #008B74; }
+        .stat-card .label { font-size: 0.75em; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-card .value { font-size: 1.5em; font-weight: bold; color: #2c3e50; margin-top: 4px; }
+        .stat-card .unit { font-size: 0.65em; color: #95a5a6; }
+        .section-title { margin: 25px 0 12px 0; color: #008B74; font-size: 1.2em; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,139,116,0.1); }
+        th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #008B74; color: white; font-size: 0.85em; }
+        tr:hover { background: #f8f9fa; }
+        .no-data { text-align: center; padding: 40px 20px; color: #7f8c8d; background: white; border-radius: 12px; }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <h1><i class="fas fa-sun"></i> {{ page_title }}</h1>
+        <nav>
+            <a href="https://iot.olution.info/"><i class="fas fa-home"></i> Accueil</a>
+            &nbsp;|&nbsp;
+            <a href="https://iot.olution.info/msp1/msp1control/">Contrôle</a>
+        </nav>
+    </div>
+
+    {% if latest %}
+        <h2 class="section-title">Dernière mesure</h2>
+        <div class="stats-grid">
+            {% if latest.TempAirInt is defined and latest.TempAirInt is not null %}<div class="stat-card"><span class="label">Temp. air int.</span><div class="value">{{ latest.TempAirInt|number_format(1) }} <span class="unit">°C</span></div></div>{% endif %}
+            {% if latest.TempAirExt is defined and latest.TempAirExt is not null %}<div class="stat-card"><span class="label">Temp. air ext.</span><div class="value">{{ latest.TempAirExt|number_format(1) }} <span class="unit">°C</span></div></div>{% endif %}
+            {% if latest.HumidAirInt is defined and latest.HumidAirInt is not null %}<div class="stat-card"><span class="label">Humid. air int.</span><div class="value">{{ latest.HumidAirInt|number_format(0) }} <span class="unit">%</span></div></div>{% endif %}
+            {% if latest.HumidAirExt is defined and latest.HumidAirExt is not null %}<div class="stat-card"><span class="label">Humid. air ext.</span><div class="value">{{ latest.HumidAirExt|number_format(0) }} <span class="unit">%</span></div></div>{% endif %}
+            {% if latest.LuminositeMoy is defined and latest.LuminositeMoy is not null %}<div class="stat-card"><span class="label">Luminosité moy.</span><div class="value">{{ latest.LuminositeMoy|number_format(0) }}</div></div>{% endif %}
+            {% if latest.TempEau is defined and latest.TempEau is not null %}<div class="stat-card"><span class="label">Temp. eau</span><div class="value">{{ latest.TempEau|number_format(1) }} <span class="unit">°C</span></div></div>{% endif %}
+            {% if latest.HumidSol is defined and latest.HumidSol is not null %}<div class="stat-card"><span class="label">Humid. sol</span><div class="value">{{ latest.HumidSol|number_format(0) }} <span class="unit">%</span></div></div>{% endif %}
+            {% if latest.Pluie is defined and latest.Pluie is not null %}<div class="stat-card"><span class="label">Pluie</span><div class="value">{{ latest.Pluie|number_format(0) }}</div></div>{% endif %}
+        </div>
+        {% if latest.sensor is defined %}<p style="font-size: 0.9em; color: #7f8c8d;">Capteur : {{ latest.sensor }}, version {{ latest.version|default('-') }}</p>{% endif %}
+    {% else %}
+        <div class="no-data">Aucune donnée enregistrée pour le moment.</div>
+    {% endif %}
+
+    {% if recent is not empty %}
+        <h2 class="section-title">Historique récent ({{ recent|length }} mesures)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Temp. int.</th>
+                    <th>Temp. ext.</th>
+                    <th>Humid. int.</th>
+                    <th>Luminosité</th>
+                    <th>Temp. eau</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in recent %}
+                <tr>
+                    <td>{{ row.id|default(loop.index) }}</td>
+                    <td>{{ row.TempAirInt is defined and row.TempAirInt is not null ? (row.TempAirInt|number_format(1)) ~ ' °C' : '-' }}</td>
+                    <td>{{ row.TempAirExt is defined and row.TempAirExt is not null ? (row.TempAirExt|number_format(1)) ~ ' °C' : '-' }}</td>
+                    <td>{{ row.HumidAirInt is defined and row.HumidAirInt is not null ? (row.HumidAirInt|number_format(0)) ~ ' %' : '-' }}</td>
+                    <td>{{ row.LuminositeMoy is defined and row.LuminositeMoy is not null ? row.LuminositeMoy|number_format(0) : '-' }}</td>
+                    <td>{{ row.TempEau is defined and row.TempEau is not null ? (row.TempEau|number_format(1)) ~ ' °C' : '-' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>

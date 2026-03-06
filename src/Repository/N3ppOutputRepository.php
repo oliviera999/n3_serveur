@@ -44,4 +44,15 @@ class N3ppOutputRepository extends AbstractRepository
         $sql = "UPDATE `" . self::TABLE . "` SET state = :state WHERE gpio = :gpio AND board = :board";
         $this->execute($sql, [':state' => $state, ':gpio' => $gpio, ':board' => $board]);
     }
+
+    /**
+     * Tous les outputs d'une board (pour la page de contrôle).
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function getAllForBoard(int $board): array
+    {
+        $sql = "SELECT gpio, state FROM `" . self::TABLE . "` WHERE board = :board ORDER BY gpio ASC";
+        return $this->fetchAll($sql, [':board' => $board]);
+    }
 }

@@ -45,4 +45,15 @@ class MspOutputRepository extends AbstractRepository
         $sql = "UPDATE `" . self::TABLE . "` SET state = :state WHERE name = :name AND board = :board";
         $this->execute($sql, [':state' => $state, ':name' => $name, ':board' => $board]);
     }
+
+    /**
+     * Tous les outputs d'une board (pour la page de contrôle).
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function getAllForBoard(int $board): array
+    {
+        $sql = "SELECT name, state FROM `" . self::TABLE . "` WHERE board = :board ORDER BY name ASC";
+        return $this->fetchAll($sql, [':board' => $board]);
+    }
 }

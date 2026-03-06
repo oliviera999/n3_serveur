@@ -58,4 +58,26 @@ class N3ppSensorRepository extends AbstractRepository
             ':bootCount' => $data->bootCount,
         ]);
     }
+
+    /**
+     * Dernière mesure enregistrée (pour affichage page datas).
+     *
+     * @return array<string, mixed>|null
+     */
+    public function getLatest(): ?array
+    {
+        $sql = "SELECT * FROM `" . self::TABLE . "` ORDER BY id DESC LIMIT 1";
+        return $this->fetchOne($sql);
+    }
+
+    /**
+     * Dernières mesures (pour historique court).
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function getRecent(int $limit = 50): array
+    {
+        $sql = "SELECT * FROM `" . self::TABLE . "` ORDER BY id DESC LIMIT " . max(1, min(200, $limit));
+        return $this->fetchAll($sql);
+    }
 }

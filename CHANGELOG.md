@@ -7,6 +7,25 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.2] - 2025-03-06
+
+### Ajout - Pages données et contrôle MSP1 / N3PP
+- **Pages données** : `GET /msp1/msp1datas/msp1-data.php` et `GET /n3pp/n3ppdatas/n3pp-data.php` — affichage dernière mesure et historique (MspDataController, N3ppDataController, templates msp1_data.twig, n3pp_data.twig).
+- **Pages contrôle** : `GET /msp1/msp1control/`, `GET /n3pp/n3ppcontrol/` — liste des sorties et boutons Allumer/Éteindre (showControlPage) ; `POST .../msp1-outputs-action.php` et `.../n3pp-outputs-action.php` avec `action=set` pour mise à jour (setOutput).
+- **Repositories** : getLatest(), getRecent() sur MspSensorRepository et N3ppSensorRepository ; getAllForBoard() sur MspOutputRepository et N3ppOutputRepository.
+- **Documentation** : les liens existants vers msp1-data.php et n3pp-data.php sont à nouveau fonctionnels.
+
+---
+
+## [5.0.1] - 2025-03-06
+
+### Correctif - Audit structure serveur (rétrocompatibilité)
+- **Réécriture /ffp3/** : ajout dans `public/.htaccess` de la règle `^ffp3/(.*)$ → $1` pour que les URLs ffp5cs (`/ffp3/post-data`, etc.) fonctionnent lorsque DocumentRoot = `public/`.
+- **Alias legacy LVGL_Widgets** : routes `POST /ffp3datas/post-ffp3-data2.php` et `GET /ffp3control/ffp3-outputs-action2.php` (après réécriture) pour compatibilité firmware LVGL ; chemins ajoutés aux chemins publics (auth).
+- **Documentation** : `docs/deployment/QUE_FAIRE_COTE_SERVEUR.md` mis à jour (rétrocompat /ffp3/). Rapport d’audit : `docs/AUDIT_BUGS_STRUCTURE_SERVEUR.md`.
+
+---
+
 ## [5.0.0] - 2025-03-06
 
 ### Changement majeur - Serveur unifié n3 IoT
