@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -69,6 +75,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -130,6 +142,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -191,6 +209,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -261,6 +285,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -324,6 +354,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -387,6 +423,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -451,6 +493,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -514,6 +562,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -579,6 +633,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -642,6 +702,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -705,6 +771,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -768,6 +840,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -832,6 +910,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -893,6 +977,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -959,6 +1049,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1020,6 +1116,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1084,6 +1186,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1146,6 +1254,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1210,6 +1324,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1274,6 +1394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1337,6 +1463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1402,6 +1534,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1464,6 +1602,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1527,6 +1671,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1591,6 +1741,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1655,6 +1811,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1717,6 +1879,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1780,6 +1948,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1845,6 +2019,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1909,6 +2089,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -1972,6 +2158,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2035,6 +2227,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2098,6 +2296,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2161,6 +2365,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2223,6 +2433,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2285,6 +2501,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2347,6 +2569,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2409,6 +2637,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2472,6 +2706,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2539,6 +2779,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2606,6 +2852,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2666,6 +2918,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2726,6 +2984,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2786,6 +3050,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2846,6 +3116,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2906,6 +3182,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -2966,6 +3248,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3043,6 +3331,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3110,6 +3404,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3175,6 +3475,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3241,6 +3547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3311,6 +3623,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3393,6 +3711,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3457,6 +3781,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3523,6 +3853,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3589,6 +3925,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3652,6 +3994,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3718,6 +4066,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3781,6 +4135,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3843,6 +4203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3906,6 +4272,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -3979,6 +4351,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4049,6 +4427,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4127,6 +4511,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4209,6 +4599,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4281,6 +4677,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4345,6 +4747,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4411,6 +4819,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4476,6 +4890,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4541,6 +4961,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4604,6 +5030,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4667,6 +5099,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4732,6 +5170,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4796,6 +5240,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4862,6 +5312,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -4933,6 +5389,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5008,6 +5470,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5079,6 +5547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5152,6 +5626,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5224,6 +5704,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5291,6 +5777,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5354,6 +5846,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5421,6 +5919,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5485,6 +5989,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5548,6 +6058,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5611,6 +6127,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5676,6 +6198,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5741,6 +6269,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5805,6 +6339,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5869,6 +6409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5932,6 +6478,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -5995,6 +6547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6058,6 +6616,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6123,6 +6687,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6188,6 +6758,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6251,6 +6827,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6314,6 +6896,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6377,6 +6965,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6441,6 +7035,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6507,6 +7107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6580,6 +7186,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6647,6 +7259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6721,6 +7339,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6793,6 +7417,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6856,6 +7486,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -6952,6 +7588,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7019,6 +7661,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7095,6 +7743,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7181,6 +7835,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7257,6 +7917,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7323,6 +7989,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7390,6 +8062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7463,6 +8141,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7646,6 +8330,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7713,6 +8403,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7778,6 +8474,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7844,6 +8546,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7911,6 +8619,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -7977,6 +8691,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -8045,6 +8765,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -8112,6 +8838,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -8301,6 +9033,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -8367,6 +9105,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -8433,6 +9177,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -8547,6 +9297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -8622,6 +9378,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -8697,6 +9459,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -8809,6 +9577,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -8932,6 +9706,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9012,6 +9792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9093,6 +9879,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9164,6 +9956,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9241,6 +10039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9322,6 +10126,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9401,6 +10211,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9471,6 +10287,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9553,6 +10375,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9667,6 +10495,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9736,6 +10570,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9806,6 +10646,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9875,6 +10721,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -9949,6 +10801,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10029,6 +10887,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10107,6 +10971,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10183,6 +11053,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10254,6 +11130,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10326,6 +11208,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10409,6 +11297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10491,6 +11385,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10576,6 +11476,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10677,6 +11583,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10808,6 +11720,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10880,6 +11798,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -10951,6 +11875,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11032,6 +11962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11103,6 +12039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11178,6 +12120,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11246,6 +12194,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11316,6 +12270,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11378,6 +12338,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11480,6 +12446,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11554,6 +12526,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11650,6 +12628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11728,6 +12712,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11802,6 +12792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11882,6 +12878,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -11984,6 +12986,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12071,6 +13079,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12212,6 +13226,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12290,6 +13310,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12370,6 +13396,12 @@ Consulter `migrations/README.md` pour la procédure détaillée.
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12461,6 +13493,12 @@ Contrôleurs HTML (moins critiques) :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12545,6 +13583,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12616,6 +13660,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12687,6 +13737,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12760,6 +13816,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12904,6 +13966,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -12996,6 +14064,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -13102,6 +14176,12 @@ Cette correction résout le problème identifié lors de l'analyse des logs ESP3
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -13196,6 +14276,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit être identi
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -13294,6 +14380,12 @@ Si nécessaire de revenir à l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -13360,6 +14452,12 @@ Cette version a été remplacée par la v4.5.7 qui corrige le timezone vers Casa
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -13478,6 +14576,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -13560,6 +14664,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -13629,6 +14739,12 @@ Les utilisateurs voient maintenant se mettre à jour automatiquement :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -13748,6 +14864,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -13846,6 +14968,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -13977,6 +15105,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14046,6 +15180,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14174,6 +15314,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14240,6 +15386,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14305,6 +15457,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14374,6 +15532,12 @@ Suite aux erreurs 404 persistantes malgré la correction des chemins en v4.4.2, 
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14443,6 +15607,12 @@ Le serveur web pointe déjà vers le dossier `public/` comme document root, donc
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14557,6 +15727,12 @@ docs/
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14694,6 +15870,12 @@ docs/
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14765,6 +15947,12 @@ docs/
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14870,6 +16058,12 @@ docs/
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -14940,6 +16134,12 @@ docs/
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -15032,6 +16232,12 @@ docs/
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -15100,6 +16306,12 @@ docs/
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -15357,6 +16569,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -15448,6 +16666,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -15566,6 +16790,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -15670,6 +16900,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -15760,6 +16996,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -15857,6 +17099,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -15946,6 +17194,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -16024,6 +17278,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -16094,6 +17354,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -16180,6 +17446,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -16250,6 +17522,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -16320,6 +17598,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -16392,6 +17676,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -16482,6 +17772,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
@@ -16546,6 +17842,12 @@ ance future
 
 ---
 
+## [5.0.17] - 2026-03-06
+
+### Correctif - Chargement explicite BasePath si autoload non régénéré
+- **Résumé** : Chargement explicite BasePath si autoload non régénéré.
+
+---
 ## [5.0.16] - 2026-03-06
 
 ### Correctif - BasePath pour assets (main.css), templates avec base_path, cache cron/deploy
