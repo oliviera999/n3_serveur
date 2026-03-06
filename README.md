@@ -2,6 +2,8 @@
 
 Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collecte des données (msp1, n3pp, ffp3), contrôle des sorties, galeries photo.
 
+- **`site initial/`** : ancienne version des fichiers serveur (archive). **Ne pas modifier** — conservé pour consultation uniquement (référence, comparaison, historique).
+
 - **Point d’entrée** : `public/index.php` (front controller unique).
 - **Documentation détaillée** : voir [ffp3/README.md](ffp3/README.md) pour l’architecture, la configuration et les environnements PROD/TEST.
 
