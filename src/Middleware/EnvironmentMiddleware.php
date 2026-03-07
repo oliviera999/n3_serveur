@@ -24,8 +24,11 @@ class EnvironmentMiddleware implements MiddlewareInterface
      */
     public function __construct(string $environment)
     {
-        if (!in_array($environment, ['prod', 'test', 'test3', 's3'], true)) {
-            throw new \InvalidArgumentException("Environment must be 'prod', 'test', 'test3' or 's3', got: {$environment}");
+        $allowed = ['prod', 'test', 'test3', 's3', 'n3pp_test', 'msp_test'];
+        if (!in_array($environment, $allowed, true)) {
+            throw new \InvalidArgumentException(
+                "Environment must be one of: " . implode(', ', $allowed) . ", got: {$environment}"
+            );
         }
         
         $this->environment = $environment;

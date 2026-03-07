@@ -12,7 +12,7 @@ namespace App\Config;
  */
 class TableConfig
 {
-    private const ENVIRONMENTS = ['prod', 'test', 'test3', 's3'];
+    private const ENVIRONMENTS = ['prod', 'test', 'test3', 's3', 'n3pp_test', 'msp_test'];
 
     /**
      * Détermine si on est en environnement de test (test ou test3)
@@ -24,7 +24,7 @@ class TableConfig
             Env::load();
         }
         $env = $_ENV['ENV'] ?? 'prod';
-        return in_array($env, ['test', 'test3'], true);
+        return in_array($env, ['test', 'test3', 'n3pp_test', 'msp_test'], true);
     }
 
     /**
@@ -108,15 +108,39 @@ class TableConfig
         };
     }
 
+    // ── Tables N3PP (serre / elevage) ─────────────────────────────────
+
+    public static function getN3ppDataTable(): string
+    {
+        return self::getEnvironment() === 'n3pp_test' ? 'N3ppDataTest' : 'n3ppData';
+    }
+
+    public static function getN3ppOutputsTable(): string
+    {
+        return self::getEnvironment() === 'n3pp_test' ? 'N3ppOutputsTest' : 'n3ppOutputs';
+    }
+
+    // ── Tables MSP1 (station meteo) ─────────────────────────────────
+
+    public static function getMspDataTable(): string
+    {
+        return self::getEnvironment() === 'msp_test' ? 'Msp1DataTest' : 'msp1Data';
+    }
+
+    public static function getMspOutputsTable(): string
+    {
+        return self::getEnvironment() === 'msp_test' ? 'Msp1OutputsTest' : 'msp1Outputs';
+    }
+
     /**
      * Force un environnement spécifique (utile pour les routes)
-     *
-     * @param string $env 'prod', 'test', 'test3' ou 's3'
      */
     public static function setEnvironment(string $env): void
     {
         if (!in_array($env, self::ENVIRONMENTS, true)) {
-            throw new \InvalidArgumentException("Environment must be 'prod', 'test', 'test3' or 's3', got: {$env}");
+            throw new \InvalidArgumentException(
+                "Environment must be one of: " . implode(', ', self::ENVIRONMENTS) . ", got: {$env}"
+            );
         }
         $_ENV['ENV'] = $env;
     }

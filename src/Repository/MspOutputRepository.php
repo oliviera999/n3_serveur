@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Config\TableConfig;
+
 /**
  * Repository pour les outputs (controle) de la station meteo (msp1).
- *
- * Le firmware msp2_5 attend un JSON avec des cles nommees :
- *   resetMode, mail, mailNotif, SeuilSec, SeuilPontDiv,
- *   AngleServoHB, AngleServoGD, WakeUp, FreqWakeUp
+ * Table dynamique via TableConfig (msp1Outputs en prod, Msp1OutputsTest en test).
  */
 class MspOutputRepository extends AbstractRepository
 {
-    private const TABLE = 'msp1Outputs';
+    private static function table(): string
+    {
+        return TableConfig::getMspOutputsTable();
+    }
 
     /**
      * Retourne l'etat des outputs au format attendu par le firmware msp2_5.
@@ -24,7 +26,7 @@ class MspOutputRepository extends AbstractRepository
      */
     public function getStateForFirmware(int $board): array
     {
-        $sql = "SELECT name, state FROM `" . self::TABLE . "` WHERE board = :board";
+        $sql = "SELECT name, state FROM `" . self::table() . "` WHERE board = :board";
         $rows = $this->fetchAll($sql, [':board' => $board]);
 
         $result = [];
@@ -42,7 +44,7 @@ class MspOutputRepository extends AbstractRepository
      */
     public function updateByName(string $name, string $state, int $board): void
     {
-        $sql = "UPDATE `" . self::TABLE . "` SET state = :state WHERE name = :name AND board = :board";
+        $sql = "UPDATE `" . self::table() . "` SET state = :state WHERE name = :name AND board = :board";
         $this->execute($sql, [':state' => $state, ':name' => $name, ':board' => $board]);
     }
 
@@ -51,7 +53,7 @@ class MspOutputRepository extends AbstractRepository
      */
     public function getAllForBoard(int $board): array
     {
-        $sql = "SELECT id, name, gpio, state FROM `" . self::TABLE . "` WHERE board = :board ORDER BY gpio ASC";
+        $sql = "SELECT id, name, gpio, state FROM `" . self::table() . "` WHERE board = :board ORDER BY gpio ASC";
         return $this->fetchAll($sql, [':board' => $board]);
     }
 

@@ -181,8 +181,10 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
         '/heartbeat3-test',
         '/ping',                   // Diagnostic latence (GET/POST, réponse minimale)
         '/msp1/',                  // Endpoints firmware msp2_5 (station meteo)
+        '/msp1-test/',             // Endpoints firmware msp2_5 TEST
         '/msp1_data',              // Alias court -> redirection vers page donnees MSP1
         '/n3pp/',                  // Endpoints firmware n3pp4_2 (serre)
+        '/n3pp-test/',             // Endpoints firmware n3pp4_2 TEST
         '/msp1gallery/',           // Upload photo ESP32-CAM
         '/n3ppgallery/',           // Upload photo ESP32-CAM
         '/ffp3/ffp3gallery/',      // Upload photo ESP32-CAM vers FFP3
@@ -722,6 +724,30 @@ $app->get('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::cl
 $app->post('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
 $app->get('/n3pp/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']);
 $app->get('/n3pp/n3ppcontrol/index.php', [N3ppOutputController::class, 'showControlPage']);
+
+// ====================================================================
+// Routes MSP1 TEST — tables Msp1DataTest, Msp1OutputsTest
+// ====================================================================
+$app->group('', function ($group) use ($useLocalDataFallback) {
+    $group->post('/msp1-test/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
+    $group->map(['GET', 'POST'], '/msp1-test/msp1datas/msp1-data.php', [($useLocalDataFallback ? LocalDataPagesController::class : MspDataController::class), $useLocalDataFallback ? 'showMsp1' : 'show']);
+    $group->get('/msp1-test/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'getState']);
+    $group->post('/msp1-test/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'setOutput']);
+    $group->get('/msp1-test/msp1control/', [MspOutputController::class, 'showControlPage']);
+    $group->get('/msp1-test/msp1control/index.php', [MspOutputController::class, 'showControlPage']);
+})->add(new EnvironmentMiddleware('msp_test'));
+
+// ====================================================================
+// Routes N3PP TEST — tables N3ppDataTest, N3ppOutputsTest
+// ====================================================================
+$app->group('', function ($group) use ($useLocalDataFallback) {
+    $group->post('/n3pp-test/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);
+    $group->map(['GET', 'POST'], '/n3pp-test/n3ppdatas/n3pp-data.php', [($useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class), $useLocalDataFallback ? 'showN3pp' : 'show']);
+    $group->get('/n3pp-test/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'getState']);
+    $group->post('/n3pp-test/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
+    $group->get('/n3pp-test/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']);
+    $group->get('/n3pp-test/n3ppcontrol/index.php', [N3ppOutputController::class, 'showControlPage']);
+})->add(new EnvironmentMiddleware('n3pp_test'));
 
 // ====================================================================
 // Routes Galeries photo — compatibilite firmwares ESP32-CAM (upload)

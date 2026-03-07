@@ -63,8 +63,11 @@ class N3ppDataController
         $hours = (int) floor(($durationSec % 86400) / 3600);
         $minutes = (int) floor(($durationSec % 3600) / 60);
 
+        $env = TableConfig::getEnvironment();
+        $testSuffix = $env === 'n3pp_test' ? ' (TEST)' : '';
+
         $html = $this->renderer->render('n3pp_data.twig', array_merge([
-            'page_title' => 'Données serre / élevage - n3 iot',
+            'page_title' => 'Données serre / élevage - n3 iot' . $testSuffix,
             'latest' => $latest,
             'board' => self::BOARD,
             'version' => Version::getWithPrefix(),

@@ -63,8 +63,11 @@ class MspDataController
         $hours = (int) floor(($durationSec % 86400) / 3600);
         $minutes = (int) floor(($durationSec % 3600) / 60);
 
+        $env = TableConfig::getEnvironment();
+        $testSuffix = $env === 'msp_test' ? ' (TEST)' : '';
+
         $html = $this->renderer->render('msp1_data.twig', array_merge([
-            'page_title' => 'Données station météo - Le potager',
+            'page_title' => 'Données station météo - Le potager' . $testSuffix,
             'latest' => $latest,
             'board' => self::BOARD,
             'version' => Version::getWithPrefix(),

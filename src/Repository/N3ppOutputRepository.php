@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Config\TableConfig;
+
 /**
  * Repository pour les outputs (controle) de la serre/aquaponie (n3pp).
- *
- * Le firmware n3pp4_2 attend un JSON avec des cles numeriques (indices de GPIO)
- * dont les valeurs sont les etats/parametres.
+ * Table dynamique via TableConfig (n3ppOutputs en prod, N3ppOutputsTest en test).
  */
 class N3ppOutputRepository extends AbstractRepository
 {
-    private const TABLE = 'n3ppOutputs';
+    private static function table(): string
+    {
+        return TableConfig::getN3ppOutputsTable();
+    }
 
     /**
      * Retourne l'etat des outputs au format attendu par le firmware n3pp4_2.
@@ -23,7 +26,7 @@ class N3ppOutputRepository extends AbstractRepository
      */
     public function getStateForFirmware(int $board): array
     {
-        $sql = "SELECT gpio, state FROM `" . self::TABLE . "` WHERE board = :board ORDER BY gpio ASC";
+        $sql = "SELECT gpio, state FROM `" . self::table() . "` WHERE board = :board ORDER BY gpio ASC";
         $rows = $this->fetchAll($sql, [':board' => $board]);
 
         $result = [];
@@ -41,7 +44,7 @@ class N3ppOutputRepository extends AbstractRepository
      */
     public function updateByGpio(int $gpio, string $state, int $board): void
     {
-        $sql = "UPDATE `" . self::TABLE . "` SET state = :state WHERE gpio = :gpio AND board = :board";
+        $sql = "UPDATE `" . self::table() . "` SET state = :state WHERE gpio = :gpio AND board = :board";
         $this->execute($sql, [':state' => $state, ':gpio' => $gpio, ':board' => $board]);
     }
 
@@ -50,7 +53,7 @@ class N3ppOutputRepository extends AbstractRepository
      */
     public function getAllForBoard(int $board): array
     {
-        $sql = "SELECT id, name, gpio, state FROM `" . self::TABLE . "` WHERE board = :board ORDER BY gpio ASC";
+        $sql = "SELECT id, name, gpio, state FROM `" . self::table() . "` WHERE board = :board ORDER BY gpio ASC";
         return $this->fetchAll($sql, [':board' => $board]);
     }
 

@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Config\TableConfig;
 use App\Domain\MspSensorData;
 
 /**
- * Repository pour l'insertion et la lecture des mesures station meteo (msp2_5) dans msp1Data.
- * Requetes preparees PDO uniquement.
+ * Repository pour l'insertion et la lecture des mesures station meteo (msp2_5).
+ * Table dynamique via TableConfig (msp1Data en prod, Msp1DataTest en test).
  */
 class MspSensorRepository extends AbstractRepository
 {
-    private const TABLE = 'msp1Data';
+    private static function table(): string
+    {
+        return TableConfig::getMspDataTable();
+    }
 
     /** Colonnes de capteurs disponibles pour les statistiques et graphiques. */
     public const SENSOR_COLUMNS = [
@@ -24,7 +28,7 @@ class MspSensorRepository extends AbstractRepository
 
     public function insert(MspSensorData $data): void
     {
-        $sql = "INSERT INTO " . self::TABLE . " (
+        $sql = "INSERT INTO `" . self::table() . "` (
             sensor, version,
             TempAirInt, TempAirExt, HumidAirInt, HumidAirExt,
             LuminositeA, LuminositeB, LuminositeC, LuminositeD, LuminositeMoy,
@@ -71,19 +75,19 @@ class MspSensorRepository extends AbstractRepository
 
     public function getLatest(): ?array
     {
-        $sql = "SELECT * FROM `" . self::TABLE . "` ORDER BY id DESC LIMIT 1";
+        $sql = "SELECT * FROM `" . self::table() . "` ORDER BY id DESC LIMIT 1";
         return $this->fetchOne($sql);
     }
 
     public function getRecent(int $limit = 50): array
     {
-        $sql = "SELECT * FROM `" . self::TABLE . "` ORDER BY id DESC LIMIT " . max(1, min(200, $limit));
+        $sql = "SELECT * FROM `" . self::table() . "` ORDER BY id DESC LIMIT " . max(1, min(200, $limit));
         return $this->fetchAll($sql);
     }
 
     public function getLastReadingDate(): ?string
     {
-        $sql = "SELECT reading_time FROM `" . self::TABLE . "` ORDER BY id DESC LIMIT 1";
+        $sql = "SELECT reading_time FROM `" . self::table() . "` ORDER BY id DESC LIMIT 1";
         $val = $this->fetchScalar($sql);
         return $val !== null ? (string) $val : null;
     }
@@ -91,7 +95,7 @@ class MspSensorRepository extends AbstractRepository
     /** @return array<int, array<string, mixed>> */
     public function fetchBetween(string $start, string $end): array
     {
-        $sql = "SELECT * FROM `" . self::TABLE . "` WHERE reading_time BETWEEN :s AND :e ORDER BY id ASC";
+        $sql = "SELECT * FROM `" . self::table() . "` WHERE reading_time BETWEEN :s AND :e ORDER BY id ASC";
         return $this->fetchAll($sql, [':s' => $start, ':e' => $end]);
     }
 
@@ -107,7 +111,7 @@ class MspSensorRepository extends AbstractRepository
         }
         $sql = "SELECT MIN(`$column`) AS `min`, MAX(`$column`) AS `max`,
                        AVG(`$column`) AS `avg`, STDDEV(`$column`) AS `stddev`
-                FROM `" . self::TABLE . "` WHERE reading_time BETWEEN :s AND :e";
+                FROM `" . self::table() . "` WHERE reading_time BETWEEN :s AND :e";
         $row = $this->fetchOne($sql, [':s' => $start, ':e' => $end]);
         return [
             'min' => $row['min'] ?? null,
@@ -120,14 +124,14 @@ class MspSensorRepository extends AbstractRepository
     /** Nombre total d'enregistrements. */
     public function countAll(): int
     {
-        $sql = "SELECT COUNT(*) FROM `" . self::TABLE . "`";
+        $sql = "SELECT COUNT(*) FROM `" . self::table() . "`";
         return (int) ($this->fetchScalar($sql) ?? 0);
     }
 
     /** Version firmware de la dernière mesure. */
     public function getFirmwareVersion(): string
     {
-        $sql = "SELECT version FROM `" . self::TABLE . "` ORDER BY id DESC LIMIT 1";
+        $sql = "SELECT version FROM `" . self::table() . "` ORDER BY id DESC LIMIT 1";
         return (string) ($this->fetchScalar($sql) ?? '-');
     }
 
