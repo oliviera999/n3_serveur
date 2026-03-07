@@ -1,1 +1,17 @@
-{"msp1":{"version":"2.3","url":"http://iot.olution.info/ota/cam/msp1/firmware.bin","md5":""},"n3pp":{"version":"2.3","url":"http://iot.olution.info/ota/cam/n3pp/firmware.bin","md5":""},"ffp3":{"version":"2.3","url":"http://iot.olution.info/ota/cam/ffp3/firmware.bin","md5":""}}
+{
+  "msp1": {
+    "version": "2.4",
+    "url": "http://iot.olution.info/ota/cam/msp1/firmware.bin",
+    "md5": "b8583606f7ab96b447d1cfbe35d75991"
+  },
+  "n3pp": {
+    "version": "2.4",
+    "url": "http://iot.olution.info/ota/cam/n3pp/firmware.bin",
+    "md5": "3e0bcf2f326741b5c5a35ace6fc751eb"
+  },
+  "ffp3": {
+    "version": "2.4",
+    "url": "http://iot.olution.info/ota/cam/ffp3/firmware.bin",
+    "md5": "e497fa440aa2cb0fe711a216a8ecfd36"
+  }
+}
