@@ -779,6 +779,8 @@ $app->group('', function ($group) use ($useLocalDataFallback) {
 $app->post('/msp1gallery/upload.php', [GalleryUploadController::class, 'handleMsp1']);
 $app->post('/n3ppgallery/upload.php', [GalleryUploadController::class, 'handleN3pp']);
 $app->post('/ffp3/ffp3gallery/upload.php', [GalleryUploadController::class, 'handleFfp3']);
+// Alias pour deploiement avec basePath /ffp3 : pattern sans prefixe pour que la route complete soit /ffp3/ffp3gallery/upload.php
+$app->post('/ffp3gallery/upload.php', [GalleryUploadController::class, 'handleFfp3']);
 
 // Galeries photo — pages de consultation (style site actuel)
 // ====================================================================

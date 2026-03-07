@@ -26,7 +26,7 @@ class MspOutputRepository extends AbstractRepository
      */
     public function getStateForFirmware(int $board): array
     {
-        $sql = "SELECT name, state FROM `" . self::table() . "` WHERE board = :board";
+        $sql = "SELECT name, state FROM `" . self::table() . "` WHERE board = :board ORDER BY gpio ASC";
         $rows = $this->fetchAll($sql, [':board' => $board]);
 
         $result = [];

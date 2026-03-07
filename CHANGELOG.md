@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -70,6 +76,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -180,6 +192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -289,6 +307,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -398,6 +422,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -516,6 +546,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -627,6 +663,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -738,6 +780,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -850,6 +898,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -961,6 +1015,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -1074,6 +1134,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -1185,6 +1251,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -1296,6 +1368,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -1407,6 +1485,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -1519,6 +1603,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -1628,6 +1718,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -1742,6 +1838,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -1851,6 +1953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -1963,6 +2071,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -2073,6 +2187,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -2185,6 +2305,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -2297,6 +2423,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -2408,6 +2540,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -2521,6 +2659,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -2631,6 +2775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -2742,6 +2892,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -2854,6 +3010,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -2966,6 +3128,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -3076,6 +3244,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -3187,6 +3361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -3300,6 +3480,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -3412,6 +3598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -3523,6 +3715,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -3634,6 +3832,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -3745,6 +3949,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -3856,6 +4066,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -3966,6 +4182,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -4076,6 +4298,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -4186,6 +4414,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -4296,6 +4530,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -4407,6 +4647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -4522,6 +4768,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -4637,6 +4889,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -4745,6 +5003,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -4853,6 +5117,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -4961,6 +5231,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -5069,6 +5345,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -5177,6 +5459,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -5285,6 +5573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -5410,6 +5704,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -5525,6 +5825,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -5638,6 +5944,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -5752,6 +6064,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -5870,6 +6188,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -6000,6 +6324,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -6112,6 +6442,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -6226,6 +6562,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -6340,6 +6682,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -6451,6 +6799,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -6565,6 +6919,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -6676,6 +7036,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -6786,6 +7152,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -6897,6 +7269,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -7018,6 +7396,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -7136,6 +7520,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -7262,6 +7652,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -7392,6 +7788,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -7512,6 +7914,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -7624,6 +8032,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -7738,6 +8152,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -7851,6 +8271,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -7964,6 +8390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -8075,6 +8507,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -8186,6 +8624,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -8299,6 +8743,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -8411,6 +8861,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -8525,6 +8981,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -8644,6 +9106,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -8767,6 +9235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -8886,6 +9360,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -9007,6 +9487,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -9127,6 +9613,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -9242,6 +9734,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -9353,6 +9851,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -9468,6 +9972,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -9580,6 +10090,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -9691,6 +10207,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -9802,6 +10324,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -9915,6 +10443,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -10028,6 +10562,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -10140,6 +10680,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -10252,6 +10798,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -10363,6 +10915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -10474,6 +11032,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -10585,6 +11149,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -10698,6 +11268,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -10811,6 +11387,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -10922,6 +11504,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -11033,6 +11621,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -11144,6 +11738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -11256,6 +11856,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -11370,6 +11976,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -11491,6 +12103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -11606,6 +12224,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -11728,6 +12352,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -11848,6 +12478,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -11959,6 +12595,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -12103,6 +12745,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -12218,6 +12866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -12342,6 +12996,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -12476,6 +13136,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -12600,6 +13266,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -12714,6 +13386,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -12829,6 +13507,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -12950,6 +13634,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -13181,6 +13871,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -13296,6 +13992,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -13409,6 +14111,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -13523,6 +14231,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -13638,6 +14352,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -13752,6 +14472,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -13868,6 +14594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -13983,6 +14715,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -14220,6 +14958,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -14334,6 +15078,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -14448,6 +15198,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -14610,6 +15366,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -14733,6 +15495,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -14856,6 +15624,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -15016,6 +15790,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -15187,6 +15967,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -15315,6 +16101,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -15444,6 +16236,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -15563,6 +16361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -15688,6 +16492,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -15817,6 +16627,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -15944,6 +16760,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -16062,6 +16884,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -16192,6 +17020,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -16354,6 +17188,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -16471,6 +17311,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -16589,6 +17435,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -16706,6 +17558,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -16828,6 +17686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -16956,6 +17820,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -17082,6 +17952,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -17206,6 +18082,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -17325,6 +18207,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -17445,6 +18333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -17576,6 +18470,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -17706,6 +18606,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -17839,6 +18745,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -17988,6 +18900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -18167,6 +19085,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -18287,6 +19211,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -18406,6 +19336,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -18535,6 +19471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -18654,6 +19596,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -18777,6 +19725,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -18893,6 +19847,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -19011,6 +19971,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -19121,6 +20087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -19271,6 +20243,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -19393,6 +20371,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -19537,6 +20521,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -19663,6 +20653,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -19785,6 +20781,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -19913,6 +20915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -20063,6 +21071,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -20198,6 +21212,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -20387,6 +21407,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -20513,6 +21539,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -20641,6 +21673,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -20780,6 +21818,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -20912,6 +21956,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -21031,6 +22081,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -21150,6 +22206,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -21271,6 +22333,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -21463,6 +22531,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -21603,6 +22677,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -21757,6 +22837,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -21899,6 +22985,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -22045,6 +23137,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -22159,6 +23257,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -22325,6 +23429,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -22455,6 +23565,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -22572,6 +23688,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -22739,6 +23861,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -22885,6 +24013,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -23064,6 +24198,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -23181,6 +24321,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -23357,6 +24503,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -23471,6 +24623,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -23584,6 +24742,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -23701,6 +24865,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -23818,6 +24988,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -23980,6 +25156,12 @@ docs/
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -24165,6 +25347,12 @@ docs/
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -24284,6 +25472,12 @@ docs/
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -24437,6 +25631,12 @@ docs/
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -24555,6 +25755,12 @@ docs/
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -24695,6 +25901,12 @@ docs/
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -24811,6 +26023,12 @@ docs/
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -25116,6 +26334,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -25255,6 +26479,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -25421,6 +26651,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -25573,6 +26809,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -25711,6 +26953,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -25856,6 +27104,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -25993,6 +27247,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -26119,6 +27379,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -26237,6 +27503,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -26371,6 +27643,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -26489,6 +27767,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -26607,6 +27891,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -26727,6 +28017,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -26865,6 +28161,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
@@ -26977,6 +28279,12 @@ ance future
 
 ---
 
+## [5.0.31] - 2026-03-07
+
+### Correctif - cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath
+- **Résumé** : cohérence routes firmware-serveur : ORDER BY MSP outputs, route galerie FFP3 avec basePath.
+
+---
 ## [5.0.30] - 2026-03-07
 
 ### Modifié - route GET /ota pour metadata et firmware OTA (n3pp, msp, cam)
