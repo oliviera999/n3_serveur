@@ -284,7 +284,7 @@
         <footer id="footer">
             <div class="context-badges">
                 <span class="context-badge {{ environment == 'n3pp_test' ? 'context-badge-test' : 'context-badge-prod' }}"><i class="fas fa-globe"></i> {{ environment == 'n3pp_test' ? 'Environnement TEST' : 'Environnement production' }}</span>
-                <span class="context-badge"><i class="fas fa-database"></i> {{ environment == 'n3pp_test' ? 'N3ppDataTest' : 'n3ppData' }}</span>
+                <span class="context-badge"><i class="fas fa-database"></i> {{ environment == 'n3pp_test' ? 'n3ppDataTest' : 'n3ppData' }}</span>
                 <span class="context-badge"><i class="fas fa-code-branch"></i> {{ version }}</span>
                 {% if firmware_version %}<span class="context-badge"><i class="fas fa-microchip"></i> Firmware v{{ firmware_version }}</span>{% endif %}
             </div>

@@ -9,7 +9,7 @@ use App\Domain\MspSensorData;
 
 /**
  * Repository pour l'insertion et la lecture des mesures station meteo (msp2_5).
- * Table dynamique via TableConfig (msp1Data en prod, Msp1DataTest en test).
+ * Table dynamique via TableConfig (msp1Data en prod, msp1DataTest en test).
  */
 class MspSensorRepository extends AbstractRepository
 {

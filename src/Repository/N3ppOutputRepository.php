@@ -8,7 +8,7 @@ use App\Config\TableConfig;
 
 /**
  * Repository pour les outputs (controle) de la serre/aquaponie (n3pp).
- * Table dynamique via TableConfig (n3ppOutputs en prod, N3ppOutputsTest en test).
+ * Table dynamique via TableConfig (n3ppOutputs en prod, n3ppOutputsTest en test).
  */
 class N3ppOutputRepository extends AbstractRepository
 {

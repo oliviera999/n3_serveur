@@ -726,7 +726,7 @@ $app->get('/n3pp/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']
 $app->get('/n3pp/n3ppcontrol/index.php', [N3ppOutputController::class, 'showControlPage']);
 
 // ====================================================================
-// Routes MSP1 TEST — tables Msp1DataTest, Msp1OutputsTest
+// Routes MSP1 TEST — tables msp1DataTest, msp1OutputsTest
 // ====================================================================
 $app->group('', function ($group) use ($useLocalDataFallback) {
     $group->post('/msp1-test/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
@@ -738,7 +738,7 @@ $app->group('', function ($group) use ($useLocalDataFallback) {
 })->add(new EnvironmentMiddleware('msp_test'));
 
 // ====================================================================
-// Routes N3PP TEST — tables N3ppDataTest, N3ppOutputsTest
+// Routes N3PP TEST — tables n3ppDataTest, n3ppOutputsTest
 // ====================================================================
 $app->group('', function ($group) use ($useLocalDataFallback) {
     $group->post('/n3pp-test/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);

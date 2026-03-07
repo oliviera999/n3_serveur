@@ -36,7 +36,7 @@ Application PHP 8.1+ pour la supervision complète d'un système d'aquaponie pi
 ## Architecture & dossiers
 
 **Racine du projet** : dossier qui contient `public/`, `src/`, `templates/`, etc.  
-Dans le dépôt n3_serveur : `serveur/ffp3/` (submodule du projet IOT_n3).
+Dans le dépôt n3_serveur : **serveur/ffp3/** (dossier du submodule serveur du projet IOT_n3).
 
 ```
 ├── public/              # Front controller Slim (index.php, assets exposés)

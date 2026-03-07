@@ -9,7 +9,7 @@ use App\Domain\N3ppSensorData;
 
 /**
  * Repository pour l'insertion et la lecture des mesures serre/aquaponie (n3pp4_2).
- * Table dynamique via TableConfig (n3ppData en prod, N3ppDataTest en test).
+ * Table dynamique via TableConfig (n3ppData en prod, n3ppDataTest en test).
  */
 class N3ppSensorRepository extends AbstractRepository
 {

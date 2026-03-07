@@ -112,24 +112,24 @@ class TableConfig
 
     public static function getN3ppDataTable(): string
     {
-        return self::getEnvironment() === 'n3pp_test' ? 'N3ppDataTest' : 'n3ppData';
+        return self::getEnvironment() === 'n3pp_test' ? 'n3ppDataTest' : 'n3ppData';
     }
 
     public static function getN3ppOutputsTable(): string
     {
-        return self::getEnvironment() === 'n3pp_test' ? 'N3ppOutputsTest' : 'n3ppOutputs';
+        return self::getEnvironment() === 'n3pp_test' ? 'n3ppOutputsTest' : 'n3ppOutputs';
     }
 
     // ── Tables MSP1 (station meteo) ─────────────────────────────────
 
     public static function getMspDataTable(): string
     {
-        return self::getEnvironment() === 'msp_test' ? 'Msp1DataTest' : 'msp1Data';
+        return self::getEnvironment() === 'msp_test' ? 'msp1DataTest' : 'msp1Data';
     }
 
     public static function getMspOutputsTable(): string
     {
-        return self::getEnvironment() === 'msp_test' ? 'Msp1OutputsTest' : 'msp1Outputs';
+        return self::getEnvironment() === 'msp_test' ? 'msp1OutputsTest' : 'msp1Outputs';
     }
 
     /**
