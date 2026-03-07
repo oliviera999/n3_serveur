@@ -228,6 +228,18 @@ return [
         );
     },
 
+    \App\Controller\AquaponieDescriptionController::class => function (ContainerInterface $c) {
+        return new \App\Controller\AquaponieDescriptionController(
+            $c->get(\App\Service\TemplateRenderer::class)
+        );
+    },
+
+    \App\Controller\LocalDataPagesController::class => function (ContainerInterface $c) {
+        return new \App\Controller\LocalDataPagesController(
+            $c->get(\App\Service\TemplateRenderer::class)
+        );
+    },
+
     \App\Controller\DashboardController::class => function (ContainerInterface $c) {
         return new \App\Controller\DashboardController(
             $c->get(\App\Repository\SensorReadRepository::class),

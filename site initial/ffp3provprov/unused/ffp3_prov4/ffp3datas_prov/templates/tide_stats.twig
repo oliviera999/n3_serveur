@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Statistiques marée – Aquaponie</title>
+    <link rel="stylesheet" href="https://iot.olution.info/assets/css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="is-preload">
+    <div id="wrapper" class="fade-in">
+        <header id="header">
+            <a href="aquaponie" class="logo">← Retour données</a>
+        </header>
+
+        <div id="main">
+            <article class="post featured">
+                <header class="major">
+                    <h2>Statistiques avancées des marées</h2>
+                    <p>Période analysée : du {{ start_date|date('d/m/Y H:i') }} au {{ end_date|date('d/m/Y H:i') }}</p>
+                </header>
+
+                <h3>Résultats</h3>
+                <ul>
+                    <li>Marnage moyen : <strong>{{ marnage_moyen is not null ? marnage_moyen|number_format(1, ',', ' ') ~ ' cm' : 'n/a' }}</strong></li>
+                    <li>Nombre de cycles détectés : <strong>{{ cycles }}</strong></li>
+                    <li>Fréquence : <strong>{{ frequence_marees is not null ? frequence_marees|number_format(2, ',', ' ') ~ ' cycles/h' : 'n/a' }}</strong></li>
+                    <li>Variation positive réserve : <strong>{{ reserve_pos|number_format(1, ',', ' ') }} cm</strong></li>
+                    <li>Variation négative réserve : <strong>{{ reserve_neg|number_format(1, ',', ' ') }} cm</strong></li>
+                    <li>Variation globale réserve : <strong>{{ reserve_var|number_format(1, ',', ' ') }} cm</strong></li>
+                </ul>
+
+                <hr/>
+
+                <h3>Evolution sur les 6 derniers mois (moyenne hebdomadaire)</h3>
+
+                <canvas id="chartMarnage" height="120"></canvas>
+                <canvas id="chartFrequence" height="120"></canvas>
+                <canvas id="chartReservePos" height="120"></canvas>
+                <canvas id="chartReserveNeg" height="120"></canvas>
+                <canvas id="chartReserveVar" height="120"></canvas>
+
+                <script>
+                const weeklyStats = {{ weekly_stats_json|raw }};
+                const labels = weeklyStats.labels;
+
+                function lineChart(ctxId, label, data, color) {
+                    new Chart(document.getElementById(ctxId), {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: label,
+                                data: data,
+                                borderColor: color,
+                                backgroundColor: color,
+                                fill: false,
+                                tension: 0.2,
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                x: { display: true, title: { display: false } },
+                                y: { display: true, beginAtZero: true }
+                            }
+                        }
+                    });
+                }
+
+                lineChart('chartMarnage', 'Marnage moyen (cm)', weeklyStats.marnage_moyen, 'rgba(54, 162, 235, 1)');
+                lineChart('chartFrequence', 'Fréquence (cycles/h)', weeklyStats.frequence_marees, 'rgba(255, 99, 132, 1)');
+                lineChart('chartReservePos', 'Variation positive réserve (cm)', weeklyStats.reserve_pos, 'rgba(75, 192, 192, 1)');
+                lineChart('chartReserveNeg', 'Variation négative réserve (cm)', weeklyStats.reserve_neg, 'rgba(255, 159, 64, 1)');
+                lineChart('chartReserveVar', 'Variation globale réserve (cm)', weeklyStats.reserve_var, 'rgba(153, 102, 255, 1)');
+                </script>
+
+                <hr/>
+
+                <h3>Choisir une autre période</h3>
+                <form method="POST">
+                    <label>Date début : <input type="date" name="start_date" value="{{ start_date|date('Y-m-d') }}" required></label>
+                    <label>Heure début : <input type="time" name="start_time" value="{{ start_date|date('H:i') }}" required></label>
+                    <br/>
+                    <label>Date fin : <input type="date" name="end_date" value="{{ end_date|date('Y-m-d') }}" required></label>
+                    <label>Heure fin : <input type="time" name="end_time" value="{{ end_date|date('H:i') }}" required></label>
+                    <button type="submit">Analyser</button>
+                </form>
+            </article>
+        </div>
+    </div>
+</body>
+</html> 

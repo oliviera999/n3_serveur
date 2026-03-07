@@ -43,7 +43,6 @@ class ErrorAlertService
         private LogService $logger,
         private NotificationService $notifier
     ) {
-        $this->ensureTableExists();
     }
     
     /**
@@ -55,6 +54,7 @@ class ErrorAlertService
     public function recordError(string $message, array $context = []): void
     {
         try {
+            $this->ensureTableExists();
             $pdo = Database::getConnection();
             
             // Normaliser le message pour regrouper les erreurs similaires

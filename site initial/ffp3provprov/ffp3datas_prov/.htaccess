@@ -1,0 +1,22 @@
+# Activation du moteur de réécriture
+RewriteEngine On
+
+# Redirections permanentes (308) afin de préserver la méthode HTTP et le corps de la requête
+# Ancien endpoint POST du microcontrôleur → nouvelle route interne
+# désactivé : l'ESP32 ne gère pas les redirections 308 ;
+# la route /post-ffp3-data.php est gérée directement par l'application.
+# RewriteRule ^post-ffp3-data\.php$ post-data [R=308,L]
+
+# Ancien endpoint d’export CSV → nouvelle route interne
+RewriteRule ^export-data\.php$ /ffp3/ffp3datas/export-data [R=308,L]
+
+# Ancienne page publique legacy → nouvelle route interne
+RewriteRule ^ffp3-data\.php$ /ffp3/ffp3datas/aquaponie [R=308,L] 
+
+# -----------------------------------------------------------------------------
+# Router générique : toute requête qui ne correspond pas à un fichier ou dossier
+# existant est orientée vers le front-controller public/index.php
+# -----------------------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ public/index.php [L] 

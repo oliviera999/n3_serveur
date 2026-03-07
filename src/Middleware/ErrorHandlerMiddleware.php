@@ -63,10 +63,12 @@ class ErrorHandlerMiddleware implements MiddlewareInterface
                 'method' => $request->getMethod(),
             ]);
 
-            // Diagnostic : écrire dans error_log PHP pour voir la cause réelle en production
+            // Identifiant unique pour retrouver l'erreur dans les logs (production)
+            $errorId = substr(bin2hex(random_bytes(8)), 0, 12);
             $uri = (string) $request->getUri();
             error_log(sprintf(
-                '[n3 500] %s %s — %s: %s in %s:%d',
+                '[n3 500] [%s] %s %s — %s: %s in %s:%d',
+                $errorId,
                 $request->getMethod(),
                 $uri,
                 $e::class,
@@ -74,11 +76,13 @@ class ErrorHandlerMiddleware implements MiddlewareInterface
                 $e->getFile(),
                 $e->getLine()
             ));
-            error_log('[n3 500] Trace: ' . $e->getTraceAsString());
+            error_log('[n3 500] [' . $errorId . '] Trace: ' . $e->getTraceAsString());
 
-            // Créer une réponse d'erreur
+            // Créer une réponse d'erreur (avec ID pour corrélation dans les logs)
             $response = new \Slim\Psr7\Response();
-            $response->getBody()->write('Une erreur serveur est survenue. Veuillez réessayer ultérieurement.');
+            $body = "Une erreur serveur est survenue. Veuillez réessayer ultérieurement.\n\n";
+            $body .= "Référence : " . $errorId . " (à indiquer en cas de signalement.)";
+            $response->getBody()->write($body);
 
             return $response->withStatus(500)
                            ->withHeader('Content-Type', 'text/plain; charset=utf-8');

@@ -4,6 +4,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use App\Config\Env;
 use App\Controller\AquaponieController;
+use App\Controller\AquaponieDescriptionController;
 use App\Controller\AuthController;
 use App\Controller\CacheController;
 use App\Controller\DashboardController;
@@ -21,6 +22,7 @@ use App\Controller\N3pp\N3ppPostDataController;
 use App\Controller\OutputController;
 use App\Controller\PostDataController;
 use App\Controller\RealtimeApiController;
+use App\Controller\LocalDataPagesController;
 use App\Controller\SupervisionController;
 use App\Controller\TideStatsController;
 use App\Middleware\AuthMiddleware;
@@ -30,27 +32,6 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Factory\AppFactory;
-
-if (!function_exists('n3DebugLog')) {
-    function n3DebugLog(string $hypothesisId, string $location, string $message, array $data = []): void
-    {
-        $payload = [
-            'sessionId' => '944511',
-            'runId' => isset($_SERVER['REQUEST_TIME_FLOAT']) ? (string) $_SERVER['REQUEST_TIME_FLOAT'] : uniqid('req_', true),
-            'hypothesisId' => $hypothesisId,
-            'location' => $location,
-            'message' => $message,
-            'data' => $data,
-            'timestamp' => (int) round(microtime(true) * 1000),
-        ];
-
-        @file_put_contents(
-            dirname(__DIR__) . '/../debug-944511.log',
-            json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . PHP_EOL,
-            FILE_APPEND
-        );
-    }
-}
 
 // Charge les variables d'environnement (.env)
 Env::load();
@@ -65,12 +46,17 @@ AppFactory::setContainer($container);
 // Création de l'application Slim
 // ====================================================================
 $app = AppFactory::create();
+$useLocalDataFallback = PHP_SAPI === 'cli-server';
 
 // Forcer le chemin base pour être identique à l'ancien (dossier parent de /public)
 // Détection du basePath selon le point d'entrée utilisé
 $scriptName = str_replace('\\', '/', $_SERVER['SCRIPT_NAME']);
 
-if (strpos($scriptName, '/public/index.php') !== false) {
+if (PHP_SAPI === 'cli-server') {
+    // Le serveur intégré PHP renseigne SCRIPT_NAME avec la route demandée.
+    // En local, l'application est servie à la racine sans préfixe.
+    $basePath = '';
+} elseif (strpos($scriptName, '/public/index.php') !== false) {
     // Accès via public/index.php : remonter de 2 niveaux depuis /public/
     // Ex: /ffp3/public/index.php -> /ffp3
     $basePath = dirname(dirname($scriptName));
@@ -90,30 +76,6 @@ if ($basePath !== '' && $basePath !== '/') {
 $GLOBALS['base_path'] = $basePath;
 
 $requestPath = (string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-// #region agent log
-if (
-    $requestPath !== ''
-    && (
-        str_starts_with($requestPath, '/assets/')
-        || str_contains($requestPath, 'msp1-data.php')
-        || str_contains($requestPath, 'n3pp-data.php')
-        || $requestPath === '/'
-    )
-) {
-    n3DebugLog(
-        'H2',
-        'serveur/public/index.php:71',
-        'Bootstrap public/index.php',
-        [
-            'request_uri' => $_SERVER['REQUEST_URI'] ?? null,
-            'request_path' => $requestPath,
-            'script_name' => $_SERVER['SCRIPT_NAME'] ?? null,
-            'base_path' => $basePath,
-            'global_base_path' => $GLOBALS['base_path'] ?? null,
-        ]
-    );
-}
-// #endregion
 
 // ====================================================================
 // Middleware de gestion d'erreurs personnalisé
@@ -361,34 +323,34 @@ $app->map(['GET', 'POST'], '/aquaponie-alt3', function (Request $request, Respon
 // Pages aquaponie - PUBLIQUES (avec middleware d'environnement mais sans authentification)
 // Inversion 2026-03 : /aquaponie = vue paysage (main), /aquaponie-alt = vue classique (alt)
 // PRODUCTION
-$app->group('', function ($group) use ($basePath) {
-    $group->map(['GET', 'POST'], '/aquaponie', [AquaponieController::class, 'showAlt']);
-    $group->map(['GET', 'POST'], '/aquaponie-alt', [AquaponieController::class, 'show']);
+$app->group('', function ($group) use ($basePath, $useLocalDataFallback) {
+    $group->map(['GET', 'POST'], '/aquaponie', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponie' : 'showAlt']);
+    $group->map(['GET', 'POST'], '/aquaponie-alt', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponieClassic' : 'show']);
     $group->get('/ffp3-data', function (Request $request, Response $response) use ($basePath) {
         return $response->withHeader('Location', $basePath . '/aquaponie')->withStatus(301);
     }); // Redirection legacy vers aquaponie
 })->add(new EnvironmentMiddleware('prod'));
 
 // TEST
-$app->group('', function ($group) {
-    $group->map(['GET', 'POST'], '/aquaponie-test', [AquaponieController::class, 'showAlt']);
-    $group->map(['GET', 'POST'], '/aquaponie-alt-test', [AquaponieController::class, 'show']);
+$app->group('', function ($group) use ($useLocalDataFallback) {
+    $group->map(['GET', 'POST'], '/aquaponie-test', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponie' : 'showAlt']);
+    $group->map(['GET', 'POST'], '/aquaponie-alt-test', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponieClassic' : 'show']);
 })->add(new EnvironmentMiddleware('test'));
 
 // TEST3
-$app->group('', function ($group) {
-    $group->map(['GET', 'POST'], '/aquamobile-test', [AquaponieController::class, 'showAlt']);
-    $group->map(['GET', 'POST'], '/aquamobile-alt-test', [AquaponieController::class, 'show']);
+$app->group('', function ($group) use ($useLocalDataFallback) {
+    $group->map(['GET', 'POST'], '/aquamobile-test', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponie' : 'showAlt']);
+    $group->map(['GET', 'POST'], '/aquamobile-alt-test', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponieClassic' : 'show']);
 })->add(new EnvironmentMiddleware('test3'));
 
 // S3 PROD
-$app->group('', function ($group) {
-    $group->map(['GET', 'POST'], '/aquamobile', [AquaponieController::class, 'showAlt']);
-    $group->map(['GET', 'POST'], '/aquamobile-alt', [AquaponieController::class, 'show']);
+$app->group('', function ($group) use ($useLocalDataFallback) {
+    $group->map(['GET', 'POST'], '/aquamobile', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponie' : 'showAlt']);
+    $group->map(['GET', 'POST'], '/aquamobile-alt', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponieClassic' : 'show']);
 })->add(new EnvironmentMiddleware('s3'));
 
 // Page Caractéristiques du module FFP3 - PUBLIQUE (pas de variante env)
-$app->get('/aquaponie-description', [AquaponieController::class, 'showDescription']);
+$app->get('/aquaponie-description', [AquaponieDescriptionController::class, 'show']);
 
 // ====================================================================
 // Routes API PUBLIQUES (utilisées par pages aquaponie et firmware ESP32)
@@ -652,20 +614,6 @@ $app->get('/assets/css/{filename}', function (Request $request, Response $respon
     ];
 
     $filePath = __DIR__ . '/assets/css/' . $filename;
-    // #region agent log
-    n3DebugLog(
-        'H3',
-        'serveur/public/index.php:612',
-        'Route CSS atteinte',
-        [
-            'request_uri' => (string) $request->getUri(),
-            'filename' => $filename,
-            'allowed' => in_array($filename, $allowedFiles, true),
-            'file_path' => $filePath,
-            'file_exists' => is_file($filePath),
-        ]
-    );
-    // #endregion
 
     if (!in_array($filename, $allowedFiles)) {
         return $response->withStatus(404);
@@ -759,7 +707,7 @@ $app->get('/msp1_data', function (Request $request, Response $response) use ($ap
     return $response->withHeader('Location', $location)->withStatus(301);
 });
 $app->post('/msp1/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
-$app->map(['GET', 'POST'], '/msp1/msp1datas/msp1-data.php', [MspDataController::class, 'show']);
+$app->map(['GET', 'POST'], '/msp1/msp1datas/msp1-data.php', [($useLocalDataFallback ? LocalDataPagesController::class : MspDataController::class), $useLocalDataFallback ? 'showMsp1' : 'show']);
 $app->get('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'getState']);
 $app->post('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'setOutput']);
 $app->get('/msp1/msp1control/', [MspOutputController::class, 'showControlPage']);
@@ -769,7 +717,7 @@ $app->get('/msp1/msp1control/index.php', [MspOutputController::class, 'showContr
 // Routes N3PP — compatibilite firmware n3pp4_2 (serre/aquaponie)
 // ====================================================================
 $app->post('/n3pp/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);
-$app->map(['GET', 'POST'], '/n3pp/n3ppdatas/n3pp-data.php', [N3ppDataController::class, 'show']);
+$app->map(['GET', 'POST'], '/n3pp/n3ppdatas/n3pp-data.php', [($useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class), $useLocalDataFallback ? 'showN3pp' : 'show']);
 $app->get('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'getState']);
 $app->post('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
 $app->get('/n3pp/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']);
@@ -800,19 +748,6 @@ $errorMiddleware->setErrorHandler(
     HttpNotFoundException::class,
     function (Request $request, Throwable $exception, bool $displayErrorDetails): Response {
         $uri = (string) $request->getUri();
-        // #region agent log
-        n3DebugLog(
-            'H4',
-            'serveur/public/index.php:762',
-            '404 Slim',
-            [
-                'method' => $request->getMethod(),
-                'uri' => $uri,
-                'script_name' => $_SERVER['SCRIPT_NAME'] ?? null,
-                'document_root' => $_SERVER['DOCUMENT_ROOT'] ?? null,
-            ]
-        );
-        // #endregion
         error_log(sprintf('[n3-iot 404] %s %s', $request->getMethod(), $uri));
         $response = new \Slim\Psr7\Response();
         $response->getBody()->write('Not found.');

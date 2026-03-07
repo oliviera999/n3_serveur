@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Accès protégé"
+AuthUserFile /home4/oliviera/.htpasswd
+require valid-user

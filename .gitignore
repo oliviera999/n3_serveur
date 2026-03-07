@@ -37,3 +37,7 @@ ffp3_backup/
 !/uploads/n3pp/.gitkeep
 /uploads/ffp3/*
 !/uploads/ffp3/.gitkeep
+
+# Archives trop volumineuses pour GitHub (> 100 Mo)
+site initial/archives/n3pp.zip
+site initial/archives/n3pp2.zip

@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Set the base path if your project is in a subdirectory
+    # Example: if URL is http://example.com/myapp/, RewriteBase should be /myapp/
+    RewriteBase /
+
+    # Redirect all requests to index.php if they are not an existing file or directory
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . index.php [L]
+</IfModule> 

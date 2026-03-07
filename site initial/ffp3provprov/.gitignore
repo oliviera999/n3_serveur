@@ -1,0 +1,51 @@
+# Fichiers système Windows
+desktop.ini
+**/desktop.ini
+Thumbs.db
+.DS_Store
+
+# Fichiers de logs et erreurs
+*.log
+error_log
+cronlog.txt
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# Fichiers de configuration locale
+.env
+.env.local
+.env.production
+
+# Dossiers de cache et temporaires
+cache/
+tmp/
+temp/
+
+# Fichiers de sauvegarde
+*.backup
+*.old
+
+# Fichiers IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Fichiers de test
+test/
+tests/
+*.test.php
+
+# Dossiers de dépendances (si applicable)
+vendor/
+node_modules/
+
+# Fichiers de configuration sensible
+config/local.php
+config/production.php
+secrets.php
