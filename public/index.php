@@ -189,6 +189,7 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
         '/n3ppgallery/',           // Upload photo ESP32-CAM
         '/ffp3/ffp3gallery/',      // Upload photo ESP32-CAM vers FFP3
         '/gallery/',               // Pages galeries photo (consultation)
+        '/ota/',                   // Fichiers OTA (metadata.json, firmware.bin) n3pp, msp, cam
         '/ffp3datas/',             // Alias legacy (LVGL_Widgets)
         '/ffp3control/',           // Alias legacy (LVGL_Widgets)
     ];
@@ -353,6 +354,29 @@ $app->group('', function ($group) use ($useLocalDataFallback) {
 
 // Page Caractéristiques du module FFP3 - PUBLIQUE (pas de variante env)
 $app->get('/aquaponie-description', [AquaponieDescriptionController::class, 'show']);
+
+// Fichiers OTA (n3pp, msp, cam) — servis depuis serveur/ota/
+$app->get('/ota/{path:.+}', function (Request $request, Response $response, array $args) {
+    $path = $args['path'] ?? '';
+    if (strpos($path, '..') !== false || $path === '') {
+        return $response->withStatus(400);
+    }
+    $otaDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ota' . DIRECTORY_SEPARATOR;
+    $file = $otaDir . str_replace('/', DIRECTORY_SEPARATOR, $path);
+    if (!is_file($file)) {
+        return $response->withStatus(404);
+    }
+    $body = (string) file_get_contents($file);
+    $response->getBody()->write($body);
+    $ext = pathinfo($file, PATHINFO_EXTENSION);
+    if ($ext === 'json') {
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+    if ($ext === 'bin') {
+        return $response->withHeader('Content-Type', 'application/octet-stream');
+    }
+    return $response;
+});
 
 // ====================================================================
 // Routes API PUBLIQUES (utilisées par pages aquaponie et firmware ESP32)
