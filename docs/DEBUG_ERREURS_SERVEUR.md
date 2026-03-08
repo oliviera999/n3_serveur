@@ -57,7 +57,7 @@ Le script lit `public/error_log` et, si accessible, `../error_log` (racine du pr
 
 ## Vérification automatique des pages et rapport logs
 
-Un script PowerShell en local permet de vérifier les pages en ligne et de produire un rapport consolidé (état des URLs + résumé des error_log et cronlog) sans accès SSH :
+Un script PowerShell en local permet de vérifier les pages **du serveur distant (prod)** et de produire **en local** un rapport consolidé (état des URLs + résumé des error_log et cronlog) sans accès SSH :
 
 - **Script** : `scripts/check-server-pages.ps1` (à exécuter depuis la racine du dépôt IOT_n3).
 - **Usage** : `.\scripts\check-server-pages.ps1`  

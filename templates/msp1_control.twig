@@ -169,7 +169,7 @@
                             {% if output.gpio is defined and output.gpio >= 100 %}
                             {% set labels = { '100': 'Mail', '101': 'Notification mail', '102': 'Seuil sécheresse', '103': 'Seuil pont diviseur', '104': 'Servo HB', '105': 'Servo GD', '106': 'Éco énergie (WakeUp)', '107': 'Fréquence réveil', '110': 'Reset ESP' } %}
                             {% set icons = { '100': 'fa-envelope', '101': 'fa-bell', '102': 'fa-seedling', '103': 'fa-battery-half', '104': 'fa-arrows-up-down', '105': 'fa-arrows-left-right', '106': 'fa-moon', '107': 'fa-clock', '110': 'fa-arrows-rotate' } %}
-                            {% set gpioStr = output.gpio|string %}
+                            {% set gpioStr = output.gpio ~ '' %}
                             <article class="action-card {{ output.gpio == 110 ? 'warning' : '' }}" data-state="{{ output.state }}" data-gpio="{{ output.gpio }}">
                                 <header>
                                     <div class="action-icon"><i class="fas {{ icons[gpioStr]|default('fa-cog') }}"></i></div>
