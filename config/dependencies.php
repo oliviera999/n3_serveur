@@ -275,7 +275,9 @@ return [
     },
 
     \App\Controller\CacheController::class => function (ContainerInterface $c) {
-        return new \App\Controller\CacheController();
+        return new \App\Controller\CacheController(
+            $c->get(\App\Service\OutputCacheService::class)
+        );
     },
 
     \App\Controller\SupervisionController::class => function (ContainerInterface $c) {

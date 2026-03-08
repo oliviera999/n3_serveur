@@ -4,15 +4,21 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Service\OutputCacheService;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class CacheController
 {
+    public function __construct(
+        private ?OutputCacheService $outputCacheService = null
+    ) {
+    }
+
     /**
-     * Vide les caches Twig et DI Container
-     * 
+     * Vide tous les caches du site : Twig, DI Container, OpCache PHP, cache outputs (tous environnements).
+     *
      * Route: GET /admin/clear-cache
      * Protection par middleware d'authentification ($applyAuth)
      */
@@ -66,19 +72,29 @@ class CacheController
 
         // Vider l'opcache PHP si disponible
         $opcacheStatus = $this->clearOpCache();
+
+        // Vider le cache outputs (tous environnements) si le service est disponible
+        $outputCacheCleared = false;
+        if ($this->outputCacheService !== null) {
+            $this->outputCacheService->invalidateAllEnvironments();
+            $outputCacheCleared = true;
+        }
         
         $success = empty($errors);
         
         // Réponse JSON
+        $msg = $success
+            ? "Cache vidé avec succès ! ({$totalDeleted} fichier(s) au total)"
+            . ($opcacheStatus['success'] ? " + Opcache vidé" : "")
+            . ($outputCacheCleared ? " + cache outputs (tous environnements)" : "")
+            : "Le cache a été partiellement vidé avec " . count($errors) . " erreur(s)";
         $jsonResponse = [
             'success' => $success,
             'total_deleted' => $totalDeleted,
             'results' => $results,
             'opcache' => $opcacheStatus,
-            'message' => $success 
-                ? "Cache vidé avec succès ! ({$totalDeleted} fichier(s) au total)" . 
-                  ($opcacheStatus['success'] ? " + Opcache vidé" : "")
-                : "Le cache a été partiellement vidé avec " . count($errors) . " erreur(s)",
+            'output_cache_cleared' => $outputCacheCleared,
+            'message' => $msg,
             'errors' => $errors
         ];
 

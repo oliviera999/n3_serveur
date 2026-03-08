@@ -167,6 +167,15 @@ class OutputCacheService
         unset(self::$cache[$env]);
         unset(self::$cacheTimestamp[$env]);
     }
+
+    /**
+     * Invalide le cache pour tous les environnements (supervision : vider tous les caches du site)
+     */
+    public function invalidateAllEnvironments(): void
+    {
+        self::$cache = [];
+        self::$cacheTimestamp = [];
+    }
     
     /**
      * Obtient les statistiques du cache
