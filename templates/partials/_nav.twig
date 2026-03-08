@@ -1,0 +1,14 @@
+{# Barre de navigation principale — variables : nav_active, environment (optionnel) #}
+{% set base = base_path|default('') %}
+{% set env = environment|default('prod') %}
+{% set control_path = (env == 'test' or env == 'test3') ? base ~ '/aquaponie-control-test' : base ~ '/aquaponie-control' %}
+
+<nav id="nav">
+    <ul class="links">
+        <li class="{{ nav_active|default('') == 'home' ? 'active' }}"><a href="{{ base }}/">Accueil</a></li>
+        <li class="{{ nav_active|default('') == 'aquaponie' ? 'active' }}"><a href="{{ base }}/aquaponie">Aquaponie</a></li>
+        <li class="{{ nav_active|default('') == 'aquaponie_alt' ? 'active' }}"><a href="{{ base }}/aquaponie-alt">Aquaponie (classique)</a></li>
+        <li class="{{ nav_active|default('') == 'control_ffp3' ? 'active' }}"><a href="{{ control_path }}">Contrôle</a></li>
+        <li class="{{ nav_active|default('') == 'supervision' ? 'active' }}"><a href="{{ base }}/supervision">Supervision</a></li>
+    </ul>
+</nav>
