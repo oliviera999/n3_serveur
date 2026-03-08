@@ -88,80 +88,71 @@ class RealtimeUpdater {
     async poll() {
         if (this.isPaused) return;
 
+        const sensorsUrl = this.lastTimestamp > 0
+            ? `${this.apiBasePath}/sensors/since/${this.lastTimestamp}`
+            : `${this.apiBasePath}/sensors/latest`;
+        const healthUrl = `${this.apiBasePath}/system/health`;
+
         try {
-            // Récupérer les nouvelles données depuis le dernier timestamp
-            // Si c'est le premier poll, récupérer juste la dernière lecture
-            let newReadings = [];
-            
-            if (this.lastTimestamp > 0) {
-                // Polling incrémental : récupérer toutes les nouvelles lectures
-                const sinceResponse = await fetch(`${this.apiBasePath}/sensors/since/${this.lastTimestamp}`);
-                if (!sinceResponse.ok) throw new Error(`HTTP ${sinceResponse.status}`);
-                
-                const sinceData = await sinceResponse.json();
-                newReadings = sinceData.readings || [];
-            } else {
-                // Premier poll : récupérer juste la dernière lecture
-                const latestResponse = await fetch(`${this.apiBasePath}/sensors/latest`);
-                if (!latestResponse.ok) throw new Error(`HTTP ${latestResponse.status}`);
-                
-                const latestData = await latestResponse.json();
-                
-                if (latestData.timestamp) {
-                    this.lastTimestamp = latestData.timestamp;
-                    newReadings = [latestData];
-                }
+            // Requêtes en parallèle : santé toujours récupérée pour mettre à jour le bloc "Temps réel"
+            const [sensorsResponse, healthResponse] = await Promise.all([
+                fetch(sensorsUrl),
+                fetch(healthUrl)
+            ]);
+
+            let healthData = null;
+            if (healthResponse.ok) {
+                try {
+                    healthData = await healthResponse.json();
+                } catch (e) { /* ignore */ }
             }
-            
-            // Récupérer le statut système
-            const healthResponse = await fetch(`${this.apiBasePath}/system/health`);
-            if (!healthResponse.ok) throw new Error(`HTTP ${healthResponse.status}`);
-            
-            const healthData = await healthResponse.json();
+            if (healthData) {
+                if (this.callbacks.onHealthUpdate) this.callbacks.onHealthUpdate(healthData);
+            } else {
+                healthData = { last_reading_ago_seconds: null, last_reading: null, readings_today: undefined, online: false };
+            }
+            this.updateSystemStatus(healthData);
 
-            // Succès : reset retry counter
+            // Traiter les données capteurs
+            let newReadings = [];
+            if (sensorsResponse.ok) {
+                const data = await sensorsResponse.json();
+                if (this.lastTimestamp > 0) {
+                    newReadings = data.readings || [];
+                } else if (data.timestamp) {
+                    this.lastTimestamp = data.timestamp;
+                    newReadings = [data];
+                }
+            } else {
+                throw new Error(`Sensors HTTP ${sensorsResponse.status}`);
+            }
+
             this.retryCount = 0;
-            
-            // NE PAS forcer le badge à 'online' ici, car updateSystemStatus() le fera
-            // en fonction du vrai statut du système (health.online)
 
-            // Traiter les nouvelles données
             if (newReadings.length > 0) {
                 console.log(`[RealtimeUpdater] ${newReadings.length} new reading(s) received!`);
                 
-                // Mettre à jour le timestamp avec la dernière lecture
                 const lastReading = newReadings[newReadings.length - 1];
                 if (lastReading.timestamp > this.lastTimestamp) {
                     this.lastTimestamp = lastReading.timestamp;
                 }
                 
-                // Callback générique
                 if (this.callbacks.onNewData) {
                     this.callbacks.onNewData(newReadings);
                 }
                 
-                // Mettre à jour les graphiques
                 if (window.chartUpdater) {
                     window.chartUpdater.addNewReadings(newReadings);
                 }
                 
-                // Mettre à jour les statistiques avec la dernière lecture (inclure le timestamp)
                 if (window.statsUpdater && lastReading.sensors) {
                     window.statsUpdater.updateAllStats(lastReading.sensors, lastReading.timestamp);
                 }
                 
-                // Notification toast (seulement si plusieurs nouvelles données)
                 if (typeof toastManager !== 'undefined' && newReadings.length > 1) {
                     toastManager.showInfo(`${newReadings.length} nouvelles lectures reçues`, 3000);
                 }
             }
-
-            // Mettre à jour le statut système
-            if (this.callbacks.onHealthUpdate) {
-                this.callbacks.onHealthUpdate(healthData);
-            }
-
-            this.updateSystemStatus(healthData);
 
         } catch (error) {
             console.error('[RealtimeUpdater] Error during poll:', error);
@@ -214,7 +205,7 @@ class RealtimeUpdater {
             const agoSpan = lastReadingEl.querySelector('[data-reading-ago]');
             const timestampSpan = lastReadingEl.querySelector('[data-reading-timestamp]');
 
-            if (health.last_reading_ago_seconds !== null) {
+            if (health.last_reading_ago_seconds !== null && health.last_reading_ago_seconds !== undefined) {
                 const ago = this.formatTimeSince(health.last_reading_ago_seconds);
                 const at = health.last_reading ? this.formatTimestamp(health.last_reading) : null;
 
@@ -233,16 +224,14 @@ class RealtimeUpdater {
                 }
 
                 lastReadingEl.dataset.defaultHandled = 'true';
-            } else if (!lastReadingEl.dataset.defaultHandled) {
+            } else {
                 if (agoSpan) {
-                    agoSpan.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                    agoSpan.textContent = '—';
                 }
-
                 if (timestampSpan) {
                     timestampSpan.textContent = '';
                     timestampSpan.style.display = 'none';
                 }
-
                 lastReadingEl.dataset.defaultHandled = 'true';
             }
         }
@@ -265,12 +254,12 @@ class RealtimeUpdater {
                     hintSpan.style.display = '';
                 }
                 readingsTodayEl.dataset.defaultHandled = 'true';
-            } else if (!readingsTodayEl.dataset.defaultHandled) {
+            } else {
                 if (countSpan) {
-                    countSpan.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                    countSpan.textContent = '—';
                 }
                 if (hintSpan) {
-                    hintSpan.style.display = 'none';
+                    hintSpan.style.display = '';
                 }
                 readingsTodayEl.dataset.defaultHandled = 'true';
             }
