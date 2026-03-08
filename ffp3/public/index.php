@@ -3,6 +3,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\Config\Env;
+use App\Controller\AnalyzeErrorsController;
 use App\Controller\AquaponieController;
 use App\Controller\AuthController;
 use App\Controller\CacheController;
@@ -415,6 +416,7 @@ $app->group('', function ($group) {
     // ====================================================================
     $group->get('/admin/clear-cache', [CacheController::class, 'clearCache']);
     $group->get('/admin/clear-cache-page', [CacheController::class, 'clearCachePage']);
+    $group->get('/admin/analyze-errors', AnalyzeErrorsController::class);
 
     // ====================================================================
     // Fichiers statiques PROD (fallback si serveur web ne les sert pas)

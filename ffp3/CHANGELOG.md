@@ -7,6 +7,17 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [4.9.94] - 2026-03-08
+
+### Ajout - Accès error_log en production et script d'analyse des erreurs
+- **.htaccess** : accès en lecture autorisé à `error_log` et `cronlog.txt` dans `public/` (Content-Type text/plain) pour le diagnostic sans SSH
+- **Documentation** : création de `serveur/docs/DEBUG_ERREURS_SERVEUR.md` (URLs des logs, processus de debug avec référence d'erreur, précautions)
+- **Règles** : mise à jour de `.cursor/rules/debug-serveur.mdc` (URLs error_log, processus incluant cronlog et error_log)
+- **Script d'analyse** : `tools/analyze_errors.php` (CLI) et route GET `/admin/analyze-errors` (protégée par auth) pour résumer les erreurs ([n3 500], PHP Fatal, FFP3 404, traces)
+- **Doc** : DEPLOYMENT_GUIDE.md et README.md mis à jour (liens vers error_log et script d'analyse)
+
+---
+
 ## [4.9.93] - 2026-03-05
 
 ### Correctif - Mise à jour temps réel : graphiques et badges après init

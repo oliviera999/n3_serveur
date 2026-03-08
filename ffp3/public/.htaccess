@@ -18,4 +18,22 @@
 # (placé après mod_rewrite pour éviter les conflits)
 <IfModule mod_autoindex.c>
     Options -Indexes
-</IfModule> 
+</IfModule>
+
+# Autoriser l'accès en lecture aux fichiers de log pour le diagnostic sans SSH (comme cronlog.txt)
+<Files "error_log">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule mod_headers.c>
+        Header set Content-Type "text/plain; charset=utf-8"
+    </IfModule>
+</Files>
+<Files "cronlog.txt">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule mod_headers.c>
+        Header set Content-Type "text/plain; charset=utf-8"
+    </IfModule>
+</Files> 

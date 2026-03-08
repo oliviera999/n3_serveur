@@ -246,6 +246,10 @@ return [
         return new \App\Controller\CacheController();
     },
 
+    \App\Controller\AnalyzeErrorsController::class => function (ContainerInterface $c) {
+        return new \App\Controller\AnalyzeErrorsController();
+    },
+
     \App\Controller\SupervisionController::class => function (ContainerInterface $c) {
         return new \App\Controller\SupervisionController(
             $c->get(\App\Service\TemplateRenderer::class)

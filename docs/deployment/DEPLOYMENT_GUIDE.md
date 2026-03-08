@@ -265,6 +265,14 @@ netstat -tlnp | grep -E '80|443'
 
 ### Check Logs
 
+**Accès direct depuis le navigateur (diagnostic sans SSH) :**
+
+- Cronlog : https://iot.olution.info/public/cronlog.txt  
+- error_log (public) : https://iot.olution.info/public/error_log (ou https://iot.olution.info/ffp3/public/error_log selon la config)  
+- Résumé des erreurs : https://iot.olution.info/ffp3/admin/analyze-errors (protégé par auth, même token que clear-cache)
+
+Voir [serveur/docs/DEBUG_ERREURS_SERVEUR.md](../DEBUG_ERREURS_SERVEUR.md) pour le processus complet.
+
 ```bash
 # PHP error logs
 tail -n 50 error_log
