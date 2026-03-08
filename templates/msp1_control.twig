@@ -91,18 +91,7 @@
         <header id="header">
             <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
         </header>
-        <nav id="nav">
-            <ul class="links">
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/{{ environment == 'test' ? 'aquaponie-test' : 'aquaponie' }}">L'aquaponie (FFP3)</a></li>
-                <li><a href="/msp1/msp1datas/msp1-data.php">Le potager</a></li>
-                <li class="active"><a href="/msp1/msp1control/">Contrôle MSP</a></li>
-                <li><a href="/n3pp/n3ppdatas/n3pp-data.php">L'élevage</a></li>
-            </ul>
-            <ul class="icons">
-                <li><a href="https://olution.info/course/view.php?id=511" class="icon solid fa-leaf"><span class="label">olution</span></a></li>
-            </ul>
-        </nav>
+        {% include 'partials/_nav.twig' with { nav_active: 'potager_control', environment: environment|default('prod') } %}
 
         <div id="main" class="control-layout">
             {# ===== SIDEBAR ===== #}

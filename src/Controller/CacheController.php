@@ -197,6 +197,7 @@ class CacheController
         <p>Cette action va supprimer les caches Twig et DI Container pour forcer la recompilation.</p>
         
         <button id="clearBtn" class="btn" onclick="clearCache()">Vider le cache</button>
+        <a href="/supervision" class="btn" style="background: #6c757d;">Retour à supervision</a>
         <a href="/" class="btn" style="background: #6c757d;">Retour à l'accueil</a>
         
         <div id="loading" class="loading">
