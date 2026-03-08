@@ -40,7 +40,7 @@
         </header>
 
         <!-- Nav -->
-        {% include 'partials/_nav.twig' with { nav_active: 'control_ffp3', environment: environment|default('prod') } %}
+        {% include 'partials/_nav.twig' with { nav_active: 'control_ffp3', environment: environment|default('prod') } ignore missing %}
 
         <!-- Main -->
         {% set lastDataStates = lastDataStates|default({}) %}
