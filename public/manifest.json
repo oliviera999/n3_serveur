@@ -62,20 +62,6 @@
   "lang": "fr-FR",
   "dir": "ltr",
   "prefer_related_applications": false,
-  "screenshots": [
-    {
-      "src": "assets/screenshots/dashboard.png",
-      "sizes": "540x720",
-      "type": "image/png",
-      "label": "Dashboard principal"
-    },
-    {
-      "src": "assets/screenshots/graphs.png",
-      "sizes": "540x720",
-      "type": "image/png",
-      "label": "Graphiques en temps réel"
-    }
-  ],
   "shortcuts": [
     {
       "name": "Dashboard",
