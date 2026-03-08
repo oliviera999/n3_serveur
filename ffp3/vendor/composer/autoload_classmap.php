@@ -13,6 +13,7 @@ return array(
     'App\\Config\\Env' => $baseDir . '/src/Config/Env.php',
     'App\\Config\\TableConfig' => $baseDir . '/src/Config/TableConfig.php',
     'App\\Config\\Version' => $baseDir . '/src/Config/Version.php',
+    'App\\Controller\\AnalyzeErrorsController' => $baseDir . '/src/Controller/AnalyzeErrorsController.php',
     'App\\Controller\\AquaponieController' => $baseDir . '/src/Controller/AquaponieController.php',
     'App\\Controller\\AuthController' => $baseDir . '/src/Controller/AuthController.php',
     'App\\Controller\\CacheController' => $baseDir . '/src/Controller/CacheController.php',

@@ -293,6 +293,7 @@ class ComposerStaticInite5d94a1a4c912bc30783321d39c3571a
         'App\\Config\\Env' => __DIR__ . '/../..' . '/src/Config/Env.php',
         'App\\Config\\TableConfig' => __DIR__ . '/../..' . '/src/Config/TableConfig.php',
         'App\\Config\\Version' => __DIR__ . '/../..' . '/src/Config/Version.php',
+        'App\\Controller\\AnalyzeErrorsController' => __DIR__ . '/../..' . '/src/Controller/AnalyzeErrorsController.php',
         'App\\Controller\\AquaponieController' => __DIR__ . '/../..' . '/src/Controller/AquaponieController.php',
         'App\\Controller\\AuthController' => __DIR__ . '/../..' . '/src/Controller/AuthController.php',
         'App\\Controller\\CacheController' => __DIR__ . '/../..' . '/src/Controller/CacheController.php',

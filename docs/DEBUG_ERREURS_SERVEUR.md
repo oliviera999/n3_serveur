@@ -55,6 +55,17 @@ Un script permet d’obtenir un **résumé** des erreurs (comptages par type, de
 
 Le script lit `public/error_log` et, si accessible, `../error_log` (racine du projet), puis affiche un résumé (nombre d’erreurs par type, dernières lignes avec `[n3 500]`, Fatal, 404).
 
+## Vérification automatique des pages et rapport logs
+
+Un script PowerShell en local permet de vérifier les pages en ligne et de produire un rapport consolidé (état des URLs + résumé des error_log et cronlog) sans accès SSH :
+
+- **Script** : `scripts/check-server-pages.ps1` (à exécuter depuis la racine du dépôt IOT_n3).
+- **Usage** : `.\scripts\check-server-pages.ps1`  
+  Options : `-BaseUrl`, `-ReportDir` (défaut `scripts/reports`), `-LogLines` (nombre de lignes d’erreur à inclure), `-ExportJson`.
+- **Rapports** : générés dans `scripts/reports/` (fichiers non versionnés, voir `.gitignore`). Nom du fichier : `check-pages-YYYY-MM-DD-HHmm.md`.
+
+Le script teste les principales URLs (FFP3, MSP1, N3PP, galeries), récupère le contenu de `cronlog.txt` et `error_log` via les URLs ci-dessus, compte les motifs d’erreur et extrait les dernières lignes pertinentes.
+
 ## Processus automatisé (agent / diagnostic)
 
 Toute investigation d’erreur 500 ou d’exception serveur doit inclure :
