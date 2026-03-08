@@ -183,11 +183,21 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
         '/msp1/',                  // Endpoints firmware msp2_5 (station meteo)
         '/msp1-test/',             // Endpoints firmware msp2_5 TEST
         '/msp1_data',              // Alias court -> redirection vers page donnees MSP1
+        '/msp1datas/',             // Alias sans préfixe /msp1/ (compatibilité firmwares)
         '/n3pp/',                  // Endpoints firmware n3pp4_2 (serre)
         '/n3pp-test/',             // Endpoints firmware n3pp4_2 TEST
+        '/n3ppdatas/',             // Alias sans préfixe /n3pp/ (compatibilité firmwares)
         '/msp1gallery/',           // Upload photo ESP32-CAM
         '/n3ppgallery/',           // Upload photo ESP32-CAM
         '/ffp3/ffp3gallery/',      // Upload photo ESP32-CAM vers FFP3
+        '/ffp3/post-data',         // API firmware FFP avec base URL /ffp3/ (tous profils)
+        '/ffp3/post-data-test',
+        '/ffp3/post-data3',
+        '/ffp3/post-data3-test',
+        '/ffp3/heartbeat',
+        '/ffp3/heartbeat-test',
+        '/ffp3/heartbeat3',
+        '/ffp3/heartbeat3-test',
         '/gallery/',               // Pages galeries photo (consultation)
         '/ota/',                   // Fichiers OTA (metadata.json, firmware.bin) n3pp, msp, cam
         '/ffp3datas/',             // Alias legacy (LVGL_Widgets)
@@ -204,7 +214,7 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
     }
     
     // Les endpoints GET /api/outputs*/state sont publics (utilisés par firmware ESP32)
-    if (!$isPublic && preg_match('#^/api/outputs(-test|3-test|3)?/state$#', $path)) {
+    if (!$isPublic && preg_match('#^/(ffp3/)?api/outputs(-test|3-test|3)?/state$#', $path)) {
         $isPublic = true;
     }
     
@@ -462,6 +472,34 @@ $app->group('', function ($group) {
 
 // S3 PROD
 $app->group('', function ($group) {
+    $group->post('/post-data3', [PostDataController::class, 'handle']);
+    $group->get('/api/outputs3/state', [OutputController::class, 'getOutputsState']);
+    $group->post('/heartbeat3', [HeartbeatController::class, 'handle']);
+})->add(new EnvironmentMiddleware('s3'));
+
+// ====================================================================
+// Alias /ffp3/* : mêmes endpoints pour firmwares utilisant base URL /ffp3/
+// (évite 404 lorsque le firmware envoie vers iot.olution.info/ffp3/post-data3-test)
+// ====================================================================
+$app->group('/ffp3', function ($group) {
+    $group->post('/post-data', [PostDataController::class, 'handle']);
+    $group->get('/api/outputs/state', [OutputController::class, 'getOutputsState']);
+    $group->post('/heartbeat', [HeartbeatController::class, 'handle']);
+})->add(new EnvironmentMiddleware('prod'));
+
+$app->group('/ffp3', function ($group) {
+    $group->post('/post-data-test', [PostDataController::class, 'handle']);
+    $group->get('/api/outputs-test/state', [OutputController::class, 'getOutputsState']);
+    $group->post('/heartbeat-test', [HeartbeatController::class, 'handle']);
+})->add(new EnvironmentMiddleware('test'));
+
+$app->group('/ffp3', function ($group) {
+    $group->post('/post-data3-test', [PostDataController::class, 'handle']);
+    $group->get('/api/outputs3-test/state', [OutputController::class, 'getOutputsState']);
+    $group->post('/heartbeat3-test', [HeartbeatController::class, 'handle']);
+})->add(new EnvironmentMiddleware('test3'));
+
+$app->group('/ffp3', function ($group) {
     $group->post('/post-data3', [PostDataController::class, 'handle']);
     $group->get('/api/outputs3/state', [OutputController::class, 'getOutputsState']);
     $group->post('/heartbeat3', [HeartbeatController::class, 'handle']);
@@ -760,6 +798,7 @@ $app->get('/msp1_data', function (Request $request, Response $response) use ($ap
     return $response->withHeader('Location', $location)->withStatus(301);
 });
 $app->post('/msp1/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
+$app->post('/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']); // Alias sans /msp1/ (compatibilité firmwares)
 $app->map(['GET', 'POST'], '/msp1/msp1datas/msp1-data.php', [($useLocalDataFallback ? LocalDataPagesController::class : MspDataController::class), $useLocalDataFallback ? 'showMsp1' : 'show']);
 $app->get('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'getState']);
 $app->post('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'setOutput']);
@@ -770,6 +809,7 @@ $app->get('/msp1/msp1control/index.php', [MspOutputController::class, 'showContr
 // Routes N3PP — compatibilite firmware n3pp4_2 (serre/aquaponie)
 // ====================================================================
 $app->post('/n3pp/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);
+$app->post('/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']); // Alias sans /n3pp/ (compatibilité firmwares)
 $app->map(['GET', 'POST'], '/n3pp/n3ppdatas/n3pp-data.php', [($useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class), $useLocalDataFallback ? 'showN3pp' : 'show']);
 $app->get('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'getState']);
 $app->post('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
@@ -804,7 +844,9 @@ $app->group('', function ($group) use ($useLocalDataFallback) {
 // Routes Galeries photo — compatibilite firmwares ESP32-CAM (upload)
 // ====================================================================
 $app->post('/msp1gallery/upload.php', [GalleryUploadController::class, 'handleMsp1']);
+$app->post('/msp1/msp1gallery/upload.php', [GalleryUploadController::class, 'handleMsp1']); // Alias avec préfixe /msp1/ (compatibilité firmwares)
 $app->post('/n3ppgallery/upload.php', [GalleryUploadController::class, 'handleN3pp']);
+$app->post('/n3pp/n3ppgallery/upload.php', [GalleryUploadController::class, 'handleN3pp']); // Alias avec préfixe /n3pp/ (compatibilité firmwares)
 $app->post('/ffp3/ffp3gallery/upload.php', [GalleryUploadController::class, 'handleFfp3']);
 // Alias pour deploiement avec basePath /ffp3 : pattern sans prefixe pour que la route complete soit /ffp3/ffp3gallery/upload.php
 $app->post('/ffp3gallery/upload.php', [GalleryUploadController::class, 'handleFfp3']);

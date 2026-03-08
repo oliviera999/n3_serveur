@@ -75,6 +75,8 @@ http://iot.olution.info/ffp3/api/outputs-test/state
 
 **S3 PROD** : Environnement dédié aux ESP32-S3 en production (`wroom-s3-prod`). Routes serveur sans suffixe `-test` (`post-data3`, `api/outputs3/state`, `heartbeat3`). Configuration firmware dans `include/config.h` (condition `BOARD_S3 && PROFILE_PROD`). Middleware serveur `EnvironmentMiddleware('s3')` → tables `ffp3Data4`, `ffp3Outputs4`, board `5`, `ffp3Heartbeat4`.
 
+**Compatibilité base URL** : Le serveur accepte les deux formes d’URL (avec ou sans préfixe `/ffp3/`) pour que tous les firmwares fonctionnent quel que soit leur `serverBase` : `POST /post-data3-test` et `POST /ffp3/post-data3-test` pointent vers le même handler (env test3). Idem pour `GET /ffp3/api/outputs3-test/state` et les autres endpoints post-data / heartbeat.
+
 ---
 
 ## ⏱ Timeouts côté client (firmware) et serveur

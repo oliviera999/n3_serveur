@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -106,6 +112,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -252,6 +264,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -397,6 +415,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -542,6 +566,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -696,6 +726,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -843,6 +879,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -990,6 +1032,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -1138,6 +1186,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -1285,6 +1339,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -1434,6 +1494,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -1581,6 +1647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -1728,6 +1800,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -1875,6 +1953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -2023,6 +2107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -2168,6 +2258,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -2318,6 +2414,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -2463,6 +2565,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -2611,6 +2719,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -2757,6 +2871,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -2905,6 +3025,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -3053,6 +3179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -3200,6 +3332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -3349,6 +3487,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -3495,6 +3639,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -3642,6 +3792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -3790,6 +3946,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -3938,6 +4100,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -4084,6 +4252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -4231,6 +4405,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -4380,6 +4560,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -4528,6 +4714,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -4675,6 +4867,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -4822,6 +5020,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -4969,6 +5173,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -5116,6 +5326,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -5262,6 +5478,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -5408,6 +5630,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -5554,6 +5782,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -5700,6 +5934,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -5847,6 +6087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -5998,6 +6244,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -6149,6 +6401,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -6293,6 +6551,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -6437,6 +6701,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -6581,6 +6851,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -6725,6 +7001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -6869,6 +7151,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -7013,6 +7301,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -7174,6 +7468,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -7325,6 +7625,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -7474,6 +7780,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -7624,6 +7936,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -7778,6 +8096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -7944,6 +8268,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -8092,6 +8422,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -8242,6 +8578,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -8392,6 +8734,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -8539,6 +8887,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -8689,6 +9043,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -8836,6 +9196,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -8982,6 +9348,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -9129,6 +9501,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -9286,6 +9664,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -9440,6 +9824,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -9602,6 +9992,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -9768,6 +10164,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -9924,6 +10326,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -10072,6 +10480,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -10222,6 +10636,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -10371,6 +10791,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -10520,6 +10946,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -10667,6 +11099,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -10814,6 +11252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -10963,6 +11407,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -11111,6 +11561,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -11261,6 +11717,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -11416,6 +11878,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -11575,6 +12043,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -11730,6 +12204,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -11887,6 +12367,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -12043,6 +12529,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -12194,6 +12686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -12341,6 +12839,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -12492,6 +12996,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -12640,6 +13150,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -12787,6 +13303,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -12934,6 +13456,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -13083,6 +13611,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -13232,6 +13766,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -13380,6 +13920,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -13528,6 +14074,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -13675,6 +14227,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -13822,6 +14380,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -13969,6 +14533,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -14118,6 +14688,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -14267,6 +14843,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -14414,6 +14996,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -14561,6 +15149,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -14708,6 +15302,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -14856,6 +15456,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -15006,6 +15612,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -15163,6 +15775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -15314,6 +15932,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -15472,6 +16096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -15628,6 +16258,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -15775,6 +16411,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -15955,6 +16597,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -16106,6 +16754,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -16266,6 +16920,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -16436,6 +17096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -16596,6 +17262,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -16746,6 +17418,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -16897,6 +17575,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -17054,6 +17738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -17321,6 +18011,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -17472,6 +18168,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -17621,6 +18323,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -17771,6 +18479,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -17922,6 +18636,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -18072,6 +18792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -18224,6 +18950,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -18375,6 +19107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -18648,6 +19386,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -18798,6 +19542,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -18948,6 +19698,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -19146,6 +19902,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -19305,6 +20067,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -19464,6 +20232,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -19660,6 +20434,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -19867,6 +20647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -20031,6 +20817,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -20196,6 +20988,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -20351,6 +21149,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -20512,6 +21316,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -20677,6 +21487,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -20840,6 +21656,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -20994,6 +21816,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -21160,6 +21988,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -21358,6 +22192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -21511,6 +22351,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -21665,6 +22511,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -21818,6 +22670,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -21976,6 +22834,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -22140,6 +23004,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -22302,6 +23172,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -22462,6 +23338,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -22617,6 +23499,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -22773,6 +23661,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -22940,6 +23834,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -23106,6 +24006,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -23275,6 +24181,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -23460,6 +24372,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -23675,6 +24593,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -23831,6 +24755,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -23986,6 +24916,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -24151,6 +25087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -24306,6 +25248,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -24465,6 +25413,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -24617,6 +25571,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -24771,6 +25731,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -24917,6 +25883,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -25103,6 +26075,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -25261,6 +26239,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -25441,6 +26425,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -25603,6 +26593,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -25761,6 +26757,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -25925,6 +26927,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -26111,6 +27119,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -26282,6 +27296,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -26507,6 +27527,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -26669,6 +27695,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -26833,6 +27865,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -27008,6 +28046,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -27176,6 +28220,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -27331,6 +28381,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -27486,6 +28542,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -27643,6 +28705,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -27871,6 +28939,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -28047,6 +29121,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -28237,6 +29317,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -28415,6 +29501,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -28597,6 +29689,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -28747,6 +29845,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -28949,6 +30053,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -29115,6 +30225,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -29268,6 +30384,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -29471,6 +30593,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -29653,6 +30781,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -29868,6 +31002,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -30021,6 +31161,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -30233,6 +31379,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -30383,6 +31535,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -30532,6 +31690,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -30685,6 +31849,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -30838,6 +32008,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -31036,6 +32212,12 @@ docs/
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -31257,6 +32439,12 @@ docs/
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -31412,6 +32600,12 @@ docs/
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -31601,6 +32795,12 @@ docs/
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -31755,6 +32955,12 @@ docs/
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -31931,6 +33137,12 @@ docs/
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -32083,6 +33295,12 @@ docs/
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -32424,6 +33642,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -32599,6 +33823,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -32801,6 +34031,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -32989,6 +34225,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -33163,6 +34405,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -33344,6 +34592,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -33517,6 +34771,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -33679,6 +34939,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -33833,6 +35099,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -34003,6 +35275,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -34157,6 +35435,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -34311,6 +35595,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -34467,6 +35757,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -34641,6 +35937,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
@@ -34789,6 +36091,12 @@ ance future
 
 ---
 
+## [5.0.37] - 2026-03-08
+
+### Correctif - routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares
+- **Résumé** : routes API /ffp3 et alias MSP N3PP galeries pour tous firmwares.
+
+---
 ## [5.0.36] - 2026-03-08
 
 ### Modifié - menu unifié (partial _nav.twig), libellés et icônes harmonisés
