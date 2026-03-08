@@ -472,6 +472,7 @@
         {% if measure_count > 0 %}
         window.chartUpdater = new ChartUpdaterGeneric({
             chartIds: ['chart-temperatures', 'chart-lights', 'chart-niveauxeaux', 'chart-cycles'],
+            debug: true,
             sensorMap: {
                 'TempAirInt': { chartId: 'chart-temperatures', seriesIndex: 0 },
                 'TempAirExt': { chartId: 'chart-temperatures', seriesIndex: 1 },
@@ -492,7 +493,7 @@
                 'ServoGD': { chartId: 'chart-cycles', seriesIndex: 3 }
             }
         });
-        chartUpdater.init();
+        setTimeout(function() { chartUpdater.init(); }, 150);
         {% endif %}
         window.realtimeUpdater = new RealtimeUpdater({
             apiBasePath: apiBase,

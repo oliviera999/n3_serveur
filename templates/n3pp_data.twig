@@ -407,6 +407,7 @@
         {% if measure_count > 0 %}
         window.chartUpdater = new ChartUpdaterGeneric({
             chartIds: ['chart-niveauxeaux', 'chart-temperatures', 'chart-cycles'],
+            debug: true,
             sensorMap: {
                 'HumidMoy': { chartId: 'chart-niveauxeaux', seriesIndex: 0 },
                 'Humid1': { chartId: 'chart-niveauxeaux', seriesIndex: 1 },
@@ -422,7 +423,7 @@
                 'PontDiv': { chartId: 'chart-cycles', seriesIndex: 1 }
             }
         });
-        chartUpdater.init();
+        setTimeout(function() { chartUpdater.init(); }, 150);
         {% endif %}
         window.realtimeUpdater = new RealtimeUpdater({
             apiBasePath: apiBase,
