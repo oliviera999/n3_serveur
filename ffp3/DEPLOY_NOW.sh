@@ -24,16 +24,17 @@ fi
 echo "📍 Dossier: $(pwd)"
 echo ""
 
-# Étape 1: Pull depuis GitHub
+# Étape 1: Pull depuis GitHub (branche courante : main ou master)
 echo "📥 [1/6] Pull depuis GitHub..."
 git fetch origin
-git pull origin main
+BRANCH=$(git branch --show-current 2>/dev/null || git rev-parse --abbrev-ref HEAD)
+git pull origin "$BRANCH"
 
 if [ $? -ne 0 ]; then
     echo "❌ Erreur lors du git pull"
     echo ""
     echo "Essayez de résoudre avec:"
-    echo "  git reset --hard origin/main"
+    echo "  git reset --hard origin/$BRANCH"
     exit 1
 fi
 

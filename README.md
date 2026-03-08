@@ -46,3 +46,8 @@ Les scripts de déploiement, diagnostic et test liés à FFP3 se trouvent dans *
 - **`ffp3/scripts/`** : utilitaires (ex. copy_photos_aquaponie.ps1).
 
 **À exécuter depuis la racine de `ffp3/`** (répertoire contenant `composer.json`), sauf indication contraire dans le script ou dans `ffp3/bin/README.md`.
+
+## Diagnostic / Logs
+
+- **Cronlog production** : [https://iot.olution.info/public/cronlog.txt](https://iot.olution.info/public/cronlog.txt) — log applicatif (Monolog) des erreurs et exceptions. À consulter pour retrouver une **référence d’erreur** (ex. `bb3262da436c`) affichée à l’utilisateur en cas d’erreur 500.
+- **Processus de debug** : voir [docs/DEBUG_ERREURS_SERVEUR.md](docs/DEBUG_ERREURS_SERVEUR.md) pour le diagnostic à partir d’une référence et le lien avec `ErrorHandlerMiddleware` / `ErrorAlertService`.
