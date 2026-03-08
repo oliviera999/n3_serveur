@@ -89,6 +89,10 @@ $app->add($container->get(\App\Middleware\ErrorHandlerMiddleware::class));
 $app->add(function (Request $request, $handler) {
     $path = $request->getUri()->getPath();
     $method = $request->getMethod();
+    // #region agent log (s'exécute en prod : log dans public/ pour récupération à distance via URL)
+    $logPath = __DIR__ . '/debug-897a5e.log';
+    @file_put_contents($logPath, json_encode(['sessionId' => '897a5e', 'hypothesisId' => 'A', 'location' => 'index.php:redirect-middleware', 'message' => 'path and branch', 'data' => ['path' => $path, 'method' => $method, 'pathLen' => strlen($path)], 'timestamp' => (int)(microtime(true) * 1000)]) . "\n", FILE_APPEND | LOCK_EX);
+    // #endregion
     // Redirection GET uniquement (pages), pas les POST API (ex. ffp3gallery/upload.php)
     if ($method !== 'GET') {
         return $handler->handle($request);
