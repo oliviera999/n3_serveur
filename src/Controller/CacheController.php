@@ -102,6 +102,59 @@ class CacheController
     }
 
     /**
+     * Affiche le script de déploiement (DEPLOY_NOW.sh) en lecture seule.
+     * Route: GET /admin/deploy-script
+     * Protection par middleware d'authentification ($applyAuth)
+     */
+    public function showDeployScript(Request $request, Response $response): Response
+    {
+        $projectRoot = dirname(__DIR__, 2);
+        $scriptPath = $projectRoot . '/ffp3/DEPLOY_NOW.sh';
+
+        if (!is_file($scriptPath)) {
+            $body = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Script de déploiement</title></head><body>';
+            $body .= '<h1>Script de déploiement</h1><p>Fichier DEPLOY_NOW.sh introuvable (ffp3/DEPLOY_NOW.sh).</p>';
+            $body .= '<p><a href="/supervision">Retour à la supervision</a></p></body></html>';
+            $response->getBody()->write($body);
+            return $response->withStatus(404)->withHeader('Content-Type', 'text/html; charset=utf-8');
+        }
+
+        $content = file_get_contents($scriptPath);
+        $content = htmlspecialchars($content, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+        $html = <<<HTML
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script de déploiement – n3 IoT</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; max-width: 900px; margin: 30px auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        h1 { color: #008B74; border-bottom: 3px solid #008B74; padding-bottom: 10px; }
+        .hint { color: #6c757d; margin: 12px 0; font-size: 0.95em; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.4; }
+        .btn { display: inline-block; padding: 10px 20px; background: #008B74; color: white; border-radius: 8px; text-decoration: none; margin-top: 16px; font-weight: 600; }
+        .btn:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Script de déploiement (DEPLOY_NOW.sh)</h1>
+        <p class="hint">À exécuter sur le serveur via SSH (ex. <code>cd /home4/oliviera/iot.olution.info/ffp3 && bash DEPLOY_NOW.sh</code>). Ne pas exécuter depuis le navigateur.</p>
+        <pre>{$content}</pre>
+        <a href="/supervision" class="btn">Retour à la supervision</a>
+    </div>
+</body>
+</html>
+HTML;
+
+        $response->getBody()->write($html);
+        return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
+    }
+
+    /**
      * Affiche une page HTML simple pour vider le cache
      * 
      * Route: GET /admin/clear-cache-page

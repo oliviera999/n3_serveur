@@ -150,6 +150,10 @@
                         <button type="button" id="clearAllCacheBtn" class="btn-cache" data-clear-url="{{ base_path }}/admin/clear-cache">Vider tous les caches</button>
                         <div id="clearCacheResult" class="cache-result" aria-live="polite"></div>
                     </div>
+                    <a href="{{ base_path }}/admin/deploy-script" class="link-card">
+                        <div><i class="fas fa-rocket"></i><span class="label">Script de déploiement</span></div>
+                        <div class="hint">Voir DEPLOY_NOW.sh – à exécuter sur le serveur (SSH) après git pull</div>
+                    </a>
                 </div>
 
                 <div class="section-header">

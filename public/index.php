@@ -540,6 +540,7 @@ $app->group('', function ($group) {
     // ====================================================================
     $group->get('/admin/clear-cache', [CacheController::class, 'clearCache']);
     $group->get('/admin/clear-cache-page', [CacheController::class, 'clearCachePage']);
+    $group->get('/admin/deploy-script', [CacheController::class, 'showDeployScript']);
 })->add(new EnvironmentMiddleware('prod'))
   ->add($applyAuth);
 
