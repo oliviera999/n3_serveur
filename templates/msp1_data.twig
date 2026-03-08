@@ -464,10 +464,36 @@
     </script>
 
     <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-updater-generic.js"></script>
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
     <script>
     (function() {
         var apiBase = '{{ base_path }}' + '/msp1/api/realtime';
+        {% if measure_count > 0 %}
+        window.chartUpdater = new ChartUpdaterGeneric({
+            chartIds: ['chart-temperatures', 'chart-lights', 'chart-niveauxeaux', 'chart-cycles'],
+            sensorMap: {
+                'TempAirInt': { chartId: 'chart-temperatures', seriesIndex: 0 },
+                'TempAirExt': { chartId: 'chart-temperatures', seriesIndex: 1 },
+                'HumidAirInt': { chartId: 'chart-temperatures', seriesIndex: 2 },
+                'HumidAirExt': { chartId: 'chart-temperatures', seriesIndex: 3 },
+                'LuminositeMoy': { chartId: 'chart-lights', seriesIndex: 0 },
+                'LuminositeA': { chartId: 'chart-lights', seriesIndex: 1 },
+                'LuminositeB': { chartId: 'chart-lights', seriesIndex: 2 },
+                'LuminositeC': { chartId: 'chart-lights', seriesIndex: 3 },
+                'LuminositeD': { chartId: 'chart-lights', seriesIndex: 4 },
+                'HumidSol': { chartId: 'chart-niveauxeaux', seriesIndex: 0 },
+                'Pluie': { chartId: 'chart-niveauxeaux', seriesIndex: 1 },
+                'TempEau': { chartId: 'chart-niveauxeaux', seriesIndex: 2 },
+                'resetMode': { chartId: 'chart-niveauxeaux', seriesIndex: 3 },
+                'bootCount': { chartId: 'chart-cycles', seriesIndex: 0 },
+                'PontDiv': { chartId: 'chart-cycles', seriesIndex: 1 },
+                'ServoHB': { chartId: 'chart-cycles', seriesIndex: 2 },
+                'ServoGD': { chartId: 'chart-cycles', seriesIndex: 3 }
+            }
+        });
+        chartUpdater.init();
+        {% endif %}
         window.realtimeUpdater = new RealtimeUpdater({
             apiBasePath: apiBase,
             pollInterval: 15000,

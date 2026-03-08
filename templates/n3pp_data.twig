@@ -399,10 +399,31 @@
     </script>
 
     <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-updater-generic.js"></script>
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
     <script>
     (function() {
         var apiBase = '{{ base_path }}' + '/n3pp/api/realtime';
+        {% if measure_count > 0 %}
+        window.chartUpdater = new ChartUpdaterGeneric({
+            chartIds: ['chart-niveauxeaux', 'chart-temperatures', 'chart-cycles'],
+            sensorMap: {
+                'HumidMoy': { chartId: 'chart-niveauxeaux', seriesIndex: 0 },
+                'Humid1': { chartId: 'chart-niveauxeaux', seriesIndex: 1 },
+                'Humid2': { chartId: 'chart-niveauxeaux', seriesIndex: 2 },
+                'Humid3': { chartId: 'chart-niveauxeaux', seriesIndex: 3 },
+                'Humid4': { chartId: 'chart-niveauxeaux', seriesIndex: 4 },
+                'etatPompe': { chartId: 'chart-niveauxeaux', seriesIndex: 5 },
+                'resetMode': { chartId: 'chart-niveauxeaux', seriesIndex: 6 },
+                'TempAir': { chartId: 'chart-temperatures', seriesIndex: 0 },
+                'Humidite': { chartId: 'chart-temperatures', seriesIndex: 1 },
+                'Luminosite': { chartId: 'chart-temperatures', seriesIndex: 2 },
+                'bootCount': { chartId: 'chart-cycles', seriesIndex: 0 },
+                'PontDiv': { chartId: 'chart-cycles', seriesIndex: 1 }
+            }
+        });
+        chartUpdater.init();
+        {% endif %}
         window.realtimeUpdater = new RealtimeUpdater({
             apiBasePath: apiBase,
             pollInterval: 15000,
