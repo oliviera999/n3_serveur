@@ -1,9 +1,14 @@
-{# Navigation principale n3 IoT - partagée par msp1_data et n3pp_data #}
-<nav id="nav" role="navigation" aria-label="Navigation principale">
+{# Barre de navigation principale — partagée par toutes les pages (home, potager, élevage, aquaponie, supervision). #}
+<nav id="nav">
     <ul class="links">
-        <li><a href="{{ base_path|default('') }}/" class="{% if nav_active|default('') == 'accueil' %}active{% endif %}">Accueil</a></li>
-        <li><a href="{{ base_path|default('') }}/msp1/msp1datas/msp1-data.php" class="{% if nav_active|default('') == 'potager' %}active{% endif %}">Le potager</a></li>
-        <li><a href="{{ base_path|default('') }}/n3pp/n3ppdatas/n3pp-data.php" class="{% if nav_active|default('') == 'elevage' %}active{% endif %}">L'élevage</a></li>
-        <li><a href="{{ base_path|default('') }}/ffp3/aquaponie" class="{% if nav_active|default('') == 'aquaponie' %}active{% endif %}">Aquaponie</a></li>
+        <li class="{{ nav_active|default('') == 'home' ? 'active' }}"><a href="{{ base_path }}/">Accueil</a></li>
+        <li class="{{ nav_active|default('') == 'potager' ? 'active' }}"><a href="{{ base_path }}/msp1/msp1datas/msp1-data.php">Potager</a></li>
+        <li class="{{ nav_active|default('') == 'potager_control' ? 'active' }}"><a href="{{ base_path }}/msp1/msp1control/">Potager Contrôle</a></li>
+        <li class="{{ nav_active|default('') == 'elevage' ? 'active' }}"><a href="{{ base_path }}/n3pp/n3ppdatas/n3pp-data.php">Élevage</a></li>
+        <li class="{{ nav_active|default('') == 'elevage_control' ? 'active' }}"><a href="{{ base_path }}/n3pp/n3ppcontrol/">Élevage Contrôle</a></li>
+        <li class="{{ nav_active|default('') == 'aquaponie' or nav_active|default('') == 'aquaponie_alt' ? 'active' }}"><a href="{{ base_path }}/aquaponie">Aquaponie</a></li>
+        <li class="{{ nav_active|default('') == 'control_ffp3' ? 'active' }}"><a href="{{ base_path }}/aquaponie-control">Contrôle FFP3</a></li>
+        <li class="{{ nav_active|default('') == 'caracteristiques' ? 'active' }}"><a href="{{ base_path }}/aquaponie-description">Caractéristiques</a></li>
+        <li class="{{ nav_active|default('') == 'supervision' ? 'active' }}"><a href="{{ base_path }}/supervision">Supervision</a></li>
     </ul>
 </nav>
