@@ -31,7 +31,7 @@ class EnvironmentMiddlewareTest extends TestCase
     public function testConstructorWithInvalidEnvironment(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage("Environment must be 'prod', 'test', 'test3' or 's3', got: invalid");
+        $this->expectExceptionMessage("Environment must be one of: prod, test, test3, s3, n3pp_test, msp_test, got: invalid");
 
         new EnvironmentMiddleware('invalid');
     }

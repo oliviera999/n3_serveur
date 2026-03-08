@@ -7,6 +7,20 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
+## [5.0.42] - 2026-03-08
+
+### Correctif - rapport find-bugs : test PHPUnit, Twig, migration N3PP
+- **SensorReadRepositoryTest** : suppression du code duplique (Unmatched `}`).
+- **Templates Twig** : ordre `include` corrige dans msp1_data.twig et n3pp_data.twig (`with { } ignore missing` pour eviter "Unexpected token ignore").
+- **Migration BDD N3PP** : ajout de `migrations/ADD_N3PP_WAKEUP_COLUMNS.sql` (colonnes WakeUp, FreqWakeUp sur n3ppData). Executer cette migration sur la BDD de production (et sur n3ppDataTest si applicable) pour corriger l'erreur "Unknown column 'WakeUp' in 'INSERT INTO'".
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -136,6 +150,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -312,6 +332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -487,6 +513,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -662,6 +694,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -846,6 +884,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -1023,6 +1067,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -1200,6 +1250,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -1378,6 +1434,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -1555,6 +1617,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -1734,6 +1802,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -1911,6 +1985,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -2088,6 +2168,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -2265,6 +2351,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -2443,6 +2535,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -2618,6 +2716,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -2798,6 +2902,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -2973,6 +3083,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -3151,6 +3267,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -3327,6 +3449,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -3505,6 +3633,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -3683,6 +3817,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -3860,6 +4000,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -4039,6 +4185,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -4215,6 +4367,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -4392,6 +4550,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -4570,6 +4734,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -4748,6 +4918,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -4924,6 +5100,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -5101,6 +5283,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -5280,6 +5468,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -5458,6 +5652,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -5635,6 +5835,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -5812,6 +6018,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -5989,6 +6201,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -6166,6 +6384,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -6342,6 +6566,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -6518,6 +6748,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -6694,6 +6930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -6870,6 +7112,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -7047,6 +7295,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -7228,6 +7482,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -7409,6 +7669,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -7583,6 +7849,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -7757,6 +8029,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -7931,6 +8209,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -8105,6 +8389,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -8279,6 +8569,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -8453,6 +8749,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -8644,6 +8946,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -8825,6 +9133,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -9004,6 +9318,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -9184,6 +9504,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -9368,6 +9694,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -9564,6 +9896,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -9742,6 +10080,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -9922,6 +10266,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -10102,6 +10452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -10279,6 +10635,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -10459,6 +10821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -10636,6 +11004,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -10812,6 +11186,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -10989,6 +11369,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -11176,6 +11562,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -11360,6 +11752,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -11552,6 +11950,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -11748,6 +12152,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -11934,6 +12344,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -12112,6 +12528,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -12292,6 +12714,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -12471,6 +12899,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -12650,6 +13084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -12827,6 +13267,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -13004,6 +13450,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -13183,6 +13635,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -13361,6 +13819,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -13541,6 +14005,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -13726,6 +14196,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -13915,6 +14391,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -14100,6 +14582,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -14287,6 +14775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -14473,6 +14967,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -14654,6 +15154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -14831,6 +15337,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -15012,6 +15524,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -15190,6 +15708,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -15367,6 +15891,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -15544,6 +16074,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -15723,6 +16259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -15902,6 +16444,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -16080,6 +16628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -16258,6 +16812,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -16435,6 +16995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -16612,6 +17178,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -16789,6 +17361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -16968,6 +17546,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -17147,6 +17731,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -17324,6 +17914,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -17501,6 +18097,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -17678,6 +18280,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -17856,6 +18464,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -18036,6 +18650,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -18223,6 +18843,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -18404,6 +19030,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -18592,6 +19224,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -18778,6 +19416,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -18955,6 +19599,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -19165,6 +19815,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -19346,6 +20002,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -19536,6 +20198,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -19736,6 +20404,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -19926,6 +20600,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -20106,6 +20786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -20287,6 +20973,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -20474,6 +21166,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -20771,6 +21469,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -20952,6 +21656,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -21131,6 +21841,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -21311,6 +22027,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -21492,6 +22214,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -21672,6 +22400,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -21854,6 +22588,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -22035,6 +22775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -22338,6 +23084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -22518,6 +23270,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -22698,6 +23456,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -22926,6 +23690,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -23115,6 +23885,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -23304,6 +24080,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -23530,6 +24312,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -23767,6 +24555,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -23961,6 +24755,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -24156,6 +24956,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -24341,6 +25147,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -24532,6 +25344,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -24727,6 +25545,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -24920,6 +25744,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -25104,6 +25934,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -25300,6 +26136,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -25528,6 +26370,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -25711,6 +26559,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -25895,6 +26749,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -26078,6 +26938,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -26266,6 +27132,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -26460,6 +27332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -26652,6 +27530,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -26842,6 +27726,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -27027,6 +27917,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -27213,6 +28109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -27410,6 +28312,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -27606,6 +28514,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -27805,6 +28719,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -28020,6 +28940,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -28265,6 +29191,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -28451,6 +29383,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -28636,6 +29574,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -28831,6 +29775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -29016,6 +29966,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -29205,6 +30161,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -29387,6 +30349,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -29571,6 +30539,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -29747,6 +30721,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -29963,6 +30943,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -30151,6 +31137,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -30361,6 +31353,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -30553,6 +31551,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -30741,6 +31745,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -30935,6 +31945,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -31151,6 +32167,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -31352,6 +32374,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -31607,6 +32635,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -31799,6 +32833,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -31993,6 +33033,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -32198,6 +33244,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -32396,6 +33448,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -32581,6 +33639,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -32766,6 +33830,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -32953,6 +34023,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -33211,6 +34287,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -33417,6 +34499,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -33637,6 +34725,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -33845,6 +34939,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -34057,6 +35157,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -34237,6 +35343,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -34469,6 +35581,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -34665,6 +35783,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -34848,6 +35972,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -35081,6 +36211,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -35293,6 +36429,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -35538,6 +36680,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -35721,6 +36869,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -35963,6 +37117,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -36143,6 +37303,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -36322,6 +37488,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -36505,6 +37677,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -36688,6 +37866,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -36916,6 +38100,12 @@ docs/
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -37167,6 +38357,12 @@ docs/
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -37352,6 +38548,12 @@ docs/
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -37571,6 +38773,12 @@ docs/
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -37755,6 +38963,12 @@ docs/
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -37961,6 +39175,12 @@ docs/
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -38143,6 +39363,12 @@ docs/
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -38514,6 +39740,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -38719,6 +39951,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -38951,6 +40189,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -39169,6 +40413,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -39373,6 +40623,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -39584,6 +40840,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -39787,6 +41049,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -39979,6 +41247,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -40163,6 +41437,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -40363,6 +41643,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -40547,6 +41833,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -40731,6 +42023,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -40917,6 +42215,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -41121,6 +42425,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)
@@ -41299,6 +42609,12 @@ ance future
 
 ---
 
+## [5.0.43] - 2026-03-08
+
+### Correctif - correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3)
+- **Résumé** : correctifs rapport find-bugs (tests, Twig, migration N3PP, doc config /ffp3).
+
+---
 ## [5.0.41] - 2026-03-08
 
 ### Correctif - ajout template partials/_nav.twig (correctif LoaderError Twig)

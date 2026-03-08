@@ -47,6 +47,10 @@ Les scripts de déploiement, diagnostic et test liés à FFP3 se trouvent dans *
 
 **À exécuter depuis la racine de `ffp3/`** (répertoire contenant `composer.json`), sauf indication contraire dans le script ou dans `ffp3/bin/README.md`.
 
+## Configuration serveur (URLs /ffp3/*)
+
+Pour eviter des 404 sur les URLs du type `https://iot.olution.info/ffp3/`, `/ffp3/dashboard`, etc., toutes les requetes doivent etre acheminees vers `public/index.php`. Voir [docs/CONFIG_SERVEUR_FFP3_URLS.md](docs/CONFIG_SERVEUR_FFP3_URLS.md) pour Apache (AllowOverride All) et Nginx.
+
 ## Diagnostic / Logs
 
 - **Cronlog production** : [https://iot.olution.info/public/cronlog.txt](https://iot.olution.info/public/cronlog.txt) — log applicatif (Monolog) des erreurs et exceptions. À consulter pour retrouver une **référence d’erreur** (ex. `bb3262da436c`) affichée à l’utilisateur en cas d’erreur 500.

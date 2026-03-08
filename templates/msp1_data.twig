@@ -98,7 +98,7 @@
         <header id="header">
             <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
         </header>
-        {% include 'partials/_nav.twig' ignore missing with { nav_active: 'potager', environment: environment|default('prod') } %}
+        {% include 'partials/_nav.twig' with { nav_active: 'potager', environment: environment|default('prod') } ignore missing %}
 
         <div id="main">
             {# ===== HERO ===== #}
