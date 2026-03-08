@@ -118,60 +118,6 @@
 
             <article class="post featured">
 
-                {# ===== FILTRAGE ===== #}
-                <div class="filter-section">
-                    <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
-                    <form method="POST" action="/n3pp/n3ppdatas/n3pp-data.php">
-                        {{ csrf_field|raw }}
-                        <div>
-                            <label for="start_datetime">Début</label>
-                            <input type="datetime-local" id="start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d\\TH:i') }}">
-                        </div>
-                        <div>
-                            <label for="end_datetime">Fin</label>
-                            <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d\\TH:i') }}">
-                        </div>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Afficher</button>
-                        <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-download"></i> CSV</button>
-                    </form>
-                    <div class="quick-filters">
-                        <span class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</span>
-                        <span class="quick-filter-btn" onclick="setPeriod(3,'h')">3h</span>
-                        <span class="quick-filter-btn" onclick="setPeriod(6,'h')">6h</span>
-                        <span class="quick-filter-btn" onclick="setPeriod(12,'h')">12h</span>
-                        <span class="quick-filter-btn" onclick="setPeriod(1,'d')">1 jour</span>
-                        <span class="quick-filter-btn" onclick="setPeriod(7,'d')">1 sem</span>
-                        <span class="quick-filter-btn" onclick="setPeriod(30,'d')">1 mois</span>
-                    </div>
-                    <div class="period-info">
-                        <span><i class="fas fa-database"></i> {{ measure_count }} mesures</span>
-                        <span><i class="fas fa-clock"></i> {{ duration_str }}</span>
-                    </div>
-                </div>
-
-                {# ===== ÉTAT DU SYSTÈME ===== #}
-                <div class="system-health-panel">
-                    <h3><i class="fas fa-heartbeat"></i> État du système</h3>
-                    <div class="health-grid">
-                        <div class="health-item">
-                            <div class="health-item-label">Firmware</div>
-                            <div class="health-item-value">v{{ firmware_version }}</div>
-                        </div>
-                        <div class="health-item">
-                            <div class="health-item-label">Serveur</div>
-                            <div class="health-item-value">{{ version }}</div>
-                        </div>
-                        <div class="health-item">
-                            <div class="health-item-label">Mesures affichées</div>
-                            <div class="health-item-value">{{ measure_count }}</div>
-                        </div>
-                        <div class="health-item">
-                            <div class="health-item-label">Environnement</div>
-                            <div class="health-item-value">{{ environment }}</div>
-                        </div>
-                    </div>
-                </div>
-
                 {% if latest %}
                     {# ===== DERNIÈRE MESURE ===== #}
                     <div class="section-header">
@@ -258,6 +204,60 @@
                     <div id="chart-cycles" style="min-height:300px;"></div>
                 </div>
                 {% endif %}
+
+                {# ===== FILTRAGE ===== #}
+                <div class="filter-section">
+                    <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
+                    <form method="POST" action="/n3pp/n3ppdatas/n3pp-data.php">
+                        {{ csrf_field|raw }}
+                        <div>
+                            <label for="start_datetime">Début</label>
+                            <input type="datetime-local" id="start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d\\TH:i') }}">
+                        </div>
+                        <div>
+                            <label for="end_datetime">Fin</label>
+                            <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d\\TH:i') }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Afficher</button>
+                        <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-download"></i> CSV</button>
+                    </form>
+                    <div class="quick-filters">
+                        <span class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(3,'h')">3h</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(6,'h')">6h</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(12,'h')">12h</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(1,'d')">1 jour</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(7,'d')">1 sem</span>
+                        <span class="quick-filter-btn" onclick="setPeriod(30,'d')">1 mois</span>
+                    </div>
+                    <div class="period-info">
+                        <span><i class="fas fa-database"></i> {{ measure_count }} mesures</span>
+                        <span><i class="fas fa-clock"></i> {{ duration_str }}</span>
+                    </div>
+                </div>
+
+                {# ===== ÉTAT DU SYSTÈME ===== #}
+                <div class="system-health-panel">
+                    <h3><i class="fas fa-heartbeat"></i> État du système</h3>
+                    <div class="health-grid">
+                        <div class="health-item">
+                            <div class="health-item-label">Firmware</div>
+                            <div class="health-item-value">v{{ firmware_version }}</div>
+                        </div>
+                        <div class="health-item">
+                            <div class="health-item-label">Serveur</div>
+                            <div class="health-item-value">{{ version }}</div>
+                        </div>
+                        <div class="health-item">
+                            <div class="health-item-label">Mesures affichées</div>
+                            <div class="health-item-value">{{ measure_count }}</div>
+                        </div>
+                        <div class="health-item">
+                            <div class="health-item-label">Environnement</div>
+                            <div class="health-item-value">{{ environment }}</div>
+                        </div>
+                    </div>
+                </div>
 
                 {# ===== HISTORIQUE ===== #}
                 {% if measure_count > 0 %}
