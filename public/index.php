@@ -721,6 +721,33 @@ $app->get('/manifest.json', function (Request $request, Response $response) {
     return $response->withStatus(404);
 });
 
+// robots.txt — évite 404 pour les crawlers et réduit le bruit en logs
+$app->get('/robots.txt', function (Request $request, Response $response) use ($app) {
+    $basePath = $app->getBasePath() ?: '';
+    $body = "User-agent: *\nAllow: /\nDisallow: " . $basePath . "/admin/\nDisallow: " . $basePath . "/api/outputs/toggle\n";
+    $response->getBody()->write($body);
+    return $response
+        ->withHeader('Content-Type', 'text/plain; charset=utf-8')
+        ->withStatus(200);
+});
+
+// favicon.ico — évite 404 (icône réelle à ajouter dans public/assets/icons si besoin)
+$app->get('/favicon.ico', function (Request $request, Response $response) {
+    $iconPath = __DIR__ . '/assets/icons/favicon.ico';
+    if (file_exists($iconPath)) {
+        $response->getBody()->write(file_get_contents($iconPath));
+        return $response->withHeader('Content-Type', 'image/x-icon')->withStatus(200);
+    }
+    return $response->withStatus(204);
+});
+
+// Redirection explicite /ffp3/supervision -> /supervision (complément au middleware)
+$app->get('/ffp3/supervision', function (Request $request, Response $response) use ($app) {
+    $basePath = $app->getBasePath() ?: '';
+    $location = $basePath . '/supervision';
+    return $response->withHeader('Location', $location)->withStatus(301);
+});
+
 // ====================================================================
 // Routes MSP1 — compatibilite firmware msp2_5 (station meteo)
 // ====================================================================
@@ -800,7 +827,7 @@ $errorMiddleware->setErrorHandler(
     HttpNotFoundException::class,
     function (Request $request, Throwable $exception, bool $displayErrorDetails): Response {
         $uri = (string) $request->getUri();
-        error_log(sprintf('[n3-iot 404] %s %s', $request->getMethod(), $uri));
+        error_log(sprintf('[%s] [n3-iot 404] %s %s', date('Y-m-d H:i:s'), $request->getMethod(), $uri));
         $response = new \Slim\Psr7\Response();
         $response->getBody()->write('Not found.');
         return $response->withStatus(404)->withHeader('Content-Type', 'text/plain; charset=utf-8');

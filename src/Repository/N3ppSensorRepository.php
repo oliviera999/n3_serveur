@@ -33,14 +33,16 @@ class N3ppSensorRepository extends AbstractRepository
             Humid1, Humid2, Humid3, Humid4, HumidMoy,
             PontDiv, WakeUp, ArrosageManu, SeuilSec, FreqWakeUp, SeuilPontDiv,
             mail, mailNotif, HeureArrosage, resetMode,
-            etatPompe, tempsArrosage, bootCount
+            etatPompe, tempsArrosage, bootCount,
+            reading_time
         ) VALUES (
             :sensor, :version,
             :tempAir, :humidite, :luminosite,
             :humid1, :humid2, :humid3, :humid4, :humidMoy,
             :pontDiv, :wakeUp, :arrosageManu, :seuilSec, :freqWakeUp, :seuilPontDiv,
             :mail, :mailNotif, :heureArrosage, :resetMode,
-            :etatPompe, :tempsArrosage, :bootCount
+            :etatPompe, :tempsArrosage, :bootCount,
+            :reading_time
         )";
 
         $this->execute($sql, [
@@ -67,6 +69,7 @@ class N3ppSensorRepository extends AbstractRepository
             ':etatPompe' => $data->etatPompe,
             ':tempsArrosage' => $data->tempsArrosage,
             ':bootCount' => $data->bootCount,
+            ':reading_time' => date('Y-m-d H:i:s'),
         ]);
     }
 

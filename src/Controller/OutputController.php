@@ -89,9 +89,10 @@ class OutputController
             return $response;
 
         } catch (\Throwable $e) {
-            // Log détaillé de l'erreur pour le debugging
+            // Log détaillé de l'erreur pour le debugging (error_log)
             error_log(sprintf(
-                "OutputController::showInterface ERROR: %s in %s:%d\nStack trace:\n%s",
+                "[%s] OutputController::showInterface ERROR: %s in %s:%d\nStack trace:\n%s",
+                date('Y-m-d H:i:s'),
                 $e->getMessage(),
                 $e->getFile(),
                 $e->getLine(),

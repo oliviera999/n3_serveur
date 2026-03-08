@@ -34,14 +34,16 @@ class MspSensorRepository extends AbstractRepository
             LuminositeA, LuminositeB, LuminositeC, LuminositeD, LuminositeMoy,
             ServoHB, ServoGD, HumidSol, Pluie, TempEau, PontDiv,
             WakeUp, SeuilSec, FreqWakeUp, SeuilPontDiv,
-            mail, mailNotif, resetMode, bootCount
+            mail, mailNotif, resetMode, bootCount,
+            reading_time
         ) VALUES (
             :sensor, :version,
             :tempAirInt, :tempAirExt, :humidAirInt, :humidAirExt,
             :luminositeA, :luminositeB, :luminositeC, :luminositeD, :luminositeMoy,
             :servoHB, :servoGD, :humidSol, :pluie, :tempEau, :pontDiv,
             :wakeUp, :seuilSec, :freqWakeUp, :seuilPontDiv,
-            :mail, :mailNotif, :resetMode, :bootCount
+            :mail, :mailNotif, :resetMode, :bootCount,
+            :reading_time
         )";
 
         $this->execute($sql, [
@@ -70,6 +72,7 @@ class MspSensorRepository extends AbstractRepository
             ':mailNotif' => $data->mailNotif,
             ':resetMode' => $data->resetMode,
             ':bootCount' => $data->bootCount,
+            ':reading_time' => date('Y-m-d H:i:s'),
         ]);
     }
 

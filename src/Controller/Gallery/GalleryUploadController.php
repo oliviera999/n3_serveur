@@ -50,10 +50,20 @@ class GalleryUploadController
     {
         $uploadedFiles = $request->getUploadedFiles();
         $imageFile = $uploadedFiles['imageFile'] ?? null;
+        $contentType = $request->getHeaderLine('Content-Type');
 
         if ($imageFile === null || $imageFile->getError() !== UPLOAD_ERR_OK) {
-            $this->logger->warning("GalleryUpload [{$gallery}]: aucun fichier ou erreur upload");
-            return ResponseHelper::text($response, 'Aucun fichier recu', 400);
+            $fileKeys = array_keys($uploadedFiles);
+            $errorCode = $imageFile !== null ? $imageFile->getError() : null;
+            $errorMsg = $this->uploadErrorMessage($errorCode);
+            $this->logger->warning("GalleryUpload [{$gallery}]: aucun fichier ou erreur upload", [
+                'content_type' => $contentType,
+                'uploaded_keys' => $fileKeys,
+                'upload_error' => $errorCode,
+                'upload_error_msg' => $errorMsg,
+            ]);
+            $body = $errorMsg ?? 'Aucun fichier recu (champ imageFile attendu, recu: ' . implode(', ', $fileKeys ?: ['aucun']) . ')';
+            return ResponseHelper::text($response, $body, 400);
         }
 
         if ($imageFile->getSize() > self::MAX_FILE_SIZE) {
@@ -84,5 +94,27 @@ class GalleryUploadController
             $this->logger->error("GalleryUpload [{$gallery}]: erreur", ['error' => $e->getMessage()]);
             return ResponseHelper::text($response, 'Erreur serveur', 500);
         }
+    }
+
+    /**
+     * Message lisible pour les codes d'erreur PHP UPLOAD_ERR_*.
+     * Aide au diagnostic quand les photos ne sont pas recues (upload_max_filesize, post_max_size, etc.).
+     */
+    private function uploadErrorMessage(?int $code): ?string
+    {
+        if ($code === null) {
+            return null;
+        }
+        return match ($code) {
+            UPLOAD_ERR_OK => null,
+            UPLOAD_ERR_INI_SIZE => 'Fichier trop volumineux (upload_max_filesize PHP)',
+            UPLOAD_ERR_FORM_SIZE => 'Fichier trop volumineux (limite formulaire)',
+            UPLOAD_ERR_PARTIAL => 'Upload partiel (interruption reseau?)',
+            UPLOAD_ERR_NO_FILE => 'Aucun fichier envoye (verifier champ imageFile et Content-Type multipart)',
+            UPLOAD_ERR_NO_TMP_DIR => 'Erreur serveur: repertoire temporaire manquant',
+            UPLOAD_ERR_CANT_WRITE => 'Erreur serveur: impossible d ecrire le fichier',
+            UPLOAD_ERR_EXTENSION => 'Erreur serveur: extension PHP a bloque l upload',
+            default => 'Erreur upload inconnue (code ' . $code . ')',
+        };
     }
 }

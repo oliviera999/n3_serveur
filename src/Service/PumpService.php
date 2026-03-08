@@ -81,7 +81,7 @@ class PumpService
         
         // Log si le GPIO n'a pas été trouvé avec un nom
         if ($stmt->rowCount() === 0) {
-            error_log("PumpService: GPIO {$gpio} ignoré - pas de nom défini dans la table");
+            error_log(sprintf('[%s] PumpService: GPIO %d ignoré - pas de nom défini dans la table', date('Y-m-d H:i:s'), $gpio));
         }
     }
 

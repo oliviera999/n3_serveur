@@ -189,7 +189,7 @@ class OutputService
         
         // Log pour debugging
         if ($result) {
-            error_log("Output ID {$id} mis à jour par l'interface web vers state={$state}");
+            error_log(sprintf('[%s] Output ID %s mis à jour par l\'interface web vers state=%s', date('Y-m-d H:i:s'), $id, $state));
             // Invalider le cache après modification
             $this->outputCache->invalidateCache();
         }

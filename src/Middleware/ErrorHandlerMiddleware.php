@@ -32,9 +32,9 @@ class ErrorHandlerMiddleware implements MiddlewareInterface
         try {
             return $handler->handle($request);
         } catch (HttpNotFoundException $e) {
-            // 404 : log explicite dans error_log (même fichier que les traces PHP) pour diagnostic
+            // 404 : log explicite dans error_log et cronlog pour diagnostic
             $uri = (string) $request->getUri();
-            $line = sprintf('[FFP3 404] %s %s', $request->getMethod(), $uri);
+            $line = sprintf('[%s] [n3-iot 404] %s %s', date('Y-m-d H:i:s'), $request->getMethod(), $uri);
             error_log($line);
             $this->logger->info($line);
 
@@ -42,41 +42,47 @@ class ErrorHandlerMiddleware implements MiddlewareInterface
             $response->getBody()->write('Not found.');
             return $response->withStatus(404)->withHeader('Content-Type', 'text/plain; charset=utf-8');
         } catch (Throwable $e) {
+            $errorId = substr(bin2hex(random_bytes(8)), 0, 12);
+            $uri = (string) $request->getUri();
+            $method = $request->getMethod();
             $errorMessage = 'Exception non gérée';
 
-            // Logger l'erreur avec contexte
-            $this->logger->error($errorMessage, [
-                'message' => $e->getMessage(),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
-                'trace' => $e->getTraceAsString(),
-                'url' => (string) $request->getUri(),
-                'method' => $request->getMethod(),
-            ]);
+            // Cronlog : une ligne précise avec message, fichier, ligne, méthode, URL
+            $this->logger->error(
+                'Exception non gérée [{error_id}]: {message} in {file}:{line} — {method} {url}',
+                [
+                    'error_id' => $errorId,
+                    'message' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine(),
+                    'method' => $method,
+                    'url' => $uri,
+                ]
+            );
 
             // Enregistrer l'erreur pour détection répétée
             $this->errorAlert->recordError($errorMessage, [
                 'error' => $e->getMessage(),
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
-                'url' => (string) $request->getUri(),
-                'method' => $request->getMethod(),
+                'url' => $uri,
+                'method' => $method,
             ]);
 
-            // Identifiant unique pour retrouver l'erreur dans les logs (production)
-            $errorId = substr(bin2hex(random_bytes(8)), 0, 12);
-            $uri = (string) $request->getUri();
+            // error_log : ligne de résumé datée + trace (pour diagnostic côté serveur)
+            $ts = date('Y-m-d H:i:s');
             error_log(sprintf(
-                '[n3 500] [%s] %s %s — %s: %s in %s:%d',
+                '[%s] [n3 500] [%s] %s %s — %s: %s in %s:%d',
+                $ts,
                 $errorId,
-                $request->getMethod(),
+                $method,
                 $uri,
                 $e::class,
                 $e->getMessage(),
                 $e->getFile(),
                 $e->getLine()
             ));
-            error_log('[n3 500] [' . $errorId . '] Trace: ' . $e->getTraceAsString());
+            error_log(sprintf('[%s] [n3 500] [%s] Trace: %s', $ts, $errorId, $e->getTraceAsString()));
 
             // Créer une réponse d'erreur (avec ID pour corrélation dans les logs)
             $response = new \Slim\Psr7\Response();

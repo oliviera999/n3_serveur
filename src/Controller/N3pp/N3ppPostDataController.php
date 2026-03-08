@@ -109,7 +109,7 @@ class N3ppPostDataController
             ]);
             return ResponseHelper::textClose($response, 'Donnees enregistrees avec succes', 200);
         } catch (Throwable $e) {
-            $this->logger->error('N3ppPostData: Erreur insertion', ['error' => $e->getMessage()]);
+            $this->logger->error('N3ppPostData: Erreur insertion: {error}', ['error' => $e->getMessage()]);
             return ResponseHelper::text($response, 'Erreur serveur', 500);
         }
     }
