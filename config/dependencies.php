@@ -364,6 +364,20 @@ return [
         );
     },
 
+    \App\Controller\N3pp\N3ppRealtimeApiController::class => function (ContainerInterface $c) {
+        return new \App\Controller\N3pp\N3ppRealtimeApiController(
+            $c->get(N3ppSensorRepository::class),
+            $c->get(N3ppOutputRepository::class)
+        );
+    },
+
+    \App\Controller\Msp\MspRealtimeApiController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Msp\MspRealtimeApiController(
+            $c->get(MspSensorRepository::class),
+            $c->get(MspOutputRepository::class)
+        );
+    },
+
     \App\Controller\Gallery\GalleryUploadController::class => function (ContainerInterface $c) {
         return new \App\Controller\Gallery\GalleryUploadController(
             $c->get(\App\Service\LogService::class)

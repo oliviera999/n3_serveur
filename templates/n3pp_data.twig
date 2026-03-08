@@ -109,16 +109,17 @@
 
                 {% if latest %}
                     {# ===== DERNIÈRE MESURE ===== #}
-                    <div class="section-header">
+                    <div class="section-header" style="flex-wrap: wrap; gap: 10px;">
                         <i class="fas fa-chart-line"></i>
                         <h3>Dernière mesure</h3>
+                        <span id="live-badge" class="badge badge-secondary" style="margin-left: auto;"><i class="fas fa-circle"></i> LIVE</span>
                     </div>
                     <div class="stats-grid">
                         {% if latest.TempAir is defined and latest.TempAir is not null %}
                         <div class="stat-card temp">
                             <i class="fas fa-thermometer-half stat-card-icon"></i>
                             <div class="stat-card-label">Temp. air</div>
-                            <div class="stat-card-value">{{ latest.TempAir|number_format(1) }} <span class="stat-card-unit">°C</span></div>
+                            <div class="stat-card-value"><span data-sensor="TempAir" data-decimals="1">{{ latest.TempAir|number_format(1) }}</span> <span class="stat-card-unit">°C</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_tempAir is defined and avg_tempAir ? avg_tempAir|number_format(1) : '-' }} | Min: {{ min_tempAir is defined and min_tempAir ? min_tempAir|number_format(1) : '-' }} | Max: {{ max_tempAir is defined and max_tempAir ? max_tempAir|number_format(1) : '-' }}</div>
                         </div>
                         {% endif %}
@@ -126,7 +127,7 @@
                         <div class="stat-card humidity">
                             <i class="fas fa-tint stat-card-icon"></i>
                             <div class="stat-card-label">Humidité air</div>
-                            <div class="stat-card-value">{{ latest.Humidite|number_format(0) }} <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-value"><span data-sensor="Humidite" data-decimals="0">{{ latest.Humidite|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_humidite is defined and avg_humidite ? avg_humidite|number_format(0) : '-' }}% | Min: {{ min_humidite is defined and min_humidite ? min_humidite|number_format(0) : '-' }}% | Max: {{ max_humidite is defined and max_humidite ? max_humidite|number_format(0) : '-' }}%</div>
                         </div>
                         {% endif %}
@@ -134,7 +135,7 @@
                         <div class="stat-card light">
                             <i class="fas fa-sun stat-card-icon"></i>
                             <div class="stat-card-label">Luminosité</div>
-                            <div class="stat-card-value">{{ latest.Luminosite|number_format(0) }}</div>
+                            <div class="stat-card-value"><span data-sensor="Luminosite" data-decimals="0">{{ latest.Luminosite|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_luminosite is defined and avg_luminosite ? avg_luminosite|number_format(0) : '-' }} | Min: {{ min_luminosite is defined and min_luminosite ? min_luminosite|number_format(0) : '-' }} | Max: {{ max_luminosite is defined and max_luminosite ? max_luminosite|number_format(0) : '-' }}</div>
                         </div>
                         {% endif %}
@@ -142,7 +143,7 @@
                         <div class="stat-card humidity">
                             <i class="fas fa-seedling stat-card-icon"></i>
                             <div class="stat-card-label">Humid. sol moy.</div>
-                            <div class="stat-card-value">{{ latest.HumidMoy|number_format(0) }} <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-value"><span data-sensor="HumidMoy" data-decimals="0">{{ latest.HumidMoy|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_humidMoy is defined and avg_humidMoy ? avg_humidMoy|number_format(0) : '-' }}% | Min: {{ min_humidMoy is defined and min_humidMoy ? min_humidMoy|number_format(0) : '-' }}% | Max: {{ max_humidMoy is defined and max_humidMoy ? max_humidMoy|number_format(0) : '-' }}%</div>
                         </div>
                         {% endif %}
@@ -152,7 +153,7 @@
                         <div class="stat-card humidity">
                             <i class="fas fa-droplet stat-card-icon"></i>
                             <div class="stat-card-label">Humid. sol {{ i }}</div>
-                            <div class="stat-card-value">{{ latest[col]|number_format(0) }} <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-value"><span data-sensor="{{ col }}" data-decimals="0">{{ latest[col]|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             {% set lc = 'humid' ~ i %}
                             <div class="stat-card-secondary">Moy: {{ attribute(_context, 'avg_' ~ lc) is defined and attribute(_context, 'avg_' ~ lc) ? attribute(_context, 'avg_' ~ lc)|number_format(0) : '-' }}% | Min: {{ attribute(_context, 'min_' ~ lc) is defined and attribute(_context, 'min_' ~ lc) ? attribute(_context, 'min_' ~ lc)|number_format(0) : '-' }}% | Max: {{ attribute(_context, 'max_' ~ lc) is defined and attribute(_context, 'max_' ~ lc) ? attribute(_context, 'max_' ~ lc)|number_format(0) : '-' }}%</div>
                         </div>
@@ -162,7 +163,7 @@
                         <div class="stat-card pump">
                             <i class="fas fa-water stat-card-icon"></i>
                             <div class="stat-card-label">État pompe</div>
-                            <div class="stat-card-value">{{ latest.etatPompe }}</div>
+                            <div class="stat-card-value"><span data-sensor="etatPompe">{{ latest.etatPompe }}</span></div>
                         </div>
                         {% endif %}
                     </div>
@@ -320,13 +321,13 @@
     Highcharts.stockChart('chart-niveauxeaux', {
         rangeSelector: { enabled: false },
         title: { text: 'Humidité du sol' },
-        yAxis: [{ title: { text: 'Humidité (UA / %)' }, opposite: false }],
+        yAxis: [{ title: { text: 'Humidité (%)' }, opposite: false }],
         series: [
             { name: 'Humid. moy.', data: zipSeries(HumidMoy), type: 'spline', color: '#27ae60', lineWidth: 3, tooltip: { valueSuffix: ' %' }},
-            { name: 'Humid. 1', data: zipSeries(Humid1), type: 'spline', color: '#3498db', dashStyle: 'Dash' },
-            { name: 'Humid. 2', data: zipSeries(Humid2), type: 'spline', color: '#2980b9', dashStyle: 'Dash' },
-            { name: 'Humid. 3', data: zipSeries(Humid3), type: 'spline', color: '#1abc9c', dashStyle: 'Dash' },
-            { name: 'Humid. 4', data: zipSeries(Humid4), type: 'spline', color: '#16a085', dashStyle: 'Dash' },
+            { name: 'Humid. 1', data: zipSeries(Humid1), type: 'spline', color: '#3498db', dashStyle: 'Dash', tooltip: { valueSuffix: ' %' }},
+            { name: 'Humid. 2', data: zipSeries(Humid2), type: 'spline', color: '#2980b9', dashStyle: 'Dash', tooltip: { valueSuffix: ' %' }},
+            { name: 'Humid. 3', data: zipSeries(Humid3), type: 'spline', color: '#1abc9c', dashStyle: 'Dash', tooltip: { valueSuffix: ' %' }},
+            { name: 'Humid. 4', data: zipSeries(Humid4), type: 'spline', color: '#16a085', dashStyle: 'Dash', tooltip: { valueSuffix: ' %' }},
             { name: 'État pompe', data: zipSeries(etatPompe), type: 'column', color: '#008B74', opacity: 0.5 },
             { name: 'Reset', data: zipSeries(resetMode), type: 'column', color: '#bdc3c7' }
         ],
@@ -366,6 +367,35 @@
         credits: { enabled: false }
     });
     {% endif %}
+    </script>
+
+    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+    <script>
+    (function() {
+        var apiBase = '{{ base_path }}' + '/n3pp/api/realtime';
+        window.realtimeUpdater = new RealtimeUpdater({
+            apiBasePath: apiBase,
+            pollInterval: 15000,
+            onNewData: function(readings) {
+                if (!readings || readings.length === 0) return;
+                var last = readings[readings.length - 1];
+                var sensors = last.sensors || last;
+                document.querySelectorAll('[data-sensor]').forEach(function(el) {
+                    var key = el.getAttribute('data-sensor');
+                    var val = sensors[key];
+                    if (val === undefined || val === null) return;
+                    var dec = el.getAttribute('data-decimals');
+                    if (dec !== null) {
+                        var n = parseFloat(val);
+                        el.textContent = !isNaN(n) ? n.toFixed(parseInt(dec, 10) || 0) : val;
+                    } else {
+                        el.textContent = val;
+                    }
+                });
+            }
+        });
+        realtimeUpdater.start();
+    })();
     </script>
 </body>
 </html>

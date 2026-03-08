@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -198,6 +204,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -428,6 +440,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -657,6 +675,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -886,6 +910,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -1124,6 +1154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -1355,6 +1391,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -1586,6 +1628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -1818,6 +1866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -2049,6 +2103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -2282,6 +2342,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -2513,6 +2579,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -2744,6 +2816,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -2975,6 +3053,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -3207,6 +3291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -3436,6 +3526,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -3670,6 +3766,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -3899,6 +4001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -4131,6 +4239,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -4361,6 +4475,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -4593,6 +4713,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -4825,6 +4951,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -5056,6 +5188,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -5289,6 +5427,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -5519,6 +5663,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -5750,6 +5900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -5982,6 +6138,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -6214,6 +6376,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -6444,6 +6612,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -6675,6 +6849,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -6908,6 +7088,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -7140,6 +7326,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -7371,6 +7563,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -7602,6 +7800,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -7833,6 +8037,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -8064,6 +8274,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -8294,6 +8510,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -8524,6 +8746,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -8754,6 +8982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -8984,6 +9218,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -9215,6 +9455,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -9450,6 +9696,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -9685,6 +9937,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -9913,6 +10171,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -10141,6 +10405,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -10369,6 +10639,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -10597,6 +10873,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -10825,6 +11107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -11053,6 +11341,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -11298,6 +11592,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -11533,6 +11833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -11766,6 +12072,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -12000,6 +12312,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -12238,6 +12556,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -12488,6 +12812,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -12720,6 +13050,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -12954,6 +13290,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -13188,6 +13530,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -13419,6 +13767,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -13653,6 +14007,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -13884,6 +14244,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -14114,6 +14480,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -14345,6 +14717,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -14586,6 +14964,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -14824,6 +15208,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -15070,6 +15460,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -15320,6 +15716,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -15560,6 +15962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -15792,6 +16200,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -16026,6 +16440,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -16259,6 +16679,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -16492,6 +16918,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -16723,6 +17155,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -16954,6 +17392,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -17187,6 +17631,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -17419,6 +17869,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -17653,6 +18109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -17892,6 +18354,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -18135,6 +18603,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -18374,6 +18848,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -18615,6 +19095,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -18855,6 +19341,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -19090,6 +19582,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -19321,6 +19819,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -19556,6 +20060,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -19788,6 +20298,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -20019,6 +20535,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -20250,6 +20772,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -20483,6 +21011,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -20716,6 +21250,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -20948,6 +21488,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -21180,6 +21726,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -21411,6 +21963,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -21642,6 +22200,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -21873,6 +22437,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -22106,6 +22676,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -22339,6 +22915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -22570,6 +23152,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -22801,6 +23389,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -23032,6 +23626,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -23264,6 +23864,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -23498,6 +24104,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -23739,6 +24351,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -23974,6 +24592,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -24216,6 +24840,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -24456,6 +25086,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -24687,6 +25323,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -24951,6 +25593,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -25186,6 +25834,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -25430,6 +26084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -25684,6 +26344,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -25928,6 +26594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -26162,6 +26834,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -26397,6 +27075,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -26638,6 +27322,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -26989,6 +27679,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -27224,6 +27920,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -27457,6 +28159,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -27691,6 +28399,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -27926,6 +28640,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -28160,6 +28880,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -28396,6 +29122,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -28631,6 +29363,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -28988,6 +29726,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -29222,6 +29966,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -29456,6 +30206,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -29738,6 +30494,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -29981,6 +30743,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -30224,6 +30992,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -30504,6 +31278,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -30795,6 +31575,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -31043,6 +31829,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -31292,6 +32084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -31531,6 +32329,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -31776,6 +32580,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -32025,6 +32835,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -32272,6 +33088,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -32510,6 +33332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -32760,6 +33588,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -33042,6 +33876,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -33279,6 +34119,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -33517,6 +34363,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -33754,6 +34606,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -33996,6 +34854,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -34244,6 +35108,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -34490,6 +35360,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -34734,6 +35610,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -34973,6 +35855,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -35213,6 +36101,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -35464,6 +36358,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -35714,6 +36614,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -35967,6 +36873,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -36236,6 +37148,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -36535,6 +37453,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -36775,6 +37699,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -37014,6 +37944,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -37263,6 +38199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -37502,6 +38444,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -37745,6 +38693,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -37981,6 +38935,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -38219,6 +39179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -38449,6 +39415,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -38719,6 +39691,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -38961,6 +39939,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -39225,6 +40209,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -39471,6 +40461,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -39713,6 +40709,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -39961,6 +40963,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -40231,6 +41239,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -40486,6 +41500,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -40795,6 +41815,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -41041,6 +42067,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -41289,6 +42321,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -41548,6 +42586,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -41800,6 +42844,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -42039,6 +43089,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -42278,6 +43334,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -42519,6 +43581,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -42831,6 +43899,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -43091,6 +44165,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -43365,6 +44445,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -43627,6 +44713,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -43893,6 +44985,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -44127,6 +45225,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -44413,6 +45517,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -44663,6 +45773,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -44900,6 +46016,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -45187,6 +46309,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -45453,6 +46581,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -45752,6 +46886,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -45989,6 +47129,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -46285,6 +47431,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -46519,6 +47671,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -46752,6 +47910,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -46989,6 +48153,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -47226,6 +48396,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -47508,6 +48684,12 @@ docs/
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -47813,6 +48995,12 @@ docs/
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -48052,6 +49240,12 @@ docs/
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -48325,6 +49519,12 @@ docs/
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -48563,6 +49763,12 @@ docs/
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -48823,6 +50029,12 @@ docs/
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -49059,6 +50271,12 @@ docs/
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -49484,6 +50702,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -49743,6 +50967,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -50029,6 +51259,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -50301,6 +51537,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -50559,6 +51801,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -50824,6 +52072,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -51081,6 +52335,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -51327,6 +52587,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -51565,6 +52831,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -51819,6 +53091,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -52057,6 +53335,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -52295,6 +53579,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -52535,6 +53825,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -52793,6 +54089,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie
@@ -53025,6 +54327,12 @@ ance future
 
 ---
 
+## [5.0.52] - 2026-03-08
+
+### Ajout - mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling)
+- **Résumé** : mise à jour temps réel pages données et contrôle N3PP et MSP (API realtime, badges LIVE/SYNC, polling).
+
+---
 ## [5.0.51] - 2026-03-08
 
 ### Correctif - unification affichage logo header pages galerie

@@ -16,9 +16,11 @@ use App\Controller\HomeController;
 use App\Controller\Msp\MspDataController;
 use App\Controller\Msp\MspOutputController;
 use App\Controller\Msp\MspPostDataController;
+use App\Controller\Msp\MspRealtimeApiController;
 use App\Controller\N3pp\N3ppDataController;
 use App\Controller\N3pp\N3ppOutputController;
 use App\Controller\N3pp\N3ppPostDataController;
+use App\Controller\N3pp\N3ppRealtimeApiController;
 use App\Controller\OutputController;
 use App\Controller\PostDataController;
 use App\Controller\RealtimeApiController;
@@ -810,6 +812,12 @@ $app->post('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::cl
 $app->get('/msp1/msp1control/', [MspOutputController::class, 'showControlPage']);
 $app->get('/msp1/msp1control/index.php', [MspOutputController::class, 'showControlPage']);
 
+// API temps réel MSP (pages données + contrôle)
+$app->get('/msp1/api/realtime/sensors/latest', [MspRealtimeApiController::class, 'getLatestSensors']);
+$app->get('/msp1/api/realtime/sensors/since/{timestamp}', [MspRealtimeApiController::class, 'getSensorsSince']);
+$app->get('/msp1/api/realtime/system/health', [MspRealtimeApiController::class, 'getSystemHealth']);
+$app->get('/msp1/api/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']);
+
 // ====================================================================
 // Routes N3PP — compatibilite firmware n3pp4_2 (serre/aquaponie)
 // ====================================================================
@@ -820,6 +828,12 @@ $app->get('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::cl
 $app->post('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
 $app->get('/n3pp/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']);
 $app->get('/n3pp/n3ppcontrol/index.php', [N3ppOutputController::class, 'showControlPage']);
+
+// API temps réel N3PP (pages données + contrôle)
+$app->get('/n3pp/api/realtime/sensors/latest', [N3ppRealtimeApiController::class, 'getLatestSensors']);
+$app->get('/n3pp/api/realtime/sensors/since/{timestamp}', [N3ppRealtimeApiController::class, 'getSensorsSince']);
+$app->get('/n3pp/api/realtime/system/health', [N3ppRealtimeApiController::class, 'getSystemHealth']);
+$app->get('/n3pp/api/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']);
 
 // ====================================================================
 // Routes MSP1 TEST — tables msp1DataTest, msp1OutputsTest

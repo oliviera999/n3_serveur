@@ -117,16 +117,17 @@
 
                 {% if latest %}
                     {# ===== DERNIÈRE MESURE ===== #}
-                    <div class="section-header">
+                    <div class="section-header" style="flex-wrap: wrap; gap: 10px;">
                         <i class="fas fa-chart-line"></i>
                         <h3>Dernière mesure</h3>
+                        <span id="live-badge" class="badge badge-secondary" style="margin-left: auto;"><i class="fas fa-circle"></i> LIVE</span>
                     </div>
                     <div class="stats-grid">
                         {% if latest.TempAirInt is defined and latest.TempAirInt is not null %}
                         <div class="stat-card temp">
                             <i class="fas fa-thermometer-half stat-card-icon"></i>
                             <div class="stat-card-label">Temp. air int.</div>
-                            <div class="stat-card-value">{{ latest.TempAirInt|number_format(1) }} <span class="stat-card-unit">°C</span></div>
+                            <div class="stat-card-value"><span data-sensor="TempAirInt" data-decimals="1">{{ latest.TempAirInt|number_format(1) }}</span> <span class="stat-card-unit">°C</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_tempAirInt is defined and avg_tempAirInt ? avg_tempAirInt|number_format(1) : '-' }} | Min: {{ min_tempAirInt is defined and min_tempAirInt ? min_tempAirInt|number_format(1) : '-' }} | Max: {{ max_tempAirInt is defined and max_tempAirInt ? max_tempAirInt|number_format(1) : '-' }}</div>
                         </div>
                         {% endif %}
@@ -134,7 +135,7 @@
                         <div class="stat-card temp">
                             <i class="fas fa-temperature-low stat-card-icon"></i>
                             <div class="stat-card-label">Temp. air ext.</div>
-                            <div class="stat-card-value">{{ latest.TempAirExt|number_format(1) }} <span class="stat-card-unit">°C</span></div>
+                            <div class="stat-card-value"><span data-sensor="TempAirExt" data-decimals="1">{{ latest.TempAirExt|number_format(1) }}</span> <span class="stat-card-unit">°C</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_tempAirExt is defined and avg_tempAirExt ? avg_tempAirExt|number_format(1) : '-' }} | Min: {{ min_tempAirExt is defined and min_tempAirExt ? min_tempAirExt|number_format(1) : '-' }} | Max: {{ max_tempAirExt is defined and max_tempAirExt ? max_tempAirExt|number_format(1) : '-' }}</div>
                         </div>
                         {% endif %}
@@ -142,7 +143,7 @@
                         <div class="stat-card humidity">
                             <i class="fas fa-tint stat-card-icon"></i>
                             <div class="stat-card-label">Humid. air int.</div>
-                            <div class="stat-card-value">{{ latest.HumidAirInt|number_format(0) }} <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-value"><span data-sensor="HumidAirInt" data-decimals="0">{{ latest.HumidAirInt|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_humidAirInt is defined and avg_humidAirInt ? avg_humidAirInt|number_format(0) : '-' }}% | Min: {{ min_humidAirInt is defined and min_humidAirInt ? min_humidAirInt|number_format(0) : '-' }}% | Max: {{ max_humidAirInt is defined and max_humidAirInt ? max_humidAirInt|number_format(0) : '-' }}%</div>
                         </div>
                         {% endif %}
@@ -150,7 +151,7 @@
                         <div class="stat-card humidity">
                             <i class="fas fa-cloud stat-card-icon"></i>
                             <div class="stat-card-label">Humid. air ext.</div>
-                            <div class="stat-card-value">{{ latest.HumidAirExt|number_format(0) }} <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-value"><span data-sensor="HumidAirExt" data-decimals="0">{{ latest.HumidAirExt|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_humidAirExt is defined and avg_humidAirExt ? avg_humidAirExt|number_format(0) : '-' }}% | Min: {{ min_humidAirExt is defined and min_humidAirExt ? min_humidAirExt|number_format(0) : '-' }}% | Max: {{ max_humidAirExt is defined and max_humidAirExt ? max_humidAirExt|number_format(0) : '-' }}%</div>
                         </div>
                         {% endif %}
@@ -158,7 +159,7 @@
                         <div class="stat-card light">
                             <i class="fas fa-sun stat-card-icon"></i>
                             <div class="stat-card-label">Luminosité moy.</div>
-                            <div class="stat-card-value">{{ latest.LuminositeMoy|number_format(0) }}</div>
+                            <div class="stat-card-value"><span data-sensor="LuminositeMoy" data-decimals="0">{{ latest.LuminositeMoy|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_luminositeMoy is defined and avg_luminositeMoy ? avg_luminositeMoy|number_format(0) : '-' }} | Min: {{ min_luminositeMoy is defined and min_luminositeMoy ? min_luminositeMoy|number_format(0) : '-' }} | Max: {{ max_luminositeMoy is defined and max_luminositeMoy ? max_luminositeMoy|number_format(0) : '-' }}</div>
                         </div>
                         {% endif %}
@@ -166,7 +167,7 @@
                         <div class="stat-card water">
                             <i class="fas fa-water stat-card-icon"></i>
                             <div class="stat-card-label">Temp. eau</div>
-                            <div class="stat-card-value">{{ latest.TempEau|number_format(1) }} <span class="stat-card-unit">°C</span></div>
+                            <div class="stat-card-value"><span data-sensor="TempEau" data-decimals="1">{{ latest.TempEau|number_format(1) }}</span> <span class="stat-card-unit">°C</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_tempEau is defined and avg_tempEau ? avg_tempEau|number_format(1) : '-' }} | Min: {{ min_tempEau is defined and min_tempEau ? min_tempEau|number_format(1) : '-' }} | Max: {{ max_tempEau is defined and max_tempEau ? max_tempEau|number_format(1) : '-' }}</div>
                         </div>
                         {% endif %}
@@ -174,7 +175,7 @@
                         <div class="stat-card humidity">
                             <i class="fas fa-seedling stat-card-icon"></i>
                             <div class="stat-card-label">Humid. sol</div>
-                            <div class="stat-card-value">{{ latest.HumidSol|number_format(0) }} <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-value"><span data-sensor="HumidSol" data-decimals="0">{{ latest.HumidSol|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_humidSol is defined and avg_humidSol ? avg_humidSol|number_format(0) : '-' }}% | Min: {{ min_humidSol is defined and min_humidSol ? min_humidSol|number_format(0) : '-' }}% | Max: {{ max_humidSol is defined and max_humidSol ? max_humidSol|number_format(0) : '-' }}%</div>
                         </div>
                         {% endif %}
@@ -182,7 +183,7 @@
                         <div class="stat-card rain">
                             <i class="fas fa-cloud-rain stat-card-icon"></i>
                             <div class="stat-card-label">Pluie</div>
-                            <div class="stat-card-value">{{ latest.Pluie|number_format(0) }}</div>
+                            <div class="stat-card-value"><span data-sensor="Pluie" data-decimals="0">{{ latest.Pluie|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_pluie is defined and avg_pluie ? avg_pluie|number_format(0) : '-' }} | Min: {{ min_pluie is defined and min_pluie ? min_pluie|number_format(0) : '-' }} | Max: {{ max_pluie is defined and max_pluie ? max_pluie|number_format(0) : '-' }}</div>
                         </div>
                         {% endif %}
@@ -431,6 +432,35 @@
         credits: { enabled: false }
     });
     {% endif %}
+    </script>
+
+    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+    <script>
+    (function() {
+        var apiBase = '{{ base_path }}' + '/msp1/api/realtime';
+        window.realtimeUpdater = new RealtimeUpdater({
+            apiBasePath: apiBase,
+            pollInterval: 15000,
+            onNewData: function(readings) {
+                if (!readings || readings.length === 0) return;
+                var last = readings[readings.length - 1];
+                var sensors = last.sensors || last;
+                document.querySelectorAll('[data-sensor]').forEach(function(el) {
+                    var key = el.getAttribute('data-sensor');
+                    var val = sensors[key];
+                    if (val === undefined || val === null) return;
+                    var dec = el.getAttribute('data-decimals');
+                    if (dec !== null) {
+                        var n = parseFloat(val);
+                        el.textContent = !isNaN(n) ? n.toFixed(parseInt(dec, 10) || 0) : val;
+                    } else {
+                        el.textContent = val;
+                    }
+                });
+            }
+        });
+        realtimeUpdater.start();
+    })();
     </script>
 </body>
 </html>
