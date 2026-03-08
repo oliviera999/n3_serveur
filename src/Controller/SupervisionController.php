@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Config\Version;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -24,7 +25,8 @@ class SupervisionController
         $html = $this->renderer->render('supervision.twig', [
             'page_title' => 'Supervision - n3 iot datas',
             'active_page' => 'supervision',
-            'admin_cache_token' => $adminCacheToken
+            'admin_cache_token' => $adminCacheToken,
+            'version' => Version::getWithPrefix(),
         ]);
 
         $response->getBody()->write($html);
