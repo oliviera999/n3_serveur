@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="theme-color" content="#008B74" />
     <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css" />
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/realtime-styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
     <link rel="shortcut icon" type="image/png" href="{{ base_path }}/assets/logo.png"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -14,8 +15,6 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <style>
-        body { background: #e8f4f2 !important; }
-        #page-bg { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background-color: #e8f4f2; }
         .modern-header { background: linear-gradient(145deg, #008B74 0%, #007A61 25%, #00B794 50%, #008B74 100%); color: white; padding: 48px 0; margin: -20px -20px 20px -20px; position: relative; overflow: hidden; border-radius: 0 0 16px 16px; }
         .modern-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23g)"/></svg>'); opacity: 0.2; }
         .header-content { position: relative; z-index: 2; text-align: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }

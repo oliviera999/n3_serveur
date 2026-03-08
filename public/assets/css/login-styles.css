@@ -6,11 +6,24 @@
     padding: 0;
 }
 
-body {
+body.login-page {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
+}
+
+body.login-page #header {
+    height: auto;
+    padding: 1rem 2rem;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+body.login-page .login-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
