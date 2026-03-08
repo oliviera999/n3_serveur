@@ -45,3 +45,13 @@ location / {
 ## Vérification
 
 Après configuration, les requêtes GET vers `https://iot.olution.info/ffp3/` ou `https://iot.olution.info/ffp3/dashboard` doivent retourner **301** (redirection vers `/` et `/dashboard`), pas **404**. Le script `scripts/check-server-pages.ps1` (depuis la racine IOT_n3) peut être utilisé pour vérifier les URLs et les codes de réponse.
+
+## Déploiement sur le serveur de prod (après git push)
+
+Pour que les correctifs (templates Twig, migration N3PP, instrumentation) soient actifs sur iot.olution.info :
+
+1. **Sur le serveur (SSH)** : dans le dépôt qui contient `public/index.php` et `templates/` (racine du serveur unifié), exécuter `git pull`. Cela met à jour les templates (correctif Twig msp1_data / n3pp_data) et `public/index.php`.
+
+2. **Migration BDD** : exécuter `serveur/migrations/ADD_N3PP_WAKEUP_COLUMNS.sql` sur la base de production pour supprimer l’erreur « Unknown column 'WakeUp' » (insertions N3PP).
+
+3. **Vérification** : lancer `.\scripts\check-server-pages.ps1` depuis la racine IOT_n3 pour contrôler les codes HTTP après déploiement.
