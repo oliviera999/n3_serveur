@@ -889,7 +889,7 @@
             </header>
 
             <!-- Nav -->
-            {% include 'partials/_nav.twig' with { nav_active: 'aquaponie', environment: environment|default('prod') } ignore missing %}
+            {% include 'partials/_nav.twig' ignore missing with { nav_active: 'aquaponie', environment: environment|default('prod') } %}
 
             <!-- Main -->
             <div id="main">
