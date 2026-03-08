@@ -168,6 +168,35 @@
                         {% endif %}
                     </div>
                     {% if latest.sensor is defined %}<p style="font-size:0.9em;color:#7f8c8d;">Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}</p>{% endif %}
+
+                    {# Panneau temps réel : dernière réception, lectures aujourd'hui, bouton Rafraîchir #}
+                    <div class="system-health-panel" style="margin-top: 20px;">
+                        <h3><i class="fas fa-heartbeat"></i> Temps réel</h3>
+                        <div class="health-grid">
+                            <div class="health-item">
+                                <div class="health-item-label">Dernière réception</div>
+                                <div class="health-item-value" id="last-reading-time" data-default="pending">
+                                    <span class="reading-ago" data-reading-ago><i class="fas fa-spinner fa-spin"></i></span>
+                                    <span class="reading-timestamp" data-reading-timestamp style="display: none;"></span>
+                                </div>
+                            </div>
+                            <div class="health-item">
+                                <div class="health-item-label">Lectures aujourd'hui</div>
+                                <div class="health-item-value" id="readings-today" data-default="pending">
+                                    <span class="reading-count" data-reading-count><i class="fas fa-spinner fa-spin"></i></span>
+                                    <span class="reading-hint" data-reading-hint> / jour</span>
+                                </div>
+                            </div>
+                            <div class="health-item">
+                                <div class="health-item-label">Rafraîchir</div>
+                                <div class="health-item-value">
+                                    <button id="force-refresh-button" class="live-refresh-button" type="button">
+                                        <i class="fas fa-sync-alt"></i> Rafraîchir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% else %}
                     <div class="no-data"><i class="fas fa-database" style="font-size:2em;margin-bottom:10px;color:#bbb;"></i><br>Aucune donnée enregistrée.</div>
                 {% endif %}
@@ -369,6 +398,7 @@
     {% endif %}
     </script>
 
+    <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
     <script>
     (function() {
@@ -395,6 +425,16 @@
             }
         });
         realtimeUpdater.start();
+        var btn = document.getElementById('force-refresh-button');
+        if (btn) {
+            btn.addEventListener('click', function() {
+                if (window.realtimeUpdater) {
+                    realtimeUpdater.poll();
+                    var icon = btn.querySelector('i');
+                    if (icon) { icon.classList.add('fa-spin'); setTimeout(function() { icon.classList.remove('fa-spin'); }, 1000); }
+                }
+            });
+        }
     })();
     </script>
 </body>
