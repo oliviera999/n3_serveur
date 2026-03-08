@@ -1,14 +1,9 @@
-{# Barre de navigation principale — variables : nav_active, environment (optionnel) #}
-{% set base = base_path|default('') %}
-{% set env = environment|default('prod') %}
-{% set control_path = (env == 'test' or env == 'test3') ? base ~ '/aquaponie-control-test' : base ~ '/aquaponie-control' %}
-
-<nav id="nav">
+{# Navigation principale n3 IoT - partagée par msp1_data et n3pp_data #}
+<nav id="nav" role="navigation" aria-label="Navigation principale">
     <ul class="links">
-        <li class="{{ nav_active|default('') == 'home' ? 'active' }}"><a href="{{ base }}/">Accueil</a></li>
-        <li class="{{ nav_active|default('') == 'aquaponie' ? 'active' }}"><a href="{{ base }}/aquaponie">Aquaponie</a></li>
-        <li class="{{ nav_active|default('') == 'aquaponie_alt' ? 'active' }}"><a href="{{ base }}/aquaponie-alt">Aquaponie (classique)</a></li>
-        <li class="{{ nav_active|default('') == 'control_ffp3' ? 'active' }}"><a href="{{ control_path }}">Contrôle</a></li>
-        <li class="{{ nav_active|default('') == 'supervision' ? 'active' }}"><a href="{{ base }}/supervision">Supervision</a></li>
+        <li><a href="{{ base_path|default('') }}/" class="{% if nav_active|default('') == 'accueil' %}active{% endif %}">Accueil</a></li>
+        <li><a href="{{ base_path|default('') }}/msp1/msp1datas/msp1-data.php" class="{% if nav_active|default('') == 'potager' %}active{% endif %}">Le potager</a></li>
+        <li><a href="{{ base_path|default('') }}/n3pp/n3ppdatas/n3pp-data.php" class="{% if nav_active|default('') == 'elevage' %}active{% endif %}">L'élevage</a></li>
+        <li><a href="{{ base_path|default('') }}/ffp3/aquaponie" class="{% if nav_active|default('') == 'aquaponie' %}active{% endif %}">Aquaponie</a></li>
     </ul>
 </nav>
