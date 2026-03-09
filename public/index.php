@@ -27,7 +27,6 @@ use App\Controller\N3pp\N3ppOutputController;
 use App\Controller\N3pp\N3ppPostDataController;
 use App\Controller\N3pp\N3ppRealtimeApiController;
 use App\Controller\SupervisionController;
-use App\Controller\TideStatsController;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\EnvironmentMiddleware;
 use App\Middleware\TokenAuthMiddleware;
