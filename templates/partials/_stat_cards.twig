@@ -1,0 +1,37 @@
+{# Grille de stat-cards paramétrée.
+   Variable requise :
+     sensors_config : tableau de dictionnaires, chacun avec :
+       - key       : clé du capteur (ex. "TempAirInt")
+       - label     : libellé affiché (ex. "Temp. air int.")
+       - icon      : icône Font Awesome (ex. "fa-thermometer-half")
+       - type      : variante CSS (temp, humidity, light, water, rain, pump)
+       - unit      : unité (ex. "°C", "%", "UA")
+       - decimals  : nombre de décimales (0 ou 1)
+       - value     : valeur initiale (ou null)
+       - avg       : moyenne (optionnel)
+       - min       : minimum (optionnel)
+       - max       : maximum (optionnel)
+#}
+{% if sensors_config is defined and sensors_config|length > 0 %}
+<div class="stats-grid">
+    {% for s in sensors_config %}
+        {% if s.value is defined and s.value is not null %}
+        <div class="stat-card {{ s.type|default('') }}">
+            <i class="fas {{ s.icon|default('fa-chart-bar') }} stat-card-icon"></i>
+            <div class="stat-card-label">{{ s.label }}</div>
+            <div class="stat-card-value">
+                <span data-sensor="{{ s.key }}" data-decimals="{{ s.decimals|default(1) }}">{{ s.value is not null ? (s.decimals|default(1) > 0 ? s.value|number_format(s.decimals|default(1)) : s.value|number_format(0)) : '-' }}</span>
+                {% if s.unit|default('') %}<span class="stat-card-unit">{{ s.unit }}</span>{% endif %}
+            </div>
+            {% if s.avg is defined or s.min is defined or s.max is defined %}
+            <div class="stat-card-secondary">
+                Moy: {{ s.avg is defined and s.avg is not null ? (s.decimals|default(1) > 0 ? s.avg|number_format(s.decimals|default(1)) : s.avg|number_format(0)) : '-' }}{{ s.unit|default('') }}
+                | Min: {{ s.min is defined and s.min is not null ? (s.decimals|default(1) > 0 ? s.min|number_format(s.decimals|default(1)) : s.min|number_format(0)) : '-' }}{{ s.unit|default('') }}
+                | Max: {{ s.max is defined and s.max is not null ? (s.decimals|default(1) > 0 ? s.max|number_format(s.decimals|default(1)) : s.max|number_format(0)) : '-' }}{{ s.unit|default('') }}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
