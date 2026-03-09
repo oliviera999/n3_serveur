@@ -65,6 +65,17 @@ class N3ppOutputRepository extends AbstractRepository
     }
 
     /**
+     * Retourne un output par gpio et board (ex. GPIO 110 pour Reset ESP).
+     *
+     * @return array<string, mixed>|null
+     */
+    public function getOutputByGpioAndBoard(int $board, int $gpio): ?array
+    {
+        $sql = "SELECT id, name, gpio, state FROM `" . self::table() . "` WHERE board = :board AND gpio = :gpio LIMIT 1";
+        return $this->fetchOne($sql, [':board' => $board, ':gpio' => $gpio]);
+    }
+
+    /**
      * Retourne les N premières sorties (par id) pour la page de contrôle (site initial : 3 sorties).
      *
      * @return array<int, array<string, mixed>>
@@ -168,5 +179,19 @@ class N3ppOutputRepository extends AbstractRepository
             $state = is_scalar($value) ? (string) $value : '';
             $this->updateByGpio($gpio, $state, $board);
         }
+    }
+
+    /**
+     * Met a jour un seul parametre par son nom (pour API parameters temps reel).
+     * Retourne true si le nom est reconnu et la mise a jour effectuee.
+     */
+    public function updateParameterByName(int $board, string $paramName, string $value): bool
+    {
+        $reverseMap = array_flip(self::PARAM_GPIO_MAP);
+        if (!isset($reverseMap[$paramName])) {
+            return false;
+        }
+        $this->updateByGpio($reverseMap[$paramName], $value, $board);
+        return true;
     }
 }

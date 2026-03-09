@@ -12,10 +12,11 @@
 </head>
 <body class="is-preload login-page">
     <div id="page-bg" aria-hidden="true"></div>
-    <header id="header">
-        <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
-    </header>
-    <div class="login-center">
+    <div id="wrapper" class="fade-in">
+        <header id="header">
+            <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
+        </header>
+        <div class="login-center">
     <div class="login-container">
         <div class="login-box">
             <div class="login-header">
@@ -93,7 +94,9 @@
                 Plateforme N3 IoT Datas - olution
             </p>
         </div>
+        </div>
     </div>
     </div>
+    <script>window.addEventListener('load', function() { document.body.classList.remove('is-preload'); });</script>
 </body>
 </html>

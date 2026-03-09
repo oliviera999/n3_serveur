@@ -10,6 +10,7 @@ use App\Repository\N3ppOutputRepository;
 use App\Repository\N3ppSensorRepository;
 use App\Service\LogService;
 use App\Service\TemplateRenderer;
+use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -56,6 +57,7 @@ class N3ppOutputController
         $board = (int) ($request->getQueryParams()['board'] ?? self::BOARD);
         $part_outputs = $this->outputRepo->getPartOutputs($board, 3);
         $params = $this->outputRepo->getParametersForBoard($board);
+        $reset_output = $this->outputRepo->getOutputByGpioAndBoard($board, 110);
         $lastBoardRequest = $this->outputRepo->getLastBoardRequest($board);
         $firmwareVersion = $this->sensorRepo->getFirmwareVersion();
 
@@ -63,6 +65,7 @@ class N3ppOutputController
             'page_title' => 'Contrôle serre / élevage - n3 iot',
             'part_outputs' => $part_outputs,
             'params' => $params,
+            'reset_output' => $reset_output,
             'board' => $board,
             'last_board_request' => $lastBoardRequest,
             'version' => Version::getWithPrefix(),
@@ -178,6 +181,48 @@ class N3ppOutputController
             return ResponseHelper::json($response, ['success' => true]);
         } catch (\Throwable $e) {
             $this->logger->error('N3ppOutputController: erreur batchUpdateParameters', ['error' => $e->getMessage()]);
+            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
+        }
+    }
+
+    /**
+     * API: Met a jour un parametre (temps reel, comme page aquaponie).
+     * POST JSON ou form : { param: string, value: mixed }
+     */
+    public function updateParameters(Request $request, Response $response): Response
+    {
+        $payload = RequestHelper::extractParams($request);
+        if (isset($payload['param'])) {
+            $payload = [$payload['param'] => $payload['value'] ?? null];
+        }
+        if (!is_array($payload) || $payload === []) {
+            return ResponseHelper::json($response, ['error' => 'Paramètre manquant'], 400);
+        }
+
+        $board = self::BOARD;
+        $paramName = (string) array_key_first($payload);
+        $value = $payload[$paramName];
+        if ($value === null) {
+            $value = '';
+        }
+        $value = trim((string) $value);
+
+        if ($paramName === 'mailNotif') {
+            $value = in_array(strtolower($value), ['1', 'true', 'checked', 'on', 'oui'], true) ? 'checked' : 'false';
+        }
+        if ($paramName === 'WakeUp') {
+            $value = in_array($value, ['1', 'true', 'on'], true) ? '1' : '0';
+        }
+
+        try {
+            $ok = $this->outputRepo->updateParameterByName($board, $paramName, $value);
+            if (!$ok) {
+                return ResponseHelper::json($response, ['error' => 'Paramètre inconnu'], 400);
+            }
+            $this->logger->info('N3ppOutputController: parametre mis a jour', ['param' => $paramName]);
+            return ResponseHelper::json($response, ['success' => true, 'param' => $paramName]);
+        } catch (\Throwable $e) {
+            $this->logger->error('N3ppOutputController: erreur updateParameterByName', ['error' => $e->getMessage()]);
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="theme-color" content="#008B74" />
     <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css" />
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/realtime-styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
     <link rel="shortcut icon" type="image/png" href="{{ base_path }}/assets/logo.png"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -372,7 +373,7 @@
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
     <script>
     (function() {
-        var apiBase = '{{ base_path }}' + '/n3pp/api/realtime';
+        var apiBase = '{{ base_path|default("") }}' + '{{ environment == "n3pp_test" ? "/n3pp-test/api/realtime" : "/n3pp/api/realtime" }}';
         {% if measure_count > 0 %}
         window.chartUpdater = new ChartUpdaterGeneric({
             chartIds: ['chart-niveauxeaux', 'chart-temperatures', 'chart-cycles'],

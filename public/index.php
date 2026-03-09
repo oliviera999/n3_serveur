@@ -91,10 +91,6 @@ $app->add($container->get(\App\Middleware\ErrorHandlerMiddleware::class));
 $app->add(function (Request $request, $handler) {
     $path = $request->getUri()->getPath();
     $method = $request->getMethod();
-    // #region agent log (s'exécute en prod : log dans public/ pour récupération à distance via URL)
-    $logPath = __DIR__ . '/debug-897a5e.log';
-    @file_put_contents($logPath, json_encode(['sessionId' => '897a5e', 'hypothesisId' => 'A', 'location' => 'index.php:redirect-middleware', 'message' => 'path and branch', 'data' => ['path' => $path, 'method' => $method, 'pathLen' => strlen($path)], 'timestamp' => (int)(microtime(true) * 1000)]) . "\n", FILE_APPEND | LOCK_EX);
-    // #endregion
     // Redirection GET uniquement (pages), pas les POST API (ex. ffp3gallery/upload.php)
     if ($method !== 'GET') {
         return $handler->handle($request);
@@ -105,8 +101,9 @@ $app->add(function (Request $request, $handler) {
         $response = new \Slim\Psr7\Response();
         return $response->withHeader('Location', $location)->withStatus(301);
     }
-    // /ffp3/xxx -> /xxx (sauf /ffp3/ffp3gallery/ pour ne pas casser les liens vers l'API galerie)
-    if (strpos($path, '/ffp3/') === 0 && strpos($path, '/ffp3/ffp3gallery/') !== 0) {
+    // /ffp3/xxx -> /xxx (sauf /ffp3/ffp3gallery/ et /ffp3/api/outputs* pour contrôle aquaponie)
+    $isFfp3ApiOutputs = (strpos($path, '/ffp3/api/outputs') === 0);
+    if (strpos($path, '/ffp3/') === 0 && strpos($path, '/ffp3/ffp3gallery/') !== 0 && !$isFfp3ApiOutputs) {
         $target = '/' . substr($path, 6); // enlever '/ffp3/'
         $query = $request->getUri()->getQuery();
         $location = $target . ($query !== '' ? '?' . $query : '');
@@ -252,7 +249,11 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
         '/api/outputs',            // Protégé sauf /state (géré ci-dessus)
         '/api/outputs-test',
         '/api/outputs3',
-        '/api/outputs3-test'
+        '/api/outputs3-test',
+        '/ffp3/api/outputs',       // Contrôle aquaponie (toggle, parameters) depuis page /ffp3/*
+        '/ffp3/api/outputs-test',
+        '/ffp3/api/outputs3-test',
+        '/ffp3/api/outputs3',
     ];
     
     // Vérifier si le chemin demandé est protégé
@@ -510,6 +511,42 @@ $app->group('/ffp3', function ($group) {
     $group->get('/api/outputs3/state', [OutputController::class, 'getOutputsState']);
     $group->post('/heartbeat3', [HeartbeatController::class, 'handle']);
 })->add(new EnvironmentMiddleware('s3'));
+
+// ====================================================================
+// Contrôle aquaponie sous /ffp3 (toggle, parameters) — protégé par auth
+// (page /ffp3/aquaponie-control* appelle /ffp3/api/outputs*/toggle et /parameters)
+// ====================================================================
+$app->group('/ffp3', function ($group) {
+    $group->get('/api/outputs/toggle', [OutputController::class, 'toggleOutput']);
+    $group->post('/api/outputs/parameters', [OutputController::class, 'updateParameters']);
+    $group->post('/api/outputs/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
+    $group->get('/api/outputs/board/{board}/status', [OutputController::class, 'getBoardStatus']);
+})->add(new EnvironmentMiddleware('prod'))
+  ->add($applyAuth);
+
+$app->group('/ffp3', function ($group) {
+    $group->get('/api/outputs-test/toggle', [OutputController::class, 'toggleOutputTest']);
+    $group->post('/api/outputs-test/parameters', [OutputController::class, 'updateParameters']);
+    $group->post('/api/outputs-test/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
+    $group->get('/api/outputs-test/board/{board}/status', [OutputController::class, 'getBoardStatus']);
+})->add(new EnvironmentMiddleware('test'))
+  ->add($applyAuth);
+
+$app->group('/ffp3', function ($group) {
+    $group->get('/api/outputs3-test/toggle', [OutputController::class, 'toggleOutputTest3']);
+    $group->post('/api/outputs3-test/parameters', [OutputController::class, 'updateParameters']);
+    $group->post('/api/outputs3-test/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
+    $group->get('/api/outputs3-test/board/{board}/status', [OutputController::class, 'getBoardStatus']);
+})->add(new EnvironmentMiddleware('test3'))
+  ->add($applyAuth);
+
+$app->group('/ffp3', function ($group) {
+    $group->get('/api/outputs3/toggle', [OutputController::class, 'toggleOutputS3']);
+    $group->post('/api/outputs3/parameters', [OutputController::class, 'updateParameters']);
+    $group->post('/api/outputs3/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
+    $group->get('/api/outputs3/board/{board}/status', [OutputController::class, 'getBoardStatus']);
+})->add(new EnvironmentMiddleware('s3'))
+  ->add($applyAuth);
 
 // ====================================================================
 // Routes PRODUCTION (par défaut) - avec middleware pour forcer 'prod'
@@ -834,6 +871,7 @@ $app->get('/n3pp/api/realtime/sensors/latest', [N3ppRealtimeApiController::class
 $app->get('/n3pp/api/realtime/sensors/since/{timestamp}', [N3ppRealtimeApiController::class, 'getSensorsSince']);
 $app->get('/n3pp/api/realtime/system/health', [N3ppRealtimeApiController::class, 'getSystemHealth']);
 $app->get('/n3pp/api/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']);
+$app->post('/n3pp/api/outputs/parameters', [N3ppOutputController::class, 'updateParameters']);
 
 // ====================================================================
 // Routes MSP1 TEST — tables msp1DataTest, msp1OutputsTest
@@ -857,6 +895,12 @@ $app->group('', function ($group) use ($useLocalDataFallback) {
     $group->post('/n3pp-test/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
     $group->get('/n3pp-test/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']);
     $group->get('/n3pp-test/n3ppcontrol/index.php', [N3ppOutputController::class, 'showControlPage']);
+    // API temps réel N3PP TEST (même contrat que prod, tables n3ppDataTest / n3ppOutputsTest)
+    $group->get('/n3pp-test/api/realtime/sensors/latest', [N3ppRealtimeApiController::class, 'getLatestSensors']);
+    $group->get('/n3pp-test/api/realtime/sensors/since/{timestamp}', [N3ppRealtimeApiController::class, 'getSensorsSince']);
+    $group->get('/n3pp-test/api/realtime/system/health', [N3ppRealtimeApiController::class, 'getSystemHealth']);
+    $group->get('/n3pp-test/api/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']);
+    $group->post('/n3pp-test/api/outputs/parameters', [N3ppOutputController::class, 'updateParameters']);
 })->add(new EnvironmentMiddleware('n3pp_test'));
 
 // ====================================================================
