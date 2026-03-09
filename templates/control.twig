@@ -442,6 +442,9 @@
             </section>
         </div>
 
+        <script>
+            window.CONTROL_API_BASE = '{{ base_path|default("") }}{{ environment == "test" ? "/api/outputs-test" : (environment == "test3" ? "/api/outputs3-test" : (environment == "s3" ? "/api/outputs3" : "/api/outputs")) }}';
+        </script>
         <script src="{{ base_path }}/assets/js/control-sync.js"></script>
         <script src="{{ base_path }}/assets/js/control-values-updater.js"></script>
         <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
@@ -454,7 +457,7 @@
                 const valuesUpdater = new ControlValuesUpdater();
                 valuesUpdater.init();
 
-                const controlApiBase = '{{ environment == "test" ? "/api/outputs-test" : (environment == "test3" ? "/api/outputs3-test" : (environment == "s3" ? "/api/outputs3" : "/api/outputs")) }}';
+                const controlApiBase = window.CONTROL_API_BASE;
                 const controlSync = new ControlSync({
                     apiBase: controlApiBase,
                     pollInterval: {{ environment == 'test' or environment == 'test3' or environment == 's3' ? 6 : 10 }},

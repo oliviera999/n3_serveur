@@ -26,6 +26,9 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .btn-delete-output { padding: 6px 10px; border: 1px solid rgba(231,76,60,0.4); border-radius: 8px; background: rgba(231,76,60,0.1); color: #e74c3c; cursor: pointer; font-size: 0.9em; }
         .btn-delete-output:hover { background: rgba(231,76,60,0.2); }
+        .parameter-item-switch { display: flex; flex-direction: column; gap: 6px; }
+        .parameter-item-switch .modern-switch { flex-shrink: 0; }
+        .parameter-item-hint { font-size: 0.82em; color: #7f8c8d; }
     </style>
 </head>
 <body class="is-preload" data-environment="{{ environment|default('prod') }}">
@@ -160,9 +163,13 @@
                                     <span>Temps arrosage (en ms)</span>
                                     <input type="number" name="tempsArrosage" id="tempsArrosage" min="0" value="{{ params.tempsArrosage|default('0') }}">
                                 </label>
-                                <label class="parameter-item">
+                                <label class="parameter-item parameter-item-switch">
                                     <span>Éco d'énergie (WakeUp)</span>
-                                    <input type="number" name="WakeUp" id="WakeUp" min="0" value="{{ params.WakeUp|default('0') }}">
+                                    <label class="modern-switch" title="Activer/désactiver l'éco d'énergie">
+                                        <input type="checkbox" id="WakeUp" {{ params.WakeUp|default('0') == '1' ? 'checked' : '' }} role="switch" aria-label="Éco d'énergie (WakeUp)">
+                                        <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                                    </label>
+                                    <span class="parameter-item-hint">{{ params.WakeUp|default('0') == '1' ? 'Activé' : 'Désactivé' }}</span>
                                 </label>
                                 <label class="parameter-item">
                                     <span>Fréquence d'éveil (FreqWakeUp)</span>
@@ -250,6 +257,8 @@
             var form = this;
             var btn = form.querySelector('button[type="submit"]');
             var data = new URLSearchParams(new FormData(form));
+            var wakeUpEl = document.getElementById('WakeUp');
+            if (wakeUpEl) data.set('WakeUp', wakeUpEl.checked ? '1' : '0');
             if (btn) btn.disabled = true;
 
             fetch(actionUrl, { method: 'POST', body: data, headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' } })

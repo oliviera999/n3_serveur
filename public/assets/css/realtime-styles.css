@@ -79,8 +79,9 @@ body.is-preload #wrapper.fade-in::before {
     background-color: transparent !important;
 }
 
+/* Overlay léger pour lisibilité du contenu, sans masquer la photo de fond */
 #wrapper.control-wrapper {
-    background: linear-gradient(180deg, rgba(248, 250, 252, 0.94) 0%, rgba(238, 242, 246, 0.94) 100%) !important;
+    background: linear-gradient(180deg, rgba(248, 250, 252, 0.35) 0%, rgba(238, 242, 246, 0.4) 100%) !important;
 }
 
 /**

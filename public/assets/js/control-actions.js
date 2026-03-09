@@ -1,6 +1,6 @@
 class ControlActions {
     constructor(options = {}) {
-        this.apiBase = options.apiBase || '/ffp3/api/outputs';
+        this.apiBase = options.apiBase || (typeof window.CONTROL_API_BASE !== 'undefined' ? window.CONTROL_API_BASE : '/api/outputs');
         this.isProcessing = false;
         this.queue = [];
     }
@@ -54,11 +54,7 @@ class ControlActions {
     }
 
     async sendToggleRequest(payload, element) {
-        const env = document.body?.dataset?.environment || 'prod';
-        const endpoint = env === 'test' ? '/ffp3/api/outputs-test/toggle'
-            : env === 'test3' ? '/ffp3/api/outputs3-test/toggle'
-            : env === 's3' ? '/ffp3/api/outputs3/toggle'
-            : `${this.apiBase}/toggle`;
+        const endpoint = `${this.apiBase}/toggle`;
         element.disabled = true;
         element.closest('.action-card')?.classList.add('is-updating');
 
@@ -141,7 +137,8 @@ class ControlActions {
 window.ControlActions = ControlActions;
 window.updateOutput = function(element) {
     if (!window.controlActions) {
-        window.controlActions = new ControlActions();
+        const apiBase = typeof window.CONTROL_API_BASE !== 'undefined' ? window.CONTROL_API_BASE : '/api/outputs';
+        window.controlActions = new ControlActions({ apiBase });
     }
     window.controlActions.toggleOutput(element);
 };

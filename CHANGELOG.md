@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -246,6 +252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -518,6 +530,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -789,6 +807,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -1060,6 +1084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -1340,6 +1370,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -1613,6 +1649,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -1886,6 +1928,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -2160,6 +2208,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -2433,6 +2487,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -2708,6 +2768,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -2981,6 +3047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -3254,6 +3326,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -3527,6 +3605,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -3801,6 +3885,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -4072,6 +4162,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -4348,6 +4444,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -4619,6 +4721,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -4893,6 +5001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -5165,6 +5279,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -5439,6 +5559,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -5713,6 +5839,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -5986,6 +6118,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -6261,6 +6399,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -6533,6 +6677,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -6806,6 +6956,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -7080,6 +7236,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -7354,6 +7516,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -7626,6 +7794,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -7899,6 +8073,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -8174,6 +8354,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -8448,6 +8634,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -8721,6 +8913,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -8994,6 +9192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -9267,6 +9471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -9540,6 +9750,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -9812,6 +10028,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -10084,6 +10306,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -10356,6 +10584,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -10628,6 +10862,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -10901,6 +11141,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -11178,6 +11424,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -11455,6 +11707,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -11725,6 +11983,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -11995,6 +12259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -12265,6 +12535,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -12535,6 +12811,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -12805,6 +13087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -13075,6 +13363,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -13362,6 +13656,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -13639,6 +13939,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -13914,6 +14220,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -14190,6 +14502,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -14470,6 +14788,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -14762,6 +15086,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -15036,6 +15366,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -15312,6 +15648,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -15588,6 +15930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -15861,6 +16209,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -16137,6 +16491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -16410,6 +16770,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -16682,6 +17048,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -16955,6 +17327,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -17238,6 +17616,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -17518,6 +17902,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -17806,6 +18196,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -18098,6 +18494,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -18380,6 +18782,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -18654,6 +19062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -18930,6 +19344,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -19205,6 +19625,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -19480,6 +19906,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -19753,6 +20185,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -20026,6 +20464,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -20301,6 +20745,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -20575,6 +21025,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -20851,6 +21307,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -21132,6 +21594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -21417,6 +21885,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -21698,6 +22172,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -21981,6 +22461,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -22263,6 +22749,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -22540,6 +23032,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -22813,6 +23311,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -23090,6 +23594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -23364,6 +23874,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -23637,6 +24153,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -23910,6 +24432,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -24185,6 +24713,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -24460,6 +24994,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -24734,6 +25274,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -25008,6 +25554,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -25281,6 +25833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -25554,6 +26112,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -25827,6 +26391,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -26102,6 +26672,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -26377,6 +26953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -26650,6 +27232,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -26923,6 +27511,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -27196,6 +27790,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -27470,6 +28070,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -27746,6 +28352,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -28029,6 +28641,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -28306,6 +28924,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -28590,6 +29214,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -28872,6 +29502,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -29145,6 +29781,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -29451,6 +30093,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -29728,6 +30376,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -30014,6 +30668,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -30310,6 +30970,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -30596,6 +31262,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -30872,6 +31544,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -31149,6 +31827,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -31432,6 +32116,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -31825,6 +32515,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -32102,6 +32798,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -32377,6 +33079,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -32653,6 +33361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -32930,6 +33644,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -33206,6 +33926,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -33484,6 +34210,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -33761,6 +34493,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -34160,6 +34898,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -34436,6 +35180,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -34712,6 +35462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -35036,6 +35792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -35321,6 +36083,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -35606,6 +36374,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -35928,6 +36702,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -36261,6 +37041,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -36551,6 +37337,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -36842,6 +37634,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -37123,6 +37921,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -37410,6 +38214,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -37701,6 +38511,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -37990,6 +38806,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -38270,6 +39092,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -38562,6 +39390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -38886,6 +39720,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -39165,6 +40005,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -39445,6 +40291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -39724,6 +40576,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -40008,6 +40866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -40298,6 +41162,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -40586,6 +41456,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -40872,6 +41748,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -41153,6 +42035,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -41435,6 +42323,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -41728,6 +42622,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -42020,6 +42920,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -42315,6 +43221,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -42626,6 +43538,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -42967,6 +43885,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -43249,6 +44173,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -43530,6 +44460,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -43821,6 +44757,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -44102,6 +45044,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -44387,6 +45335,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -44665,6 +45619,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -44945,6 +45905,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -45217,6 +46183,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -45529,6 +46501,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -45813,6 +46791,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -46119,6 +47103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -46407,6 +47397,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -46691,6 +47687,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -46981,6 +47983,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -47293,6 +48301,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -47590,6 +48604,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -47941,6 +48961,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -48229,6 +49255,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -48519,6 +49551,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -48820,6 +49858,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -49114,6 +50158,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -49395,6 +50445,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -49676,6 +50732,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -49959,6 +51021,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -50313,6 +51381,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -50615,6 +51689,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -50931,6 +52011,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -51235,6 +52321,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -51543,6 +52635,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -51819,6 +52917,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -52147,6 +53251,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -52439,6 +53549,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -52718,6 +53834,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -53047,6 +54169,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -53355,6 +54483,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -53696,6 +54830,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -53975,6 +55115,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -54313,6 +55459,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -54589,6 +55741,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -54864,6 +56022,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -55143,6 +56307,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -55422,6 +56592,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -55746,6 +56922,12 @@ docs/
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -56093,6 +57275,12 @@ docs/
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -56374,6 +57562,12 @@ docs/
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -56689,6 +57883,12 @@ docs/
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -56969,6 +58169,12 @@ docs/
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -57271,6 +58477,12 @@ docs/
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -57549,6 +58761,12 @@ docs/
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -58016,6 +59234,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -58317,6 +59541,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -58645,6 +59875,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -58959,6 +60195,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -59259,6 +60501,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -59566,6 +60814,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -59865,6 +61119,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -60153,6 +61413,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -60433,6 +61699,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -60729,6 +62001,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -61009,6 +62287,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -61289,6 +62573,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -61571,6 +62861,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -61871,6 +63167,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
@@ -62145,6 +63447,12 @@ ance future
 
 ---
 
+## [5.0.60] - 2026-03-09
+
+### Correctif - Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite)
+- **Résumé** : Correction filtre blanc sur fond des pages de contrôle (opacité overlay réduite).
+
+---
 ## [5.0.59] - 2026-03-09
 
 ### Correctif - Correctif page contrôle aquaponie : partial _nav.twig créé, syntaxe Twig include corrigée
