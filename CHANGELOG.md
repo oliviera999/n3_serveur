@@ -7,6 +7,20 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
+## [5.0.63] - 2026-03-09
+
+### Modifié - Unification templates et APIs (aquaponie, N3PP, MSP1)
+- **Backend** : Interface `RealtimeDataProviderInterface` et providers `MspRealtimeDataProvider`, `N3ppRealtimeDataProvider` ; contrôleurs realtime unifiés via `AbstractRealtimeApiController`. Routes REST `POST /msp1/api/outputs/toggle` et `POST /n3pp/api/outputs/toggle` ajoutées (alignement sur FFP3).
+- **Templates** : Variable `realtime_api_base` (et `outputs_api_base` pour contrôle) passée depuis les contrôleurs FFP3 ; helper `RealtimeUrlHelper`. Layout de base `layout_base.twig` et partiels `_hero_data.twig`, `_system_health_panel.twig`, `_realtime_init_js.twig` ; msp1_data et n3pp_data utilisent les partiels hero et health.
+- **Documentation** : `docs/API_REALTIME_OUTPUTS_CONTRAT.md` — contrat commun des APIs temps réel et contrôle.
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -264,6 +278,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -554,6 +574,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -843,6 +869,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -1132,6 +1164,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -1430,6 +1468,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -1721,6 +1765,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -2012,6 +2062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -2304,6 +2360,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -2595,6 +2657,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -2888,6 +2956,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -3179,6 +3253,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -3470,6 +3550,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -3761,6 +3847,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -4053,6 +4145,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -4342,6 +4440,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -4636,6 +4740,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -4925,6 +5035,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -5217,6 +5333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -5507,6 +5629,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -5799,6 +5927,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -6091,6 +6225,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -6382,6 +6522,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -6675,6 +6821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -6965,6 +7117,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -7256,6 +7414,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -7548,6 +7712,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -7840,6 +8010,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -8130,6 +8306,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -8421,6 +8603,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -8714,6 +8902,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -9006,6 +9200,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -9297,6 +9497,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -9588,6 +9794,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -9879,6 +10091,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -10170,6 +10388,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -10460,6 +10684,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -10750,6 +10980,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -11040,6 +11276,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -11330,6 +11572,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -11621,6 +11869,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -11916,6 +12170,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -12211,6 +12471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -12499,6 +12765,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -12787,6 +13059,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -13075,6 +13353,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -13363,6 +13647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -13651,6 +13941,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -13939,6 +14235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -14244,6 +14546,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -14539,6 +14847,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -14832,6 +15146,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -15126,6 +15446,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -15424,6 +15750,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -15734,6 +16066,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -16026,6 +16364,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -16320,6 +16664,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -16614,6 +16964,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -16905,6 +17261,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -17199,6 +17561,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -17490,6 +17858,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -17780,6 +18154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -18071,6 +18451,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -18372,6 +18758,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -18670,6 +19062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -18976,6 +19374,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -19286,6 +19690,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -19586,6 +19996,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -19878,6 +20294,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -20172,6 +20594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -20465,6 +20893,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -20758,6 +21192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -21049,6 +21489,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -21340,6 +21786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -21633,6 +22085,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -21925,6 +22383,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -22219,6 +22683,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -22518,6 +22988,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -22821,6 +23297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -23120,6 +23602,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -23421,6 +23909,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -23721,6 +24215,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -24016,6 +24516,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -24307,6 +24813,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -24602,6 +25114,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -24894,6 +25412,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -25185,6 +25709,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -25476,6 +26006,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -25769,6 +26305,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -26062,6 +26604,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -26354,6 +26902,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -26646,6 +27200,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -26937,6 +27497,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -27228,6 +27794,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -27519,6 +28091,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -27812,6 +28390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -28105,6 +28689,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -28396,6 +28986,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -28687,6 +29283,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -28978,6 +29580,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -29270,6 +29878,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -29564,6 +30178,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -29865,6 +30485,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -30160,6 +30786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -30462,6 +31094,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -30762,6 +31400,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -31053,6 +31697,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -31377,6 +32027,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -31672,6 +32328,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -31976,6 +32638,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -32290,6 +32958,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -32594,6 +33268,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -32888,6 +33568,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -33183,6 +33869,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -33484,6 +34176,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -33895,6 +34593,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -34190,6 +34894,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -34483,6 +35193,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -34777,6 +35493,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -35072,6 +35794,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -35366,6 +36094,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -35662,6 +36396,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -35957,6 +36697,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -36374,6 +37120,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -36668,6 +37420,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -36962,6 +37720,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -37304,6 +38068,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -37607,6 +38377,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -37910,6 +38686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -38250,6 +39032,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -38601,6 +39389,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -38909,6 +39703,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -39218,6 +40018,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -39517,6 +40323,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -39822,6 +40634,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -40131,6 +40949,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -40438,6 +41262,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -40736,6 +41566,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -41046,6 +41882,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -41388,6 +42230,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -41685,6 +42533,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -41983,6 +42837,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -42280,6 +43140,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -42582,6 +43448,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -42890,6 +43762,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -43196,6 +44074,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -43500,6 +44384,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -43799,6 +44689,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -44099,6 +44995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -44410,6 +45312,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -44720,6 +45628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -45033,6 +45947,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -45362,6 +46282,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -45721,6 +46647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -46021,6 +46953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -46320,6 +47258,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -46629,6 +47573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -46928,6 +47878,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -47231,6 +48187,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -47527,6 +48489,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -47825,6 +48793,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -48115,6 +49089,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -48445,6 +49425,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -48747,6 +49733,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -49071,6 +50063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -49377,6 +50375,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -49679,6 +50683,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -49987,6 +50997,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -50317,6 +51333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -50632,6 +51654,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -51001,6 +52029,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -51307,6 +52341,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -51615,6 +52655,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -51934,6 +52980,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -52246,6 +53298,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -52545,6 +53603,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -52844,6 +53908,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -53145,6 +54215,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -53517,6 +54593,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -53837,6 +54919,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -54171,6 +55259,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -54493,6 +55587,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -54819,6 +55919,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -55113,6 +56219,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -55459,6 +56571,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -55769,6 +56887,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -56066,6 +57190,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -56413,6 +57543,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -56739,6 +57875,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -57098,6 +58240,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -57395,6 +58543,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -57751,6 +58905,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -58045,6 +59205,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -58338,6 +59504,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -58635,6 +59807,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -58932,6 +60110,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -59274,6 +60458,12 @@ docs/
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -59639,6 +60829,12 @@ docs/
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -59938,6 +61134,12 @@ docs/
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -60271,6 +61473,12 @@ docs/
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -60569,6 +61777,12 @@ docs/
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -60889,6 +62103,12 @@ docs/
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -61185,6 +62405,12 @@ docs/
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -61670,6 +62896,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -61989,6 +63221,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -62335,6 +63573,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -62667,6 +63911,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -62985,6 +64235,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -63310,6 +64566,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -63627,6 +64889,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -63933,6 +65201,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -64231,6 +65505,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -64545,6 +65825,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -64843,6 +66129,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -65141,6 +66433,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -65441,6 +66739,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -65759,6 +67063,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)
@@ -66051,6 +67361,12 @@ ance future
 
 ---
 
+## [5.0.64] - 2026-03-09
+
+### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
+- **Résumé** : unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP).
+
+---
 ## [5.0.62] - 2026-03-09
 
 ### Modifié - mise a jour temps reel n3pp control (API parameters, auto-save, suppression bouton Changer les valeurs)

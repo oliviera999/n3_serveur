@@ -689,6 +689,9 @@ $app->get('/assets/js/{filename}', function (Request $request, Response $respons
         'control-values-updater.js',
         'control-sync.js',
         'chart-updater.js',
+        'chart-updater-generic.js',
+        'highcharts-defaults.js',
+        'chart-helpers.js',
         'stats-updater.js',
         'realtime-updater.js',
         'toast-notifications.js',
@@ -718,7 +721,8 @@ $app->get('/assets/css/{filename}', function (Request $request, Response $respon
         'control-styles.css',
         'mobile-optimized.css',
         'realtime-styles.css',
-        'login-styles.css'
+        'login-styles.css',
+        'common-data.css'
     ];
 
     $filePath = __DIR__ . '/assets/css/' . $filename;
@@ -854,6 +858,7 @@ $app->get('/msp1/api/realtime/sensors/latest', [MspRealtimeApiController::class,
 $app->get('/msp1/api/realtime/sensors/since/{timestamp}', [MspRealtimeApiController::class, 'getSensorsSince']);
 $app->get('/msp1/api/realtime/system/health', [MspRealtimeApiController::class, 'getSystemHealth']);
 $app->get('/msp1/api/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']);
+$app->post('/msp1/api/outputs/toggle', [MspOutputController::class, 'toggleOutput']);
 
 // ====================================================================
 // Routes N3PP — compatibilite firmware n3pp4_2 (serre/aquaponie)
@@ -871,6 +876,7 @@ $app->get('/n3pp/api/realtime/sensors/latest', [N3ppRealtimeApiController::class
 $app->get('/n3pp/api/realtime/sensors/since/{timestamp}', [N3ppRealtimeApiController::class, 'getSensorsSince']);
 $app->get('/n3pp/api/realtime/system/health', [N3ppRealtimeApiController::class, 'getSystemHealth']);
 $app->get('/n3pp/api/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']);
+$app->post('/n3pp/api/outputs/toggle', [N3ppOutputController::class, 'toggleOutput']);
 $app->post('/n3pp/api/outputs/parameters', [N3ppOutputController::class, 'updateParameters']);
 
 // ====================================================================

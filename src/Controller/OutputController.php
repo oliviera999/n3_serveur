@@ -8,6 +8,7 @@ use App\Config\Database;
 use App\Config\TableConfig;
 use App\Config\Version;
 use App\Service\OutputCacheService;
+use App\Util\RealtimeUrlHelper;
 use App\Service\OutputService;
 use App\Service\TemplateRenderer;
 use App\Repository\SensorReadRepository;
@@ -70,6 +71,9 @@ class OutputController
 
             $lastData = $this->outputService->getLastDataStates();
 
+            $realtime_api_base = RealtimeUrlHelper::getRealtimeApiBase($environment);
+            $outputs_api_base = RealtimeUrlHelper::getOutputsApiBase($environment);
+
             $data = [
                 'outputs' => $outputs,
                 'boards' => $boards,
@@ -77,6 +81,8 @@ class OutputController
                 'parameter_gpio_map' => $parameterGpioMap,
                 'title' => 'Contrôle du ffp3',
                 'environment' => $environment,
+                'realtime_api_base' => $realtime_api_base,
+                'outputs_api_base' => $outputs_api_base,
                 'version' => Version::getWithPrefix(),
                 'firmware_version' => $firmwareVersion,
                 'lastDataStates' => $lastData['states'],

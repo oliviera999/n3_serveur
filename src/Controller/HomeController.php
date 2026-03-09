@@ -23,6 +23,7 @@ class HomeController
     {
         $html = $this->renderer->render('home.twig', [
             'page_title' => 'n3 iot datas - olution',
+            'nav_active' => 'home',
             'active_page' => 'home',
             'version' => Version::getWithPrefix(),
         ]);

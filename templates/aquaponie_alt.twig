@@ -1,58 +1,43 @@
-<!DOCTYPE HTML>
-<!--
-    olution iot datas by HTML5 UP (version twig)
-    Identique visuellement au template legacy. Toute logique PHP a été
-    migrée dans App\Controller\AquaponieController.
--->
-<html>
-    <head>
-        <title>n3 iot datas</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name="theme-color" content="#008B74" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <!-- <meta http-equiv="refresh" content="60"/> -->
-        <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css" />
-        <noscript><link rel="stylesheet" href="{{ base_path }}/assets/css/noscript.css" /></noscript>
-        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="{{ base_path }}/assets/css/realtime-styles.css" />
-        <link rel="preload" href="{{ base_path }}/assets/bg-aquaponie.png" as="image" />
-        <style id="page-bg-override">
-            /* Aligne sur page d'accueil : fond visible + fondu (priorite sur main.css body.is-preload * { animation: none }) */
-            body { background: transparent !important; }
-            #page-bg {
-                position: fixed !important; top: 0; left: 0; right: 0; bottom: 0;
-                z-index: -1 !important;
-                background-color: #e8f4f2;
-                background-image: url('{{ base_path }}/assets/bg-aquaponie.png');
-                background-size: cover !important;
-                background-position: center !important;
-                background-repeat: no-repeat;
-                opacity: 0;
-                animation: pageBgFadeIn 1.2s ease-out forwards !important;
-                pointer-events: none;
-            }
-            @keyframes pageBgFadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
-            #wrapper.fade-in::before { background: transparent !important; background-color: transparent !important; }
-        </style>
-        <link rel="shortcut icon" type="image/png" href="{{ base_path }}/assets/logo.png"/>
-        <link rel="manifest" href="{{ base_path }}/manifest.json" />
-        <link rel="apple-touch-icon" href="{{ base_path }}/assets/icons/icon-192.png" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"></script>
-        <script src="https://code.highcharts.com/stock/highstock.js"></script>
-        {# boost.js supprimé : WebGL cause des problèmes sur mobile (graphiques invisibles) et laptop (colonnes au lieu de courbes) #}
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
-        <script src="https://code.highcharts.com/modules/export-data.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-        
+{% extends 'layout.twig' %}
+
+{% block title %}n3 iot datas{% endblock %}
+
+{% block head_css %}
+    <link rel="preload" href="{{ base_path }}/assets/bg-aquaponie.png" as="image" />
+    <style id="page-bg-override">
+        body { background: transparent !important; }
+        #page-bg {
+            position: fixed !important; top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1 !important;
+            background-color: #e8f4f2;
+            background-image: url('{{ base_path }}/assets/bg-aquaponie.png');
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat;
+            opacity: 0;
+            animation: pageBgFadeIn 1.2s ease-out forwards !important;
+            pointer-events: none;
+        }
+        @keyframes pageBgFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #wrapper.fade-in::before { background: transparent !important; background-color: transparent !important; }
+    </style>
+{% endblock %}
+
+{% block head_scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    {# boost.js supprimé : WebGL cause des problèmes sur mobile (graphiques invisibles) et laptop (colonnes au lieu de courbes) #}
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+{% endblock %}
+
+{% block styles %}
         <style>
             /* =================================================================
                HEADER MODERNE ET HERO SECTION
@@ -878,21 +863,9 @@
                 }
             }
         </style>
-    </head>
-    <body class="is-preload">
-        <div id="page-bg" aria-hidden="true"></div>
-        <!-- Wrapper -->
-        <div id="wrapper" class="fade-in">
-            <!-- Header -->
-            <header id="header">
-                <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
-            </header>
+{% endblock %}
 
-            <!-- Nav -->
-            {% include 'partials/_nav.twig' with { nav_active: 'aquaponie', environment: environment|default('prod'), base_path: base_path|default('') } %}
-
-            <!-- Main -->
-            <div id="main">
+{% block content %}
                 <!-- Modern Header Hero Section -->
                 <div class="modern-header">
                     <div class="header-content">
@@ -3405,9 +3378,9 @@
 
                     <!-- Fin du contenu migré -->
                 </article>
-            </div>
-            
-            <!-- Footer avec badges -->
+{% endblock %}
+
+{% block footer %}
             <footer id="footer">
                 <div class="context-badges">
                     <span class="context-badge {{ environment == 'test' or environment == 'test3' ? 'context-badge-test' : 'context-badge-prod' }}">
@@ -3431,8 +3404,9 @@
                 </div>
                 <p class="footer-copyright">Système d'aquaponie FFP3 | © 2025 olution</p>
             </footer>
-        </div>
+{% endblock %}
 
+{% block scripts %}
     <!-- Badge LIVE pour indicateur temps réel -->
     <div id="live-badge" class="badge badge-secondary">
         <i class="fas fa-circle"></i> INITIALISATION...
@@ -3522,7 +3496,7 @@
                 window.chartUpdater = chartUpdater;
                 window.statsUpdater = statsUpdater;
                 
-                const apiBasePath = '{{ environment == "test" ? "/api/realtime-test" : (environment == "test3" ? "/api/realtime3-test" : (environment == "s3" ? "/api/realtime3" : "/api/realtime")) }}';
+                const apiBasePath = '{{ realtime_api_base|default("/api/realtime") }}';
                 initRealtimeUpdater({
                 apiBasePath: apiBasePath,
                 pollInterval: prefs.interval,
@@ -3610,5 +3584,4 @@
             console.log('[Aquaponie] Live update system initialized');
         });
     </script>
-    </body>
-</html>
+{% endblock %}

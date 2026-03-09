@@ -71,6 +71,7 @@ class N3ppOutputController
             'version' => Version::getWithPrefix(),
             'firmware_version' => $firmwareVersion,
             'environment' => TableConfig::getEnvironment(),
+            'nav_active' => 'elevage_control',
         ]);
 
         $response->getBody()->write($html);
@@ -104,6 +105,38 @@ class N3ppOutputController
             return ResponseHelper::json($response, ['success' => true, 'gpio' => $gpio, 'state' => $state]);
         } catch (\Throwable $e) {
             $this->logger->error('N3ppOutputController: erreur mise a jour', ['error' => $e->getMessage()]);
+            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
+        }
+    }
+
+    /**
+     * POST /n3pp/api/outputs/toggle — API REST pour bascule d'une sortie (alignée sur FFP3).
+     * Body JSON ou form : gpio (int), state (0|1). Board optionnel (défaut 3).
+     */
+    public function toggleOutput(Request $request, Response $response): Response
+    {
+        $params = $request->getMethod() === 'POST' ? $request->getParsedBody() ?? [] : $request->getQueryParams();
+        if (is_object($params)) {
+            $params = (array) $params;
+        }
+        $gpio = (int) ($params['gpio'] ?? 0);
+        $state = (int) ($params['state'] ?? -1);
+        $board = (int) ($params['board'] ?? self::BOARD);
+
+        if ($gpio <= 0) {
+            return ResponseHelper::json($response, ['error' => 'Paramètre gpio invalide'], 400);
+        }
+        if ($state !== 0 && $state !== 1) {
+            return ResponseHelper::json($response, ['error' => 'Paramètre state doit être 0 ou 1'], 400);
+        }
+
+        $stateStr = $state === 1 ? '1' : '0';
+        try {
+            $this->outputRepo->updateByGpio($gpio, $stateStr, $board);
+            $this->logger->info('N3ppOutputController: toggle output', ['gpio' => $gpio, 'state' => $stateStr, 'board' => $board]);
+            return ResponseHelper::json($response, ['success' => true, 'gpio' => $gpio, 'state' => $state]);
+        } catch (\Throwable $e) {
+            $this->logger->error('N3ppOutputController: erreur toggle', ['error' => $e->getMessage()]);
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }

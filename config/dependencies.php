@@ -18,6 +18,8 @@ use App\Service\NotificationService;
 use App\Service\OutputCacheService;
 use App\Service\OutputService;
 use App\Service\PumpService;
+use App\Service\Realtime\MspRealtimeDataProvider;
+use App\Service\Realtime\N3ppRealtimeDataProvider;
 use App\Service\RealtimeDataService;
 use App\Service\SensorDataService;
 use App\Service\SensorStatisticsService;
@@ -92,6 +94,16 @@ return [
 
     ChartDataService::class => function (ContainerInterface $c) {
         return new ChartDataService();
+    },
+
+    \App\Service\DateRangeExtractor::class => function (ContainerInterface $c) {
+        return new \App\Service\DateRangeExtractor(
+            $c->get(\App\Security\CsrfService::class)
+        );
+    },
+
+    \App\Service\CsvExportService::class => function (ContainerInterface $c) {
+        return new \App\Service\CsvExportService();
     },
 
     TideCycleDetector::class => function (ContainerInterface $c) {
@@ -186,6 +198,20 @@ return [
         );
     },
 
+    MspRealtimeDataProvider::class => function (ContainerInterface $c) {
+        return new MspRealtimeDataProvider(
+            $c->get(MspSensorRepository::class),
+            $c->get(MspOutputRepository::class)
+        );
+    },
+
+    N3ppRealtimeDataProvider::class => function (ContainerInterface $c) {
+        return new N3ppRealtimeDataProvider(
+            $c->get(N3ppSensorRepository::class),
+            $c->get(N3ppOutputRepository::class)
+        );
+    },
+
     // ====================================================================
     // CONTROLLERS (Définis explicitement pour éviter les problèmes d'autowiring)
     // ====================================================================
@@ -224,7 +250,8 @@ return [
             $c->get(\App\Service\WaterBalanceService::class),
             $c->get(\App\Service\TemplateRenderer::class),
             $c->get(\App\Service\LogService::class),
-            $c->get(\App\Security\CsrfService::class)
+            $c->get(\App\Service\DateRangeExtractor::class),
+            $c->get(\App\Service\CsvExportService::class)
         );
     },
 
@@ -244,7 +271,9 @@ return [
         return new \App\Controller\DashboardController(
             $c->get(\App\Repository\SensorReadRepository::class),
             $c->get(\App\Service\SensorStatisticsService::class),
-            $c->get(\App\Service\TemplateRenderer::class)
+            $c->get(\App\Service\TemplateRenderer::class),
+            $c->get(\App\Service\DateRangeExtractor::class),
+            $c->get(\App\Service\CsvExportService::class)
         );
     },
 
@@ -258,7 +287,7 @@ return [
         return new \App\Controller\TideStatsController(
             $c->get(\App\Service\TideAnalysisService::class),
             $c->get(\App\Service\TemplateRenderer::class),
-            $c->get(\App\Security\CsrfService::class)
+            $c->get(\App\Service\DateRangeExtractor::class)
         );
     },
 
@@ -336,7 +365,10 @@ return [
         return new \App\Controller\Msp\MspDataController(
             $c->get(TemplateRenderer::class),
             $c->get(MspSensorRepository::class),
-            $c->get(CsrfService::class)
+            $c->get(CsrfService::class),
+            $c->get(\App\Service\DateRangeExtractor::class),
+            $c->get(\App\Service\CsvExportService::class),
+            $c->get(ChartDataService::class)
         );
     },
 
@@ -360,21 +392,22 @@ return [
         return new \App\Controller\N3pp\N3ppDataController(
             $c->get(TemplateRenderer::class),
             $c->get(N3ppSensorRepository::class),
-            $c->get(CsrfService::class)
+            $c->get(CsrfService::class),
+            $c->get(\App\Service\DateRangeExtractor::class),
+            $c->get(\App\Service\CsvExportService::class),
+            $c->get(ChartDataService::class)
         );
     },
 
     \App\Controller\N3pp\N3ppRealtimeApiController::class => function (ContainerInterface $c) {
         return new \App\Controller\N3pp\N3ppRealtimeApiController(
-            $c->get(N3ppSensorRepository::class),
-            $c->get(N3ppOutputRepository::class)
+            $c->get(N3ppRealtimeDataProvider::class)
         );
     },
 
     \App\Controller\Msp\MspRealtimeApiController::class => function (ContainerInterface $c) {
         return new \App\Controller\Msp\MspRealtimeApiController(
-            $c->get(MspSensorRepository::class),
-            $c->get(MspOutputRepository::class)
+            $c->get(MspRealtimeDataProvider::class)
         );
     },
 

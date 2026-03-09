@@ -1,0 +1,13 @@
+{# Snippet d'init du RealtimeUpdater. À inclure après le chargement de realtime-updater.js.
+   Variables : realtime_api_base (chemin complet, ex. /msp1/api/realtime), poll_interval (optionnel, défaut 15000) #}
+<script>
+(function() {
+    var apiBase = '{{ base_path|default("") }}{{ realtime_api_base|default("/api/realtime") }}';
+    window.realtimeUpdater = new RealtimeUpdater({
+        apiBasePath: apiBase,
+        pollInterval: {{ poll_interval|default(15000) }},
+        enabled: true
+    });
+    realtimeUpdater.start();
+})();
+</script>

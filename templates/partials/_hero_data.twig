@@ -1,0 +1,12 @@
+{# Bloc hero commun aux pages données (MSP1, N3PP).
+   Variables : hero_title, hero_subtitle, hero_synthesis, hero_icon (optionnel, ex. "fa-sun") #}
+<div class="modern-header">
+    <div class="header-content">
+        <div class="header-title">
+            {% if hero_icon|default('') %}<i class="fas {{ hero_icon }}" aria-hidden="true"></i>{% endif %}
+            {{ hero_title }}
+        </div>
+        {% if hero_subtitle|default('') %}<p class="header-subtitle">{{ hero_subtitle }}</p>{% endif %}
+        {% if hero_synthesis|default('') %}<p class="header-synthesis">{{ hero_synthesis }}</p>{% endif %}
+    </div>
+</div>

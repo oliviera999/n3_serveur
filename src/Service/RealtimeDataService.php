@@ -7,13 +7,15 @@ namespace App\Service;
 use App\Config\TableConfig;
 use App\Repository\SensorReadRepository;
 use App\Repository\OutputRepository;
+use App\Service\Realtime\RealtimeDataProviderInterface;
 use PDO;
 
 /**
- * Service pour la gestion des données en temps réel
- * Fournit les dernières lectures capteurs et l'état du système
+ * Service pour la gestion des données en temps réel FFP3 (aquaponie).
+ * Fournit les dernières lectures capteurs et l'état du système.
+ * Implémente le contrat commun RealtimeDataProviderInterface.
  */
-class RealtimeDataService
+class RealtimeDataService implements RealtimeDataProviderInterface
 {
     /**
      * Seuil pour considérer le système en ligne (en secondes)

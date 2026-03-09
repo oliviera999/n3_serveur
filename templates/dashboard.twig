@@ -1,436 +1,415 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="theme-color" content="#008B74" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title>Dashboard Capteurs - n3 iot datas</title>
-    <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="{{ base_path }}/assets/css/noscript.css" /></noscript>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ base_path }}/assets/css/realtime-styles.css" />
-    <link rel="shortcut icon" type="image/png" href="{{ base_path }}/assets/logo.png"/>
-    <link rel="manifest" href="{{ base_path }}/manifest.json" />
-    <link rel="apple-touch-icon" href="{{ base_path }}/assets/icons/icon-192.png" />
+{% extends 'layout.twig' %}
+
+{% block title %}Dashboard Capteurs - n3 iot datas{% endblock %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{{ base_path }}/assets/css/common-data.css" />
+{% endblock %}
+
+{% block styles %}
+<style>
+    /* Cartes de statistiques modernes */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
     
-    <style>
-        /* Cartes de statistiques modernes */
+    .stat-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0,139,116,0.15);
+        text-align: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: 1px solid rgba(0,139,116,0.1);
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0,139,116,0.25);
+    }
+    
+    .stat-card-icon {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    .stat-card-value {
+        font-size: 2em;
+        font-weight: bold;
+        color: #2c3e50;
+        margin: 10px 0;
+    }
+    
+    .stat-card-label {
+        font-size: 0.9em;
+        color: #7f8c8d;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .stat-card-unit {
+        font-size: 0.6em;
+        color: #95a5a6;
+    }
+    
+    .stat-card-details {
+        font-size: 0.75em;
+        color: #7f8c8d;
+        margin-top: 8px;
+        line-height: 1.4;
+    }
+    
+    /* Couleurs par type de capteur */
+    .stat-card.water { 
+        border-top: 4px solid #008B74;
+    }
+    .stat-card.water .stat-card-icon { color: #008B74; }
+    
+    .stat-card.temp { 
+        border-top: 4px solid #d35400;
+    }
+    .stat-card.temp .stat-card-icon { color: #d35400; }
+    
+    .stat-card.humidity { 
+        border-top: 4px solid #2980b9;
+    }
+    .stat-card.humidity .stat-card-icon { color: #2980b9; }
+    
+    .stat-card.light { 
+        border-top: 4px solid #f39c12;
+    }
+    .stat-card.light .stat-card-icon { color: #f39c12; }
+    
+    /* Section headers */
+    .section-header {
+        display: flex !important;
+        align-items: center !important;
+        gap: 15px !important;
+        margin: 30px 0 20px 0 !important;
+        padding-bottom: 10px !important;
+        border-bottom: 3px solid #008B74 !important;
+    }
+    
+    .section-header h3 {
+        margin: 0 !important;
+        color: #008B74 !important;
+        font-size: 1.5em !important;
+    }
+    
+    .section-header i {
+        font-size: 1.8em !important;
+        color: #008B74 !important;
+        display: inline-block !important;
+    }
+    
+    /* Bannière info */
+    .info-banner {
+        background: linear-gradient(135deg, #007E61 0%, #00B794 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 12px;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .context-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        margin: 10px 0 25px 0;
+    }
+
+    .context-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-size: 0.85em;
+        font-weight: 600;
+        background: rgba(0, 0, 0, 0.05);
+        color: #2c3e50;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        border: 1px solid rgba(0, 139, 116, 0.15);
+        backdrop-filter: blur(6px);
+    }
+
+    .context-badge i {
+        font-size: 1em;
+    }
+
+    .context-badge-prod {
+        background: rgba(0, 139, 116, 0.1);
+        color: #00523f;
+        border-color: rgba(0, 139, 116, 0.3);
+    }
+
+    .context-badge-test {
+        background: rgba(255, 159, 67, 0.15);
+        color: #a35500;
+        border-color: rgba(255, 159, 67, 0.35);
+    }
+
+    .quick-links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+        margin: 20px 0 35px 0;
+    }
+
+    .quick-link-card {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 18px;
+        border-radius: 14px;
+        text-decoration: none;
+        background: white;
+        color: #2c3e50;
+        border: 1px solid rgba(0,139,116,0.15);
+        box-shadow: 0 2px 10px rgba(0,139,116,0.12);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .quick-link-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0,139,116,0.22);
+    }
+
+    .quick-link-card i {
+        font-size: 1.6em;
+        color: #008B74;
+    }
+
+    .quick-link-title {
+        font-weight: 700;
+        font-size: 1.05em;
+    }
+
+    .quick-link-description {
+        font-size: 0.85em;
+        color: #546e7a;
+        line-height: 1.35;
+    }
+    
+    .info-banner-title {
+        font-size: 0.9em;
+        opacity: 0.9;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .info-banner-value {
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+    
+    /* Tableau moderne */
+    .modern-table {
+        width: 100%;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin: 20px 0;
+    }
+    
+    .modern-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .modern-table th {
+        background: linear-gradient(135deg, #007E61 0%, #00B794 100%);
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.95em;
+    }
+    
+    .modern-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .modern-table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .modern-table tbody tr:hover {
+        background: #f8f9fa;
+    }
+    
+    @media (max-width: 768px) {
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .stat-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,139,116,0.15);
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid rgba(0,139,116,0.1);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(0,139,116,0.25);
-        }
-        
-        .stat-card-icon {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .stat-card-value {
-            font-size: 2em;
-            font-weight: bold;
-            color: #2c3e50;
-            margin: 10px 0;
-        }
-        
-        .stat-card-label {
-            font-size: 0.9em;
-            color: #7f8c8d;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .stat-card-unit {
-            font-size: 0.6em;
-            color: #95a5a6;
-        }
-        
-        .stat-card-details {
-            font-size: 0.75em;
-            color: #7f8c8d;
-            margin-top: 8px;
-            line-height: 1.4;
-        }
-        
-        /* Couleurs par type de capteur */
-        .stat-card.water { 
-            border-top: 4px solid #008B74;
-        }
-        .stat-card.water .stat-card-icon { color: #008B74; }
-        
-        .stat-card.temp { 
-            border-top: 4px solid #d35400;
-        }
-        .stat-card.temp .stat-card-icon { color: #d35400; }
-        
-        .stat-card.humidity { 
-            border-top: 4px solid #2980b9;
-        }
-        .stat-card.humidity .stat-card-icon { color: #2980b9; }
-        
-        .stat-card.light { 
-            border-top: 4px solid #f39c12;
-        }
-        .stat-card.light .stat-card-icon { color: #f39c12; }
-        
-        /* Section headers */
-        .section-header {
-            display: flex !important;
-            align-items: center !important;
-            gap: 15px !important;
-            margin: 30px 0 20px 0 !important;
-            padding-bottom: 10px !important;
-            border-bottom: 3px solid #008B74 !important;
-        }
-        
-        .section-header h3 {
-            margin: 0 !important;
-            color: #008B74 !important;
-            font-size: 1.5em !important;
-        }
-        
-        .section-header i {
-            font-size: 1.8em !important;
-            color: #008B74 !important;
-            display: inline-block !important;
-        }
-        
-        /* Bannière info */
-        .info-banner {
-            background: linear-gradient(135deg, #007E61 0%, #00B794 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .context-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin: 10px 0 25px 0;
-        }
-
-        .context-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border-radius: 999px;
-            font-size: 0.85em;
-            font-weight: 600;
-            background: rgba(0, 0, 0, 0.05);
-            color: #2c3e50;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            border: 1px solid rgba(0, 139, 116, 0.15);
-            backdrop-filter: blur(6px);
-        }
-
-        .context-badge i {
-            font-size: 1em;
-        }
-
-        .context-badge-prod {
-            background: rgba(0, 139, 116, 0.1);
-            color: #00523f;
-            border-color: rgba(0, 139, 116, 0.3);
-        }
-
-        .context-badge-test {
-            background: rgba(255, 159, 67, 0.15);
-            color: #a35500;
-            border-color: rgba(255, 159, 67, 0.35);
+            grid-template-columns: 1fr;
         }
 
         .quick-links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-            margin: 20px 0 35px 0;
+            grid-template-columns: 1fr;
         }
+    }
+</style>
+{% endblock %}
 
-        .quick-link-card {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            padding: 18px;
-            border-radius: 14px;
-            text-decoration: none;
-            background: white;
-            color: #2c3e50;
-            border: 1px solid rgba(0,139,116,0.15);
-            box-shadow: 0 2px 10px rgba(0,139,116,0.12);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
+{% block content %}
+<article class="post featured">
+    <header class="major">
+        <h2>
+            <i class="icon solid fa-chart-line"></i>
+            Dashboard des capteurs
+            <i class="icon solid fa-chart-line"></i>
+        </h2>
+        <p>Vue d'ensemble des données collectées par les capteurs ESP32</p>
+        <hr />
+    </header>
 
-        .quick-link-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,139,116,0.22);
-        }
+    <!-- Bannière période -->
+    <div class="info-banner">
+        <div class="info-banner-title">📊 Période analysée</div>
+        <div class="info-banner-value">
+            Du {{ startDate|date('d/m/Y H:i:s') }} au {{ endDate|date('d/m/Y H:i:s') }}
+        </div>
+        <div style="margin-top: 10px; font-size: 0.95em;">
+            Durée : <strong>{{ duration }}</strong> • Mesures : <strong>{{ readingsCount }}</strong>
+        </div>
+    </div>
 
-        .quick-link-card i {
-            font-size: 1.6em;
-            color: #008B74;
-        }
+    <div class="context-badges">
+        <span class="context-badge {{ environment == 'test' or environment == 'test3' ? 'context-badge-test' : 'context-badge-prod' }}">
+            <i class="fas fa-globe"></i>
+            <span>{{ environment == 'test' ? 'Environnement : TEST' : (environment == 'test3' ? 'Environnement : TEST3' : (environment == 's3' ? 'Environnement : S3' : 'Environnement : PROD')) }}</span>
+        </span>
+        <span class="context-badge">
+            <i class="fas fa-database"></i>
+            <span>Source : Table {{ environment == 'test' ? 'ffp3Data2' : (environment == 'test3' ? 'ffp3Data3' : (environment == 's3' ? 'ffp3Data4' : 'ffp3Data')) }}</span>
+        </span>
+        <span class="context-badge">
+            <i class="fas fa-microchip"></i>
+            <span>Firmware ESP32 v{{ firmware_version }}</span>
+        </span>
+        <span class="context-badge">
+            <i class="fas fa-code-branch"></i>
+            <span>{{ version }}</span>
+        </span>
+    </div>
 
-        .quick-link-title {
-            font-weight: 700;
-            font-size: 1.05em;
-        }
+    <div class="quick-links-grid">
+        <a class="quick-link-card" href="/{{ environment == 'test' ? 'aquaponie-test' : (environment == 'test3' ? 'aquamobile-test' : (environment == 's3' ? 'aquamobile' : 'aquaponie')) }}">
+            <i class="fas fa-water"></i>
+            <span class="quick-link-title">Vue Aquaponie</span>
+            <span class="quick-link-description">Graphiques en direct, filtres de période et indicateurs hydriques.</span>
+        </a>
+        <a class="quick-link-card" href="/{{ environment == 'test' ? 'aquaponie-control-test' : (environment == 'test3' ? 'aquamobile-control-test' : (environment == 's3' ? 'aquamobile-control' : 'aquaponie-control')) }}">
+            <i class="fas fa-sliders-h"></i>
+            <span class="quick-link-title">Contrôle des actionneurs</span>
+            <span class="quick-link-description">Pilotez les pompes et vérifiez la synchronisation ESP32.</span>
+        </a>
+        <a class="quick-link-card" href="/post-data{{ environment == 'test' ? '-test' : (environment == 'test3' ? '3-test' : (environment == 's3' ? '3' : '')) }}">
+            <i class="fas fa-satellite-dish"></i>
+            <span class="quick-link-title">Diagnostics API</span>
+            <span class="quick-link-description">Surveillez les signatures HMAC, la latence et la santé des endpoints.</span>
+        </a>
+    </div>
 
-        .quick-link-description {
-            font-size: 0.85em;
-            color: #546e7a;
-            line-height: 1.35;
-        }
+    <!-- Panneau d'état du système (temps réel) -->
+    <div class="system-health-panel">
+        <h3>
+            <i class="fas fa-heartbeat"></i>
+            État du système
+            <span class="refresh-spinner" id="health-spinner">
+                <i class="fas fa-sync-alt"></i>
+            </span>
+        </h3>
         
-        .info-banner-title {
-            font-size: 0.9em;
-            opacity: 0.9;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .info-banner-value {
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-        
-        /* Tableau moderne */
-        .modern-table {
-            width: 100%;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin: 20px 0;
-        }
-        
-        .modern-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        .modern-table th {
-            background: linear-gradient(135deg, #007E61 0%, #00B794 100%);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.95em;
-        }
-        
-        .modern-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .modern-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .modern-table tbody tr:hover {
-            background: #f8f9fa;
-        }
-        
-        @media (max-width: 768px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .quick-links-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body class="is-preload">
-    <div id="page-bg" aria-hidden="true"></div>
-    <div id="wrapper" class="fade-in">
-        <!-- Header -->
-        <header id="header">
-            <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
-        </header>
-
-        <!-- Nav -->
-        {% include 'partials/_nav.twig' with { nav_active: 'aquaponie', environment: environment|default('prod'), base_path: base_path|default('') } %}
-
-        <!-- Main -->
-        <div id="main">
-            <article class="post featured">
-                <header class="major">
-                    <h2>
-                        <i class="icon solid fa-chart-line"></i>
-                        Dashboard des capteurs
-                        <i class="icon solid fa-chart-line"></i>
-                    </h2>
-                    <p>Vue d'ensemble des données collectées par les capteurs ESP32</p>
-                    <hr />
-                </header>
-
-                <!-- Bannière période -->
-                <div class="info-banner">
-                    <div class="info-banner-title">📊 Période analysée</div>
-                    <div class="info-banner-value">
-                        Du {{ startDate|date('d/m/Y H:i:s') }} au {{ endDate|date('d/m/Y H:i:s') }}
-                    </div>
-                    <div style="margin-top: 10px; font-size: 0.95em;">
-                        Durée : <strong>{{ duration }}</strong> • Mesures : <strong>{{ readingsCount }}</strong>
-                    </div>
-                </div>
-
-                <div class="context-badges">
-                    <span class="context-badge {{ environment == 'test' or environment == 'test3' ? 'context-badge-test' : 'context-badge-prod' }}">
-                        <i class="fas fa-globe"></i>
-                        <span>{{ environment == 'test' ? 'Environnement : TEST' : (environment == 'test3' ? 'Environnement : TEST3' : (environment == 's3' ? 'Environnement : S3' : 'Environnement : PROD')) }}</span>
+        <div class="health-grid">
+            <div class="health-item">
+                <div class="health-item-label">Statut</div>
+                <div id="system-status-indicator" class="status-indicator status-online is-animated">
+                    <span class="status-pill" data-status-badge>
+                        <i class="fas fa-circle"></i>
+                        <strong>TEMPS RÉEL</strong>
                     </span>
-                    <span class="context-badge">
-                        <i class="fas fa-database"></i>
-                        <span>Source : Table {{ environment == 'test' ? 'ffp3Data2' : (environment == 'test3' ? 'ffp3Data3' : (environment == 's3' ? 'ffp3Data4' : 'ffp3Data')) }}</span>
-                    </span>
-                    <span class="context-badge">
-                        <i class="fas fa-microchip"></i>
-                        <span>Firmware ESP32 v{{ firmware_version }}</span>
-                    </span>
-                    <span class="context-badge">
-                        <i class="fas fa-code-branch"></i>
-                        <span>{{ version }}</span>
+                    <span class="status-text" data-status-label>
+                        <i class="fas fa-check-circle"></i>
+                        <span>En ligne</span>
                     </span>
                 </div>
-
-                <div class="quick-links-grid">
-                    <a class="quick-link-card" href="/{{ environment == 'test' ? 'aquaponie-test' : (environment == 'test3' ? 'aquamobile-test' : (environment == 's3' ? 'aquamobile' : 'aquaponie')) }}">
-                        <i class="fas fa-water"></i>
-                        <span class="quick-link-title">Vue Aquaponie</span>
-                        <span class="quick-link-description">Graphiques en direct, filtres de période et indicateurs hydriques.</span>
-                    </a>
-                    <a class="quick-link-card" href="/{{ environment == 'test' ? 'aquaponie-control-test' : (environment == 'test3' ? 'aquamobile-control-test' : (environment == 's3' ? 'aquamobile-control' : 'aquaponie-control')) }}">
-                        <i class="fas fa-sliders-h"></i>
-                        <span class="quick-link-title">Contrôle des actionneurs</span>
-                        <span class="quick-link-description">Pilotez les pompes et vérifiez la synchronisation ESP32.</span>
-                    </a>
-                    <a class="quick-link-card" href="/post-data{{ environment == 'test' ? '-test' : (environment == 'test3' ? '3-test' : (environment == 's3' ? '3' : '')) }}">
-                        <i class="fas fa-satellite-dish"></i>
-                        <span class="quick-link-title">Diagnostics API</span>
-                        <span class="quick-link-description">Surveillez les signatures HMAC, la latence et la santé des endpoints.</span>
-                    </a>
+            </div>
+            
+            <div class="health-item">
+                <div class="health-item-label">Dernière réception</div>
+                <div class="health-item-value" id="last-reading-time" data-default="pending">
+                    <span class="reading-ago" data-reading-ago>
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                    <span class="reading-timestamp" data-reading-timestamp style="display: none;"></span>
                 </div>
-
-                <!-- Panneau d'état du système (temps réel) -->
-                <div class="system-health-panel">
-                    <h3>
-                        <i class="fas fa-heartbeat"></i>
-                        État du système
-                        <span class="refresh-spinner" id="health-spinner">
-                            <i class="fas fa-sync-alt"></i>
-                        </span>
-                    </h3>
-                    
-                    <div class="health-grid">
-                        <div class="health-item">
-                            <div class="health-item-label">Statut</div>
-                            <div id="system-status-indicator" class="status-indicator status-online is-animated">
-                                <span class="status-pill" data-status-badge>
-                                    <i class="fas fa-circle"></i>
-                                    <strong>TEMPS RÉEL</strong>
-                                </span>
-                                <span class="status-text" data-status-label>
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>En ligne</span>
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <div class="health-item">
-                            <div class="health-item-label">Dernière réception</div>
-                            <div class="health-item-value" id="last-reading-time" data-default="pending">
-                                <span class="reading-ago" data-reading-ago>
-                                    <i class="fas fa-spinner fa-spin"></i>
-                                </span>
-                                <span class="reading-timestamp" data-reading-timestamp style="display: none;"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="health-item">
-                            <div class="health-item-label">Uptime (30j)</div>
-                            <div class="health-item-value" id="system-uptime">
-                                <i class="fas fa-spinner fa-spin"></i>
-                            </div>
-                        </div>
-                        
-                        <div class="health-item">
-                            <div class="health-item-label">Lectures aujourd'hui</div>
-                            <div class="health-item-value" id="readings-today" data-default="pending">
-                                <span class="reading-count" data-reading-count>
-                                    <i class="fas fa-spinner fa-spin"></i>
-                                </span>
-                                <span class="reading-hint" data-reading-hint>/ jour</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="next-update-countdown" id="next-update-info">
-                        Prochaine mise à jour dans <strong id="countdown-seconds">15</strong> secondes
-                    </div>
+            </div>
+            
+            <div class="health-item">
+                <div class="health-item-label">Uptime (30j)</div>
+                <div class="health-item-value" id="system-uptime">
+                    <i class="fas fa-spinner fa-spin"></i>
                 </div>
-
-                <!-- Section Dernière lecture -->
-                <div class="section-header">
-                    <i class="fas fa-clock"></i>
-                    <h3>Dernière lecture</h3>
+            </div>
+            
+            <div class="health-item">
+                <div class="health-item-label">Lectures aujourd'hui</div>
+                <div class="health-item-value" id="readings-today" data-default="pending">
+                    <span class="reading-count" data-reading-count>
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                    <span class="reading-hint" data-reading-hint>/ jour</span>
                 </div>
+            </div>
+        </div>
+        
+        <div class="next-update-countdown" id="next-update-info">
+            Prochaine mise à jour dans <strong id="countdown-seconds">15</strong> secondes
+        </div>
+    </div>
+
+    <!-- Section Dernière lecture -->
+    <div class="section-header">
+        <i class="fas fa-clock"></i>
+        <h3>Dernière lecture</h3>
+    </div>
 
 {% if lastReading %}
-                <div class="modern-table">
-    <table>
-        <thead>
-            <tr>
-                {% for k in lastReading|keys %}<th>{{ k }}</th>{% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                                {% for v in lastReading %}<td><strong>{{ v }}</strong></td>{% endfor %}
-            </tr>
-        </tbody>
-    </table>
-                </div>
+    <div class="modern-table">
+        <table>
+            <thead>
+                <tr>
+                    {% for k in lastReading|keys %}<th>{{ k }}</th>{% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for v in lastReading %}<td><strong>{{ v }}</strong></td>{% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
 {% else %}
-                <p style="text-align: center; color: #7f8c8d; padding: 30px;">Aucune donnée disponible.</p>
+    <p style="text-align: center; color: #7f8c8d; padding: 30px;">Aucune donnée disponible.</p>
 {% endif %}
 
-                <!-- Section Statistiques avec cartes modernes -->
-                <div class="section-header">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Statistiques par capteur</h3>
-                </div>
+    <!-- Section Statistiques avec cartes modernes -->
+    <div class="section-header">
+        <i class="fas fa-chart-bar"></i>
+        <h3>Statistiques par capteur</h3>
+    </div>
 
-                <div class="stats-grid">
+    <div class="stats-grid">
 {% for sensor, s in stats %}
     {% set iconClass = 'fa-circle' %}
     {% set cardClass = '' %}
@@ -449,126 +428,124 @@
         {% set cardClass = 'water' %}
     {% endif %}
     
-                    <div class="stat-card {{ cardClass }}">
-                        <i class="fas {{ iconClass }} stat-card-icon"></i>
-                        <div class="stat-card-label">{{ sensor }}</div>
-                        <div class="stat-card-value">
-                            {{ s.avg|number_format(1, ',', ' ') }}
-                            <span class="stat-card-unit">
-                                {% if sensor matches '/Temp/' %}°C
-                                {% elseif sensor == 'Humidite' %}%
-                                {% elseif sensor == 'Luminosite' %}UA
-                                {% elseif sensor matches '/Eau/' %}cm
-                                {% endif %}
-                            </span>
-                        </div>
-                        <div class="stat-card-details">
-                            <div>Min: {{ s.min }} | Max: {{ s.max }}</div>
-                            <div>ET: {{ s.stddev|number_format(2, ',', ' ') }}</div>
-                        </div>
-                    </div>
+    <div class="stat-card {{ cardClass }}">
+        <i class="fas {{ iconClass }} stat-card-icon"></i>
+        <div class="stat-card-label">{{ sensor }}</div>
+        <div class="stat-card-value">
+            {{ s.avg|number_format(1, ',', ' ') }}
+            <span class="stat-card-unit">
+                {% if sensor matches '/Temp/' %}°C
+                {% elseif sensor == 'Humidite' %}%
+                {% elseif sensor == 'Luminosite' %}UA
+                {% elseif sensor matches '/Eau/' %}cm
+                {% endif %}
+            </span>
+        </div>
+        <div class="stat-card-details">
+            <div>Min: {{ s.min }} | Max: {{ s.max }}</div>
+            <div>ET: {{ s.stddev|number_format(2, ',', ' ') }}</div>
+        </div>
+    </div>
 {% endfor %}
-                </div>
+    </div>
 
-                <!-- Tableau détaillé (version moderne) -->
-                <div class="section-header">
-                    <i class="fas fa-table"></i>
-                    <h3>Vue détaillée</h3>
-                </div>
+    <!-- Tableau détaillé (version moderne) -->
+    <div class="section-header">
+        <i class="fas fa-table"></i>
+        <h3>Vue détaillée</h3>
+    </div>
 
-                <div class="modern-table">
-    <table>
-        <thead>
-            <tr>
-                                <th>Capteur</th><th>Minimum</th><th>Maximum</th><th>Moyenne</th><th>Écart-type</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for sensor, s in stats %}
+    <div class="modern-table">
+        <table>
+            <thead>
                 <tr>
-                                    <td><strong>{{ sensor }}</strong></td>
+                    <th>Capteur</th><th>Minimum</th><th>Maximum</th><th>Moyenne</th><th>Écart-type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sensor, s in stats %}
+                <tr>
+                    <td><strong>{{ sensor }}</strong></td>
                     <td>{{ s.min }}</td>
                     <td>{{ s.max }}</td>
                     <td>{{ s.avg }}</td>
                     <td>{{ s.stddev }}</td>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-                </div>
-            </article>
-        </div>
-    
-    <!-- Footer avec version -->
-        <footer id="footer" style="text-align: center; padding: 20px 0; color: #999; font-size: 0.9em;">
-        <p>{{ version }} | Firmware ESP32: v{{ firmware_version }} | Système d'aquaponie FFP3 | © 2025 olution</p>
-    </footer>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+</article>
+{% endblock %}
 
-    <!-- Badge LIVE pour indicateur temps réel -->
-    <div id="live-badge" class="badge badge-secondary">
-        <i class="fas fa-circle"></i> INITIALISATION...
-    </div>
+{% block footer_content %}
+<p>{{ version }} | Firmware ESP32: v{{ firmware_version }} | Système d'aquaponie FFP3 | © 2025 olution</p>
+{% endblock %}
 
-    <!-- Scripts PWA et Temps Réel -->
-    <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
-    <script src="{{ base_path }}/assets/js/stats-updater.js"></script>
-    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
-    <script src="{{ base_path }}/assets/js/pwa-init.js"></script>
+{% block scripts_vendor %}
+<script src="{{ base_path }}/assets/js/jquery.min.js"></script>
+<script src="{{ base_path }}/assets/js/jquery.scrollex.min.js"></script>
+<script src="{{ base_path }}/assets/js/jquery.scrolly.min.js"></script>
+<script src="{{ base_path }}/assets/js/browser.min.js"></script>
+<script src="{{ base_path }}/assets/js/breakpoints.min.js"></script>
+<script src="{{ base_path }}/assets/js/util.js"></script>
+<script src="{{ base_path }}/assets/js/main.js"></script>
+{% endblock %}
+
+{% block scripts %}
+<!-- Badge LIVE pour indicateur temps réel -->
+<div id="live-badge" class="badge badge-secondary">
+    <i class="fas fa-circle"></i> INITIALISATION...
+</div>
+
+<script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+<script src="{{ base_path }}/assets/js/stats-updater.js"></script>
+<script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+<script src="{{ base_path }}/assets/js/pwa-init.js"></script>
+
+<script>
+    // Variables globales
+    let statsUpdater = null;
+    // realtimeUpdater est déjà déclaré globalement dans realtime-updater.js
     
-    <script>
-        // Variables globales
-        let statsUpdater = null;
-        // realtimeUpdater est déjà déclaré globalement dans realtime-updater.js
-        
-        // Initialiser le système temps réel
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialiser StatsUpdater pour le dashboard
-            statsUpdater = new StatsUpdater({
-                sensors: ['EauAquarium', 'EauReserve', 'EauPotager', 'TempEau', 'TempAir', 'Humidite', 'Luminosite']
-            });
-            
-            setTimeout(() => {
-                const initialized = statsUpdater.init();
-                if (initialized) {
-                    console.log('[Dashboard] StatsUpdater initialized successfully');
-                } else {
-                    console.warn('[Dashboard] StatsUpdater initialization failed');
-                }
-            }, 500);
-            
-            // Exposer globalement
-            window.statsUpdater = statsUpdater;
-            
-            // Utiliser le bon path API selon l'environnement
-            const apiBasePath = '{{ environment == "test" ? "/api/realtime-test" : (environment == "test3" ? "/api/realtime3-test" : (environment == "s3" ? "/api/realtime3" : "/api/realtime")) }}';
-            
-            // Démarrer le polling automatique (15 secondes) - la variable est globale via realtime-updater.js
-            initRealtimeUpdater({
-                apiBasePath: apiBasePath,
-                pollInterval: 15000,
-                enabled: true,
-                onNewData: function(readings) {
-                    console.log('[Dashboard] New sensor data received:', readings);
-                    // Optionnel: recharger la page pour afficher les nouvelles données
-                    // window.location.reload();
-                },
-                onHealthUpdate: function(health) {
-                    console.log('[Dashboard] System health updated:', health);
-                }
-            });
-            
-            console.log('[Dashboard] Live update system initialized');
+    // Initialiser le système temps réel
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialiser StatsUpdater pour le dashboard
+        statsUpdater = new StatsUpdater({
+            sensors: ['EauAquarium', 'EauReserve', 'EauPotager', 'TempEau', 'TempAir', 'Humidite', 'Luminosite']
         });
-    </script>
-
-    <!-- Scripts navigation -->
-    <script src="{{ base_path }}/assets/js/jquery.min.js"></script>
-    <script src="{{ base_path }}/assets/js/jquery.scrollex.min.js"></script>
-    <script src="{{ base_path }}/assets/js/jquery.scrolly.min.js"></script>
-    <script src="{{ base_path }}/assets/js/browser.min.js"></script>
-    <script src="{{ base_path }}/assets/js/breakpoints.min.js"></script>
-    <script src="{{ base_path }}/assets/js/util.js"></script>
-    <script src="{{ base_path }}/assets/js/main.js"></script>
-</body>
-</html>
+        
+        setTimeout(() => {
+            const initialized = statsUpdater.init();
+            if (initialized) {
+                console.log('[Dashboard] StatsUpdater initialized successfully');
+            } else {
+                console.warn('[Dashboard] StatsUpdater initialization failed');
+            }
+        }, 500);
+        
+        // Exposer globalement
+        window.statsUpdater = statsUpdater;
+        
+        // Utiliser le bon path API selon l'environnement
+        const apiBasePath = '{{ realtime_api_base|default("/api/realtime") }}';
+        
+        // Démarrer le polling automatique (15 secondes) - la variable est globale via realtime-updater.js
+        initRealtimeUpdater({
+            apiBasePath: apiBasePath,
+            pollInterval: 15000,
+            enabled: true,
+            onNewData: function(readings) {
+                console.log('[Dashboard] New sensor data received:', readings);
+                // Optionnel: recharger la page pour afficher les nouvelles données
+                // window.location.reload();
+            },
+            onHealthUpdate: function(health) {
+                console.log('[Dashboard] System health updated:', health);
+            }
+        });
+        
+        console.log('[Dashboard] Live update system initialized');
+    });
+</script>
+{% endblock %}

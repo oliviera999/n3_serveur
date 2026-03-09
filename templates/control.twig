@@ -1,50 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>olution iot datas</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="theme-color" content="#008B74" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="{{ base_path }}/assets/css/noscript.css" /></noscript>
-    
-    <!-- Font Awesome avec préchargement et solution de repli SVG -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-    <!-- Styles harmonisés avec l'interface aquaponie -->
-    <link rel="stylesheet" href="{{ base_path }}/assets/css/realtime-styles.css" />
-    <link rel="manifest" href="{{ base_path }}/manifest.json" />
-    <link rel="apple-touch-icon" href="{{ base_path }}/assets/icons/icon-192.png" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="shortcut icon" type="image/png" href="{{ base_path }}/assets/logo.png"/>
-    
-    <!-- Styles de contrôle extraits vers fichier externe -->
+{% extends 'layout.twig' %}
+
+{% block title %}olution iot datas{% endblock %}
+
+{% block head_css %}
     <link rel="stylesheet" href="{{ base_path }}/assets/css/control-styles.css" />
-</head>
-<body class="is-preload" data-environment="{{ environment }}">
-    <div id="page-bg" aria-hidden="true"></div>
-    <!-- Badge de synchronisation temps réel -->
+{% endblock %}
+
+{% block head_scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block body_tag %}<body class="is-preload" data-environment="{{ environment }}">{% endblock %}
+
+{% block wrapper_class %} control-wrapper{% endblock %}
+
+{% block before_wrapper %}
     <div id="control-sync-badge" class="connecting">CONNEXION...</div>
-    
-    <!-- Wrapper -->
-    <div id="wrapper" class="fade-in control-wrapper">
-        
-        <!-- Header -->
-        <header id="header">
-            <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
-        </header>
+{% endblock %}
 
-        <!-- Nav -->
-        {% include 'partials/_nav.twig' with { nav_active: 'control_ffp3', environment: environment|default('prod'), base_path: base_path|default('') } %}
-
-        <!-- Main -->
+{% block content %}
         {% set lastDataStates = lastDataStates|default({}) %}
-        <div id="main" class="control-layout">
+        <div class="control-layout">
             <aside class="control-sidebar panel">
                 <section class="control-context">
                     <div class="context-badges">
@@ -441,9 +418,11 @@
                 </div>
             </section>
         </div>
+{% endblock %}
 
+{% block scripts %}
         <script>
-            window.CONTROL_API_BASE = '{{ base_path|default("") }}{{ environment == "test" ? "/api/outputs-test" : (environment == "test3" ? "/api/outputs3-test" : (environment == "s3" ? "/api/outputs3" : "/api/outputs")) }}';
+            window.CONTROL_API_BASE = '{{ base_path|default("") }}{{ outputs_api_base|default("/api/outputs") }}';
         </script>
         <script src="{{ base_path }}/assets/js/control-sync.js"></script>
         <script src="{{ base_path }}/assets/js/control-values-updater.js"></script>
@@ -476,7 +455,7 @@
                 window.controlSync = controlSync;
                 window.controlValuesUpdater = valuesUpdater;
 
-                const realtimeApiBase = '{{ environment == "test" ? "/api/realtime-test" : (environment == "test3" ? "/api/realtime3-test" : (environment == "s3" ? "/api/realtime3" : "/api/realtime")) }}';
+                const realtimeApiBase = '{{ realtime_api_base|default("/api/realtime") }}';
                 initRealtimeUpdater({
                     apiBasePath: realtimeApiBase,
                     pollInterval: 15000,
@@ -510,5 +489,4 @@
                 }
             });
         </script>
-</body>
-</html>
+{% endblock %}

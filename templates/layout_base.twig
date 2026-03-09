@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <title>{% block page_title %}n3 iot{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#008B74" />
+    <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/main.css" />
+    <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/realtime-styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+    <link rel="shortcut icon" type="image/png" href="{{ base_path|default('') }}/assets/logo.png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    {% block page_styles %}{% endblock %}
+</head>
+<body class="is-preload">
+    <div id="page-bg" aria-hidden="true"></div>
+    <div id="wrapper" class="fade-in">
+        <header id="header">
+            <a href="/" class="logo"><img src="{{ base_path|default('') }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
+        </header>
+        {% include 'partials/_nav.twig' with { nav_active: block('nav_active')|trim, environment: environment|default('prod'), base_path: base_path|default('') } %}
+
+        <div id="main">
+            {% block content %}{% endblock %}
+        </div>
+
+        <footer id="footer">
+            <div class="context-badges">{% block footer_badges %}{% endblock %}</div>
+            <p>n3 IoT — Données et contrôle</p>
+        </footer>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

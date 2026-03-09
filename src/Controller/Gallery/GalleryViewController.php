@@ -64,20 +64,20 @@ class GalleryViewController
 
     public function showMsp1(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'msp1', 'Le potager (MSP1)', 'Photos du potager – station météo', '/msp1/msp1datas/msp1-data.php');
+        return $this->showGallery($request, $response, 'msp1', 'Le potager (MSP1)', 'Photos du potager – station météo', '/msp1/msp1datas/msp1-data.php', 'potager');
     }
 
     public function showN3pp(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'n3pp', "L'élevage d'insectes (N3PP)", "Photos de l'élevage d'insectes", '/n3pp/n3ppdatas/n3pp-data.php');
+        return $this->showGallery($request, $response, 'n3pp', "L'élevage d'insectes (N3PP)", "Photos de l'élevage d'insectes", '/n3pp/n3ppdatas/n3pp-data.php', 'elevage');
     }
 
     public function showFfp3(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'ffp3', "L'aquaponie (FFP3)", 'Photos du potager aquaponie', '/aquaponie');
+        return $this->showGallery($request, $response, 'ffp3', "L'aquaponie (FFP3)", 'Photos du potager aquaponie', '/aquaponie', 'aquaponie');
     }
 
-    private function showGallery(Request $request, Response $response, string $slug, string $navLabel, string $pageTitle, string $backUrl): Response
+    private function showGallery(Request $request, Response $response, string $slug, string $navLabel, string $pageTitle, string $backUrl, string $navActive): Response
     {
         try {
             $params = $request->getQueryParams();
@@ -103,6 +103,7 @@ class GalleryViewController
                 'total_images' => $total,
                 'back_url' => $backUrl,
                 'nav_label' => $navLabel,
+                'nav_active' => $navActive,
             ]);
 
             $response->getBody()->write($html);

@@ -60,6 +60,7 @@ class MspOutputController
             'version' => Version::getWithPrefix(),
             'firmware_version' => $firmwareVersion,
             'environment' => TableConfig::getEnvironment(),
+            'nav_active' => 'potager_control',
         ]);
 
         $response->getBody()->write($html);
@@ -90,6 +91,38 @@ class MspOutputController
             return ResponseHelper::json($response, ['success' => true, 'name' => $name, 'state' => $state]);
         } catch (\Throwable $e) {
             $this->logger->error('MspOutputController: erreur mise a jour', ['error' => $e->getMessage()]);
+            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
+        }
+    }
+
+    /**
+     * POST /msp1/api/outputs/toggle — API REST pour bascule d'une sortie (alignée sur FFP3).
+     * Body JSON ou form : name (string), state (0|1). Board optionnel (défaut 2).
+     */
+    public function toggleOutput(Request $request, Response $response): Response
+    {
+        $params = $request->getMethod() === 'POST' ? $request->getParsedBody() ?? [] : $request->getQueryParams();
+        if (is_object($params)) {
+            $params = (array) $params;
+        }
+        $name = trim((string) ($params['name'] ?? ''));
+        $state = (int) ($params['state'] ?? -1);
+        $board = (int) ($params['board'] ?? self::BOARD);
+
+        if ($name === '') {
+            return ResponseHelper::json($response, ['error' => 'Paramètre name requis'], 400);
+        }
+        if ($state !== 0 && $state !== 1) {
+            return ResponseHelper::json($response, ['error' => 'Paramètre state doit être 0 ou 1'], 400);
+        }
+
+        $stateStr = $state === 1 ? '1' : '0';
+        try {
+            $this->outputRepo->updateByName($name, $stateStr, $board);
+            $this->logger->info('MspOutputController: toggle output', ['name' => $name, 'state' => $stateStr, 'board' => $board]);
+            return ResponseHelper::json($response, ['success' => true, 'name' => $name, 'state' => $state]);
+        } catch (\Throwable $e) {
+            $this->logger->error('MspOutputController: erreur toggle', ['error' => $e->getMessage()]);
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }

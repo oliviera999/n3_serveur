@@ -65,6 +65,32 @@ class ChartDataService
     }
 
     /**
+     * Prépare les séries de données pour Highcharts à partir d'une liste de colonnes générique.
+     * Utilisable par tous les modules (MSP1, N3PP, etc.) sans coder en dur les noms de colonnes.
+     *
+     * @param array $readings Lectures capteurs
+     * @param string[] $columns Noms des colonnes à extraire
+     * @return array<string, mixed> reading_time[] + une clé par colonne
+     */
+    public function prepareGenericSeries(array $readings, array $columns): array
+    {
+        $series = ['reading_time' => []];
+        foreach ($columns as $col) {
+            $series[$col] = [];
+        }
+
+        foreach ($readings as $r) {
+            $ts = isset($r['reading_time']) ? (int) (strtotime($r['reading_time']) * 1000) : 0;
+            $series['reading_time'][] = $ts;
+            foreach ($columns as $col) {
+                $series[$col][] = isset($r[$col]) && $r[$col] !== null ? (float) $r[$col] : null;
+            }
+        }
+
+        return $series;
+    }
+
+    /**
      * Extrait la dernière lecture de chaque capteur
      * 
      * @param array|null $lastReading Dernière lecture ou null
