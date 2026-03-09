@@ -355,9 +355,9 @@ return [
     \App\Controller\Msp\MspOutputController::class => function (ContainerInterface $c) {
         return new \App\Controller\Msp\MspOutputController(
             $c->get(\App\Service\LogService::class),
+            $c->get(TemplateRenderer::class),
             $c->get(MspOutputRepository::class),
-            $c->get(MspSensorRepository::class),
-            $c->get(TemplateRenderer::class)
+            $c->get(MspSensorRepository::class)
         );
     },
 
@@ -382,9 +382,9 @@ return [
     \App\Controller\N3pp\N3ppOutputController::class => function (ContainerInterface $c) {
         return new \App\Controller\N3pp\N3ppOutputController(
             $c->get(\App\Service\LogService::class),
+            $c->get(TemplateRenderer::class),
             $c->get(N3ppOutputRepository::class),
-            $c->get(N3ppSensorRepository::class),
-            $c->get(TemplateRenderer::class)
+            $c->get(N3ppSensorRepository::class)
         );
     },
 
