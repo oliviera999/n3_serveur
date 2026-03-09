@@ -6,14 +6,22 @@
 
 if (typeof zipSeries === 'undefined') {
     /**
-     * Fallback : combine timestamps ISO et valeurs en paires Highcharts.
+     * Fallback : combine timestamps ISO ou millisecondes et valeurs en paires Highcharts.
      * Préférer le chargement de highcharts-defaults.js qui inclut cette fonction.
      */
     function zipSeries(times, values) {
         if (!times || !values) return [];
         var result = [];
         for (var i = 0; i < times.length; i++) {
-            var ts = new Date(times[i].replace(' ', 'T')).getTime();
+            var ts;
+            if (typeof times[i] === 'number') {
+                ts = times[i];
+            } else if (typeof times[i] === 'string') {
+                ts = new Date(times[i].replace(' ', 'T')).getTime();
+            } else {
+                continue;
+            }
+            
             var v = values[i] !== null && values[i] !== undefined && values[i] !== ''
                 ? parseFloat(values[i])
                 : null;

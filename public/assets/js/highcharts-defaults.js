@@ -27,10 +27,10 @@ if (typeof Highcharts !== 'undefined') {
 }
 
 /**
- * Combine deux tableaux (timestamps ISO et valeurs) en paires [timestamp_ms, value]
+ * Combine deux tableaux (timestamps ISO ou millisecondes et valeurs) en paires [timestamp_ms, value]
  * compatibles avec Highcharts.
  *
- * @param {string[]} times - Tableau de dates ISO (ex: "2025-03-09 14:30:00")
+ * @param {(string|number)[]} times - Tableau de dates ISO (ex: "2025-03-09 14:30:00") ou timestamps en ms
  * @param {(number|string|null)[]} values - Valeurs correspondantes
  * @returns {Array<[number, number|null]>}
  */
@@ -38,7 +38,15 @@ function zipSeries(times, values) {
     if (!times || !values) return [];
     var result = [];
     for (var i = 0; i < times.length; i++) {
-        var ts = new Date(times[i].replace(' ', 'T')).getTime();
+        var ts;
+        if (typeof times[i] === 'number') {
+            ts = times[i];
+        } else if (typeof times[i] === 'string') {
+            ts = new Date(times[i].replace(' ', 'T')).getTime();
+        } else {
+            continue;
+        }
+        
         var v = values[i] !== null && values[i] !== undefined && values[i] !== ''
             ? parseFloat(values[i])
             : null;
