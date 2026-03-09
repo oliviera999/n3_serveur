@@ -4,98 +4,109 @@ declare(strict_types=1);
 
 namespace App\Controller\N3pp;
 
-use App\Config\TableConfig;
-use App\Config\Version;
+use App\Controller\AbstractDataController;
 use App\Repository\N3ppSensorRepository;
 use App\Security\CsrfService;
 use App\Service\ChartDataService;
 use App\Service\CsvExportService;
 use App\Service\DateRangeExtractor;
 use App\Service\TemplateRenderer;
-use App\Util\DurationFormatter;
 use App\Util\RealtimeUrlHelper;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 
-class N3ppDataController
+/**
+ * Page de données de la serre / élevage (N3PP).
+ * Hérite du flux commun AbstractDataController.
+ */
+class N3ppDataController extends AbstractDataController
 {
-    private const BOARD = 3;
-
-    private const CHART_COLUMNS = [
-        'TempAir', 'Humidite', 'Luminosite',
-        'Humid1', 'Humid2', 'Humid3', 'Humid4', 'HumidMoy',
-        'PontDiv', 'bootCount',
-        'etatPompe', 'resetMode',
-    ];
-
-    private const STATS_COLUMNS = [
-        'TempAir', 'Humidite', 'Luminosite',
-        'Humid1', 'Humid2', 'Humid3', 'Humid4', 'HumidMoy',
-        'PontDiv', 'bootCount', 'etatPompe',
-    ];
-
     public function __construct(
-        private TemplateRenderer $renderer,
-        private N3ppSensorRepository $sensorRepo,
-        private CsrfService $csrfService,
-        private DateRangeExtractor $dateRangeExtractor,
-        private CsvExportService $csvExportService,
-        private ChartDataService $chartDataService,
+        TemplateRenderer $renderer,
+        N3ppSensorRepository $sensorRepo,
+        CsrfService $csrfService,
+        DateRangeExtractor $dateRangeExtractor,
+        CsvExportService $csvExportService,
+        ChartDataService $chartDataService,
     ) {
+        parent::__construct($renderer, $sensorRepo, $csrfService, $dateRangeExtractor, $csvExportService, $chartDataService);
     }
 
-    public function show(Request $request, Response $response): Response
+    protected function getBoard(): int { return 3; }
+
+    protected function getChartColumns(): array
     {
-        $lastDate = $this->sensorRepo->getLastReadingDate();
-        $defaultEnd = $lastDate ?: date('Y-m-d H:i:s');
-        $defaultStart = date('Y-m-d H:i:s', strtotime($defaultEnd . ' -24 hours'));
+        return [
+            'TempAir', 'Humidite', 'Luminosite',
+            'Humid1', 'Humid2', 'Humid3', 'Humid4', 'HumidMoy',
+            'PontDiv', 'bootCount',
+            'etatPompe', 'resetMode',
+        ];
+    }
 
-        [$startDate, $endDate] = $this->dateRangeExtractor->extract($request, $defaultStart, $defaultEnd);
+    protected function getStatsColumns(): array
+    {
+        return [
+            'TempAir', 'Humidite', 'Luminosite',
+            'Humid1', 'Humid2', 'Humid3', 'Humid4', 'HumidMoy',
+            'PontDiv', 'bootCount', 'etatPompe',
+        ];
+    }
 
-        $body = $request->getParsedBody() ?? [];
-        if (isset($body['export_csv'])) {
-            return $this->csvExportService->export(
-                $this->sensorRepo, $startDate, $endDate, $response, 'n3pp_data'
-            );
-        }
+    protected function getTemplateName(): string { return 'n3pp_data.twig'; }
+    protected function getPageTitle(string $testSuffix): string { return 'Données serre / élevage - n3 iot' . $testSuffix; }
+    protected function getNavActive(): string { return 'elevage'; }
+    protected function getCsvPrefix(): string { return 'n3pp_data'; }
+    protected function getRealtimeApiBase(string $environment): string { return RealtimeUrlHelper::getN3ppRealtimeApiBase($environment); }
+    protected function getTestEnvironmentName(): string { return 'n3pp_test'; }
 
-        $readings = $this->sensorRepo->fetchBetween($startDate, $endDate);
-        $measureCount = count($readings);
+    protected function getDataConfig(string $environment): array
+    {
+        return [
+            'hero_title' => "L'élevage d'insectes – Serre",
+            'hero_icon' => 'fa-leaf',
+            'hero_subtitle' => 'Supervision des capteurs de la serre (température, humidité air et sol, luminosité, état pompe).',
+            'form_action' => '/serre',
+            'test_env' => 'n3pp_test',
+            'table_label' => $environment === 'n3pp_test' ? 'n3ppDataTest' : 'n3ppData',
+            'footer_text' => "Serre / élevage d'insectes (n3pp)",
+        ];
+    }
 
-        $chartData = $this->chartDataService->prepareGenericSeries($readings, self::CHART_COLUMNS);
-        $latest = $this->sensorRepo->getLatest();
-        $firmwareVersion = $this->sensorRepo->getFirmwareVersion();
+    protected function getSensorsConfig(): array
+    {
+        return [
+            ['key' => 'TempAir', 'label' => 'Temp. air', 'icon' => 'fa-thermometer-half', 'class' => 'temp', 'unit' => '°C', 'decimals' => 1],
+            ['key' => 'Humidite', 'label' => 'Humidité air', 'icon' => 'fa-tint', 'class' => 'humidity', 'unit' => '%', 'decimals' => 0, 'unit_suffix' => '%'],
+            ['key' => 'Luminosite', 'label' => 'Luminosité', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
+            ['key' => 'HumidMoy', 'label' => 'Humid. sol moy.', 'icon' => 'fa-seedling', 'class' => 'humidity', 'unit' => 'UA', 'decimals' => 0, 'unit_suffix' => ' UA'],
+            ['icon' => 'fa-droplet', 'class' => 'humidity', 'unit' => 'UA', 'decimals' => 0, 'unit_suffix' => ' UA', 'loop' => ['from' => 1, 'to' => 4, 'prefix' => 'Humid', 'label_prefix' => 'Humid. sol']],
+            ['key' => 'etatPompe', 'label' => 'État pompe', 'icon' => 'fa-water', 'class' => 'pump', 'unit' => '', 'decimals' => 0, 'no_stats' => true],
+        ];
+    }
 
-        $stats = [];
-        foreach (self::STATS_COLUMNS as $col) {
-            $s = $this->sensorRepo->getColumnStats($col, $startDate, $endDate);
-            $lc = lcfirst($col);
-            $stats["avg_$lc"] = $s['avg'];
-            $stats["min_$lc"] = $s['min'];
-            $stats["max_$lc"] = $s['max'];
-            $stats["stddev_$lc"] = $s['stddev'];
-        }
+    protected function getChartsConfig(): array
+    {
+        return [
+            ['id' => 'chart-niveauxeaux', 'title' => 'Humidité du sol', 'icon' => 'fa-seedling'],
+            ['id' => 'chart-temperatures', 'title' => 'Température, Humidité air & Luminosité', 'icon' => 'fa-thermometer-half'],
+            ['id' => 'chart-cycles', 'title' => 'Autonomie & Système', 'icon' => 'fa-cog', 'height' => '300px'],
+        ];
+    }
 
-        $env = TableConfig::getEnvironment();
-        $testSuffix = $env === 'n3pp_test' ? ' (TEST)' : '';
-
-        $html = $this->renderer->render('n3pp_data.twig', array_merge([
-            'page_title' => 'Données serre / élevage - n3 iot' . $testSuffix,
-            'nav_active' => 'elevage',
-            'latest' => $latest,
-            'board' => self::BOARD,
-            'version' => Version::getWithPrefix(),
-            'firmware_version' => $firmwareVersion,
-            'environment' => $env,
-            'realtime_api_base' => RealtimeUrlHelper::getN3ppRealtimeApiBase($env),
-            'csrf_field' => $this->csrfService->getHiddenField(),
-            'start_date' => $startDate,
-            'end_date' => $endDate,
-            'measure_count' => $measureCount,
-            'duration_str' => DurationFormatter::short($startDate, $endDate),
-        ], $chartData, $stats));
-
-        $response->getBody()->write($html);
-        return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
+    protected function getSensorMapJson(): string
+    {
+        return '{
+            "HumidMoy":{"chartId":"chart-niveauxeaux","seriesIndex":0},
+            "Humid1":{"chartId":"chart-niveauxeaux","seriesIndex":1},
+            "Humid2":{"chartId":"chart-niveauxeaux","seriesIndex":2},
+            "Humid3":{"chartId":"chart-niveauxeaux","seriesIndex":3},
+            "Humid4":{"chartId":"chart-niveauxeaux","seriesIndex":4},
+            "etatPompe":{"chartId":"chart-niveauxeaux","seriesIndex":5},
+            "resetMode":{"chartId":"chart-niveauxeaux","seriesIndex":6},
+            "TempAir":{"chartId":"chart-temperatures","seriesIndex":0},
+            "Humidite":{"chartId":"chart-temperatures","seriesIndex":1},
+            "Luminosite":{"chartId":"chart-temperatures","seriesIndex":2},
+            "bootCount":{"chartId":"chart-cycles","seriesIndex":0},
+            "PontDiv":{"chartId":"chart-cycles","seriesIndex":1}
+        }';
     }
 }

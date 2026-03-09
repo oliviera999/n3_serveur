@@ -8,26 +8,29 @@ use App\Config\TableConfig;
 use App\Domain\N3ppSensorData;
 
 /**
- * Repository pour l'insertion et la lecture des mesures serre/aquaponie (n3pp4_2).
- * Table dynamique via TableConfig (n3ppData en prod, n3ppDataTest en test).
+ * Repository pour l'insertion et la lecture des mesures serre/élevage (n3pp4_2).
+ * Hérite des méthodes communes d'AbstractSensorRepository.
  */
-class N3ppSensorRepository extends AbstractRepository
+class N3ppSensorRepository extends AbstractSensorRepository
 {
-    private static function table(): string
+    protected function getTableName(): string
     {
         return TableConfig::getN3ppDataTable();
     }
 
-    /** Colonnes de capteurs disponibles pour les statistiques et graphiques. */
-    public const SENSOR_COLUMNS = [
-        'TempAir', 'Humidite', 'Luminosite',
-        'Humid1', 'Humid2', 'Humid3', 'Humid4', 'HumidMoy',
-        'PontDiv', 'bootCount', 'etatPompe', 'resetMode',
-    ];
+    /** @return string[] */
+    public function getSensorColumns(): array
+    {
+        return [
+            'TempAir', 'Humidite', 'Luminosite',
+            'Humid1', 'Humid2', 'Humid3', 'Humid4', 'HumidMoy',
+            'PontDiv', 'bootCount', 'etatPompe', 'resetMode',
+        ];
+    }
 
     public function insert(N3ppSensorData $data): void
     {
-        $sql = "INSERT INTO `" . self::table() . "` (
+        $sql = "INSERT INTO `" . $this->getTableName() . "` (
             sensor, version,
             TempAir, Humidite, Luminosite,
             Humid1, Humid2, Humid3, Humid4, HumidMoy,
@@ -71,90 +74,5 @@ class N3ppSensorRepository extends AbstractRepository
             ':bootCount' => $data->bootCount,
             ':reading_time' => date('Y-m-d H:i:s'),
         ]);
-    }
-
-    public function getLatest(): ?array
-    {
-        $sql = "SELECT * FROM `" . self::table() . "` ORDER BY id DESC LIMIT 1";
-        return $this->fetchOne($sql);
-    }
-
-    public function getRecent(int $limit = 50): array
-    {
-        $sql = "SELECT * FROM `" . self::table() . "` ORDER BY id DESC LIMIT " . max(1, min(200, $limit));
-        return $this->fetchAll($sql);
-    }
-
-    public function getLastReadingDate(): ?string
-    {
-        $sql = "SELECT reading_time FROM `" . self::table() . "` ORDER BY id DESC LIMIT 1";
-        $val = $this->fetchScalar($sql);
-        return $val !== null ? (string) $val : null;
-    }
-
-    /** @return array<int, array<string, mixed>> */
-    public function fetchBetween(string $start, string $end): array
-    {
-        $sql = "SELECT * FROM `" . self::table() . "` WHERE reading_time BETWEEN :s AND :e ORDER BY id ASC";
-        return $this->fetchAll($sql, [':s' => $start, ':e' => $end]);
-    }
-
-    /**
-     * @return array{min: float|null, max: float|null, avg: float|null, stddev: float|null}
-     */
-    public function getColumnStats(string $column, string $start, string $end): array
-    {
-        $allowed = self::SENSOR_COLUMNS;
-        if (!in_array($column, $allowed, true)) {
-            return ['min' => null, 'max' => null, 'avg' => null, 'stddev' => null];
-        }
-        $sql = "SELECT MIN(`$column`) AS `min`, MAX(`$column`) AS `max`,
-                       AVG(`$column`) AS `avg`, STDDEV(`$column`) AS `stddev`
-                FROM `" . self::table() . "` WHERE reading_time BETWEEN :s AND :e";
-        $row = $this->fetchOne($sql, [':s' => $start, ':e' => $end]);
-        return [
-            'min' => $row['min'] ?? null,
-            'max' => $row['max'] ?? null,
-            'avg' => $row['avg'] ?? null,
-            'stddev' => $row['stddev'] ?? null,
-        ];
-    }
-
-    public function countAll(): int
-    {
-        $sql = "SELECT COUNT(*) FROM `" . self::table() . "`";
-        return (int) ($this->fetchScalar($sql) ?? 0);
-    }
-
-    /** Nombre de lectures reçues aujourd'hui (pour API temps réel / health). */
-    public function countReadingsToday(): int
-    {
-        $sql = "SELECT COUNT(*) FROM `" . self::table() . "` WHERE reading_time >= :start AND reading_time <= :end";
-        return (int) ($this->fetchScalar($sql, [
-            ':start' => date('Y-m-d 00:00:00'),
-            ':end' => date('Y-m-d 23:59:59'),
-        ]) ?? 0);
-    }
-
-    public function getFirmwareVersion(): string
-    {
-        $sql = "SELECT version FROM `" . self::table() . "` ORDER BY id DESC LIMIT 1";
-        return (string) ($this->fetchScalar($sql) ?? '-');
-    }
-
-    public function exportCsv(string $start, string $end, string $tmpFile): void
-    {
-        $rows = $this->fetchBetween($start, $end);
-        $fp = fopen($tmpFile, 'w');
-        if ($fp === false) {
-            return;
-        }
-        if (!empty($rows)) {
-            fputcsv($fp, array_keys($rows[0]), ';');
-            foreach ($rows as $row) {
-                fputcsv($fp, $row, ';');
-            }
-        }
-        fclose($fp);
     }
 }

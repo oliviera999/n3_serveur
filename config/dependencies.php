@@ -18,6 +18,7 @@ use App\Service\NotificationService;
 use App\Service\OutputCacheService;
 use App\Service\OutputService;
 use App\Service\PumpService;
+use App\Service\Realtime\Ffp3RealtimeDataProvider;
 use App\Service\Realtime\MspRealtimeDataProvider;
 use App\Service\Realtime\N3ppRealtimeDataProvider;
 use App\Service\RealtimeDataService;
@@ -190,12 +191,17 @@ return [
         );
     },
 
-    RealtimeDataService::class => function (ContainerInterface $c) {
-        return new RealtimeDataService(
+    Ffp3RealtimeDataProvider::class => function (ContainerInterface $c) {
+        return new Ffp3RealtimeDataProvider(
             $c->get(SensorReadRepository::class),
             $c->get(OutputRepository::class),
             $c->get(PDO::class)
         );
+    },
+
+    // Alias pour compatibilité avec l'ancien nom
+    RealtimeDataService::class => function (ContainerInterface $c) {
+        return $c->get(Ffp3RealtimeDataProvider::class);
     },
 
     MspRealtimeDataProvider::class => function (ContainerInterface $c) {
@@ -293,7 +299,7 @@ return [
 
     \App\Controller\RealtimeApiController::class => function (ContainerInterface $c) {
         return new \App\Controller\RealtimeApiController(
-            $c->get(\App\Service\RealtimeDataService::class)
+            $c->get(Ffp3RealtimeDataProvider::class)
         );
     },
 

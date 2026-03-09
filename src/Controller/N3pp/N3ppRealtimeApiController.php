@@ -9,13 +9,12 @@ use App\Service\Realtime\N3ppRealtimeDataProvider;
 
 /**
  * Contrôleur API temps réel N3PP (serre / élevage).
- * Délègue à N3ppRealtimeDataProvider via le contrat commun.
+ * Délègue à N3ppRealtimeDataProvider via la classe abstraite commune.
  */
 class N3ppRealtimeApiController extends AbstractRealtimeApiController
 {
-    public function __construct(
-        N3ppRealtimeDataProvider $provider
-    ) {
+    public function __construct(N3ppRealtimeDataProvider $provider)
+    {
         parent::__construct($provider);
     }
 }

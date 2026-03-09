@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Service\RealtimeDataService;
+use App\Service\Realtime\Ffp3RealtimeDataProvider;
 
 /**
  * Contrôleur API temps réel FFP3 (aquaponie).
- * Délègue à RealtimeDataService qui implémente RealtimeDataProviderInterface.
+ * Délègue à Ffp3RealtimeDataProvider qui implémente RealtimeDataProviderInterface.
  */
 class RealtimeApiController extends AbstractRealtimeApiController
 {
     public function __construct(
-        RealtimeDataService $realtimeService
+        Ffp3RealtimeDataProvider $realtimeService
     ) {
         parent::__construct($realtimeService);
     }

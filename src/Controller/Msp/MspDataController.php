@@ -4,100 +4,119 @@ declare(strict_types=1);
 
 namespace App\Controller\Msp;
 
-use App\Config\TableConfig;
-use App\Config\Version;
+use App\Controller\AbstractDataController;
 use App\Repository\MspSensorRepository;
 use App\Security\CsrfService;
 use App\Service\ChartDataService;
 use App\Service\CsvExportService;
 use App\Service\DateRangeExtractor;
 use App\Service\TemplateRenderer;
-use App\Util\DurationFormatter;
 use App\Util\RealtimeUrlHelper;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 
-class MspDataController
+/**
+ * Page de données de la station météo (MSP1).
+ * Hérite du flux commun AbstractDataController.
+ */
+class MspDataController extends AbstractDataController
 {
-    private const BOARD = 2;
-
-    private const CHART_COLUMNS = [
-        'TempAirInt', 'TempAirExt',
-        'HumidAirInt', 'HumidAirExt',
-        'LuminositeMoy', 'LuminositeA', 'LuminositeB', 'LuminositeC', 'LuminositeD',
-        'HumidSol', 'TempEau', 'Pluie',
-        'PontDiv', 'bootCount',
-        'ServoHB', 'ServoGD', 'resetMode',
-    ];
-
-    private const STATS_COLUMNS = [
-        'TempAirInt', 'TempAirExt', 'HumidAirInt', 'HumidAirExt',
-        'LuminositeMoy', 'LuminositeA', 'LuminositeB', 'LuminositeC', 'LuminositeD',
-        'HumidSol', 'TempEau', 'Pluie', 'PontDiv', 'bootCount',
-    ];
-
     public function __construct(
-        private TemplateRenderer $renderer,
-        private MspSensorRepository $sensorRepo,
-        private CsrfService $csrfService,
-        private DateRangeExtractor $dateRangeExtractor,
-        private CsvExportService $csvExportService,
-        private ChartDataService $chartDataService,
+        TemplateRenderer $renderer,
+        MspSensorRepository $sensorRepo,
+        CsrfService $csrfService,
+        DateRangeExtractor $dateRangeExtractor,
+        CsvExportService $csvExportService,
+        ChartDataService $chartDataService,
     ) {
+        parent::__construct($renderer, $sensorRepo, $csrfService, $dateRangeExtractor, $csvExportService, $chartDataService);
     }
 
-    public function show(Request $request, Response $response): Response
+    protected function getBoard(): int { return 2; }
+
+    protected function getChartColumns(): array
     {
-        $lastDate = $this->sensorRepo->getLastReadingDate();
-        $defaultEnd = $lastDate ?: date('Y-m-d H:i:s');
-        $defaultStart = date('Y-m-d H:i:s', strtotime($defaultEnd . ' -24 hours'));
+        return [
+            'TempAirInt', 'TempAirExt',
+            'HumidAirInt', 'HumidAirExt',
+            'LuminositeMoy', 'LuminositeA', 'LuminositeB', 'LuminositeC', 'LuminositeD',
+            'HumidSol', 'TempEau', 'Pluie',
+            'PontDiv', 'bootCount',
+            'ServoHB', 'ServoGD', 'resetMode',
+        ];
+    }
 
-        [$startDate, $endDate] = $this->dateRangeExtractor->extract($request, $defaultStart, $defaultEnd);
+    protected function getStatsColumns(): array
+    {
+        return [
+            'TempAirInt', 'TempAirExt', 'HumidAirInt', 'HumidAirExt',
+            'LuminositeMoy', 'LuminositeA', 'LuminositeB', 'LuminositeC', 'LuminositeD',
+            'HumidSol', 'TempEau', 'Pluie', 'PontDiv', 'bootCount',
+        ];
+    }
 
-        $body = $request->getParsedBody() ?? [];
-        if (isset($body['export_csv'])) {
-            return $this->csvExportService->export(
-                $this->sensorRepo, $startDate, $endDate, $response, 'msp1_data'
-            );
-        }
+    protected function getTemplateName(): string { return 'msp1_data.twig'; }
+    protected function getPageTitle(string $testSuffix): string { return 'Données station météo - Le potager' . $testSuffix; }
+    protected function getNavActive(): string { return 'potager'; }
+    protected function getCsvPrefix(): string { return 'msp1_data'; }
+    protected function getRealtimeApiBase(string $environment): string { return RealtimeUrlHelper::getMspRealtimeApiBase($environment); }
+    protected function getTestEnvironmentName(): string { return 'msp_test'; }
 
-        $readings = $this->sensorRepo->fetchBetween($startDate, $endDate);
-        $measureCount = count($readings);
+    protected function getDataConfig(string $environment): array
+    {
+        return [
+            'hero_title' => 'Le potager – Station météo',
+            'hero_icon' => 'fa-sun',
+            'hero_subtitle' => 'Supervision des capteurs de la station météo (température, humidité, luminosité, eau, pluie).',
+            'form_action' => '/meteo',
+            'test_env' => 'msp_test',
+            'table_label' => $environment === 'msp_test' ? 'msp1DataTest' : 'msp1Data',
+            'footer_text' => 'Station météo (Le potager)',
+        ];
+    }
 
-        $chartData = $this->chartDataService->prepareGenericSeries($readings, self::CHART_COLUMNS);
-        $latest = $this->sensorRepo->getLatest();
-        $firmwareVersion = $this->sensorRepo->getFirmwareVersion();
+    protected function getSensorsConfig(): array
+    {
+        return [
+            ['key' => 'TempAirInt', 'label' => 'Temp. air int.', 'icon' => 'fa-thermometer-half', 'class' => 'temp', 'unit' => '°C', 'decimals' => 1],
+            ['key' => 'TempAirExt', 'label' => 'Temp. air ext.', 'icon' => 'fa-temperature-low', 'class' => 'temp', 'unit' => '°C', 'decimals' => 1],
+            ['key' => 'HumidAirInt', 'label' => 'Humid. air int.', 'icon' => 'fa-tint', 'class' => 'humidity', 'unit' => '%', 'decimals' => 0, 'unit_suffix' => '%'],
+            ['key' => 'HumidAirExt', 'label' => 'Humid. air ext.', 'icon' => 'fa-cloud', 'class' => 'humidity', 'unit' => '%', 'decimals' => 0, 'unit_suffix' => '%'],
+            ['key' => 'LuminositeMoy', 'label' => 'Luminosité moy.', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
+            ['key' => 'TempEau', 'label' => 'Temp. eau', 'icon' => 'fa-water', 'class' => 'water', 'unit' => '°C', 'decimals' => 1],
+            ['key' => 'HumidSol', 'label' => 'Humid. sol', 'icon' => 'fa-seedling', 'class' => 'humidity', 'unit' => '%', 'decimals' => 0, 'unit_suffix' => '%'],
+            ['key' => 'Pluie', 'label' => 'Pluie', 'icon' => 'fa-cloud-rain', 'class' => 'rain', 'unit' => '', 'decimals' => 0],
+        ];
+    }
 
-        $stats = [];
-        foreach (self::STATS_COLUMNS as $col) {
-            $s = $this->sensorRepo->getColumnStats($col, $startDate, $endDate);
-            $lc = lcfirst($col);
-            $stats["avg_$lc"] = $s['avg'];
-            $stats["min_$lc"] = $s['min'];
-            $stats["max_$lc"] = $s['max'];
-            $stats["stddev_$lc"] = $s['stddev'];
-        }
+    protected function getChartsConfig(): array
+    {
+        return [
+            ['id' => 'chart-temperatures', 'title' => 'Températures & Humidité', 'icon' => 'fa-thermometer-half'],
+            ['id' => 'chart-lights', 'title' => 'Luminosité', 'icon' => 'fa-sun'],
+            ['id' => 'chart-niveauxeaux', 'title' => 'Humidité du sol & Eau', 'icon' => 'fa-seedling'],
+            ['id' => 'chart-cycles', 'title' => 'Autonomie & Système', 'icon' => 'fa-cog', 'height' => '300px'],
+        ];
+    }
 
-        $env = TableConfig::getEnvironment();
-        $testSuffix = $env === 'msp_test' ? ' (TEST)' : '';
-
-        $html = $this->renderer->render('msp1_data.twig', array_merge([
-            'page_title' => 'Données station météo - Le potager' . $testSuffix,
-            'nav_active' => 'potager',
-            'latest' => $latest,
-            'board' => self::BOARD,
-            'version' => Version::getWithPrefix(),
-            'firmware_version' => $firmwareVersion,
-            'environment' => $env,
-            'realtime_api_base' => RealtimeUrlHelper::getMspRealtimeApiBase($env),
-            'csrf_field' => $this->csrfService->getHiddenField(),
-            'start_date' => $startDate,
-            'end_date' => $endDate,
-            'measure_count' => $measureCount,
-            'duration_str' => DurationFormatter::short($startDate, $endDate),
-        ], $chartData, $stats));
-
-        $response->getBody()->write($html);
-        return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
+    protected function getSensorMapJson(): string
+    {
+        return '{
+            "TempAirInt":{"chartId":"chart-temperatures","seriesIndex":0},
+            "TempAirExt":{"chartId":"chart-temperatures","seriesIndex":1},
+            "HumidAirInt":{"chartId":"chart-temperatures","seriesIndex":2},
+            "HumidAirExt":{"chartId":"chart-temperatures","seriesIndex":3},
+            "LuminositeMoy":{"chartId":"chart-lights","seriesIndex":0},
+            "LuminositeA":{"chartId":"chart-lights","seriesIndex":1},
+            "LuminositeB":{"chartId":"chart-lights","seriesIndex":2},
+            "LuminositeC":{"chartId":"chart-lights","seriesIndex":3},
+            "LuminositeD":{"chartId":"chart-lights","seriesIndex":4},
+            "HumidSol":{"chartId":"chart-niveauxeaux","seriesIndex":0},
+            "Pluie":{"chartId":"chart-niveauxeaux","seriesIndex":1},
+            "TempEau":{"chartId":"chart-niveauxeaux","seriesIndex":2},
+            "resetMode":{"chartId":"chart-niveauxeaux","seriesIndex":3},
+            "bootCount":{"chartId":"chart-cycles","seriesIndex":0},
+            "PontDiv":{"chartId":"chart-cycles","seriesIndex":1},
+            "ServoHB":{"chartId":"chart-cycles","seriesIndex":2},
+            "ServoGD":{"chartId":"chart-cycles","seriesIndex":3}
+        }';
     }
 }

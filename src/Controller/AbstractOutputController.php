@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Config\TableConfig;
-use App\Config\Version;
 use App\Service\LogService;
 use App\Service\TemplateRenderer;
 use App\Util\ResponseHelper;
@@ -13,125 +11,103 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
- * Flux commun pour les pages de contrôle des sorties (outputs).
- *
- * Factorise : rendu du template contrôle, lecture de l'état, toggle.
- * Les sous-classes implémentent les méthodes spécifiques à leur section.
+ * Contrôleur abstrait pour les pages de contrôle GPIO/outputs (MSP1, N3PP).
+ * FFP3 conserve son propre OutputController (logique OTA, cache, multi-boards).
  */
 abstract class AbstractOutputController
 {
     public function __construct(
         protected LogService $logger,
         protected TemplateRenderer $renderer,
-    ) {
-    }
+    ) {}
 
-    /**
-     * Board par défaut pour cette section.
-     */
     abstract protected function defaultBoard(): int;
-
-    /**
-     * Nom court du composant (pour les logs).
-     */
     abstract protected function componentName(): string;
-
-    /**
-     * Nom du template Twig pour la page de contrôle.
-     */
     abstract protected function controlTemplate(): string;
 
     /**
-     * Construit le tableau de variables à passer au template de contrôle.
-     * La sous-classe fournit les données spécifiques (outputs, params, etc.).
+     * Données spécifiques pour le template de la page contrôle.
      */
     abstract protected function buildControlPageData(int $board): array;
 
     /**
-     * Renvoie l'état des sorties au format JSON (pour le firmware).
+     * Retourne l'état des sorties pour le firmware (format dépend du module).
      */
     abstract protected function getStateData(int $board): array;
 
     /**
-     * Met à jour une sortie. Retourne [success => bool, ...].
+     * Exécute le toggle d'un output. Retourne un tableau avec 'success' et éventuellement 'error'/'status'.
      */
     abstract protected function doToggle(array $params, int $board): array;
 
     /**
+     * Traitement des actions legacy (surcharge optionnelle).
+     */
+    protected function handleLegacyAction(Request $request, Response $response, string $action): Response
+    {
+        return ResponseHelper::json($response, ['error' => 'Action inconnue'], 400);
+    }
+
+    /**
      * Affiche la page de contrôle.
-     * Variables communes : version, firmware_version, environment, nav_active (fournies par buildControlPageData).
      */
     public function showControlPage(Request $request, Response $response): Response
     {
-        $board = (int) ($request->getQueryParams()['board'] ?? $this->defaultBoard());
-
         try {
+            $board = $this->defaultBoard();
             $data = $this->buildControlPageData($board);
-            $data['version'] = $data['version'] ?? Version::getWithPrefix();
-            $data['environment'] = $data['environment'] ?? TableConfig::getEnvironment();
-
             $html = $this->renderer->render($this->controlTemplate(), $data);
             $response->getBody()->write($html);
-            return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
+            return $response;
         } catch (\Throwable $e) {
-            $this->logger->error("{$this->componentName()}: erreur showControlPage", ['error' => $e->getMessage()]);
+            $this->logger->error("{$this->componentName()}: erreur showControlPage — {msg}", ['msg' => $e->getMessage()]);
             return ResponseHelper::text($response, 'Erreur serveur', 500);
         }
     }
 
     /**
-     * GET /section/api/outputs/state — retourne l'état au format JSON.
+     * GET legacy : retourne l'état des outputs pour le firmware.
      */
     public function getState(Request $request, Response $response): Response
     {
         $queryParams = $request->getQueryParams();
-        $action = $queryParams['action'] ?? 'outputs_state';
-        $board = (int) ($queryParams['board'] ?? $this->defaultBoard());
+        $action = $queryParams['action'] ?? '';
 
-        if ($action !== 'outputs_state') {
+        if ($action !== '' && $action !== 'outputs_state') {
             return $this->handleLegacyAction($request, $response, $action);
         }
 
+        $board = (int) ($queryParams['board'] ?? $this->defaultBoard());
+
         try {
-            $state = $this->getStateData($board);
-            return ResponseHelper::json($response, $state);
+            $states = $this->getStateData($board);
+            return ResponseHelper::json($response, $states);
         } catch (\Throwable $e) {
-            $this->logger->error("{$this->componentName()}: erreur lecture outputs", ['error' => $e->getMessage()]);
+            $this->logger->error("{$this->componentName()}: erreur getState — {msg}", ['msg' => $e->getMessage()]);
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }
 
     /**
-     * POST /section/api/outputs/toggle — bascule une sortie.
+     * POST API : bascule un output.
      */
     public function toggleOutput(Request $request, Response $response): Response
     {
-        $params = $request->getMethod() === 'POST' ? $request->getParsedBody() ?? [] : $request->getQueryParams();
-        if (is_object($params)) {
-            $params = (array) $params;
-        }
+        $params = array_merge($request->getQueryParams(), $request->getParsedBody() ?? []);
         $board = (int) ($params['board'] ?? $this->defaultBoard());
 
         try {
             $result = $this->doToggle($params, $board);
-            if (!($result['success'] ?? false)) {
-                return ResponseHelper::json($response, $result, $result['status'] ?? 400);
+            if (isset($result['success']) && $result['success'] === true) {
+                $this->logger->info("{$this->componentName()}: toggle ok", $result);
+                return ResponseHelper::json($response, $result);
             }
-            $this->logger->info("{$this->componentName()}: toggle output", $result);
+            $status = $result['status'] ?? 400;
             unset($result['status']);
-            return ResponseHelper::json($response, $result);
+            return ResponseHelper::json($response, $result, $status);
         } catch (\Throwable $e) {
-            $this->logger->error("{$this->componentName()}: erreur toggle", ['error' => $e->getMessage()]);
+            $this->logger->error("{$this->componentName()}: erreur toggle — {msg}", ['msg' => $e->getMessage()]);
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
-    }
-
-    /**
-     * Hook pour gérer les actions legacy via query string (output_update, output_delete, etc.).
-     * Par défaut, retourne une erreur 400. Surchargé par N3ppOutputController.
-     */
-    protected function handleLegacyAction(Request $request, Response $response, string $action): Response
-    {
-        return ResponseHelper::json($response, ['error' => 'Action inconnue'], 400);
     }
 }

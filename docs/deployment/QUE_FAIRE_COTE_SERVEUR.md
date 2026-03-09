@@ -4,7 +4,25 @@ Ce document décrit les étapes à effectuer **sur le serveur de production** (i
 
 ---
 
-## 1. Récupérer le code
+## 0. Déploiement automatique (CRON)
+
+Le serveur de production exécute un **CRON toutes les minutes** qui fait un `git pull` sur le dépôt **n3_serveur** (`/home4/oliviera/iot.olution.info`).
+
+**En pratique** : une fois le code poussé sur GitHub, il est déployé en production en moins d'une minute, sans action manuelle.
+
+> Le push vers GitHub **est** le déploiement.
+
+**Cas particulier — cache DI** : si `config/dependencies.php` ou des classes de contrôleurs sont ajoutés/modifiés, le cache DI compilé (`var/cache/di/CompiledContainer.php`) peut devenir obsolète et provoquer des erreurs 500. Solution :
+1. Pousser un script `public/maintenance/clear-di-cache.php` dans le dépôt.
+2. Attendre ~1 min (CRON pull).
+3. Appeler `https://iot.olution.info/public/maintenance/clear-di-cache.php` pour vider le cache.
+4. Supprimer le script du dépôt (sécurité) et pousser à nouveau.
+
+**Note sur le DocumentRoot** : le DocumentRoot Apache pointe sur la **racine du dépôt** (pas sur `public/`). Le `.htaccess` racine redirige vers `public/index.php`. Les fichiers statiques dans `public/` sont accessibles avec le préfixe `/public/` (ex. `/public/maintenance/clear-di-cache.php`).
+
+---
+
+## 1. Récupérer le code (si le CRON n'est pas configuré)
 
 Selon la façon dont le site est déployé :
 

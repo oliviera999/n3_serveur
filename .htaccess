@@ -2,9 +2,36 @@ RewriteEngine On
 Options -Indexes
 
 # ====================================================================
-# Retrocompatibilite : anciennes URLs /ffp3/* → routes racine
-# Les firmwares ffp5cs et les liens existants utilisent /ffp3/...
+# Bloquer l'acces aux repertoires et fichiers sensibles
+# (AVANT les regles de routage pour ne pas servir les fichiers existants)
 # ====================================================================
+RewriteRule ^vendor/ - [F,L]
+RewriteRule ^config/ - [F,L]
+RewriteRule ^src/ - [F,L]
+RewriteRule ^var/ - [F,L]
+RewriteRule ^templates/ - [F,L]
+RewriteRule ^composer\.(json|lock)$ - [F,L]
+RewriteRule ^\.env - [F,L]
+RewriteRule ^\.git - [F,L]
+
+# ====================================================================
+# Headers de securite HTTP
+# ====================================================================
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# ====================================================================
+# Retrocompatibilite : anciennes URLs /ffp3/* -> routes racine
+# GET : redirection 301 (navigateurs, liens)
+# POST : rewrite interne (firmwares ESP32, corps de requete preserve)
+# ====================================================================
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^ffp3/(.*)$ $1 [R=301,L]
+RewriteCond %{REQUEST_METHOD} !GET
 RewriteRule ^ffp3/(.*)$ $1 [L,DPI]
 
 # ====================================================================
@@ -20,7 +47,7 @@ RewriteRule ^ffp3-data\.php$ aquaponie [R=308,L]
 DirectoryIndex index.php
 
 # ====================================================================
-# Router principal : toute requete non fichier/dossier → public/index.php
+# Router principal : toute requete non fichier/dossier -> public/index.php
 # ====================================================================
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

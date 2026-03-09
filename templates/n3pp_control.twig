@@ -1,344 +1,139 @@
-{% extends 'layout.twig' %}
+{% extends 'partials/_control_base.twig' %}
 
-{% block title %}{{ page_title }}{% endblock %}
-
-{% block head_css %}
-    <link rel="stylesheet" href="{{ base_path }}/assets/css/control-styles.css" />
-{% endblock %}
-
-{% block styles %}
-    <style>
-        .msg-toast { position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; border-radius: 10px; color: white; font-weight: 600; z-index: 1000; display: none; animation: fadeIn 0.3s ease; }
-        .msg-toast.success { background: #008B74; }
-        .msg-toast.error { background: #e74c3c; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .parameter-item-switch { display: flex; flex-direction: column; gap: 6px; }
-        .parameter-item-switch .modern-switch { flex-shrink: 0; }
-        .parameter-item-hint { font-size: 0.82em; color: #7f8c8d; }
-    </style>
-{% endblock %}
-
-{% block body_tag %}<body class="is-preload" data-environment="{{ environment|default('prod') }}">{% endblock %}
-
-{% block before_wrapper %}
-    <div id="control-sync-badge" class="connecting">CONNEXION...</div>
-{% endblock %}
-
-{% block wrapper_class %} control-wrapper{% endblock %}
-
-{% block content %}
-    <div class="control-layout">
-        <aside class="control-sidebar panel">
-            <section class="control-context">
-                <div class="context-badges">
-                    <span class="context-badge {{ environment == 'test' ? 'context-badge-test' : 'context-badge-prod' }}">
-                        <i class="fas fa-globe"></i>
-                        {{ environment == 'test' ? 'TEST' : 'PROD' }}
-                    </span>
-                    <span class="context-badge">
-                        <i class="fas fa-code-branch"></i>
-                        {{ version }}
-                    </span>
-                    {% if firmware_version %}
-                    <span class="context-badge">
-                        <i class="fas fa-microchip"></i>
-                        FW {{ firmware_version }}
-                    </span>
-                    {% endif %}
-                </div>
-                <div class="context-summary">
-                    <h2><i class="fas fa-sliders-h"></i> Serre / Élevage</h2>
-                    <p class="context-description">
-                        Contrôle des sorties et paramètres de la serre et de l'élevage d'insectes (n3pp). Les commandes sont transmises à l'ESP32 au prochain cycle de synchronisation.
-                    </p>
-                    <div class="context-stats">
-                        <div class="context-stat">
-                            <span class="stat-label">Sorties</span>
-                            <span class="stat-value">{{ part_outputs|length }}</span>
-                        </div>
-                        <div class="context-stat">
-                            <span class="stat-label">Board</span>
-                            <span class="stat-value">{{ board }}</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="boards-status">
-                <h3><i class="fas fa-satellite-dish"></i> Connexion</h3>
-                <div class="boards-grid">
-                    <article class="board-card" data-board="{{ board }}">
-                        <header>
-                            <span class="board-title"><i class="fas fa-microchip"></i> Board {{ board }}</span>
-                            <span class="board-last">Dernière requête : <span class="last-request-time">{{ last_board_request|default('N/A') }}</span></span>
-                        </header>
-                    </article>
-                </div>
-            </section>
-        </aside>
-
-        <section class="control-main panel">
-            <header class="control-main-header">
-                <div class="header-left">
-                    <h1><i class="fas fa-seedling"></i> Contrôle N3PP – Serre & Élevage</h1>
-                    <p>Activez/désactivez les sorties et configurez les paramètres du firmware n3pp4_2 (arrosage, énergie, notifications).</p>
-                    <div class="callout callout-warning">
-                        <i class="fas fa-triangle-exclamation"></i>
-                        <span>Les commandes agissent sur le système physique. Vérifiez sur site avant d'activer les sorties.</span>
-                    </div>
-                </div>
+{% block outputs_section %}
+    <div id="params-n3pp-container">
+    <section class="controls-section">
+        <div class="controls-group">
+            <header>
+                <h2><i class="fas fa-water"></i> Gestion de l'eau</h2>
             </header>
-
-            <div id="params-n3pp-container">
-            <section class="controls-section">
-                <div class="controls-group">
+            <div class="control-cards-grid">
+                {% for output in part_outputs %}
+                <article class="action-card" data-state="{{ output.state }}" data-gpio="{{ output.gpio }}">
                     <header>
-                        <h2><i class="fas fa-water"></i> Gestion de l'eau</h2>
-                    </header>
-                    <div class="control-cards-grid">
-                        {% for output in part_outputs %}
-                        <article class="action-card" data-state="{{ output.state }}" data-gpio="{{ output.gpio }}">
-                            <header>
-                                <div class="action-icon"><i class="fas fa-droplet"></i></div>
-                                <div>
-                                    <h3>{{ output.name|default('GPIO ' ~ output.gpio) }}</h3>
-                                </div>
-                            </header>
-                            <footer>
-                                <span data-state-label>{{ output.state == '1' ? 'Activé' : 'Désactivé' }}</span>
-                                <label class="modern-switch" title="Toggle sortie">
-                                    <input type="checkbox" onchange="updateOutput(this)" id="output-{{ output.id }}" data-id="{{ output.id }}" data-gpio="{{ output.gpio }}" {{ output.state == '1' ? 'checked' : '' }} role="switch" aria-checked="{{ output.state == '1' ? 'true' : 'false' }}" aria-label="{{ output.name|default('GPIO ' ~ output.gpio) }}">
-                                    <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                                </label>
-                            </footer>
-                        </article>
-                        {% endfor %}
-                    </div>
-                    <section class="parameters-panel">
-                        <h3>Paramètres arrosage</h3>
-                        <div class="parameters-grid">
-                            <label class="parameter-item" data-parameter-wrapper>
-                                <span>Limite de sécheresse (SeuilSec)</span>
-                                <input type="number" data-parameter="SeuilSec" data-parameter-gpio="102" id="SeuilSec" min="0" value="{{ params.SeuilSec|default('0') }}">
-                                <small class="save-indicator" data-save-indicator data-parameter="SeuilSec" data-state="idle"></small>
-                            </label>
-                            <label class="parameter-item" data-parameter-wrapper>
-                                <span>Heure arrosage</span>
-                                <input type="number" data-parameter="HeureArrosage" data-parameter-gpio="104" id="HeureArrosage" min="0" value="{{ params.HeureArrosage|default('0') }}">
-                                <small class="save-indicator" data-save-indicator data-parameter="HeureArrosage" data-state="idle"></small>
-                            </label>
-                            <label class="parameter-item" data-parameter-wrapper>
-                                <span>Temps arrosage (en ms)</span>
-                                <input type="number" data-parameter="tempsArrosage" data-parameter-gpio="105" id="tempsArrosage" min="0" value="{{ params.tempsArrosage|default('0') }}">
-                                <small class="save-indicator" data-save-indicator data-parameter="tempsArrosage" data-state="idle"></small>
-                            </label>
+                        <div class="action-icon"><i class="fas fa-droplet"></i></div>
+                        <div>
+                            <h3>{{ output.name|default('GPIO ' ~ output.gpio) }}</h3>
                         </div>
-                    </section>
-                </div>
-
-                <div class="controls-group">
-                    <header>
-                        <h2><i class="fas fa-envelope"></i> Notification</h2>
                     </header>
-                    <div class="parameters-panel">
-                        <div class="parameters-grid">
-                            <label class="parameter-item" data-parameter-wrapper>
-                                <span>Mail</span>
-                                <input type="text" data-parameter="mail" data-parameter-gpio="100" id="mail" value="{{ params.mail|default('')|e('html_attr') }}" placeholder="email@exemple.com">
-                                <small class="save-indicator" data-save-indicator data-parameter="mail" data-state="idle"></small>
-                            </label>
-                            <label class="parameter-item parameter-item-switch">
-                                <span>Notification par mail</span>
-                                <label class="modern-switch" title="Activer/désactiver les notifications par mail">
-                                    <input type="checkbox" data-parameter-gpio="101" id="mailNotif" {{ params.mailNotif|default('') == 'checked' ? 'checked' : '' }} role="switch" aria-label="Notification par mail" onchange="saveN3ppParamSwitch('mailNotif', this.checked, 'checked', 'false')">
-                                    <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                                </label>
-                                <span class="parameter-item-hint" id="mailNotif-hint">{{ params.mailNotif|default('') == 'checked' ? 'Activé' : 'Désactivé' }}</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="controls-group">
-                    <header>
-                        <h2><i class="fas fa-bolt"></i> Énergie</h2>
-                    </header>
-                    <div class="parameters-panel">
-                        <div class="parameters-grid">
-                            <label class="parameter-item parameter-item-switch">
-                                <span>Éco d'énergie (WakeUp)</span>
-                                <label class="modern-switch" title="Activer/désactiver l'éco d'énergie">
-                                    <input type="checkbox" data-parameter-gpio="106" id="WakeUp" {{ params.WakeUp|default('0') == '1' ? 'checked' : '' }} role="switch" aria-label="Éco d'énergie (WakeUp)" onchange="saveN3ppParamSwitch('WakeUp', this.checked, '1', '0')">
-                                    <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                                </label>
-                                <span class="parameter-item-hint" id="WakeUp-hint">{{ params.WakeUp|default('0') == '1' ? 'Activé' : 'Désactivé' }}</span>
-                            </label>
-                            <label class="parameter-item" data-parameter-wrapper>
-                                <span>Fréquence d'éveil (FreqWakeUp)</span>
-                                <input type="number" data-parameter="FreqWakeUp" data-parameter-gpio="107" id="FreqWakeUp" min="0" value="{{ params.FreqWakeUp|default('0') }}">
-                                <small class="save-indicator" data-save-indicator data-parameter="FreqWakeUp" data-state="idle"></small>
-                            </label>
-                            <label class="parameter-item" data-parameter-wrapper>
-                                <span>Limite du pont diviseur (SeuilPontDiv)</span>
-                                <input type="number" data-parameter="SeuilPontDiv" data-parameter-gpio="103" id="SeuilPontDiv" min="0" value="{{ params.SeuilPontDiv|default('0') }}">
-                                <small class="save-indicator" data-save-indicator data-parameter="SeuilPontDiv" data-state="idle"></small>
-                            </label>
-                        </div>
-                    </div>
-                    {% if reset_output is defined and reset_output is not null %}
-                    <div class="control-cards-grid" style="margin-top: 1rem;">
-                        <article class="action-card warning" data-state="{{ reset_output.state }}" data-gpio="110">
-                            <header>
-                                <div class="action-icon"><i class="fas fa-arrows-rotate"></i></div>
-                                <div>
-                                    <h3>Reset ESP</h3>
-                                </div>
-                            </header>
-                            <p class="action-description">Redémarre le microcontrôleur. À utiliser en dernier recours.</p>
-                            <footer>
-                                <span data-state-label>{{ reset_output.state == '1' ? 'Activé' : 'Désactivé' }}</span>
-                                <label class="modern-switch" title="Reset ESP">
-                                    <input type="checkbox" onchange="updateOutputByGpio(this)" id="output-reset-esp" data-gpio="110" {{ reset_output.state == '1' ? 'checked' : '' }} role="switch" aria-label="Reset ESP">
-                                    <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                                </label>
-                            </footer>
-                        </article>
-                    </div>
-                    {% endif %}
-                </div>
-
-            </section>
+                    <footer>
+                        <span data-state-label>{{ output.state == '1' ? 'Activé' : 'Désactivé' }}</span>
+                        <label class="modern-switch" title="Toggle sortie">
+                            <input type="checkbox" onchange="updateOutput(this)" id="output-{{ output.id }}" data-id="{{ output.id }}" data-gpio="{{ output.gpio }}" {{ output.state == '1' ? 'checked' : '' }} role="switch" aria-checked="{{ output.state == '1' ? 'true' : 'false' }}" aria-label="{{ output.name|default('GPIO ' ~ output.gpio) }}">
+                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                        </label>
+                    </footer>
+                </article>
+                {% endfor %}
             </div>
-
-            <section class="quick-actions panel">
-                <h3><i class="fas fa-bolt"></i> Actions rapides</h3>
-                <div class="quick-actions-grid">
-                    <a href="{{ base_path|default('') }}/serre" class="quick-action-card"><i class="fas fa-chart-line"></i> Retour aux données</a>
-                    <a href="{{ base_path|default('') }}/" class="quick-action-card"><i class="fas fa-home"></i> Accueil</a>
+            <section class="parameters-panel">
+                <h3>Paramètres arrosage</h3>
+                <div class="parameters-grid">
+                    <label class="parameter-item" data-parameter-wrapper>
+                        <span>Limite de sécheresse (SeuilSec)</span>
+                        <input type="number" data-parameter="SeuilSec" data-parameter-gpio="102" id="SeuilSec" min="0" value="{{ params.SeuilSec|default('0') }}">
+                        <small class="save-indicator" data-save-indicator data-parameter="SeuilSec" data-state="idle"></small>
+                    </label>
+                    <label class="parameter-item" data-parameter-wrapper>
+                        <span>Heure arrosage</span>
+                        <input type="number" data-parameter="HeureArrosage" data-parameter-gpio="104" id="HeureArrosage" min="0" value="{{ params.HeureArrosage|default('0') }}">
+                        <small class="save-indicator" data-save-indicator data-parameter="HeureArrosage" data-state="idle"></small>
+                    </label>
+                    <label class="parameter-item" data-parameter-wrapper>
+                        <span>Temps arrosage (en ms)</span>
+                        <input type="number" data-parameter="tempsArrosage" data-parameter-gpio="105" id="tempsArrosage" min="0" value="{{ params.tempsArrosage|default('0') }}">
+                        <small class="save-indicator" data-save-indicator data-parameter="tempsArrosage" data-state="idle"></small>
+                    </label>
                 </div>
             </section>
-        </section>
+        </div>
+
+        <div class="controls-group">
+            <header>
+                <h2><i class="fas fa-envelope"></i> Notification</h2>
+            </header>
+            <div class="parameters-panel">
+                <div class="parameters-grid">
+                    <label class="parameter-item" data-parameter-wrapper>
+                        <span>Mail</span>
+                        <input type="text" data-parameter="mail" data-parameter-gpio="100" id="mail" value="{{ params.mail|default('')|e('html_attr') }}" placeholder="email@exemple.com">
+                        <small class="save-indicator" data-save-indicator data-parameter="mail" data-state="idle"></small>
+                    </label>
+                    <label class="parameter-item parameter-item-switch">
+                        <span>Notification par mail</span>
+                        <label class="modern-switch" title="Activer/désactiver les notifications par mail">
+                            <input type="checkbox" data-parameter-gpio="101" id="mailNotif" {{ params.mailNotif|default('') == 'checked' ? 'checked' : '' }} role="switch" aria-label="Notification par mail" onchange="saveParamSwitch('mailNotif', this.checked, 'checked', 'false')">
+                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                        </label>
+                        <span class="parameter-item-hint" id="mailNotif-hint">{{ params.mailNotif|default('') == 'checked' ? 'Activé' : 'Désactivé' }}</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-group">
+            <header>
+                <h2><i class="fas fa-bolt"></i> Énergie</h2>
+            </header>
+            <div class="parameters-panel">
+                <div class="parameters-grid">
+                    <label class="parameter-item parameter-item-switch">
+                        <span>Éco d'énergie (WakeUp)</span>
+                        <label class="modern-switch" title="Activer/désactiver l'éco d'énergie">
+                            <input type="checkbox" data-parameter-gpio="106" id="WakeUp" {{ params.WakeUp|default('0') == '1' ? 'checked' : '' }} role="switch" aria-label="Éco d'énergie (WakeUp)" onchange="saveParamSwitch('WakeUp', this.checked, '1', '0')">
+                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                        </label>
+                        <span class="parameter-item-hint" id="WakeUp-hint">{{ params.WakeUp|default('0') == '1' ? 'Activé' : 'Désactivé' }}</span>
+                    </label>
+                    <label class="parameter-item" data-parameter-wrapper>
+                        <span>Fréquence d'éveil (FreqWakeUp)</span>
+                        <input type="number" data-parameter="FreqWakeUp" data-parameter-gpio="107" id="FreqWakeUp" min="0" value="{{ params.FreqWakeUp|default('0') }}">
+                        <small class="save-indicator" data-save-indicator data-parameter="FreqWakeUp" data-state="idle"></small>
+                    </label>
+                    <label class="parameter-item" data-parameter-wrapper>
+                        <span>Limite du pont diviseur (SeuilPontDiv)</span>
+                        <input type="number" data-parameter="SeuilPontDiv" data-parameter-gpio="103" id="SeuilPontDiv" min="0" value="{{ params.SeuilPontDiv|default('0') }}">
+                        <small class="save-indicator" data-save-indicator data-parameter="SeuilPontDiv" data-state="idle"></small>
+                    </label>
+                </div>
+            </div>
+            {% if reset_output is defined and reset_output is not null %}
+            <div class="control-cards-grid" style="margin-top: 1rem;">
+                <article class="action-card warning" data-state="{{ reset_output.state }}" data-gpio="110">
+                    <header>
+                        <div class="action-icon"><i class="fas fa-arrows-rotate"></i></div>
+                        <div>
+                            <h3>Reset ESP</h3>
+                        </div>
+                    </header>
+                    <p class="action-description">Redémarre le microcontrôleur. À utiliser en dernier recours.</p>
+                    <footer>
+                        <span data-state-label>{{ reset_output.state == '1' ? 'Activé' : 'Désactivé' }}</span>
+                        <label class="modern-switch" title="Reset ESP">
+                            <input type="checkbox" onchange="updateOutput(this)" id="output-reset-esp" data-id="{{ reset_output.id }}" data-gpio="110" {{ reset_output.state == '1' ? 'checked' : '' }} role="switch" aria-label="Reset ESP">
+                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                        </label>
+                    </footer>
+                </article>
+            </div>
+            {% endif %}
+        </div>
+    </section>
     </div>
 {% endblock %}
 
-{% block scripts_vendor %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% block quick_actions_links %}
+    <a href="{{ base_path|default('') }}/serre" class="quick-action-card"><i class="fas fa-chart-line"></i> Retour aux données</a>
+    <a href="{{ base_path|default('') }}/" class="quick-action-card"><i class="fas fa-home"></i> Accueil</a>
 {% endblock %}
 
-{% block scripts %}
-    <div id="msg-toast" class="msg-toast"></div>
+{% block control_scripts %}
     <script>
-    (function() {
-        var base = '{{ base_path }}' || '';
-        if (base && base.indexOf('/') !== 0) base = '/' + base;
-        var isTest = (document.body && document.body.getAttribute('data-environment') === 'test');
-        var apiPath = isTest ? (base + '/n3pp-test/api/outputs') : (base + '/n3pp/api/outputs');
-        window.CONTROL_API_BASE = apiPath.replace(/\/+/g, '/');
-    })();
-    </script>
-    <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
-    <script src="{{ base_path }}/assets/js/control-values-updater.js"></script>
-    <script src="{{ base_path }}/assets/js/control-sync.js"></script>
-    <script src="{{ base_path }}/assets/js/control-auto-save.js"></script>
-    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
-    <script>
-    (function() {
-        var base = '{{ base_path }}' || '';
-        if (base && base.indexOf('/') !== 0) base = '/' + base;
-        var actionUrl = base + '/n3pp/n3ppcontrol/n3pp-outputs-action.php'.replace(/\/+/g, '/');
-        var isTest = (document.body && document.body.getAttribute('data-environment') === 'test');
-        var paramsApiBase = isTest ? (base + '/n3pp-test/api/outputs') : (base + '/n3pp/api/outputs');
-        paramsApiBase = paramsApiBase.replace(/\/+/g, '/');
+    document.addEventListener('DOMContentLoaded', function() {
+        var controlApiBase = window.CONTROL_API_BASE;
 
-        window.updateOutput = function(el) {
-            var id = el.getAttribute('data-id');
-            var state = el.checked ? '1' : '0';
-            var card = el.closest('.action-card');
-            var label = card ? card.querySelector('[data-state-label]') : null;
-
-            fetch(actionUrl + '?action=output_update&id=' + encodeURIComponent(id) + '&state=' + state, { method: 'GET', headers: { 'Accept': 'application/json' } })
-                .then(function(r) { return r.json(); })
-                .then(function(data) {
-                    if (data.success) {
-                        if (card) card.setAttribute('data-state', state);
-                        if (label) label.textContent = state === '1' ? 'Activé' : 'Désactivé';
-                        showToast('Commande envoyée', 'success');
-                    } else {
-                        el.checked = !el.checked;
-                        showToast(data.error || 'Erreur', 'error');
-                    }
-                })
-                .catch(function() {
-                    el.checked = !el.checked;
-                    showToast('Erreur réseau', 'error');
-                });
-        };
-
-        window.updateOutputByGpio = function(el) {
-            var gpio = el.getAttribute('data-gpio');
-            var state = el.checked ? '1' : '0';
-            var card = el.closest('.action-card');
-            var label = card ? card.querySelector('[data-state-label]') : null;
-            var board = '{{ board }}';
-            var body = new URLSearchParams({ action: 'set', gpio: gpio, state: state, board: board });
-
-            fetch(actionUrl, { method: 'POST', body: body, headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' } })
-                .then(function(r) { return r.json(); })
-                .then(function(data) {
-                    if (data.success) {
-                        if (card) card.setAttribute('data-state', state);
-                        if (label) label.textContent = state === '1' ? 'Activé' : 'Désactivé';
-                        showToast('Commande envoyée', 'success');
-                    } else {
-                        el.checked = !el.checked;
-                        showToast(data.error || 'Erreur', 'error');
-                    }
-                })
-                .catch(function() {
-                    el.checked = !el.checked;
-                    showToast('Erreur réseau', 'error');
-                });
-        };
-
-        window.saveN3ppParamSwitch = function(paramName, checked, valOn, valOff) {
-            var value = checked ? valOn : valOff;
-            var hintId = paramName + '-hint';
-            var hintEl = document.getElementById(hintId);
-            if (hintEl) hintEl.textContent = checked ? 'Activé' : 'Désactivé';
-
-            fetch(paramsApiBase + '/parameters', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({ param: paramName, value: value }),
-                credentials: 'include'
-            })
-                .then(function(r) { return r.json(); })
-                .then(function(data) {
-                    if (data.success) {
-                        if (typeof toastManager !== 'undefined') toastManager.showSuccess('Paramètre enregistré', 2500);
-                        else showToast('Paramètre enregistré', 'success');
-                    } else {
-                        showToast(data.error || 'Erreur', 'error');
-                    }
-                })
-                .catch(function() {
-                    showToast('Erreur réseau', 'error');
-                });
-        };
-
-        function showToast(msg, type) {
-            var t = document.getElementById('msg-toast');
-            if (!t) return;
-            t.textContent = msg;
-            t.className = 'msg-toast ' + (type || 'success');
-            t.style.display = 'block';
-            setTimeout(function() { t.style.display = 'none'; }, 3000);
-        }
-
-        var apiBase = (base + '/n3pp/api/outputs').replace(/\/+/g, '/');
-        if (isTest) apiBase = (base + '/n3pp-test/api/outputs').replace(/\/+/g, '/');
-
-        window.controlValuesUpdater = new ControlValuesUpdater();
-        controlValuesUpdater.init();
+        var valuesUpdater = new ControlValuesUpdater();
+        valuesUpdater.init();
 
         function normalizeStatesForDisplay(states) {
             var out = {};
@@ -362,8 +157,8 @@
             }
         }
 
-        window.controlSync = new ControlSync({
-            apiBase: apiBase,
+        var controlSync = new ControlSync({
+            apiBase: controlApiBase,
             pollInterval: 10,
             useFresh: true,
             onStatesReceived: function(states) {
@@ -377,11 +172,38 @@
         controlSync.initializeFromDOM();
         controlSync.start();
 
+        window.controlSync = controlSync;
+        window.controlValuesUpdater = valuesUpdater;
+
+        window.saveParamSwitch = function(paramName, checked, valOn, valOff) {
+            var value = checked ? valOn : valOff;
+            var hintEl = document.getElementById(paramName + '-hint');
+            if (hintEl) hintEl.textContent = checked ? 'Activé' : 'Désactivé';
+
+            fetch(controlApiBase + '/parameters', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ param: paramName, value: value }),
+                credentials: 'include'
+            })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        if (typeof toastManager !== 'undefined') toastManager.showSuccess('Paramètre enregistré', 2500);
+                    } else {
+                        if (typeof toastManager !== 'undefined') toastManager.showError(data.error || 'Erreur', 4000);
+                    }
+                })
+                .catch(function() {
+                    if (typeof toastManager !== 'undefined') toastManager.showError('Erreur réseau', 4000);
+                });
+        };
+
         initRealtimeUpdater({
             apiBasePath: '{{ realtime_api_base|default("/n3pp/api/realtime") }}',
             pollInterval: 15000,
             enabled: true
         });
-    })();
+    });
     </script>
 {% endblock %}

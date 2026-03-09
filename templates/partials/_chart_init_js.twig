@@ -1,18 +1,27 @@
-{# Initialisation du ChartUpdaterGeneric.
-   Variables :
-     - chart_ids_json : JSON des IDs de graphiques (ex. '["chart-temperatures","chart-lights"]')
-     - sensor_map_json : JSON du mapping capteurs->séries (ex. '{"TempAirInt":{"chartId":"chart-temperatures","seriesIndex":0}}')
-     - chart_debug : activer les logs (défaut false)
+{#
+  Initialise ChartUpdaterGeneric avec le mapping capteurs -> graphiques.
+  Variables attendues :
+    - chart_ids_json  : chaîne JSON, ex '["chart-temperatures","chart-lights"]'
+    - sensor_map_json : chaîne JSON, ex '{"TempAirInt":{"chartId":"chart-temperatures","seriesIndex":0}}'
+    - chart_debug     : booléen (optionnel, défaut false)
 #}
-{% if chart_ids_json is defined and sensor_map_json is defined %}
 <script>
-(function() {
+(function () {
+    var chartIds = {{ chart_ids_json|raw }};
+    var sensorMap = {{ sensor_map_json|raw }};
+
     window.chartUpdater = new ChartUpdaterGeneric({
-        chartIds: {{ chart_ids_json|raw }},
-        debug: {{ chart_debug|default(false) ? 'true' : 'false' }},
-        sensorMap: {{ sensor_map_json|raw }}
+        chartIds: chartIds,
+        sensorMap: sensorMap,
+        maxPoints: 10000,
+        autoScroll: true
     });
-    setTimeout(function() { chartUpdater.init(); }, 150);
+
+    {% if chart_debug|default(false) %}
+    console.log('[_chart_init_js] chartIds:', chartIds);
+    console.log('[_chart_init_js] sensorMap keys:', Object.keys(sensorMap));
+    {% endif %}
+
+    window.chartUpdater.init();
 })();
 </script>
-{% endif %}

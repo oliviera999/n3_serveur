@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Service\Realtime;
 
 /**
- * Interface commune pour les fournisseurs de données temps réel (FFP3, MSP1, N3PP).
- * Permet d'unifier le contrat des APIs realtime derrière un seul contrôleur générique.
+ * Contrat commun pour les fournisseurs de données temps réel (FFP3, MSP1, N3PP).
+ * Permet d'unifier les APIs realtime derrière un contrôleur générique.
  */
 interface RealtimeDataProviderInterface
 {
@@ -27,7 +27,7 @@ interface RealtimeDataProviderInterface
     /**
      * Santé système (online, last_reading, etc.).
      *
-     * @return array{online: bool, last_reading: string|null, last_reading_ago_seconds: int|null, uptime_percentage: float, readings_today: int, average_latency_seconds: float|null, device_ip: string|null}
+     * @return array{online: bool, last_reading: string|null, last_reading_ago_seconds: int|null, uptime_percentage: float, readings_today: int, average_latency_seconds: float|null}
      */
     public function getSystemHealth(): array;
 

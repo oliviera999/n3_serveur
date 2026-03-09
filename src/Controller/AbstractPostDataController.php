@@ -8,128 +8,110 @@ use App\Service\LogService;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Throwable;
 
 /**
- * Flux commun de réception des données POST firmware ESP32.
- *
- * Sous-classes : PostDataController (FFP3), MspPostDataController (MSP1), N3ppPostDataController (N3PP).
- * Chaque sous-classe implémente buildSensorData() et insertData().
+ * Flux commun de réception des données POST des firmwares.
+ * Chaque module (FFP3, MSP1, N3PP) hérite et fournit :
+ *   - componentName(), buildSensorData(), insertData()
  */
 abstract class AbstractPostDataController
 {
     public function __construct(
-        protected LogService $logger,
-    ) {
-    }
+        protected LogService $logger
+    ) {}
 
-    /**
-     * Nom court du composant (pour les logs).
-     */
     abstract protected function componentName(): string;
 
     /**
-     * Construit l'objet de données capteur à partir des paramètres sanitisés.
-     *
-     * @param array $params Paramètres bruts du body
-     * @param \Closure(string):?string $sanitize
-     * @param \Closure(string):?float $toFloat
-     * @param \Closure(string):?int $toInt
-     * @return object L'objet domaine (SensorData, MspSensorData, N3ppSensorData)
+     * Construit le DTO capteur à partir des paramètres POST sanitisés.
      */
-    abstract protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object;
+    abstract protected function buildSensorData(
+        array $params,
+        \Closure $sanitize,
+        \Closure $toFloat,
+        \Closure $toInt
+    ): object;
 
     /**
-     * Insère les données et effectue les traitements post-insertion.
-     *
-     * @param object $data L'objet domaine
-     * @return void
+     * Persiste les données et exécute les effets de bord (sync outputs, cache, etc.).
      */
     abstract protected function insertData(object $data): void;
 
     /**
-     * Validation supplémentaire avant le flux standard (ex. HMAC pour FFP3).
-     * Retourne null si OK, une Response si KO.
+     * Validation d'authentification. Par défaut : clé API legacy.
+     * FFP3 surcharge avec HMAC + fallback.
+     *
+     * @return Response|null null = OK, Response = rejet
      */
     protected function validateAuth(array $params, Response $response): ?Response
     {
         return null;
     }
 
+    /**
+     * Flux principal : validation, sanitisation, construction DTO, insertion.
+     */
     public function handle(Request $request, Response $response): Response
     {
-        set_time_limit(30);
-
         $component = $this->componentName();
 
         if ($request->getMethod() !== 'POST') {
-            $this->logger->warning("{$component}: Methode non autorisee", ['method' => $request->getMethod()]);
-            return ResponseHelper::text($response, 'Methode non autorisee', 405);
+            return ResponseHelper::text($response, 'POST requis', 405);
         }
 
         $params = $request->getParsedBody();
-        if (!is_array($params)) {
-            $params = [];
+        if (!is_array($params) || $params === []) {
+            $this->logger->warning("{$component}: corps vide ou invalide");
+            return ResponseHelper::text($response, 'Donnees manquantes', 400);
         }
 
-        // Hook d'authentification spécifique (HMAC, etc.)
-        $authResult = $this->validateAuth($params, $response);
-        if ($authResult !== null) {
-            return $authResult;
+        // Authentification (HMAC ou API_KEY selon le module)
+        $authError = $this->validateAuth($params, $response);
+        if ($authError !== null) {
+            return $authError;
         }
 
-        // Validation clé API (legacy, commune à toutes les sections)
-        $apiKeyProvided = $params['api_key'] ?? '';
-        $apiKeyExpected = $_ENV['API_KEY'] ?? null;
-
-        if ($apiKeyExpected === null) {
-            $this->logger->error("{$component}: Variable API_KEY manquante dans .env");
-            return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
+        $apiKey = isset($params['api_key']) ? trim((string) $params['api_key']) : '';
+        $expectedKey = $_ENV['API_KEY'] ?? '';
+        if ($expectedKey !== '' && $apiKey !== $expectedKey) {
+            $this->logger->warning("{$component}: cle API invalide", ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a']);
+            return ResponseHelper::text($response, 'Cle API invalide', 401);
         }
 
-        if ($apiKeyProvided !== $apiKeyExpected) {
-            $this->logger->warning("{$component}: Cle API invalide", ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a']);
-            return ResponseHelper::text($response, 'Cle API incorrecte', 401);
+        $sensor = trim((string) ($params['sensor'] ?? ''));
+        $version = trim((string) ($params['version'] ?? ''));
+        if ($sensor === '' || $version === '') {
+            $this->logger->warning("{$component}: champs sensor/version manquants");
+            return ResponseHelper::text($response, 'Champs sensor et version requis', 400);
         }
 
-        // Fonctions utilitaires de lecture POST
-        $sanitize = static function (string $key) use ($params): ?string {
-            if (!isset($params[$key]) || !is_scalar($params[$key])) {
-                return null;
-            }
-            $v = trim((string) $params[$key]);
-            return $v !== '' ? $v : null;
-        };
-        $toFloat = static function (string $key) use ($params): ?float {
-            if (!isset($params[$key]) || !is_scalar($params[$key]) || $params[$key] === '') {
-                return null;
-            }
-            $f = (float) $params[$key];
-            return is_finite($f) ? $f : null;
-        };
-        $toInt = static fn(string $key) => isset($params[$key]) && is_scalar($params[$key]) && $params[$key] !== ''
-            ? (int) $params[$key] : null;
+        $sanitize = fn(string $key): ?string =>
+            isset($params[$key]) && is_scalar($params[$key])
+                ? trim((string) $params[$key])
+                : null;
 
-        // Validation champs requis
-        $sensor = $sanitize('sensor');
-        $version = $sanitize('version');
-        if ($sensor === null || $version === null) {
-            return ResponseHelper::text($response, 'Champs requis manquants: sensor, version', 400);
-        }
+        $toFloat = fn(string $key): ?float =>
+            isset($params[$key]) && is_numeric($params[$key])
+                ? (float) $params[$key]
+                : null;
 
-        $data = $this->buildSensorData($params, $sanitize, $toFloat, $toInt);
+        $toInt = fn(string $key): ?int =>
+            isset($params[$key]) && is_numeric($params[$key])
+                ? (int) $params[$key]
+                : null;
 
         try {
-            $this->insertData($data);
+            $sensorData = $this->buildSensorData($params, $sanitize, $toFloat, $toInt);
+            $this->insertData($sensorData);
 
-            $this->logger->info("{$component} OK sensor={sensor} version={version}", [
-                'sensor' => $data->sensor,
-                'version' => $data->version,
+            $this->logger->info("{$component}: donnees enregistrees sensor={sensor} v={version}", [
+                'sensor' => $sensor,
+                'version' => $version,
             ]);
 
             return ResponseHelper::textClose($response, 'Donnees enregistrees avec succes', 200);
-        } catch (Throwable $e) {
-            $this->logger->error("{$component}: Erreur insertion: {error}", ['error' => $e->getMessage()]);
+        } catch (\Throwable $e) {
+            $this->logger->error("{$component}: erreur insertion — {msg}", ['msg' => $e->getMessage()]);
             return ResponseHelper::text($response, 'Erreur serveur', 500);
         }
     }

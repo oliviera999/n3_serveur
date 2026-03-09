@@ -1,34 +1,43 @@
-{# Snippet d'init du RealtimeUpdater + mise à jour des éléments data-sensor.
-   Variables :
-     - realtime_api_base : chemin API (ex. /msp1/api/realtime)
-     - poll_interval : intervalle en ms (défaut 15000)
-     - base_path : préfixe URL (défaut "")
-     - has_chart_updater : si true, ChartUpdaterGeneric sera alimenté (défaut false)
+{#
+  Initialise le RealtimeUpdater (polling) pour les pages données.
+  Variables attendues :
+    - realtime_api_base : préfixe de l'API (ex '/msp1/api/realtime')
+    - poll_interval     : intervalle de polling en ms (défaut 15000)
+    - base_path         : chemin de base du serveur
 #}
 <script>
-(function() {
-    var apiBase = '{{ base_path|default("") }}{{ realtime_api_base|default("/api/realtime") }}';
-    window.realtimeUpdater = new RealtimeUpdater({
-        apiBasePath: apiBase,
-        pollInterval: {{ poll_interval|default(15000) }},
-        onNewData: function(readings) {
-            if (!readings || readings.length === 0) return;
-            var last = readings[readings.length - 1];
-            var sensors = last.sensors || last;
-            document.querySelectorAll('[data-sensor]').forEach(function(el) {
-                var key = el.getAttribute('data-sensor');
-                var val = sensors[key];
-                if (val === undefined || val === null) return;
-                var dec = el.getAttribute('data-decimals');
-                if (dec !== null) {
-                    var n = parseFloat(val);
-                    el.textContent = !isNaN(n) ? n.toFixed(parseInt(dec, 10) || 0) : val;
-                } else {
-                    el.textContent = val;
+(function () {
+    var apiBase = '{{ realtime_api_base|default("/api/realtime") }}';
+    var interval = {{ poll_interval|default(15000) }};
+
+    if (typeof initRealtimeUpdater === 'function') {
+        initRealtimeUpdater({
+            apiBasePath: apiBase,
+            pollInterval: interval,
+            onNewData: function (readings) {
+                if (window.chartUpdater && typeof window.chartUpdater.addNewReadings === 'function') {
+                    window.chartUpdater.addNewReadings(readings);
                 }
-            });
-        }
-    });
-    realtimeUpdater.start();
+                // Mise à jour des cartes stats via data-sensor
+                if (readings.length > 0) {
+                    var last = readings[readings.length - 1];
+                    if (last && last.sensors) {
+                        var sensors = last.sensors;
+                        for (var key in sensors) {
+                            if (!sensors.hasOwnProperty(key) || sensors[key] === null) continue;
+                            var els = document.querySelectorAll('[data-sensor="' + key + '"]');
+                            for (var i = 0; i < els.length; i++) {
+                                var dec = parseInt(els[i].getAttribute('data-decimals') || '1', 10);
+                                var val = parseFloat(sensors[key]);
+                                els[i].textContent = isNaN(val) ? sensors[key] : val.toFixed(dec);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        console.warn('[_realtime_init_js] initRealtimeUpdater non disponible');
+    }
 })();
 </script>

@@ -9,13 +9,12 @@ use App\Service\Realtime\MspRealtimeDataProvider;
 
 /**
  * Contrôleur API temps réel MSP1 (station météo).
- * Délègue à MspRealtimeDataProvider via le contrat commun.
+ * Délègue à MspRealtimeDataProvider via la classe abstraite commune.
  */
 class MspRealtimeApiController extends AbstractRealtimeApiController
 {
-    public function __construct(
-        MspRealtimeDataProvider $provider
-    ) {
+    public function __construct(MspRealtimeDataProvider $provider)
+    {
         parent::__construct($provider);
     }
 }

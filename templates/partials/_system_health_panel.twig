@@ -1,7 +1,7 @@
-{# Panneau état du système (temps réel). Titre optionnel. Le contenu de la grille est dans le block. #}
-<div class="system-health-panel">
-    <h3><i class="fas fa-heartbeat"></i> {{ health_panel_title|default('État du système') }}</h3>
-    <div class="health-grid">
+{# Panneau « État du système » — utilisé par les pages de données MSP1, N3PP. #}
+<div class="system-health-panel" style="margin: 20px 0; padding: 15px 20px; background: #f8f9fa; border-radius: 12px; border: 1px solid #e0e0e0;">
+    <h4 style="margin: 0 0 12px 0; color: #2c3e50;"><i class="fas fa-heartbeat"></i> {{ health_panel_title|default('État du système') }}</h4>
+    <div class="health-items" style="display: flex; flex-wrap: wrap; gap: 12px 24px;">
         {% block health_items %}{% endblock %}
     </div>
 </div>
