@@ -10,14 +10,12 @@
 
 class StatsUpdater {
     constructor(options = {}) {
-        // Configuration
         this.sensors = options.sensors || [
             'EauAquarium', 'EauReserve', 'EauPotager',
             'TempEau', 'TempAir', 'Humidite', 'Luminosite'
         ];
         
-        // Mapping explicite des capteurs vers leurs IDs réels dans le DOM
-        this.sensorIdMap = {
+        var defaultIdMap = {
             'EauAquarium': 'eauaqua',
             'EauReserve': 'eaureserve',
             'EauPotager': 'eaupota',
@@ -26,6 +24,9 @@ class StatsUpdater {
             'Humidite': 'humi',
             'Luminosite': 'lumi'
         };
+        this.sensorIdMap = options.sensorIdMap || defaultIdMap;
+        
+        this.sensorConfigs = options.sensorConfigs || null;
         
         // Cache des statistiques actuelles (pour calcul incrémental)
         this.stats = new Map();
@@ -220,7 +221,10 @@ class StatsUpdater {
      * @returns {Object} Configuration
      */
     getSensorConfig(sensorName) {
-        const configs = {
+        if (this.sensorConfigs && this.sensorConfigs[sensorName]) {
+            return this.sensorConfigs[sensorName];
+        }
+        var defaultConfigs = {
             'EauAquarium': { unit: 'cm', decimals: 0, max: 100 },
             'EauReserve': { unit: 'cm', decimals: 0, max: 100 },
             'EauPotager': { unit: 'cm', decimals: 0, max: 100 },
@@ -229,8 +233,7 @@ class StatsUpdater {
             'Humidite': { unit: '%', decimals: 1, max: 100 },
             'Luminosite': { unit: 'UA', decimals: 0, max: 4000 }
         };
-        
-        return configs[sensorName] || { unit: '', decimals: 1, max: null };
+        return defaultConfigs[sensorName] || { unit: '', decimals: 1, max: null };
     }
     
     /**

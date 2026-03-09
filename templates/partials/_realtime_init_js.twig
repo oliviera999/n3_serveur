@@ -1,12 +1,33 @@
-{# Snippet d'init du RealtimeUpdater. À inclure après le chargement de realtime-updater.js.
-   Variables : realtime_api_base (chemin complet, ex. /msp1/api/realtime), poll_interval (optionnel, défaut 15000) #}
+{# Snippet d'init du RealtimeUpdater + mise à jour des éléments data-sensor.
+   Variables :
+     - realtime_api_base : chemin API (ex. /msp1/api/realtime)
+     - poll_interval : intervalle en ms (défaut 15000)
+     - base_path : préfixe URL (défaut "")
+     - has_chart_updater : si true, ChartUpdaterGeneric sera alimenté (défaut false)
+#}
 <script>
 (function() {
     var apiBase = '{{ base_path|default("") }}{{ realtime_api_base|default("/api/realtime") }}';
     window.realtimeUpdater = new RealtimeUpdater({
         apiBasePath: apiBase,
         pollInterval: {{ poll_interval|default(15000) }},
-        enabled: true
+        onNewData: function(readings) {
+            if (!readings || readings.length === 0) return;
+            var last = readings[readings.length - 1];
+            var sensors = last.sensors || last;
+            document.querySelectorAll('[data-sensor]').forEach(function(el) {
+                var key = el.getAttribute('data-sensor');
+                var val = sensors[key];
+                if (val === undefined || val === null) return;
+                var dec = el.getAttribute('data-decimals');
+                if (dec !== null) {
+                    var n = parseFloat(val);
+                    el.textContent = !isNaN(n) ? n.toFixed(parseInt(dec, 10) || 0) : val;
+                } else {
+                    el.textContent = val;
+                }
+            });
+        }
     });
     realtimeUpdater.start();
 })();

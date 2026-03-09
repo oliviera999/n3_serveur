@@ -139,7 +139,7 @@
 
         <div class="filter-section">
             <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
-            <form method="POST" action="/msp1/msp1datas/msp1-data.php">
+            <form method="POST" action="{{ base_path|default('') }}/meteo">
                 {{ csrf_field|raw }}
                 <div>
                     <label for="start_datetime">Début</label>
@@ -332,57 +332,34 @@
     <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
     <script src="{{ base_path }}/assets/js/chart-updater-generic.js"></script>
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
-    <script>
-    (function() {
-        var apiBase = '{{ realtime_api_base|default("/msp1/api/realtime") }}';
-        {% if measure_count > 0 %}
-        window.chartUpdater = new ChartUpdaterGeneric({
-            chartIds: ['chart-temperatures', 'chart-lights', 'chart-niveauxeaux', 'chart-cycles'],
-            debug: true,
-            sensorMap: {
-                'TempAirInt': { chartId: 'chart-temperatures', seriesIndex: 0 },
-                'TempAirExt': { chartId: 'chart-temperatures', seriesIndex: 1 },
-                'HumidAirInt': { chartId: 'chart-temperatures', seriesIndex: 2 },
-                'HumidAirExt': { chartId: 'chart-temperatures', seriesIndex: 3 },
-                'LuminositeMoy': { chartId: 'chart-lights', seriesIndex: 0 },
-                'LuminositeA': { chartId: 'chart-lights', seriesIndex: 1 },
-                'LuminositeB': { chartId: 'chart-lights', seriesIndex: 2 },
-                'LuminositeC': { chartId: 'chart-lights', seriesIndex: 3 },
-                'LuminositeD': { chartId: 'chart-lights', seriesIndex: 4 },
-                'HumidSol': { chartId: 'chart-niveauxeaux', seriesIndex: 0 },
-                'Pluie': { chartId: 'chart-niveauxeaux', seriesIndex: 1 },
-                'TempEau': { chartId: 'chart-niveauxeaux', seriesIndex: 2 },
-                'resetMode': { chartId: 'chart-niveauxeaux', seriesIndex: 3 },
-                'bootCount': { chartId: 'chart-cycles', seriesIndex: 0 },
-                'PontDiv': { chartId: 'chart-cycles', seriesIndex: 1 },
-                'ServoHB': { chartId: 'chart-cycles', seriesIndex: 2 },
-                'ServoGD': { chartId: 'chart-cycles', seriesIndex: 3 }
-            }
-        });
-        setTimeout(function() { chartUpdater.init(); }, 150);
-        {% endif %}
-        window.realtimeUpdater = new RealtimeUpdater({
-            apiBasePath: apiBase,
-            pollInterval: 15000,
-            onNewData: function(readings) {
-                if (!readings || readings.length === 0) return;
-                var last = readings[readings.length - 1];
-                var sensors = last.sensors || last;
-                document.querySelectorAll('[data-sensor]').forEach(function(el) {
-                    var key = el.getAttribute('data-sensor');
-                    var val = sensors[key];
-                    if (val === undefined || val === null) return;
-                    var dec = el.getAttribute('data-decimals');
-                    if (dec !== null) {
-                        var n = parseFloat(val);
-                        el.textContent = !isNaN(n) ? n.toFixed(parseInt(dec, 10) || 0) : val;
-                    } else {
-                        el.textContent = val;
-                    }
-                });
-            }
-        });
-        realtimeUpdater.start();
-    })();
-    </script>
+    {% if measure_count > 0 %}
+    {% include 'partials/_chart_init_js.twig' with {
+        chart_ids_json: '["chart-temperatures","chart-lights","chart-niveauxeaux","chart-cycles"]',
+        chart_debug: true,
+        sensor_map_json: '{
+            "TempAirInt":{"chartId":"chart-temperatures","seriesIndex":0},
+            "TempAirExt":{"chartId":"chart-temperatures","seriesIndex":1},
+            "HumidAirInt":{"chartId":"chart-temperatures","seriesIndex":2},
+            "HumidAirExt":{"chartId":"chart-temperatures","seriesIndex":3},
+            "LuminositeMoy":{"chartId":"chart-lights","seriesIndex":0},
+            "LuminositeA":{"chartId":"chart-lights","seriesIndex":1},
+            "LuminositeB":{"chartId":"chart-lights","seriesIndex":2},
+            "LuminositeC":{"chartId":"chart-lights","seriesIndex":3},
+            "LuminositeD":{"chartId":"chart-lights","seriesIndex":4},
+            "HumidSol":{"chartId":"chart-niveauxeaux","seriesIndex":0},
+            "Pluie":{"chartId":"chart-niveauxeaux","seriesIndex":1},
+            "TempEau":{"chartId":"chart-niveauxeaux","seriesIndex":2},
+            "resetMode":{"chartId":"chart-niveauxeaux","seriesIndex":3},
+            "bootCount":{"chartId":"chart-cycles","seriesIndex":0},
+            "PontDiv":{"chartId":"chart-cycles","seriesIndex":1},
+            "ServoHB":{"chartId":"chart-cycles","seriesIndex":2},
+            "ServoGD":{"chartId":"chart-cycles","seriesIndex":3}
+        }'
+    } %}
+    {% endif %}
+    {% include 'partials/_realtime_init_js.twig' with {
+        realtime_api_base: realtime_api_base|default('/msp1/api/realtime'),
+        poll_interval: 15000,
+        base_path: base_path|default('')
+    } %}
 {% endblock %}

@@ -10,38 +10,31 @@
 
 class ChartUpdater {
     constructor(options = {}) {
-        // Configuration
         this.maxPoints = options.maxPoints || 10000;
         this.autoScroll = options.autoScroll !== false;
         this.animationsEnabled = options.animationsEnabled !== false;
-        this.batchUpdateDelay = options.batchUpdateDelay || 100; // ms
+        this.batchUpdateDelay = options.batchUpdateDelay || 100;
         
-        // Références aux graphiques Highcharts
         this.charts = new Map();
         
-        // Mapping des capteurs vers les séries des graphiques
-        this.sensorToSeriesMap = {
-            // Graphique Eau (index 0) - Séries areaspline (courbes)
-            'EauAquarium': { chartIndex: 0, seriesIndex: 2 },  // Orange
-            'EauReserve': { chartIndex: 0, seriesIndex: 0 },   // Vert foncé
-            'EauPotager': { chartIndex: 0, seriesIndex: 1 },   // Vert clair
-            
-            // Graphique Eau (index 0) - Séries scatter (points) - seulement si valeur > 0
+        this.chartContainerIds = options.chartContainerIds || ['chart-stock-area-eau-D', 'chart-stock-area-temp-D'];
+        
+        var defaultSensorMap = {
+            'EauAquarium': { chartIndex: 0, seriesIndex: 2 },
+            'EauReserve': { chartIndex: 0, seriesIndex: 0 },
+            'EauPotager': { chartIndex: 0, seriesIndex: 1 },
             'etatPompeAqua': { chartIndex: 0, seriesIndex: 3, scatterOnlyIfTrue: true },
             'etatPompeTank': { chartIndex: 0, seriesIndex: 4, scatterOnlyIfTrue: true },
             'etatHeat': { chartIndex: 0, seriesIndex: 5, scatterOnlyIfTrue: true },
-            
-            // Graphique Paramètres physiques (index 1) - Séries areaspline (courbes)
             'TempEau': { chartIndex: 1, seriesIndex: 0 },
             'TempAir': { chartIndex: 1, seriesIndex: 1 },
             'Humidite': { chartIndex: 1, seriesIndex: 2 },
             'Luminosite': { chartIndex: 1, seriesIndex: 3 },
-            
-            // Graphique Paramètres physiques (index 1) - Séries column (barres)
             'etatUV': { chartIndex: 1, seriesIndex: 4 },
             'bouffeGros': { chartIndex: 1, seriesIndex: 5 },
             'bouffePetits': { chartIndex: 1, seriesIndex: 6 }
         };
+        this.sensorToSeriesMap = options.sensorToSeriesMap || defaultSensorMap;
         
         // État
         this.isInitialized = false;
@@ -62,23 +55,16 @@ class ChartUpdater {
             return false;
         }
         
-        // Trouver nos graphiques par leur conteneur
-        const eauChart = Highcharts.charts.find(c => c && c.renderTo.id === 'chart-stock-area-eau-D');
-        const tempChart = Highcharts.charts.find(c => c && c.renderTo.id === 'chart-stock-area-temp-D');
-        
-        if (eauChart) {
-            this.charts.set(0, eauChart);
-            this.log('Eau chart found and registered');
-        } else {
-            this.log('Eau chart not found!', 'warn');
-        }
-        
-        if (tempChart) {
-            this.charts.set(1, tempChart);
-            this.log('Temp chart found and registered');
-        } else {
-            this.log('Temp chart not found!', 'warn');
-        }
+        const self = this;
+        this.chartContainerIds.forEach(function(id, index) {
+            const chart = Highcharts.charts.find(c => c && c.renderTo && c.renderTo.id === id);
+            if (chart) {
+                self.charts.set(index, chart);
+                self.log(id + ' chart found and registered');
+            } else {
+                self.log(id + ' chart not found!', 'warn');
+            }
+        });
         
         this.isInitialized = this.charts.size > 0;
         this.log(`Initialized with ${this.charts.size} chart(s)`);

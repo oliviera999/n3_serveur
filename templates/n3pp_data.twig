@@ -114,7 +114,7 @@
 
         <div class="filter-section">
             <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
-            <form method="POST" action="/n3pp/n3ppdatas/n3pp-data.php">
+            <form method="POST" action="{{ base_path|default('') }}/serre">
                 {{ csrf_field|raw }}
                 <div>
                     <label for="start_datetime">Début</label>
@@ -266,52 +266,29 @@
     <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
     <script src="{{ base_path }}/assets/js/chart-updater-generic.js"></script>
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
-    <script>
-    (function() {
-        var apiBase = '{{ realtime_api_base|default("/n3pp/api/realtime") }}';
-        {% if measure_count > 0 %}
-        window.chartUpdater = new ChartUpdaterGeneric({
-            chartIds: ['chart-niveauxeaux', 'chart-temperatures', 'chart-cycles'],
-            debug: true,
-            sensorMap: {
-                'HumidMoy': { chartId: 'chart-niveauxeaux', seriesIndex: 0 },
-                'Humid1': { chartId: 'chart-niveauxeaux', seriesIndex: 1 },
-                'Humid2': { chartId: 'chart-niveauxeaux', seriesIndex: 2 },
-                'Humid3': { chartId: 'chart-niveauxeaux', seriesIndex: 3 },
-                'Humid4': { chartId: 'chart-niveauxeaux', seriesIndex: 4 },
-                'etatPompe': { chartId: 'chart-niveauxeaux', seriesIndex: 5 },
-                'resetMode': { chartId: 'chart-niveauxeaux', seriesIndex: 6 },
-                'TempAir': { chartId: 'chart-temperatures', seriesIndex: 0 },
-                'Humidite': { chartId: 'chart-temperatures', seriesIndex: 1 },
-                'Luminosite': { chartId: 'chart-temperatures', seriesIndex: 2 },
-                'bootCount': { chartId: 'chart-cycles', seriesIndex: 0 },
-                'PontDiv': { chartId: 'chart-cycles', seriesIndex: 1 }
-            }
-        });
-        setTimeout(function() { chartUpdater.init(); }, 150);
-        {% endif %}
-        window.realtimeUpdater = new RealtimeUpdater({
-            apiBasePath: apiBase,
-            pollInterval: 15000,
-            onNewData: function(readings) {
-                if (!readings || readings.length === 0) return;
-                var last = readings[readings.length - 1];
-                var sensors = last.sensors || last;
-                document.querySelectorAll('[data-sensor]').forEach(function(el) {
-                    var key = el.getAttribute('data-sensor');
-                    var val = sensors[key];
-                    if (val === undefined || val === null) return;
-                    var dec = el.getAttribute('data-decimals');
-                    if (dec !== null) {
-                        var n = parseFloat(val);
-                        el.textContent = !isNaN(n) ? n.toFixed(parseInt(dec, 10) || 0) : val;
-                    } else {
-                        el.textContent = val;
-                    }
-                });
-            }
-        });
-        realtimeUpdater.start();
-    })();
-    </script>
+    {% if measure_count > 0 %}
+    {% include 'partials/_chart_init_js.twig' with {
+        chart_ids_json: '["chart-niveauxeaux","chart-temperatures","chart-cycles"]',
+        chart_debug: true,
+        sensor_map_json: '{
+            "HumidMoy":{"chartId":"chart-niveauxeaux","seriesIndex":0},
+            "Humid1":{"chartId":"chart-niveauxeaux","seriesIndex":1},
+            "Humid2":{"chartId":"chart-niveauxeaux","seriesIndex":2},
+            "Humid3":{"chartId":"chart-niveauxeaux","seriesIndex":3},
+            "Humid4":{"chartId":"chart-niveauxeaux","seriesIndex":4},
+            "etatPompe":{"chartId":"chart-niveauxeaux","seriesIndex":5},
+            "resetMode":{"chartId":"chart-niveauxeaux","seriesIndex":6},
+            "TempAir":{"chartId":"chart-temperatures","seriesIndex":0},
+            "Humidite":{"chartId":"chart-temperatures","seriesIndex":1},
+            "Luminosite":{"chartId":"chart-temperatures","seriesIndex":2},
+            "bootCount":{"chartId":"chart-cycles","seriesIndex":0},
+            "PontDiv":{"chartId":"chart-cycles","seriesIndex":1}
+        }'
+    } %}
+    {% endif %}
+    {% include 'partials/_realtime_init_js.twig' with {
+        realtime_api_base: realtime_api_base|default('/n3pp/api/realtime'),
+        poll_interval: 15000,
+        base_path: base_path|default('')
+    } %}
 {% endblock %}

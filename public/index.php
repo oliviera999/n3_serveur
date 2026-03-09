@@ -201,6 +201,8 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
         '/ffp3/heartbeat-test',
         '/ffp3/heartbeat3',
         '/ffp3/heartbeat3-test',
+        '/meteo',                  // Page données station météo (nouvelle URL)
+        '/serre',                  // Page données serre (nouvelle URL)
         '/gallery/',               // Pages galeries photo (consultation)
         '/ota/',                   // Fichiers OTA (metadata.json, firmware.bin) n3pp, msp, cam
         '/ffp3datas/',             // Alias legacy (LVGL_Widgets)
@@ -232,6 +234,8 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
         '/aquaponie-control-test',
         '/aquamobile-control',
         '/aquamobile-control-test',
+        '/meteo-control',
+        '/serre-control',
         '/dashboard',
         '/dashboard-test',
         '/dashboard3',
@@ -835,23 +839,33 @@ $app->get('/ffp3/supervision', function (Request $request, Response $response) u
 });
 
 // ====================================================================
-// Routes MSP1 — compatibilite firmware msp2_5 (station meteo)
+// Routes MSP1 — station meteo (Le potager)
 // ====================================================================
-$app->get('/msp1_data', function (Request $request, Response $response) use ($app) {
-    $uri = $request->getUri();
-    $basePath = rtrim($app->getBasePath(), '/');
-    $path = $basePath . '/msp1/msp1datas/msp1-data.php';
-    $location = $uri->getScheme() . '://' . $uri->getHost() . ($uri->getPort() ? ':' . $uri->getPort() : '')
-        . $path . ($uri->getQuery() ? '?' . $uri->getQuery() : '');
-    return $response->withHeader('Location', $location)->withStatus(301);
+
+// Nouvelles routes unifiées
+$app->map(['GET', 'POST'], '/meteo', [($useLocalDataFallback ? LocalDataPagesController::class : MspDataController::class), $useLocalDataFallback ? 'showMsp1' : 'show']);
+$app->get('/meteo-control', [MspOutputController::class, 'showControlPage']);
+
+// Redirections 301 : anciennes URLs vers les nouvelles
+$app->get('/msp1_data', function (Request $request, Response $response) use ($basePath) {
+    return $response->withHeader('Location', $basePath . '/meteo')->withStatus(301);
 });
+$app->map(['GET', 'POST'], '/msp1/msp1datas/msp1-data.php', function (Request $request, Response $response) use ($basePath) {
+    $query = $request->getUri()->getQuery();
+    return $response->withHeader('Location', $basePath . '/meteo' . ($query ? '?' . $query : ''))->withStatus(301);
+});
+$app->get('/msp1/msp1control/', function (Request $request, Response $response) use ($basePath) {
+    return $response->withHeader('Location', $basePath . '/meteo-control')->withStatus(301);
+});
+$app->get('/msp1/msp1control/index.php', function (Request $request, Response $response) use ($basePath) {
+    return $response->withHeader('Location', $basePath . '/meteo-control')->withStatus(301);
+});
+
+// Routes legacy firmware (POST données, GET/POST outputs) — conservées telles quelles
 $app->post('/msp1/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
-$app->post('/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']); // Alias sans /msp1/ (compatibilité firmwares)
-$app->map(['GET', 'POST'], '/msp1/msp1datas/msp1-data.php', [($useLocalDataFallback ? LocalDataPagesController::class : MspDataController::class), $useLocalDataFallback ? 'showMsp1' : 'show']);
+$app->post('/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
 $app->get('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'getState']);
 $app->post('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'setOutput']);
-$app->get('/msp1/msp1control/', [MspOutputController::class, 'showControlPage']);
-$app->get('/msp1/msp1control/index.php', [MspOutputController::class, 'showControlPage']);
 
 // API temps réel MSP (pages données + contrôle)
 $app->get('/msp1/api/realtime/sensors/latest', [MspRealtimeApiController::class, 'getLatestSensors']);
@@ -861,15 +875,30 @@ $app->get('/msp1/api/outputs/state', [MspRealtimeApiController::class, 'getOutpu
 $app->post('/msp1/api/outputs/toggle', [MspOutputController::class, 'toggleOutput']);
 
 // ====================================================================
-// Routes N3PP — compatibilite firmware n3pp4_2 (serre/aquaponie)
+// Routes N3PP — serre / élevage d'insectes
 // ====================================================================
+
+// Nouvelles routes unifiées
+$app->map(['GET', 'POST'], '/serre', [($useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class), $useLocalDataFallback ? 'showN3pp' : 'show']);
+$app->get('/serre-control', [N3ppOutputController::class, 'showControlPage']);
+
+// Redirections 301 : anciennes URLs vers les nouvelles
+$app->map(['GET', 'POST'], '/n3pp/n3ppdatas/n3pp-data.php', function (Request $request, Response $response) use ($basePath) {
+    $query = $request->getUri()->getQuery();
+    return $response->withHeader('Location', $basePath . '/serre' . ($query ? '?' . $query : ''))->withStatus(301);
+});
+$app->get('/n3pp/n3ppcontrol/', function (Request $request, Response $response) use ($basePath) {
+    return $response->withHeader('Location', $basePath . '/serre-control')->withStatus(301);
+});
+$app->get('/n3pp/n3ppcontrol/index.php', function (Request $request, Response $response) use ($basePath) {
+    return $response->withHeader('Location', $basePath . '/serre-control')->withStatus(301);
+});
+
+// Routes legacy firmware (POST données, GET/POST outputs) — conservées telles quelles
 $app->post('/n3pp/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);
-$app->post('/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']); // Alias sans /n3pp/ (compatibilité firmwares)
-$app->map(['GET', 'POST'], '/n3pp/n3ppdatas/n3pp-data.php', [($useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class), $useLocalDataFallback ? 'showN3pp' : 'show']);
+$app->post('/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);
 $app->get('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'getState']);
 $app->post('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
-$app->get('/n3pp/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']);
-$app->get('/n3pp/n3ppcontrol/index.php', [N3ppOutputController::class, 'showControlPage']);
 
 // API temps réel N3PP (pages données + contrôle)
 $app->get('/n3pp/api/realtime/sensors/latest', [N3ppRealtimeApiController::class, 'getLatestSensors']);

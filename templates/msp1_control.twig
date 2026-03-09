@@ -2,88 +2,17 @@
 
 {% block title %}{{ page_title }}{% endblock %}
 
-{% block styles %}
-    <style>
-        .control-layout { display: grid; grid-template-columns: 300px 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 20px; }
-        @media (max-width: 900px) { .control-layout { grid-template-columns: 1fr; } }
-
-        .panel { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 4px 20px rgba(0,139,116,0.1); }
-
-        .context-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-        .context-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 0.8em; font-weight: 600; background: rgba(0,139,116,0.1); color: #008B74; border: 1px solid rgba(0,139,116,0.2); }
-        .context-summary h2 { margin: 0 0 8px 0; color: #008B74; font-size: 1.3em; }
-        .context-description { color: #666; font-size: 0.9em; line-height: 1.5; margin: 0 0 12px 0; }
-        .context-stats { display: flex; gap: 16px; }
-        .context-stat { flex: 1; background: #f8f9fa; padding: 10px; border-radius: 10px; text-align: center; }
-        .stat-label { display: block; font-size: 0.75em; color: #7f8c8d; text-transform: uppercase; }
-        .stat-value { display: block; font-size: 1.4em; font-weight: bold; color: #2c3e50; }
-
-        .boards-status h3 { color: #008B74; margin: 20px 0 12px 0; font-size: 1.1em; }
-        .board-card { background: #f8f9fa; border-radius: 12px; padding: 12px; margin-bottom: 10px; }
-        .board-card header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
-        .board-title { font-weight: 700; color: #2c3e50; font-size: 0.95em; }
-        .board-last { font-size: 0.8em; color: #7f8c8d; }
-
-        .control-main-header h1 { margin: 0 0 8px 0; color: #008B74; font-size: 1.5em; }
-        .control-main-header p { color: #666; font-size: 0.95em; margin: 0 0 12px 0; }
-        .callout { display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 10px; font-size: 0.88em; margin-bottom: 20px; }
-        .callout-warning { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
-        .callout i { font-size: 1.1em; margin-top: 2px; }
-
-        .controls-section h2 { color: #008B74; font-size: 1.2em; margin: 24px 0 12px 0; display: flex; align-items: center; gap: 10px; }
-
-        .control-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 16px; }
-        .action-card { background: white; border: 1px solid rgba(0,139,116,0.15); border-radius: 14px; padding: 16px; transition: all 0.3s ease; position: relative; overflow: hidden; }
-        .action-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #008B74, #00B794); transform: scaleX(0); transition: transform 0.3s ease; }
-        .action-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,139,116,0.15); }
-        .action-card:hover::before { transform: scaleX(1); }
-        .action-card[data-state="1"] { border-color: #008B74; background: linear-gradient(180deg, #f0faf8 0%, #fff 100%); }
-        .action-card.warning { border-color: #ffc107; }
-        .action-card.warning[data-state="1"] { background: linear-gradient(180deg, #fffbf0 0%, #fff 100%); }
-        .action-card header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        .action-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3em; background: rgba(0,139,116,0.1); color: #008B74; }
-        .action-card header h3 { margin: 0; font-size: 0.95em; color: #2c3e50; }
-        .action-description { font-size: 0.82em; color: #7f8c8d; margin: 0 0 10px 0; line-height: 1.4; }
-        .action-card footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-        .action-card footer [data-state-label] { font-size: 0.82em; font-weight: 600; color: #7f8c8d; }
-
-        .modern-switch { position: relative; display: inline-block; width: 52px; height: 28px; cursor: pointer; }
-        .modern-switch input { opacity: 0; width: 0; height: 0; }
-        .modern-switch-slider { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #ccc; border-radius: 28px; transition: 0.3s; }
-        .modern-switch-slider .modern-switch-button { position: absolute; height: 22px; width: 22px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
-        .modern-switch input:checked + .modern-switch-slider { background: #008B74; }
-        .modern-switch input:checked + .modern-switch-slider .modern-switch-button { transform: translateX(24px); }
-
-        .parameters-panel { background: #f8f9fa; border-radius: 12px; padding: 14px; margin-top: 12px; }
-        .parameters-panel h3 { margin: 0 0 10px 0; color: #008B74; font-size: 1em; }
-        .parameters-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
-        .parameter-item { display: flex; flex-direction: column; gap: 4px; }
-        .parameter-item span { font-size: 0.82em; color: #555; font-weight: 600; }
-        .parameter-item input, .parameter-item select { padding: 8px 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9em; }
-        .parameter-item input:focus { border-color: #008B74; outline: none; box-shadow: 0 0 0 2px rgba(0,139,116,0.2); }
-
-        .quick-actions { margin-top: 20px; }
-        .quick-actions h3 { color: #008B74; margin: 0 0 12px 0; }
-        .quick-actions-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .quick-action-card { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(0,139,116,0.08); border: 1px solid rgba(0,139,116,0.15); border-radius: 10px; color: #008B74; font-weight: 600; font-size: 0.9em; text-decoration: none; transition: all 0.2s; }
-        .quick-action-card:hover { background: #008B74; color: white; }
-
-        #footer { text-align: center; padding: 1.5rem 2rem; color: #6c757d; font-size: 0.9em; border-top: 1px solid rgba(0,139,116,0.15); background: rgba(255,255,255,0.92); margin-top: 20px; grid-column: 1 / -1; }
-        .footer-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 8px; }
-        .footer-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 0.8em; background: rgba(0,0,0,0.05); color: #666; border: 1px solid rgba(0,0,0,0.08); }
-
-        .msg-toast { position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; border-radius: 10px; color: white; font-weight: 600; z-index: 1000; display: none; animation: fadeIn 0.3s ease; }
-        .msg-toast.success { background: #008B74; }
-        .msg-toast.error { background: #e74c3c; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        #control-sync-badge { position: fixed; top: 20px; right: 20px; z-index: 9999; padding: 10px 18px; border-radius: 25px; font-size: 0.8em; font-weight: bold; letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-        #control-sync-badge.connecting { background: linear-gradient(135deg, #ffa726, #fb8c00); color: white; }
-        #control-sync-badge.online { background: linear-gradient(135deg, #66bb6a, #43a047); color: white; }
-        #control-sync-badge.offline { background: linear-gradient(135deg, #bdbdbd, #9e9e9e); color: white; }
-        #control-sync-badge.error { background: linear-gradient(135deg, #ef5350, #e53935); color: white; }
-        #control-sync-badge.paused { background: linear-gradient(135deg, #78909c, #546e7a); color: white; }
-    </style>
+{% block head_css %}
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/control-styles.css" />
 {% endblock %}
+
+{% block head_scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block body_tag %}<body class="is-preload" data-environment="{{ environment }}">{% endblock %}
+
+{% block wrapper_class %} control-wrapper{% endblock %}
 
 {% block before_wrapper %}
     <div id="control-sync-badge" class="connecting">CONNEXION...</div>
@@ -150,7 +79,7 @@
                             <footer>
                                 <span data-state-label>{{ output.state == '1' ? 'Activé' : 'Désactivé' }}</span>
                                 <label class="modern-switch">
-                                    <input type="checkbox" onchange="toggleOutput(this)" data-name="{{ output.name }}" data-gpio="{{ output.gpio }}" {{ output.state == '1' ? 'checked' : '' }}>
+                                    <input type="checkbox" onchange="updateOutput(this)" data-id="{{ output.id }}" data-gpio="{{ output.gpio }}" data-name="{{ output.name }}" {{ output.state == '1' ? 'checked' : '' }} role="switch" aria-checked="{{ output.state == '1' ? 'true' : 'false' }}" aria-label="{{ output.name|default('GPIO ' ~ output.gpio) }}">
                                     <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
                                 </label>
                             </footer>
@@ -175,7 +104,7 @@
                             <footer>
                                 <span data-state-label>{{ output.state }}</span>
                                 <label class="modern-switch">
-                                    <input type="checkbox" onchange="toggleOutput(this)" data-name="{{ output.name }}" data-gpio="{{ output.gpio }}" {{ output.state == '1' ? 'checked' : '' }}>
+                                    <input type="checkbox" onchange="updateOutput(this)" data-id="{{ output.id }}" data-gpio="{{ output.gpio }}" data-name="{{ output.name }}" {{ output.state == '1' ? 'checked' : '' }} role="switch" aria-checked="{{ output.state == '1' ? 'true' : 'false' }}" aria-label="{{ labels[gpioStr]|default(output.name|default('GPIO ' ~ output.gpio)) }}">
                                     <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
                                 </label>
                             </footer>
@@ -188,7 +117,7 @@
             <section class="quick-actions">
                 <h3><i class="fas fa-bolt"></i> Actions rapides</h3>
                 <div class="quick-actions-grid">
-                    <a href="/msp1/msp1datas/msp1-data.php" class="quick-action-card"><i class="fas fa-chart-line"></i> Retour aux données</a>
+                    <a href="{{ base_path|default('') }}/meteo" class="quick-action-card"><i class="fas fa-chart-line"></i> Retour aux données</a>
                     <a href="/" class="quick-action-card"><i class="fas fa-home"></i> Accueil</a>
                 </div>
             </section>
@@ -208,57 +137,44 @@
 
 {% block footer %}{% endblock %}
 
-{% block scripts_vendor %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-{% endblock %}
-
 {% block scripts %}
-    <div id="msg-toast" class="msg-toast"></div>
     <script>
-    function toggleOutput(el) {
-        var name = el.getAttribute('data-name');
-        var newState = el.checked ? '1' : '0';
-        var card = el.closest('.action-card');
-        var label = card.querySelector('[data-state-label]');
-
-        var formData = new FormData();
-        formData.append('action', 'set');
-        formData.append('name', name);
-        formData.append('state', newState);
-        formData.append('board', '{{ board }}');
-
-        fetch('/msp1/msp1control/msp1-outputs-action.php', { method: 'POST', body: formData })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.success) {
-                    card.setAttribute('data-state', newState);
-                    label.textContent = newState === '1' ? 'Activé' : 'Désactivé';
-                    showToast('Commande envoyée', 'success');
-                } else {
-                    el.checked = !el.checked;
-                    showToast(data.error || 'Erreur', 'error');
-                }
-            })
-            .catch(function() {
-                el.checked = !el.checked;
-                showToast('Erreur réseau', 'error');
-            });
-    }
-
-    function showToast(msg, type) {
-        var t = document.getElementById('msg-toast');
-        t.textContent = msg;
-        t.className = 'msg-toast ' + type;
-        t.style.display = 'block';
-        setTimeout(function() { t.style.display = 'none'; }, 3000);
-    }
+        window.CONTROL_API_BASE = '{{ base_path|default("") }}{{ outputs_api_base|default("/msp1/api/outputs") }}';
     </script>
     <script src="{{ base_path }}/assets/js/control-sync.js"></script>
+    <script src="{{ base_path }}/assets/js/control-values-updater.js"></script>
+    <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+    <script src="{{ base_path }}/assets/js/control-actions.js"></script>
+    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+
     <script>
-    (function() {
-        var apiBase = '{{ base_path }}' + '/msp1/api/outputs';
-        window.controlSync = new ControlSync({ apiBase: apiBase, pollInterval: 10 });
-        controlSync.start();
-    })();
+        document.addEventListener('DOMContentLoaded', function() {
+            var controlApiBase = window.CONTROL_API_BASE;
+
+            var valuesUpdater = new ControlValuesUpdater();
+            valuesUpdater.init();
+
+            var controlSync = new ControlSync({
+                apiBase: controlApiBase,
+                pollInterval: 10,
+                useFresh: true,
+                onStatesReceived: function(states) {
+                    if (window.controlValuesUpdater && typeof window.controlValuesUpdater.updateParameters === 'function') {
+                        window.controlValuesUpdater.updateParameters(states);
+                    }
+                }
+            });
+            controlSync.initializeFromDOM();
+            controlSync.start();
+
+            window.controlSync = controlSync;
+            window.controlValuesUpdater = valuesUpdater;
+
+            initRealtimeUpdater({
+                apiBasePath: '{{ realtime_api_base|default("/msp1/api/realtime") }}',
+                pollInterval: 15000,
+                enabled: true
+            });
+        });
     </script>
 {% endblock %}

@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -278,6 +284,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -574,6 +586,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -869,6 +887,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -1164,6 +1188,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -1468,6 +1498,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -1765,6 +1801,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -2062,6 +2104,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -2360,6 +2408,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -2657,6 +2711,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -2956,6 +3016,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -3253,6 +3319,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -3550,6 +3622,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -3847,6 +3925,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -4145,6 +4229,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -4440,6 +4530,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -4740,6 +4836,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -5035,6 +5137,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -5333,6 +5441,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -5629,6 +5743,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -5927,6 +6047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -6225,6 +6351,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -6522,6 +6654,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -6821,6 +6959,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -7117,6 +7261,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -7414,6 +7564,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -7712,6 +7868,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -8010,6 +8172,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -8306,6 +8474,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -8603,6 +8777,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -8902,6 +9082,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -9200,6 +9386,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -9497,6 +9689,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -9794,6 +9992,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -10091,6 +10295,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -10388,6 +10598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -10684,6 +10900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -10980,6 +11202,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -11276,6 +11504,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -11572,6 +11806,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -11869,6 +12109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -12170,6 +12416,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -12471,6 +12723,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -12765,6 +13023,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -13059,6 +13323,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -13353,6 +13623,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -13647,6 +13923,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -13941,6 +14223,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -14235,6 +14523,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -14546,6 +14840,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -14847,6 +15147,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -15146,6 +15452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -15446,6 +15758,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -15750,6 +16068,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -16066,6 +16390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -16364,6 +16694,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -16664,6 +17000,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -16964,6 +17306,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -17261,6 +17609,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -17561,6 +17915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -17858,6 +18218,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -18154,6 +18520,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -18451,6 +18823,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -18758,6 +19136,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -19062,6 +19446,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -19374,6 +19764,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -19690,6 +20086,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -19996,6 +20398,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -20294,6 +20702,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -20594,6 +21008,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -20893,6 +21313,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -21192,6 +21618,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -21489,6 +21921,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -21786,6 +22224,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -22085,6 +22529,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -22383,6 +22833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -22683,6 +23139,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -22988,6 +23450,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -23297,6 +23765,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -23602,6 +24076,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -23909,6 +24389,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -24215,6 +24701,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -24516,6 +25008,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -24813,6 +25311,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -25114,6 +25618,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -25412,6 +25922,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -25709,6 +26225,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -26006,6 +26528,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -26305,6 +26833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -26604,6 +27138,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -26902,6 +27442,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -27200,6 +27746,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -27497,6 +28049,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -27794,6 +28352,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -28091,6 +28655,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -28390,6 +28960,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -28689,6 +29265,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -28986,6 +29568,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -29283,6 +29871,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -29580,6 +30174,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -29878,6 +30478,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -30178,6 +30784,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -30485,6 +31097,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -30786,6 +31404,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -31094,6 +31718,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -31400,6 +32030,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -31697,6 +32333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -32027,6 +32669,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -32328,6 +32976,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -32638,6 +33292,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -32958,6 +33618,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -33268,6 +33934,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -33568,6 +34240,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -33869,6 +34547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -34176,6 +34860,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -34593,6 +35283,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -34894,6 +35590,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -35193,6 +35895,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -35493,6 +36201,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -35794,6 +36508,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -36094,6 +36814,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -36396,6 +37122,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -36697,6 +37429,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -37120,6 +37858,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -37420,6 +38164,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -37720,6 +38470,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -38068,6 +38824,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -38377,6 +39139,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -38686,6 +39454,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -39032,6 +39806,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -39389,6 +40169,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -39703,6 +40489,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -40018,6 +40810,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -40323,6 +41121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -40634,6 +41438,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -40949,6 +41759,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -41262,6 +42078,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -41566,6 +42388,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -41882,6 +42710,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -42230,6 +43064,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -42533,6 +43373,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -42837,6 +43683,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -43140,6 +43992,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -43448,6 +44306,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -43762,6 +44626,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -44074,6 +44944,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -44384,6 +45260,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -44689,6 +45571,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -44995,6 +45883,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -45312,6 +46206,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -45628,6 +46528,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -45947,6 +46853,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -46282,6 +47194,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -46647,6 +47565,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -46953,6 +47877,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -47258,6 +48188,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -47573,6 +48509,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -47878,6 +48820,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -48187,6 +49135,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -48489,6 +49443,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -48793,6 +49753,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -49089,6 +50055,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -49425,6 +50397,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -49733,6 +50711,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -50063,6 +51047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -50375,6 +51365,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -50683,6 +51679,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -50997,6 +51999,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -51333,6 +52341,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -51654,6 +52668,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -52029,6 +53049,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -52341,6 +53367,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -52655,6 +53687,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -52980,6 +54018,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -53298,6 +54342,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -53603,6 +54653,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -53908,6 +54964,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -54215,6 +55277,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -54593,6 +55661,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -54919,6 +55993,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -55259,6 +56339,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -55587,6 +56673,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -55919,6 +57011,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -56219,6 +57317,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -56571,6 +57675,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -56887,6 +57997,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -57190,6 +58306,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -57543,6 +58665,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -57875,6 +59003,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -58240,6 +59374,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -58543,6 +59683,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -58905,6 +60051,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -59205,6 +60357,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -59504,6 +60662,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -59807,6 +60971,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -60110,6 +61280,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -60458,6 +61634,12 @@ docs/
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -60829,6 +62011,12 @@ docs/
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -61134,6 +62322,12 @@ docs/
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -61473,6 +62667,12 @@ docs/
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -61777,6 +62977,12 @@ docs/
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -62103,6 +63309,12 @@ docs/
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -62405,6 +63617,12 @@ docs/
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -62896,6 +64114,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -63221,6 +64445,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -63573,6 +64803,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -63911,6 +65147,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -64235,6 +65477,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -64566,6 +65814,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -64889,6 +66143,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -65201,6 +66461,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -65505,6 +66771,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -65825,6 +67097,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -66129,6 +67407,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -66433,6 +67717,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -66739,6 +68029,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -67063,6 +68359,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
@@ -67361,6 +68663,12 @@ ance future
 
 ---
 
+## [5.0.65] - 2026-03-09
+
+### Modifié - unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output
+- **Résumé** : unification complete : routes /meteo /serre, partiels Twig, gallery.twig, common-data.css, JS configurables, AbstractPostData/Output.
+
+---
 ## [5.0.64] - 2026-03-09
 
 ### Modifié - unification templates et API temps réel (layout.twig, services partagés, providers MSP/N3PP)
