@@ -1,0 +1,127 @@
+{#
+    Template de base pour les pages de contrôle MSP1 et N3PP.
+    Le template enfant fournit les blocs : control_title, control_description,
+    control_sidebar_stats, outputs_section, quick_actions_links, control_scripts.
+#}
+{% extends 'layout.twig' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/control-styles.css" />
+{% endblock %}
+
+{% block head_scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block body_tag %}<body class="is-preload" data-environment="{{ environment|default('prod') }}">{% endblock %}
+
+{% block before_wrapper %}
+    <div id="control-sync-badge" class="connecting">CONNEXION...</div>
+{% endblock %}
+
+{% block wrapper_class %} control-wrapper{% endblock %}
+
+{% block content %}
+    <div class="control-layout">
+        <aside class="control-sidebar panel">
+            <section class="control-context">
+                <div class="context-badges">
+                    <span class="context-badge {{ environment == control_config.test_env ? 'context-badge-test' : 'context-badge-prod' }}">
+                        <i class="fas fa-globe"></i>
+                        {{ environment == control_config.test_env ? 'TEST' : 'PROD' }}
+                    </span>
+                    <span class="context-badge">
+                        <i class="fas fa-code-branch"></i>
+                        {{ version }}
+                    </span>
+                    {% if firmware_version %}
+                    <span class="context-badge">
+                        <i class="fas fa-microchip"></i>
+                        FW {{ firmware_version }}
+                    </span>
+                    {% endif %}
+                </div>
+                <div class="context-summary">
+                    <h2><i class="fas fa-sliders-h"></i> {{ control_config.sidebar_title }}</h2>
+                    <p class="context-description">{{ control_config.sidebar_description }}</p>
+                    <div class="context-stats">
+                        {% block control_sidebar_stats %}
+                        <div class="context-stat">
+                            <span class="stat-label">Sorties</span>
+                            <span class="stat-value">{{ control_config.outputs_count|default(0) }}</span>
+                        </div>
+                        <div class="context-stat">
+                            <span class="stat-label">Board</span>
+                            <span class="stat-value">{{ board }}</span>
+                        </div>
+                        {% endblock %}
+                    </div>
+                </div>
+            </section>
+            <section class="boards-status">
+                <h3><i class="fas fa-satellite-dish"></i> Connexion</h3>
+                <div class="boards-grid">
+                    <article class="board-card" data-board="{{ board }}">
+                        <header>
+                            <span class="board-title"><i class="fas fa-microchip"></i> Board {{ board }}</span>
+                            <span class="board-last">Dernière requête : <span class="last-request-time">{{ last_board_request|default('N/A') }}</span></span>
+                        </header>
+                    </article>
+                </div>
+            </section>
+        </aside>
+
+        <section class="control-main panel">
+            <header class="control-main-header">
+                <div class="header-left">
+                    <h1><i class="fas {{ control_config.icon }}"></i> {{ control_config.main_title }}</h1>
+                    <p>{{ control_config.main_description }}</p>
+                    <div class="callout callout-warning">
+                        <i class="fas fa-triangle-exclamation"></i>
+                        <span>Les commandes agissent sur le système physique. Vérifiez sur site avant d'activer les sorties.</span>
+                    </div>
+                </div>
+            </header>
+
+            {% block outputs_section %}{% endblock %}
+
+            <section class="quick-actions panel">
+                <h3><i class="fas fa-bolt"></i> Actions rapides</h3>
+                <div class="quick-actions-grid">
+                    {% block quick_actions_links %}
+                    <a href="{{ base_path|default('') }}/" class="quick-action-card"><i class="fas fa-home"></i> Accueil</a>
+                    {% endblock %}
+                </div>
+            </section>
+        </section>
+
+        {% block control_footer %}
+        <footer id="footer">
+            <div class="footer-badges">
+                <span class="footer-badge"><i class="fas fa-globe"></i> {{ environment }}</span>
+                <span class="footer-badge"><i class="fas fa-code-branch"></i> {{ version }}</span>
+                {% if firmware_version %}<span class="footer-badge"><i class="fas fa-microchip"></i> FW {{ firmware_version }}</span>{% endif %}
+            </div>
+            <p style="margin:0;">{{ control_config.sidebar_title }} | n3 IoT | &copy; 2025 olution</p>
+        </footer>
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block scripts %}
+    <script>
+        window.CONTROL_API_BASE = '{{ base_path|default("") }}{{ outputs_api_base|default(control_config.default_api_base) }}';
+    </script>
+    <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+    <script src="{{ base_path }}/assets/js/control-sync.js"></script>
+    <script src="{{ base_path }}/assets/js/control-values-updater.js"></script>
+    <script src="{{ base_path }}/assets/js/control-actions.js"></script>
+    <script src="{{ base_path }}/assets/js/control-auto-save.js"></script>
+    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+
+    {% block control_scripts %}{% endblock %}
+{% endblock %}

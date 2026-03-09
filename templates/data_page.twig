@@ -1,0 +1,181 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/common-data.css" />
+{% endblock %}
+
+{% block head_scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+{% endblock %}
+
+{% block styles %}
+    {% block extra_styles %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+    {% include 'partials/_hero_data.twig' with {
+        hero_title: data_config.hero_title,
+        hero_icon: data_config.hero_icon,
+        hero_subtitle: data_config.hero_subtitle,
+        hero_synthesis: data_config.hero_synthesis|default(
+            '📊 Synthèse du ' ~ start_date|date('d/m/Y H:i') ~ ' au ' ~ end_date|date('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' mesures — ' ~ duration_str
+        )
+    } %}
+
+    <article class="post featured">
+        {% if latest %}
+            <div class="section-header" style="flex-wrap: wrap; gap: 10px;">
+                <i class="fas fa-chart-line"></i>
+                <h3>Dernière mesure</h3>
+            </div>
+            <div class="stats-grid">
+                {% for sensor in sensors_config %}
+                    {% if sensor.loop is defined %}
+                        {# Capteurs générés par boucle (ex: Humid1..4) #}
+                        {% for i in sensor.loop.from..sensor.loop.to %}
+                            {% set col = sensor.loop.prefix ~ i %}
+                            {% if latest[col] is defined and latest[col] is not null %}
+                            <div class="stat-card {{ sensor.class|default('') }}">
+                                <i class="fas {{ sensor.icon }} stat-card-icon"></i>
+                                <div class="stat-card-label">{{ sensor.loop.label_prefix }} {{ i }}</div>
+                                <div class="stat-card-value"><span data-sensor="{{ col }}" data-decimals="{{ sensor.decimals|default(0) }}">{{ latest[col]|number_format(sensor.decimals|default(0)) }}</span>{% if sensor.unit %} <span class="stat-card-unit">{{ sensor.unit }}</span>{% endif %}</div>
+                                {% set lc = (sensor.loop.prefix|lower) ~ i %}
+                                <div class="stat-card-secondary">Moy: {{ attribute(_context, 'avg_' ~ lc) is defined and attribute(_context, 'avg_' ~ lc) ? attribute(_context, 'avg_' ~ lc)|number_format(sensor.decimals|default(0)) : '-' }}{{ sensor.unit_suffix|default('') }} | Min: {{ attribute(_context, 'min_' ~ lc) is defined and attribute(_context, 'min_' ~ lc) ? attribute(_context, 'min_' ~ lc)|number_format(sensor.decimals|default(0)) : '-' }}{{ sensor.unit_suffix|default('') }} | Max: {{ attribute(_context, 'max_' ~ lc) is defined and attribute(_context, 'max_' ~ lc) ? attribute(_context, 'max_' ~ lc)|number_format(sensor.decimals|default(0)) : '-' }}{{ sensor.unit_suffix|default('') }}</div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {# Capteur simple #}
+                        {% if latest[sensor.key] is defined and latest[sensor.key] is not null %}
+                        <div class="stat-card {{ sensor.class|default('') }}">
+                            <i class="fas {{ sensor.icon }} stat-card-icon"></i>
+                            <div class="stat-card-label">{{ sensor.label }}</div>
+                            <div class="stat-card-value"><span data-sensor="{{ sensor.key }}" data-decimals="{{ sensor.decimals|default(0) }}">{{ latest[sensor.key]|number_format(sensor.decimals|default(0)) }}</span>{% if sensor.unit %} <span class="stat-card-unit">{{ sensor.unit }}</span>{% endif %}</div>
+                            {% if sensor.no_stats is not defined or not sensor.no_stats %}
+                                {% set lc = sensor.stats_key|default(sensor.key[:1]|lower ~ sensor.key[1:]) %}
+                                <div class="stat-card-secondary">Moy: {{ attribute(_context, 'avg_' ~ lc) is defined and attribute(_context, 'avg_' ~ lc) ? attribute(_context, 'avg_' ~ lc)|number_format(sensor.decimals|default(0)) : '-' }}{{ sensor.unit_suffix|default('') }} | Min: {{ attribute(_context, 'min_' ~ lc) is defined and attribute(_context, 'min_' ~ lc) ? attribute(_context, 'min_' ~ lc)|number_format(sensor.decimals|default(0)) : '-' }}{{ sensor.unit_suffix|default('') }} | Max: {{ attribute(_context, 'max_' ~ lc) is defined and attribute(_context, 'max_' ~ lc) ? attribute(_context, 'max_' ~ lc)|number_format(sensor.decimals|default(0)) : '-' }}{{ sensor.unit_suffix|default('') }}</div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% if latest.sensor is defined %}<p style="font-size:0.9em;color:#7f8c8d;">Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}</p>{% endif %}
+        {% else %}
+            <div class="no-data"><i class="fas fa-database" style="font-size:2em;margin-bottom:10px;color:#bbb;"></i><br>Aucune donnée enregistrée.</div>
+        {% endif %}
+
+        {% if measure_count > 0 %}
+        <div class="section-header">
+            <i class="fas fa-chart-area"></i>
+            <h3>Graphiques</h3>
+        </div>
+        {% for chart in charts_config %}
+        <div class="chart-container">
+            <p class="chart-container-title"><i class="fas {{ chart.icon }}"></i> {{ chart.title }}</p>
+            <div id="{{ chart.id }}" style="min-height:{{ chart.height|default('350px') }};"></div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <div class="filter-section">
+            <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
+            <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}">
+                {{ csrf_field|raw }}
+                <div>
+                    <label for="start_datetime">Début</label>
+                    <input type="datetime-local" id="start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d\\TH:i') }}">
+                </div>
+                <div>
+                    <label for="end_datetime">Fin</label>
+                    <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d\\TH:i') }}">
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Afficher</button>
+                <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-download"></i> CSV</button>
+            </form>
+            <div class="quick-filters">
+                <span class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</span>
+                <span class="quick-filter-btn" onclick="setPeriod(3,'h')">3h</span>
+                <span class="quick-filter-btn" onclick="setPeriod(6,'h')">6h</span>
+                <span class="quick-filter-btn" onclick="setPeriod(12,'h')">12h</span>
+                <span class="quick-filter-btn" onclick="setPeriod(1,'d')">1 jour</span>
+                <span class="quick-filter-btn" onclick="setPeriod(7,'d')">1 sem</span>
+                <span class="quick-filter-btn" onclick="setPeriod(30,'d')">1 mois</span>
+            </div>
+            <div class="period-info">
+                <span><i class="fas fa-database"></i> {{ measure_count }} mesures</span>
+                <span><i class="fas fa-clock"></i> {{ duration_str }}</span>
+            </div>
+        </div>
+
+        {% embed 'partials/_system_health_panel.twig' with { health_panel_title: 'État du système' } %}
+            {% block health_items %}
+                <div class="health-item">
+                    <div class="health-item-label">Firmware</div>
+                    <div class="health-item-value">v{{ firmware_version }}</div>
+                </div>
+                <div class="health-item">
+                    <div class="health-item-label">Serveur</div>
+                    <div class="health-item-value">{{ version }}</div>
+                </div>
+                <div class="health-item">
+                    <div class="health-item-label">Mesures affichées</div>
+                    <div class="health-item-value">{{ measure_count }}</div>
+                </div>
+                <div class="health-item">
+                    <div class="health-item-label">Environnement</div>
+                    <div class="health-item-value">{{ environment }}</div>
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+        {% block extra_sections %}{% endblock %}
+    </article>
+{% endblock %}
+
+{% block footer %}
+    <footer id="footer" style="text-align: center; padding: 1.5rem 2rem; margin-top: 2rem; color: #6c757d; font-size: 0.9em; border-top: 1px solid rgba(0,139,116,0.15); background: rgba(255,255,255,0.92);">
+        <div class="context-badges">
+            <span class="context-badge {{ environment == data_config.test_env ? 'context-badge-test' : 'context-badge-prod' }}"><i class="fas fa-globe"></i> {{ environment == data_config.test_env ? 'Environnement TEST' : 'Environnement production' }}</span>
+            <span class="context-badge"><i class="fas fa-database"></i> {{ data_config.table_label|default(environment) }}</span>
+            <span class="context-badge"><i class="fas fa-code-branch"></i> {{ version }}</span>
+            {% if firmware_version %}<span class="context-badge"><i class="fas fa-microchip"></i> Firmware v{{ firmware_version }}</span>{% endif %}
+        </div>
+        <p style="margin:0;">{{ data_config.footer_text }} | n3 IoT | &copy; 2025 olution</p>
+    </footer>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
+    <script>
+    var reading_time = {{ reading_time|json_encode|raw }};
+    {% for col in chart_columns %}
+    var {{ col }} = {{ attribute(_context, col)|json_encode|raw }};
+    {% endfor %}
+    </script>
+
+    {% block chart_js %}{% endblock %}
+
+    <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-updater-generic.js"></script>
+    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+    {% if measure_count > 0 %}
+    {% include 'partials/_chart_init_js.twig' with {
+        chart_ids_json: chart_ids_json,
+        chart_debug: true,
+        sensor_map_json: sensor_map_json
+    } %}
+    {% endif %}
+    {% include 'partials/_realtime_init_js.twig' with {
+        realtime_api_base: realtime_api_base,
+        poll_interval: 15000,
+        base_path: base_path|default('')
+    } %}
+{% endblock %}
