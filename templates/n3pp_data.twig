@@ -143,8 +143,8 @@
                         <div class="stat-card humidity">
                             <i class="fas fa-seedling stat-card-icon"></i>
                             <div class="stat-card-label">Humid. sol moy.</div>
-                            <div class="stat-card-value"><span data-sensor="HumidMoy" data-decimals="0">{{ latest.HumidMoy|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
-                            <div class="stat-card-secondary">Moy: {{ avg_humidMoy is defined and avg_humidMoy ? avg_humidMoy|number_format(0) : '-' }}% | Min: {{ min_humidMoy is defined and min_humidMoy ? min_humidMoy|number_format(0) : '-' }}% | Max: {{ max_humidMoy is defined and max_humidMoy ? max_humidMoy|number_format(0) : '-' }}%</div>
+                            <div class="stat-card-value"><span data-sensor="HumidMoy" data-decimals="0">{{ latest.HumidMoy|number_format(0) }}</span> <span class="stat-card-unit">UA</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_humidMoy is defined and avg_humidMoy ? avg_humidMoy|number_format(0) : '-' }} UA | Min: {{ min_humidMoy is defined and min_humidMoy ? min_humidMoy|number_format(0) : '-' }} UA | Max: {{ max_humidMoy is defined and max_humidMoy ? max_humidMoy|number_format(0) : '-' }} UA</div>
                         </div>
                         {% endif %}
                         {% for i in 1..4 %}
@@ -153,9 +153,9 @@
                         <div class="stat-card humidity">
                             <i class="fas fa-droplet stat-card-icon"></i>
                             <div class="stat-card-label">Humid. sol {{ i }}</div>
-                            <div class="stat-card-value"><span data-sensor="{{ col }}" data-decimals="0">{{ latest[col]|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-value"><span data-sensor="{{ col }}" data-decimals="0">{{ latest[col]|number_format(0) }}</span> <span class="stat-card-unit">UA</span></div>
                             {% set lc = 'humid' ~ i %}
-                            <div class="stat-card-secondary">Moy: {{ attribute(_context, 'avg_' ~ lc) is defined and attribute(_context, 'avg_' ~ lc) ? attribute(_context, 'avg_' ~ lc)|number_format(0) : '-' }}% | Min: {{ attribute(_context, 'min_' ~ lc) is defined and attribute(_context, 'min_' ~ lc) ? attribute(_context, 'min_' ~ lc)|number_format(0) : '-' }}% | Max: {{ attribute(_context, 'max_' ~ lc) is defined and attribute(_context, 'max_' ~ lc) ? attribute(_context, 'max_' ~ lc)|number_format(0) : '-' }}%</div>
+                            <div class="stat-card-secondary">Moy: {{ attribute(_context, 'avg_' ~ lc) is defined and attribute(_context, 'avg_' ~ lc) ? attribute(_context, 'avg_' ~ lc)|number_format(0) : '-' }} UA | Min: {{ attribute(_context, 'min_' ~ lc) is defined and attribute(_context, 'min_' ~ lc) ? attribute(_context, 'min_' ~ lc)|number_format(0) : '-' }} UA | Max: {{ attribute(_context, 'max_' ~ lc) is defined and attribute(_context, 'max_' ~ lc) ? attribute(_context, 'max_' ~ lc)|number_format(0) : '-' }} UA</div>
                         </div>
                         {% endif %}
                         {% endfor %}
@@ -288,7 +288,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>#</th><th>Date</th><th>T°air</th><th>H%air</th><th>Lum.</th><th>H%moy</th><th>H%1</th><th>H%2</th><th>H%3</th><th>H%4</th><th>Pompe</th>
+                                <th>#</th><th>Date</th><th>T°air</th><th>H%air</th><th>Lum.</th><th>H UA moy</th><th>H UA 1</th><th>H UA 2</th><th>H UA 3</th><th>H UA 4</th><th>Pompe</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -350,13 +350,13 @@
     Highcharts.stockChart('chart-niveauxeaux', {
         rangeSelector: { enabled: false },
         title: { text: 'Humidité du sol' },
-        yAxis: [{ title: { text: 'Humidité (%)' }, opposite: false }],
+        yAxis: [{ title: { text: 'Humidité sol (UA)' }, opposite: false }],
         series: [
-            { name: 'Humid. moy.', data: zipSeries(HumidMoy), type: 'spline', color: '#27ae60', lineWidth: 3, tooltip: { valueSuffix: ' %' }},
-            { name: 'Humid. 1', data: zipSeries(Humid1), type: 'spline', color: '#3498db', dashStyle: 'Dash', tooltip: { valueSuffix: ' %' }},
-            { name: 'Humid. 2', data: zipSeries(Humid2), type: 'spline', color: '#2980b9', dashStyle: 'Dash', tooltip: { valueSuffix: ' %' }},
-            { name: 'Humid. 3', data: zipSeries(Humid3), type: 'spline', color: '#1abc9c', dashStyle: 'Dash', tooltip: { valueSuffix: ' %' }},
-            { name: 'Humid. 4', data: zipSeries(Humid4), type: 'spline', color: '#16a085', dashStyle: 'Dash', tooltip: { valueSuffix: ' %' }},
+            { name: 'Humid. moy.', data: zipSeries(HumidMoy), type: 'spline', color: '#27ae60', lineWidth: 3, tooltip: { valueSuffix: ' UA' }},
+            { name: 'Humid. 1', data: zipSeries(Humid1), type: 'spline', color: '#3498db', dashStyle: 'Dash', tooltip: { valueSuffix: ' UA' }},
+            { name: 'Humid. 2', data: zipSeries(Humid2), type: 'spline', color: '#2980b9', dashStyle: 'Dash', tooltip: { valueSuffix: ' UA' }},
+            { name: 'Humid. 3', data: zipSeries(Humid3), type: 'spline', color: '#1abc9c', dashStyle: 'Dash', tooltip: { valueSuffix: ' UA' }},
+            { name: 'Humid. 4', data: zipSeries(Humid4), type: 'spline', color: '#16a085', dashStyle: 'Dash', tooltip: { valueSuffix: ' UA' }},
             { name: 'État pompe', data: zipSeries(etatPompe), type: 'column', color: '#008B74', opacity: 0.5 },
             { name: 'Reset', data: zipSeries(resetMode), type: 'column', color: '#bdc3c7' }
         ],
