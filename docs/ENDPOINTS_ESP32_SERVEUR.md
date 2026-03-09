@@ -1,8 +1,8 @@
 # 🌐 Endpoints ESP32 ↔ Serveur - Configuration Complète
 
 **Version ESP32**: 11.205  
-**Version Serveur**: 11.36  
-**Date**: 15 Février 2026  
+**Version Serveur**: 5.0.74  
+**Date**: 9 Mars 2026  
 
 ---
 
@@ -54,7 +54,7 @@ http://iot.olution.info/ffp3/api/outputs-test/state
 
 **Fichier serveur**:
 ```
-/path/to/ffp3/public/index.php  ← Route Slim Framework
+public/index.php (front controller Slim 4)  ← Route Slim Framework
   └─> OutputController::getOutputsState()
 ```
 
@@ -101,7 +101,7 @@ Le serveur doit répondre au POST dans le délai client (18 s) pour éviter time
 
 - **sensor**, **version** : tronqués à 30 caractères (taille colonne BDD).
 - **mail**, **mailNotif** : tronqués à 255 caractères avant insertion (évite erreur SQL si colonnes VARCHAR(255)).  
-  Fichier : `ffp3/src/Controller/PostDataController.php`.
+  Fichier : `src/Controller/Ffp3/PostDataController.php` (relatif à la racine du dépôt serveur).
 
 ### Timestamp et signature HMAC (optionnel)
 
