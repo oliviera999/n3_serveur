@@ -24,8 +24,6 @@
         .msg-toast.success { background: #008B74; }
         .msg-toast.error { background: #e74c3c; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .btn-delete-output { padding: 6px 10px; border: 1px solid rgba(231,76,60,0.4); border-radius: 8px; background: rgba(231,76,60,0.1); color: #e74c3c; cursor: pointer; font-size: 0.9em; }
-        .btn-delete-output:hover { background: rgba(231,76,60,0.2); }
         .parameter-item-switch { display: flex; flex-direction: column; gap: 6px; }
         .parameter-item-switch .modern-switch { flex-shrink: 0; }
         .parameter-item-hint { font-size: 0.82em; color: #7f8c8d; }
@@ -122,7 +120,6 @@
                                         <input type="checkbox" onchange="updateOutput(this)" id="output-{{ output.id }}" data-id="{{ output.id }}" data-gpio="{{ output.gpio }}" {{ output.state == '1' ? 'checked' : '' }} role="switch" aria-checked="{{ output.state == '1' ? 'true' : 'false' }}" aria-label="{{ output.name|default('GPIO ' ~ output.gpio) }}">
                                         <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
                                     </label>
-                                    <button type="button" class="btn-delete-output" onclick="deleteOutput({{ output.id }})" title="Supprimer cette sortie" aria-label="Supprimer"> <i class="fas fa-trash-alt"></i> </button>
                                 </footer>
                             </article>
                             {% endfor %}
@@ -140,12 +137,13 @@
                                     <span>Mail</span>
                                     <input type="text" name="mail" id="mail" value="{{ params.mail|default('')|e('html_attr') }}" placeholder="email@exemple.com">
                                 </label>
-                                <label class="parameter-item">
+                                <label class="parameter-item parameter-item-switch">
                                     <span>Notification par mail</span>
-                                    <select name="mailNotif" id="mailNotif">
-                                        <option value="checked" {{ params.mailNotif|default('') == 'checked' ? 'selected' : '' }}>oui</option>
-                                        <option value="false" {{ params.mailNotif|default('') != 'checked' ? 'selected' : '' }}>non</option>
-                                    </select>
+                                    <label class="modern-switch" title="Activer/désactiver les notifications par mail">
+                                        <input type="checkbox" id="mailNotif" {{ params.mailNotif|default('') == 'checked' ? 'checked' : '' }} role="switch" aria-label="Notification par mail">
+                                        <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                                    </label>
+                                    <span class="parameter-item-hint">{{ params.mailNotif|default('') == 'checked' ? 'Activé' : 'Désactivé' }}</span>
                                 </label>
                                 <label class="parameter-item">
                                     <span>Limite de sécheresse (SeuilSec)</span>
@@ -226,23 +224,6 @@
                 });
         };
 
-        window.deleteOutput = function(id) {
-            if (!confirm('Supprimer cette sortie ?')) return;
-            fetch(actionUrl + '?action=output_delete&id=' + encodeURIComponent(id), { method: 'GET', headers: { 'Accept': 'application/json' } })
-                .then(function(r) { return r.json(); })
-                .then(function(data) {
-                    if (data.success) {
-                        showToast('Sortie supprimée', 'success');
-                        setTimeout(function() { window.location.reload(); }, 800);
-                    } else {
-                        showToast(data.error || 'Erreur', 'error');
-                    }
-                })
-                .catch(function() {
-                    showToast('Erreur réseau', 'error');
-                });
-        };
-
         function showToast(msg, type) {
             var t = document.getElementById('msg-toast');
             if (!t) return;
@@ -259,6 +240,8 @@
             var data = new URLSearchParams(new FormData(form));
             var wakeUpEl = document.getElementById('WakeUp');
             if (wakeUpEl) data.set('WakeUp', wakeUpEl.checked ? '1' : '0');
+            var mailNotifEl = document.getElementById('mailNotif');
+            if (mailNotifEl) data.set('mailNotif', mailNotifEl.checked ? 'checked' : 'false');
             if (btn) btn.disabled = true;
 
             fetch(actionUrl, { method: 'POST', body: data, headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' } })

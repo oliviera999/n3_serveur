@@ -76,10 +76,16 @@
         .data-table-wrap tr:hover { background: #f8f9fa; }
         .data-table-wrap { max-height: 500px; overflow-y: auto; }
         .no-data { text-align: center; padding: 50px 20px; color: #7f8c8d; background: white; border-radius: 16px; }
-        .iframes-section { margin: 20px 0; }
-        .iframes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
-        .iframe-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 16px rgba(0,139,116,0.08); }
-        .iframe-card iframe { width: 100%; height: 350px; border: none; }
+        .msp-sheets-section { margin: 20px 0; }
+        .msp-sheets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px; max-width: 800px; margin: 0 auto; }
+        .msp-sheet-card { background: #f8f9fa; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #e0e0e0; width: 100%; }
+        .msp-sheet-card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,139,116,0.2); }
+        .msp-sheet-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; padding-bottom: 12px; border-bottom: 2px solid #008B74; }
+        .msp-sheet-card-header i { font-size: 1.5em; color: #008B74; }
+        .msp-sheet-card-title { font-size: 1.2em; font-weight: bold; color: #2c3e50; margin: 0; }
+        .msp-sheet-card-container { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1) inset; }
+        .msp-sheet-card-container iframe { width: 100%; height: 400px; border: none; display: block; }
+        @media (max-width: 768px) { .msp-sheets-grid { grid-template-columns: 1fr; } .msp-sheet-card-container iframe { height: 350px; } }
         #footer { text-align: center; padding: 1.5rem 2rem; margin-top: 2rem; color: #6c757d; font-size: 0.9em; border-top: 1px solid rgba(0,139,116,0.15); background: rgba(255,255,255,0.92); }
         .context-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 1rem; }
         .context-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 0.82em; font-weight: 600; background: rgba(0,0,0,0.05); color: #666; border: 1px solid rgba(0,0,0,0.1); }
@@ -278,15 +284,19 @@
                     <i class="fas fa-flask"></i>
                     <h3>Mesures manuelles</h3>
                 </div>
-                <div class="iframes-grid">
-                    <div class="iframe-card">
-                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQR_cBafylH_-wpVrB2tBR4KmpO3TXn50OlaFQpDnSP3YuhDbNUhqIprunoNK3UKGTavwAi4c8Ga2M3/pubchart?oid=209032696&format=interactive" loading="lazy"></iframe>
-                    </div>
-                    <div class="iframe-card">
-                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQR_cBafylH_-wpVrB2tBR4KmpO3TXn50OlaFQpDnSP3YuhDbNUhqIprunoNK3UKGTavwAi4c8Ga2M3/pubchart?oid=699943208&format=interactive" loading="lazy"></iframe>
-                    </div>
-                    <div class="iframe-card">
-                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQR_cBafylH_-wpVrB2tBR4KmpO3TXn50OlaFQpDnSP3YuhDbNUhqIprunoNK3UKGTavwAi4c8Ga2M3/pubchart?oid=1338338691&format=interactive" loading="lazy"></iframe>
+                <div class="msp-sheets-section">
+                    <div class="msp-sheets-grid">
+                        <div class="msp-sheet-card">
+                            <div class="msp-sheet-card-header">
+                                <i class="fas fa-chart-line"></i>
+                                <h3 class="msp-sheet-card-title">Graphique des mesures</h3>
+                            </div>
+                            <div class="msp-sheet-card-container">
+                                <iframe seamless scrolling="no" loading="lazy"
+                                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT5i0I15n-Nef5J1LlY-MGYkPNQtmyzJJ08yObEc4dI_YCQrHFyEwxBx6vmwX-6MnqHwHVzDvupD_Qv/pubchart?oid=583144182&amp;format=interactive">
+                                </iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
