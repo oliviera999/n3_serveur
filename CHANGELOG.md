@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -296,6 +302,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -610,6 +622,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -923,6 +941,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -1236,6 +1260,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -1558,6 +1588,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -1873,6 +1909,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -2188,6 +2230,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -2504,6 +2552,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -2819,6 +2873,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -3136,6 +3196,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -3451,6 +3517,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -3766,6 +3838,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -4081,6 +4159,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -4397,6 +4481,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -4710,6 +4800,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -5028,6 +5124,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -5341,6 +5443,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -5657,6 +5765,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -5971,6 +6085,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -6287,6 +6407,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -6603,6 +6729,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -6918,6 +7050,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -7235,6 +7373,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -7549,6 +7693,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -7864,6 +8014,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -8180,6 +8336,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -8496,6 +8658,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -8810,6 +8978,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -9125,6 +9299,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -9442,6 +9622,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -9758,6 +9944,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -10073,6 +10265,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -10388,6 +10586,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -10703,6 +10907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -11018,6 +11228,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -11332,6 +11548,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -11646,6 +11868,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -11960,6 +12188,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -12274,6 +12508,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -12589,6 +12829,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -12908,6 +13154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -13227,6 +13479,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -13539,6 +13797,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -13851,6 +14115,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -14163,6 +14433,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -14475,6 +14751,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -14787,6 +15069,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -15099,6 +15387,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -15428,6 +15722,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -15747,6 +16047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -16064,6 +16370,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -16382,6 +16694,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -16704,6 +17022,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -17038,6 +17362,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -17354,6 +17684,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -17672,6 +18008,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -17990,6 +18332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -18305,6 +18653,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -18623,6 +18977,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -18938,6 +19298,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -19252,6 +19618,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -19567,6 +19939,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -19892,6 +20270,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -20214,6 +20598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -20544,6 +20934,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -20878,6 +21274,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -21202,6 +21604,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -21518,6 +21926,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -21836,6 +22250,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -22153,6 +22573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -22470,6 +22896,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -22785,6 +23217,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -23100,6 +23538,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -23417,6 +23861,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -23733,6 +24183,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -24051,6 +24507,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -24374,6 +24836,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -24701,6 +25169,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -25024,6 +25498,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -25349,6 +25829,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -25673,6 +26159,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -25992,6 +26484,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -26307,6 +26805,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -26626,6 +27130,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -26942,6 +27452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -27257,6 +27773,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -27572,6 +28094,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -27889,6 +28417,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -28206,6 +28740,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -28522,6 +29062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -28838,6 +29384,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -29153,6 +29705,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -29468,6 +30026,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -29783,6 +30347,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -30100,6 +30670,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -30417,6 +30993,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -30732,6 +31314,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -31047,6 +31635,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -31362,6 +31956,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -31678,6 +32278,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -31996,6 +32602,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -32321,6 +32933,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -32640,6 +33258,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -32966,6 +33590,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -33290,6 +33920,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -33605,6 +34241,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -33953,6 +34595,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -34272,6 +34920,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -34600,6 +35254,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -34938,6 +35598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -35266,6 +35932,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -35584,6 +36256,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -35903,6 +36581,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -36228,6 +36912,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -36663,6 +37353,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -36982,6 +37678,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -37299,6 +38001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -37617,6 +38325,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -37936,6 +38650,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -38254,6 +38974,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -38574,6 +39300,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -38893,6 +39625,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -39334,6 +40072,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -39652,6 +40396,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -39970,6 +40720,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -40336,6 +41092,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -40663,6 +41425,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -40990,6 +41758,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -41354,6 +42128,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -41729,6 +42509,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -42061,6 +42847,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -42394,6 +43186,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -42717,6 +43515,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -43046,6 +43850,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -43379,6 +44189,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -43710,6 +44526,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -44032,6 +44854,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -44366,6 +45194,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -44732,6 +45566,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -45053,6 +45893,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -45375,6 +46221,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -45696,6 +46548,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -46022,6 +46880,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -46354,6 +47218,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -46684,6 +47554,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -47012,6 +47888,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -47335,6 +48217,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -47659,6 +48547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -47994,6 +48888,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -48328,6 +49228,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -48665,6 +49571,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -49018,6 +49930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -49401,6 +50319,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -49725,6 +50649,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -50048,6 +50978,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -50381,6 +51317,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -50704,6 +51646,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -51031,6 +51979,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -51351,6 +52305,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -51673,6 +52633,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -51987,6 +52953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -52341,6 +53313,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -52667,6 +53645,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -53015,6 +53999,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -53345,6 +54335,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -53671,6 +54667,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -54003,6 +55005,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -54357,6 +55365,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -54696,6 +55710,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -55089,6 +56109,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -55419,6 +56445,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -55751,6 +56783,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -56094,6 +57132,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -56430,6 +57474,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -56753,6 +57803,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -57076,6 +58132,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -57401,6 +58463,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -57797,6 +58865,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -58141,6 +59215,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -58499,6 +59579,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -58845,6 +59931,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -59195,6 +60287,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -59513,6 +60611,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -59883,6 +60987,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -60217,6 +61327,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -60538,6 +61654,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -60909,6 +62031,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -61259,6 +62387,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -61642,6 +62776,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -61963,6 +63103,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -62343,6 +63489,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -62661,6 +63813,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -62978,6 +64136,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -63299,6 +64463,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -63620,6 +64790,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -63986,6 +65162,12 @@ docs/
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -64375,6 +65557,12 @@ docs/
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -64698,6 +65886,12 @@ docs/
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -65055,6 +66249,12 @@ docs/
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -65377,6 +66577,12 @@ docs/
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -65721,6 +66927,12 @@ docs/
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -66041,6 +67253,12 @@ docs/
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -66550,6 +67768,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -66893,6 +68117,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -67263,6 +68493,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -67619,6 +68855,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -67961,6 +69203,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -68310,6 +69558,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -68651,6 +69905,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -68981,6 +70241,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -69303,6 +70569,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -69641,6 +70913,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -69963,6 +71241,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -70285,6 +71569,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -70609,6 +71899,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -70951,6 +72247,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig
@@ -71267,6 +72569,12 @@ ance future
 
 ---
 
+## [5.0.68] - 2026-03-09
+
+### Modifié - correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance
+- **Résumé** : correction liens navigation (vers /meteo /serre), pollInterval n3pp_control, suppression scripts maintenance.
+
+---
 ## [5.0.67] - 2026-03-09
 
 ### Modifié - ajout fichiers manquants : AbstractOutputController, AbstractPostDataController, _stat_cards.twig, _chart_init_js.twig

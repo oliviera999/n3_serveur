@@ -364,7 +364,7 @@
 
         window.controlSync = new ControlSync({
             apiBase: apiBase,
-            pollInterval: 10000,
+            pollInterval: 10,
             useFresh: true,
             onStatesReceived: function(states) {
                 if (window.controlValuesUpdater && typeof window.controlValuesUpdater.updateParameters === 'function') {
