@@ -174,11 +174,11 @@ class RealtimeUpdater {
     }
 
     /**
-     * Met à jour le badge de statut
+     * Met à jour le badge de statut (optionnel : absent sur pages n3pp/msp1).
      */
     updateBadge(status) {
         const badge = document.getElementById('live-badge');
-        if (!badge) return;
+        if (!badge) return; // Pas d'erreur si le bloc temps réel a été retiré
 
         const statusConfig = {
             connecting: { text: 'CONNEXION...', class: 'badge-warning', icon: 'fa-spinner fa-spin' },
@@ -196,7 +196,7 @@ class RealtimeUpdater {
     }
 
     /**
-     * Met à jour les informations système dans l'UI
+     * Met à jour les informations système dans l'UI (bloc optionnel : absent sur n3pp/msp1).
      */
     updateSystemStatus(health) {
         // Dernière réception

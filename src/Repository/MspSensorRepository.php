@@ -131,6 +131,16 @@ class MspSensorRepository extends AbstractRepository
         return (int) ($this->fetchScalar($sql) ?? 0);
     }
 
+    /** Nombre de lectures reçues aujourd'hui (pour API temps réel / health). */
+    public function countReadingsToday(): int
+    {
+        $sql = "SELECT COUNT(*) FROM `" . self::table() . "` WHERE reading_time >= :start AND reading_time <= :end";
+        return (int) ($this->fetchScalar($sql, [
+            ':start' => date('Y-m-d 00:00:00'),
+            ':end' => date('Y-m-d 23:59:59'),
+        ]) ?? 0);
+    }
+
     /** Version firmware de la dernière mesure. */
     public function getFirmwareVersion(): string
     {

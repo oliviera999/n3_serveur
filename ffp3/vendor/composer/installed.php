@@ -3,7 +3,7 @@
         'name' => 'olution/ffp3datas',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '0181d5e91cc1ececfabc675476ba941c9c77b5b0',
+        'reference' => 'bec7163014fc7dbd3d4e0cea3a7be250bfce54bb',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -121,7 +121,7 @@
         'olution/ffp3datas' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '0181d5e91cc1ececfabc675476ba941c9c77b5b0',
+            'reference' => 'bec7163014fc7dbd3d4e0cea3a7be250bfce54bb',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="theme-color" content="#008B74" />
     <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css" />
-    <link rel="stylesheet" href="{{ base_path }}/assets/css/realtime-styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
     <link rel="shortcut icon" type="image/png" href="{{ base_path }}/assets/logo.png"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -19,7 +18,7 @@
         .modern-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23g)"/></svg>'); opacity: 0.2; }
         .header-content { position: relative; z-index: 2; text-align: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .header-title { font-size: 2.2em; font-weight: bold; margin: 0 0 12px 0; text-shadow: 0 1px 2px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; gap: 15px; }
-        .header-subtitle { font-size: 1.1em; margin: 0; opacity: 0.9; font-weight: 300; }
+        .header-subtitle { font-size: 1.1em; margin: 0; opacity: 0.9; font-weight: 300; text-align: center; }
         .header-synthesis { display: inline-block; font-size: 0.92em; margin: 12px 0 0 0; padding: 8px 16px; background: rgba(255,255,255,0.18); border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); color: white; }
         .section-header { display: flex; align-items: center; gap: 16px; margin: 35px 0 18px 0; padding-bottom: 10px; border-bottom: 3px solid #008B74; position: relative; }
         .section-header::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 60px; height: 3px; background: #00B794; border-radius: 2px; }
@@ -90,7 +89,7 @@
         <header id="header">
             <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
         </header>
-        {% include 'partials/_nav.twig' ignore missing with { nav_active: 'elevage', environment: environment|default('prod') } %}
+        {% include 'partials/_nav.twig' with { nav_active: 'elevage', environment: environment|default('prod'), base_path: base_path|default('') } %}
 
         <div id="main">
             {# ===== HERO ===== #}
@@ -112,7 +111,6 @@
                     <div class="section-header" style="flex-wrap: wrap; gap: 10px;">
                         <i class="fas fa-chart-line"></i>
                         <h3>Dernière mesure</h3>
-                        <span id="live-badge" class="badge badge-secondary" style="margin-left: auto;"><i class="fas fa-circle"></i> LIVE</span>
                     </div>
                     <div class="stats-grid">
                         {% if latest.TempAir is defined and latest.TempAir is not null %}
@@ -168,35 +166,6 @@
                         {% endif %}
                     </div>
                     {% if latest.sensor is defined %}<p style="font-size:0.9em;color:#7f8c8d;">Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}</p>{% endif %}
-
-                    {# Panneau temps réel : dernière réception, lectures aujourd'hui, bouton Rafraîchir #}
-                    <div class="system-health-panel" style="margin-top: 20px;">
-                        <h3><i class="fas fa-heartbeat"></i> Temps réel</h3>
-                        <div class="health-grid">
-                            <div class="health-item">
-                                <div class="health-item-label">Dernière réception</div>
-                                <div class="health-item-value" id="last-reading-time" data-default="pending">
-                                    <span class="reading-ago" data-reading-ago><i class="fas fa-spinner fa-spin"></i></span>
-                                    <span class="reading-timestamp" data-reading-timestamp style="display: none;"></span>
-                                </div>
-                            </div>
-                            <div class="health-item">
-                                <div class="health-item-label">Lectures aujourd'hui</div>
-                                <div class="health-item-value" id="readings-today" data-default="pending">
-                                    <span class="reading-count" data-reading-count><i class="fas fa-spinner fa-spin"></i></span>
-                                    <span class="reading-hint" data-reading-hint> / jour</span>
-                                </div>
-                            </div>
-                            <div class="health-item">
-                                <div class="health-item-label">Rafraîchir</div>
-                                <div class="health-item-value">
-                                    <button id="force-refresh-button" class="live-refresh-button" type="button">
-                                        <i class="fas fa-sync-alt"></i> Rafraîchir
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 {% else %}
                     <div class="no-data"><i class="fas fa-database" style="font-size:2em;margin-bottom:10px;color:#bbb;"></i><br>Aucune donnée enregistrée.</div>
                 {% endif %}

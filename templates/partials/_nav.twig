@@ -1,14 +1,12 @@
-{# Barre de navigation principale — partagée par toutes les pages (home, potager, élevage, aquaponie, supervision). #}
+{# Barre de navigation commune FFP3 / Dashboard / Contrôle #}
+{% set bp = base_path|default('') %}
 <nav id="nav">
     <ul class="links">
-        <li class="{{ nav_active|default('') == 'home' ? 'active' }}"><a href="{{ base_path }}/">Accueil</a></li>
-        <li class="{{ nav_active|default('') == 'potager' ? 'active' }}"><a href="{{ base_path }}/msp1/msp1datas/msp1-data.php">Potager</a></li>
-        <li class="{{ nav_active|default('') == 'potager_control' ? 'active' }}"><a href="{{ base_path }}/msp1/msp1control/">Potager Contrôle</a></li>
-        <li class="{{ nav_active|default('') == 'elevage' ? 'active' }}"><a href="{{ base_path }}/n3pp/n3ppdatas/n3pp-data.php">Élevage</a></li>
-        <li class="{{ nav_active|default('') == 'elevage_control' ? 'active' }}"><a href="{{ base_path }}/n3pp/n3ppcontrol/">Élevage Contrôle</a></li>
-        <li class="{{ nav_active|default('') == 'aquaponie' or nav_active|default('') == 'aquaponie_alt' ? 'active' }}"><a href="{{ base_path }}/aquaponie">Aquaponie</a></li>
-        <li class="{{ nav_active|default('') == 'control_ffp3' ? 'active' }}"><a href="{{ base_path }}/aquaponie-control">Contrôle FFP3</a></li>
-        <li class="{{ nav_active|default('') == 'caracteristiques' ? 'active' }}"><a href="{{ base_path }}/aquaponie-description">Caractéristiques</a></li>
-        <li class="{{ nav_active|default('') == 'supervision' ? 'active' }}"><a href="{{ base_path }}/supervision">Supervision</a></li>
+        <li class="{{ nav_active == 'home' ? 'active' }}"><a href="{{ bp }}/">Accueil</a></li>
+        <li class="{{ nav_active == 'aquaponie' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'aquaponie-test' : (environment == 'test3' ? 'aquamobile-test' : (environment == 's3' ? 'aquamobile' : 'aquaponie')) }}">Aquaponie</a></li>
+        <li class="{{ nav_active == 'control_ffp3' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'aquaponie-control-test' : (environment == 'test3' ? 'aquamobile-control-test' : (environment == 's3' ? 'aquamobile-control' : 'aquaponie-control')) }}">Contrôle</a></li>
+        <li class="{{ nav_active == 'tide_stats' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'tide-stats-test' : (environment == 'test3' ? 'tide-stats3-test' : (environment == 's3' ? 'tide-stats3' : 'tide-stats')) }}">Statistiques marées</a></li>
+        <li class="{{ nav_active == 'potager' or nav_active == 'potager_control' ? 'active' }}"><a href="{{ bp }}/msp1/msp1datas/msp1-data.php">Potager (MSP1)</a></li>
+        <li class="{{ nav_active == 'elevage' or nav_active == 'elevage_control' ? 'active' }}"><a href="{{ bp }}/n3pp/n3ppdatas/n3pp-data.php">Élevage (N3PP)</a></li>
     </ul>
 </nav>

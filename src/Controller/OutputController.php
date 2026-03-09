@@ -89,19 +89,23 @@ class OutputController
             return $response;
 
         } catch (\Throwable $e) {
-            // Log détaillé de l'erreur pour le debugging (error_log)
+            $errorId = substr(bin2hex(random_bytes(8)), 0, 12);
+            $ts = date('Y-m-d H:i:s');
+            // Log détaillé avec référence pour corrélation (error_log + format [n3 500] comme le middleware)
             error_log(sprintf(
-                "[%s] OutputController::showInterface ERROR: %s in %s:%d\nStack trace:\n%s",
-                date('Y-m-d H:i:s'),
+                "[%s] [n3 500] [%s] GET (aquaponie-control) OutputController::showInterface — %s: %s in %s:%d",
+                $ts,
+                $errorId,
+                $e::class,
                 $e->getMessage(),
                 $e->getFile(),
-                $e->getLine(),
-                $e->getTraceAsString()
+                $e->getLine()
             ));
-            
+            error_log(sprintf("[%s] [n3 500] [%s] Trace: %s", $ts, $errorId, $e->getTraceAsString()));
+
             // Message d'erreur selon l'environnement
             $isDevelopment = in_array($_ENV['ENV'] ?? 'prod', ['test', 'test3'], true) || (bool)($_ENV['DEBUG'] ?? false);
-            
+
             if ($isDevelopment) {
                 $errorMessage = sprintf(
                     "ERREUR OutputController: %s\nFichier: %s\nLigne: %d\n\nStack trace:\n%s",
@@ -111,9 +115,9 @@ class OutputController
                     $e->getTraceAsString()
                 );
             } else {
-                $errorMessage = "Une erreur serveur est survenue. Veuillez contacter l'administrateur.";
+                $errorMessage = "Une erreur serveur est survenue. Veuillez contacter l'administrateur.\n\nRéférence : " . $errorId . " (à indiquer en cas de signalement.)";
             }
-            
+
             return ResponseHelper::text($response, $errorMessage, 500);
         }
     }
