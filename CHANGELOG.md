@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -314,6 +320,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -646,6 +658,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -977,6 +995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -1308,6 +1332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -1648,6 +1678,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -1981,6 +2017,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -2314,6 +2356,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -2648,6 +2696,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -2981,6 +3035,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -3316,6 +3376,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -3649,6 +3715,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -3982,6 +4054,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -4315,6 +4393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -4649,6 +4733,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -4980,6 +5070,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -5316,6 +5412,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -5647,6 +5749,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -5981,6 +6089,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -6313,6 +6427,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -6647,6 +6767,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -6981,6 +7107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -7314,6 +7446,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -7649,6 +7787,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -7981,6 +8125,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -8314,6 +8464,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -8648,6 +8804,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -8982,6 +9144,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -9314,6 +9482,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -9647,6 +9821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -9982,6 +10162,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -10316,6 +10502,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -10649,6 +10841,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -10982,6 +11180,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -11315,6 +11519,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -11648,6 +11858,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -11980,6 +12196,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -12312,6 +12534,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -12644,6 +12872,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -12976,6 +13210,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -13309,6 +13549,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -13646,6 +13892,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -13983,6 +14235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -14313,6 +14571,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -14643,6 +14907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -14973,6 +15243,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -15303,6 +15579,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -15633,6 +15915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -15963,6 +16251,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -16310,6 +16604,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -16647,6 +16947,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -16982,6 +17288,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -17318,6 +17630,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -17658,6 +17976,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -18010,6 +18334,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -18344,6 +18674,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -18680,6 +19016,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -19016,6 +19358,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -19349,6 +19697,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -19685,6 +20039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -20018,6 +20378,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -20350,6 +20716,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -20683,6 +21055,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -21026,6 +21404,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -21366,6 +21750,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -21714,6 +22104,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -22066,6 +22462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -22408,6 +22810,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -22742,6 +23150,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -23078,6 +23492,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -23413,6 +23833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -23748,6 +24174,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -24081,6 +24513,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -24414,6 +24852,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -24749,6 +25193,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -25083,6 +25533,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -25419,6 +25875,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -25760,6 +26222,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -26105,6 +26573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -26446,6 +26920,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -26789,6 +27269,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -27131,6 +27617,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -27468,6 +27960,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -27801,6 +28299,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -28138,6 +28642,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -28472,6 +28982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -28805,6 +29321,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -29138,6 +29660,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -29473,6 +30001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -29808,6 +30342,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -30142,6 +30682,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -30476,6 +31022,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -30809,6 +31361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -31142,6 +31700,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -31475,6 +32039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -31810,6 +32380,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -32145,6 +32721,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -32478,6 +33060,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -32811,6 +33399,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -33144,6 +33738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -33478,6 +34078,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -33814,6 +34420,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -34157,6 +34769,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -34494,6 +35112,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -34838,6 +35462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -35180,6 +35810,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -35513,6 +36149,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -35879,6 +36521,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -36216,6 +36864,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -36562,6 +37216,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -36918,6 +37578,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -37264,6 +37930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -37600,6 +38272,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -37937,6 +38615,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -38280,6 +38964,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -38733,6 +39423,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -39070,6 +39766,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -39405,6 +40107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -39741,6 +40449,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -40078,6 +40792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -40414,6 +41134,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -40752,6 +41478,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -41089,6 +41821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -41548,6 +42286,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -41884,6 +42628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -42220,6 +42970,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -42604,6 +43360,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -42949,6 +43711,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -43294,6 +44062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -43676,6 +44450,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -44069,6 +44849,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -44419,6 +45205,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -44770,6 +45562,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -45111,6 +45909,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -45458,6 +46262,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -45809,6 +46619,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -46158,6 +46974,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -46498,6 +47320,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -46850,6 +47678,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -47234,6 +48068,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -47573,6 +48413,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -47913,6 +48759,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -48252,6 +49104,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -48596,6 +49454,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -48946,6 +49810,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -49294,6 +50164,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -49640,6 +50516,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -49981,6 +50863,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -50323,6 +51211,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -50676,6 +51570,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -51028,6 +51928,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -51383,6 +52289,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -51754,6 +52666,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -52155,6 +53073,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -52497,6 +53421,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -52838,6 +53768,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -53189,6 +54125,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -53530,6 +54472,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -53875,6 +54823,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -54213,6 +55167,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -54553,6 +55513,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -54885,6 +55851,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -55257,6 +56229,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -55601,6 +56579,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -55967,6 +56951,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -56315,6 +57305,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -56659,6 +57655,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -57009,6 +58011,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -57381,6 +58389,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -57738,6 +58752,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -58149,6 +59169,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -58497,6 +59523,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -58847,6 +59879,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -59208,6 +60246,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -59562,6 +60606,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -59903,6 +60953,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -60244,6 +61300,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -60587,6 +61649,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -61001,6 +62069,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -61363,6 +62437,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -61739,6 +62819,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -62103,6 +63189,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -62471,6 +63563,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -62807,6 +63905,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -63195,6 +64299,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -63547,6 +64657,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -63886,6 +65002,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -64275,6 +65397,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -64643,6 +65771,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -65044,6 +66178,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -65383,6 +66523,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -65781,6 +66927,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -66117,6 +67269,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -66452,6 +67610,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -66791,6 +67955,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -67130,6 +68300,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -67514,6 +68690,12 @@ docs/
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -67921,6 +69103,12 @@ docs/
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -68262,6 +69450,12 @@ docs/
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -68637,6 +69831,12 @@ docs/
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -68977,6 +70177,12 @@ docs/
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -69339,6 +70545,12 @@ docs/
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -69677,6 +70889,12 @@ docs/
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -70204,6 +71422,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -70565,6 +71789,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -70953,6 +72183,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -71327,6 +72563,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -71687,6 +72929,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -72054,6 +73302,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -72413,6 +73667,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -72761,6 +74021,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -73101,6 +74367,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -73457,6 +74729,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -73797,6 +75075,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -74137,6 +75421,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -74479,6 +75769,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -74839,6 +76135,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
@@ -75173,6 +76475,12 @@ ance future
 
 ---
 
+## [5.0.71] - 2026-03-09
+
+### Ajout - ajout fichiers abstraits et aquaponie
+- **Résumé** : ajout fichiers abstraits et aquaponie.
+
+---
 ## [5.0.70] - 2026-03-09
 
 ### Modifié - déploiement serveur
