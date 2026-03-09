@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Ffp3;
 
 use App\Config\Database;
+use App\Config\Paths;
 use App\Config\TableConfig;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
@@ -13,7 +14,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
- * Contrôleur pour le heartbeat ESP32
+ * Contrôleur pour le heartbeat ESP32 FFP3 (aquaponie)
  * Réception des battements de coeur (uptime, mémoire, reboot count)
  */
 class HeartbeatController
@@ -27,7 +28,7 @@ class HeartbeatController
     /**
      * POST /heartbeat (PROD) ou /heartbeat-test (TEST)
      * Réception battement de coeur de l'ESP32
-     * 
+     *
      * Champs attendus: uptime, free, min, reboots, crc
      * CRC32 calculé sur "uptime={uptime}&free={free}&min={min}&reboots={reboots}"
      */
@@ -77,7 +78,7 @@ class HeartbeatController
         // IP locale optionnelle : écriture dans un fichier (pas en BDD)
         $deviceIp = $this->sanitizeIp($get('ip'));
         if ($deviceIp !== '') {
-            $projectRoot = dirname(__DIR__, 2);
+            $projectRoot = Paths::getProjectRoot();
             $varDir = $projectRoot . '/var';
             if (!is_dir($varDir)) {
                 @mkdir($varDir, 0755, true);
@@ -89,16 +90,16 @@ class HeartbeatController
         // Insertion en base de données
         try {
             $pdo = Database::getConnection();
-            
+
             // Déterminer la table selon l'environnement
             $table = TableConfig::getHeartbeatTable();
             $env = TableConfig::getEnvironment();
-            
+
             $stmt = $pdo->prepare("
-                INSERT INTO {$table} (uptime, freeHeap, minHeap, reboots) 
+                INSERT INTO {$table} (uptime, freeHeap, minHeap, reboots)
                 VALUES (:uptime, :free, :min, :reboots)
             ");
-            
+
             $stmt->execute([
                 ':uptime' => (int)$uptime,
                 ':free' => (int)$free,
@@ -117,21 +118,21 @@ class HeartbeatController
         } catch (\Throwable $e) {
             $errorMessage = 'Heartbeat: Erreur insertion';
             $this->logger->error($errorMessage, ['error' => $e->getMessage()]);
-            
+
             // Enregistrer l'erreur pour détection répétée
             $this->errorAlert->recordError($errorMessage, [
                 'error' => $e->getMessage(),
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
             ]);
-            
+
             return ResponseHelper::text($response, 'Erreur serveur', 500);
         }
     }
 
     /**
      * Nettoie et sécurise une valeur POST numérique
-     * 
+     *
      * @param string $data Valeur à nettoyer
      * @return string Valeur nettoyée (chiffres uniquement)
      */
@@ -143,7 +144,7 @@ class HeartbeatController
 
     /**
      * Nettoie et sécurise une valeur POST string (pour CRC)
-     * 
+     *
      * @param string $data Valeur à nettoyer
      * @return string Valeur nettoyée
      */
@@ -168,4 +169,3 @@ class HeartbeatController
         return strlen($filtered) <= 45 ? $filtered : substr($filtered, 0, 45);
     }
 }
-

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Ffp3;
 
 use App\Config\Database;
 use App\Config\TableConfig;
@@ -18,8 +18,8 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
- * Contrôleur pour l'interface de contrôle des GPIO/outputs
- * 
+ * Contrôleur pour l'interface de contrôle des GPIO/outputs FFP3 (aquaponie)
+ *
  * Gère l'affichage et les actions (toggle, update) sur les outputs
  */
 class OutputController
@@ -130,28 +130,25 @@ class OutputController
 
     /**
      * API: Toggle un output (change son état)
+     * L'environnement est défini par EnvironmentMiddleware sur le groupe de routes.
      */
     public function toggleOutput(Request $request, Response $response): Response
     {
-        \App\Config\TableConfig::setEnvironment('prod');
         return $this->handleToggle($request, $response);
     }
 
     public function toggleOutputTest(Request $request, Response $response): Response
     {
-        \App\Config\TableConfig::setEnvironment('test');
         return $this->handleToggle($request, $response);
     }
 
     public function toggleOutputTest3(Request $request, Response $response): Response
     {
-        \App\Config\TableConfig::setEnvironment('test3');
         return $this->handleToggle($request, $response);
     }
 
     public function toggleOutputS3(Request $request, Response $response): Response
     {
-        \App\Config\TableConfig::setEnvironment('s3');
         return $this->handleToggle($request, $response);
     }
 
@@ -181,7 +178,7 @@ class OutputController
     public function updateParameters(Request $request, Response $response): Response
     {
         $payload = RequestHelper::extractParams($request);
-        
+
         // Gestion du format {param: ..., value: ...}
         if (isset($payload['param'])) {
             $payload = [$payload['param'] => $payload['value'] ?? null];
@@ -249,14 +246,14 @@ class OutputController
         if ($route === null) {
             return ResponseHelper::error($response, 'Route not found', 500);
         }
-        
+
         $routeParams = $route->getArguments();
         $boardNumber = $routeParams['board'] ?? null;
-        
+
         if (!$boardNumber) {
             return ResponseHelper::error($response, 'Board number required', 400);
         }
-        
+
         try {
             $status = $this->outputService->getBoardStatus($boardNumber);
 

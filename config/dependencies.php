@@ -221,8 +221,8 @@ return [
     // ====================================================================
     // CONTROLLERS (Définis explicitement pour éviter les problèmes d'autowiring)
     // ====================================================================
-    \App\Controller\OutputController::class => function (ContainerInterface $c) {
-        return new \App\Controller\OutputController(
+    \App\Controller\Ffp3\OutputController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Ffp3\OutputController(
             $c->get(\App\Service\OutputService::class),
             $c->get(\App\Service\TemplateRenderer::class),
             $c->get(\App\Repository\SensorReadRepository::class),
@@ -230,8 +230,8 @@ return [
         );
     },
 
-    \App\Controller\PostDataController::class => function (ContainerInterface $c) {
-        return new \App\Controller\PostDataController(
+    \App\Controller\Ffp3\PostDataController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Ffp3\PostDataController(
             $c->get(\App\Service\LogService::class),
             $c->get(\App\Service\ErrorAlertService::class),
             $c->get(\App\Service\OutputCacheService::class),
@@ -241,15 +241,15 @@ return [
         );
     },
 
-    \App\Controller\HeartbeatController::class => function (ContainerInterface $c) {
-        return new \App\Controller\HeartbeatController(
+    \App\Controller\Ffp3\HeartbeatController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Ffp3\HeartbeatController(
             $c->get(\App\Service\LogService::class),
             $c->get(\App\Service\ErrorAlertService::class)
         );
     },
 
-    \App\Controller\AquaponieController::class => function (ContainerInterface $c) {
-        return new \App\Controller\AquaponieController(
+    \App\Controller\Ffp3\AquaponieController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Ffp3\AquaponieController(
             $c->get(\App\Repository\SensorReadRepository::class),
             $c->get(\App\Service\StatisticsAggregatorService::class),
             $c->get(\App\Service\ChartDataService::class),
@@ -261,8 +261,8 @@ return [
         );
     },
 
-    \App\Controller\AquaponieDescriptionController::class => function (ContainerInterface $c) {
-        return new \App\Controller\AquaponieDescriptionController(
+    \App\Controller\Ffp3\AquaponieDescriptionController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Ffp3\AquaponieDescriptionController(
             $c->get(\App\Service\TemplateRenderer::class)
         );
     },
@@ -273,8 +273,8 @@ return [
         );
     },
 
-    \App\Controller\DashboardController::class => function (ContainerInterface $c) {
-        return new \App\Controller\DashboardController(
+    \App\Controller\Ffp3\DashboardController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Ffp3\DashboardController(
             $c->get(\App\Repository\SensorReadRepository::class),
             $c->get(\App\Service\SensorStatisticsService::class),
             $c->get(\App\Service\TemplateRenderer::class),
@@ -283,22 +283,22 @@ return [
         );
     },
 
-    \App\Controller\ExportController::class => function (ContainerInterface $c) {
-        return new \App\Controller\ExportController(
+    \App\Controller\Ffp3\ExportController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Ffp3\ExportController(
             $c->get(\App\Repository\SensorReadRepository::class)
         );
     },
 
-    \App\Controller\TideStatsController::class => function (ContainerInterface $c) {
-        return new \App\Controller\TideStatsController(
+    \App\Controller\Ffp3\TideStatsController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Ffp3\TideStatsController(
             $c->get(\App\Service\TideAnalysisService::class),
             $c->get(\App\Service\TemplateRenderer::class),
             $c->get(\App\Service\DateRangeExtractor::class)
         );
     },
 
-    \App\Controller\RealtimeApiController::class => function (ContainerInterface $c) {
-        return new \App\Controller\RealtimeApiController(
+    \App\Controller\Ffp3\RealtimeApiController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Ffp3\RealtimeApiController(
             $c->get(Ffp3RealtimeDataProvider::class)
         );
     },
@@ -309,8 +309,8 @@ return [
         );
     },
 
-    \App\Controller\CacheController::class => function (ContainerInterface $c) {
-        return new \App\Controller\CacheController(
+    \App\Controller\Ffp3\CacheController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Ffp3\CacheController(
             $c->get(\App\Service\OutputCacheService::class)
         );
     },

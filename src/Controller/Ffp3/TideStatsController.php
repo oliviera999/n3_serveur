@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Ffp3;
 
 use App\Config\TableConfig;
 use App\Config\Version;

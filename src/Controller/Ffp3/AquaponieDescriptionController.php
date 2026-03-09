@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Ffp3;
 
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;

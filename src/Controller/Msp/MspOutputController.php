@@ -33,7 +33,7 @@ class MspOutputController extends AbstractOutputController
     protected function buildControlPageData(int $board): array
     {
         $env = TableConfig::getEnvironment();
-        $isTest = $env === 'msp1_test';
+        $isTest = $env === 'msp_test';
         $outputs = $this->outputRepo->getAllForBoard($board);
         return [
             'page_title' => 'Contrôle station météo - Le potager',
@@ -47,7 +47,7 @@ class MspOutputController extends AbstractOutputController
             'outputs_api_base' => $isTest ? '/msp1-test/api/outputs' : '/msp1/api/outputs',
             'realtime_api_base' => $isTest ? '/msp1-test/api/realtime' : '/msp1/api/realtime',
             'control_config' => [
-                'test_env' => 'msp1_test',
+                'test_env' => 'msp_test',
                 'sidebar_title' => 'Station Météo',
                 'sidebar_description' => 'Contrôle des sorties et paramètres de la station météo (MSP). Les commandes sont transmises à l\'ESP32 au prochain cycle.',
                 'outputs_count' => count($outputs),

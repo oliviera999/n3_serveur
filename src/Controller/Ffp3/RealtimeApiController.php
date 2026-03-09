@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Ffp3;
 
+use App\Controller\AbstractRealtimeApiController;
 use App\Service\Realtime\Ffp3RealtimeDataProvider;
 
 /**

@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Ffp3;
 
+use App\Config\Paths;
 use App\Service\OutputCacheService;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -24,7 +25,7 @@ class CacheController
      */
     public function clearCache(Request $request, Response $response): Response
     {
-        $projectRoot = dirname(__DIR__, 2);
+        $projectRoot = Paths::getProjectRoot();
         $cacheDirs = [
             $projectRoot . '/var/cache/twig',
             $projectRoot . '/var/cache/di',
@@ -36,7 +37,7 @@ class CacheController
 
         foreach ($cacheDirs as $cacheDir) {
             $dirName = basename($cacheDir);
-            
+
             if (!is_dir($cacheDir)) {
                 $results[$dirName] = [
                     'status' => 'skipped',
@@ -45,16 +46,16 @@ class CacheController
                 ];
                 continue;
             }
-            
+
             try {
                 $deleted = $this->deleteRecursive($cacheDir);
                 $totalDeleted += $deleted;
-                
+
                 // Recréer le dossier vide avec les bonnes permissions
                 if (!is_dir($cacheDir)) {
                     mkdir($cacheDir, 0755, true);
                 }
-                
+
                 $results[$dirName] = [
                     'status' => 'success',
                     'message' => "{$deleted} fichier(s) supprimé(s)",
@@ -79,9 +80,9 @@ class CacheController
             $this->outputCacheService->invalidateAllEnvironments();
             $outputCacheCleared = true;
         }
-        
+
         $success = empty($errors);
-        
+
         // Réponse JSON
         $msg = $success
             ? "Cache vidé avec succès ! ({$totalDeleted} fichier(s) au total)"
@@ -108,7 +109,7 @@ class CacheController
      */
     public function showDeployScript(Request $request, Response $response): Response
     {
-        $projectRoot = dirname(__DIR__, 2);
+        $projectRoot = Paths::getProjectRoot();
         $scriptPath = $projectRoot . '/ffp3/DEPLOY_NOW.sh';
 
         if (!is_file($scriptPath)) {
@@ -156,7 +157,7 @@ HTML;
 
     /**
      * Affiche une page HTML simple pour vider le cache
-     * 
+     *
      * Route: GET /admin/clear-cache-page
      * Protection par middleware d'authentification ($applyAuth)
      */
@@ -264,16 +265,16 @@ HTML;
     <div class="container">
         <h1>🧹 Vider le cache serveur</h1>
         <p>Cette action va supprimer les caches Twig et DI Container pour forcer la recompilation.</p>
-        
+
         <button id="clearBtn" class="btn" onclick="clearCache()">Vider le cache</button>
         <a href="/supervision" class="btn" style="background: #6c757d;">Retour à supervision</a>
         <a href="/" class="btn" style="background: #6c757d;">Retour à l'accueil</a>
-        
+
         <div id="loading" class="loading">
             <div class="spinner"></div>
             <p>Vidage en cours...</p>
         </div>
-        
+
         <div id="result" class="result"></div>
     </div>
 
@@ -282,31 +283,31 @@ HTML;
             const btn = document.getElementById('clearBtn');
             const loading = document.getElementById('loading');
             const result = document.getElementById('result');
-            
+
             btn.disabled = true;
             loading.style.display = 'block';
             result.style.display = 'none';
-            
+
             try {
                 const response = await fetch(window.location.origin + '/admin/clear-cache');
                 const data = await response.json();
-                
+
                 loading.style.display = 'none';
                 result.style.display = 'block';
-                
+
                 if (data.success) {
                     result.className = 'result success';
-                    let details = Object.entries(data.results).map(([dir, info]) => 
+                    let details = Object.entries(data.results).map(([dir, info]) =>
                         `${dir}: ${info.message}`
                     ).join('<br>');
-                    
+
                     if (data.opcache) {
                         details += '<br><br><strong>OpCache PHP:</strong><br>';
-                        details += data.opcache.available 
+                        details += data.opcache.available
                             ? (data.opcache.success ? '✅ ' : '⚠️ ') + data.opcache.message
                             : 'ℹ️ ' + data.opcache.message;
                     }
-                    
+
                     result.innerHTML = `
                         <h3>✅ ${data.message}</h3>
                         <div class="details">
@@ -343,7 +344,7 @@ HTML;
 
     /**
      * Vide l'opcache PHP si disponible
-     * 
+     *
      * @return array Statut du vidage de l'opcache
      */
     private function clearOpCache(): array
@@ -353,21 +354,21 @@ HTML;
             'success' => false,
             'message' => ''
         ];
-        
+
         // Vérifier si opcache est disponible
         if (!function_exists('opcache_reset')) {
             $result['message'] = 'OpCache non disponible (fonction opcache_reset() absente)';
             return $result;
         }
-        
+
         // Vérifier si opcache est activé
         if (!opcache_get_status() || !opcache_get_configuration()) {
             $result['message'] = 'OpCache non activé';
             return $result;
         }
-        
+
         $result['available'] = true;
-        
+
         // Vider l'opcache
         if (opcache_reset()) {
             $result['success'] = true;
@@ -375,29 +376,29 @@ HTML;
         } else {
             $result['message'] = 'Échec du vidage de l\'OpCache';
         }
-        
+
         return $result;
     }
 
     /**
      * Supprime récursivement un répertoire et son contenu
-     * 
+     *
      * @param string $dir Chemin du répertoire à supprimer
      * @return int Nombre de fichiers supprimés
      */
     private function deleteRecursive(string $dir): int
     {
         $count = 0;
-        
+
         if (!is_dir($dir)) {
             return 0;
         }
-        
+
         $items = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator($dir, \RecursiveDirectoryIterator::SKIP_DOTS),
             \RecursiveIteratorIterator::CHILD_FIRST
         );
-        
+
         foreach ($items as $item) {
             if ($item->isDir()) {
                 rmdir($item->getRealPath());
@@ -406,7 +407,7 @@ HTML;
                 $count++;
             }
         }
-        
+
         return $count;
     }
 }

@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -326,6 +332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -670,6 +682,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -1013,6 +1031,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -1356,6 +1380,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -1708,6 +1738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -2053,6 +2089,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -2398,6 +2440,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -2744,6 +2792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -3089,6 +3143,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -3436,6 +3496,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -3781,6 +3847,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -4126,6 +4198,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -4471,6 +4549,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -4817,6 +4901,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -5160,6 +5250,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -5508,6 +5604,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -5851,6 +5953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -6197,6 +6305,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -6541,6 +6655,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -6887,6 +7007,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -7233,6 +7359,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -7578,6 +7710,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -7925,6 +8063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -8269,6 +8413,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -8614,6 +8764,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -8960,6 +9116,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -9306,6 +9468,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -9650,6 +9818,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -9995,6 +10169,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -10342,6 +10522,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -10688,6 +10874,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -11033,6 +11225,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -11378,6 +11576,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -11723,6 +11927,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -12068,6 +12278,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -12412,6 +12628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -12756,6 +12978,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -13100,6 +13328,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -13444,6 +13678,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -13789,6 +14029,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -14138,6 +14384,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -14487,6 +14739,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -14829,6 +15087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -15171,6 +15435,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -15513,6 +15783,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -15855,6 +16131,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -16197,6 +16479,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -16539,6 +16827,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -16898,6 +17192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -17247,6 +17547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -17594,6 +17900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -17942,6 +18254,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -18294,6 +18612,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -18658,6 +18982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -19004,6 +19334,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -19352,6 +19688,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -19700,6 +20042,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -20045,6 +20393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -20393,6 +20747,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -20738,6 +21098,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -21082,6 +21448,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -21427,6 +21799,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -21782,6 +22160,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -22134,6 +22518,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -22494,6 +22884,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -22858,6 +23254,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -23212,6 +23614,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -23558,6 +23966,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -23906,6 +24320,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -24253,6 +24673,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -24600,6 +25026,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -24945,6 +25377,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -25290,6 +25728,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -25637,6 +26081,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -25983,6 +26433,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -26331,6 +26787,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -26684,6 +27146,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -27041,6 +27509,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -27394,6 +27868,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -27749,6 +28229,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -28103,6 +28589,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -28452,6 +28944,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -28797,6 +29295,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -29146,6 +29650,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -29492,6 +30002,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -29837,6 +30353,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -30182,6 +30704,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -30529,6 +31057,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -30876,6 +31410,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -31222,6 +31762,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -31568,6 +32114,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -31913,6 +32465,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -32258,6 +32816,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -32603,6 +33167,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -32950,6 +33520,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -33297,6 +33873,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -33642,6 +34224,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -33987,6 +34575,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -34332,6 +34926,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -34678,6 +35278,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -35026,6 +35632,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -35381,6 +35993,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -35730,6 +36348,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -36086,6 +36710,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -36440,6 +37070,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -36785,6 +37421,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -37163,6 +37805,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -37512,6 +38160,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -37870,6 +38524,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -38238,6 +38898,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -38596,6 +39262,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -38944,6 +39616,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -39293,6 +39971,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -39648,6 +40332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -40113,6 +40803,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -40462,6 +41158,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -40809,6 +41511,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -41157,6 +41865,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -41506,6 +42220,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -41854,6 +42574,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -42204,6 +42930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -42553,6 +43285,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -43024,6 +43762,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -43372,6 +44116,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -43720,6 +44470,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -44116,6 +44872,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -44473,6 +45235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -44830,6 +45598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -45224,6 +45998,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -45629,6 +46409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -45991,6 +46777,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -46354,6 +47146,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -46707,6 +47505,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -47066,6 +47870,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -47429,6 +48239,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -47790,6 +48606,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -48142,6 +48964,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -48506,6 +49334,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -48902,6 +49736,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -49253,6 +50093,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -49605,6 +50451,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -49956,6 +50808,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -50312,6 +51170,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -50674,6 +51538,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -51034,6 +51904,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -51392,6 +52268,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -51745,6 +52627,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -52099,6 +52987,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -52464,6 +53358,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -52828,6 +53728,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -53195,6 +54101,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -53578,6 +54490,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -53991,6 +54909,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -54345,6 +55269,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -54698,6 +55628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -55061,6 +55997,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -55414,6 +56356,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -55771,6 +56719,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -56121,6 +57075,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -56473,6 +57433,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -56817,6 +57783,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -57201,6 +58173,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -57557,6 +58535,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -57935,6 +58919,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -58295,6 +59285,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -58651,6 +59647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -59013,6 +60015,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -59397,6 +60405,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -59766,6 +60780,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -60189,6 +61209,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -60549,6 +61575,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -60911,6 +61943,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -61284,6 +62322,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -61650,6 +62694,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -62003,6 +63053,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -62356,6 +63412,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -62711,6 +63773,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -63137,6 +64205,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -63511,6 +64585,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -63899,6 +64979,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -64275,6 +65361,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -64655,6 +65747,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -65003,6 +66101,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -65403,6 +66507,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -65767,6 +66877,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -66118,6 +67234,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -66519,6 +67641,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -66899,6 +68027,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -67312,6 +68446,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -67663,6 +68803,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -68073,6 +69219,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -68421,6 +69573,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -68768,6 +69926,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -69119,6 +70283,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -69470,6 +70640,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -69866,6 +71042,12 @@ docs/
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -70285,6 +71467,12 @@ docs/
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -70638,6 +71826,12 @@ docs/
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -71025,6 +72219,12 @@ docs/
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -71377,6 +72577,12 @@ docs/
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -71751,6 +72957,12 @@ docs/
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -72101,6 +73313,12 @@ docs/
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -72640,6 +73858,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -73013,6 +74237,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -73413,6 +74643,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -73799,6 +75035,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -74171,6 +75413,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -74550,6 +75798,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -74921,6 +76175,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -75281,6 +76541,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -75633,6 +76899,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -76001,6 +77273,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -76353,6 +77631,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -76705,6 +77989,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -77059,6 +78349,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -77431,6 +78727,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig
@@ -77777,6 +79079,12 @@ ance future
 
 ---
 
+## [5.0.73] - 2026-03-09
+
+### Modifié - harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3
+- **Résumé** : harmonisation: bug msp_test, URLs galeries, chemins centralisés, controllers FFP3 dans namespace Ffp3.
+
+---
 ## [5.0.72] - 2026-03-09
 
 ### Modifié - fichiers abstraits AbstractDataController, AbstractSensorRepository, Ffp3RealtimeDataProvider, aquaponie.css, data_page.twig, _control_base.twig

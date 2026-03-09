@@ -65,7 +65,7 @@ try {
     
     // Test OutputController
     try {
-        $outputController = $container->get(\App\Controller\OutputController::class);
+        $outputController = $container->get(\App\Controller\Ffp3\OutputController::class);
         echo "✅ OutputController: OK\n";
         
         // Test des méthodes
@@ -82,7 +82,7 @@ try {
     
     // Test RealtimeApiController
     try {
-        $realtimeController = $container->get(\App\Controller\RealtimeApiController::class);
+        $realtimeController = $container->get(\App\Controller\Ffp3\RealtimeApiController::class);
         echo "✅ RealtimeApiController: OK\n";
         
         // Test des méthodes

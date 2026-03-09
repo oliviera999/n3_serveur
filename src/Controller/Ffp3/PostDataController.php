@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Ffp3;
 
+use App\Controller\AbstractPostDataController;
 use App\Config\TableConfig;
 use App\Domain\SensorData;
 use App\Repository\BoardRepository;

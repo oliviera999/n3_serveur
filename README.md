@@ -4,6 +4,8 @@ Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collect
 
 - **`site initial/`** : ancienne version des fichiers serveur (archive). **Ne pas modifier** — conservé pour consultation uniquement (référence, comparaison, historique).
 
+- **`ffp3/`** : sous-projet historique. Scripts (`bin/`, `tools/`) et doc utiles ; mais `ffp3/src/`, `ffp3/config/`, `ffp3/vendor/` sont des doublons obsolètes — le code actif est dans `serveur/src/`. Voir section « Scripts FFP3 » ci-dessous.
+
 - **Point d’entrée** : `public/index.php` (front controller unique).
 - **Documentation détaillée** : voir [ffp3/README.md](ffp3/README.md) pour l’architecture, la configuration et les environnements PROD/TEST.
 
@@ -38,6 +40,8 @@ Comportement local actuel :
 - l’accueil, `login`, les galeries et `aquaponie-description` restent aussi testables localement
 
 ## Scripts de déploiement et de test (FFP3)
+
+Le dossier **`ffp3/`** est un sous-projet historique / archive. Il contient des scripts utiles (`bin/`, `tools/`, `scripts/`) et de la documentation. **Attention** : les dossiers `ffp3/src/`, `ffp3/config/`, `ffp3/templates/`, `ffp3/vendor/` sont des doublons obsolètes. Le code actif du serveur est dans `serveur/src/`, `serveur/config/`, `serveur/templates/`. Le point d'entrée réel est `public/index.php` qui charge les classes de `serveur/src/`. Ne pas modifier les doublons dans `ffp3/`.
 
 Les scripts de déploiement, diagnostic et test liés à FFP3 se trouvent dans **`ffp3/`** :
 

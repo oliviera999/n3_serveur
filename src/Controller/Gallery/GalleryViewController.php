@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Gallery;
 
+use App\Config\Paths;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -23,7 +24,7 @@ class GalleryViewController
     public function __construct(
         private TemplateRenderer $renderer,
     ) {
-        $this->baseDir = dirname(__DIR__, 3);
+        $this->baseDir = Paths::getProjectRoot();
     }
 
     private function getUploadDir(string $slug): string
@@ -64,12 +65,12 @@ class GalleryViewController
 
     public function showMsp1(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'msp1', 'Le potager (MSP1)', 'Photos du potager – station météo', '/msp1/msp1datas/msp1-data.php', 'potager');
+        return $this->showGallery($request, $response, 'msp1', 'Le potager (MSP1)', 'Photos du potager – station météo', '/meteo', 'potager');
     }
 
     public function showN3pp(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'n3pp', "L'élevage d'insectes (N3PP)", "Photos de l'élevage d'insectes", '/n3pp/n3ppdatas/n3pp-data.php', 'elevage');
+        return $this->showGallery($request, $response, 'n3pp', "L'élevage d'insectes (N3PP)", "Photos de l'élevage d'insectes", '/serre', 'elevage');
     }
 
     public function showFfp3(Request $request, Response $response): Response

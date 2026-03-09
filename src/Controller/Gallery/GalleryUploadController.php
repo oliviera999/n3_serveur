@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Gallery;
 
+use App\Config\Paths;
 use App\Service\LogService;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -75,8 +76,8 @@ class GalleryUploadController
             return ResponseHelper::text($response, 'Type de fichier non autorise', 415);
         }
 
-        // Chemin absolu depuis la racine du projet
-        $baseDir = dirname(__DIR__, 3);
+        // Chemin absolu depuis la racine du projet (config centralisée)
+        $baseDir = Paths::getProjectRoot();
         $targetDir = $baseDir . '/' . rtrim($uploadDir, '/');
 
         if (!is_dir($targetDir)) {

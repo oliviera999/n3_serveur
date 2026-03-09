@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Controller;
+declare(strict_types=1);
+
+namespace App\Controller\Ffp3;
 
 use App\Repository\SensorReadRepository;
 use DateTimeImmutable;
@@ -49,15 +51,15 @@ class ExportController
             // Lire le contenu du fichier et l'écrire dans la réponse
             $csvContent = file_get_contents($tmpFile);
             @unlink($tmpFile);
-            
+
             $response->getBody()->write($csvContent);
-            
+
             return $response
                 ->withStatus(200)
                 ->withHeader('Content-Type', 'text/csv; charset=utf-8')
                 ->withHeader('Content-Disposition', 'attachment; filename="sensor-data.csv"')
                 ->withHeader('Content-Length', (string) strlen($csvContent));
-                
+
         } catch (Throwable $e) {
             $response->getBody()->write('Erreur serveur');
             return $response->withStatus(500)->withHeader('Content-Type', 'text/plain; charset=utf-8');
