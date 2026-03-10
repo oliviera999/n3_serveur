@@ -7,6 +7,13 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.90] - 2026-03-10
+
+### Correctif - Chargement défensif routes_config.php (évite 500 parse fail GET)
+- **public/index.php** : fallback si config/routes_config.php absent (prod o2switch). Log error_log + config minimale pour ESP32 (api/, post-data, heartbeat).
+- **Contexte** : GET /api/outputs3-test/state renvoyait 500 (Fatal: routes_config.php not found), causant parse fail InvalidInput côté firmware.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants

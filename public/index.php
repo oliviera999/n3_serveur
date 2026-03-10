@@ -175,7 +175,7 @@ $applyAuth = function ($request, $handler) use ($container, $authMethod) {
 // Middleware global pour protéger les routes protégées avant le routage
 // ====================================================================
 // Ce middleware intercepte les requêtes vers les chemins protégés même si la route n'est pas trouvée
-$app->add(function (Request $request, $handler) use ($container, $authMethod) {
+$app->add(function (Request $request, $handler) use ($container, $authMethod, $loadRoutesConfig) {
     if ($authMethod === 'none' || empty($authMethod)) {
         return $handler->handle($request);
     }
@@ -792,4 +792,3 @@ $errorMiddleware->setErrorHandler(
 );
 
 $app->run();
-                             
