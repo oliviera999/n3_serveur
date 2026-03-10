@@ -7,6 +7,28 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
+## [5.0.101] - 2026-03-10
+
+### Modifié - Unification serveur (5 points)
+- **Doublons FFP3 supprimés** : ffp3/src, ffp3/config, ffp3/templates, ffp3/vendor (obsolètes). Conservé : bin/, tools/, scripts/, docs/.
+- **Routes extraites** : config/routes_helpers.php, routes_ffp3.php, routes_gallery.php, routes_msp1_n3pp.php.
+- **GalleryUploadController** : méthode unifiée handleBySlug(), route paramétrée /gallery/{slug}/upload, compatibilité URLs legacy conservée.
+- **Config centralisée MSP1/N3PP** : config/modules.php pour registerIotModuleRoutes().
+
+---
+
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.100] - 2026-03-10
 
 ### Correctif - Audit serveur selon les règles
@@ -116,6 +138,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -187,6 +215,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -639,6 +673,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -1079,6 +1119,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -1518,6 +1564,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -1957,6 +2009,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -2405,6 +2463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -2846,6 +2910,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -3287,6 +3357,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -3729,6 +3805,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -4170,6 +4252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -4613,6 +4701,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -5054,6 +5148,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -5495,6 +5595,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -5936,6 +6042,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -6378,6 +6490,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -6817,6 +6935,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -7261,6 +7385,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -7700,6 +7830,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -8142,6 +8278,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -8582,6 +8724,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -9024,6 +9172,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -9466,6 +9620,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -9907,6 +10067,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -10350,6 +10516,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -10790,6 +10962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -11231,6 +11409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -11673,6 +11857,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -12115,6 +12305,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -12555,6 +12751,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -12996,6 +13198,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -13439,6 +13647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -13881,6 +14095,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -14322,6 +14542,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -14763,6 +14989,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -15204,6 +15436,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -15645,6 +15883,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -16085,6 +16329,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -16525,6 +16775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -16965,6 +17221,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -17405,6 +17667,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -17846,6 +18114,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -18291,6 +18565,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -18736,6 +19016,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -19174,6 +19460,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -19612,6 +19904,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -20050,6 +20348,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -20488,6 +20792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -20926,6 +21236,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -21364,6 +21680,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -21819,6 +22141,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -22264,6 +22592,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -22707,6 +23041,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -23151,6 +23491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -23599,6 +23945,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -24059,6 +24411,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -24501,6 +24859,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -24945,6 +25309,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -25389,6 +25759,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -25830,6 +26206,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -26274,6 +26656,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -26715,6 +27103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -27155,6 +27549,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -27596,6 +27996,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -28047,6 +28453,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -28495,6 +28907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -28951,6 +29369,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -29411,6 +29835,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -29861,6 +30291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -30303,6 +30739,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -30747,6 +31189,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -31190,6 +31638,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -31633,6 +32087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -32074,6 +32534,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -32515,6 +32981,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -32958,6 +33430,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -33400,6 +33878,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -33844,6 +34328,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -34293,6 +34783,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -34746,6 +35242,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -35195,6 +35697,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -35646,6 +36154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -36096,6 +36610,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -36541,6 +37061,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -36982,6 +37508,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -37427,6 +37959,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -37869,6 +38407,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -38310,6 +38854,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -38751,6 +39301,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -39194,6 +39750,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -39637,6 +40199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -40079,6 +40647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -40521,6 +41095,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -40962,6 +41542,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -41403,6 +41989,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -41844,6 +42436,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -42287,6 +42885,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -42730,6 +43334,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -43171,6 +43781,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -43612,6 +44228,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -44053,6 +44675,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -44495,6 +45123,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -44939,6 +45573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -45390,6 +46030,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -45835,6 +46481,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -46287,6 +46939,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -46737,6 +47395,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -47178,6 +47842,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -47652,6 +48322,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -48097,6 +48773,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -48551,6 +49233,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -49015,6 +49703,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -49469,6 +50163,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -49913,6 +50613,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -50358,6 +51064,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -50809,6 +51521,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -51370,6 +52088,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -51815,6 +52539,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -52258,6 +52988,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -52702,6 +53438,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -53147,6 +53889,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -53591,6 +54339,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -54037,6 +54791,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -54482,6 +55242,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -55049,6 +55815,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -55493,6 +56265,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -55937,6 +56715,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -56429,6 +57213,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -56882,6 +57672,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -57335,6 +58131,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -57825,6 +58627,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -58326,6 +59134,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -58784,6 +59598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -59243,6 +60063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -59692,6 +60518,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -60147,6 +60979,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -60606,6 +61444,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -61063,6 +61907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -61511,6 +62361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -61971,6 +62827,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -62463,6 +63325,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -62910,6 +63778,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -63358,6 +64232,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -63805,6 +64685,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -64257,6 +65143,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -64715,6 +65607,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -65171,6 +66069,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -65625,6 +66529,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -66074,6 +66984,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -66524,6 +67440,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -66985,6 +67907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -67445,6 +68373,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -67908,6 +68842,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -68387,6 +69327,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -68896,6 +69842,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -69346,6 +70298,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -69795,6 +70753,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -70254,6 +71218,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -70703,6 +71673,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -71156,6 +72132,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -71602,6 +72584,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -72050,6 +73038,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -72490,6 +73484,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -72970,6 +73970,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -73422,6 +74428,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -73896,6 +74908,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -74352,6 +75370,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -74804,6 +75828,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -75262,6 +76292,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -75742,6 +76778,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -76207,6 +77249,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -76726,6 +77774,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -77182,6 +78236,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -77640,6 +78700,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -78109,6 +79175,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -78571,6 +79643,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -79020,6 +80098,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -79469,6 +80553,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -79920,6 +81010,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -80442,6 +81538,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -80912,6 +82014,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -81396,6 +82504,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -81868,6 +82982,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -82344,6 +83464,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -82788,6 +83914,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -83284,6 +84416,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -83744,6 +84882,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -84191,6 +85335,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -84688,6 +85838,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -85164,6 +86320,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -85673,6 +86835,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -86120,6 +87288,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -86626,6 +87800,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -87070,6 +88250,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -87513,6 +88699,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -87960,6 +89152,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -88407,6 +89605,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -88899,6 +90103,12 @@ docs/
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -89414,6 +90624,12 @@ docs/
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -89863,6 +91079,12 @@ docs/
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -90346,6 +91568,12 @@ docs/
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -90794,6 +92022,12 @@ docs/
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -91264,6 +92498,12 @@ docs/
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -91710,6 +92950,12 @@ docs/
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -92345,6 +93591,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -92814,6 +94066,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -93310,6 +94568,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -93792,6 +95056,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -94260,6 +95530,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -94735,6 +96011,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -95202,6 +96484,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -95658,6 +96946,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -96106,6 +97400,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -96570,6 +97870,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -97018,6 +98324,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -97466,6 +98778,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -97916,6 +99234,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -98384,6 +99708,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*
@@ -98826,6 +100156,12 @@ ance future
 
 ---
 
+## [5.0.102] - 2026-03-10
+
+### Modifié - unification serveur (5 points)
+- **Résumé** : unification serveur (5 points).
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*

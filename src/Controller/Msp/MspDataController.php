@@ -90,10 +90,31 @@ class MspDataController extends AbstractDataController
     protected function getChartsConfig(): array
     {
         return [
-            ['id' => 'chart-temperatures', 'title' => 'Températures & Humidité', 'icon' => 'fa-thermometer-half'],
-            ['id' => 'chart-lights', 'title' => 'Luminosité', 'icon' => 'fa-sun'],
-            ['id' => 'chart-niveauxeaux', 'title' => 'Humidité du sol & Eau', 'icon' => 'fa-seedling'],
-            ['id' => 'chart-cycles', 'title' => 'Autonomie & Système', 'icon' => 'fa-cog', 'height' => '300px'],
+            [
+                'id' => 'chart-temperatures',
+                'title' => 'Températures & Humidité',
+                'icon' => 'fa-thermometer-half',
+                'legend' => 'Temp. int./ext. : températures intérieure et extérieure (°C). Humid. int./ext. : humidité relative de l\'air (%) mesurée en intérieur et extérieur.',
+            ],
+            [
+                'id' => 'chart-lights',
+                'title' => 'Luminosité',
+                'icon' => 'fa-sun',
+                'legend' => 'Moy. : luminosité moyenne. A, B, C, D : capteurs de luminosité aux quatre zones de la serre météo (en lux ou unités arbitraires).',
+            ],
+            [
+                'id' => 'chart-niveauxeaux',
+                'title' => 'Humidité du sol & Eau',
+                'icon' => 'fa-seedling',
+                'legend' => 'Humid. sol : humidité du substrat (%). Pluie : indicateur de pluie. Temp. eau : température de l\'eau du système (°C). Reset : redémarrage du firmware.',
+            ],
+            [
+                'id' => 'chart-cycles',
+                'title' => 'Autonomie & Système',
+                'icon' => 'fa-cog',
+                'height' => '300px',
+                'legend' => 'bootCount : nombre de redémarrages. PontDiv : tension de la batterie (diviseur de pont). ServoHB / ServoGD : cycles des servomoteurs haut-bas et gauche-droite.',
+            ],
         ];
     }
 

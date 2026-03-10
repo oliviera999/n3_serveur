@@ -96,6 +96,14 @@
     gap: 8px;
 }
 .chart-container-title i { color: #008B74; }
+.chart-legend {
+    margin: 12px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,139,116,0.15);
+    font-size: 0.82em;
+    color: #7f8c8d;
+    line-height: 1.4;
+}
 
 /* ----- FILTER SECTION ----- */
 .filter-section {

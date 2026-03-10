@@ -24,27 +24,49 @@ class GalleryUploadController
     private const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 Mo
     private const ALLOWED_TYPES = ['image/jpeg', 'image/jpg'];
 
+    private const SLUG_TO_ENV_DIR = [
+        'msp1' => 'GALLERY_MSP1_DIR',
+        'n3pp' => 'GALLERY_N3PP_DIR',
+        'ffp3' => 'GALLERY_FFP3_DIR',
+    ];
+
+    private const SLUG_TO_DEFAULT_DIR = [
+        'msp1' => 'uploads/msp1',
+        'n3pp' => 'uploads/n3pp',
+        'ffp3' => 'uploads/ffp3',
+    ];
+
     public function __construct(
         private LogService $logger,
     ) {
     }
 
+    /**
+     * Handler unifié paramétré par slug. Utilisé par les routes legacy et par /gallery/{slug}/upload si besoin.
+     */
+    public function handleBySlug(Request $request, Response $response, array $args): Response
+    {
+        $slug = $args['slug'] ?? '';
+        if (!isset(self::SLUG_TO_ENV_DIR[$slug])) {
+            return ResponseHelper::text($response, 'Galerie invalide', 400);
+        }
+        $dir = $_ENV[self::SLUG_TO_ENV_DIR[$slug]] ?? self::SLUG_TO_DEFAULT_DIR[$slug];
+        return $this->processUpload($request, $response, $dir, $slug);
+    }
+
     public function handleMsp1(Request $request, Response $response): Response
     {
-        $dir = $_ENV['GALLERY_MSP1_DIR'] ?? 'uploads/msp1';
-        return $this->processUpload($request, $response, $dir, 'msp1');
+        return $this->handleBySlug($request, $response, ['slug' => 'msp1']);
     }
 
     public function handleN3pp(Request $request, Response $response): Response
     {
-        $dir = $_ENV['GALLERY_N3PP_DIR'] ?? 'uploads/n3pp';
-        return $this->processUpload($request, $response, $dir, 'n3pp');
+        return $this->handleBySlug($request, $response, ['slug' => 'n3pp']);
     }
 
     public function handleFfp3(Request $request, Response $response): Response
     {
-        $dir = $_ENV['GALLERY_FFP3_DIR'] ?? 'uploads/ffp3';
-        return $this->processUpload($request, $response, $dir, 'ffp3');
+        return $this->handleBySlug($request, $response, ['slug' => 'ffp3']);
     }
 
     private function processUpload(Request $request, Response $response, string $uploadDir, string $gallery): Response

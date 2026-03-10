@@ -86,9 +86,25 @@ class N3ppDataController extends AbstractDataController
     protected function getChartsConfig(): array
     {
         return [
-            ['id' => 'chart-niveauxeaux', 'title' => 'Humidité du sol', 'icon' => 'fa-seedling'],
-            ['id' => 'chart-temperatures', 'title' => 'Température, Humidité air & Luminosité', 'icon' => 'fa-thermometer-half'],
-            ['id' => 'chart-cycles', 'title' => 'Autonomie & Système', 'icon' => 'fa-cog', 'height' => '300px'],
+            [
+                'id' => 'chart-niveauxeaux',
+                'title' => 'Humidité du sol',
+                'icon' => 'fa-seedling',
+                'legend' => 'Humid. moy. : moyenne des 4 capteurs. Humid. 1 à 4 : humidité du sol à chaque capteur (UA). État pompe : indicateur marche/arrêt de la pompe. Reset : redémarrage du firmware.',
+            ],
+            [
+                'id' => 'chart-temperatures',
+                'title' => 'Température, Humidité air & Luminosité',
+                'icon' => 'fa-thermometer-half',
+                'legend' => 'Temp. air : température ambiante (°C). Humidité : humidité relative de l\'air (%). Luminosité : intensité lumineuse (UA) dans la serre N3PP.',
+            ],
+            [
+                'id' => 'chart-cycles',
+                'title' => 'Autonomie & Système',
+                'icon' => 'fa-cog',
+                'height' => '300px',
+                'legend' => 'bootCount : nombre de redémarrages du firmware. PontDiv : tension batterie (diviseur de pont) pour suivre l\'autonomie.',
+            ],
         ];
     }
 

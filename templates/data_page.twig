@@ -80,6 +80,9 @@
         <div class="chart-container">
             <p class="chart-container-title"><i class="fas {{ chart.icon }}"></i> {{ chart.title }}</p>
             <div id="{{ chart.id }}" style="min-height:{{ chart.height|default('350px') }};"></div>
+            {% if chart.legend is defined and chart.legend %}
+            <p class="chart-legend">{{ chart.legend }}</p>
+            {% endif %}
         </div>
         {% endfor %}
         {% endif %}
