@@ -9,34 +9,18 @@ use App\Config\TableConfig;
 /**
  * Repository pour les outputs (controle) de la serre/aquaponie (n3pp).
  * Table dynamique via TableConfig (n3ppOutputs en prod, n3ppOutputsTest en test).
+ * Hérite des méthodes communes d'AbstractOutputRepository.
  */
-class N3ppOutputRepository extends AbstractRepository
+class N3ppOutputRepository extends AbstractOutputRepository
 {
-    private static function table(): string
+    protected function getTable(): string
     {
         return TableConfig::getN3ppOutputsTable();
     }
 
-    /**
-     * Retourne l'etat des outputs au format attendu par le firmware n3pp4_2.
-     * Le firmware itere les cles JSON par indice (keys[0], keys[1], ...).
-     *
-     * @param int $board Numero de board (ex: 3)
-     * @return array<string, string> Cles = gpio (string), valeurs = state
-     */
-    public function getStateForFirmware(int $board): array
+    protected function getStateKeyColumn(): string
     {
-        $sql = "SELECT gpio, state FROM `" . self::table() . "` WHERE board = :board ORDER BY gpio ASC";
-        $rows = $this->fetchAll($sql, [':board' => $board]);
-
-        $result = [];
-        foreach ($rows as $row) {
-            $gpio = (string) ($row['gpio'] ?? '');
-            if ($gpio !== '') {
-                $result[$gpio] = $row['state'] ?? '0';
-            }
-        }
-        return $result;
+        return 'gpio';
     }
 
     /**
@@ -44,24 +28,8 @@ class N3ppOutputRepository extends AbstractRepository
      */
     public function updateByGpio(int $gpio, string $state, int $board): void
     {
-        $sql = "UPDATE `" . self::table() . "` SET state = :state WHERE gpio = :gpio AND board = :board";
+        $sql = "UPDATE `" . $this->getTable() . "` SET state = :state WHERE gpio = :gpio AND board = :board";
         $this->execute($sql, [':state' => $state, ':gpio' => $gpio, ':board' => $board]);
-    }
-
-    /**
-     * @return array<int, array<string, mixed>>
-     */
-    public function getAllForBoard(int $board): array
-    {
-        $sql = "SELECT id, name, gpio, state FROM `" . self::table() . "` WHERE board = :board ORDER BY gpio ASC";
-        return $this->fetchAll($sql, [':board' => $board]);
-    }
-
-    public function getLastBoardRequest(int $board): ?string
-    {
-        $sql = "SELECT last_request FROM `Boards` WHERE board = :board LIMIT 1";
-        $val = $this->fetchScalar($sql, [':board' => $board]);
-        return $val !== null ? (string) $val : null;
     }
 
     /**
@@ -71,7 +39,7 @@ class N3ppOutputRepository extends AbstractRepository
      */
     public function getOutputByGpioAndBoard(int $board, int $gpio): ?array
     {
-        $sql = "SELECT id, name, gpio, state FROM `" . self::table() . "` WHERE board = :board AND gpio = :gpio LIMIT 1";
+        $sql = "SELECT id, name, gpio, state FROM `" . $this->getTable() . "` WHERE board = :board AND gpio = :gpio LIMIT 1";
         return $this->fetchOne($sql, [':board' => $board, ':gpio' => $gpio]);
     }
 
@@ -82,7 +50,7 @@ class N3ppOutputRepository extends AbstractRepository
      */
     public function getPartOutputs(int $board, int $limit = 3): array
     {
-        $sql = "SELECT id, name, gpio, state FROM `" . self::table() . "` WHERE board = :board ORDER BY id ASC LIMIT " . (int) $limit;
+        $sql = "SELECT id, name, gpio, state FROM `" . $this->getTable() . "` WHERE board = :board ORDER BY id ASC LIMIT " . (int) $limit;
         return $this->fetchAll($sql, [':board' => $board]);
     }
 
@@ -91,7 +59,7 @@ class N3ppOutputRepository extends AbstractRepository
      */
     public function updateById(int $id, string $state): void
     {
-        $sql = "UPDATE `" . self::table() . "` SET state = :state WHERE id = :id";
+        $sql = "UPDATE `" . $this->getTable() . "` SET state = :state WHERE id = :id";
         $this->execute($sql, [':state' => $state, ':id' => $id]);
     }
 
@@ -100,12 +68,12 @@ class N3ppOutputRepository extends AbstractRepository
      */
     public function deleteById(int $id): ?int
     {
-        $row = $this->fetchOne("SELECT board FROM `" . self::table() . "` WHERE id = :id", [':id' => $id]);
+        $row = $this->fetchOne("SELECT board FROM `" . $this->getTable() . "` WHERE id = :id", [':id' => $id]);
         if ($row === null) {
             return null;
         }
         $board = (int) $row['board'];
-        $this->execute("DELETE FROM `" . self::table() . "` WHERE id = :id", [':id' => $id]);
+        $this->execute("DELETE FROM `" . $this->getTable() . "` WHERE id = :id", [':id' => $id]);
         return $board;
     }
 
@@ -114,7 +82,7 @@ class N3ppOutputRepository extends AbstractRepository
      */
     public function countForBoard(int $board): int
     {
-        $sql = "SELECT COUNT(*) FROM `" . self::table() . "` WHERE board = :board";
+        $sql = "SELECT COUNT(*) FROM `" . $this->getTable() . "` WHERE board = :board";
         $val = $this->fetchScalar($sql, [':board' => $board]);
         return (int) $val;
     }
@@ -148,7 +116,7 @@ class N3ppOutputRepository extends AbstractRepository
      */
     public function getParametersForBoard(int $board): array
     {
-        $sql = "SELECT gpio, state FROM `" . self::table() . "` WHERE board = :board AND gpio IN (100, 101, 102, 103, 104, 105, 106, 107) ORDER BY gpio ASC";
+        $sql = "SELECT gpio, state FROM `" . $this->getTable() . "` WHERE board = :board AND gpio IN (100, 101, 102, 103, 104, 105, 106, 107) ORDER BY gpio ASC";
         $rows = $this->fetchAll($sql, [':board' => $board]);
         $result = [];
         foreach (self::PARAM_GPIO_MAP as $gpio => $name) {

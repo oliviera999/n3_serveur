@@ -9,34 +9,18 @@ use App\Config\TableConfig;
 /**
  * Repository pour les outputs (controle) de la station meteo (msp1).
  * Table dynamique via TableConfig (msp1Outputs en prod, Msp1OutputsTest en test).
+ * Hérite des méthodes communes d'AbstractOutputRepository.
  */
-class MspOutputRepository extends AbstractRepository
+class MspOutputRepository extends AbstractOutputRepository
 {
-    private static function table(): string
+    protected function getTable(): string
     {
         return TableConfig::getMspOutputsTable();
     }
 
-    /**
-     * Retourne l'etat des outputs au format attendu par le firmware msp2_5.
-     * Le firmware lit les proprietes par nom (myObject["resetMode"], etc.)
-     *
-     * @param int $board Numero de board (ex: 2)
-     * @return array<string, string>
-     */
-    public function getStateForFirmware(int $board): array
+    protected function getStateKeyColumn(): string
     {
-        $sql = "SELECT name, state FROM `" . self::table() . "` WHERE board = :board ORDER BY gpio ASC";
-        $rows = $this->fetchAll($sql, [':board' => $board]);
-
-        $result = [];
-        foreach ($rows as $row) {
-            $name = $row['name'] ?? '';
-            if ($name !== '') {
-                $result[$name] = $row['state'] ?? '0';
-            }
-        }
-        return $result;
+        return 'name';
     }
 
     /**
@@ -44,24 +28,7 @@ class MspOutputRepository extends AbstractRepository
      */
     public function updateByName(string $name, string $state, int $board): void
     {
-        $sql = "UPDATE `" . self::table() . "` SET state = :state WHERE name = :name AND board = :board";
+        $sql = "UPDATE `" . $this->getTable() . "` SET state = :state WHERE name = :name AND board = :board";
         $this->execute($sql, [':state' => $state, ':name' => $name, ':board' => $board]);
-    }
-
-    /**
-     * @return array<int, array<string, mixed>>
-     */
-    public function getAllForBoard(int $board): array
-    {
-        $sql = "SELECT id, name, gpio, state FROM `" . self::table() . "` WHERE board = :board ORDER BY gpio ASC";
-        return $this->fetchAll($sql, [':board' => $board]);
-    }
-
-    /** Dernière requête de la board dans la table Boards. */
-    public function getLastBoardRequest(int $board): ?string
-    {
-        $sql = "SELECT last_request FROM `Boards` WHERE board = :board LIMIT 1";
-        $val = $this->fetchScalar($sql, [':board' => $board]);
-        return $val !== null ? (string) $val : null;
     }
 }
