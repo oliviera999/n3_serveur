@@ -64,6 +64,8 @@ class N3ppDataController extends AbstractDataController
             'hero_title' => "L'élevage d'insectes – Serre",
             'hero_icon' => 'fa-leaf',
             'hero_subtitle' => 'Supervision des capteurs de la serre (température, humidité air et sol, luminosité, état pompe).',
+            'hero_more_url' => '/serre-description',
+            'hero_more_label' => 'En savoir plus sur le module',
             'form_action' => '/serre',
             'test_env' => 'n3pp_test',
             'table_label' => $environment === 'n3pp_test' ? 'n3ppDataTest' : 'n3ppData',

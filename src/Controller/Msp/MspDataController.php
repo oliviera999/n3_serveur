@@ -66,6 +66,8 @@ class MspDataController extends AbstractDataController
             'hero_title' => 'Le potager – Station météo',
             'hero_icon' => 'fa-sun',
             'hero_subtitle' => 'Supervision des capteurs de la station météo (température, humidité, luminosité, eau, pluie).',
+            'hero_more_url' => '/meteo-description',
+            'hero_more_label' => 'En savoir plus sur le module',
             'form_action' => '/meteo',
             'test_env' => 'msp_test',
             'table_label' => $environment === 'msp_test' ? 'msp1DataTest' : 'msp1Data',

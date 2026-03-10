@@ -9,7 +9,7 @@
         {% if hero_subtitle is defined %}
             <p class="header-subtitle">{{ hero_subtitle }}</p>
         {% endif %}
-        {% if hero_more_url is defined and hero_more_label is defined %}
+        {% if hero_more_url is defined and hero_more_label is defined and hero_more_url and hero_more_label %}
             <p class="header-more"><a href="{{ hero_more_url }}">{{ hero_more_label }}</a></p>
         {% endif %}
         {% if hero_synthesis is defined %}

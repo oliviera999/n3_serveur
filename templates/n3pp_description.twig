@@ -1,0 +1,53 @@
+{% extends 'module_description_base.twig' %}
+
+{% block desc_sections %}
+        <section class="desc-section">
+            <h2><i class="fas fa-globe"></i> Vue d'ensemble</h2>
+            <p>La serre connectée d'<strong>Insectopolis</strong> (élevage de phasmes et mantes-religieuses) assure la supervision des conditions de l'habitat : température et humidité de l'air, luminosité, humidité du sol (4 capteurs), et <strong>arrosage automatique</strong> selon des seuils configurables. Les capteurs mesurent en permanence pour garantir un milieu optimal aux insectes (voir <a href="https://n3.olution.info/accueil/poles/" target="_blank" rel="noopener">n3.olution.info – Insectopolis</a>).</p>
+        </section>
+
+        <section class="desc-section">
+            <h2><i class="fas fa-tint"></i> Capteurs</h2>
+            <p>Le module N3PP mesure :</p>
+            <ul>
+                <li><strong>Température et humidité de l'air</strong> — DHT, en °C et %</li>
+                <li><strong>Humidité du sol</strong> — 4 capteurs analogiques (Humid1 à 4), moyenne en UA</li>
+                <li><strong>Luminosité</strong> — photorésistance, en UA</li>
+                <li><strong>Batterie</strong> — pont diviseur pour suivi d'autonomie</li>
+            </ul>
+        </section>
+
+        <section class="desc-section">
+            <h2><i class="fas fa-sliders-h"></i> Actionneurs</h2>
+            <p>Les sorties pilotées :</p>
+            <ul>
+                <li><strong>Pompe d'arrosage</strong> — irrigation selon seuil de sécheresse</li>
+                <li><strong>Relais</strong> — sortie de commande générale</li>
+            </ul>
+            <p>Paramètres configurables (seuil sécheresse, heure arrosage, temps arrosage, éco énergie, fréquence réveil) via le contrôle à distance.</p>
+        </section>
+
+        <section class="desc-section">
+            <h2><i class="fas fa-microchip"></i> Firmware (ESP32)</h2>
+            <p>Le firmware <strong>n3pp4_2</strong> (N3PhasmesProto) assure la lecture des capteurs, la commande de la pompe et les échanges avec le serveur. Principales caractéristiques :</p>
+            <ul>
+                <li><strong>Deep sleep</strong> — réveil timer + GPIO (touch) pour économie d'énergie</li>
+                <li><strong>OLED SSD1306</strong> — affichage local des mesures</li>
+                <li><strong>Arrosage automatique</strong> — déclenché selon seuil (SeuilSec) et programmation</li>
+                <li><strong>POST</strong> périodique vers <code>post-n3pp-data.php</code></li>
+                <li><strong>GET</strong> état des sorties pour synchroniser les commandes</li>
+                <li><strong>ESP Mail Client</strong> — alertes SMTP en cas d'anomalie (humidité, batterie)</li>
+                <li>Mise à jour <strong>OTA</strong> du firmware</li>
+            </ul>
+        </section>
+
+        <section class="desc-section">
+            <h2><i class="fas fa-cloud"></i> Serveur distant</h2>
+            <p>Le serveur web (iot.olution.info) agrège les données et permet le pilotage à distance. Flux :</p>
+            <ul>
+                <li><strong>POST</strong> données capteurs vers <code>n3ppdatas/post-n3pp-data.php</code></li>
+                <li><strong>GET</strong> état des sorties via <code>n3ppcontrol/n3pp-outputs-action.php</code></li>
+            </ul>
+            <p>Pages : <a href="/serre">Données</a> et <a href="/serre-control">Contrôle</a>. Environnements prod et test disponibles.</p>
+        </section>
+{% endblock %}

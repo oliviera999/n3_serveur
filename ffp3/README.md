@@ -145,11 +145,13 @@ Résumé des tables :
 
 **Emplacement des scripts** : tous les scripts de déploiement et de test FFP3 se trouvent dans `serveur/ffp3/` (dossiers `bin/`, `tools/`, `scripts/`). Les exécuter **depuis la racine ffp3** (répertoire contenant `composer.json`), sauf indication contraire dans le script.
 
+**Scripts de déploiement** : `deploy-server.ps1` (SSH vers prod), `DEPLOY_NOW.sh` (sur serveur ou via `scripts/deploy-server.ps1` depuis racine IOT_n3). En prod, CRON fait déjà `git pull` ; ces scripts servent au déploiement manuel.
+
 ```bash
 # Dev : serveur PHP intégré
 php -S localhost:8080 -t public
 
-# Déploiement automatisé (exemples, depuis serveur/ffp3/)
+# Tests post-déploiement (depuis serveur/ffp3/)
 ./deploy-and-test.sh          # Bash
 pwsh ./deploy-and-test.ps1    # PowerShell
 ```

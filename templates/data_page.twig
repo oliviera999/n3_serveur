@@ -23,6 +23,8 @@
         hero_title: data_config.hero_title,
         hero_icon: data_config.hero_icon,
         hero_subtitle: data_config.hero_subtitle,
+        hero_more_url: data_config.hero_more_url|default(''),
+        hero_more_label: data_config.hero_more_label|default(''),
         hero_synthesis: data_config.hero_synthesis|default(
             '📊 Synthèse du ' ~ start_date|date('d/m/Y H:i') ~ ' au ' ~ end_date|date('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' mesures — ' ~ duration_str
         )

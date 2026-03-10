@@ -380,6 +380,12 @@ return [
         );
     },
 
+    \App\Controller\Msp\MspDescriptionController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Msp\MspDescriptionController(
+            $c->get(TemplateRenderer::class)
+        );
+    },
+
     \App\Controller\N3pp\N3ppPostDataController::class => function (ContainerInterface $c) {
         return new \App\Controller\N3pp\N3ppPostDataController(
             $c->get(\App\Service\LogService::class),
@@ -404,6 +410,12 @@ return [
             $c->get(\App\Service\DateRangeExtractor::class),
             $c->get(\App\Service\CsvExportService::class),
             $c->get(ChartDataService::class)
+        );
+    },
+
+    \App\Controller\N3pp\N3ppDescriptionController::class => function (ContainerInterface $c) {
+        return new \App\Controller\N3pp\N3ppDescriptionController(
+            $c->get(TemplateRenderer::class)
         );
     },
 

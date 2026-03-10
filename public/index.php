@@ -19,10 +19,12 @@ use App\Controller\Gallery\GalleryViewController;
 use App\Controller\HomeController;
 use App\Controller\LocalDataPagesController;
 use App\Controller\Msp\MspDataController;
+use App\Controller\Msp\MspDescriptionController;
 use App\Controller\Msp\MspOutputController;
 use App\Controller\Msp\MspPostDataController;
 use App\Controller\Msp\MspRealtimeApiController;
 use App\Controller\N3pp\N3ppDataController;
+use App\Controller\N3pp\N3ppDescriptionController;
 use App\Controller\N3pp\N3ppOutputController;
 use App\Controller\N3pp\N3ppPostDataController;
 use App\Controller\N3pp\N3ppRealtimeApiController;
@@ -77,6 +79,9 @@ if ($basePath !== '' && $basePath !== '/') {
 }
 // Base path pour les templates (assets, liens). Utilisé par TemplateRenderer.
 $GLOBALS['base_path'] = $basePath;
+
+// Helpers de routes (registerRedirects, etc.) — requis avant les redirections 301
+require __DIR__ . '/../config/routes_helpers.php';
 
 $requestPath = (string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 
@@ -284,12 +289,9 @@ registerRedirects($app, $routesConfigFull['redirects_301'], $basePath);
 // Pages aquaponie - PUBLIQUES (avec middleware d'environnement mais sans authentification)
 // Inversion 2026-03 : /aquaponie = vue paysage (main), /aquaponie-alt = vue classique (alt)
 // PRODUCTION
-$app->group('', function ($group) use ($basePath, $useLocalDataFallback) {
+$app->group('', function ($group) use ($useLocalDataFallback) {
     $group->map(['GET', 'POST'], '/aquaponie', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponie' : 'showAlt']);
     $group->map(['GET', 'POST'], '/aquaponie-alt', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponieClassic' : 'show']);
-    $group->get('/ffp3-data', function (Request $request, Response $response) use ($basePath) {
-        return $response->withHeader('Location', $basePath . '/aquaponie')->withStatus(301);
-    }); // Redirection legacy vers aquaponie
 })->add(new EnvironmentMiddleware('prod'));
 
 // TEST
@@ -313,6 +315,10 @@ $app->group('', function ($group) use ($useLocalDataFallback) {
 // Page Caractéristiques du module FFP3 - PUBLIQUE (pas de variante env)
 $app->get('/aquaponie-description', [AquaponieDescriptionController::class, 'show']);
 
+// Pages Caractéristiques des modules MSP1 et N3PP - PUBLIQUES
+$app->get('/meteo-description', [MspDescriptionController::class, 'show']);
+$app->get('/serre-description', [N3ppDescriptionController::class, 'show']);
+
 // Fichiers OTA (n3pp, msp, cam) — servis depuis serveur/ota/
 $app->get('/ota/{path:.+}', function (Request $request, Response $response, array $args) {
     $path = $args['path'] ?? '';
@@ -335,11 +341,6 @@ $app->get('/ota/{path:.+}', function (Request $request, Response $response, arra
     }
     return $response;
 });
-
-// ====================================================================
-// Helpers pour factoriser les routes (config/routes_helpers.php)
-// ====================================================================
-require __DIR__ . '/../config/routes_helpers.php';
 
 // Ping / diagnostic latence - PUBLIC (GET et POST, réponse minimale, pas de BDD)
 $app->map(['GET', 'POST'], '/ping', function (Request $request, Response $response): Response {

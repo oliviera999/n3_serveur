@@ -22,10 +22,12 @@ Vérifications utiles :
 - Accueil : `http://127.0.0.1:8082/`
 - CSS principal : `http://127.0.0.1:8082/assets/css/main.css`
 - Description aquaponie : `http://127.0.0.1:8082/aquaponie-description`
+- Description MSP1 (météo) : `http://127.0.0.1:8082/meteo-description`
+- Description N3PP (serre) : `http://127.0.0.1:8082/serre-description`
 - Aquaponie : `http://127.0.0.1:8082/aquaponie`
 - Aquaponie classique : `http://127.0.0.1:8082/aquaponie-alt`
-- Page MSP1 : `http://127.0.0.1:8082/msp1/msp1datas/msp1-data.php`
-- Page N3PP : `http://127.0.0.1:8082/n3pp/n3ppdatas/n3pp-data.php`
+- Données MSP1 (météo) : `http://127.0.0.1:8082/meteo`
+- Données N3PP (serre) : `http://127.0.0.1:8082/serre`
 
 Prérequis locaux :
 
@@ -37,7 +39,7 @@ Comportement local actuel :
 - `pdo_mysql` reste nécessaire si l’on veut tester les vraies données MySQL
 - sans base joignable, le serveur intégré active un fallback local pour `aquaponie`, `aquaponie-alt`, `msp1` et `n3pp`
 - ce fallback rend les pages avec des séries vides et des valeurs neutres, ce qui permet de vérifier localement le HTML, Twig, les assets CSS/JS, les formulaires et le routage sans erreur `DB connection failed`
-- l’accueil, `login`, les galeries et `aquaponie-description` restent aussi testables localement
+- l’accueil, `login`, les galeries , `aquaponie-description`, `meteo-description` et `serre-description` restent aussi testables localement
 
 ## Scripts de déploiement et de test (FFP3)
 

@@ -7,9 +7,8 @@ Ce document décrit comment diagnostiquer les erreurs du serveur IoT n3 en produ
 | Log | URL | Description |
 |-----|-----|-------------|
 | Cronlog (Monolog) | https://iot.olution.info/public/cronlog.txt | Log applicatif (CRON, erreurs métier). |
-| error_log (public) | https://iot.olution.info/public/error_log | Log PHP / erreurs web (public du projet). |
-| Variante sous /ffp3 | https://iot.olution.info/ffp3/public/error_log | Même fichier si la racine du site est sous `/ffp3`. |
-| Analyse des erreurs | https://iot.olution.info/ffp3/admin/analyze-errors (avec auth / token) | Résumé des error_log (même protection que /admin/clear-cache). |
+| error_log | https://iot.olution.info/public/error_log | Log PHP / erreurs web. DocumentRoot = racine du dépôt, fichiers dans `public/` accessibles via `/public/`. |
+| Analyse des erreurs | https://iot.olution.info/admin/analyze-errors (avec auth / token) | Résumé des error_log. Route `/admin/*` selon config serveur. |
 
 Les fichiers `error_log` à la racine du projet (hors `public/`) ne sont pas accessibles directement par URL ; le script d’analyse les agrège s’il est exécuté sur le serveur.
 
@@ -19,7 +18,7 @@ Quand l’utilisateur voit un message du type « Une erreur serveur est survenue
 
 1. **Récupérer le contenu des logs**
    - Ouvrir le cronlog : https://iot.olution.info/public/cronlog.txt  
-   - Ouvrir l’error_log : https://iot.olution.info/public/error_log (ou `/ffp3/public/error_log` selon la config).
+   - Ouvrir l’error_log : https://iot.olution.info/public/error_log .
 
 2. **Rechercher la référence**
    - Dans le texte, chercher la chaîne `[<référence>]` (ex. `[bb3262da436c]`).
@@ -47,7 +46,7 @@ Quand l’utilisateur voit un message du type « Une erreur serveur est survenue
 Un script permet d’obtenir un **résumé** des erreurs (comptages par type, dernières lignes pertinentes) sans ouvrir manuellement les fichiers :
 
 - **En production (navigateur)** :  
-  `https://iot.olution.info/ffp3/admin/analyze-errors`  
+  `https://iot.olution.info/admin/analyze-errors` (ou `/ffp3/admin/analyze-errors` selon la config)  
   Protégé par la même authentification que les autres routes /admin/ (session ou token, voir CLEAR_CACHE_OPTIONS.md). Avec token : `?token=<ADMIN_TOKEN>`.
 
 - **En local / SSH** :  
