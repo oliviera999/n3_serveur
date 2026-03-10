@@ -35,6 +35,8 @@ class MspOutputController extends AbstractOutputController
         $env = TableConfig::getEnvironment();
         $isTest = $env === 'msp_test';
         $outputs = $this->outputRepo->getAllForBoard($board);
+        $outputsApiBase = $isTest ? '/msp1-test/api/outputs' : '/msp1/api/outputs';
+        $realtimeApiBase = $isTest ? '/msp1-test/api/realtime' : '/msp1/api/realtime';
         return [
             'page_title' => 'Contrôle station météo - Le potager',
             'outputs' => $outputs,
@@ -44,18 +46,18 @@ class MspOutputController extends AbstractOutputController
             'firmware_version' => $this->sensorRepo->getFirmwareVersion(),
             'environment' => $env,
             'nav_active' => 'potager_control',
-            'outputs_api_base' => $isTest ? '/msp1-test/api/outputs' : '/msp1/api/outputs',
-            'realtime_api_base' => $isTest ? '/msp1-test/api/realtime' : '/msp1/api/realtime',
-            'control_config' => [
-                'test_env' => 'msp_test',
-                'sidebar_title' => 'Station Météo',
-                'sidebar_description' => 'Contrôle des sorties et paramètres de la station météo (MSP). Les commandes sont transmises à l\'ESP32 au prochain cycle.',
-                'outputs_count' => count($outputs),
-                'icon' => 'fa-cloud-sun',
-                'main_title' => 'Contrôle MSP1 – Station Météo',
-                'main_description' => 'Activez/désactivez les sorties et configurez les paramètres du firmware msp2_5.',
-                'default_api_base' => '/msp1/api/outputs',
-            ],
+            'outputs_api_base' => $outputsApiBase,
+            'realtime_api_base' => $realtimeApiBase,
+            'control_config' => $this->makeControlConfig(
+                'msp_test',
+                'Station Météo',
+                'Contrôle des sorties et paramètres de la station météo (MSP). Les commandes sont transmises à l\'ESP32 au prochain cycle.',
+                count($outputs),
+                'fa-cloud-sun',
+                'Contrôle MSP1 – Station Météo',
+                'Activez/désactivez les sorties et configurez les paramètres du firmware msp2_5.',
+                '/msp1/api/outputs'
+            ),
         ];
     }
 

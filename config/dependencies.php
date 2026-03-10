@@ -226,7 +226,8 @@ return [
             $c->get(\App\Service\OutputService::class),
             $c->get(\App\Service\TemplateRenderer::class),
             $c->get(\App\Repository\SensorReadRepository::class),
-            $c->get(\App\Service\OutputCacheService::class)
+            $c->get(\App\Service\OutputCacheService::class),
+            $c->get(\App\Service\LogService::class)
         );
     },
 
@@ -285,7 +286,9 @@ return [
 
     \App\Controller\Ffp3\ExportController::class => function (ContainerInterface $c) {
         return new \App\Controller\Ffp3\ExportController(
-            $c->get(\App\Repository\SensorReadRepository::class)
+            $c->get(\App\Repository\SensorReadRepository::class),
+            $c->get(\App\Service\CsvExportService::class),
+            $c->get(\App\Service\DateRangeExtractor::class)
         );
     },
 

@@ -7,6 +7,45 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
+## [5.0.85] - 2026-03-10
+
+### Modifié - Unification routes (MSP/N3PP, redirections, assets)
+- **routes_config.php** : ajout redirects_301, asset_js, asset_css, asset_icons
+- **registerRedirects()** : factorisation des redirections 301 depuis la config
+- **registerAssetRoute()** : route générique pour fichiers statiques (js, css, icons)
+- **registerIotModuleRoutes()** : factorisation routes MSP1/N3PP prod et test (msp1, msp1-test, n3pp, n3pp-test)
+
+---
+
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
+## [5.0.84] - 2026-03-10
+
+### Modifié - Unification serveur (export CSV, contrôle, routes, erreurs)
+- **Export FFP3** : ExportController utilise CsvExportService et DateRangeExtractor (alignement MSP/N3PP)
+- **AbstractOutputController** : méthode makeControlConfig() pour factoriser buildControlPageData (MSP/N3PP)
+- **FFP3 OutputController** : gestion d'erreur via LogService au lieu de error_log
+- **Routes** : config centralisée (routes_config.php) et helper registerFfp3ProtectedRoutes pour les 4 environnements
+- **ffp3/templates** : DEPRECATED_README.md (templates archivés, référentiel : serveur/templates/)
+
+---
+
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.83] - 2026-03-10
 
 ### Correctif - Classes abstraites manquantes (AbstractSensorRepository, Ffp3RealtimeDataProvider, AbstractDataController)
@@ -399,6 +438,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -779,6 +824,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -1158,6 +1209,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -1537,6 +1594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -1925,6 +1988,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -2306,6 +2375,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -2687,6 +2762,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -3069,6 +3150,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -3450,6 +3537,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -3833,6 +3926,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -4214,6 +4313,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -4595,6 +4700,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -4976,6 +5087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -5358,6 +5475,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -5737,6 +5860,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -6121,6 +6250,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -6500,6 +6635,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -6882,6 +7023,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -7262,6 +7409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -7644,6 +7797,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -8026,6 +8185,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -8407,6 +8572,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -8790,6 +8961,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -9170,6 +9347,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -9551,6 +9734,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -9933,6 +10122,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -10315,6 +10510,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -10695,6 +10896,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -11076,6 +11283,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -11459,6 +11672,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -11841,6 +12060,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -12222,6 +12447,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -12603,6 +12834,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -12984,6 +13221,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -13365,6 +13608,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -13745,6 +13994,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -14125,6 +14380,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -14505,6 +14766,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -14885,6 +15152,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -15266,6 +15539,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -15651,6 +15930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -16036,6 +16321,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -16414,6 +16705,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -16792,6 +17089,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -17170,6 +17473,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -17548,6 +17857,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -17926,6 +18241,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -18304,6 +18625,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -18699,6 +19026,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -19084,6 +19417,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -19467,6 +19806,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -19851,6 +20196,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -20239,6 +20590,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -20639,6 +20996,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -21021,6 +21384,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -21405,6 +21774,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -21789,6 +22164,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -22170,6 +22551,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -22554,6 +22941,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -22935,6 +23328,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -23315,6 +23714,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -23696,6 +24101,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -24087,6 +24498,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -24475,6 +24892,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -24871,6 +25294,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -25271,6 +25700,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -25661,6 +26096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -26043,6 +26484,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -26427,6 +26874,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -26810,6 +27263,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -27193,6 +27652,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -27574,6 +28039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -27955,6 +28426,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -28338,6 +28815,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -28720,6 +29203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -29104,6 +29593,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -29493,6 +29988,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -29886,6 +30387,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -30275,6 +30782,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -30666,6 +31179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -31056,6 +31575,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -31441,6 +31966,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -31822,6 +32353,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -32207,6 +32744,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -32589,6 +33132,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -32970,6 +33519,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -33351,6 +33906,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -33734,6 +34295,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -34117,6 +34684,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -34499,6 +35072,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -34881,6 +35460,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -35262,6 +35847,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -35643,6 +36234,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -36024,6 +36621,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -36407,6 +37010,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -36790,6 +37399,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -37171,6 +37786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -37552,6 +38173,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -37933,6 +38560,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -38315,6 +38948,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -38699,6 +39338,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -39090,6 +39735,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -39475,6 +40126,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -39867,6 +40524,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -40257,6 +40920,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -40638,6 +41307,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -41052,6 +41727,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -41437,6 +42118,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -41831,6 +42518,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -42235,6 +42928,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -42629,6 +43328,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -43013,6 +43718,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -43398,6 +44109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -43789,6 +44506,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -44290,6 +45013,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -44675,6 +45404,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -45058,6 +45793,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -45442,6 +46183,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -45827,6 +46574,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -46211,6 +46964,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -46597,6 +47356,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -46982,6 +47747,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -47489,6 +48260,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -47873,6 +48650,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -48257,6 +49040,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -48689,6 +49478,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -49082,6 +49877,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -49475,6 +50276,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -49905,6 +50712,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -50346,6 +51159,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -50744,6 +51563,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -51143,6 +51968,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -51532,6 +52363,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -51927,6 +52764,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -52326,6 +53169,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -52723,6 +53572,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -53111,6 +53966,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -53511,6 +54372,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -53943,6 +54810,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -54330,6 +55203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -54718,6 +55597,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -55105,6 +55990,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -55497,6 +56388,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -55895,6 +56792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -56291,6 +57194,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -56685,6 +57594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -57074,6 +57989,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -57464,6 +58385,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -57865,6 +58792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -58265,6 +59198,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -58668,6 +59607,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -59087,6 +60032,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -59536,6 +60487,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -59926,6 +60883,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -60315,6 +61278,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -60714,6 +61683,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -61103,6 +62078,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -61496,6 +62477,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -61882,6 +62869,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -62270,6 +63263,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -62650,6 +63649,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -63070,6 +64075,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -63462,6 +64473,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -63876,6 +64893,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -64272,6 +65295,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -64664,6 +65693,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -65062,6 +66097,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -65482,6 +66523,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -65887,6 +66934,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -66346,6 +67399,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -66742,6 +67801,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -67140,6 +68205,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -67549,6 +68620,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -67951,6 +69028,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -68340,6 +69423,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -68729,6 +69818,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -69120,6 +70215,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -69582,6 +70683,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -69992,6 +71099,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -70416,6 +71529,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -70828,6 +71947,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -71244,6 +72369,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -71628,6 +72759,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -72064,6 +73201,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -72464,6 +73607,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -72851,6 +74000,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -73288,6 +74443,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -73704,6 +74865,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -74153,6 +75320,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -74540,6 +75713,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -74986,6 +76165,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -75370,6 +76555,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -75753,6 +76944,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -76140,6 +77337,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -76527,6 +77730,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -76959,6 +78168,12 @@ docs/
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -77414,6 +78629,12 @@ docs/
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -77803,6 +79024,12 @@ docs/
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -78226,6 +79453,12 @@ docs/
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -78614,6 +79847,12 @@ docs/
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -79024,6 +80263,12 @@ docs/
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -79410,6 +80655,12 @@ docs/
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -79985,6 +81236,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -80394,6 +81651,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -80830,6 +82093,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -81252,6 +82521,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -81660,6 +82935,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -82075,6 +83356,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -82482,6 +83769,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -82878,6 +84171,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -83266,6 +84565,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -83670,6 +84975,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -84058,6 +85369,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -84446,6 +85763,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -84836,6 +86159,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -85244,6 +86573,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
@@ -85626,6 +86961,12 @@ ance future
 
 ---
 
+## [5.0.86] - 2026-03-10
+
+### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
+- **Résumé** : Section Live temps réel, réorganisation sections supervision, suppression exports CSV.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP

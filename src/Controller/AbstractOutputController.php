@@ -31,6 +31,31 @@ abstract class AbstractOutputController
     abstract protected function buildControlPageData(int $board): array;
 
     /**
+     * Construit la structure control_config commune (sidebar, titres, etc.).
+     */
+    protected function makeControlConfig(
+        string $testEnv,
+        string $sidebarTitle,
+        string $sidebarDescription,
+        int $outputsCount,
+        string $icon,
+        string $mainTitle,
+        string $mainDescription,
+        string $defaultApiBase
+    ): array {
+        return [
+            'test_env' => $testEnv,
+            'sidebar_title' => $sidebarTitle,
+            'sidebar_description' => $sidebarDescription,
+            'outputs_count' => $outputsCount,
+            'icon' => $icon,
+            'main_title' => $mainTitle,
+            'main_description' => $mainDescription,
+            'default_api_base' => $defaultApiBase,
+        ];
+    }
+
+    /**
      * Retourne l'état des sorties pour le firmware (format dépend du module).
      */
     abstract protected function getStateData(int $board): array;

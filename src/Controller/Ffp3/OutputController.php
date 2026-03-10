@@ -7,6 +7,7 @@ namespace App\Controller\Ffp3;
 use App\Config\Database;
 use App\Config\TableConfig;
 use App\Config\Version;
+use App\Service\LogService;
 use App\Service\OutputCacheService;
 use App\Util\RealtimeUrlHelper;
 use App\Service\OutputService;
@@ -28,7 +29,8 @@ class OutputController
         private OutputService $outputService,
         private TemplateRenderer $renderer,
         private SensorReadRepository $sensorReadRepo,
-        private OutputCacheService $outputCache
+        private OutputCacheService $outputCache,
+        private LogService $logger,
     ) {
     }
 
@@ -96,20 +98,18 @@ class OutputController
 
         } catch (\Throwable $e) {
             $errorId = substr(bin2hex(random_bytes(8)), 0, 12);
-            $ts = date('Y-m-d H:i:s');
-            // Log détaillé avec référence pour corrélation (error_log + format [n3 500] comme le middleware)
-            error_log(sprintf(
-                "[%s] [n3 500] [%s] GET (aquaponie-control) OutputController::showInterface — %s: %s in %s:%d",
-                $ts,
-                $errorId,
-                $e::class,
-                $e->getMessage(),
-                $e->getFile(),
-                $e->getLine()
-            ));
-            error_log(sprintf("[%s] [n3 500] [%s] Trace: %s", $ts, $errorId, $e->getTraceAsString()));
+            $this->logger->error(
+                '[n3 500] [{error_id}] GET (aquaponie-control) OutputController::showInterface — {class}: {msg} in {file}:{line}',
+                [
+                    'error_id' => $errorId,
+                    'class' => $e::class,
+                    'msg' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => (string) $e->getLine(),
+                ]
+            );
+            $this->logger->error('Trace: ' . $e->getTraceAsString());
 
-            // Message d'erreur selon l'environnement
             $isDevelopment = in_array($_ENV['ENV'] ?? 'prod', ['test', 'test3'], true) || (bool)($_ENV['DEBUG'] ?? false);
 
             if ($isDevelopment) {

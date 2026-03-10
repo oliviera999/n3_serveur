@@ -167,52 +167,10 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
     
     $uri = $request->getUri();
     $path = $uri->getPath();
-    
-    // Liste des chemins publics (doivent commencer par ces chemins) - exclus de la protection
-    $publicPaths = [
-        '/api/realtime',           // API temps réel pour pages aquaponie publiques
-        '/api/realtime-test',
-        '/api/realtime3',
-        '/api/realtime3-test',
-        '/post-data',              // Endpoints firmware ESP32 (FFP)
-        '/post-data-test',
-        '/post-data3',
-        '/post-data3-test',
-        '/heartbeat',              // Heartbeat firmware ESP32
-        '/heartbeat-test',
-        '/heartbeat3',
-        '/heartbeat3-test',
-        '/ping',                   // Diagnostic latence (GET/POST, réponse minimale)
-        '/msp1/',                  // Endpoints firmware msp2_5 (station meteo)
-        '/msp1-test/',             // Endpoints firmware msp2_5 TEST
-        '/msp1_data',              // Alias court -> redirection vers page donnees MSP1
-        '/msp1datas/',             // Alias sans préfixe /msp1/ (compatibilité firmwares)
-        '/n3pp/',                  // Endpoints firmware n3pp4_2 (serre)
-        '/n3pp-test/',             // Endpoints firmware n3pp4_2 TEST
-        '/n3ppdatas/',             // Alias sans préfixe /n3pp/ (compatibilité firmwares)
-        '/msp1gallery/',           // Upload photo ESP32-CAM
-        '/n3ppgallery/',           // Upload photo ESP32-CAM
-        '/ffp3/ffp3gallery/',      // Upload photo ESP32-CAM vers FFP3
-        '/ffp3/post-data',         // API firmware FFP avec base URL /ffp3/ (tous profils)
-        '/ffp3/post-data-test',
-        '/ffp3/post-data3',
-        '/ffp3/post-data3-test',
-        '/ffp3/heartbeat',
-        '/ffp3/heartbeat-test',
-        '/ffp3/heartbeat3',
-        '/ffp3/heartbeat3-test',
-        '/gallery/',               // Pages galeries photo (consultation)
-        '/ota/',                   // Fichiers OTA (metadata.json, firmware.bin) n3pp, msp, cam
-        '/ffp3datas/',             // Alias legacy (LVGL_Widgets)
-        '/ffp3control/',           // Alias legacy (LVGL_Widgets)
-    ];
-    
-    // Chemins publics a comparer exactement (pas par prefixe) pour eviter
-    // que /meteo ne matche /meteo-control ou /serre ne matche /serre-control
-    $exactPublicPaths = [
-        '/meteo',
-        '/serre',
-    ];
+
+    $routesConfig = require __DIR__ . '/../config/routes_config.php';
+    $publicPaths = $routesConfig['public_paths'];
+    $exactPublicPaths = $routesConfig['exact_public_paths'];
     
     // Vérifier si le chemin est public (GET /api/outputs*/state uniquement)
     $isPublic = in_array($path, $exactPublicPaths, true);
@@ -235,37 +193,7 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
         return $handler->handle($request);
     }
     
-    // Liste des chemins protégés (doivent commencer par ces chemins)
-    $protectedPaths = [
-        '/aquaponie-control',
-        '/aquaponie-control-test',
-        '/aquamobile-control',
-        '/aquamobile-control-test',
-        '/meteo-control',
-        '/serre-control',
-        '/dashboard',
-        '/dashboard-test',
-        '/dashboard3',
-        '/dashboard3-test',
-        '/supervision',
-        '/tide-stats',
-        '/tide-stats-test',
-        '/tide-stats3',
-        '/tide-stats3-test',
-        '/export-data',
-        '/export-data-test',
-        '/export-data3',
-        '/export-data3-test',
-        '/admin',
-        '/api/outputs',            // Protégé sauf /state (géré ci-dessus)
-        '/api/outputs-test',
-        '/api/outputs3',
-        '/api/outputs3-test',
-        '/ffp3/api/outputs',       // Contrôle aquaponie (toggle, parameters) depuis page /ffp3/*
-        '/ffp3/api/outputs-test',
-        '/ffp3/api/outputs3-test',
-        '/ffp3/api/outputs3',
-    ];
+    $protectedPaths = $routesConfig['protected_paths'];
     
     // Vérifier si le chemin demandé est protégé
     $isProtected = false;
@@ -326,30 +254,8 @@ $app->get('/index.html', function (Request $request, Response $response) use ($a
 
 // Redirections 301 : anciennes URL vers nouveau schéma de nommage
 $basePath = $app->getBasePath() ?: '';
-$app->get('/control', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/aquaponie-control')->withStatus(301);
-});
-$app->get('/control-test', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/aquaponie-control-test')->withStatus(301);
-});
-$app->get('/control3-test', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/aquamobile-control-test')->withStatus(301);
-});
-$app->get('/control3', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/aquamobile-control')->withStatus(301);
-});
-$app->map(['GET', 'POST'], '/aquaponie3-test', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/aquamobile-test')->withStatus(301);
-});
-$app->map(['GET', 'POST'], '/aquaponie3', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/aquamobile')->withStatus(301);
-});
-$app->map(['GET', 'POST'], '/aquaponie-alt3-test', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/aquamobile-alt-test')->withStatus(301);
-});
-$app->map(['GET', 'POST'], '/aquaponie-alt3', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/aquamobile-alt')->withStatus(301);
-});
+$routesConfigFull = require __DIR__ . '/../config/routes_config.php';
+registerRedirects($app, $routesConfigFull['redirects_301'], $basePath);
 
 // Pages aquaponie - PUBLIQUES (avec middleware d'environnement mais sans authentification)
 // Inversion 2026-03 : /aquaponie = vue paysage (main), /aquaponie-alt = vue classique (alt)
@@ -446,6 +352,109 @@ function registerFirmwareRoutes($app, string $groupPrefix, string $env, string $
 }
 
 /**
+ * Enregistre les routes protégées FFP3 (dashboard, tide-stats, export, contrôle) pour un environnement.
+ */
+function registerFfp3ProtectedRoutes($app, array $routes, string $env, $applyAuth): void
+{
+    $app->group('', function ($group) use ($routes) {
+        if (isset($routes['supervision'])) {
+            $group->get($routes['supervision'], [SupervisionController::class, 'show']);
+        }
+        $group->get($routes['dashboard'], [DashboardController::class, 'show']);
+        $group->get($routes['export'], [ExportController::class, 'downloadCsv']);
+        if (isset($routes['export_legacy'])) {
+            $group->get($routes['export_legacy'], [ExportController::class, 'downloadCsv']);
+        }
+        $group->map(['GET', 'POST'], $routes['tide_stats'], [TideStatsController::class, 'show']);
+        $group->get($routes['control'], [OutputController::class, 'showInterface']);
+        $group->get($routes['toggle'], [OutputController::class, $routes['toggle_method']]);
+        $group->post($routes['parameters'], [OutputController::class, 'updateParameters']);
+        $group->post($routes['trigger_ota'], [OutputController::class, 'triggerOtaCheck']);
+        $group->get($routes['board_status'], [OutputController::class, 'getBoardStatus']);
+        if (isset($routes['admin_clear'])) {
+            $group->get($routes['admin_clear'], [CacheController::class, 'clearCache']);
+        }
+        if (isset($routes['admin_clear_page'])) {
+            $group->get($routes['admin_clear_page'], [CacheController::class, 'clearCachePage']);
+        }
+        if (isset($routes['admin_deploy'])) {
+            $group->get($routes['admin_deploy'], [CacheController::class, 'showDeployScript']);
+        }
+    })->add(new EnvironmentMiddleware($env))->add($applyAuth);
+}
+
+/**
+ * Enregistre les redirections 301 depuis la config.
+ */
+function registerRedirects($app, array $redirects, string $basePath): void
+{
+    foreach ($redirects as [$from, $to, $methods]) {
+        $location = $basePath . $to;
+        $handler = fn($req, $res) => $res->withHeader('Location', $location)->withStatus(301);
+        if ($methods === ['GET', 'POST']) {
+            $app->map(['GET', 'POST'], $from, $handler);
+        } else {
+            $app->get($from, $handler);
+        }
+    }
+}
+
+/**
+ * Enregistre une route de fichier statique (whitelist).
+ */
+function registerAssetRoute($app, string $path, array $allowedFiles, string $contentType, string $subDir = ''): void
+{
+    $app->get($path, function (Request $request, Response $response, array $args) use ($allowedFiles, $contentType, $subDir) {
+        $filename = $args['filename'];
+        if (!in_array($filename, $allowedFiles)) {
+            return $response->withStatus(404);
+        }
+        $filePath = __DIR__ . '/assets/' . ($subDir ? $subDir . '/' : '') . $filename;
+        if (file_exists($filePath)) {
+            $response->getBody()->write(file_get_contents($filePath));
+            return $response->withHeader('Content-Type', $contentType);
+        }
+        return $response->withStatus(404);
+    });
+}
+
+/**
+ * Enregistre les routes MSP1 ou N3PP (prod ou test). $pathPrefix = msp1|msp1-test|n3pp|n3pp-test.
+ */
+function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $config): void
+{
+    $module = $config['module'];
+    $dataController = $config['data_controller'];
+    $dataMethod = $config['data_method'];
+    $outputController = $config['output_controller'];
+    $realtimeController = $config['realtime_controller'];
+    $postDataController = $config['post_data_controller'];
+    $hasParameters = $config['has_parameters'] ?? false;
+
+    $callback = function ($group) use ($pathPrefix, $module, $dataController, $dataMethod, $outputController, $realtimeController, $postDataController, $hasParameters) {
+        $group->post("/{$pathPrefix}/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
+        $group->post("/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
+        $group->map(['GET', 'POST'], "/{$pathPrefix}/{$module}datas/{$module}-data.php", [$dataController, $dataMethod]);
+        $group->get("/{$pathPrefix}/{$module}control/{$module}-outputs-action.php", [$outputController, 'getState']);
+        $group->post("/{$pathPrefix}/{$module}control/{$module}-outputs-action.php", [$outputController, 'setOutput']);
+        $group->get("/{$pathPrefix}/{$module}control/", [$outputController, 'showControlPage']);
+        $group->get("/{$pathPrefix}/{$module}control/index.php", [$outputController, 'showControlPage']);
+        $group->get("/{$pathPrefix}/api/realtime/sensors/latest", [$realtimeController, 'getLatestSensors']);
+        $group->get("/{$pathPrefix}/api/realtime/sensors/since/{timestamp}", [$realtimeController, 'getSensorsSince']);
+        $group->get("/{$pathPrefix}/api/realtime/outputs/state", [$realtimeController, 'getOutputsState']);
+        $group->get("/{$pathPrefix}/api/realtime/system/health", [$realtimeController, 'getSystemHealth']);
+        $group->get("/{$pathPrefix}/api/realtime/alerts/active", [$realtimeController, 'getActiveAlerts']);
+        $group->get("/{$pathPrefix}/api/outputs/state", [$realtimeController, 'getOutputsState']);
+        $group->map(['GET', 'POST'], "/{$pathPrefix}/api/outputs/toggle", [$outputController, 'toggleOutput']);
+        if ($hasParameters) {
+            $group->post("/{$pathPrefix}/api/outputs/parameters", [$outputController, 'updateParameters']);
+        }
+    };
+
+    $app->group('', $callback)->add(new EnvironmentMiddleware($env));
+}
+
+/**
  * Enregistre les routes de contrôle aquaponie (toggle, parameters, ota, board status) sous /ffp3.
  */
 function registerFfp3ControlRoutes($app, string $outputsPrefix, string $toggleMethod, string $env, $applyAuth): void
@@ -510,214 +519,81 @@ registerFfp3ControlRoutes($app, '/api/outputs3-test', 'toggleOutputTest3', 'test
 registerFfp3ControlRoutes($app, '/api/outputs3', 'toggleOutputS3', 's3', $applyAuth);
 
 // ====================================================================
-// Routes PRODUCTION (par défaut) - avec middleware pour forcer 'prod'
+// Routes FFP3 protégées par environnement (dashboard, tide-stats, export, contrôle)
 // ====================================================================
+$ffp3RoutesConfig = [
+    'prod' => [
+        'supervision' => '/supervision',
+        'dashboard' => '/dashboard',
+        'export' => '/export-data',
+        'export_legacy' => '/export-data.php',
+        'tide_stats' => '/tide-stats',
+        'control' => '/aquaponie-control',
+        'toggle' => '/api/outputs/toggle',
+        'toggle_method' => 'toggleOutput',
+        'parameters' => '/api/outputs/parameters',
+        'trigger_ota' => '/api/outputs/trigger-ota-check',
+        'board_status' => '/api/outputs/board/{board}/status',
+        'admin_clear' => '/admin/clear-cache',
+        'admin_clear_page' => '/admin/clear-cache-page',
+        'admin_deploy' => '/admin/deploy-script',
+    ],
+    'test' => [
+        'dashboard' => '/dashboard-test',
+        'export' => '/export-data-test',
+        'tide_stats' => '/tide-stats-test',
+        'control' => '/aquaponie-control-test',
+        'toggle' => '/api/outputs-test/toggle',
+        'toggle_method' => 'toggleOutputTest',
+        'parameters' => '/api/outputs-test/parameters',
+        'trigger_ota' => '/api/outputs-test/trigger-ota-check',
+        'board_status' => '/api/outputs-test/board/{board}/status',
+        'admin_clear' => '/admin/clear-cache-test',
+        'admin_clear_page' => '/admin/clear-cache-page-test',
+    ],
+    'test3' => [
+        'dashboard' => '/dashboard3-test',
+        'export' => '/export-data3-test',
+        'tide_stats' => '/tide-stats3-test',
+        'control' => '/aquamobile-control-test',
+        'toggle' => '/api/outputs3-test/toggle',
+        'toggle_method' => 'toggleOutputTest3',
+        'parameters' => '/api/outputs3-test/parameters',
+        'trigger_ota' => '/api/outputs3-test/trigger-ota-check',
+        'board_status' => '/api/outputs3-test/board/{board}/status',
+        'admin_clear' => '/admin/clear-cache3-test',
+        'admin_clear_page' => '/admin/clear-cache-page3-test',
+    ],
+    's3' => [
+        'dashboard' => '/dashboard3',
+        'export' => '/export-data3',
+        'tide_stats' => '/tide-stats3',
+        'control' => '/aquamobile-control',
+        'toggle' => '/api/outputs3/toggle',
+        'toggle_method' => 'toggleOutputS3',
+        'parameters' => '/api/outputs3/parameters',
+        'trigger_ota' => '/api/outputs3/trigger-ota-check',
+        'board_status' => '/api/outputs3/board/{board}/status',
+        'admin_clear' => '/admin/clear-cache3',
+        'admin_clear_page' => '/admin/clear-cache-page3',
+    ],
+];
+
+foreach ($ffp3RoutesConfig as $env => $routes) {
+    registerFfp3ProtectedRoutes($app, $routes, $env, $applyAuth);
+}
+
+// Route additionnelle prod : toggle-test (alias)
 $app->group('', function ($group) {
-    // Page de supervision (liens vers toutes les pages) - PROTÉGÉE
-    $group->get('/supervision', [SupervisionController::class, 'show']);
-
-    // Dashboard - PROTÉGÉ
-    $group->get('/dashboard', [DashboardController::class, 'show']);
-
-    // Export CSV - PROTÉGÉ
-    $group->get('/export-data', [ExportController::class, 'downloadCsv']);
-    $group->get('/export-data.php', [ExportController::class, 'downloadCsv']); // Alias legacy
-
-    // Statistiques marées - PROTÉGÉES
-    $group->map(['GET', 'POST'], '/tide-stats', [TideStatsController::class, 'show']);
-
-    // Interface de contrôle PROD - PROTÉGÉE
-    $group->get('/aquaponie-control', [OutputController::class, 'showInterface']);
-    $group->get('/api/outputs/toggle', [OutputController::class, 'toggleOutput']);
     $group->get('/api/outputs/toggle-test', [OutputController::class, 'toggleOutputTest']);
-    // Note: /api/outputs/state est public (défini dans le groupe public ci-dessus)
-    $group->post('/api/outputs/parameters', [OutputController::class, 'updateParameters']);
-    $group->post('/api/outputs/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
-    $group->get('/api/outputs/board/{board}/status', [OutputController::class, 'getBoardStatus']);
-
-    // ====================================================================
-    // Administration - Gestion du cache PROD - PROTÉGÉE
-    // ====================================================================
-    $group->get('/admin/clear-cache', [CacheController::class, 'clearCache']);
-    $group->get('/admin/clear-cache-page', [CacheController::class, 'clearCachePage']);
-    $group->get('/admin/deploy-script', [CacheController::class, 'showDeployScript']);
-})->add(new EnvironmentMiddleware('prod'))
-  ->add($applyAuth);
+})->add(new EnvironmentMiddleware('prod'))->add($applyAuth);
 
 // ====================================================================
-// Groupe de routes TEST (avec middleware EnvironmentMiddleware)
+// Fichiers statiques GLOBAUX (config centralisée)
 // ====================================================================
-$app->group('', function ($group) {
-    // Dashboard TEST - PROTÉGÉ
-    $group->get('/dashboard-test', [DashboardController::class, 'show']);
-    
-    // Statistiques marées TEST - PROTÉGÉES
-    $group->map(['GET', 'POST'], '/tide-stats-test', [TideStatsController::class, 'show']);
-    
-    // Export CSV TEST - PROTÉGÉ
-    $group->get('/export-data-test', [ExportController::class, 'downloadCsv']);
-    
-    // Interface de contrôle TEST - PROTÉGÉE
-    $group->get('/aquaponie-control-test', [OutputController::class, 'showInterface']);
-    $group->get('/api/outputs-test/toggle', [OutputController::class, 'toggleOutputTest']);
-    // Note: /api/outputs-test/state est public (défini dans le groupe public ci-dessus)
-    $group->post('/api/outputs-test/parameters', [OutputController::class, 'updateParameters']);
-    $group->post('/api/outputs-test/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
-    $group->get('/api/outputs-test/board/{board}/status', [OutputController::class, 'getBoardStatus']);
-    
-    // ====================================================================
-    // Administration - Gestion du cache TEST - PROTÉGÉE
-    // ====================================================================
-    $group->get('/admin/clear-cache-test', [CacheController::class, 'clearCache']);
-    $group->get('/admin/clear-cache-page-test', [CacheController::class, 'clearCachePage']);
-    
-    // ====================================================================
-    // Fichiers statiques TEST (fallback si serveur web ne les sert pas)
-    // ====================================================================
-    // Note: Les fichiers statiques sont gérés par le groupe global pour éviter les conflits de routes
-    
-})->add(new EnvironmentMiddleware('test'))
-  ->add($applyAuth);
-
-// ====================================================================
-// Groupe de routes TEST3 (avec middleware EnvironmentMiddleware)
-// ====================================================================
-$app->group('', function ($group) {
-    // Dashboard TEST3 - PROTÉGÉ
-    $group->get('/dashboard3-test', [DashboardController::class, 'show']);
-
-    // Statistiques marées TEST3 - PROTÉGÉES
-    $group->map(['GET', 'POST'], '/tide-stats3-test', [TideStatsController::class, 'show']);
-
-    // Export CSV TEST3 - PROTÉGÉ
-    $group->get('/export-data3-test', [ExportController::class, 'downloadCsv']);
-
-    // Interface de contrôle TEST3 - PROTÉGÉE
-    $group->get('/aquamobile-control-test', [OutputController::class, 'showInterface']);
-    $group->get('/api/outputs3-test/toggle', [OutputController::class, 'toggleOutputTest3']);
-    // Note: /api/outputs3-test/state est public (défini dans le groupe public ci-dessus)
-    $group->post('/api/outputs3-test/parameters', [OutputController::class, 'updateParameters']);
-    $group->post('/api/outputs3-test/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
-    $group->get('/api/outputs3-test/board/{board}/status', [OutputController::class, 'getBoardStatus']);
-
-    // Administration - Gestion du cache TEST3 - PROTÉGÉE
-    $group->get('/admin/clear-cache3-test', [CacheController::class, 'clearCache']);
-    $group->get('/admin/clear-cache-page3-test', [CacheController::class, 'clearCachePage']);
-})->add(new EnvironmentMiddleware('test3'))
-  ->add($applyAuth);
-
-// ====================================================================
-// Groupe de routes S3 prod (aquamobile, aquamobile-control - tables 4, board 5)
-// ====================================================================
-$app->group('', function ($group) {
-    // Dashboard S3 - PROTÉGÉ
-    $group->get('/dashboard3', [DashboardController::class, 'show']);
-
-    // Statistiques marées S3 - PROTÉGÉES
-    $group->map(['GET', 'POST'], '/tide-stats3', [TideStatsController::class, 'show']);
-
-    // Export CSV S3 - PROTÉGÉ
-    $group->get('/export-data3', [ExportController::class, 'downloadCsv']);
-
-    // Interface de contrôle S3 - PROTÉGÉE
-    $group->get('/aquamobile-control', [OutputController::class, 'showInterface']);
-    $group->get('/api/outputs3/toggle', [OutputController::class, 'toggleOutputS3']);
-    // Note: /api/outputs3/state est public (défini dans le groupe public ci-dessus)
-    $group->post('/api/outputs3/parameters', [OutputController::class, 'updateParameters']);
-    $group->post('/api/outputs3/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
-    $group->get('/api/outputs3/board/{board}/status', [OutputController::class, 'getBoardStatus']);
-
-    // Administration - Gestion du cache S3 - PROTÉGÉE
-    $group->get('/admin/clear-cache3', [CacheController::class, 'clearCache']);
-    $group->get('/admin/clear-cache-page3', [CacheController::class, 'clearCachePage']);
-})->add(new EnvironmentMiddleware('s3'))
-  ->add($applyAuth);
-
-// ====================================================================
-// Fichiers statiques GLOBAUX (disponibles pour PROD et TEST)
-// ====================================================================
-// Ces routes sont partagées entre les deux environnements pour éviter les conflits
-$app->get('/assets/js/{filename}', function (Request $request, Response $response, $args) {
-    $filename = $args['filename'];
-    $allowedFiles = [
-        'jquery.min.js',
-        'jquery.scrollex.min.js',
-        'jquery.scrolly.min.js',
-        'browser.min.js',
-        'breakpoints.min.js',
-        'util.js',
-        'main.js',
-        'control-values-updater.js',
-        'control-sync.js',
-        'chart-updater.js',
-        'chart-updater-generic.js',
-        'highcharts-defaults.js',
-        'chart-helpers.js',
-        'stats-updater.js',
-        'realtime-updater.js',
-        'toast-notifications.js',
-        'pwa-init.js',
-        'mobile-gestures.js',
-        'control-actions.js',
-        'control-auto-save.js',
-    ];
-    
-    if (!in_array($filename, $allowedFiles)) {
-        return $response->withStatus(404);
-    }
-    
-    $filePath = __DIR__ . '/assets/js/' . $filename;
-    if (file_exists($filePath)) {
-        $response->getBody()->write(file_get_contents($filePath));
-        return $response->withHeader('Content-Type', 'application/javascript');
-    }
-    return $response->withStatus(404);
-});
-
-$app->get('/assets/css/{filename}', function (Request $request, Response $response, $args) {
-    $filename = $args['filename'];
-    $allowedFiles = [
-        'main.css',
-        'noscript.css',
-        'control-styles.css',
-        'mobile-optimized.css',
-        'realtime-styles.css',
-        'login-styles.css',
-        'common-data.css',
-        'aquaponie.css'
-    ];
-
-    $filePath = __DIR__ . '/assets/css/' . $filename;
-
-    if (!in_array($filename, $allowedFiles)) {
-        return $response->withStatus(404);
-    }
-
-    if (file_exists($filePath)) {
-        $response->getBody()->write(file_get_contents($filePath));
-        return $response->withHeader('Content-Type', 'text/css');
-    }
-    return $response->withStatus(404);
-});
-
-$app->get('/assets/icons/{filename}', function (Request $request, Response $response, $args) {
-    $filename = $args['filename'];
-    $allowedFiles = [
-        'icon-72.png', 'icon-96.png', 'icon-128.png', 'icon-144.png',
-        'icon-152.png', 'icon-192.png', 'icon-384.png', 'icon-512.png'
-    ];
-    
-    if (!in_array($filename, $allowedFiles)) {
-        return $response->withStatus(404);
-    }
-    
-    $filePath = __DIR__ . '/assets/icons/' . $filename;
-    if (file_exists($filePath)) {
-        $response->getBody()->write(file_get_contents($filePath));
-        return $response->withHeader('Content-Type', 'image/png');
-    }
-    return $response->withStatus(404);
-});
+registerAssetRoute($app, '/assets/js/{filename}', $routesConfigFull['asset_js'], 'application/javascript', 'js');
+registerAssetRoute($app, '/assets/css/{filename}', $routesConfigFull['asset_css'], 'text/css', 'css');
+registerAssetRoute($app, '/assets/icons/{filename}', $routesConfigFull['asset_icons'], 'image/png', 'icons');
 
 $app->get('/assets/logo.png', function (Request $request, Response $response) {
     $filePath = __DIR__ . '/assets/logo.png';
@@ -803,113 +679,66 @@ $app->get('/ffp3/supervision', function (Request $request, Response $response) u
 // Nouvelles routes unifiées
 $app->map(['GET', 'POST'], '/meteo', [($useLocalDataFallback ? LocalDataPagesController::class : MspDataController::class), $useLocalDataFallback ? 'showMsp1' : 'show']);
 $app->get('/meteo-control', [MspOutputController::class, 'showControlPage']);
+$app->map(['GET', 'POST'], '/serre', [($useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class), $useLocalDataFallback ? 'showN3pp' : 'show']);
+$app->get('/serre-control', [N3ppOutputController::class, 'showControlPage']);
 
-// Redirections 301 : anciennes URLs vers les nouvelles
-$app->get('/msp1_data', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/meteo')->withStatus(301);
-});
+// Redirections 301 MSP1 / N3PP
+$app->get('/msp1_data', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/meteo')->withStatus(301));
 $app->map(['GET', 'POST'], '/msp1/msp1datas/msp1-data.php', function (Request $request, Response $response) use ($basePath) {
     $query = $request->getUri()->getQuery();
     return $response->withHeader('Location', $basePath . '/meteo' . ($query ? '?' . $query : ''))->withStatus(301);
 });
-$app->get('/msp1/msp1control/', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/meteo-control')->withStatus(301);
-});
-$app->get('/msp1/msp1control/index.php', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/meteo-control')->withStatus(301);
-});
-
-// Routes legacy firmware (POST données, GET/POST outputs) — conservées telles quelles
-$app->post('/msp1/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
-$app->post('/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
-$app->get('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'getState']);
-$app->post('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'setOutput']);
-
-// API temps réel MSP (même structure que FFP3 : sensors, outputs, health, alerts)
-$app->get('/msp1/api/realtime/sensors/latest', [MspRealtimeApiController::class, 'getLatestSensors']);
-$app->get('/msp1/api/realtime/sensors/since/{timestamp}', [MspRealtimeApiController::class, 'getSensorsSince']);
-$app->get('/msp1/api/realtime/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']);
-$app->get('/msp1/api/realtime/system/health', [MspRealtimeApiController::class, 'getSystemHealth']);
-$app->get('/msp1/api/realtime/alerts/active', [MspRealtimeApiController::class, 'getActiveAlerts']);
-$app->get('/msp1/api/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']); // Alias rétrocompat
-$app->map(['GET', 'POST'], '/msp1/api/outputs/toggle', [MspOutputController::class, 'toggleOutput']);
-
-// ====================================================================
-// Routes N3PP — serre / élevage d'insectes
-// ====================================================================
-
-// Nouvelles routes unifiées
-$app->map(['GET', 'POST'], '/serre', [($useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class), $useLocalDataFallback ? 'showN3pp' : 'show']);
-$app->get('/serre-control', [N3ppOutputController::class, 'showControlPage']);
-
-// Redirections 301 : anciennes URLs vers les nouvelles
+$app->get('/msp1/msp1control/', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/meteo-control')->withStatus(301));
+$app->get('/msp1/msp1control/index.php', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/meteo-control')->withStatus(301));
 $app->map(['GET', 'POST'], '/n3pp/n3ppdatas/n3pp-data.php', function (Request $request, Response $response) use ($basePath) {
     $query = $request->getUri()->getQuery();
     return $response->withHeader('Location', $basePath . '/serre' . ($query ? '?' . $query : ''))->withStatus(301);
 });
-$app->get('/n3pp/n3ppcontrol/', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/serre-control')->withStatus(301);
-});
-$app->get('/n3pp/n3ppcontrol/index.php', function (Request $request, Response $response) use ($basePath) {
-    return $response->withHeader('Location', $basePath . '/serre-control')->withStatus(301);
-});
+$app->get('/n3pp/n3ppcontrol/', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/serre-control')->withStatus(301));
+$app->get('/n3pp/n3ppcontrol/index.php', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/serre-control')->withStatus(301));
 
-// Routes legacy firmware (POST données, GET/POST outputs) — conservées telles quelles
-$app->post('/n3pp/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);
-$app->post('/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);
-$app->get('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'getState']);
-$app->post('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
+// Routes MSP1 et N3PP (prod + test) factorisées
+$msp1DataController = $useLocalDataFallback ? LocalDataPagesController::class : MspDataController::class;
+$msp1DataMethod = $useLocalDataFallback ? 'showMsp1' : 'show';
+registerIotModuleRoutes($app, 'msp1', 'prod', [
+    'module' => 'msp1',
+    'data_controller' => $msp1DataController,
+    'data_method' => $msp1DataMethod,
+    'output_controller' => MspOutputController::class,
+    'realtime_controller' => MspRealtimeApiController::class,
+    'post_data_controller' => MspPostDataController::class,
+    'has_parameters' => false,
+]);
+registerIotModuleRoutes($app, 'msp1-test', 'msp_test', [
+    'module' => 'msp1',
+    'data_controller' => $msp1DataController,
+    'data_method' => $msp1DataMethod,
+    'output_controller' => MspOutputController::class,
+    'realtime_controller' => MspRealtimeApiController::class,
+    'post_data_controller' => MspPostDataController::class,
+    'has_parameters' => false,
+]);
 
-// API temps réel N3PP (même structure que FFP3 : sensors, outputs, health, alerts)
-$app->get('/n3pp/api/realtime/sensors/latest', [N3ppRealtimeApiController::class, 'getLatestSensors']);
-$app->get('/n3pp/api/realtime/sensors/since/{timestamp}', [N3ppRealtimeApiController::class, 'getSensorsSince']);
-$app->get('/n3pp/api/realtime/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']);
-$app->get('/n3pp/api/realtime/system/health', [N3ppRealtimeApiController::class, 'getSystemHealth']);
-$app->get('/n3pp/api/realtime/alerts/active', [N3ppRealtimeApiController::class, 'getActiveAlerts']);
-$app->get('/n3pp/api/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']); // Alias rétrocompat
-$app->map(['GET', 'POST'], '/n3pp/api/outputs/toggle', [N3ppOutputController::class, 'toggleOutput']);
-$app->post('/n3pp/api/outputs/parameters', [N3ppOutputController::class, 'updateParameters']);
-
-// ====================================================================
-// Routes MSP1 TEST — tables msp1DataTest, msp1OutputsTest
-// ====================================================================
-$app->group('', function ($group) use ($useLocalDataFallback) {
-    $group->post('/msp1-test/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'handle']);
-    $group->map(['GET', 'POST'], '/msp1-test/msp1datas/msp1-data.php', [($useLocalDataFallback ? LocalDataPagesController::class : MspDataController::class), $useLocalDataFallback ? 'showMsp1' : 'show']);
-    $group->get('/msp1-test/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'getState']);
-    $group->post('/msp1-test/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'setOutput']);
-    $group->get('/msp1-test/msp1control/', [MspOutputController::class, 'showControlPage']);
-    $group->get('/msp1-test/msp1control/index.php', [MspOutputController::class, 'showControlPage']);
-    // API temps réel MSP1 TEST (même contrat que prod, tables msp1DataTest / msp1OutputsTest)
-    $group->get('/msp1-test/api/realtime/sensors/latest', [MspRealtimeApiController::class, 'getLatestSensors']);
-    $group->get('/msp1-test/api/realtime/sensors/since/{timestamp}', [MspRealtimeApiController::class, 'getSensorsSince']);
-    $group->get('/msp1-test/api/realtime/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']);
-    $group->get('/msp1-test/api/realtime/system/health', [MspRealtimeApiController::class, 'getSystemHealth']);
-    $group->get('/msp1-test/api/realtime/alerts/active', [MspRealtimeApiController::class, 'getActiveAlerts']);
-    $group->get('/msp1-test/api/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']); // ControlSync
-    $group->map(['GET', 'POST'], '/msp1-test/api/outputs/toggle', [MspOutputController::class, 'toggleOutput']);
-})->add(new EnvironmentMiddleware('msp_test'));
-
-// ====================================================================
-// Routes N3PP TEST — tables n3ppDataTest, n3ppOutputsTest
-// ====================================================================
-$app->group('', function ($group) use ($useLocalDataFallback) {
-    $group->post('/n3pp-test/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'handle']);
-    $group->map(['GET', 'POST'], '/n3pp-test/n3ppdatas/n3pp-data.php', [($useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class), $useLocalDataFallback ? 'showN3pp' : 'show']);
-    $group->get('/n3pp-test/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'getState']);
-    $group->post('/n3pp-test/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
-    $group->get('/n3pp-test/n3ppcontrol/', [N3ppOutputController::class, 'showControlPage']);
-    $group->get('/n3pp-test/n3ppcontrol/index.php', [N3ppOutputController::class, 'showControlPage']);
-    // API temps réel N3PP TEST (même contrat que prod, tables n3ppDataTest / n3ppOutputsTest)
-    $group->get('/n3pp-test/api/realtime/sensors/latest', [N3ppRealtimeApiController::class, 'getLatestSensors']);
-    $group->get('/n3pp-test/api/realtime/sensors/since/{timestamp}', [N3ppRealtimeApiController::class, 'getSensorsSince']);
-    $group->get('/n3pp-test/api/realtime/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']);
-    $group->get('/n3pp-test/api/realtime/system/health', [N3ppRealtimeApiController::class, 'getSystemHealth']);
-    $group->get('/n3pp-test/api/realtime/alerts/active', [N3ppRealtimeApiController::class, 'getActiveAlerts']);
-    $group->get('/n3pp-test/api/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']); // Alias rétrocompat
-    $group->map(['GET', 'POST'], '/n3pp-test/api/outputs/toggle', [N3ppOutputController::class, 'toggleOutput']);
-    $group->post('/n3pp-test/api/outputs/parameters', [N3ppOutputController::class, 'updateParameters']);
-})->add(new EnvironmentMiddleware('n3pp_test'));
+$n3ppDataController = $useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class;
+$n3ppDataMethod = $useLocalDataFallback ? 'showN3pp' : 'show';
+registerIotModuleRoutes($app, 'n3pp', 'prod', [
+    'module' => 'n3pp',
+    'data_controller' => $n3ppDataController,
+    'data_method' => $n3ppDataMethod,
+    'output_controller' => N3ppOutputController::class,
+    'realtime_controller' => N3ppRealtimeApiController::class,
+    'post_data_controller' => N3ppPostDataController::class,
+    'has_parameters' => true,
+]);
+registerIotModuleRoutes($app, 'n3pp-test', 'n3pp_test', [
+    'module' => 'n3pp',
+    'data_controller' => $n3ppDataController,
+    'data_method' => $n3ppDataMethod,
+    'output_controller' => N3ppOutputController::class,
+    'realtime_controller' => N3ppRealtimeApiController::class,
+    'post_data_controller' => N3ppPostDataController::class,
+    'has_parameters' => true,
+]);
 
 // ====================================================================
 // Routes Galeries photo — compatibilite firmwares ESP32-CAM (upload)

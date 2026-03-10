@@ -64,6 +64,37 @@
     }
     .cache-result.success { background: #d4edda; color: #155724; display: block; }
     .cache-result.error { background: #f8d7da; color: #721c24; display: block; }
+    .live-section .live-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 12px;
+        margin: 20px 0;
+    }
+    .live-card {
+        padding: 14px 16px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0,139,116,0.12);
+        border-left: 4px solid #ccc;
+    }
+    .live-card.live-online { border-left-color: #28a745; }
+    .live-card.live-offline { border-left-color: #dc3545; }
+    .live-card.live-loading { border-left-color: #6c757d; }
+    .live-card.live-error { border-left-color: #ffc107; }
+    .live-card-name { font-weight: 600; font-size: 0.95em; margin-bottom: 6px; color: #2c3e50; }
+    .live-card-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.8em;
+        font-weight: 700;
+        margin-bottom: 6px;
+    }
+    .live-card-badge.online { background: #d4edda; color: #155724; }
+    .live-card-badge.offline { background: #f8d7da; color: #721c24; }
+    .live-card-badge.loading { background: #e2e3e5; color: #383d41; }
+    .live-card-badge.error { background: #fff3cd; color: #856404; }
+    .live-card-datetime { font-size: 0.85em; color: #6c757d; }
 </style>
 {% endblock %}
 
@@ -77,6 +108,24 @@
     </header>
 
     <div class="section-header">
+        <i class="fas fa-broadcast-tower"></i>
+        <h2>Live</h2>
+    </div>
+    <div class="live-section">
+        <p style="margin: 0 0 12px 0; font-size: 0.95em; color: #6c757d;">Témoins de connexion et dernière réception de données par module — mise à jour en temps réel</p>
+        <div class="live-grid" id="live-status-grid" aria-live="polite">
+            <div class="live-card live-loading" data-module="ffp3-wroom-prod"><div class="live-card-name">Aquaponie (WROOM prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
+            <div class="live-card live-loading" data-module="ffp3-wroom-test"><div class="live-card-name">Aquaponie (WROOM test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
+            <div class="live-card live-loading" data-module="ffp3-s3-prod"><div class="live-card-name">Aquamobile (S3 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
+            <div class="live-card live-loading" data-module="ffp3-s3-test"><div class="live-card-name">Aquamobile (S3 test3)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
+            <div class="live-card live-loading" data-module="msp1-prod"><div class="live-card-name">Potager (MSP1 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
+            <div class="live-card live-loading" data-module="msp1-test"><div class="live-card-name">Potager (MSP1 test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
+            <div class="live-card live-loading" data-module="n3pp-prod"><div class="live-card-name">Élevage (N3PP prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
+            <div class="live-card live-loading" data-module="n3pp-test"><div class="live-card-name">Élevage (N3PP test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
+        </div>
+    </div>
+
+    <div class="section-header">
         <i class="fas fa-home"></i>
         <h2>Accueil & projet</h2>
     </div>
@@ -86,38 +135,66 @@
 
     <div class="section-header">
         <i class="fas fa-fish"></i>
-        <h2>Aquaponie FFP3</h2>
+        <h2>Aquaponie FFP3 (WROOM)</h2>
     </div>
     <div class="links-grid">
-        <a href="/aquaponie" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Aquaponie (vue principale)</span><div class="hint">Vue paysage</div></a>
-        <a href="/aquaponie-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Aquaponie (vue classique)</span><div class="hint">Vue alternative</div></a>
-        <a href="/aquamobile" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Aquamobile (vue principale, S3)</span><div class="hint">Vue paysage – board S3</div></a>
-        <a href="/aquamobile-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Aquamobile (vue classique, S3)</span><div class="hint">Vue alternative – board S3</div></a>
-        <a href="/aquamobile-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Aquamobile (vue principale, test3)</span><div class="hint">Vue paysage – environnement test3</div></a>
-        <a href="/aquamobile-alt-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Aquamobile (vue classique, test3)</span><div class="hint">Vue alternative – test3</div></a>
-        <a href="/aquaponie-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle aquaponie (prod)</span><div class="hint">Pompes, chauffage, lumière</div></a>
-        <a href="/aquaponie-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle aquaponie (test)</span><div class="hint">Environnement test</div></a>
-        <a href="/aquamobile-control" class="link-card"><i class="fas fa-mobile-alt"></i><span class="label">Contrôle aquamobile (S3)</span><div class="hint">Board S3</div></a>
-        <a href="/aquamobile-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle aquamobile (test3)</span><div class="hint">Environnement test3</div></a>
+        <a href="/aquaponie" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Vue principale (prod)</span><div class="hint">Vue paysage</div></a>
+        <a href="/aquaponie-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Vue classique (prod)</span><div class="hint">Vue alternative</div></a>
+        <a href="/aquaponie-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle (prod)</span><div class="hint">Pompes, chauffage, lumière</div></a>
+        <a href="/dashboard" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod)</span><div class="hint">Capteurs FFP3</div></a>
+        <a href="/tide-stats" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod)</span><div class="hint">Analyse des marées</div></a>
+        <a href="/aquaponie-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+        <a href="/dashboard-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test)</span><div class="hint">Environnement test</div></a>
+        <a href="/tide-stats-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test)</span><div class="hint">Environnement test</div></a>
     </div>
 
     <div class="section-header">
-        <i class="fas fa-chart-line"></i>
-        <h2>Dashboards & données</h2>
+        <i class="fas fa-mobile-alt"></i>
+        <h2>Aquamobile (S3)</h2>
     </div>
     <div class="links-grid">
-        <a href="/dashboard" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod)</span><div class="hint">Capteurs FFP3</div></a>
-        <a href="/dashboard-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test)</span><div class="hint">Environnement test</div></a>
-        <a href="/dashboard3" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard S3</span><div class="hint">Board S3</div></a>
+        <a href="/aquamobile" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Vue principale (prod S3)</span><div class="hint">Vue paysage – board S3</div></a>
+        <a href="/aquamobile-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Vue classique (prod S3)</span><div class="hint">Vue alternative – board S3</div></a>
+        <a href="/aquamobile-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle (prod S3)</span><div class="hint">Board S3</div></a>
+        <a href="/dashboard3" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod S3)</span><div class="hint">Capteurs board S3</div></a>
+        <a href="/tide-stats3" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod S3)</span><div class="hint">Analyse des marées S3</div></a>
+        <a href="/aquamobile-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Vue principale (test3)</span><div class="hint">Environnement test3</div></a>
+        <a href="/aquamobile-alt-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Vue classique (test3)</span><div class="hint">Environnement test3</div></a>
+        <a href="/aquamobile-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test3)</span><div class="hint">Environnement test3</div></a>
         <a href="/dashboard3-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test3)</span><div class="hint">Environnement test3</div></a>
-        <a href="/tide-stats" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod)</span><div class="hint">Analyse des marées</div></a>
-        <a href="/tide-stats-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test)</span></a>
-        <a href="/tide-stats3" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées S3</span></a>
-        <a href="/tide-stats3-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test3)</span></a>
-        <a href="/export-data" class="link-card"><i class="fas fa-file-csv"></i><span class="label">Export CSV (prod)</span></a>
-        <a href="/export-data-test" class="link-card"><i class="fas fa-file-csv"></i><span class="label">Export CSV (test)</span></a>
-        <a href="/export-data3" class="link-card"><i class="fas fa-file-csv"></i><span class="label">Export CSV S3</span></a>
-        <a href="/export-data3-test" class="link-card"><i class="fas fa-file-csv"></i><span class="label">Export CSV (test3)</span></a>
+        <a href="/tide-stats3-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test3)</span><div class="hint">Environnement test3</div></a>
+    </div>
+
+    <div class="section-header">
+        <i class="fas fa-seedling"></i>
+        <h2>Potager (MSP1)</h2>
+    </div>
+    <div class="links-grid">
+        <a href="/meteo" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Station météo / potager (prod)</div></a>
+        <a href="/meteo-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle</span><div class="hint">Sorties station météo (prod)</div></a>
+        <a href="/msp1-test/msp1datas/msp1-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Environnement test</div></a>
+        <a href="/msp1-test/msp1control/" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+    </div>
+
+    <div class="section-header">
+        <i class="fas fa-bug"></i>
+        <h2>Élevage (N3PP)</h2>
+    </div>
+    <div class="links-grid">
+        <a href="/serre" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Serre / élevage (prod)</div></a>
+        <a href="/serre-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle</span><div class="hint">Sorties serre (prod)</div></a>
+        <a href="/n3pp-test/n3ppdatas/n3pp-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Environnement test</div></a>
+        <a href="/n3pp-test/n3ppcontrol/" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+    </div>
+
+    <div class="section-header">
+        <i class="fas fa-images"></i>
+        <h2>Galeries photo (ESP32-CAM)</h2>
+    </div>
+    <div class="links-grid">
+        <a href="/gallery/msp1" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos du potager (MSP1)</span><div class="hint">Galerie photos station météo</div></a>
+        <a href="/gallery/n3pp" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos de l'élevage (N3PP)</span><div class="hint">Galerie photos N3PP</div></a>
+        <a href="/gallery/ffp3" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos aquaponie (FFP3)</span><div class="hint">Galerie photos FFP3</div></a>
     </div>
 
     <div class="section-header">
@@ -135,31 +212,6 @@
             <div><i class="fas fa-rocket"></i><span class="label">Script de déploiement</span></div>
             <div class="hint">Voir DEPLOY_NOW.sh – à exécuter sur le serveur (SSH) après git pull</div>
         </a>
-    </div>
-
-    <div class="section-header">
-        <i class="fas fa-link"></i>
-        <h2>Autres projets (MSP1, N3PP)</h2>
-    </div>
-    <div class="links-grid">
-        <a href="/meteo" class="link-card"><i class="fas fa-seedling"></i><span class="label">Potager (MSP1) – Données</span><div class="hint">Station météo / potager (prod)</div></a>
-        <a href="/meteo-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Potager (MSP1) – Contrôle</span><div class="hint">Sorties station météo (prod)</div></a>
-        <a href="/serre" class="link-card"><i class="fas fa-bug"></i><span class="label">Élevage (N3PP) – Données</span><div class="hint">Serre / élevage (prod)</div></a>
-        <a href="/serre-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Élevage (N3PP) – Contrôle</span><div class="hint">Sorties serre (prod)</div></a>
-        <a href="/msp1-test/msp1datas/msp1-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Potager (MSP1-test) – Données</span><div class="hint">Environnement test</div></a>
-        <a href="/msp1-test/msp1control/" class="link-card"><i class="fas fa-vial"></i><span class="label">Potager (MSP1-test) – Contrôle</span><div class="hint">Environnement test</div></a>
-        <a href="/n3pp-test/n3ppdatas/n3pp-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Élevage (N3PP-test) – Données</span><div class="hint">Environnement test</div></a>
-        <a href="/n3pp-test/n3ppcontrol/" class="link-card"><i class="fas fa-vial"></i><span class="label">Élevage (N3PP-test) – Contrôle</span><div class="hint">Environnement test</div></a>
-    </div>
-
-    <div class="section-header">
-        <i class="fas fa-images"></i>
-        <h2>Galeries photo (ESP32-CAM)</h2>
-    </div>
-    <div class="links-grid">
-        <a href="/gallery/msp1" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos du potager (MSP1)</span><div class="hint">Galerie photos station météo</div></a>
-        <a href="/gallery/n3pp" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos de l'élevage (N3PP)</span><div class="hint">Galerie photos N3PP</div></a>
-        <a href="/gallery/ffp3" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos aquaponie (FFP3)</span><div class="hint">Galerie photos FFP3</div></a>
     </div>
 </article>
 {% endblock %}
@@ -185,6 +237,82 @@
 
 {% block scripts %}
 <script>
+(function() {
+    var BASE = '{{ base_path }}' || '';
+    var LIVE_MODULES = [
+        { id: 'ffp3-wroom-prod', url: BASE + '/api/realtime/system/health' },
+        { id: 'ffp3-wroom-test', url: BASE + '/api/realtime-test/system/health' },
+        { id: 'ffp3-s3-prod', url: BASE + '/api/realtime3/system/health' },
+        { id: 'ffp3-s3-test', url: BASE + '/api/realtime3-test/system/health' },
+        { id: 'msp1-prod', url: BASE + '/msp1/api/realtime/system/health' },
+        { id: 'msp1-test', url: BASE + '/msp1-test/api/realtime/system/health' },
+        { id: 'n3pp-prod', url: BASE + '/n3pp/api/realtime/system/health' },
+        { id: 'n3pp-test', url: BASE + '/n3pp-test/api/realtime/system/health' }
+    ];
+    var POLL_INTERVAL_MS = 15000;
+
+    function formatDatetime(str) {
+        if (!str) return '—';
+        var d = new Date(str.replace(' ', 'T'));
+        if (isNaN(d.getTime())) return str;
+        var pad = function(n) { return (n < 10 ? '0' : '') + n; };
+        return pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    }
+
+    function updateCard(moduleId, health) {
+        var card = document.querySelector('.live-card[data-module="' + moduleId + '"]');
+        if (!card) return;
+        var badge = card.querySelector('.live-card-badge');
+        var datetimeEl = card.querySelector('.live-card-datetime');
+        if (!badge || !datetimeEl) return;
+
+        if (health === null) {
+            card.className = 'live-card live-error';
+            badge.className = 'live-card-badge error';
+            badge.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erreur';
+            datetimeEl.textContent = '—';
+            return;
+        }
+
+        var online = health.online === true;
+        card.className = 'live-card ' + (online ? 'live-online' : 'live-offline');
+        badge.className = 'live-card-badge ' + (online ? 'online' : 'offline');
+        badge.innerHTML = '<i class="fas fa-circle"></i> ' + (online ? 'LIVE' : 'HORS LIGNE');
+        datetimeEl.textContent = formatDatetime(health.last_reading || null) || '—';
+    }
+
+    function setLoading(moduleId) {
+        var card = document.querySelector('.live-card[data-module="' + moduleId + '"]');
+        if (!card) return;
+        var badge = card.querySelector('.live-card-badge');
+        var datetimeEl = card.querySelector('.live-card-datetime');
+        if (!badge || !datetimeEl) return;
+        card.className = 'live-card live-loading';
+        badge.className = 'live-card-badge loading';
+        badge.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
+        datetimeEl.textContent = '—';
+    }
+
+    function fetchOne(mod) {
+        return fetch(mod.url).then(function(r) {
+            if (r.ok) return r.json();
+            return null;
+        }).catch(function() { return null; });
+    }
+
+    function pollAll(isFirst) {
+        if (isFirst) {
+            LIVE_MODULES.forEach(function(mod) { setLoading(mod.id); });
+        }
+        Promise.all(LIVE_MODULES.map(function(mod) {
+            return fetchOne(mod).then(function(h) { updateCard(mod.id, h); });
+        })).catch(function() {});
+    }
+
+    pollAll(true);
+    setInterval(function() { pollAll(false); }, POLL_INTERVAL_MS);
+})();
+
 document.getElementById('clearAllCacheBtn').addEventListener('click', async function () {
     var btn = this;
     var resultEl = document.getElementById('clearCacheResult');

@@ -36,6 +36,8 @@ class N3ppOutputController extends AbstractOutputController
         $env = TableConfig::getEnvironment();
         $isTest = $env === 'n3pp_test';
         $partOutputs = $this->outputRepo->getPartOutputs($board, 3);
+        $outputsApiBase = $isTest ? '/n3pp-test/api/outputs' : '/n3pp/api/outputs';
+        $realtimeApiBase = $isTest ? '/n3pp-test/api/realtime' : '/n3pp/api/realtime';
         return [
             'page_title' => 'Contrôle serre / élevage - n3 iot',
             'part_outputs' => $partOutputs,
@@ -47,18 +49,18 @@ class N3ppOutputController extends AbstractOutputController
             'firmware_version' => $this->sensorRepo->getFirmwareVersion(),
             'environment' => $env,
             'nav_active' => 'elevage_control',
-            'outputs_api_base' => $isTest ? '/n3pp-test/api/outputs' : '/n3pp/api/outputs',
-            'realtime_api_base' => $isTest ? '/n3pp-test/api/realtime' : '/n3pp/api/realtime',
-            'control_config' => [
-                'test_env' => 'n3pp_test',
-                'sidebar_title' => 'Serre / Élevage',
-                'sidebar_description' => 'Contrôle des sorties et paramètres de la serre et de l\'élevage d\'insectes (n3pp). Les commandes sont transmises à l\'ESP32 au prochain cycle.',
-                'outputs_count' => count($partOutputs),
-                'icon' => 'fa-seedling',
-                'main_title' => 'Contrôle N3PP – Serre & Élevage',
-                'main_description' => 'Activez/désactivez les sorties et configurez les paramètres du firmware n3pp4_2 (arrosage, énergie, notifications).',
-                'default_api_base' => '/n3pp/api/outputs',
-            ],
+            'outputs_api_base' => $outputsApiBase,
+            'realtime_api_base' => $realtimeApiBase,
+            'control_config' => $this->makeControlConfig(
+                'n3pp_test',
+                'Serre / Élevage',
+                'Contrôle des sorties et paramètres de la serre et de l\'élevage d\'insectes (n3pp). Les commandes sont transmises à l\'ESP32 au prochain cycle.',
+                count($partOutputs),
+                'fa-seedling',
+                'Contrôle N3PP – Serre & Élevage',
+                'Activez/désactivez les sorties et configurez les paramètres du firmware n3pp4_2 (arrosage, énergie, notifications).',
+                '/n3pp/api/outputs'
+            ),
         ];
     }
 

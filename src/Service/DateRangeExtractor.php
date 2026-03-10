@@ -76,4 +76,32 @@ class DateRangeExtractor
 
         return [$defaultStart, $defaultEnd];
     }
+
+    /**
+     * Extrait la plage de dates depuis les paramètres GET (query string).
+     * Utilisé par ExportController (/export-data?start=...&end=...).
+     *
+     * @return array{0: string, 1: string} [startDate, endDate] au format Y-m-d H:i:s
+     * @throws \RuntimeException Si start et end sont fournis mais invalides
+     */
+    public function extractFromQuery(Request $request, string $defaultStart, string $defaultEnd): array
+    {
+        $params = $request->getQueryParams();
+        $start = $params['start'] ?? null;
+        $end = $params['end'] ?? null;
+
+        if ($start !== null || $end !== null) {
+            $startVal = $start ?? '-1 day';
+            $endVal = $end ?? 'now';
+            try {
+                $startDate = (new \DateTimeImmutable($startVal))->format('Y-m-d H:i:s');
+                $endDate = (new \DateTimeImmutable($endVal))->format('Y-m-d H:i:s');
+                return [$startDate, $endDate];
+            } catch (\Exception $e) {
+                throw new \RuntimeException('Paramètres de date invalides', 0, $e);
+            }
+        }
+
+        return [$defaultStart, $defaultEnd];
+    }
 }

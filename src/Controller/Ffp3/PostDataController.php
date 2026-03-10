@@ -81,6 +81,7 @@ class PostDataController extends AbstractPostDataController
      */
     public function handle(Request $request, Response $response): Response
     {
+        set_time_limit(30);  // Marge vs timeout client 18 s — évite kill PHP si traitement BDD lent
         $tReceived = microtime(true);
         $sec = (int) $tReceived;
         $us = (int) (($tReceived - $sec) * 1000000);
