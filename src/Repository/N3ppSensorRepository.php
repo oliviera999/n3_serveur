@@ -18,6 +18,19 @@ class N3ppSensorRepository extends AbstractSensorRepository
         return TableConfig::getN3ppDataTable();
     }
 
+    /**
+     * Récupère la version du firmware de la dernière mesure enregistrée.
+     *
+     * @return string Version du firmware (ex: "4.20") ou "N/A" si aucune donnée
+     */
+    public function getFirmwareVersion(): string
+    {
+        $table = $this->getTableName();
+        $sql = "SELECT version FROM `{$table}` ORDER BY reading_time DESC LIMIT 1";
+        $result = $this->fetchOne($sql);
+        return $result['version'] ?? 'N/A';
+    }
+
     /** @return string[] */
     public function getSensorColumns(): array
     {

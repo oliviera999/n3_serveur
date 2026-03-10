@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Config\TableConfig;
+use PDO;
 
 /**
  * Repository pour les outputs (controle) de la station meteo (msp1).
@@ -13,6 +14,11 @@ use App\Config\TableConfig;
  */
 class MspOutputRepository extends AbstractOutputRepository
 {
+    public function __construct(PDO $pdo, BoardRepository $boardRepo)
+    {
+        parent::__construct($pdo, $boardRepo);
+    }
+
     protected function getTable(): string
     {
         return TableConfig::getMspOutputsTable();

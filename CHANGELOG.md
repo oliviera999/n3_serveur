@@ -7,6 +7,19 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
+## [5.0.104] - 2026-03-10
+
+### Correctif - erreurs cronlog production
+- **AbstractOutputRepository** : création de la classe manquante (unification MspOutputRepository et N3ppOutputRepository). Corrige `Class "App\Repository\AbstractOutputRepository" not found` sur n3pp-outputs-action.php.
+- **MspSensorRepository / N3ppSensorRepository** : ajout de `getFirmwareVersion()` pour AbstractDataController. Corrige `Call to undefined method MspSensorRepository::getFirmwareVersion()` sur /meteo et msp1-test.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -29,6 +42,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -150,6 +169,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -233,6 +258,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -697,6 +728,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -1149,6 +1186,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -1600,6 +1643,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -2051,6 +2100,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -2511,6 +2566,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -2964,6 +3025,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -3417,6 +3484,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -3871,6 +3944,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -4324,6 +4403,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -4779,6 +4864,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -5232,6 +5323,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -5685,6 +5782,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -6138,6 +6241,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -6592,6 +6701,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -7043,6 +7158,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -7499,6 +7620,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -7950,6 +8077,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -8404,6 +8537,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -8856,6 +8995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -9310,6 +9455,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -9764,6 +9915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -10217,6 +10374,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -10672,6 +10835,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -11124,6 +11293,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -11577,6 +11752,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -12031,6 +12212,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -12485,6 +12672,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -12937,6 +13130,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -13390,6 +13589,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -13845,6 +14050,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -14299,6 +14510,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -14752,6 +14969,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -15205,6 +15428,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -15658,6 +15887,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -16111,6 +16346,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -16563,6 +16804,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -17015,6 +17262,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -17467,6 +17720,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -17919,6 +18178,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -18372,6 +18637,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -18829,6 +19100,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -19286,6 +19563,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -19736,6 +20019,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -20186,6 +20475,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -20636,6 +20931,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -21086,6 +21387,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -21536,6 +21843,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -21986,6 +22299,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -22453,6 +22772,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -22910,6 +23235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -23365,6 +23696,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -23821,6 +24158,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -24281,6 +24624,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -24753,6 +25102,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -25207,6 +25562,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -25663,6 +26024,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -26119,6 +26486,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -26572,6 +26945,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -27028,6 +27407,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -27481,6 +27866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -27933,6 +28324,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -28386,6 +28783,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -28849,6 +29252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -29309,6 +29718,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -29777,6 +30192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -30249,6 +30670,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -30711,6 +31138,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -31165,6 +31598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -31621,6 +32060,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -32076,6 +32521,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -32531,6 +32982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -32984,6 +33441,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -33437,6 +33900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -33892,6 +34361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -34346,6 +34821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -34802,6 +35283,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -35263,6 +35750,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -35728,6 +36221,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -36189,6 +36688,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -36652,6 +37157,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -37114,6 +37625,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -37571,6 +38088,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -38024,6 +38547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -38481,6 +39010,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -38935,6 +39470,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -39388,6 +39929,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -39841,6 +40388,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -40296,6 +40849,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -40751,6 +41310,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -41205,6 +41770,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -41659,6 +42230,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -42112,6 +42689,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -42565,6 +43148,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -43018,6 +43607,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -43473,6 +44068,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -43928,6 +44529,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -44381,6 +44988,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -44834,6 +45447,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -45287,6 +45906,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -45741,6 +46366,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -46197,6 +46828,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -46660,6 +47297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -47117,6 +47760,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -47581,6 +48230,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -48043,6 +48698,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -48496,6 +49157,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -48982,6 +49649,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -49439,6 +50112,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -49905,6 +50584,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -50381,6 +51066,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -50847,6 +51538,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -51303,6 +52000,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -51760,6 +52463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -52223,6 +52932,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -52796,6 +53511,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -53253,6 +53974,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -53708,6 +54435,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -54164,6 +54897,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -54621,6 +55360,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -55077,6 +55822,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -55535,6 +56286,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -55992,6 +56749,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -56571,6 +57334,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -57027,6 +57796,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -57483,6 +58258,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -57987,6 +58768,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -58452,6 +59239,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -58917,6 +59710,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -59419,6 +60218,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -59932,6 +60737,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -60402,6 +61213,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -60873,6 +61690,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -61334,6 +62157,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -61801,6 +62630,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -62272,6 +63107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -62741,6 +63582,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -63201,6 +64048,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -63673,6 +64526,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -64177,6 +65036,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -64636,6 +65501,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -65096,6 +65967,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -65555,6 +66432,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -66019,6 +66902,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -66489,6 +67378,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -66957,6 +67852,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -67423,6 +68324,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -67884,6 +68791,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -68346,6 +69259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -68819,6 +69738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -69291,6 +70216,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -69766,6 +70697,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -70257,6 +71194,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -70778,6 +71721,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -71240,6 +72189,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -71701,6 +72656,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -72172,6 +73133,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -72633,6 +73600,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -73098,6 +74071,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -73556,6 +74535,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -74016,6 +75001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -74468,6 +75459,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -74960,6 +75957,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -75424,6 +76427,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -75910,6 +76919,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -76378,6 +77393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -76842,6 +77863,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -77312,6 +78339,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -77804,6 +78837,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -78281,6 +79320,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -78812,6 +79857,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -79280,6 +80331,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -79750,6 +80807,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -80231,6 +81294,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -80705,6 +81774,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -81166,6 +82241,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -81627,6 +82708,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -82090,6 +83177,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -82624,6 +83717,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -83106,6 +84205,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -83602,6 +84707,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -84086,6 +85197,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -84574,6 +85691,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -85030,6 +86153,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -85538,6 +86667,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -86010,6 +87145,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -86469,6 +87610,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -86978,6 +88125,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -87466,6 +88619,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -87987,6 +89146,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -88446,6 +89611,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -88964,6 +90135,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -89420,6 +90597,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -89875,6 +91058,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -90334,6 +91523,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -90793,6 +91988,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -91297,6 +92498,12 @@ docs/
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -91824,6 +93031,12 @@ docs/
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -92285,6 +93498,12 @@ docs/
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -92780,6 +93999,12 @@ docs/
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -93240,6 +94465,12 @@ docs/
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -93722,6 +94953,12 @@ docs/
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -94180,6 +95417,12 @@ docs/
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -94827,6 +96070,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -95308,6 +96557,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -95816,6 +97071,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -96310,6 +97571,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -96790,6 +98057,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -97277,6 +98550,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -97756,6 +99035,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -98224,6 +99509,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -98684,6 +99975,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -99160,6 +100457,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -99620,6 +100923,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -100080,6 +101389,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -100542,6 +101857,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -101022,6 +102343,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées
@@ -101476,6 +102803,12 @@ ance future
 
 ---
 
+## [5.0.105] - 2026-03-10
+
+### Correctif - AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository
+- **Résumé** : AbstractOutputRepository + getFirmwareVersion Msp/N3ppSensorRepository.
+
+---
 ## [5.0.103] - 2026-03-10
 
 ### Modifié - badges live supervision cliquables vers pages liées

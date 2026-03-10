@@ -71,11 +71,11 @@ return [
     },
 
     MspOutputRepository::class => function (ContainerInterface $c) {
-        return new MspOutputRepository($c->get(PDO::class));
+        return new MspOutputRepository($c->get(PDO::class), $c->get(BoardRepository::class));
     },
 
     N3ppOutputRepository::class => function (ContainerInterface $c) {
-        return new N3ppOutputRepository($c->get(PDO::class));
+        return new N3ppOutputRepository($c->get(PDO::class), $c->get(BoardRepository::class));
     },
 
     // ====================================================================
