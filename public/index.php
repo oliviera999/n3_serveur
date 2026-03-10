@@ -449,8 +449,9 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
     $postDataController = $config['post_data_controller'];
     $hasParameters = $config['has_parameters'] ?? false;
     $skipDataRoute = $config['skip_data_route'] ?? false; // true quand redirection 301 manuelle définie avant
+    $skipControlRoutes = $config['skip_control_routes'] ?? false;
 
-    $callback = function ($group) use ($pathPrefix, $module, $dataController, $dataMethod, $outputController, $realtimeController, $postDataController, $hasParameters, $skipDataRoute) {
+    $callback = function ($group) use ($pathPrefix, $module, $dataController, $dataMethod, $outputController, $realtimeController, $postDataController, $hasParameters, $skipDataRoute, $skipControlRoutes) {
         $group->post("/{$pathPrefix}/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
         $group->post("/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
         if (!$skipDataRoute) {
@@ -458,8 +459,10 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
         }
         $group->get("/{$pathPrefix}/{$module}control/{$module}-outputs-action.php", [$outputController, 'getState']);
         $group->post("/{$pathPrefix}/{$module}control/{$module}-outputs-action.php", [$outputController, 'setOutput']);
-        $group->get("/{$pathPrefix}/{$module}control/", [$outputController, 'showControlPage']);
-        $group->get("/{$pathPrefix}/{$module}control/index.php", [$outputController, 'showControlPage']);
+        if (!$skipControlRoutes) {
+            $group->get("/{$pathPrefix}/{$module}control/", [$outputController, 'showControlPage']);
+            $group->get("/{$pathPrefix}/{$module}control/index.php", [$outputController, 'showControlPage']);
+        }
         $group->get("/{$pathPrefix}/api/realtime/sensors/latest", [$realtimeController, 'getLatestSensors']);
         $group->get("/{$pathPrefix}/api/realtime/sensors/since/{timestamp}", [$realtimeController, 'getSensorsSince']);
         $group->get("/{$pathPrefix}/api/realtime/outputs/state", [$realtimeController, 'getOutputsState']);
@@ -729,7 +732,8 @@ registerIotModuleRoutes($app, 'msp1', 'prod', [
     'realtime_controller' => MspRealtimeApiController::class,
     'post_data_controller' => MspPostDataController::class,
     'has_parameters' => false,
-    'skip_data_route' => true, // redirection 301 manuelle vers /meteo
+    'skip_data_route' => true,
+    'skip_control_routes' => true, // redirections 301 manuelles vers /meteo et /meteo-control
 ]);
 registerIotModuleRoutes($app, 'msp1-test', 'msp_test', [
     'module' => 'msp1',
@@ -751,7 +755,8 @@ registerIotModuleRoutes($app, 'n3pp', 'prod', [
     'realtime_controller' => N3ppRealtimeApiController::class,
     'post_data_controller' => N3ppPostDataController::class,
     'has_parameters' => true,
-    'skip_data_route' => true, // redirection 301 manuelle vers /serre
+    'skip_data_route' => true,
+    'skip_control_routes' => true, // redirections 301 manuelles vers /serre et /serre-control
 ]);
 registerIotModuleRoutes($app, 'n3pp-test', 'n3pp_test', [
     'module' => 'n3pp',
