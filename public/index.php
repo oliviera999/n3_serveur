@@ -692,11 +692,21 @@ $app->get('/favicon.ico', function (Request $request, Response $response) {
     return $response->withStatus(204);
 });
 
-// Redirection explicite /ffp3/supervision -> /supervision (complément au middleware)
-$app->get('/ffp3/supervision', function (Request $request, Response $response) use ($app) {
-    $basePath = $app->getBasePath() ?: '';
-    $location = $basePath . '/supervision';
-    return $response->withHeader('Location', $location)->withStatus(301);
+// Redirections 301 explicites /ffp3* (complément au middleware, évite 404 si .htaccess non appliqué)
+$app->get('/ffp3', function (Request $request, Response $response) {
+    return $response->withHeader('Location', '/')->withStatus(301);
+});
+$app->get('/ffp3/', function (Request $request, Response $response) {
+    return $response->withHeader('Location', '/')->withStatus(301);
+});
+$app->get('/ffp3/control', function (Request $request, Response $response) {
+    return $response->withHeader('Location', '/aquaponie-control')->withStatus(301);
+});
+$app->get('/ffp3/control-test', function (Request $request, Response $response) {
+    return $response->withHeader('Location', '/aquaponie-control-test')->withStatus(301);
+});
+$app->get('/ffp3/supervision', function (Request $request, Response $response) {
+    return $response->withHeader('Location', '/supervision')->withStatus(301);
 });
 
 // ====================================================================
