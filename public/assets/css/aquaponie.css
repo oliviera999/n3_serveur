@@ -412,6 +412,7 @@
     border-left: 4px solid #008B74;
 }
 
+.chart-stock-wrapper,
 #chart-stock-area-eau-D,
 #chart-stock-area-temp-D {
     min-height: 350px;

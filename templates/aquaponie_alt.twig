@@ -113,7 +113,7 @@
                             </div>
                         </div>
                         <div class="alt-chart-column">
-                            <div id="chart-stock-area-eau-D" class="container"></div>
+                            <div id="chart-stock-area-eau-D" class="chart-stock-wrapper"></div>
                         </div>
                     </div>
                     <!-- Bilan hydrique : Réserve d'eau et Cycles de marée sous le graphique, 2 colonnes -->
@@ -279,7 +279,7 @@
                             </div>
                         </div>
                         <div class="alt-chart-column">
-                            <div id="chart-stock-area-temp-D" class="container"></div>
+                            <div id="chart-stock-area-temp-D" class="chart-stock-wrapper"></div>
                         </div>
                     </div>
                     {# --------------------------------------------------------------------- #}
@@ -862,6 +862,26 @@
                             }
                         }
                         function handleChartResize() {
+                            if (window.chartEau) {
+                                var newHeight = getChartHeight('eau');
+                                window.chartEau.setSize(null, newHeight);
+                            }
+                            if (window.chartTemp) {
+                                var newHeight = getChartHeight('temp');
+                                window.chartTemp.setSize(null, newHeight);
+                            }
+                            setTimeout(function() {
+                                var cEau = document.getElementById('chart-stock-area-eau-D');
+                                var cTemp = document.getElementById('chart-stock-area-temp-D');
+                                if (cEau && window.chartEau) {
+                                    var inner = cEau.querySelector('.highcharts-container') || cEau.firstElementChild;
+                                    if (inner && inner.offsetHeight > 0) cEau.style.height = inner.offsetHeight + 'px';
+                                }
+                                if (cTemp && window.chartTemp) {
+                                    var inner = cTemp.querySelector('.highcharts-container') || cTemp.firstElementChild;
+                                    if (inner && inner.offsetHeight > 0) cTemp.style.height = inner.offsetHeight + 'px';
+                                }
+                            }, 100);
                             syncChartHeightsToStats();
                         }
                         
@@ -1307,7 +1327,6 @@
                                 scrollbar: { enabled: true },
                                 credits: { enabled: false }
                             });
-                            if (containerEau && window.chartEau) containerEau.style.height = window.chartEau.chartHeight + 'px';
                             
                             // 2. Stock Chart Paramètres physiques avec aires
                             window.chartTemp = Highcharts.stockChart('chart-stock-area-temp-D', {
@@ -1669,7 +1688,27 @@
                                 scrollbar: { enabled: true },
                                 credits: { enabled: false }
                             });
-                            if (containerTemp && window.chartTemp) containerTemp.style.height = window.chartTemp.chartHeight + 'px';
+                            
+                            // Synchroniser la hauteur des conteneurs avec les graphiques pour éviter le blanc sous les graphiques
+                            function syncChartContainerHeights() {
+                                var cEau = document.getElementById('chart-stock-area-eau-D');
+                                var cTemp = document.getElementById('chart-stock-area-temp-D');
+                                if (cEau && window.chartEau) {
+                                    var inner = cEau.querySelector('.highcharts-container') || cEau.firstElementChild;
+                                    if (inner && inner.offsetHeight > 0) cEau.style.height = inner.offsetHeight + 'px';
+                                    else if (window.chartEau.chartHeight) cEau.style.height = (window.chartEau.chartHeight + 80) + 'px';
+                                }
+                                if (cTemp && window.chartTemp) {
+                                    var inner = cTemp.querySelector('.highcharts-container') || cTemp.firstElementChild;
+                                    if (inner && inner.offsetHeight > 0) cTemp.style.height = inner.offsetHeight + 'px';
+                                    else if (window.chartTemp.chartHeight) cTemp.style.height = (window.chartTemp.chartHeight + 80) + 'px';
+                                }
+                            }
+                            if (window.requestAnimationFrame) {
+                                requestAnimationFrame(function() { requestAnimationFrame(syncChartContainerHeights); });
+                            } else {
+                                setTimeout(syncChartContainerHeights, 50);
+                            }
                             syncChartHeightsToStats();
                             console.log('[Highcharts] Graphiques créés avec succès');
                         }

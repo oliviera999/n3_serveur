@@ -22,6 +22,8 @@ $app->post('/ffp3gallery/upload.php', [GalleryUploadController::class, 'handleFf
 
 // Galeries photo — pages de consultation
 $app->get('/gallery/{slug}/files/{filename}', [GalleryViewController::class, 'serveImage']);
+$app->get('/gallery/{slug}/timelapse', [GalleryViewController::class, 'showTimelapse']);
+$app->get('/api/gallery/{slug}/photos', [GalleryViewController::class, 'listPhotos']);
 $app->get('/gallery/msp1', [GalleryViewController::class, 'showMsp1']);
 $app->get('/gallery/n3pp', [GalleryViewController::class, 'showN3pp']);
 $app->get('/gallery/ffp3', [GalleryViewController::class, 'showFfp3']);

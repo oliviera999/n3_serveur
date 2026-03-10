@@ -272,10 +272,10 @@
 
                     <!-- Graphiques Stock Navigator + Aires colorées -->
                     <h3 class="chart-container-title">📊 Niveaux d'eau</h3>
-                    <div id="chart-stock-area-eau-D" class="container"></div>
+                    <div id="chart-stock-area-eau-D" class="chart-stock-wrapper"></div>
                     
                     <h3 class="chart-container-title">🌡️ Paramètres physiques</h3>
-                    <div id="chart-stock-area-temp-D" class="container"></div>
+                    <div id="chart-stock-area-temp-D" class="chart-stock-wrapper"></div>
                     
                     <hr />
 
@@ -834,6 +834,19 @@
                                 var newHeight = getChartHeight('temp');
                                 window.chartTemp.setSize(null, newHeight);
                             }
+                            // Resynchroniser les hauteurs des conteneurs après redimensionnement
+                            setTimeout(function() {
+                                var cEau = document.getElementById('chart-stock-area-eau-D');
+                                var cTemp = document.getElementById('chart-stock-area-temp-D');
+                                if (cEau && window.chartEau) {
+                                    var inner = cEau.querySelector('.highcharts-container') || cEau.firstElementChild;
+                                    if (inner && inner.offsetHeight > 0) cEau.style.height = inner.offsetHeight + 'px';
+                                }
+                                if (cTemp && window.chartTemp) {
+                                    var inner = cTemp.querySelector('.highcharts-container') || cTemp.firstElementChild;
+                                    if (inner && inner.offsetHeight > 0) cTemp.style.height = inner.offsetHeight + 'px';
+                                }
+                            }, 100);
                         }
                         
                         // Écouter les changements de taille d'écran
@@ -1618,6 +1631,27 @@
                                 scrollbar: { enabled: true },
                                 credits: { enabled: false }
                             });
+                            
+                            // Synchroniser la hauteur des conteneurs avec les graphiques pour éviter le blanc sous les graphiques
+                            function syncChartContainerHeights() {
+                                var cEau = document.getElementById('chart-stock-area-eau-D');
+                                var cTemp = document.getElementById('chart-stock-area-temp-D');
+                                if (cEau && window.chartEau) {
+                                    var inner = cEau.querySelector('.highcharts-container') || cEau.firstElementChild;
+                                    if (inner && inner.offsetHeight > 0) cEau.style.height = inner.offsetHeight + 'px';
+                                    else if (window.chartEau.chartHeight) cEau.style.height = (window.chartEau.chartHeight + 80) + 'px';
+                                }
+                                if (cTemp && window.chartTemp) {
+                                    var inner = cTemp.querySelector('.highcharts-container') || cTemp.firstElementChild;
+                                    if (inner && inner.offsetHeight > 0) cTemp.style.height = inner.offsetHeight + 'px';
+                                    else if (window.chartTemp.chartHeight) cTemp.style.height = (window.chartTemp.chartHeight + 80) + 'px';
+                                }
+                            }
+                            if (window.requestAnimationFrame) {
+                                requestAnimationFrame(function() { requestAnimationFrame(syncChartContainerHeights); });
+                            } else {
+                                setTimeout(syncChartContainerHeights, 50);
+                            }
                             
                             console.log('[Highcharts] Graphiques créés avec succès');
                         }

@@ -78,6 +78,34 @@ class GalleryViewController
         return $this->showGallery($request, $response, 'ffp3', "L'aquaponie (FFP3)", 'Photos du potager aquaponie', '/aquaponie', 'aquaponie');
     }
 
+    /** Page timelapse pour une galerie (slug msp1, n3pp, ffp3). */
+    public function showTimelapse(Request $request, Response $response, array $args): Response
+    {
+        $slug = $args['slug'] ?? '';
+        $meta = [
+            'msp1' => ['title' => 'Timelapse potager (MSP1)', 'back' => '/meteo'],
+            'n3pp' => ['title' => "Timelapse élevage (N3PP)", 'back' => '/serre'],
+            'ffp3' => ['title' => 'Timelapse aquaponie (FFP3)', 'back' => '/aquaponie'],
+        ];
+        if (!isset($meta[$slug])) {
+            return $response->withStatus(404);
+        }
+        $basePath = rtrim($GLOBALS['base_path'] ?? '', '/');
+        $pathPrefix = ($basePath !== '' ? '/' . trim($basePath, '/') . '/' : '/');
+        $apiUrl = $pathPrefix . 'api/gallery/' . $slug . '/photos';
+        $galleryUrl = $pathPrefix . 'gallery/' . $slug;
+        $html = $this->renderer->render('gallery_timelapse.twig', [
+            'page_title' => $meta[$slug]['title'] . ' - n3 iot datas',
+            'gallery_slug' => $slug,
+            'gallery_title' => $meta[$slug]['title'],
+            'back_url' => $pathPrefix . ltrim($meta[$slug]['back'], '/'),
+            'gallery_url' => $galleryUrl,
+            'api_photos_url' => $apiUrl,
+        ]);
+        $response->getBody()->write($html);
+        return $response;
+    }
+
     private function showGallery(Request $request, Response $response, string $slug, string $navLabel, string $pageTitle, string $backUrl, string $navActive): Response
     {
         try {
@@ -113,6 +141,77 @@ class GalleryViewController
             error_log(sprintf('[Gallery] slug=%s — %s: %s in %s:%d', $slug, $e::class, $e->getMessage(), $e->getFile(), $e->getLine()));
             throw $e;
         }
+    }
+
+    /**
+     * API JSON : liste des photos dans une plage temporelle.
+     * GET /api/gallery/{slug}/photos?from=ISO&to=ISO
+     * Retourne [{url, timestamp}].
+     */
+    public function listPhotos(Request $request, Response $response, array $args): Response
+    {
+        $slug = $args['slug'] ?? '';
+        if (!in_array($slug, ['msp1', 'n3pp', 'ffp3'], true)) {
+            return $response->withStatus(404);
+        }
+
+        $params = $request->getQueryParams();
+        $fromStr = $params['from'] ?? '';
+        $toStr = $params['to'] ?? '';
+        if ($fromStr === '' || $toStr === '') {
+            $response->getBody()->write(json_encode(['error' => 'Paramètres from et to requis (ISO 8601)']));
+            return $response->withStatus(400)->withHeader('Content-Type', 'application/json');
+        }
+
+        try {
+            $from = new \DateTimeImmutable($fromStr);
+            $to = new \DateTimeImmutable($toStr);
+        } catch (\Throwable) {
+            $response->getBody()->write(json_encode(['error' => 'Dates invalides (format ISO 8601 attendu)']));
+            return $response->withStatus(400)->withHeader('Content-Type', 'application/json');
+        }
+
+        if ($from >= $to) {
+            $response->getBody()->write(json_encode(['error' => 'from doit être strictement avant to']));
+            return $response->withStatus(400)->withHeader('Content-Type', 'application/json');
+        }
+
+        $uploadDir = $this->getUploadDir($slug);
+        $allFiles = $this->listImageFiles($uploadDir);
+        $basePath = rtrim($GLOBALS['base_path'] ?? '', '/');
+        $pathPrefix = ($basePath !== '' ? '/' . trim($basePath, '/') . '/' : '/') . 'gallery/' . $slug . '/files/';
+
+        $photos = [];
+        foreach ($allFiles as $filename) {
+            $ts = $this->extractTimestampFromFilename($uploadDir . '/' . $filename, $filename);
+            if ($ts >= $from && $ts <= $to) {
+                $photos[] = [
+                    'url' => $pathPrefix . $filename,
+                    'timestamp' => $ts->format('c'),
+                ];
+            }
+        }
+        usort($photos, fn ($a, $b) => strcmp($a['timestamp'], $b['timestamp']));
+
+        $response->getBody()->write(json_encode($photos));
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    /**
+     * Extrait la date d'un fichier : format Y-m-d_H-i-s_*.jpg ou filemtime().
+     */
+    private function extractTimestampFromFilename(string $fullPath, string $filename): \DateTimeImmutable
+    {
+        $match = [];
+        if (preg_match('/^(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})_/', $filename, $match)) {
+            try {
+                return new \DateTimeImmutable($match[1] . ' ' . $match[2] . ':' . $match[3] . ':' . $match[4]);
+            } catch (\Throwable) {
+                // fallback
+            }
+        }
+        $mtime = @filemtime($fullPath) ?: time();
+        return (new \DateTimeImmutable())->setTimestamp($mtime);
     }
 
     /**
