@@ -71,11 +71,19 @@
         margin: 20px 0;
     }
     .live-card {
+        display: block;
         padding: 14px 16px;
         background: white;
         border-radius: 10px;
         box-shadow: 0 2px 6px rgba(0,139,116,0.12);
         border-left: 4px solid #ccc;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .live-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0,139,116,0.2);
     }
     .live-card.live-online { border-left-color: #28a745; }
     .live-card.live-offline { border-left-color: #dc3545; }
@@ -114,14 +122,14 @@
     <div class="live-section">
         <p style="margin: 0 0 12px 0; font-size: 0.95em; color: #6c757d;">Témoins de connexion et dernière réception de données par module — mise à jour en temps réel</p>
         <div class="live-grid" id="live-status-grid" aria-live="polite">
-            <div class="live-card live-loading" data-module="ffp3-wroom-prod"><div class="live-card-name">Aquaponie (WROOM prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
-            <div class="live-card live-loading" data-module="ffp3-wroom-test"><div class="live-card-name">Aquaponie (WROOM test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
-            <div class="live-card live-loading" data-module="ffp3-s3-prod"><div class="live-card-name">Aquamobile (S3 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
-            <div class="live-card live-loading" data-module="ffp3-s3-test"><div class="live-card-name">Aquamobile (S3 test3)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
-            <div class="live-card live-loading" data-module="msp1-prod"><div class="live-card-name">Potager (MSP1 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
-            <div class="live-card live-loading" data-module="msp1-test"><div class="live-card-name">Potager (MSP1 test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
-            <div class="live-card live-loading" data-module="n3pp-prod"><div class="live-card-name">Élevage (N3PP prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
-            <div class="live-card live-loading" data-module="n3pp-test"><div class="live-card-name">Élevage (N3PP test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></div>
+            <a href="/aquaponie" class="live-card live-loading" data-module="ffp3-wroom-prod"><div class="live-card-name">Aquaponie (WROOM prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="/aquaponie-test" class="live-card live-loading" data-module="ffp3-wroom-test"><div class="live-card-name">Aquaponie (WROOM test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="/aquamobile" class="live-card live-loading" data-module="ffp3-s3-prod"><div class="live-card-name">Aquamobile (S3 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="/aquamobile-test" class="live-card live-loading" data-module="ffp3-s3-test"><div class="live-card-name">Aquamobile (S3 test3)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="/meteo" class="live-card live-loading" data-module="msp1-prod"><div class="live-card-name">Potager (MSP1 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="/msp1-test/msp1datas/msp1-data.php" class="live-card live-loading" data-module="msp1-test"><div class="live-card-name">Potager (MSP1 test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="/serre" class="live-card live-loading" data-module="n3pp-prod"><div class="live-card-name">Élevage (N3PP prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="/n3pp-test/n3ppdatas/n3pp-data.php" class="live-card live-loading" data-module="n3pp-test"><div class="live-card-name">Élevage (N3PP test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
         </div>
     </div>
 
