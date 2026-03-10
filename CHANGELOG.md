@@ -7,6 +7,15 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.83] - 2026-03-10
+
+### Correctif - Classes abstraites manquantes (AbstractSensorRepository, Ffp3RealtimeDataProvider, AbstractDataController)
+- **Résumé** : création des classes référencées mais absentes du dépôt, corrigeant les erreurs 500 en production (`Class not found`).
+- **AbstractSensorRepository** : base commune pour MspSensorRepository et N3ppSensorRepository (getLatest, fetchBetween, getLastReadingDate, countReadingsToday, exportCsv).
+- **Ffp3RealtimeDataProvider** : implémentation RealtimeDataProviderInterface pour l'API /api/realtime/* (aquaponie).
+- **AbstractDataController** : base commune pour MspDataController et N3ppDataController (pages météo, serre).
+
+---
 ## [5.0.82] - 2026-03-10
 
 ### Modifié - PostDataController set_time_limit(30)

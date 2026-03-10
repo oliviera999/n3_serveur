@@ -17,8 +17,8 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
- * Contrôleur abstrait pour les pages de données (MSP1, N3PP).
- * Factorise le flux commun : extraction dates, fetch, stats, charts, export CSV, rendu.
+ * Contrôleur abstrait pour les pages de données MSP1 et N3PP.
+ * Factorise le flux commun : extraction dates, fetch, stats, export CSV, rendu.
  */
 abstract class AbstractDataController
 {
@@ -29,101 +29,134 @@ abstract class AbstractDataController
         protected DateRangeExtractor $dateRangeExtractor,
         protected CsvExportService $csvExportService,
         protected ChartDataService $chartDataService,
-    ) {}
+    ) {
+    }
 
     abstract protected function getBoard(): int;
+
     /** @return string[] */
     abstract protected function getChartColumns(): array;
+
     /** @return string[] */
     abstract protected function getStatsColumns(): array;
+
     abstract protected function getTemplateName(): string;
+
     abstract protected function getPageTitle(string $testSuffix): string;
+
     abstract protected function getNavActive(): string;
+
     abstract protected function getCsvPrefix(): string;
+
     abstract protected function getRealtimeApiBase(string $environment): string;
+
     abstract protected function getTestEnvironmentName(): string;
 
-    /**
-     * Configuration de la page de données (hero, form, footer).
-     * @return array{hero_title: string, hero_icon: string, hero_subtitle: string, form_action: string, test_env: string, table_label: string, footer_text: string}
-     */
+    /** @return array<string, mixed> */
     abstract protected function getDataConfig(string $environment): array;
 
-    /**
-     * Configuration des capteurs pour les stat-cards.
-     * @return array<int, array{key?: string, label?: string, icon: string, class?: string, unit?: string, decimals?: int, unit_suffix?: string, no_stats?: bool, stats_key?: string, loop?: array}>
-     */
+    /** @return array<int, array<string, mixed>> */
     abstract protected function getSensorsConfig(): array;
 
-    /**
-     * Configuration des graphiques (containers).
-     * @return array<int, array{id: string, title: string, icon: string, height?: string}>
-     */
+    /** @return array<int, array<string, mixed>> */
     abstract protected function getChartsConfig(): array;
 
-    /** JSON du mapping capteur -> graphique pour ChartUpdaterGeneric. */
     abstract protected function getSensorMapJson(): string;
 
     public function show(Request $request, Response $response): Response
     {
+        $environment = TableConfig::getEnvironment();
+        $testSuffix = $environment === $this->getTestEnvironmentName() ? ' (TEST)' : '';
+
+        $defaultEnd = date('Y-m-d H:i:s');
+        $defaultStart = date('Y-m-d H:i:s', strtotime('-24 hours'));
         $lastDate = $this->sensorRepo->getLastReadingDate();
-        $defaultEnd = $lastDate ?: date('Y-m-d H:i:s');
-        $defaultStart = date('Y-m-d H:i:s', strtotime($defaultEnd . ' -24 hours'));
+        if ($lastDate !== null) {
+            $defaultEnd = $lastDate;
+            $defaultStart = date('Y-m-d H:i:s', strtotime($lastDate . ' -24 hours'));
+        }
 
-        [$startDate, $endDate] = $this->dateRangeExtractor->extract($request, $defaultStart, $defaultEnd);
-
-        $body = $request->getParsedBody() ?? [];
-        if (isset($body['export_csv'])) {
-            return $this->csvExportService->export(
-                $this->sensorRepo, $startDate, $endDate, $response, $this->getCsvPrefix()
-            );
+        try {
+            [$startDate, $endDate] = $this->dateRangeExtractor->extract($request, $defaultStart, $defaultEnd);
+        } catch (\RuntimeException $e) {
+            if (strpos($e->getMessage(), 'CSRF') !== false) {
+                $response->getBody()->write('Token CSRF invalide. Veuillez recharger la page.');
+                return $response->withStatus(403)->withHeader('Content-Type', 'text/plain; charset=utf-8');
+            }
+            throw $e;
         }
 
         $readings = $this->sensorRepo->fetchBetween($startDate, $endDate);
         $measureCount = count($readings);
 
-        $chartData = $this->chartDataService->prepareGenericSeries($readings, $this->getChartColumns());
-        $latest = $this->sensorRepo->getLatest();
-        $firmwareVersion = $this->sensorRepo->getFirmwareVersion();
-
-        $stats = [];
-        foreach ($this->getStatsColumns() as $col) {
-            $s = $this->sensorRepo->getColumnStats($col, $startDate, $endDate);
-            $lc = lcfirst($col);
-            $stats["avg_$lc"] = $s['avg'];
-            $stats["min_$lc"] = $s['min'];
-            $stats["max_$lc"] = $s['max'];
-            $stats["stddev_$lc"] = $s['stddev'];
+        $body = $request->getParsedBody() ?? [];
+        if (isset($body['export_csv']) && $measureCount > 0) {
+            return $this->csvExportService->export(
+                $this->sensorRepo,
+                $startDate,
+                $endDate,
+                $response,
+                $this->getCsvPrefix()
+            );
         }
 
-        $env = TableConfig::getEnvironment();
-        $testSuffix = $env === $this->getTestEnvironmentName() ? ' (TEST)' : '';
+        $chartColumns = $this->getChartColumns();
+        $series = $this->chartDataService->prepareGenericSeries(
+            array_reverse($readings),
+            $chartColumns
+        );
 
-        $chartIds = array_map(fn($c) => $c['id'], $this->getChartsConfig());
+        $stats = $this->computeStats($readings);
 
-        $html = $this->renderer->render($this->getTemplateName(), array_merge([
+        $latest = $this->sensorRepo->getLatest();
+
+        $chartsConfig = $this->getChartsConfig();
+        $chartIds = array_column($chartsConfig, 'id');
+
+        $context = [
             'page_title' => $this->getPageTitle($testSuffix),
             'nav_active' => $this->getNavActive(),
-            'latest' => $latest,
-            'board' => $this->getBoard(),
-            'version' => Version::getWithPrefix(),
-            'firmware_version' => $firmwareVersion,
-            'environment' => $env,
-            'realtime_api_base' => $this->getRealtimeApiBase($env),
-            'csrf_field' => $this->csrfService->getHiddenField(),
-            'start_date' => $startDate,
-            'end_date' => $endDate,
-            'measure_count' => $measureCount,
-            'duration_str' => DurationFormatter::short($startDate, $endDate),
-            'data_config' => $this->getDataConfig($env),
+            'environment' => $environment,
+            'data_config' => $this->getDataConfig($environment),
             'sensors_config' => $this->getSensorsConfig(),
-            'charts_config' => $this->getChartsConfig(),
-            'chart_columns' => $this->getChartColumns(),
+            'charts_config' => $chartsConfig,
+            'chart_columns' => $chartColumns,
             'chart_ids_json' => json_encode($chartIds),
             'sensor_map_json' => $this->getSensorMapJson(),
-        ], $chartData, $stats));
+            'realtime_api_base' => $this->getRealtimeApiBase($environment),
+            'latest' => $latest,
+            'start_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $startDate),
+            'end_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $endDate),
+            'measure_count' => $measureCount,
+            'duration_str' => DurationFormatter::short($startDate, $endDate),
+            'firmware_version' => $this->sensorRepo->getFirmwareVersion(),
+            'version' => Version::getWithPrefix(),
+        ];
 
+        $context = array_merge($context, $series, $stats);
+
+        $html = $this->renderer->render($this->getTemplateName(), $context);
         $response->getBody()->write($html);
         return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
+    }
+
+    /**
+     * @param array<int, array<string, mixed>> $readings
+     * @return array<string, float|null>
+     */
+    private function computeStats(array $readings): array
+    {
+        $stats = [];
+        foreach ($this->getStatsColumns() as $col) {
+            $lc = lcfirst($col);
+            $values = array_filter(
+                array_column($readings, $col),
+                fn($v) => $v !== null && $v !== '' && is_numeric($v)
+            );
+            $stats["avg_{$lc}"] = $values !== [] ? array_sum($values) / count($values) : null;
+            $stats["min_{$lc}"] = $values !== [] ? min($values) : null;
+            $stats["max_{$lc}"] = $values !== [] ? max($values) : null;
+        }
+        return $stats;
     }
 }
