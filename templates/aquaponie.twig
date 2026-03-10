@@ -26,7 +26,7 @@
                     <div class="header-content">
                         <div class="header-title">
                             <i class="fas fa-seedling"></i>
-                            Plateforme Aquaponie FFP3
+                            L'aquaponie
                             <i class="fas fa-fish"></i>
                         </div>
                         <p class="header-subtitle">
@@ -38,7 +38,7 @@
 
                 <!-- Featured Post -->
                 <article class="post featured">
-                    <h2>📊 Synthèse des mesures du <span id="summary-start-date">{{ start_date|date('d/m/Y H:i:s') }}</span> au <span id="summary-end-date">{{ end_date|date('d/m/Y H:i:s') }}</span></h2>
+                    <h2 class="synthesis-title">📊 Synthèse des mesures du <span id="summary-start-date">{{ start_date|date('d/m/Y H:i:s') }}</span> au <span id="summary-end-date">{{ end_date|date('d/m/Y H:i:s') }}</span></h2>
 
                     <!-- Section Niveaux d'eau -->
                     <div class="section-header">
@@ -1846,10 +1846,7 @@
 {% endblock %}
 
 {% block scripts %}
-    <!-- Badge LIVE pour indicateur temps réel -->
-    <div id="live-badge" class="badge badge-secondary">
-        <i class="fas fa-circle"></i> INITIALISATION...
-    </div>
+    {% include 'partials/_live_badge.twig' %}
 
     <!-- Scripts PWA et Temps Réel -->
     <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>

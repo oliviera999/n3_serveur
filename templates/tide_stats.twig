@@ -446,13 +446,10 @@
         <p>{{ version }} | Système d'aquaponie FFP3 | © 2025 olution</p>
         {% endblock %}
     </footer>
-    <!-- Badge LIVE pour indicateur temps réel -->
-    <div id="live-badge" class="badge badge-secondary">
-        <i class="fas fa-circle"></i> INITIALISATION...
-    </div>
 {% endblock %}
 
 {% block scripts %}
+    {% include 'partials/_live_badge.twig' %}
     <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
     <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>

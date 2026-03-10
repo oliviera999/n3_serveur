@@ -49,7 +49,7 @@
                     <div class="header-content">
                         <div class="header-title">
                             <i class="fas fa-seedling header-icon-float" aria-hidden="true"></i>
-                            Plateforme Aquaponie FFP3
+                            L'aquaponie
                             <i class="fas fa-fish" aria-hidden="true"></i>
                         </div>
                         <p class="header-subtitle">
@@ -1897,11 +1897,7 @@
 {% endblock %}
 
 {% block scripts %}
-    <!-- Badge LIVE pour indicateur temps réel -->
-    <div id="live-badge" class="badge badge-secondary">
-        <i class="fas fa-circle"></i> INITIALISATION...
-    </div>
-
+    {% include 'partials/_live_badge.twig' %}
     <!-- Scripts PWA et Temps Réel -->
     <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
     <script src="{{ base_path }}/assets/js/chart-updater.js"></script>

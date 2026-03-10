@@ -493,11 +493,7 @@
 {% endblock %}
 
 {% block scripts %}
-<!-- Badge LIVE pour indicateur temps réel -->
-<div id="live-badge" class="badge badge-secondary">
-    <i class="fas fa-circle"></i> INITIALISATION...
-</div>
-
+    {% include 'partials/_live_badge.twig' %}
 <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
 <script src="{{ base_path }}/assets/js/stats-updater.js"></script>
 <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>

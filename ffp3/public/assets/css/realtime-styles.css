@@ -9,6 +9,11 @@
     50% { box-shadow: 0 0 14px rgba(0, 255, 200, 0.4); }
 }
 
+/* Titre principal L'aquaponie - couleur orange */
+.header-title {
+    color: #FF6300 !important;
+}
+
 /* =================================================================
    FOND DE PAGE : IMAGE AQUAPONIE AVEC APPARITION EN FONDU
    Remplace le fond noir (main.css externe) sur toutes les pages.

@@ -152,6 +152,7 @@
 {% endblock %}
 
 {% block scripts %}
+    {% include 'partials/_live_badge.twig' %}
     <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
     <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
     <script>
