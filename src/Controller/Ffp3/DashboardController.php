@@ -60,6 +60,7 @@ class DashboardController
 
         $firmwareVersion = $this->sensorReadRepo->getFirmwareVersion();
         $environment = TableConfig::getEnvironment();
+        $dataTable = TableConfig::getDataTable();
         $realtime_api_base = RealtimeUrlHelper::getRealtimeApiBase($environment);
 
         $html = $this->renderer->render('dashboard.twig', [
@@ -72,6 +73,7 @@ class DashboardController
             'version'       => Version::getWithPrefix(),
             'firmware_version' => $firmwareVersion,
             'environment'   => $environment,
+            'data_table'    => $dataTable,
             'realtime_api_base' => $realtime_api_base,
             'nav_active' => 'aquaponie',
         ]);

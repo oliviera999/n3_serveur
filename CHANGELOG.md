@@ -7,6 +7,14 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.100] - 2026-03-10
+
+### Correctif - Audit serveur selon les règles
+- **tools/check_tables_server.php** : credentials chargés via .env (DB_HOST, DB_NAME, DB_USER, DB_PASS) au lieu de mot de passe en dur.
+- **templates** (aquaponie, aquaponie_alt, dashboard) : nom de table passé via variable `data_table` depuis TableConfig::getDataTable() au lieu de ternaire codé en dur (ffp3Data2, ffp3Data3, etc.).
+- Conformité règles multi-environnements et sécurité.
+
+---
 ## [5.0.99] - 2026-03-10
 
 ### Ajout - Unification : classes manquantes et headers de sécurité

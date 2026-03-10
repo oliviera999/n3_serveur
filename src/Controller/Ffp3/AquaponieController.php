@@ -131,6 +131,7 @@ class AquaponieController
         $firmwareVersion = $this->sensorReadRepo->getFirmwareVersion();
         $waterBalance = $this->waterBalanceService->computeBalance($startDate, $endDate);
         $environment = TableConfig::getEnvironment();
+        $dataTable = TableConfig::getDataTable();
         $realtime_api_base = RealtimeUrlHelper::getRealtimeApiBase($environment);
 
         return array_merge([
@@ -142,6 +143,7 @@ class AquaponieController
             'version' => Version::getWithPrefix(),
             'firmware_version' => $firmwareVersion,
             'environment' => $environment,
+            'data_table' => $dataTable,
             'realtime_api_base' => $realtime_api_base,
             'nav_active' => 'aquaponie',
         ], $chartSeries, [

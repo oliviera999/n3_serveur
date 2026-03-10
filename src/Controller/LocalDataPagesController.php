@@ -127,6 +127,7 @@ class LocalDataPagesController
             'version' => Version::getWithPrefix(),
             'firmware_version' => '-',
             'environment' => TableConfig::getEnvironment(),
+            'data_table' => TableConfig::getDataTable(),
             'last_reading_tempair' => 0,
             'last_reading_tempeau' => 0,
             'last_reading_humi' => 0,

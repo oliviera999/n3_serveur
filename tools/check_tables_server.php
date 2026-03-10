@@ -3,18 +3,32 @@
 /**
  * Vérification des tables TEST sur le serveur
  * À exécuter directement sur le serveur
+ *
+ * Charge les credentials depuis .env (DB_HOST, DB_NAME, DB_USER, DB_PASS).
+ * Exemple : php tools/check_tables_server.php
  */
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use App\Config\Env;
+
+Env::load();
+
+$host = $_ENV['DB_HOST'] ?? 'localhost';
+$dbname = $_ENV['DB_NAME'] ?? '';
+$username = $_ENV['DB_USER'] ?? '';
+$password = $_ENV['DB_PASS'] ?? '';
+
+if (empty($dbname) || empty($username) || empty($password)) {
+    echo "❌ Erreur : configurer DB_NAME, DB_USER et DB_PASS dans le fichier .env\n";
+    echo "   Voir env.dist pour les variables attendues.\n";
+    exit(1);
+}
 
 echo "========================================\n";
 echo "VÉRIFICATION TABLES TEST\n";
 echo "Date: " . date('Y-m-d H:i:s') . "\n";
 echo "========================================\n\n";
-
-// Configuration DB (à adapter selon votre serveur)
-$host = 'localhost';
-$dbname = 'oliviera_iot';
-$username = 'oliviera_iot';
-$password = 'VOTRE_MOT_DE_PASSE'; // À remplacer
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
