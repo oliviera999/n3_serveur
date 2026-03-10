@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.87] - 2026-03-10
+
+### Modifié - Scroll page aquamobile / aquaponie-alt
+- **aquaponie_alt.twig** : overflow-y: auto sur html/body pour permettre le défilement (priorité sur main.css)
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV

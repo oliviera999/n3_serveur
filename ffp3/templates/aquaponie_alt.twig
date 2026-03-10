@@ -22,6 +22,12 @@
         <style id="page-bg-override">
             /* Aligne sur page d'accueil : fond visible + fondu (priorite sur main.css body.is-preload * { animation: none }) */
             body { background: transparent !important; }
+            /* Scroll de la page : priorité sur main.css qui peut bloquer le scroll */
+            html, body {
+                overflow-y: auto !important;
+                overflow-x: hidden;
+                -webkit-overflow-scrolling: touch;
+            }
             #page-bg {
                 position: fixed !important; top: 0; left: 0; right: 0; bottom: 0;
                 z-index: -1 !important;
