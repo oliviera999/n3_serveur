@@ -7,6 +7,19 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
+## [5.0.88] - 2026-03-10
+
+### Modifié - Scroll sur toutes les pages du site
+- **realtime-styles.css** (ffp3, public, ffp3/public) : overflow-y: auto, overflow-x: hidden, -webkit-overflow-scrolling: touch sur html/body pour permettre le défilement sur aquaponie, aquamobile, dashboard, control, home, supervision, tide-stats, aquaponie-description, login
+- **aquaponie_alt.twig** : suppression du doublon (règles centralisées dans realtime-styles.css)
+
+---
 ## [5.0.87] - 2026-03-10
 
 ### Modifié - Scroll page aquamobile / aquaponie-alt
@@ -29,6 +42,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -46,6 +65,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -444,6 +469,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -830,6 +861,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -1215,6 +1252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -1600,6 +1643,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -1994,6 +2043,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -2381,6 +2436,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -2768,6 +2829,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -3156,6 +3223,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -3543,6 +3616,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -3932,6 +4011,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -4319,6 +4404,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -4706,6 +4797,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -5093,6 +5190,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -5481,6 +5584,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -5866,6 +5975,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -6256,6 +6371,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -6641,6 +6762,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -7029,6 +7156,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -7415,6 +7548,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -7803,6 +7942,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -8191,6 +8336,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -8578,6 +8729,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -8967,6 +9124,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -9353,6 +9516,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -9740,6 +9909,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -10128,6 +10303,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -10516,6 +10697,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -10902,6 +11089,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -11289,6 +11482,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -11678,6 +11877,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -12066,6 +12271,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -12453,6 +12664,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -12840,6 +13057,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -13227,6 +13450,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -13614,6 +13843,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -14000,6 +14235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -14386,6 +14627,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -14772,6 +15019,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -15158,6 +15411,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -15545,6 +15804,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -15936,6 +16201,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -16327,6 +16598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -16711,6 +16988,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -17095,6 +17378,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -17479,6 +17768,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -17863,6 +18158,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -18247,6 +18548,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -18631,6 +18938,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -19032,6 +19345,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -19423,6 +19742,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -19812,6 +20137,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -20202,6 +20533,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -20596,6 +20933,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -21002,6 +21345,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -21390,6 +21739,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -21780,6 +22135,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -22170,6 +22531,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -22557,6 +22924,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -22947,6 +23320,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -23334,6 +23713,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -23720,6 +24105,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -24107,6 +24498,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -24504,6 +24901,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -24898,6 +25301,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -25300,6 +25709,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -25706,6 +26121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -26102,6 +26523,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -26490,6 +26917,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -26880,6 +27313,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -27269,6 +27708,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -27658,6 +28103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -28045,6 +28496,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -28432,6 +28889,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -28821,6 +29284,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -29209,6 +29678,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -29599,6 +30074,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -29994,6 +30475,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -30393,6 +30880,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -30788,6 +31281,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -31185,6 +31684,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -31581,6 +32086,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -31972,6 +32483,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -32359,6 +32876,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -32750,6 +33273,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -33138,6 +33667,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -33525,6 +34060,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -33912,6 +34453,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -34301,6 +34848,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -34690,6 +35243,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -35078,6 +35637,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -35466,6 +36031,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -35853,6 +36424,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -36240,6 +36817,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -36627,6 +37210,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -37016,6 +37605,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -37405,6 +38000,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -37792,6 +38393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -38179,6 +38786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -38566,6 +39179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -38954,6 +39573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -39344,6 +39969,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -39741,6 +40372,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -40132,6 +40769,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -40530,6 +41173,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -40926,6 +41575,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -41313,6 +41968,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -41733,6 +42394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -42124,6 +42791,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -42524,6 +43197,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -42934,6 +43613,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -43334,6 +44019,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -43724,6 +44415,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -44115,6 +44812,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -44512,6 +45215,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -45019,6 +45728,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -45410,6 +46125,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -45799,6 +46520,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -46189,6 +46916,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -46580,6 +47313,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -46970,6 +47709,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -47362,6 +48107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -47753,6 +48504,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -48266,6 +49023,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -48656,6 +49419,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -49046,6 +49815,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -49484,6 +50259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -49883,6 +50664,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -50282,6 +51069,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -50718,6 +51511,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -51165,6 +51964,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -51569,6 +52374,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -51974,6 +52785,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -52369,6 +53186,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -52770,6 +53593,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -53175,6 +54004,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -53578,6 +54413,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -53972,6 +54813,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -54378,6 +55225,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -54816,6 +55669,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -55209,6 +56068,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -55603,6 +56468,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -55996,6 +56867,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -56394,6 +57271,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -56798,6 +57681,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -57200,6 +58089,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -57600,6 +58495,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -57995,6 +58896,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -58391,6 +59298,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -58798,6 +59711,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -59204,6 +60123,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -59613,6 +60538,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -60038,6 +60969,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -60493,6 +61430,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -60889,6 +61832,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -61284,6 +62233,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -61689,6 +62644,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -62084,6 +63045,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -62483,6 +63450,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -62875,6 +63848,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -63269,6 +64248,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -63655,6 +64640,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -64081,6 +65072,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -64479,6 +65476,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -64899,6 +65902,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -65301,6 +66310,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -65699,6 +66714,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -66103,6 +67124,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -66529,6 +67556,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -66940,6 +67973,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -67405,6 +68444,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -67807,6 +68852,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -68211,6 +69262,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -68626,6 +69683,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -69034,6 +70097,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -69429,6 +70498,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -69824,6 +70899,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -70221,6 +71302,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -70689,6 +71776,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -71105,6 +72198,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -71535,6 +72634,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -71953,6 +73058,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -72375,6 +73486,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -72765,6 +73882,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -73207,6 +74330,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -73613,6 +74742,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -74006,6 +75141,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -74449,6 +75590,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -74871,6 +76018,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -75326,6 +76479,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -75719,6 +76878,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -76171,6 +77336,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -76561,6 +77732,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -76950,6 +78127,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -77343,6 +78526,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -77736,6 +78925,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -78174,6 +79369,12 @@ docs/
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -78635,6 +79836,12 @@ docs/
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -79030,6 +80237,12 @@ docs/
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -79459,6 +80672,12 @@ docs/
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -79853,6 +81072,12 @@ docs/
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -80269,6 +81494,12 @@ docs/
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -80661,6 +81892,12 @@ docs/
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -81242,6 +82479,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -81657,6 +82900,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -82099,6 +83348,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -82527,6 +83782,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -82941,6 +84202,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -83362,6 +84629,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -83775,6 +85048,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -84177,6 +85456,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -84571,6 +85856,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -84981,6 +86272,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -85375,6 +86672,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -85769,6 +87072,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -86165,6 +87474,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -86579,6 +87894,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV
@@ -86967,6 +88288,12 @@ ance future
 
 ---
 
+## [5.0.89] - 2026-03-10
+
+### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
+- **Résumé** : Ajout routes_config.php et partial _live_badge.twig manquants.
+
+---
 ## [5.0.86] - 2026-03-10
 
 ### Modifié - Section Live temps réel, réorganisation sections supervision, suppression exports CSV

@@ -79,6 +79,21 @@ $GLOBALS['base_path'] = $basePath;
 
 $requestPath = (string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 
+// Chargement config routes avec fallback si fichier absent (évite 500 sur prod si config/ non déployé)
+$routesConfigPath = __DIR__ . '/../config/routes_config.php';
+$loadRoutesConfig = static function () use ($routesConfigPath): array {
+    if (is_file($routesConfigPath)) {
+        return require $routesConfigPath;
+    }
+    error_log('[iot.olution.info] routes_config.php absent: ' . $routesConfigPath);
+    return [
+        'exact_public_paths' => ['/', '/login', '/logout', '/ping', '/favicon.ico'],
+        'public_paths' => ['/api/', '/post-data', '/heartbeat', '/assets/', '/aquaponie', '/meteo', '/serre', '/gallery/', '/ota/'],
+        'protected_paths' => ['/dashboard', '/supervision', '/export-data', '/admin/'],
+        'redirects_301' => [],
+    ];
+};
+
 // ====================================================================
 // Middleware de gestion d'erreurs personnalisé
 // ====================================================================
@@ -168,7 +183,7 @@ $app->add(function (Request $request, $handler) use ($container, $authMethod) {
     $uri = $request->getUri();
     $path = $uri->getPath();
 
-    $routesConfig = require __DIR__ . '/../config/routes_config.php';
+    $routesConfig = $loadRoutesConfig();
     $publicPaths = $routesConfig['public_paths'];
     $exactPublicPaths = $routesConfig['exact_public_paths'];
     
@@ -254,7 +269,7 @@ $app->get('/index.html', function (Request $request, Response $response) use ($a
 
 // Redirections 301 : anciennes URL vers nouveau schéma de nommage
 $basePath = $app->getBasePath() ?: '';
-$routesConfigFull = require __DIR__ . '/../config/routes_config.php';
+$routesConfigFull = $loadRoutesConfig();
 registerRedirects($app, $routesConfigFull['redirects_301'], $basePath);
 
 // Pages aquaponie - PUBLIQUES (avec middleware d'environnement mais sans authentification)
@@ -777,3 +792,4 @@ $errorMiddleware->setErrorHandler(
 );
 
 $app->run();
+                             

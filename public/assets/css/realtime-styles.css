@@ -121,11 +121,17 @@ article.post.featured > h2:first-of-type,
 ================================================================= */
 html {
     min-height: 100%;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 body {
     position: relative;
     background: transparent !important;
     min-height: 100%;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Calque de fond en element reel (#page-bg) : non affecte par body.is-preload * { animation: none } de main.css */
