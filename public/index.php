@@ -448,12 +448,15 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
     $realtimeController = $config['realtime_controller'];
     $postDataController = $config['post_data_controller'];
     $hasParameters = $config['has_parameters'] ?? false;
-    $skipDataRoute = $config['skip_data_route'] ?? false; // true quand redirection 301 manuelle définie avant
+    $skipDataRoute = $config['skip_data_route'] ?? false;
     $skipControlRoutes = $config['skip_control_routes'] ?? false;
+    $skipPostDataShortPath = $config['skip_post_data_short_path'] ?? false; // évite doublon /msp1datas/ (enregistré par prod)
 
-    $callback = function ($group) use ($pathPrefix, $module, $dataController, $dataMethod, $outputController, $realtimeController, $postDataController, $hasParameters, $skipDataRoute, $skipControlRoutes) {
+    $callback = function ($group) use ($pathPrefix, $module, $dataController, $dataMethod, $outputController, $realtimeController, $postDataController, $hasParameters, $skipDataRoute, $skipControlRoutes, $skipPostDataShortPath) {
         $group->post("/{$pathPrefix}/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
-        $group->post("/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
+        if (!$skipPostDataShortPath) {
+            $group->post("/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
+        }
         if (!$skipDataRoute) {
             $group->map(['GET', 'POST'], "/{$pathPrefix}/{$module}datas/{$module}-data.php", [$dataController, $dataMethod]);
         }
@@ -743,6 +746,7 @@ registerIotModuleRoutes($app, 'msp1-test', 'msp_test', [
     'realtime_controller' => MspRealtimeApiController::class,
     'post_data_controller' => MspPostDataController::class,
     'has_parameters' => false,
+    'skip_post_data_short_path' => true,
 ]);
 
 $n3ppDataController = $useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class;
@@ -766,6 +770,7 @@ registerIotModuleRoutes($app, 'n3pp-test', 'n3pp_test', [
     'realtime_controller' => N3ppRealtimeApiController::class,
     'post_data_controller' => N3ppPostDataController::class,
     'has_parameters' => true,
+    'skip_post_data_short_path' => true,
 ]);
 
 // ====================================================================
