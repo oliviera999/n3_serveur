@@ -1,324 +1,540 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page_title|default('Timelapse - n3 iot datas') }}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% extends 'layout.twig' %}
+
+{% block title %}{{ page_title|default('Timelapse - n3 iot datas') }}{% endblock %}
+
+{% block styles %}
 <style>
-  :root {
-    --bg: #080c0a;
-    --surface: #0f1610;
-    --surface2: #161e17;
-    --border: #1e2e20;
-    --accent: #4ade80;
-    --accent2: #86efac;
+  /* Timelapse — palette unifiée site n3 (#008B74, #00B794) */
+  .timelapse-page {
+    --accent: #008B74;
+    --accent-light: #00B794;
+    --accent-bg: rgba(0,139,116,0.12);
+    --accent-border: rgba(0,139,116,0.3);
+    --surface: #252d36;
+    --surface2: #2d3640;
+    --border: #3d4a56;
+    --text: #e8eaed;
+    --text-dim: #8a96a4;
     --amber: #f59e0b;
-    --text: #c8d8ca;
-    --text-dim: #4a5e4c;
-    --mono: 'IBM Plex Mono', monospace;
-    --sans: 'Syne', sans-serif;
-    --red: #f87171;
+    --red: #ef4444;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--mono);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-  }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
-    pointer-events: none;
-    z-index: 1000;
-  }
-  header {
-    border-bottom: 1px solid var(--border);
-    padding: 14px 24px;
+
+  .timelapse-page { font-family: 'Raleway', 'Cabin', sans-serif; }
+
+  .timelapse-hero {
+    background: linear-gradient(135deg, #008B74 0%, #00B794 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--surface);
+    flex-wrap: wrap;
+    gap: 1rem;
   }
-  .logo { font-family: var(--sans); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.02em; color: var(--accent); }
-  .logo span { color: var(--text-dim); font-weight: 400; font-size: 0.75rem; letter-spacing: 0.1em; margin-left: 10px; vertical-align: middle; font-family: var(--mono); }
-  .header-actions { display: flex; gap: 12px; align-items: center; }
-  .header-actions a {
-    font-size: 0.7rem; color: var(--text-dim); text-decoration: none;
-    padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px;
-    transition: all 0.15s;
+  .timelapse-hero h1 { margin: 0; font-size: 1.25em; font-weight: 600; }
+  .timelapse-hero-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
   }
-  .header-actions a:hover { border-color: var(--accent); color: var(--accent); }
-  .status-bar { display: flex; gap: 20px; align-items: center; font-size: 0.7rem; color: var(--text-dim); }
-  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
-  main {
-    flex: 1;
+  .timelapse-hero-actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .timelapse-hero-actions a:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.6);
+  }
+  .timelapse-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8em;
+    opacity: 0.9;
+  }
+  .timelapse-status-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    animation: timelapse-pulse 2s ease-in-out infinite;
+  }
+  @keyframes timelapse-pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+  .timelapse-grid {
     display: grid;
-    grid-template-columns: 1fr 280px;
+    grid-template-columns: 1fr 260px;
     grid-template-rows: 1fr auto;
     gap: 0;
-    max-height: calc(100vh - 53px);
+    min-height: 480px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
   }
-  .viewer {
+
+  .timelapse-viewer {
     position: relative;
     background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-right: 1px solid var(--border);
+    min-height: 320px;
   }
-  #canvas { max-width: 100%; max-height: 100%; display: block; image-rendering: auto; }
-  .timestamp-overlay {
-    position: absolute; bottom: 16px; left: 16px;
-    font-size: 0.75rem; color: var(--accent); text-shadow: 0 0 20px rgba(74,222,128,0.5); letter-spacing: 0.08em; pointer-events: none;
+  .timelapse-viewer #canvas {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
   }
-  .frame-counter {
-    position: absolute; top: 16px; right: 16px;
-    font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.05em;
+  .timelapse-timestamp {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-size: 0.75rem;
+    color: var(--accent-light);
+    text-shadow: 0 0 12px rgba(0,183,148,0.6);
+    pointer-events: none;
   }
-  .no-image {
-    display: flex; flex-direction: column; align-items: center; gap: 12px;
-    color: var(--text-dim); font-size: 0.8rem;
+  .timelapse-frame-count {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.7rem;
+    color: var(--text-dim);
   }
-  .no-image svg { opacity: 0.3; }
-  .sidebar {
-    background: var(--surface);
+  .timelapse-no-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+  }
+  .timelapse-no-image svg { opacity: 0.3; }
+  .timelapse-loading {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    display: none;
+  }
+  .timelapse-loading.visible { display: flex; }
+  .timelapse-spinner {
+    width: 32px; height: 32px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: timelapse-spin 0.8s linear infinite;
+  }
+  @keyframes timelapse-spin { to { transform: rotate(360deg); } }
+
+  .timelapse-sidebar {
+    background: var(--surface2);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     grid-row: 1 / 3;
   }
-  .section { border-bottom: 1px solid var(--border); padding: 18px; }
-  .section-label { font-size: 0.6rem; letter-spacing: 0.15em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-  .range-btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px; }
-  .range-btn {
-    background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim);
-    padding: 7px; font-family: var(--mono); font-size: 0.65rem; cursor: pointer; letter-spacing: 0.05em; transition: all 0.15s; text-align: center;
+  .timelapse-section {
+    border-bottom: 1px solid var(--border);
+    padding: 14px;
   }
-  .range-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .range-btn.active { background: rgba(74,222,128,0.1); border-color: var(--accent); color: var(--accent); }
-  .date-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px; }
-  .date-row label { font-size: 0.6rem; color: var(--text-dim); letter-spacing: 0.08em; }
-  input[type="datetime-local"], input[type="date"] {
-    background: var(--surface2); border: 1px solid var(--border); color: var(--text);
-    padding: 7px 10px; font-family: var(--mono); font-size: 0.65rem; width: 100%; outline: none; transition: border-color 0.15s; color-scheme: dark;
+  .timelapse-section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
   }
-  input[type="datetime-local"]:focus { border-color: var(--accent); }
-  .speed-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
-  .speed-btn {
-    background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim);
-    padding: 6px 2px; font-family: var(--mono); font-size: 0.6rem; cursor: pointer; text-align: center; transition: all 0.15s;
+  .timelapse-range-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 10px;
   }
-  .speed-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .speed-btn.active { background: rgba(74,222,128,0.12); border-color: var(--accent); color: var(--accent); }
-  .stat-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 5px 0; font-size: 0.65rem; border-bottom: 1px solid rgba(255,255,255,0.03);
+  .timelapse-range-btn, .timelapse-speed-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 6px 8px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.15s;
   }
-  .stat-row:last-child { border-bottom: none; }
-  .stat-key { color: var(--text-dim); }
-  .stat-val { color: var(--accent2); }
-  .export-section { padding: 18px; }
-  .export-label { font-size: 0.6rem; letter-spacing: 0.15em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 12px; }
-  .btn {
-    width: 100%; padding: 10px; font-family: var(--mono); font-size: 0.7rem; cursor: pointer; letter-spacing: 0.05em;
-    border: 1px solid; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;
+  .timelapse-range-btn:hover, .timelapse-speed-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
   }
-  .btn-primary { background: rgba(74,222,128,0.12); border-color: var(--accent); color: var(--accent); }
-  .btn-primary:hover { background: rgba(74,222,128,0.22); }
-  .btn-amber { background: rgba(245,158,11,0.1); border-color: var(--amber); color: var(--amber); }
-  .btn-amber:hover { background: rgba(245,158,11,0.2); }
-  .btn-amber:disabled { opacity: 0.4; cursor: not-allowed; }
-  .progress-wrap { margin-top: 8px; display: none; }
-  .progress-wrap.visible { display: block; }
-  .progress-bar-bg { height: 4px; background: var(--surface2); border: 1px solid var(--border); overflow: hidden; }
-  .progress-bar-fill { height: 100%; background: var(--amber); width: 0%; transition: width 0.1s; }
-  .progress-text { font-size: 0.6rem; color: var(--text-dim); margin-top: 5px; text-align: center; }
-  .controls {
-    background: var(--surface); border-top: 1px solid var(--border);
-    padding: 12px 20px; display: flex; flex-direction: column; gap: 10px;
+  .timelapse-range-btn.active, .timelapse-speed-btn.active {
+    background: var(--accent-bg);
+    border-color: var(--accent);
+    color: var(--accent);
   }
-  .scrubber-wrap { position: relative; height: 28px; display: flex; align-items: center; cursor: pointer; }
-  .scrubber-track { width: 100%; height: 3px; background: var(--surface2); border: 1px solid var(--border); position: relative; overflow: visible; }
-  .scrubber-fill { height: 100%; background: var(--accent); transition: width 0.05s linear; position: relative; }
-  .scrubber-fill::after {
-    content: ''; position: absolute; right: -5px; top: 50%; transform: translateY(-50%);
-    width: 10px; height: 10px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 8px var(--accent);
+  .timelapse-date-row { margin-bottom: 8px; }
+  .timelapse-date-row label {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    margin-bottom: 4px;
   }
-  input[type="range"] { position: absolute; width: 100%; height: 100%; opacity: 0; cursor: pointer; margin: 0; }
-  .time-labels { display: flex; justify-content: space-between; font-size: 0.58rem; color: var(--text-dim); margin-top: 4px; }
-  .playback-row { display: flex; align-items: center; gap: 10px; }
-  .ctrl-btn {
-    background: var(--surface2); border: 1px solid var(--border); color: var(--text);
-    width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: all 0.15s; font-size: 0.9rem; flex-shrink: 0;
+  .timelapse-date-row input {
+    width: 100%;
+    padding: 6px 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.75rem;
+    border-radius: 6px;
+    outline: none;
   }
-  .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .ctrl-btn.play-pause {
-    width: 44px; height: 44px; background: rgba(74,222,128,0.1); border-color: var(--accent); color: var(--accent); font-size: 1.1rem;
+  .timelapse-date-row input:focus { border-color: var(--accent); }
+  .timelapse-speed-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
   }
-  .live-btn {
-    margin-left: auto; background: transparent; border: 1px solid var(--text-dim); color: var(--text-dim);
-    padding: 6px 14px; font-family: var(--mono); font-size: 0.62rem; cursor: pointer; letter-spacing: 0.08em;
-    display: flex; align-items: center; gap: 6px; transition: all 0.2s;
+  .timelapse-stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
   }
-  .live-btn.active { border-color: var(--red); color: var(--red); background: rgba(248,113,113,0.08); }
-  .live-btn.active .live-dot { background: var(--red); box-shadow: 0 0 6px var(--red); }
-  .live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--text-dim); }
-  .loading-overlay {
-    position: absolute; inset: 0; background: rgba(8,12,10,0.8);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-    font-size: 0.75rem; color: var(--text-dim); display: none;
+  .timelapse-stat-row:last-child { border-bottom: none; }
+  .timelapse-stat-key { color: var(--text-dim); }
+  .timelapse-stat-val { color: var(--accent-light); }
+  .timelapse-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid;
+    transition: all 0.2s;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
-  .loading-overlay.visible { display: flex; }
-  .spinner {
-    width: 32px; height: 32px; border: 2px solid var(--border); border-top-color: var(--accent);
-    border-radius: 50%; animation: spin 0.8s linear infinite;
+  .timelapse-btn-primary {
+    background: var(--accent-bg);
+    border-color: var(--accent);
+    color: var(--accent);
   }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .config-collapse { font-size: 0.6rem; color: var(--text-dim); margin-top: 6px; }
-  .config-collapse a { color: var(--accent); cursor: pointer; }
-  .toast {
-    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(60px);
-    background: var(--surface2); border: 1px solid var(--border); color: var(--text);
-    padding: 10px 20px; font-size: 0.7rem; letter-spacing: 0.05em; transition: transform 0.3s; z-index: 2000;
+  .timelapse-btn-primary:hover { background: rgba(0,139,116,0.22); }
+  .timelapse-btn-amber {
+    background: rgba(245,158,11,0.1);
+    border-color: var(--amber);
+    color: var(--amber);
   }
-  .toast.show { transform: translateX(-50%) translateY(0); }
-  .toast.success { border-color: var(--accent); color: var(--accent); }
-  .toast.error { border-color: var(--red); color: var(--red); }
+  .timelapse-btn-amber:hover { background: rgba(245,158,11,0.2); }
+  .timelapse-btn-amber:disabled { opacity: 0.4; cursor: not-allowed; }
+  .timelapse-progress { margin-top: 8px; display: none; }
+  .timelapse-progress.visible { display: block; }
+  .timelapse-progress-bar {
+    height: 4px;
+    background: var(--surface);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .timelapse-progress-fill {
+    height: 100%;
+    background: var(--amber);
+    width: 0%;
+    transition: width 0.1s;
+  }
+  .timelapse-progress-text { font-size: 0.7rem; color: var(--text-dim); margin-top: 4px; }
+
+  .timelapse-controls {
+    background: var(--surface2);
+    border-top: 1px solid var(--border);
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .timelapse-scrubber-wrap {
+    position: relative;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .timelapse-scrubber-track {
+    width: 100%;
+    height: 4px;
+    background: var(--surface);
+    border-radius: 2px;
+    position: relative;
+  }
+  .timelapse-scrubber-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.05s linear;
+  }
+  .timelapse-scrubber-fill::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--accent);
+  }
+  .timelapse-scrubber-wrap input[type="range"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    margin: 0;
+  }
+  .timelapse-time-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  .timelapse-playback-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .timelapse-ctrl-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.15s;
+  }
+  .timelapse-ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .timelapse-ctrl-btn.play-pause {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-bg);
+    border-color: var(--accent);
+    color: var(--accent);
+    font-size: 1rem;
+  }
+  .timelapse-live-btn {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid var(--text-dim);
+    color: var(--text-dim);
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+  .timelapse-live-btn.active {
+    border-color: var(--red);
+    color: var(--red);
+    background: rgba(239,68,68,0.1);
+  }
+  .timelapse-live-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .timelapse-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(60px);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    z-index: 2000;
+  }
+  .timelapse-toast.show { transform: translateX(-50%) translateY(0); }
+  .timelapse-toast.success { border-color: var(--accent); color: var(--accent); }
+  .timelapse-toast.error { border-color: var(--red); color: var(--red); }
+  .timelapse-config-input {
+    font-size: 0.65rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 6px;
+    color: var(--text-dim);
+    width: 100%;
+    border-radius: 4px;
+  }
   @media (max-width: 768px) {
-    main { grid-template-columns: 1fr; grid-template-rows: auto 1fr auto; }
-    .sidebar { grid-row: auto; max-height: 50vh; }
-    .controls { grid-column: 1; }
+    .timelapse-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+    }
+    .timelapse-sidebar { max-height: 40vh; }
+    .timelapse-hero { flex-direction: column; align-items: flex-start; }
   }
 </style>
-</head>
-<body>
-<header>
-  <div class="logo">n³ <span>NATURE · NUMÉRIQUE · NOMADE</span></div>
-  <div style="display:flex;align-items:center;gap:16px;">
-    <div class="header-actions">
+{% endblock %}
+
+{% block content %}
+<div class="timelapse-page">
+  <div class="timelapse-hero">
+    <h1><i class="fas fa-film"></i> {{ gallery_title }}</h1>
+    <div class="timelapse-hero-actions">
       <a href="{{ gallery_url }}"><i class="fas fa-images"></i> Galerie</a>
       <a href="{{ back_url }}"><i class="fas fa-arrow-left"></i> Retour</a>
     </div>
-    <div class="status-bar">
-      <div class="status-dot"></div>
+    <div class="timelapse-status">
+      <span class="timelapse-status-dot"></span>
       <span id="systemStatus">EN LIGNE</span>
-      <span style="color:var(--border)">│</span>
+      <span style="opacity:0.5">|</span>
       <span id="clock">--:--:--</span>
     </div>
   </div>
-</header>
-<main>
-  <div class="viewer" id="viewer">
-    <canvas id="canvas" width="800" height="600"></canvas>
-    <div class="timestamp-overlay" id="tsOverlay">--</div>
-    <div class="frame-counter" id="frameCounter">0 / 0</div>
-    <div class="no-image" id="noImage">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-        <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-        <path d="M21 15l-5-5L5 21"/>
-      </svg>
-      <span>Aucune image chargée</span>
-      <span style="font-size:0.6rem">{{ gallery_title }} — chargez une plage</span>
-    </div>
-    <div class="loading-overlay" id="loadingOverlay">
-      <div class="spinner"></div>
-      <span id="loadingText">Chargement...</span>
-    </div>
-  </div>
-  <div class="sidebar">
-    <div class="section">
-      <div class="section-label">⚙ Configuration</div>
-      <input class="config-input" id="apiUrl" type="text" value="{{ api_photos_url }}" readonly style="font-size:0.6rem;background:var(--surface2);border:1px solid var(--border);padding:6px;color:var(--text-dim);width:100%;">
-      <div class="config-collapse" style="margin-top:8px;">
-        <input type="checkbox" id="demoMode" style="accent-color:var(--accent)">
-        <label for="demoMode" style="cursor:pointer">Mode démo (données simulées si aucune photo)</label>
+
+  <div class="timelapse-grid">
+    <div class="timelapse-viewer" id="viewer">
+      <canvas id="canvas" width="800" height="600"></canvas>
+      <div class="timelapse-timestamp" id="tsOverlay">--</div>
+      <div class="timelapse-frame-count" id="frameCounter">0 / 0</div>
+      <div class="timelapse-no-image" id="noImage">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="M21 15l-5-5L5 21"/>
+        </svg>
+        <span>Aucune image chargée</span>
+        <span style="font-size:0.8rem">{{ gallery_title }} — chargez une plage</span>
+      </div>
+      <div class="timelapse-loading" id="loadingOverlay">
+        <div class="timelapse-spinner"></div>
+        <span id="loadingText">Chargement...</span>
       </div>
     </div>
-    <div class="section">
-      <div class="section-label">◈ Plage temporelle</div>
-      <div class="range-btn-group">
-        <button class="range-btn" data-hours="6">6 h</button>
-        <button class="range-btn active" data-hours="24">24 h</button>
-        <button class="range-btn" data-hours="48">48 h</button>
-        <button class="range-btn" data-hours="168">7 jours</button>
-      </div>
-      <div class="date-row">
-        <label>DÉBUT</label>
-        <input type="datetime-local" id="dateFrom">
-      </div>
-      <div class="date-row">
-        <label>FIN</label>
-        <input type="datetime-local" id="dateTo">
-      </div>
-      <button class="btn btn-primary" id="btnLoad">↓ CHARGER LA PLAGE</button>
-    </div>
-    <div class="section">
-      <div class="section-label">▶ Vitesse</div>
-      <div class="speed-grid">
-        <button class="speed-btn" data-fps="2">½×</button>
-        <button class="speed-btn active" data-fps="12">1×</button>
-        <button class="speed-btn" data-fps="24">2×</button>
-        <button class="speed-btn" data-fps="60">4×</button>
-        <button class="speed-btn" data-fps="120">8×</button>
-      </div>
-      <div style="font-size:0.58rem;color:var(--text-dim);margin-top:8px;text-align:center" id="fpsLabel">12 fps</div>
-    </div>
-    <div class="section">
-      <div class="section-label">◉ Informations</div>
-      <div class="stat-row"><span class="stat-key">Images</span><span class="stat-val" id="statCount">0</span></div>
-      <div class="stat-row"><span class="stat-key">Durée réelle</span><span class="stat-val" id="statDuration">--</span></div>
-      <div class="stat-row"><span class="stat-key">Durée vidéo</span><span class="stat-val" id="statVideoDur">--</span></div>
-      <div class="stat-row"><span class="stat-key">Image actuelle</span><span class="stat-val" id="statCurrent">--</span></div>
-      <div class="stat-row"><span class="stat-key">Intervalle moy.</span><span class="stat-val" id="statInterval">--</span></div>
-    </div>
-    <div class="export-section">
-      <div class="export-label">⬇ Export vidéo</div>
-      <div class="date-row"><label>DÉBUT EXPORT</label><input type="datetime-local" id="exportFrom"></div>
-      <div class="date-row" style="margin-bottom:12px"><label>FIN EXPORT</label><input type="datetime-local" id="exportTo"></div>
-      <button class="btn btn-amber" id="btnExport" disabled>⬛ GÉNÉRER VIDÉO WEBM</button>
-      <div class="progress-wrap" id="exportProgress">
-        <div class="progress-bar-bg"><div class="progress-bar-fill" id="exportFill"></div></div>
-        <div class="progress-text" id="exportText">Encodage...</div>
-      </div>
-    </div>
-  </div>
-  <div class="controls">
-    <div>
-      <div class="scrubber-wrap" id="scrubberWrap">
-        <div class="scrubber-track">
-          <div class="scrubber-fill" id="scrubberFill" style="width:0%"></div>
+
+    <div class="timelapse-sidebar">
+      <div class="timelapse-section">
+        <div class="timelapse-section-label">Configuration</div>
+        <input class="timelapse-config-input" id="apiUrl" type="text" value="{{ api_photos_url }}" readonly>
+        <div class="timelapse-date-row" style="margin-top:8px;">
+          <label style="display:inline;cursor:pointer">
+            <input type="checkbox" id="demoMode" style="accent-color:var(--accent)">
+            Mode démo (données simulées si aucune photo)
+          </label>
         </div>
-        <input type="range" id="scrubber" min="0" max="100" value="0" step="1">
       </div>
-      <div class="time-labels">
-        <span id="timeStart">--</span>
-        <span id="timeCurrent" style="color:var(--accent)">--</span>
-        <span id="timeEnd">--</span>
+      <div class="timelapse-section">
+        <div class="timelapse-section-label">Plage temporelle</div>
+        <div class="timelapse-range-btns">
+          <button class="timelapse-range-btn" data-hours="6">6 h</button>
+          <button class="timelapse-range-btn active" data-hours="24">24 h</button>
+          <button class="timelapse-range-btn" data-hours="48">48 h</button>
+          <button class="timelapse-range-btn" data-hours="168">7 j</button>
+        </div>
+        <div class="timelapse-date-row">
+          <label>Début</label>
+          <input type="datetime-local" id="dateFrom">
+        </div>
+        <div class="timelapse-date-row">
+          <label>Fin</label>
+          <input type="datetime-local" id="dateTo">
+        </div>
+        <button class="timelapse-btn timelapse-btn-primary" id="btnLoad">Charger la plage</button>
+      </div>
+      <div class="timelapse-section">
+        <div class="timelapse-section-label">Vitesse</div>
+        <div class="timelapse-speed-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;">
+          <button class="timelapse-speed-btn" data-fps="2">½×</button>
+          <button class="timelapse-speed-btn active" data-fps="12">1×</button>
+          <button class="timelapse-speed-btn" data-fps="24">2×</button>
+          <button class="timelapse-speed-btn" data-fps="60">4×</button>
+          <button class="timelapse-speed-btn" data-fps="120">8×</button>
+        </div>
+        <div style="font-size:0.7rem;color:var(--text-dim);margin-top:6px;text-align:center" id="fpsLabel">12 fps</div>
+      </div>
+      <div class="timelapse-section">
+        <div class="timelapse-section-label">Informations</div>
+        <div class="timelapse-stat-row"><span class="timelapse-stat-key">Images</span><span class="timelapse-stat-val" id="statCount">0</span></div>
+        <div class="timelapse-stat-row"><span class="timelapse-stat-key">Durée réelle</span><span class="timelapse-stat-val" id="statDuration">--</span></div>
+        <div class="timelapse-stat-row"><span class="timelapse-stat-key">Durée vidéo</span><span class="timelapse-stat-val" id="statVideoDur">--</span></div>
+        <div class="timelapse-stat-row"><span class="timelapse-stat-key">Image actuelle</span><span class="timelapse-stat-val" id="statCurrent">--</span></div>
+        <div class="timelapse-stat-row"><span class="timelapse-stat-key">Intervalle moy.</span><span class="timelapse-stat-val" id="statInterval">--</span></div>
+      </div>
+      <div class="timelapse-section">
+        <div class="timelapse-section-label">Export vidéo</div>
+        <div class="timelapse-date-row"><label>Début export</label><input type="datetime-local" id="exportFrom"></div>
+        <div class="timelapse-date-row" style="margin-bottom:10px"><label>Fin export</label><input type="datetime-local" id="exportTo"></div>
+        <button class="timelapse-btn timelapse-btn-amber" id="btnExport" disabled>Générer vidéo WebM</button>
+        <div class="timelapse-progress" id="exportProgress">
+          <div class="timelapse-progress-bar"><div class="timelapse-progress-fill" id="exportFill"></div></div>
+          <div class="timelapse-progress-text" id="exportText">Encodage...</div>
+        </div>
       </div>
     </div>
-    <div class="playback-row">
-      <button class="ctrl-btn" id="btnFirst" title="Première image">⏮</button>
-      <button class="ctrl-btn" id="btnPrev" title="Image précédente">◀</button>
-      <button class="ctrl-btn play-pause" id="btnPlay" title="Lecture/Pause">▶</button>
-      <button class="ctrl-btn" id="btnNext" title="Image suivante">▶</button>
-      <button class="ctrl-btn" id="btnLast" title="Dernière image">⏭</button>
-      <button class="live-btn" id="btnLive"><span class="live-dot"></span>DERNIÈRE IMAGE</button>
+
+    <div class="timelapse-controls">
+      <div>
+        <div class="timelapse-scrubber-wrap" id="scrubberWrap">
+          <div class="timelapse-scrubber-track">
+            <div class="timelapse-scrubber-fill" id="scrubberFill" style="width:0%"></div>
+          </div>
+          <input type="range" id="scrubber" min="0" max="100" value="0" step="1">
+        </div>
+        <div class="timelapse-time-labels">
+          <span id="timeStart">--</span>
+          <span id="timeCurrent" style="color:var(--accent)">--</span>
+          <span id="timeEnd">--</span>
+        </div>
+      </div>
+      <div class="timelapse-playback-row">
+        <button class="timelapse-ctrl-btn" id="btnFirst" title="Première image">⏮</button>
+        <button class="timelapse-ctrl-btn" id="btnPrev" title="Image précédente">◀</button>
+        <button class="timelapse-ctrl-btn play-pause" id="btnPlay" title="Lecture/Pause">▶</button>
+        <button class="timelapse-ctrl-btn" id="btnNext" title="Image suivante">▶</button>
+        <button class="timelapse-ctrl-btn" id="btnLast" title="Dernière image">⏭</button>
+        <button class="timelapse-live-btn" id="btnLive"><span class="timelapse-live-dot"></span>Dernière image</button>
+      </div>
     </div>
   </div>
-</main>
-<div class="toast" id="toast"></div>
+</div>
+<div class="timelapse-toast" id="toast"></div>
+{% endblock %}
+
+{% block scripts %}
 <script>
 const CONFIG = { defaultFps: 12, bufferSize: 40, preloadAhead: 20 };
 let state = { frames: [], currentIndex: 0, fps: CONFIG.defaultFps, isPlaying: false, playInterval: null, isLive: false, liveTimer: null, totalLoaded: 0, recording: false, mediaRecorder: null, recordedChunks: [] };
@@ -364,8 +580,8 @@ function drawDemoFrame(frame, c) {
   }
   ctx.fillStyle = 'rgba(0,0,0,0.35)';
   ctx.fillRect(0, H-40, W, 40);
-  ctx.font = '13px IBM Plex Mono';
-  ctx.fillStyle = '#4ade80';
+  ctx.font = '13px Raleway';
+  ctx.fillStyle = '#00B794';
   ctx.fillText(`n³ · FRAME ${String(frame.demoIndex).padStart(4,'0')} · DEMO`, 12, H-14);
 }
 async function fetchFrames(from, to) {
@@ -431,7 +647,6 @@ async function loadRange() {
     if (rawFrames.length === 0) { showToast('Aucune image dans cette plage', 'error'); hideLoading(); return; }
     state.frames = rawFrames;
     state.currentIndex = 0;
-    state.totalLoaded = rawFrames.length;
     document.getElementById('btnExport').disabled = false;
     document.getElementById('exportFrom').value = document.getElementById('dateFrom').value;
     document.getElementById('exportTo').value = document.getElementById('dateTo').value;
@@ -521,11 +736,11 @@ async function exportVideo() {
     const frame = exportFrames[i];
     if (demoMode) drawDemoFrame(frame, exportCanvas);
     else if (frame.img) exportCtx.drawImage(frame.img, 0, 0, exportCanvas.width, exportCanvas.height);
-    else { exportCtx.fillStyle = '#080c0a'; exportCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height); }
+    else { exportCtx.fillStyle = '#1e252d'; exportCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height); }
     exportCtx.fillStyle = 'rgba(0,0,0,0.5)';
     exportCtx.fillRect(0, exportCanvas.height - 30, exportCanvas.width, 30);
-    exportCtx.font = '12px IBM Plex Mono';
-    exportCtx.fillStyle = '#4ade80';
+    exportCtx.font = '12px Raleway';
+    exportCtx.fillStyle = '#00B794';
     exportCtx.fillText('n³ · ' + frame.timestamp.toLocaleDateString('fr-FR') + ' ' + frame.timestamp.toLocaleTimeString('fr-FR'), 10, exportCanvas.height - 10);
     showExportProgress(40 + (i / exportFrames.length) * 55, 'Encodage ' + (i+1) + '/' + exportFrames.length);
     await new Promise(r => setTimeout(r, frameInterval));
@@ -537,13 +752,13 @@ function showExportProgress(pct, text) { document.getElementById('exportProgress
 function hideExportProgress() { setTimeout(() => document.getElementById('exportProgress').classList.remove('visible'), 2000); }
 function showLoading(text) { document.getElementById('loadingText').textContent = text; document.getElementById('loadingOverlay').classList.add('visible'); }
 function hideLoading() { document.getElementById('loadingOverlay').classList.remove('visible'); }
-function showToast(msg, type) { const t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast ' + type + ' show'; setTimeout(() => t.classList.remove('show'), 3500); }
+function showToast(msg, type) { const t = document.getElementById('toast'); t.textContent = msg; t.className = 'timelapse-toast ' + type + ' show'; setTimeout(() => t.classList.remove('show'), 3500); }
 function updateClock() { document.getElementById('clock').textContent = new Date().toLocaleTimeString('fr-FR'); }
 setInterval(updateClock, 1000); updateClock();
 document.addEventListener('DOMContentLoaded', () => {
   setDateRange(24);
-  document.querySelectorAll('.range-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); setDateRange(parseInt(btn.dataset.hours)); }); });
-  document.querySelectorAll('.speed-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); state.fps = parseInt(btn.dataset.fps); document.getElementById('fpsLabel').textContent = state.fps + ' fps'; if (state.isPlaying) { stopPlay(); startPlay(); } updateStats(); }); });
+  document.querySelectorAll('.timelapse-range-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-range-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); setDateRange(parseInt(btn.dataset.hours)); }); });
+  document.querySelectorAll('.timelapse-speed-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-speed-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); state.fps = parseInt(btn.dataset.fps); document.getElementById('fpsLabel').textContent = state.fps + ' fps'; if (state.isPlaying) { stopPlay(); startPlay(); } updateStats(); }); });
   document.getElementById('btnLoad').addEventListener('click', loadRange);
   document.getElementById('btnPlay').addEventListener('click', () => { if (state.isPlaying) stopPlay(); else startPlay(); });
   document.getElementById('btnFirst').addEventListener('click', () => { stopPlay(); goTo(0); });
@@ -574,5 +789,4 @@ document.addEventListener('DOMContentLoaded', () => {
   resizeCanvas();
 });
 </script>
-</body>
-</html>
+{% endblock %}

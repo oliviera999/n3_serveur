@@ -83,9 +83,9 @@ class GalleryViewController
     {
         $slug = $args['slug'] ?? '';
         $meta = [
-            'msp1' => ['title' => 'Timelapse potager (MSP1)', 'back' => '/meteo'],
-            'n3pp' => ['title' => "Timelapse élevage (N3PP)", 'back' => '/serre'],
-            'ffp3' => ['title' => 'Timelapse aquaponie (FFP3)', 'back' => '/aquaponie'],
+            'msp1' => ['title' => 'Timelapse potager (MSP1)', 'back' => '/meteo', 'nav_active' => 'potager'],
+            'n3pp' => ['title' => "Timelapse élevage (N3PP)", 'back' => '/serre', 'nav_active' => 'elevage'],
+            'ffp3' => ['title' => 'Timelapse aquaponie (FFP3)', 'back' => '/aquaponie', 'nav_active' => 'aquaponie'],
         ];
         if (!isset($meta[$slug])) {
             return $response->withStatus(404);
@@ -101,6 +101,8 @@ class GalleryViewController
             'back_url' => $pathPrefix . ltrim((string) $meta[$slug]['back'], '/'),
             'gallery_url' => $galleryUrl,
             'api_photos_url' => $apiUrl,
+            'nav_active' => $meta[$slug]['nav_active'],
+            'active_page' => 'gallery',
         ]);
         $response->getBody()->write($html);
         return $response;
