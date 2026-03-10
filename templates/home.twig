@@ -85,7 +85,19 @@
         box-shadow: 0 6px 20px rgba(0,139,116,0.4);
         color: white;
     }
-    
+
+    .project-link-desc {
+        background: transparent !important;
+        color: #008B74 !important;
+        box-shadow: none !important;
+        border: 2px solid #008B74;
+    }
+
+    .project-link-desc:hover {
+        background: rgba(0,139,116,0.1) !important;
+        color: #008B74 !important;
+    }
+
     /* Section headers */
     .section-header {
         display: flex !important;
@@ -161,6 +173,52 @@
         margin-top: 10px;
     }
     
+    /* Point live dans les cartes (aligné supervision) */
+    .project-live-status {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+        font-size: 0.85em;
+    }
+    .project-live-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.8em;
+        font-weight: 700;
+    }
+    .project-live-badge.loading {
+        background: #e2e3e5;
+        color: #383d41;
+    }
+    .project-live-badge.online {
+        background: #d4edda;
+        color: #155724;
+    }
+    .project-live-badge.online i.fa-circle {
+        animation: home-live-point-fade 1.8s ease-in-out infinite;
+    }
+    .project-live-badge.offline {
+        background: #f8d7da;
+        color: #721c24;
+    }
+    .project-live-badge.error {
+        background: #fff3cd;
+        color: #856404;
+    }
+    .project-live-datetime {
+        color: #6c757d;
+        font-size: 0.9em;
+    }
+    @keyframes home-live-point-fade {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.45; }
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
         .projects-grid {
@@ -230,9 +288,13 @@
 
     <div class="projects-grid">
         <!-- FFP3 - Aquaponie -->
-        <div class="project-card">
+        <div class="project-card" data-module="ffp3-wroom-prod">
             <i class="fas fa-fish project-icon"></i>
             <h3 class="project-title">Aquaponie</h3>
+            <div class="project-live-status" aria-live="polite">
+                <span class="project-live-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span>
+                <span class="project-live-datetime">—</span>
+            </div>
             <p class="project-description">
                 Système d'aquaponie automatisé avec surveillance en temps réel des niveaux d'eau, 
                 températures, humidité et luminosité. Contrôle à distance des pompes, chauffage et alimentation.
@@ -254,15 +316,22 @@
             <a href="/aquaponie" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
             </a>
+            <a href="/aquaponie-description" class="project-link project-link-desc" style="margin-top: 10px;">
+                <i class="fas fa-info-circle"></i> Description
+            </a>
             <a href="/gallery/ffp3" class="project-link" style="margin-top: 10px; background: rgba(0,139,116,0.85);">
                 <i class="fas fa-images"></i> Galerie photo
             </a>
         </div>
 
         <!-- MSP1 - Potager -->
-        <div class="project-card">
+        <div class="project-card" data-module="msp1-prod">
             <i class="fas fa-seedling project-icon"></i>
             <h3 class="project-title">Le potager</h3>
+            <div class="project-live-status" aria-live="polite">
+                <span class="project-live-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span>
+                <span class="project-live-datetime">—</span>
+            </div>
             <p class="project-description">
                 Potager connecté avec surveillance des conditions de croissance optimales. 
                 Mesure de l'humidité du sol, température ambiante et ensoleillement.
@@ -284,15 +353,22 @@
             <a href="/meteo" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
             </a>
+            <a href="/meteo-description" class="project-link project-link-desc" style="margin-top: 10px;">
+                <i class="fas fa-info-circle"></i> Description
+            </a>
             <a href="/gallery/msp1" class="project-link" style="margin-top: 10px; background: rgba(0,139,116,0.85);">
                 <i class="fas fa-images"></i> Galerie photo
             </a>
         </div>
 
         <!-- N3PP - Élevage d'insectes -->
-        <div class="project-card">
+        <div class="project-card" data-module="n3pp-prod">
             <i class="fas fa-bug project-icon"></i>
             <h3 class="project-title">L'élevage d'insectes</h3>
+            <div class="project-live-status" aria-live="polite">
+                <span class="project-live-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span>
+                <span class="project-live-datetime">—</span>
+            </div>
             <p class="project-description">
                 Élevage connecté de phasmes avec surveillance des conditions environnementales. 
                 Suivi de l'humidité, température et luminosité pour un habitat optimal.
@@ -313,6 +389,9 @@
             </div>
             <a href="/serre" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
+            </a>
+            <a href="/serre-description" class="project-link project-link-desc" style="margin-top: 10px;">
+                <i class="fas fa-info-circle"></i> Description
             </a>
             <a href="/gallery/n3pp" class="project-link" style="margin-top: 10px; background: rgba(0,139,116,0.85);">
                 <i class="fas fa-images"></i> Galerie photo
@@ -398,4 +477,77 @@
 <script src="{{ base_path }}/assets/js/breakpoints.min.js"></script>
 <script src="{{ base_path }}/assets/js/util.js"></script>
 <script src="{{ base_path }}/assets/js/main.js"></script>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+    var BASE = '{{ base_path }}' || '';
+    var LIVE_MODULES = [
+        { id: 'ffp3-wroom-prod', url: BASE + '/api/realtime/system/health' },
+        { id: 'msp1-prod', url: BASE + '/msp1/api/realtime/system/health' },
+        { id: 'n3pp-prod', url: BASE + '/n3pp/api/realtime/system/health' }
+    ];
+    var POLL_INTERVAL_MS = 15000;
+
+    function formatDatetime(str) {
+        if (!str) return '—';
+        var d = new Date(str.replace(' ', 'T'));
+        if (isNaN(d.getTime())) return str;
+        var pad = function(n) { return (n < 10 ? '0' : '') + n; };
+        return pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    }
+
+    function updateCard(moduleId, health) {
+        var card = document.querySelector('.project-card[data-module="' + moduleId + '"]');
+        if (!card) return;
+        var statusEl = card.querySelector('.project-live-status');
+        var badge = card.querySelector('.project-live-badge');
+        var datetimeEl = card.querySelector('.project-live-datetime');
+        if (!statusEl || !badge || !datetimeEl) return;
+
+        if (health === null) {
+            badge.className = 'project-live-badge error';
+            badge.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erreur';
+            datetimeEl.textContent = '—';
+            return;
+        }
+
+        var online = health.online === true;
+        badge.className = 'project-live-badge ' + (online ? 'online' : 'offline');
+        badge.innerHTML = '<i class="fas fa-circle"></i> ' + (online ? 'LIVE' : 'HORS LIGNE');
+        datetimeEl.textContent = formatDatetime(health.last_reading || null) || '—';
+    }
+
+    function setLoading(moduleId) {
+        var card = document.querySelector('.project-card[data-module="' + moduleId + '"]');
+        if (!card) return;
+        var badge = card.querySelector('.project-live-badge');
+        var datetimeEl = card.querySelector('.project-live-datetime');
+        if (!badge || !datetimeEl) return;
+        badge.className = 'project-live-badge loading';
+        badge.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
+        datetimeEl.textContent = '—';
+    }
+
+    function fetchOne(mod) {
+        return fetch(mod.url).then(function(r) {
+            if (r.ok) return r.json();
+            return null;
+        }).catch(function() { return null; });
+    }
+
+    function pollAll(isFirst) {
+        if (isFirst) {
+            LIVE_MODULES.forEach(function(mod) { setLoading(mod.id); });
+        }
+        LIVE_MODULES.forEach(function(mod) {
+            fetchOne(mod).then(function(h) { updateCard(mod.id, h); });
+        });
+    }
+
+    pollAll(true);
+    setInterval(function() { pollAll(false); }, POLL_INTERVAL_MS);
+})();
+</script>
 {% endblock %}
