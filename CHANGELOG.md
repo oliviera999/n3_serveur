@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.77] - 2026-03-10
+
+### Correctif - getOutputsState: JSON_INVALID_UTF8_SUBSTITUTE pour éviter InvalidInput ArduinoJson côté ESP32
+- **Résumé** : si données BDD contiennent UTF-8 invalide, json_encode produisait un JSON corrompu → InvalidInput côté firmware. Ajout de `JSON_INVALID_UTF8_SUBSTITUTE` et vérification json_encode.
+
+---
 ## [5.0.76] - 2026-03-09
 
 ### Correctif - audit: doc version 5.0.74, .env.example complet, ENDPOINTS chemins
