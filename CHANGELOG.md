@@ -7,6 +7,17 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.99] - 2026-03-10
+
+### Ajout - Unification : classes manquantes et headers de sécurité
+- **AbstractSensorRepository** : base pour MspSensorRepository et N3ppSensorRepository.
+- **RealtimeDataProviderInterface** : contrat commun Ffp3, Msp, N3pp.
+- **Ffp3RealtimeDataProvider** : implémentation FFP3 (SensorReadRepository, OutputRepository).
+- **AbstractSensorRealtimeDataProvider**, **MspRealtimeDataProvider**, **N3ppRealtimeDataProvider** : factorisation.
+- **SecurityHeadersMiddleware** : X-Content-Type-Options, X-Frame-Options, Strict-Transport-Security, etc.
+- Corrige erreurs 500 sur `/api/realtime/*`, `post-n3pp-data.php`, `n3pp-outputs-action.php`.
+
+---
 ## [5.0.98] - 2026-03-10
 
 ### Modifié - AbstractOutputRepository, redirections /ffp3*

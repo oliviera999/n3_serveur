@@ -29,6 +29,7 @@ use App\Controller\N3pp\N3ppRealtimeApiController;
 use App\Controller\SupervisionController;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\EnvironmentMiddleware;
+use App\Middleware\SecurityHeadersMiddleware;
 use App\Middleware\TokenAuthMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -101,6 +102,11 @@ $loadRoutesConfig = static function () use ($routesConfigPath): array {
 // Middleware de gestion d'erreurs personnalisé
 // ====================================================================
 $app->add($container->get(\App\Middleware\ErrorHandlerMiddleware::class));
+
+// ====================================================================
+// Middleware headers de sécurité (X-Content-Type-Options, X-Frame-Options, etc.)
+// ====================================================================
+$app->add(new SecurityHeadersMiddleware());
 
 // ====================================================================
 // Redirections 301 : anciens liens iot.olution.info/ffp3/* vers les nouvelles pages /*

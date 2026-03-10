@@ -7,23 +7,20 @@ namespace App\Service\Realtime;
 use App\Config\TableConfig;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
-use App\Util\StateNormalizer;
 
 /**
  * Fournisseur de données temps réel pour FFP3 (aquaponie).
- * Implémente RealtimeDataProviderInterface pour l'API /api/realtime/*.
+ * Utilise SensorReadRepository et OutputRepository (tables ffp3Data, ffp3Outputs).
  */
 class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
 {
     private const ONLINE_THRESHOLD_SECONDS = 600;
+    private const EXPECTED_READING_INTERVAL_MINUTES = 3;
     private const ESTIMATED_LATENCY_SECONDS = 3.5;
     private const DEFAULT_UPTIME_DAYS = 30;
-    private const EXPECTED_READING_INTERVAL_MINUTES = 3;
-
-    /** GPIO considérés comme booléens pour normalisation */
     private const BOOLEAN_GPIO_EXCEPTIONS = [101, 108, 109, 110, 115];
 
-    private const SENSOR_KEYS = [
+    private const FFP3_SENSOR_KEYS = [
         'EauAquarium', 'EauReserve', 'EauPotager', 'TempEau', 'TempAir', 'Humidite', 'Luminosite',
         'etatPompeAqua', 'etatPompeTank', 'etatHeat', 'etatUV', 'bouffePetits', 'bouffeGros',
     ];
@@ -31,15 +28,14 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
     public function __construct(
         private SensorReadRepository $sensorReadRepo,
         private OutputRepository $outputRepo,
-        \PDO $pdo, // Conservé pour compatibilité DI (dependencies.php), non utilisé
     ) {
     }
 
     public function getLatestReadings(): array
     {
-        $lastReadings = $this->sensorReadRepo->getLastReadings(1);
+        $lastReadings = $this->sensorReadRepo->getLastReadings();
 
-        if ($lastReadings === [] || !isset($lastReadings['reading_time'])) {
+        if (!$lastReadings) {
             return [
                 'timestamp' => time(),
                 'reading_time' => null,
@@ -50,7 +46,7 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         return [
             'timestamp' => strtotime($lastReadings['reading_time']),
             'reading_time' => $lastReadings['reading_time'],
-            'sensors' => $this->rowToSensors($lastReadings),
+            'sensors' => $this->extractSensors($lastReadings),
         ];
     }
 
@@ -64,7 +60,7 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
             $result[] = [
                 'timestamp' => strtotime($reading['reading_time']),
                 'reading_time' => $reading['reading_time'],
-                'sensors' => $this->rowToSensors($reading),
+                'sensors' => $this->extractSensors($reading),
             ];
         }
         return $result;
@@ -86,14 +82,13 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
             ];
         }
 
-        $lastTs = strtotime($lastReadingDateStr);
-        $secondsAgo = time() - $lastTs;
-        $isOnline = $secondsAgo < self::ONLINE_THRESHOLD_SECONDS;
+        $secondsSinceLastReading = time() - strtotime($lastReadingDateStr);
+        $isOnline = $secondsSinceLastReading < self::ONLINE_THRESHOLD_SECONDS;
 
         return [
             'online' => $isOnline,
             'last_reading' => $lastReadingDateStr,
-            'last_reading_ago_seconds' => $secondsAgo,
+            'last_reading_ago_seconds' => $secondsSinceLastReading,
             'uptime_percentage' => $this->calculateUptime(self::DEFAULT_UPTIME_DAYS),
             'readings_today' => $this->countReadingsToday(),
             'average_latency_seconds' => $isOnline ? self::ESTIMATED_LATENCY_SECONDS : null,
@@ -106,25 +101,23 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         $outputs = $this->outputRepo->findAll();
 
         $booleanGpios = array_fill(0, 100, true);
-        foreach (self::BOOLEAN_GPIO_EXCEPTIONS as $gpio) {
-            $booleanGpios[$gpio] = true;
+        foreach (self::BOOLEAN_GPIO_EXCEPTIONS as $g) {
+            $booleanGpios[$g] = true;
         }
 
         $result = [];
         foreach ($outputs as $output) {
             $gpio = (int) ($output['gpio'] ?? 0);
-            $state = $output['state'] ?? '0';
-
+            $state = $output['state'];
             if (isset($booleanGpios[$gpio])) {
-                $state = (int) StateNormalizer::normalize($gpio, $state);
+                $state = (int) $state;
             }
-
             $result[] = [
                 'id' => isset($output['id']) ? (int) $output['id'] : null,
                 'gpio' => $gpio,
                 'name' => $output['name'] ?? '',
                 'state' => $state,
-                'board' => $output['board'] ?? null,
+                'board' => isset($output['board']) ? (int) $output['board'] : null,
             ];
         }
         return $result;
@@ -135,32 +128,13 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         return [];
     }
 
-    private function rowToSensors(array $row): array
+    private function extractSensors(array $row): array
     {
         $sensors = [];
-        foreach (self::SENSOR_KEYS as $key) {
+        foreach (self::FFP3_SENSOR_KEYS as $key) {
             $sensors[$key] = $row[$key] ?? null;
         }
         return $sensors;
-    }
-
-    private function calculateUptime(int $days): float
-    {
-        $start = date('Y-m-d H:i:s', strtotime("-{$days} days"));
-        $end = date('Y-m-d H:i:s');
-        $expected = ($days * 24 * 60) / self::EXPECTED_READING_INTERVAL_MINUTES;
-        if ($expected == 0) {
-            return 0.0;
-        }
-        $count = $this->sensorReadRepo->countReadingsBetween($start, $end);
-        return min($count / $expected * 100, 100.0);
-    }
-
-    private function countReadingsToday(): int
-    {
-        $start = date('Y-m-d 00:00:00');
-        $end = date('Y-m-d 23:59:59');
-        return $this->sensorReadRepo->countReadingsBetween($start, $end);
     }
 
     private function readDeviceIpFile(): ?string
@@ -177,5 +151,25 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         }
         $trimmed = trim($content);
         return $trimmed === '' ? null : $trimmed;
+    }
+
+    private function calculateUptime(int $days): float
+    {
+        $startDate = date('Y-m-d H:i:s', strtotime("-{$days} days"));
+        $endDate = date('Y-m-d H:i:s');
+        $expectedReadings = ($days * 24 * 60) / self::EXPECTED_READING_INTERVAL_MINUTES;
+        $actualReadings = $this->sensorReadRepo->countReadingsBetween($startDate, $endDate);
+        if ($expectedReadings == 0) {
+            return 0.0;
+        }
+        return min(($actualReadings / $expectedReadings) * 100, 100.0);
+    }
+
+    private function countReadingsToday(): int
+    {
+        return $this->sensorReadRepo->countReadingsBetween(
+            date('Y-m-d 00:00:00'),
+            date('Y-m-d 23:59:59')
+        );
     }
 }

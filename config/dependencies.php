@@ -194,8 +194,7 @@ return [
     Ffp3RealtimeDataProvider::class => function (ContainerInterface $c) {
         return new Ffp3RealtimeDataProvider(
             $c->get(SensorReadRepository::class),
-            $c->get(OutputRepository::class),
-            $c->get(PDO::class)
+            $c->get(OutputRepository::class)
         );
     },
 
