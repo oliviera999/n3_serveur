@@ -39,7 +39,10 @@ abstract class AbstractRealtimeApiController
             }
 
             $data = $this->provider->getReadingsSince($timestamp);
-            return ResponseHelper::json($response, $data);
+            return ResponseHelper::json($response, [
+                'count' => count($data),
+                'readings' => $data,
+            ]);
         } catch (\Throwable $e) {
             return ResponseHelper::json($response, ['error' => 'Erreur serveur', 'detail' => $e->getMessage()], 500);
         }
@@ -74,6 +77,7 @@ abstract class AbstractRealtimeApiController
             $data = $this->provider->getActiveAlerts();
             return ResponseHelper::json($response, [
                 'timestamp' => time(),
+                'count' => count($data),
                 'alerts' => $data,
             ]);
         } catch (\Throwable $e) {

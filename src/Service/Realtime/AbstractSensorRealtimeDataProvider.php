@@ -67,6 +67,7 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
                 'uptime_percentage' => 0.0,
                 'readings_today' => 0,
                 'average_latency_seconds' => null,
+                'device_ip' => null, // MSP/N3PP n'ont pas de heartbeat comme FFP3
             ];
         }
 
@@ -81,6 +82,7 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
             'uptime_percentage' => $this->calculateUptime(self::DEFAULT_UPTIME_DAYS),
             'readings_today' => $this->sensorRepo->countReadingsToday(),
             'average_latency_seconds' => $isOnline ? self::ESTIMATED_LATENCY_SECONDS : null,
+            'device_ip' => null, // MSP/N3PP n'ont pas de heartbeat comme FFP3
         ];
     }
 

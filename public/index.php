@@ -825,11 +825,13 @@ $app->post('/msp1datas/post-msp1-data.php', [MspPostDataController::class, 'hand
 $app->get('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'getState']);
 $app->post('/msp1/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'setOutput']);
 
-// API temps réel MSP (pages données + contrôle)
+// API temps réel MSP (même structure que FFP3 : sensors, outputs, health, alerts)
 $app->get('/msp1/api/realtime/sensors/latest', [MspRealtimeApiController::class, 'getLatestSensors']);
 $app->get('/msp1/api/realtime/sensors/since/{timestamp}', [MspRealtimeApiController::class, 'getSensorsSince']);
+$app->get('/msp1/api/realtime/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']);
 $app->get('/msp1/api/realtime/system/health', [MspRealtimeApiController::class, 'getSystemHealth']);
-$app->get('/msp1/api/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']);
+$app->get('/msp1/api/realtime/alerts/active', [MspRealtimeApiController::class, 'getActiveAlerts']);
+$app->get('/msp1/api/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']); // Alias rétrocompat
 $app->map(['GET', 'POST'], '/msp1/api/outputs/toggle', [MspOutputController::class, 'toggleOutput']);
 
 // ====================================================================
@@ -858,11 +860,13 @@ $app->post('/n3ppdatas/post-n3pp-data.php', [N3ppPostDataController::class, 'han
 $app->get('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'getState']);
 $app->post('/n3pp/n3ppcontrol/n3pp-outputs-action.php', [N3ppOutputController::class, 'setOutput']);
 
-// API temps réel N3PP (pages données + contrôle)
+// API temps réel N3PP (même structure que FFP3 : sensors, outputs, health, alerts)
 $app->get('/n3pp/api/realtime/sensors/latest', [N3ppRealtimeApiController::class, 'getLatestSensors']);
 $app->get('/n3pp/api/realtime/sensors/since/{timestamp}', [N3ppRealtimeApiController::class, 'getSensorsSince']);
+$app->get('/n3pp/api/realtime/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']);
 $app->get('/n3pp/api/realtime/system/health', [N3ppRealtimeApiController::class, 'getSystemHealth']);
-$app->get('/n3pp/api/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']);
+$app->get('/n3pp/api/realtime/alerts/active', [N3ppRealtimeApiController::class, 'getActiveAlerts']);
+$app->get('/n3pp/api/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']); // Alias rétrocompat
 $app->map(['GET', 'POST'], '/n3pp/api/outputs/toggle', [N3ppOutputController::class, 'toggleOutput']);
 $app->post('/n3pp/api/outputs/parameters', [N3ppOutputController::class, 'updateParameters']);
 
@@ -876,6 +880,14 @@ $app->group('', function ($group) use ($useLocalDataFallback) {
     $group->post('/msp1-test/msp1control/msp1-outputs-action.php', [MspOutputController::class, 'setOutput']);
     $group->get('/msp1-test/msp1control/', [MspOutputController::class, 'showControlPage']);
     $group->get('/msp1-test/msp1control/index.php', [MspOutputController::class, 'showControlPage']);
+    // API temps réel MSP1 TEST (même contrat que prod, tables msp1DataTest / msp1OutputsTest)
+    $group->get('/msp1-test/api/realtime/sensors/latest', [MspRealtimeApiController::class, 'getLatestSensors']);
+    $group->get('/msp1-test/api/realtime/sensors/since/{timestamp}', [MspRealtimeApiController::class, 'getSensorsSince']);
+    $group->get('/msp1-test/api/realtime/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']);
+    $group->get('/msp1-test/api/realtime/system/health', [MspRealtimeApiController::class, 'getSystemHealth']);
+    $group->get('/msp1-test/api/realtime/alerts/active', [MspRealtimeApiController::class, 'getActiveAlerts']);
+    $group->get('/msp1-test/api/outputs/state', [MspRealtimeApiController::class, 'getOutputsState']); // ControlSync
+    $group->map(['GET', 'POST'], '/msp1-test/api/outputs/toggle', [MspOutputController::class, 'toggleOutput']);
 })->add(new EnvironmentMiddleware('msp_test'));
 
 // ====================================================================
@@ -891,8 +903,11 @@ $app->group('', function ($group) use ($useLocalDataFallback) {
     // API temps réel N3PP TEST (même contrat que prod, tables n3ppDataTest / n3ppOutputsTest)
     $group->get('/n3pp-test/api/realtime/sensors/latest', [N3ppRealtimeApiController::class, 'getLatestSensors']);
     $group->get('/n3pp-test/api/realtime/sensors/since/{timestamp}', [N3ppRealtimeApiController::class, 'getSensorsSince']);
+    $group->get('/n3pp-test/api/realtime/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']);
     $group->get('/n3pp-test/api/realtime/system/health', [N3ppRealtimeApiController::class, 'getSystemHealth']);
-    $group->get('/n3pp-test/api/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']);
+    $group->get('/n3pp-test/api/realtime/alerts/active', [N3ppRealtimeApiController::class, 'getActiveAlerts']);
+    $group->get('/n3pp-test/api/outputs/state', [N3ppRealtimeApiController::class, 'getOutputsState']); // Alias rétrocompat
+    $group->map(['GET', 'POST'], '/n3pp-test/api/outputs/toggle', [N3ppOutputController::class, 'toggleOutput']);
     $group->post('/n3pp-test/api/outputs/parameters', [N3ppOutputController::class, 'updateParameters']);
 })->add(new EnvironmentMiddleware('n3pp_test'));
 
