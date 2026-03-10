@@ -2,6 +2,7 @@
 
 /**
  * Fonctions helper pour l'enregistrement des routes.
+ * (force invalidation cache - 2026-03-10)
  * Inclus depuis public/index.php avant les fichiers routes_*.php
  */
 
