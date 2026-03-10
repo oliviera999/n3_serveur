@@ -90,6 +90,9 @@ $loadRoutesConfig = static function () use ($routesConfigPath): array {
         'exact_public_paths' => ['/', '/login', '/logout', '/ping', '/favicon.ico'],
         'public_paths' => ['/api/', '/post-data', '/heartbeat', '/assets/', '/aquaponie', '/meteo', '/serre', '/gallery/', '/ota/'],
         'protected_paths' => ['/dashboard', '/supervision', '/export-data', '/admin/'],
+        'asset_js' => [],
+        'asset_css' => [],
+        'asset_icons' => [],
         'redirects_301' => [],
     ];
 };

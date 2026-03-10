@@ -29,10 +29,15 @@ RewriteRule ^\.git - [F,L]
 # GET : redirection 301 (navigateurs, liens)
 # POST : rewrite interne (firmwares ESP32, corps de requete preserve)
 # ====================================================================
+# /ffp3 et /ffp3/ -> / (explicite pour éviter 403)
 RewriteCond %{REQUEST_METHOD} GET
-RewriteRule ^ffp3/(.*)$ $1 [R=301,L]
+RewriteRule ^ffp3/?$ / [R=301,L]
+# /ffp3/xxx -> /xxx
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^ffp3/(.+)$ /$1 [R=301,L]
+# POST : rewrite interne (firmwares ESP32)
 RewriteCond %{REQUEST_METHOD} !GET
-RewriteRule ^ffp3/(.*)$ $1 [L,DPI]
+RewriteRule ^ffp3/(.*)$ /$1 [L,DPI]
 
 # ====================================================================
 # Redirections legacy FFP3 (anciennes URLs .php)

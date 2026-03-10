@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.90] - 2026-03-10
 
 ### Correctif - Chargement défensif routes_config.php (évite 500 parse fail GET)
@@ -49,6 +55,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -72,6 +84,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -476,6 +494,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -868,6 +892,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -1259,6 +1289,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -1650,6 +1686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -2050,6 +2092,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -2443,6 +2491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -2836,6 +2890,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -3230,6 +3290,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -3623,6 +3689,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -4018,6 +4090,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -4411,6 +4489,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -4804,6 +4888,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -5197,6 +5287,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -5591,6 +5687,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -5982,6 +6084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -6378,6 +6486,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -6769,6 +6883,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -7163,6 +7283,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -7555,6 +7681,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -7949,6 +8081,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -8343,6 +8481,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -8736,6 +8880,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -9131,6 +9281,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -9523,6 +9679,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -9916,6 +10078,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -10310,6 +10478,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -10704,6 +10878,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -11096,6 +11276,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -11489,6 +11675,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -11884,6 +12076,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -12278,6 +12476,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -12671,6 +12875,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -13064,6 +13274,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -13457,6 +13673,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -13850,6 +14072,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -14242,6 +14470,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -14634,6 +14868,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -15026,6 +15266,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -15418,6 +15664,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -15811,6 +16063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -16208,6 +16466,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -16605,6 +16869,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -16995,6 +17265,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -17385,6 +17661,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -17775,6 +18057,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -18165,6 +18453,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -18555,6 +18849,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -18945,6 +19245,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -19352,6 +19658,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -19749,6 +20061,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -20144,6 +20462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -20540,6 +20864,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -20940,6 +21270,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -21352,6 +21688,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -21746,6 +22088,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -22142,6 +22490,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -22538,6 +22892,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -22931,6 +23291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -23327,6 +23693,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -23720,6 +24092,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -24112,6 +24490,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -24505,6 +24889,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -24908,6 +25298,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -25308,6 +25704,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -25716,6 +26118,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -26128,6 +26536,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -26530,6 +26944,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -26924,6 +27344,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -27320,6 +27746,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -27715,6 +28147,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -28110,6 +28548,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -28503,6 +28947,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -28896,6 +29346,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -29291,6 +29747,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -29685,6 +30147,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -30081,6 +30549,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -30482,6 +30956,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -30887,6 +31367,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -31288,6 +31774,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -31691,6 +32183,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -32093,6 +32591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -32490,6 +32994,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -32883,6 +33393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -33280,6 +33796,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -33674,6 +34196,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -34067,6 +34595,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -34460,6 +34994,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -34855,6 +35395,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -35250,6 +35796,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -35644,6 +36196,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -36038,6 +36596,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -36431,6 +36995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -36824,6 +37394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -37217,6 +37793,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -37612,6 +38194,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -38007,6 +38595,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -38400,6 +38994,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -38793,6 +39393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -39186,6 +39792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -39580,6 +40192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -39976,6 +40594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -40379,6 +41003,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -40776,6 +41406,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -41180,6 +41816,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -41582,6 +42224,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -41975,6 +42623,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -42401,6 +43055,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -42798,6 +43458,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -43204,6 +43870,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -43620,6 +44292,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -44026,6 +44704,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -44422,6 +45106,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -44819,6 +45509,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -45222,6 +45918,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -45735,6 +46437,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -46132,6 +46840,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -46527,6 +47241,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -46923,6 +47643,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -47320,6 +48046,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -47716,6 +48448,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -48114,6 +48852,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -48511,6 +49255,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -49030,6 +49780,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -49426,6 +50182,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -49822,6 +50584,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -50266,6 +51034,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -50671,6 +51445,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -51076,6 +51856,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -51518,6 +52304,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -51971,6 +52763,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -52381,6 +53179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -52792,6 +53596,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -53193,6 +54003,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -53600,6 +54416,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -54011,6 +54833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -54420,6 +55248,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -54820,6 +55654,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -55232,6 +56072,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -55676,6 +56522,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -56075,6 +56927,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -56475,6 +57333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -56874,6 +57738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -57278,6 +58148,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -57688,6 +58564,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -58096,6 +58978,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -58502,6 +59390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -58903,6 +59797,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -59305,6 +60205,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -59718,6 +60624,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -60130,6 +61042,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -60545,6 +61463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -60976,6 +61900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -61437,6 +62367,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -61839,6 +62775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -62240,6 +63182,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -62651,6 +63599,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -63052,6 +64006,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -63457,6 +64417,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -63855,6 +64821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -64255,6 +65227,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -64647,6 +65625,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -65079,6 +66063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -65483,6 +66473,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -65909,6 +66905,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -66317,6 +67319,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -66721,6 +67729,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -67131,6 +68145,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -67563,6 +68583,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -67980,6 +69006,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -68451,6 +69483,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -68859,6 +69897,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -69269,6 +70313,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -69690,6 +70740,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -70104,6 +71160,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -70505,6 +71567,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -70906,6 +71974,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -71309,6 +72383,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -71783,6 +72863,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -72205,6 +73291,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -72641,6 +73733,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -73065,6 +74163,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -73493,6 +74597,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -73889,6 +74999,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -74337,6 +75453,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -74749,6 +75871,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -75148,6 +76276,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -75597,6 +76731,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -76025,6 +77165,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -76486,6 +77632,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -76885,6 +78037,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -77343,6 +78501,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -77739,6 +78903,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -78134,6 +79304,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -78533,6 +79709,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -78932,6 +80114,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -79376,6 +80564,12 @@ docs/
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -79843,6 +81037,12 @@ docs/
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -80244,6 +81444,12 @@ docs/
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -80679,6 +81885,12 @@ docs/
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -81079,6 +82291,12 @@ docs/
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -81501,6 +82719,12 @@ docs/
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -81899,6 +83123,12 @@ docs/
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -82486,6 +83716,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -82907,6 +84143,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -83355,6 +84597,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -83789,6 +85037,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -84209,6 +85463,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -84636,6 +85896,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -85055,6 +86321,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -85463,6 +86735,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -85863,6 +87141,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -86279,6 +87563,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -86679,6 +87969,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -87079,6 +88375,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -87481,6 +88783,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -87901,6 +89209,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
@@ -88295,6 +89609,12 @@ ance future
 
 ---
 
+## [5.0.91] - 2026-03-10
+
+### Modifié - Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/
+- **Résumé** : Ajout asset_js/css/icons dans routes_config, correctif htaccess /ffp3/.
+
+---
 ## [5.0.89] - 2026-03-10
 
 ### Modifié - Ajout routes_config.php et partial _live_badge.twig manquants
