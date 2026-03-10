@@ -7,6 +7,18 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.82] - 2026-03-10
+
+### Modifié - PostDataController set_time_limit(30)
+- **Résumé** : set_time_limit(30) au début de PostDataController::handle() pour éviter kill PHP si traitement BDD lent (marge vs timeout client 18 s).
+
+---
+## [5.0.81] - 2026-03-10
+
+### Correctif - Ajout partial _live_badge.twig manquant
+- **Résumé** : le fichier `templates/partials/_live_badge.twig` n'avait pas été versionné ; erreur sur aquamobile, météo.
+
+---
 ## [5.0.80] - 2026-03-10
 
 ### Ajout - badge live unifié sur aquaponie, MSP, N3PP
