@@ -101,8 +101,8 @@
         <div class="gallery-grid">
             {% for filename in images %}
                 <div class="gallery-item">
-                    <a href="{{ base_path }}/gallery/{{ gallery_slug }}/files/{{ filename }}" target="_blank">
-                        <img src="{{ base_path }}/gallery/{{ gallery_slug }}/files/{{ filename }}" alt="{{ filename }}" loading="lazy">
+                    <a href="{{ base_path|default('') }}/gallery/{{ gallery_slug }}/files/{{ filename }}" target="_blank">
+                        <img src="{{ base_path|default('') }}/gallery/{{ gallery_slug }}/files/{{ filename }}" alt="{{ filename }}" loading="lazy">
                     </a>
                     <div class="gallery-item-caption">{{ filename }}</div>
                 </div>

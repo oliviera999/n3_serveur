@@ -7,6 +7,27 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
+## [5.0.111] - 2026-03-10
+
+### Correctif - Robustesse galeries et timelapse (réf. 95a598cc9614)
+- **listPhotos** : vérification `is_dir()` + `is_readable()` sur le dossier upload ; retourne `[]` au lieu d'une exception si le dossier n'existe pas.
+- **pathPrefix** : normalisation de `base_path` (trim) dans `showTimelapse()` et `listPhotos()` pour éviter les doubles slashes.
+- **gallery.twig** : utilisation de `base_path|default('')` pour les URLs des images (évite erreur Twig si base_path indéfini).
+
+---
+
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -22,6 +43,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -82,6 +109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -227,6 +260,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -334,6 +373,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -822,6 +867,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -1298,6 +1349,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -1773,6 +1830,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -2248,6 +2311,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -2732,6 +2801,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -3209,6 +3284,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -3686,6 +3767,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -4164,6 +4251,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -4641,6 +4734,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -5120,6 +5219,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -5597,6 +5702,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -6074,6 +6185,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -6551,6 +6668,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -7029,6 +7152,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -7504,6 +7633,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -7984,6 +8119,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -8459,6 +8600,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -8937,6 +9084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -9413,6 +9566,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -9891,6 +10050,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -10369,6 +10534,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -10846,6 +11017,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -11325,6 +11502,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -11801,6 +11984,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -12278,6 +12467,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -12756,6 +12951,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -13234,6 +13435,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -13710,6 +13917,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -14187,6 +14400,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -14666,6 +14885,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -15144,6 +15369,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -15621,6 +15852,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -16098,6 +16335,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -16575,6 +16818,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -17052,6 +17301,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -17528,6 +17783,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -18004,6 +18265,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -18480,6 +18747,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -18956,6 +19229,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -19433,6 +19712,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -19914,6 +20199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -20395,6 +20686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -20869,6 +21166,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -21343,6 +21646,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -21817,6 +22126,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -22291,6 +22606,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -22765,6 +23086,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -23239,6 +23566,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -23730,6 +24063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -24211,6 +24550,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -24690,6 +25035,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -25170,6 +25521,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -25654,6 +26011,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -26150,6 +26513,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -26628,6 +26997,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -27108,6 +27483,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -27588,6 +27969,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -28065,6 +28452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -28545,6 +28938,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -29022,6 +29421,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -29498,6 +29903,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -29975,6 +30386,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -30462,6 +30879,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -30946,6 +31369,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -31438,6 +31867,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -31934,6 +32369,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -32420,6 +32861,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -32898,6 +33345,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -33378,6 +33831,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -33857,6 +34316,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -34336,6 +34801,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -34813,6 +35284,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -35290,6 +35767,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -35769,6 +36252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -36247,6 +36736,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -36727,6 +37222,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -37212,6 +37713,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -37701,6 +38208,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -38186,6 +38699,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -38673,6 +39192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -39159,6 +39684,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -39640,6 +40171,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -40117,6 +40654,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -40598,6 +41141,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -41076,6 +41625,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -41553,6 +42108,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -42030,6 +42591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -42509,6 +43076,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -42988,6 +43561,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -43466,6 +44045,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -43944,6 +44529,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -44421,6 +45012,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -44898,6 +45495,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -45375,6 +45978,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -45854,6 +46463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -46333,6 +46948,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -46810,6 +47431,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -47287,6 +47914,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -47764,6 +48397,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -48242,6 +48881,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -48722,6 +49367,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -49209,6 +49860,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -49690,6 +50347,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -50178,6 +50841,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -50664,6 +51333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -51141,6 +51816,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -51651,6 +52332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -52132,6 +52819,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -52622,6 +53315,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -53122,6 +53821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -53612,6 +54317,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -54092,6 +54803,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -54573,6 +55290,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -55060,6 +55783,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -55657,6 +56386,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -56138,6 +56873,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -56617,6 +57358,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -57097,6 +57844,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -57578,6 +58331,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -58058,6 +58817,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -58540,6 +59305,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -59021,6 +59792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -59624,6 +60401,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -60104,6 +60887,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -60584,6 +61373,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -61112,6 +61907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -61601,6 +62402,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -62090,6 +62897,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -62616,6 +63429,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -63153,6 +63972,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -63647,6 +64472,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -64142,6 +64973,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -64627,6 +65464,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -65118,6 +65961,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -65613,6 +66462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -66106,6 +66961,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -66590,6 +67451,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -67086,6 +67953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -67614,6 +68487,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -68097,6 +68976,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -68581,6 +69466,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -69064,6 +69955,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -69552,6 +70449,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -70046,6 +70949,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -70538,6 +71447,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -71028,6 +71943,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -71513,6 +72434,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -71999,6 +72926,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -72496,6 +73429,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -72992,6 +73931,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -73491,6 +74436,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -74006,6 +74957,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -74551,6 +75508,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -75037,6 +76000,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -75522,6 +76491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -76017,6 +76992,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -76502,6 +77483,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -76991,6 +77978,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -77473,6 +78466,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -77957,6 +78956,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -78433,6 +79438,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -78949,6 +79960,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -79437,6 +80454,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -79947,6 +80970,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -80439,6 +81468,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -80927,6 +81962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -81421,6 +82462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -81937,6 +82984,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -82438,6 +83491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -82993,6 +84052,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -83485,6 +84550,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -83979,6 +85050,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -84484,6 +85561,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -84982,6 +86065,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -85467,6 +86556,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -85952,6 +87047,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -86439,6 +87540,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -86997,6 +88104,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -87503,6 +88616,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -88023,6 +89142,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -88531,6 +89656,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -89043,6 +90174,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -89523,6 +90660,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -90055,6 +91198,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -90551,6 +91700,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -91034,6 +92189,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -91567,6 +92728,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -92079,6 +93246,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -92624,6 +93797,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -93107,6 +94286,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -93649,6 +94834,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -94129,6 +95320,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -94608,6 +95805,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -95091,6 +96294,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -95574,6 +96783,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -96102,6 +97317,12 @@ docs/
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -96653,6 +97874,12 @@ docs/
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -97138,6 +98365,12 @@ docs/
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -97657,6 +98890,12 @@ docs/
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -98141,6 +99380,12 @@ docs/
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -98647,6 +99892,12 @@ docs/
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -99129,6 +100380,12 @@ docs/
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -99800,6 +101057,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -100305,6 +101568,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -100837,6 +102106,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -101355,6 +102630,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -101859,6 +103140,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -102370,6 +103657,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -102873,6 +104166,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -103365,6 +104664,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -103849,6 +105154,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -104349,6 +105660,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -104833,6 +106150,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -105317,6 +106640,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -105803,6 +107132,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -106307,6 +107642,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse
@@ -106785,6 +108126,12 @@ ance future
 
 ---
 
+## [5.0.112] - 2026-03-10
+
+### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
+- **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
 ## [5.0.110] - 2026-03-10
 
 ### Modifié - Timelapse galeries : API photos, page timelapse, lien Vue Timelapse

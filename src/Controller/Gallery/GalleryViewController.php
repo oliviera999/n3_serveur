@@ -90,15 +90,15 @@ class GalleryViewController
         if (!isset($meta[$slug])) {
             return $response->withStatus(404);
         }
-        $basePath = rtrim($GLOBALS['base_path'] ?? '', '/');
-        $pathPrefix = ($basePath !== '' ? '/' . trim($basePath, '/') . '/' : '/');
+        $basePath = trim((string) ($GLOBALS['base_path'] ?? ''), '/');
+        $pathPrefix = $basePath !== '' ? '/' . $basePath . '/' : '/';
         $apiUrl = $pathPrefix . 'api/gallery/' . $slug . '/photos';
         $galleryUrl = $pathPrefix . 'gallery/' . $slug;
         $html = $this->renderer->render('gallery_timelapse.twig', [
             'page_title' => $meta[$slug]['title'] . ' - n3 iot datas',
             'gallery_slug' => $slug,
             'gallery_title' => $meta[$slug]['title'],
-            'back_url' => $pathPrefix . ltrim($meta[$slug]['back'], '/'),
+            'back_url' => $pathPrefix . ltrim((string) $meta[$slug]['back'], '/'),
             'gallery_url' => $galleryUrl,
             'api_photos_url' => $apiUrl,
         ]);
@@ -177,9 +177,13 @@ class GalleryViewController
         }
 
         $uploadDir = $this->getUploadDir($slug);
+        if (!is_dir($uploadDir) || !is_readable($uploadDir)) {
+            $response->getBody()->write(json_encode([]));
+            return $response->withHeader('Content-Type', 'application/json');
+        }
         $allFiles = $this->listImageFiles($uploadDir);
-        $basePath = rtrim($GLOBALS['base_path'] ?? '', '/');
-        $pathPrefix = ($basePath !== '' ? '/' . trim($basePath, '/') . '/' : '/') . 'gallery/' . $slug . '/files/';
+        $basePath = trim((string) ($GLOBALS['base_path'] ?? ''), '/');
+        $pathPrefix = ($basePath !== '' ? '/' . $basePath . '/' : '/') . 'gallery/' . $slug . '/files/';
 
         $photos = [];
         foreach ($allFiles as $filename) {
