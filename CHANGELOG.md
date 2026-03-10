@@ -7,16 +7,32 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
 
 ### Modifié - Correctif robustesse galeries/timelapse (réf 95a598cc9614)
 - **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
+
+---
+## [5.0.114] - 2026-03-10
+
+### Modifié - Timelapse intégré au design du site
+- **Layout** : la page timelapse étend désormais `layout.twig` (header, nav, footer communs).
+- **Palette unifiée** : couleurs #008B74, #00B794, surfaces #252d36 alignées sur le reste du site.
+- **Hero** : bandeau identique à la galerie (gradient teal, liens Galerie/Retour).
+- **Navigation** : `nav_active` passé au controller pour surligner le bon onglet (potager, élevage, aquaponie).
+
+---
+
+## [5.0.116] - 2026-03-10
+
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.113] - 2026-03-10
@@ -26,10 +42,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.111] - 2026-03-10
@@ -41,10 +57,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -68,10 +84,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -140,10 +156,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -297,10 +313,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -416,10 +432,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -916,10 +932,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -1404,10 +1420,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -1891,10 +1907,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -2378,10 +2394,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -2874,10 +2890,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -3363,10 +3379,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -3852,10 +3868,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -4342,10 +4358,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -4831,10 +4847,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -5322,10 +5338,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -5811,10 +5827,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -6300,10 +6316,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -6789,10 +6805,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -7279,10 +7295,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -7766,10 +7782,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -8258,10 +8274,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -8745,10 +8761,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -9235,10 +9251,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -9723,10 +9739,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -10213,10 +10229,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -10703,10 +10719,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -11192,10 +11208,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -11683,10 +11699,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -12171,10 +12187,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -12660,10 +12676,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -13150,10 +13166,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -13640,10 +13656,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -14128,10 +14144,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -14617,10 +14633,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -15108,10 +15124,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -15598,10 +15614,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -16087,10 +16103,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -16576,10 +16592,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -17065,10 +17081,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -17554,10 +17570,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -18042,10 +18058,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -18530,10 +18546,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -19018,10 +19034,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -19506,10 +19522,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -19995,10 +20011,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -20488,10 +20504,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -20981,10 +20997,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -21467,10 +21483,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -21953,10 +21969,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -22439,10 +22455,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -22925,10 +22941,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -23411,10 +23427,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -23897,10 +23913,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -24400,10 +24416,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -24893,10 +24909,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -25384,10 +25400,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -25876,10 +25892,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -26372,10 +26388,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -26880,10 +26896,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -27370,10 +27386,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -27862,10 +27878,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -28354,10 +28370,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -28843,10 +28859,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -29335,10 +29351,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -29824,10 +29840,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -30312,10 +30328,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -30801,10 +30817,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -31300,10 +31316,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -31796,10 +31812,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -32300,10 +32316,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -32808,10 +32824,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -33306,10 +33322,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -33796,10 +33812,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -34288,10 +34304,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -34779,10 +34795,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -35270,10 +35286,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -35759,10 +35775,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -36248,10 +36264,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -36739,10 +36755,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -37229,10 +37245,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -37721,10 +37737,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -38218,10 +38234,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -38719,10 +38735,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -39216,10 +39232,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -39715,10 +39731,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -40213,10 +40229,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -40706,10 +40722,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -41195,10 +41211,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -41688,10 +41704,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -42178,10 +42194,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -42667,10 +42683,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -43156,10 +43172,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -43647,10 +43663,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -44138,10 +44154,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -44628,10 +44644,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -45118,10 +45134,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -45607,10 +45623,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -46096,10 +46112,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -46585,10 +46601,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -47076,10 +47092,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -47567,10 +47583,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -48056,10 +48072,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -48545,10 +48561,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -49034,10 +49050,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -49524,10 +49540,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -50016,10 +50032,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -50515,10 +50531,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -51008,10 +51024,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -51508,10 +51524,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -52006,10 +52022,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -52495,10 +52511,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -53017,10 +53033,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -53510,10 +53526,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -54012,10 +54028,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -54524,10 +54540,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -55026,10 +55042,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -55518,10 +55534,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -56011,10 +56027,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -56510,10 +56526,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -57119,10 +57135,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -57612,10 +57628,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -58103,10 +58119,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -58595,10 +58611,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -59088,10 +59104,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -59580,10 +59596,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -60074,10 +60090,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -60567,10 +60583,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -61182,10 +61198,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -61674,10 +61690,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -62166,10 +62182,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -62706,10 +62722,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -63207,10 +63223,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -63708,10 +63724,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -64246,10 +64262,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -64795,10 +64811,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -65301,10 +65317,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -65808,10 +65824,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -66305,10 +66321,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -66808,10 +66824,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -67315,10 +67331,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -67820,10 +67836,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -68316,10 +68332,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -68824,10 +68840,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -69364,10 +69380,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -69859,10 +69875,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -70355,10 +70371,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -70850,10 +70866,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -71350,10 +71366,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -71856,10 +71872,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -72360,10 +72376,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -72862,10 +72878,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -73359,10 +73375,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -73857,10 +73873,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -74366,10 +74382,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -74874,10 +74890,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -75385,10 +75401,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -75912,10 +75928,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -76469,10 +76485,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -76967,10 +76983,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -77464,10 +77480,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -77971,10 +77987,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -78468,10 +78484,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -78969,10 +78985,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -79463,10 +79479,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -79959,10 +79975,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -80447,10 +80463,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -80975,10 +80991,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -81475,10 +81491,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -81997,10 +82013,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -82501,10 +82517,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -83001,10 +83017,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -83507,10 +83523,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -84035,10 +84051,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -84548,10 +84564,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -85115,10 +85131,10 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -85619,10 +85635,10 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -86125,10 +86141,10 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -86642,10 +86658,10 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -87152,10 +87168,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -87649,10 +87665,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -88146,10 +88162,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -88645,10 +88661,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -89215,10 +89231,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -89733,10 +89749,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -90265,10 +90281,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -90785,10 +90801,10 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -91309,10 +91325,10 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -91801,10 +91817,10 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -92345,10 +92361,10 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -92853,10 +92869,10 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -93348,10 +93364,10 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -93893,10 +93909,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -94417,10 +94433,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -94974,10 +94990,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -95469,10 +95485,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -96023,10 +96039,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -96515,10 +96531,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -97006,10 +97022,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -97501,10 +97517,10 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -97996,10 +98012,10 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -98536,10 +98552,10 @@ docs/
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -99099,10 +99115,10 @@ docs/
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -99596,10 +99612,10 @@ docs/
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -100127,10 +100143,10 @@ docs/
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -100623,10 +100639,10 @@ docs/
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -101141,10 +101157,10 @@ docs/
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -101635,10 +101651,10 @@ docs/
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -102318,10 +102334,10 @@ Pour migrer vers v4.0.0 :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -102835,10 +102851,10 @@ Pour migrer vers v4.0.0 :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -103379,10 +103395,10 @@ Pour migrer vers v4.0.0 :
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -103909,10 +103925,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -104425,10 +104441,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -104948,10 +104964,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -105463,10 +105479,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -105967,10 +105983,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -106463,10 +106479,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -106975,10 +106991,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -107471,10 +107487,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -107967,10 +107983,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -108465,10 +108481,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -108981,10 +108997,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10
@@ -109471,10 +109487,10 @@ ance future
 
 ---
 
-## [5.0.115] - 2026-03-10
+## [5.0.116] - 2026-03-10
 
-### Modifié - Timelapse intégré au design unifié du site
-- **Résumé** : Timelapse intégré au design unifié du site.
+### Modifié - Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back)
+- **Résumé** : Timelapse: intégration design unifié (thème clair, hero galerie, liens gallery-back).
 
 ---
 ## [5.0.112] - 2026-03-10

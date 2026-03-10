@@ -4,60 +4,46 @@
 
 {% block styles %}
 <style>
-  /* Timelapse — palette unifiée site n3 (#008B74, #00B794) */
+  /* Timelapse — thème clair aligné sur gallery/control (#main blanc) */
   .timelapse-page {
     --accent: #008B74;
     --accent-light: #00B794;
-    --accent-bg: rgba(0,139,116,0.12);
-    --accent-border: rgba(0,139,116,0.3);
-    --surface: #252d36;
-    --surface2: #2d3640;
-    --border: #3d4a56;
-    --text: #e8eaed;
-    --text-dim: #8a96a4;
+    --accent-bg: rgba(0,139,116,0.08);
+    --accent-border: rgba(0,139,116,0.25);
+    --surface: #f8f9fa;
+    --surface2: #ffffff;
+    --border: #e8e8e8;
+    --text: #2c3e50;
+    --text-dim: #7f8c8d;
     --amber: #f59e0b;
     --red: #ef4444;
   }
 
-  .timelapse-page { font-family: 'Raleway', 'Cabin', sans-serif; }
-
   .timelapse-hero {
     background: linear-gradient(135deg, #008B74 0%, #00B794 100%);
     color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   }
-  .timelapse-hero h1 { margin: 0; font-size: 1.25em; font-weight: 600; }
-  .timelapse-hero-actions {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .timelapse-hero-actions a {
+  .timelapse-hero h1 { margin: 0; font-size: 1.6em; font-weight: 600; }
+  .gallery-back {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 8px;
-    color: white;
-    font-size: 0.9em;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(0,139,116,0.08);
+    border: 1px solid rgba(0,139,116,0.15);
+    border-radius: 10px;
+    color: #008B74;
     font-weight: 600;
+    font-size: 0.9em;
     text-decoration: none;
     transition: all 0.2s;
   }
-  .timelapse-hero-actions a:hover {
-    background: rgba(255,255,255,0.3);
-    border-color: rgba(255,255,255,0.6);
-  }
+  .gallery-back:hover { background: #008B74; color: white; }
   .timelapse-status {
     display: flex;
     align-items: center;
@@ -78,10 +64,11 @@
     grid-template-rows: 1fr auto;
     gap: 0;
     min-height: 480px;
-    background: var(--surface);
+    background: var(--surface2);
     border-radius: 12px;
     border: 1px solid var(--border);
     overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   }
 
   .timelapse-viewer {
@@ -112,14 +99,14 @@
     top: 12px;
     right: 12px;
     font-size: 0.7rem;
-    color: var(--text-dim);
+    color: rgba(255,255,255,0.8);
   }
   .timelapse-no-image {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    color: var(--text-dim);
+    color: rgba(255,255,255,0.7);
     font-size: 0.9rem;
   }
   .timelapse-no-image svg { opacity: 0.3; }
@@ -158,11 +145,14 @@
     padding: 14px;
   }
   .timelapse-section-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    color: var(--text-dim);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
     text-transform: uppercase;
     margin-bottom: 10px;
+    font-weight: 600;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--accent);
   }
   .timelapse-range-btns {
     display: grid;
@@ -171,9 +161,9 @@
     margin-bottom: 10px;
   }
   .timelapse-range-btn, .timelapse-speed-btn {
-    background: var(--surface);
+    background: var(--surface2);
     border: 1px solid var(--border);
-    color: var(--text-dim);
+    color: var(--text);
     padding: 6px 8px;
     font-size: 0.75rem;
     cursor: pointer;
@@ -199,7 +189,7 @@
   .timelapse-date-row input {
     width: 100%;
     padding: 6px 10px;
-    background: var(--surface);
+    background: var(--surface2);
     border: 1px solid var(--border);
     color: var(--text);
     font-size: 0.75rem;
@@ -217,11 +207,11 @@
     justify-content: space-between;
     padding: 4px 0;
     font-size: 0.75rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--border);
   }
   .timelapse-stat-row:last-child { border-bottom: none; }
   .timelapse-stat-key { color: var(--text-dim); }
-  .timelapse-stat-val { color: var(--accent-light); }
+  .timelapse-stat-val { color: var(--accent); font-weight: 600; }
   .timelapse-btn {
     width: 100%;
     padding: 10px;
@@ -267,7 +257,7 @@
   .timelapse-progress-text { font-size: 0.7rem; color: var(--text-dim); margin-top: 4px; }
 
   .timelapse-controls {
-    background: var(--surface2);
+    background: var(--surface);
     border-top: 1px solid var(--border);
     padding: 12px 16px;
     display: flex;
@@ -327,7 +317,7 @@
     gap: 8px;
   }
   .timelapse-ctrl-btn {
-    background: var(--surface);
+    background: var(--surface2);
     border: 1px solid var(--border);
     color: var(--text);
     width: 34px;
@@ -352,7 +342,7 @@
   .timelapse-live-btn {
     margin-left: auto;
     background: transparent;
-    border: 1px solid var(--text-dim);
+    border: 1px solid var(--border);
     color: var(--text-dim);
     padding: 6px 12px;
     font-size: 0.7rem;
@@ -382,6 +372,7 @@
     background: var(--surface2);
     border: 1px solid var(--border);
     color: var(--text);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     padding: 10px 20px;
     font-size: 0.8rem;
     border-radius: 8px;
@@ -397,6 +388,7 @@
     border: 1px solid var(--border);
     padding: 6px;
     color: var(--text-dim);
+    border-radius: 6px;
     width: 100%;
     border-radius: 4px;
   }
@@ -406,24 +398,28 @@
       grid-template-rows: auto 1fr auto;
     }
     .timelapse-sidebar { max-height: 40vh; }
-    .timelapse-hero { flex-direction: column; align-items: flex-start; }
+    .timelapse-hero { flex-direction: column; align-items: flex-start; padding: 1.5rem; }
   }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="timelapse-page">
+  <div style="display:flex;gap:12px;margin-bottom:1.5rem;flex-wrap:wrap;">
+    <a href="{{ back_url }}" class="gallery-back"><i class="fas fa-arrow-left"></i> Retour aux données</a>
+    <a href="{{ gallery_url }}" class="gallery-back"><i class="fas fa-images"></i> Galerie classique</a>
+  </div>
+
   <div class="timelapse-hero">
-    <h1><i class="fas fa-film"></i> {{ gallery_title }}</h1>
-    <div class="timelapse-hero-actions">
-      <a href="{{ gallery_url }}"><i class="fas fa-images"></i> Galerie</a>
-      <a href="{{ back_url }}"><i class="fas fa-arrow-left"></i> Retour</a>
-    </div>
-    <div class="timelapse-status">
-      <span class="timelapse-status-dot"></span>
-      <span id="systemStatus">EN LIGNE</span>
-      <span style="opacity:0.5">|</span>
-      <span id="clock">--:--:--</span>
+    <div>
+      <h1><i class="fas fa-film"></i> {{ gallery_title }}</h1>
+      <p style="margin:0.25rem 0 0 0;opacity:0.9;font-size:0.95em;">Vue image par image avec plages temporelles et export vidéo</p>
+      <div class="timelapse-status" style="margin-top:0.75rem;">
+        <span class="timelapse-status-dot"></span>
+        <span id="systemStatus">EN LIGNE</span>
+        <span style="opacity:0.5">|</span>
+        <span id="clock">--:--:--</span>
+      </div>
     </div>
   </div>
 
