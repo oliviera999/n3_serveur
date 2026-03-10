@@ -35,18 +35,33 @@ class N3ppOutputController extends AbstractOutputController
     {
         $env = TableConfig::getEnvironment();
         $isTest = $env === 'n3pp_test';
-        $partOutputs = $this->outputRepo->getPartOutputs($board, 3);
         $outputsApiBase = $isTest ? '/n3pp-test/api/outputs' : '/n3pp/api/outputs';
         $realtimeApiBase = $isTest ? '/n3pp-test/api/realtime' : '/n3pp/api/realtime';
+
+        try {
+            $partOutputs = $this->outputRepo->getPartOutputs($board, 3);
+            $params = $this->outputRepo->getParametersForBoard($board);
+            $resetOutput = $this->outputRepo->getOutputByGpioAndBoard($board, 110);
+            $lastBoardRequest = $this->outputRepo->getLastBoardRequest($board);
+            $firmwareVersion = $this->sensorRepo->getFirmwareVersion();
+        } catch (\Throwable $e) {
+            $this->logger->warning('N3ppOutputController: erreur lecture outputs (table manquante?) — {msg}', ['msg' => $e->getMessage()]);
+            $partOutputs = [];
+            $params = $this->getDefaultParams();
+            $resetOutput = null;
+            $lastBoardRequest = null;
+            $firmwareVersion = 'N/A';
+        }
+
         return [
             'page_title' => 'Contrôle serre / élevage - n3 iot',
             'part_outputs' => $partOutputs,
-            'params' => $this->outputRepo->getParametersForBoard($board),
-            'reset_output' => $this->outputRepo->getOutputByGpioAndBoard($board, 110),
+            'params' => $params,
+            'reset_output' => $resetOutput,
             'board' => $board,
-            'last_board_request' => $this->outputRepo->getLastBoardRequest($board),
+            'last_board_request' => $lastBoardRequest,
             'version' => Version::getWithPrefix(),
-            'firmware_version' => $this->sensorRepo->getFirmwareVersion(),
+            'firmware_version' => $firmwareVersion,
             'environment' => $env,
             'nav_active' => 'elevage_control',
             'outputs_api_base' => $outputsApiBase,
@@ -61,6 +76,21 @@ class N3ppOutputController extends AbstractOutputController
                 'Activez/désactivez les sorties et configurez les paramètres du firmware n3pp4_2 (arrosage, énergie, notifications).',
                 '/n3pp/api/outputs'
             ),
+        ];
+    }
+
+    /** @return array<string, string> Paramètres par défaut quand la table outputs est indisponible */
+    private function getDefaultParams(): array
+    {
+        return [
+            'mail' => '',
+            'mailNotif' => '',
+            'SeuilSec' => '0',
+            'SeuilPontDiv' => '0',
+            'HeureArrosage' => '0',
+            'tempsArrosage' => '0',
+            'WakeUp' => '0',
+            'FreqWakeUp' => '0',
         ];
     }
 
