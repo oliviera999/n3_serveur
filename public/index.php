@@ -448,11 +448,14 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
     $realtimeController = $config['realtime_controller'];
     $postDataController = $config['post_data_controller'];
     $hasParameters = $config['has_parameters'] ?? false;
+    $skipDataRoute = $config['skip_data_route'] ?? false; // true quand redirection 301 manuelle définie avant
 
-    $callback = function ($group) use ($pathPrefix, $module, $dataController, $dataMethod, $outputController, $realtimeController, $postDataController, $hasParameters) {
+    $callback = function ($group) use ($pathPrefix, $module, $dataController, $dataMethod, $outputController, $realtimeController, $postDataController, $hasParameters, $skipDataRoute) {
         $group->post("/{$pathPrefix}/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
         $group->post("/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
-        $group->map(['GET', 'POST'], "/{$pathPrefix}/{$module}datas/{$module}-data.php", [$dataController, $dataMethod]);
+        if (!$skipDataRoute) {
+            $group->map(['GET', 'POST'], "/{$pathPrefix}/{$module}datas/{$module}-data.php", [$dataController, $dataMethod]);
+        }
         $group->get("/{$pathPrefix}/{$module}control/{$module}-outputs-action.php", [$outputController, 'getState']);
         $group->post("/{$pathPrefix}/{$module}control/{$module}-outputs-action.php", [$outputController, 'setOutput']);
         $group->get("/{$pathPrefix}/{$module}control/", [$outputController, 'showControlPage']);
@@ -726,6 +729,7 @@ registerIotModuleRoutes($app, 'msp1', 'prod', [
     'realtime_controller' => MspRealtimeApiController::class,
     'post_data_controller' => MspPostDataController::class,
     'has_parameters' => false,
+    'skip_data_route' => true, // redirection 301 manuelle vers /meteo
 ]);
 registerIotModuleRoutes($app, 'msp1-test', 'msp_test', [
     'module' => 'msp1',
@@ -747,6 +751,7 @@ registerIotModuleRoutes($app, 'n3pp', 'prod', [
     'realtime_controller' => N3ppRealtimeApiController::class,
     'post_data_controller' => N3ppPostDataController::class,
     'has_parameters' => true,
+    'skip_data_route' => true, // redirection 301 manuelle vers /serre
 ]);
 registerIotModuleRoutes($app, 'n3pp-test', 'n3pp_test', [
     'module' => 'n3pp',
