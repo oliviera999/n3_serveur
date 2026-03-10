@@ -7,10 +7,20 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.78] - 2026-03-10
+
+### Modifié - unification API temps réel : FFP3, MSP1 et N3PP alignés
+- **AbstractRealtimeApiController** : `getSensorsSince` retourne `{count, readings}` (contrat realtime-updater.js)
+- **AbstractRealtimeApiController** : `getActiveAlerts` inclut `count` dans la réponse
+- **AbstractSensorRealtimeDataProvider** : `getSystemHealth` inclut `device_ip: null` (parité structure FFP3)
+- **Routes MSP/N3PP** : structure complète sous `/api/realtime/` (outputs/state, alerts/active) + alias rétrocompat
+- **MSP1-test** : API temps réel complète (sensors, outputs, health, alerts) + routes contrôle (state, toggle)
+
+---
 ## [5.0.77] - 2026-03-10
 
-### Correctif - getOutputsState: JSON_INVALID_UTF8_SUBSTITUTE pour éviter InvalidInput ArduinoJson côté ESP32
-- **Résumé** : si données BDD contiennent UTF-8 invalide, json_encode produisait un JSON corrompu → InvalidInput côté firmware. Ajout de `JSON_INVALID_UTF8_SUBSTITUTE` et vérification json_encode.
+### Correctif - Délégation ffp3/public vers app principale + JSON_INVALID_UTF8_SUBSTITUTE
+- **Résumé** : ffp3/public/index.php délègue désormais vers ../../public/index.php pour utiliser le vendor racine (évite erreur platform_check.php manquant). OutputController : JSON_INVALID_UTF8_SUBSTITUTE pour données BDD invalides.
 
 ---
 ## [5.0.76] - 2026-03-09

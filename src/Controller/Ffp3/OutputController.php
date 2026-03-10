@@ -229,7 +229,11 @@ class OutputController
 
         // v4.9.42: JSON compact (sans PRETTY_PRINT) pour rester sous 1024 bytes côté ESP32-WROOM
         // v4.9.43: Content-Length explicite pour éviter chunked + timeout lecture côté ESP32
-        $json = json_encode($result, JSON_UNESCAPED_UNICODE);
+        // JSON_INVALID_UTF8_SUBSTITUTE: évite JSON invalide si données BDD contiennent UTF-8 corrompu (InvalidInput ArduinoJson)
+        $json = json_encode($result, JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE);
+        if ($json === false) {
+            throw new \RuntimeException('getOutputsState: json_encode failed');
+        }
         $response->getBody()->write($json);
         return $response
             ->withHeader('Content-Type', 'application/json')
