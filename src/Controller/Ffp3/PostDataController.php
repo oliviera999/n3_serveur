@@ -51,14 +51,19 @@ class PostDataController extends AbstractPostDataController
 
         if ($timestamp !== null || $signature !== null) {
             if ($timestamp === null || $signature === null) {
-                $this->logger->warning('Signature partielle recue mais incomplete', ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a']);
+                $this->logger->warning('PostData: rejet auth signature incomplete code=401', [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                    'sensor' => trim((string) ($params['sensor'] ?? '')),
+                    'version' => trim((string) ($params['version'] ?? '')),
+                    'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
+                ]);
                 return ResponseHelper::text($response, 'Signature incomplete', 401);
             }
 
             $sigSecret = $_ENV['API_SIG_SECRET'] ?? null;
             if ($sigSecret === null) {
                 $errorMessage = 'Variable API_SIG_SECRET manquante dans .env';
-                $this->logger->error($errorMessage);
+                $this->logger->error('PostData: rejet config API_SIG_SECRET manquante code=500');
                 $this->errorAlert->recordError($errorMessage);
                 return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
             }
@@ -66,7 +71,12 @@ class PostDataController extends AbstractPostDataController
             $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
 
             if (!SignatureValidator::isValid((string) $timestamp, (string) $signature, $sigSecret, $sigWindow)) {
-                $this->logger->warning('Signature HMAC invalide', ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a']);
+                $this->logger->warning('PostData: rejet auth HMAC invalide code=401', [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                    'sensor' => trim((string) ($params['sensor'] ?? '')),
+                    'version' => trim((string) ($params['version'] ?? '')),
+                    'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
+                ]);
                 return ResponseHelper::text($response, 'Signature incorrecte', 401);
             }
         } else {
@@ -161,21 +171,28 @@ class PostDataController extends AbstractPostDataController
         $this->outputRepo->syncStatesFromSensorData($data);
         $t2 = microtime(true);
 
-        $this->outputCache->invalidateCache();
-        $t3 = microtime(true);
-
+        // v5.0.108 : différer cache + board après envoi réponse pour réduire latence 200 (suggestion POST 100%)
+        $cache = $this->outputCache;
+        $boardRepo = $this->boardRepo;
         $boardId = TableConfig::getPostDataBoardId();
-        $this->boardRepo->updateLastRequest($boardId);
-        $t4 = microtime(true);
+        $logger = $this->logger;
+        register_shutdown_function(function () use ($cache, $boardRepo, $boardId, $logger) {
+            $t3 = microtime(true);
+            $cache->invalidateCache();
+            $boardRepo->updateLastRequest($boardId);
+            $t4 = microtime(true);
+            $logger->info(
+                'PostData deferred_ms: cache+board={ms}',
+                ['ms' => round(($t4 - $t3) * 1000)]
+            );
+        });
 
         $this->logger->info(
-            'PostData timing_ms: insert={insertMs} sync={syncMs} cache={cacheMs} board={boardMs} total={totalMs}',
+            'PostData timing_ms: insert={insertMs} sync={syncMs} total_before_response={totalMs}',
             [
                 'insertMs' => round(($t1 - $t0) * 1000),
                 'syncMs' => round(($t2 - $t1) * 1000),
-                'cacheMs' => round(($t3 - $t2) * 1000),
-                'boardMs' => round(($t4 - $t3) * 1000),
-                'totalMs' => round(($t4 - $t0) * 1000),
+                'totalMs' => round(($t2 - $t0) * 1000),
             ]
         );
     }

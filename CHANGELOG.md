@@ -7,6 +7,13 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.108] - 2026-03-10
+
+### Correctif - PostData FFP3 : optimisations et logs diagnostic
+- **Optimisation latence 200** : cache outputs et update board différés après envoi réponse (register_shutdown_function). Réduit le temps avant réception 200 côté ESP32.
+- **Logs structurés diagnostic** : 401/400/500 avec code, motif (auth api_key, auth HMAC, validation sensor/version, exception), ip, sensor, version, post_id. Facilite diagnostic rejets et timeouts.
+
+---
 ## [5.0.107] - 2026-03-10
 
 ### Modifié - Point live + date/heure dans cartes modules page d'accueil

@@ -56,12 +56,18 @@ abstract class AbstractPostDataController
         $component = $this->componentName();
 
         if ($request->getMethod() !== 'POST') {
+            $this->logger->warning("{$component}: rejet method={method} code=405", [
+                'method' => $request->getMethod(),
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            ]);
             return ResponseHelper::text($response, 'POST requis', 405);
         }
 
         $params = $request->getParsedBody();
         if (!is_array($params) || $params === []) {
-            $this->logger->warning("{$component}: corps vide ou invalide");
+            $this->logger->warning("{$component}: rejet corps vide code=400", [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            ]);
             return ResponseHelper::text($response, 'Donnees manquantes', 400);
         }
 
@@ -74,14 +80,24 @@ abstract class AbstractPostDataController
         $apiKey = isset($params['api_key']) ? trim((string) $params['api_key']) : '';
         $expectedKey = $_ENV['API_KEY'] ?? '';
         if ($expectedKey !== '' && $apiKey !== $expectedKey) {
-            $this->logger->warning("{$component}: cle API invalide", ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a']);
+            $this->logger->warning("{$component}: rejet auth api_key code=401", [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
+            ]);
             return ResponseHelper::text($response, 'Cle API invalide', 401);
         }
 
         $sensor = trim((string) ($params['sensor'] ?? ''));
         $version = trim((string) ($params['version'] ?? ''));
         if ($sensor === '' || $version === '') {
-            $this->logger->warning("{$component}: champs sensor/version manquants");
+            $this->logger->warning("{$component}: rejet validation sensor/version code=400", [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'has_sensor' => isset($params['sensor']),
+                'has_version' => isset($params['version']),
+                'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
+            ]);
             return ResponseHelper::text($response, 'Champs sensor et version requis', 400);
         }
 
@@ -111,7 +127,14 @@ abstract class AbstractPostDataController
 
             return ResponseHelper::textClose($response, 'Donnees enregistrees avec succes', 200);
         } catch (\Throwable $e) {
-            $this->logger->error("{$component}: erreur insertion — {msg}", ['msg' => $e->getMessage()]);
+            $this->logger->error("{$component}: rejet exception code=500", [
+                'msg' => $e->getMessage(),
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => $sensor ?? '',
+                'version' => $version ?? '',
+                'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
+                'trace' => $e->getTraceAsString(),
+            ]);
             return ResponseHelper::text($response, 'Erreur serveur', 500);
         }
     }
