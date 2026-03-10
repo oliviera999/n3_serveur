@@ -13,6 +13,13 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 - **Résumé** : Correctif robustesse galeries/timelapse (réf 95a598cc9614).
 
 ---
+## [5.0.113] - 2026-03-10
+
+### Correctif - Template gallery_timelapse.twig manquant
+- Ajout du fichier `templates/gallery_timelapse.twig` oublié lors du déploiement initial du timelapse.
+
+---
+
 ## [5.0.111] - 2026-03-10
 
 ### Correctif - Robustesse galeries et timelapse (réf. 95a598cc9614)
