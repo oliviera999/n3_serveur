@@ -38,6 +38,8 @@
     
     /* Footer (WCAG AA) */
     --footer-color: #6b7280;
+    --footer-bg-elevated: rgba(255, 255, 255, 0.92);
+    --footer-border-elevated: rgba(0, 139, 116, 0.15);
     
     /* Page background (realtime) */
     --page-bg-color: #e8f4f2;
@@ -93,6 +95,8 @@
     --border-light: #334155;
     
     --footer-color: #94a3b8;
+    --footer-bg-elevated: rgba(30, 41, 59, 0.95);
+    --footer-border-elevated: rgba(45, 212, 191, 0.2);
     
     --page-bg-color: #0f172a;
     --page-bg-overlay: linear-gradient(180deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
@@ -153,10 +157,4 @@
     display: none;
 }
 
-[data-theme="dark"] .theme-toggle-btn .theme-icon-light {
-    display: inline-block;
-}
-
-.nav-theme-toggle {
-    margin-left: auto;
-}
+[data-theme="dark"] .theme-toggle

@@ -130,14 +130,14 @@
         <p style="margin: 0 0 12px 0; font-size: 0.95em; color: #6c757d;">Témoins de connexion et dernière réception de données par module — mise à jour en temps réel</p>
         <p style="margin: 0 0 16px 0; font-size: 0.85em; color: #6c757d;"><strong>Légende :</strong> WROOM et S3 = types de cartes électroniques (ESP32) ; MSP1 = potager (station météo) ; N3PP = serre (élevage d'insectes)</p>
         <div class="live-grid" id="live-status-grid" aria-live="polite">
-            <a href="/aquaponie" class="live-card live-loading" data-module="ffp3-wroom-prod"><div class="live-card-name">Aquaponie (WROOM prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-            <a href="/aquaponie-test" class="live-card live-loading" data-module="ffp3-wroom-test"><div class="live-card-name">Aquaponie (WROOM test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-            <a href="/aquamobile" class="live-card live-loading" data-module="ffp3-s3-prod"><div class="live-card-name">Aquamobile (S3 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-            <a href="/aquamobile-test" class="live-card live-loading" data-module="ffp3-s3-test"><div class="live-card-name">Aquamobile (S3 test3)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-            <a href="/meteo" class="live-card live-loading" data-module="msp1-prod"><div class="live-card-name">Potager (MSP1 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-            <a href="/msp1-test/msp1datas/msp1-data.php" class="live-card live-loading" data-module="msp1-test"><div class="live-card-name">Potager (MSP1 test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-            <a href="/serre" class="live-card live-loading" data-module="n3pp-prod"><div class="live-card-name">Élevage (N3PP prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-            <a href="/n3pp-test/n3ppdatas/n3pp-data.php" class="live-card live-loading" data-module="n3pp-test"><div class="live-card-name">Élevage (N3PP test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="{{ base_path|default('') }}/aquaponie" class="live-card live-loading" data-module="ffp3-wroom-prod"><div class="live-card-name">Aquaponie (WROOM prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="{{ base_path|default('') }}/aquaponie-test" class="live-card live-loading" data-module="ffp3-wroom-test"><div class="live-card-name">Aquaponie (WROOM test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="{{ base_path|default('') }}/aquamobile" class="live-card live-loading" data-module="ffp3-s3-prod"><div class="live-card-name">Aquamobile (S3 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="{{ base_path|default('') }}/aquamobile-test" class="live-card live-loading" data-module="ffp3-s3-test"><div class="live-card-name">Aquamobile (S3 test3)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="{{ base_path|default('') }}/meteo" class="live-card live-loading" data-module="msp1-prod"><div class="live-card-name">Potager (MSP1 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="{{ base_path|default('') }}/msp1-test/msp1datas/msp1-data.php" class="live-card live-loading" data-module="msp1-test"><div class="live-card-name">Potager (MSP1 test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="{{ base_path|default('') }}/serre" class="live-card live-loading" data-module="n3pp-prod"><div class="live-card-name">Élevage (N3PP prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+            <a href="{{ base_path|default('') }}/n3pp-test/n3ppdatas/n3pp-data.php" class="live-card live-loading" data-module="n3pp-test"><div class="live-card-name">Élevage (N3PP test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
         </div>
     </div>
 
@@ -146,7 +146,7 @@
         <h2>Accueil & projet</h2>
     </div>
     <div class="links-grid">
-        <a href="/" class="link-card"><i class="fas fa-home"></i><span class="label">Accueil</span><div class="hint">Page d'accueil du portail</div></a>
+        <a href="{{ base_path|default('') }}/" class="link-card"><i class="fas fa-home"></i><span class="label">Accueil</span><div class="hint">Page d'accueil du portail</div></a>
     </div>
 
     <div class="section-header">
@@ -154,14 +154,14 @@
         <h2>Aquaponie FFP3 (WROOM)</h2>
     </div>
     <div class="links-grid">
-        <a href="/aquaponie" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Vue principale (prod)</span><div class="hint">Vue paysage</div></a>
-        <a href="/aquaponie-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Vue classique (prod)</span><div class="hint">Vue alternative</div></a>
-        <a href="/aquaponie-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle (prod)</span><div class="hint">Pompes, chauffage, lumière</div></a>
-        <a href="/dashboard" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod)</span><div class="hint">Capteurs FFP3</div></a>
-        <a href="/tide-stats" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod)</span><div class="hint">Analyse des marées</div></a>
-        <a href="/aquaponie-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
-        <a href="/dashboard-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test)</span><div class="hint">Environnement test</div></a>
-        <a href="/tide-stats-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test)</span><div class="hint">Environnement test</div></a>
+        <a href="{{ base_path|default('') }}/aquaponie" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Vue principale (prod)</span><div class="hint">Vue paysage</div></a>
+        <a href="{{ base_path|default('') }}/aquaponie-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Vue classique (prod)</span><div class="hint">Vue alternative</div></a>
+        <a href="{{ base_path|default('') }}/aquaponie-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle (prod)</span><div class="hint">Pompes, chauffage, lumière</div></a>
+        <a href="{{ base_path|default('') }}/dashboard" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod)</span><div class="hint">Capteurs FFP3</div></a>
+        <a href="{{ base_path|default('') }}/tide-stats" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod)</span><div class="hint">Analyse des marées</div></a>
+        <a href="{{ base_path|default('') }}/aquaponie-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+        <a href="{{ base_path|default('') }}/dashboard-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test)</span><div class="hint">Environnement test</div></a>
+        <a href="{{ base_path|default('') }}/tide-stats-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test)</span><div class="hint">Environnement test</div></a>
     </div>
 
     <div class="section-header">
@@ -169,16 +169,16 @@
         <h2>Aquamobile (S3)</h2>
     </div>
     <div class="links-grid">
-        <a href="/aquamobile" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Vue principale (prod S3)</span><div class="hint">Vue paysage – board S3</div></a>
-        <a href="/aquamobile-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Vue classique (prod S3)</span><div class="hint">Vue alternative – board S3</div></a>
-        <a href="/aquamobile-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle (prod S3)</span><div class="hint">Board S3</div></a>
-        <a href="/dashboard3" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod S3)</span><div class="hint">Capteurs board S3</div></a>
-        <a href="/tide-stats3" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod S3)</span><div class="hint">Analyse des marées S3</div></a>
-        <a href="/aquamobile-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Vue principale (test3)</span><div class="hint">Environnement test3</div></a>
-        <a href="/aquamobile-alt-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Vue classique (test3)</span><div class="hint">Environnement test3</div></a>
-        <a href="/aquamobile-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test3)</span><div class="hint">Environnement test3</div></a>
-        <a href="/dashboard3-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test3)</span><div class="hint">Environnement test3</div></a>
-        <a href="/tide-stats3-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test3)</span><div class="hint">Environnement test3</div></a>
+        <a href="{{ base_path|default('') }}/aquamobile" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Vue principale (prod S3)</span><div class="hint">Vue paysage – board S3</div></a>
+        <a href="{{ base_path|default('') }}/aquamobile-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Vue classique (prod S3)</span><div class="hint">Vue alternative – board S3</div></a>
+        <a href="{{ base_path|default('') }}/aquamobile-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle (prod S3)</span><div class="hint">Board S3</div></a>
+        <a href="{{ base_path|default('') }}/dashboard3" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod S3)</span><div class="hint">Capteurs board S3</div></a>
+        <a href="{{ base_path|default('') }}/tide-stats3" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod S3)</span><div class="hint">Analyse des marées S3</div></a>
+        <a href="{{ base_path|default('') }}/aquamobile-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Vue principale (test3)</span><div class="hint">Environnement test3</div></a>
+        <a href="{{ base_path|default('') }}/aquamobile-alt-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Vue classique (test3)</span><div class="hint">Environnement test3</div></a>
+        <a href="{{ base_path|default('') }}/aquamobile-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test3)</span><div class="hint">Environnement test3</div></a>
+        <a href="{{ base_path|default('') }}/dashboard3-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test3)</span><div class="hint">Environnement test3</div></a>
+        <a href="{{ base_path|default('') }}/tide-stats3-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test3)</span><div class="hint">Environnement test3</div></a>
     </div>
 
     <div class="section-header">
@@ -186,10 +186,10 @@
         <h2>Potager (MSP1)</h2>
     </div>
     <div class="links-grid">
-        <a href="/meteo" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Station météo / potager (prod)</div></a>
-        <a href="/meteo-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle</span><div class="hint">Sorties station météo (prod)</div></a>
-        <a href="/msp1-test/msp1datas/msp1-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Environnement test</div></a>
-        <a href="/msp1-test/msp1control/" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+        <a href="{{ base_path|default('') }}/meteo" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Station météo / potager (prod)</div></a>
+        <a href="{{ base_path|default('') }}/meteo-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle</span><div class="hint">Sorties station météo (prod)</div></a>
+        <a href="{{ base_path|default('') }}/msp1-test/msp1datas/msp1-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Environnement test</div></a>
+        <a href="{{ base_path|default('') }}/msp1-test/msp1control/" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
     </div>
 
     <div class="section-header">
@@ -197,10 +197,10 @@
         <h2>Élevage (N3PP)</h2>
     </div>
     <div class="links-grid">
-        <a href="/serre" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Serre / élevage (prod)</div></a>
-        <a href="/serre-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle</span><div class="hint">Sorties serre (prod)</div></a>
-        <a href="/n3pp-test/n3ppdatas/n3pp-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Environnement test</div></a>
-        <a href="/n3pp-test/n3ppcontrol/" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+        <a href="{{ base_path|default('') }}/serre" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Serre / élevage (prod)</div></a>
+        <a href="{{ base_path|default('') }}/serre-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle</span><div class="hint">Sorties serre (prod)</div></a>
+        <a href="{{ base_path|default('') }}/n3pp-test/n3ppdatas/n3pp-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Environnement test</div></a>
+        <a href="{{ base_path|default('') }}/n3pp-test/n3ppcontrol/" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
     </div>
 
     <div class="section-header">
@@ -208,9 +208,9 @@
         <h2>Galeries photo (ESP32-CAM)</h2>
     </div>
     <div class="links-grid">
-        <a href="/gallery/msp1" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos du potager (MSP1)</span><div class="hint">Galerie photos station météo</div></a>
-        <a href="/gallery/n3pp" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos de l'élevage (N3PP)</span><div class="hint">Galerie photos N3PP</div></a>
-        <a href="/gallery/ffp3" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos aquaponie (FFP3)</span><div class="hint">Galerie photos FFP3</div></a>
+        <a href="{{ base_path|default('') }}/gallery/msp1" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos du potager (MSP1)</span><div class="hint">Galerie photos station météo</div></a>
+        <a href="{{ base_path|default('') }}/gallery/n3pp" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos de l'élevage (N3PP)</span><div class="hint">Galerie photos N3PP</div></a>
+        <a href="{{ base_path|default('') }}/gallery/ffp3" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos aquaponie (FFP3)</span><div class="hint">Galerie photos FFP3</div></a>
     </div>
 
     <div class="section-header">
@@ -233,10 +233,10 @@
 {% endblock %}
 
 {% block footer %}
-<footer id="footer" style="text-align: center; padding: 20px 0; color: #999; font-size: 0.9em;">
+<footer id="footer" style="text-align: center; padding: 20px 0; color: var(--footer-color, #6b7280); font-size: 0.9em;">
     {% block footer_content %}
-    <p>N3 IoT Datas – Supervision | © 2025 olution</p>
-    <p style="margin-top: 10px;"><a href="/" style="color: #999; text-decoration: none;"><i class="fas fa-home"></i> Retour à l'accueil</a></p>
+    <p>{% if version is defined and version %}{{ version }} | {% endif %}N3 IoT Datas – Supervision | © 2025 olution</p>
+    <p style="margin-top: 10px;"><a href="{{ base_path|default('') }}/" style="color: #999; text-decoration: none;"><i class="fas fa-home"></i> Retour à l'accueil</a></p>
     {% endblock %}
 </footer>
 {% endblock %}

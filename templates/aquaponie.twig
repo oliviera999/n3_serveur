@@ -1850,7 +1850,7 @@
 {% endblock %}
 
 {% block footer %}
-            <footer id="footer" style="text-align: center; padding: 20px 0; color: #999; font-size: 0.9em;">
+            <footer id="footer" style="text-align: center; padding: 20px 0; color: var(--footer-color, #6b7280); font-size: 0.9em;">
                 <div class="context-badges">
                     <span class="context-badge {{ environment == 'test' or environment == 'test3' ? 'context-badge-test' : 'context-badge-prod' }}">
                         <i class="fas fa-globe"></i>
@@ -1872,7 +1872,6 @@
                     {% endif %}
                 </div>
                 <p style="margin-top: 15px;">Système d'aquaponie FFP3 | © 2025 olution</p>
-                <!-- DEBUG: Badges déplacés dans le footer le 2026-02-12 -->
             </footer>
 {% endblock %}
 

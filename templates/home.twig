@@ -391,10 +391,10 @@
                 <span class="project-badge"><i class="fas fa-fire"></i> chauffage</span>
                 <span class="project-badge"><i class="fas fa-sliders-h"></i> contrôle</span>
             </div>
-            <a href="/aquaponie" class="project-link">
+            <a href="{{ base_path|default('') }}/aquaponie" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
             </a>
-            <a href="/aquaponie-description" class="project-link project-link-desc" style="margin-top: 10px;">
+            <a href="{{ base_path|default('') }}/aquaponie-description" class="project-link project-link-desc" style="margin-top: 10px;">
                 <i class="fas fa-info-circle"></i> Description
             </a>
         </div>
@@ -419,10 +419,10 @@
                 <span class="project-badge"><i class="fas fa-thermometer-half"></i> temp. air</span>
                 <span class="project-badge"><i class="fas fa-tint"></i> humid. air</span>
             </div>
-            <a href="/meteo" class="project-link">
+            <a href="{{ base_path|default('') }}/meteo" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
             </a>
-            <a href="/meteo-description" class="project-link project-link-desc" style="margin-top: 10px;">
+            <a href="{{ base_path|default('') }}/meteo-description" class="project-link project-link-desc" style="margin-top: 10px;">
                 <i class="fas fa-info-circle"></i> Description
             </a>
         </div>
@@ -446,10 +446,10 @@
                 <span class="project-badge"><i class="fas fa-tint"></i> humidité air</span>
                 <span class="project-badge"><i class="fas fa-sun"></i> luminosité</span>
             </div>
-            <a href="/serre" class="project-link">
+            <a href="{{ base_path|default('') }}/serre" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
             </a>
-            <a href="/serre-description" class="project-link project-link-desc" style="margin-top: 10px;">
+            <a href="{{ base_path|default('') }}/serre-description" class="project-link project-link-desc" style="margin-top: 10px;">
                 <i class="fas fa-info-circle"></i> Description
             </a>
         </div>
@@ -466,13 +466,13 @@
                 <span class="project-badge"><i class="fas fa-camera"></i> potager</span>
                 <span class="project-badge"><i class="fas fa-camera"></i> élevage</span>
             </div>
-            <a href="/gallery/ffp3" class="project-link">
+            <a href="{{ base_path|default('') }}/gallery/ffp3" class="project-link">
                 <i class="fas fa-images"></i> Galerie aquaponie
             </a>
-            <a href="/gallery/msp1" class="project-link" style="margin-top: 10px;">
+            <a href="{{ base_path|default('') }}/gallery/msp1" class="project-link" style="margin-top: 10px;">
                 <i class="fas fa-images"></i> Galerie potager
             </a>
-            <a href="/gallery/n3pp" class="project-link" style="margin-top: 10px;">
+            <a href="{{ base_path|default('') }}/gallery/n3pp" class="project-link" style="margin-top: 10px;">
                 <i class="fas fa-images"></i> Galerie élevage
             </a>
         </div>
@@ -522,7 +522,7 @@
     <span class="footer-tech-text">Projet pédagogique · Technologies open source</span>
 </p>
 <p style="margin-top: 10px;">
-    <a href="/supervision" class="footer-admin-link">
+    <a href="{{ base_path|default('') }}/supervision" class="footer-admin-link">
         <i class="fas fa-cog"></i> Administration
     </a>
 </p>

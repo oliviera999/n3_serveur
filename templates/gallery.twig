@@ -1,137 +1,126 @@
 {% extends 'layout.twig' %}
 
-{% block title %}{{ page_title|default('Galerie - n3 iot datas') }}{% endblock %}
+{% block title %}{{ page_title }}{% endblock %}
 
 {% block styles %}
 <style>
+    .gallery-page { padding: 2rem 0; }
     .gallery-hero {
         background: linear-gradient(135deg, #008B74 0%, #00B794 100%);
         color: white;
         padding: 2rem;
         border-radius: 16px;
         margin-bottom: 2rem;
-        text-align: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
     .gallery-hero h1 { margin: 0 0 0.5rem 0; font-size: 1.6em; }
     .gallery-hero p { margin: 0; opacity: 0.9; font-size: 0.95em; }
-    .gallery-meta {
-        display: flex; justify-content: center; gap: 1.5rem;
-        margin-top: 1rem; font-size: 0.85em; opacity: 0.85;
-    }
-    .gallery-meta span { display: inline-flex; align-items: center; gap: 6px; }
-
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 16px;
-        margin-bottom: 2rem;
-    }
-    .gallery-item {
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        transition: transform 0.3s, box-shadow 0.3s;
-        background: #f8f9fa;
-    }
-    .gallery-item:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 6px 20px rgba(0,139,116,0.2);
-    }
-    .gallery-item img {
-        width: 100%; height: 220px; object-fit: cover; display: block;
-    }
-    .gallery-item-caption {
-        padding: 10px 14px;
-        font-size: 0.82em; color: #7f8c8d;
-        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-
-    .gallery-empty {
-        text-align: center; padding: 3rem 1rem; color: #999;
-    }
-    .gallery-empty i { font-size: 3em; margin-bottom: 1rem; display: block; color: #ccc; }
-
-    .gallery-pagination {
-        display: flex; justify-content: center; align-items: center; gap: 12px;
-        margin: 2rem 0;
-    }
-    .gallery-pagination a, .gallery-pagination span {
-        display: inline-flex; align-items: center; justify-content: center;
-        min-width: 36px; height: 36px; padding: 0 12px;
-        border-radius: 8px; font-size: 0.9em; font-weight: 600;
-        text-decoration: none; transition: all 0.2s;
-    }
-    .gallery-pagination a {
-        background: rgba(0,139,116,0.08); color: #008B74;
-        border: 1px solid rgba(0,139,116,0.15);
-    }
-    .gallery-pagination a:hover { background: #008B74; color: white; }
-    .gallery-pagination .current-page {
-        background: #008B74; color: white;
-    }
-    .gallery-pagination .page-info { color: #7f8c8d; font-size: 0.85em; }
-
     .gallery-back {
-        display: inline-flex; align-items: center; gap: 8px;
-        padding: 10px 18px; margin-bottom: 1.5rem;
-        background: rgba(0,139,116,0.08); border: 1px solid rgba(0,139,116,0.15);
-        border-radius: 10px; color: #008B74; font-weight: 600;
-        font-size: 0.9em; text-decoration: none; transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        background: rgba(0,139,116,0.08);
+        border: 1px solid rgba(0,139,116,0.15);
+        border-radius: 10px;
+        color: #008B74;
+        font-weight: 600;
+        font-size: 0.9em;
+        text-decoration: none;
+        margin-bottom: 1rem;
     }
     .gallery-back:hover { background: #008B74; color: white; }
+    .gallery-links { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    .gallery-item {
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        background: #f0f0f0;
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .gallery-empty {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: #6c757d;
+    }
+    .gallery-empty i { font-size: 4em; margin-bottom: 1rem; opacity: 0.4; }
+    .gallery-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+    .gallery-pagination a, .gallery-pagination span {
+        padding: 8px 14px;
+        border-radius: 8px;
+        text-decoration: none;
+        background: #f0f0f0;
+        color: #333;
+    }
+    .gallery-pagination a:hover { background: #008B74; color: white; }
+    .gallery-pagination .current { background: #008B74; color: white; }
 </style>
 {% endblock %}
 
 {% block content %}
-    <div style="display:flex;gap:12px;margin-bottom:1rem;flex-wrap:wrap;">
-        <a href="{{ back_url }}" class="gallery-back"><i class="fas fa-arrow-left"></i> Retour aux données</a>
-        <a href="{{ ((base_path|default('')) ? (base_path ~ '/') : '/') ~ 'gallery/' ~ gallery_slug ~ '/timelapse' }}" class="gallery-back"><i class="fas fa-film"></i> Vue Timelapse</a>
+<div class="gallery-page">
+    <div class="gallery-links">
+        <a href="{{ base_path|default('') }}{{ back_url }}" class="gallery-back"><i class="fas fa-arrow-left"></i> Retour aux données</a>
+        <a href="{{ base_path|default('') }}/gallery/{{ gallery_slug }}/timelapse" class="gallery-back"><i class="fas fa-film"></i> Timelapse</a>
     </div>
 
     <div class="gallery-hero">
-        <h1><i class="fas fa-camera"></i> {{ gallery_title }}</h1>
+        <h1><i class="fas fa-images"></i> {{ gallery_title }}</h1>
         <p>{{ gallery_description }}</p>
-        <div class="gallery-meta">
-            <span><i class="fas fa-images"></i> {{ total_images }} photo{{ total_images != 1 ? 's' : '' }}</span>
-            <span><i class="fas fa-file-image"></i> Page {{ current_page }} / {{ max_page }}</span>
-        </div>
     </div>
 
     {% if images|length > 0 %}
         <div class="gallery-grid">
             {% for filename in images %}
                 <div class="gallery-item">
-                    <a href="{{ base_path|default('') }}/gallery/{{ gallery_slug }}/files/{{ filename }}" target="_blank">
-                        <img src="{{ base_path|default('') }}/gallery/{{ gallery_slug }}/files/{{ filename }}" alt="{{ filename }}" loading="lazy">
+                    <a href="{{ base_path|default('') }}/gallery/{{ gallery_slug }}/files/{{ filename }}" target="_blank" rel="noopener">
+                        <img src="{{ base_path|default('') }}/gallery/{{ gallery_slug }}/files/{{ filename }}" alt="Photo {{ loop.index }}" loading="lazy" />
                     </a>
-                    <div class="gallery-item-caption">{{ filename }}</div>
                 </div>
             {% endfor %}
         </div>
 
         {% if max_page > 1 %}
-        <div class="gallery-pagination">
-            {% if current_page > 1 %}
-                <a href="?page={{ current_page - 1 }}"><i class="fas fa-chevron-left"></i></a>
-            {% endif %}
-            {% for p in 1..max_page %}
-                {% if p == current_page %}
-                    <span class="current-page">{{ p }}</span>
-                {% elseif p <= 3 or p > max_page - 3 or (p >= current_page - 1 and p <= current_page + 1) %}
-                    <a href="?page={{ p }}">{{ p }}</a>
-                {% elseif p == 4 or p == max_page - 3 %}
-                    <span class="page-info">…</span>
+            <nav class="gallery-pagination" aria-label="Pagination">
+                {% if current_page > 1 %}
+                    <a href="?page={{ current_page - 1 }}">&laquo; Précédent</a>
                 {% endif %}
-            {% endfor %}
-            {% if current_page < max_page %}
-                <a href="?page={{ current_page + 1 }}"><i class="fas fa-chevron-right"></i></a>
-            {% endif %}
-        </div>
+                {% for p in 1..max_page %}
+                    {% if p == current_page %}
+                        <span class="current">{{ p }}</span>
+                    {% else %}
+                        <a href="?page={{ p }}">{{ p }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if current_page < max_page %}
+                    <a href="?page={{ current_page + 1 }}">Suivant &raquo;</a>
+                {% endif %}
+            </nav>
         {% endif %}
+        <p style="text-align:center;margin-top:1rem;color:#6c757d;font-size:0.9em;">{{ total_images }} photo(s)</p>
     {% else %}
         <div class="gallery-empty">
-            <i class="fas fa-camera-retro"></i>
-            <p>Aucune photo disponible pour le moment.</p>
+            <i class="fas fa-images"></i>
+            <p>Aucune photo pour le moment.</p>
+            <p>Les photos sont prises automatiquement par la caméra ESP32-CAM.</p>
         </div>
     {% endif %}
+</div>
 {% endblock %}

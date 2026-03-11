@@ -75,7 +75,7 @@ class DashboardController
             'environment'   => $environment,
             'data_table'    => $dataTable,
             'realtime_api_base' => $realtime_api_base,
-            'nav_active' => 'aquaponie',
+            'nav_active' => 'dashboard',
         ]);
 
         $response->getBody()->write($html);

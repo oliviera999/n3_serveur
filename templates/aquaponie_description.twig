@@ -173,5 +173,5 @@
 {% endblock %}
 
 {% block footer_content %}
-    <p class="footer-copyright">Système d'aquaponie FFP3 | © 2025 olution</p>
+    <p class="footer-copyright">{% if version is defined and version %}{{ version }} | {% endif %}Système d'aquaponie FFP3 | © 2025 olution</p>
 {% endblock %}

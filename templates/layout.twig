@@ -29,7 +29,7 @@
     {% block before_wrapper %}{% endblock %}
     <div id="wrapper" class="fade-in{% block wrapper_class %}{% endblock %}">
         <header id="header">
-            <a href="/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
+            <a href="{{ base_path|default('') }}/" class="logo"><img src="{{ base_path }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
         </header>
         {% include 'partials/_nav.twig' with { nav_active: nav_active|default('home'), environment: environment|default('prod'), base_path: base_path|default('') } %}
         <div id="main">
@@ -38,7 +38,7 @@
         {% block footer %}
         <footer id="footer" style="text-align: center; padding: 20px 0; color: var(--footer-color, #6b7280); font-size: 0.9em;">
             {% block footer_content %}
-            <p>N3 IoT Datas Platform | &copy; 2025 olution</p>
+            <p>{% if version is defined and version %}{{ version }} | {% endif %}N3 IoT Datas Platform | &copy; 2025 olution</p>
             {% endblock %}
         </footer>
         {% endblock %}

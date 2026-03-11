@@ -65,17 +65,17 @@ class GalleryViewController
 
     public function showMsp1(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'msp1', 'Le potager (MSP1)', 'Photos du potager – station météo', '/meteo', 'potager');
+        return $this->showGallery($request, $response, 'msp1', 'Le potager (MSP1)', 'Photos du potager – station météo', '/meteo', 'gallery');
     }
 
     public function showN3pp(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'n3pp', "L'élevage d'insectes (N3PP)", "Photos de l'élevage d'insectes", '/serre', 'elevage');
+        return $this->showGallery($request, $response, 'n3pp', "L'élevage d'insectes (N3PP)", "Photos de l'élevage d'insectes", '/serre', 'gallery');
     }
 
     public function showFfp3(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'ffp3', "L'aquaponie (FFP3)", 'Photos du potager aquaponie', '/aquaponie', 'aquaponie');
+        return $this->showGallery($request, $response, 'ffp3', "L'aquaponie (FFP3)", 'Photos du potager aquaponie', '/aquaponie', 'gallery');
     }
 
     /** Page timelapse pour une galerie (slug msp1, n3pp, ffp3). */
@@ -83,9 +83,9 @@ class GalleryViewController
     {
         $slug = $args['slug'] ?? '';
         $meta = [
-            'msp1' => ['title' => 'Timelapse potager (MSP1)', 'back' => '/meteo', 'nav_active' => 'potager'],
-            'n3pp' => ['title' => "Timelapse élevage (N3PP)", 'back' => '/serre', 'nav_active' => 'elevage'],
-            'ffp3' => ['title' => 'Timelapse aquaponie (FFP3)', 'back' => '/aquaponie', 'nav_active' => 'aquaponie'],
+            'msp1' => ['title' => 'Timelapse potager (MSP1)', 'back' => '/meteo', 'nav_active' => 'gallery'],
+            'n3pp' => ['title' => "Timelapse élevage (N3PP)", 'back' => '/serre', 'nav_active' => 'gallery'],
+            'ffp3' => ['title' => 'Timelapse aquaponie (FFP3)', 'back' => '/aquaponie', 'nav_active' => 'gallery'],
         ];
         if (!isset($meta[$slug])) {
             return $response->withStatus(404);

@@ -82,6 +82,7 @@ class OutputController
                 'params' => $params,
                 'parameter_gpio_map' => $parameterGpioMap,
                 'title' => 'Contrôle du ffp3',
+                'nav_active' => 'control_ffp3',
                 'environment' => $environment,
                 'realtime_api_base' => $realtime_api_base,
                 'outputs_api_base' => $outputs_api_base,
