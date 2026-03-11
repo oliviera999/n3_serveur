@@ -173,23 +173,24 @@
         margin-top: 10px;
     }
     
-    /* Point live dans les cartes (aligné supervision) */
+    /* Point live dans les cartes (compact et élégant) */
     .project-live-status {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 8px;
-        margin-bottom: 12px;
-        font-size: 0.85em;
+        justify-content: center;
+        gap: 6px;
+        margin-bottom: 10px;
+        font-size: 0.78em;
     }
     .project-live-badge {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        padding: 4px 10px;
-        border-radius: 6px;
-        font-size: 0.8em;
-        font-weight: 700;
+        gap: 4px;
+        padding: 2px 8px;
+        border-radius: 5px;
+        font-size: 0.68em;
+        font-weight: 600;
     }
     .project-live-badge.loading {
         background: #e2e3e5;
@@ -212,11 +213,39 @@
     }
     .project-live-datetime {
         color: #6c757d;
-        font-size: 0.9em;
+        font-size: 0.75em;
     }
     @keyframes home-live-point-fade {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.45; }
+    }
+
+    /* Badges compacts reflétant la réalité des modules */
+    .project-badges {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        margin: 12px 0 16px 0;
+        min-height: 24px;
+    }
+    .project-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 7px;
+        border-radius: 5px;
+        font-size: 0.65em;
+        font-weight: 500;
+        color: #5a6c7d;
+        background: rgba(0,139,116,0.06);
+        border: 1px solid rgba(0,139,116,0.12);
+        white-space: nowrap;
+    }
+    .project-badge i {
+        font-size: 0.8em;
+        color: #008B74;
+        opacity: 0.85;
     }
 
     /* Responsive */
@@ -227,6 +256,15 @@
         
         .project-icon {
             font-size: 3em;
+        }
+        
+        .project-badges {
+            gap: 4px;
+            margin: 10px 0 14px 0;
+        }
+        .project-badge {
+            font-size: 0.62em;
+            padding: 2px 6px;
         }
     }
 </style>
@@ -296,19 +334,14 @@
                 Système d'aquaponie automatisé avec surveillance en temps réel des niveaux d'eau, 
                 températures, humidité et luminosité. Contrôle à distance des pompes, chauffage et alimentation.
             </p>
-            <div class="stats-grid" style="margin: 20px 0;">
-                <div class="stat-item">
-                    <span class="stat-value"><i class="fas fa-droplet"></i></span>
-                    <span class="stat-label">3 Niveaux</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value"><i class="fas fa-temperature-half"></i></span>
-                    <span class="stat-label">2 Températures</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value"><i class="fas fa-water"></i></span>
-                    <span class="stat-label">2 Pompes</span>
-                </div>
+            <div class="project-badges">
+                <span class="project-badge"><i class="fas fa-tint"></i> 3 niveaux</span>
+                <span class="project-badge"><i class="fas fa-thermometer-half"></i> 2 temp.</span>
+                <span class="project-badge"><i class="fas fa-cloud"></i> humidité</span>
+                <span class="project-badge"><i class="fas fa-sun"></i> luminosité</span>
+                <span class="project-badge"><i class="fas fa-water"></i> 2 pompes</span>
+                <span class="project-badge"><i class="fas fa-fire"></i> chauffage</span>
+                <span class="project-badge"><i class="fas fa-sliders-h"></i> contrôle</span>
             </div>
             <a href="/aquaponie" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
@@ -333,19 +366,13 @@
                 Potager connecté avec surveillance des conditions de croissance optimales. 
                 Mesure de l'humidité du sol, température ambiante et ensoleillement.
             </p>
-            <div class="stats-grid" style="margin: 20px 0;">
-                <div class="stat-item">
-                    <span class="stat-value"><i class="fas fa-droplet"></i></span>
-                    <span class="stat-label">Humidité sol</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value"><i class="fas fa-sun"></i></span>
-                    <span class="stat-label">Luminosité</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value"><i class="fas fa-thermometer"></i></span>
-                    <span class="stat-label">Température</span>
-                </div>
+            <div class="project-badges">
+                <span class="project-badge"><i class="fas fa-sun"></i> luminosité</span>
+                <span class="project-badge"><i class="fas fa-seedling"></i> humid. sol</span>
+                <span class="project-badge"><i class="fas fa-cloud-rain"></i> pluie</span>
+                <span class="project-badge"><i class="fas fa-water"></i> temp. eau</span>
+                <span class="project-badge"><i class="fas fa-thermometer-half"></i> temp. air</span>
+                <span class="project-badge"><i class="fas fa-tint"></i> humid. air</span>
             </div>
             <a href="/meteo" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
@@ -370,19 +397,12 @@
                 Élevage connecté de phasmes avec surveillance des conditions environnementales. 
                 Suivi de l'humidité, température et luminosité pour un habitat optimal.
             </p>
-            <div class="stats-grid" style="margin: 20px 0;">
-                <div class="stat-item">
-                    <span class="stat-value"><i class="fas fa-percent"></i></span>
-                    <span class="stat-label">Humidité air</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value"><i class="fas fa-temperature-half"></i></span>
-                    <span class="stat-label">Température</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value"><i class="fas fa-lightbulb"></i></span>
-                    <span class="stat-label">Éclairage</span>
-                </div>
+            <div class="project-badges">
+                <span class="project-badge"><i class="fas fa-seedling"></i> humid. sol</span>
+                <span class="project-badge"><i class="fas fa-water"></i> pompe</span>
+                <span class="project-badge"><i class="fas fa-thermometer-half"></i> temp. air</span>
+                <span class="project-badge"><i class="fas fa-tint"></i> humidité air</span>
+                <span class="project-badge"><i class="fas fa-sun"></i> luminosité</span>
             </div>
             <a href="/serre" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
