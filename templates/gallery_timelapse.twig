@@ -60,7 +60,7 @@
 
   .timelapse-grid {
     display: grid;
-    grid-template-columns: 1fr 260px;
+    grid-template-columns: 1fr 200px;
     grid-template-rows: 1fr auto;
     gap: 0;
     min-height: 480px;
@@ -142,7 +142,7 @@
   }
   .timelapse-section {
     border-bottom: 1px solid var(--border);
-    padding: 14px;
+    padding: 10px 12px;
   }
   .timelapse-section-label {
     font-size: 0.7rem;
@@ -492,8 +492,7 @@
       </div>
       <div class="timelapse-section">
         <div class="timelapse-section-label">Export vidéo (MP4 H.264/AAC)</div>
-        <div class="timelapse-date-row"><label>Début export</label><input type="datetime-local" id="exportFrom"></div>
-        <div class="timelapse-date-row" style="margin-bottom:10px"><label>Fin export</label><input type="datetime-local" id="exportTo"></div>
+        <p style="font-size:0.7rem;color:var(--text-dim);margin:0 0 10px 0">Plage temporelle chargée ci-dessus</p>
         <button class="timelapse-btn timelapse-btn-amber" id="btnExport" disabled>Générer vidéo MP4</button>
         <div class="timelapse-progress" id="exportProgress">
           <div class="timelapse-progress-bar"><div class="timelapse-progress-fill" id="exportFill"></div></div>
@@ -644,8 +643,6 @@ async function loadRange() {
     state.frames = rawFrames;
     state.currentIndex = 0;
     document.getElementById('btnExport').disabled = false;
-    document.getElementById('exportFrom').value = document.getElementById('dateFrom').value;
-    document.getElementById('exportTo').value = document.getElementById('dateTo').value;
     updateTimeLabels();
     updateStats();
     showLoading('Préchargement...');
@@ -707,10 +704,7 @@ function toggleLive() {
 }
 async function exportVideo() {
   if (state.frames.length === 0) return;
-  const exportFrom = new Date(document.getElementById('exportFrom').value);
-  const exportTo = new Date(document.getElementById('exportTo').value);
-  let exportFrames = state.frames.filter(f => f.timestamp >= exportFrom && f.timestamp <= exportTo);
-  if (exportFrames.length === 0) { showToast('Aucune image dans la plage export', 'error'); return; }
+  const exportFrames = state.frames;
   const demoMode = document.getElementById('demoMode').checked;
   if (!demoMode) { showExportProgress(0, 'Préchargement...'); for (let i = 0; i < exportFrames.length; i++) { await preloadImage(exportFrames[i]); if (i % 10 === 0) showExportProgress((i/exportFrames.length)*40, 'Chargement...'); } }
   const exportCanvas = document.createElement('canvas');

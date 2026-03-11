@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -35,6 +41,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -54,6 +66,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -75,6 +93,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -108,6 +132,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -186,6 +216,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -349,6 +385,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -474,6 +516,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -980,6 +1028,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -1474,6 +1528,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -1967,6 +2027,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -2460,6 +2526,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -2962,6 +3034,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -3457,6 +3535,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -3952,6 +4036,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -4448,6 +4538,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -4943,6 +5039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -5440,6 +5542,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -5935,6 +6043,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -6430,6 +6544,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -6925,6 +7045,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -7421,6 +7547,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -7914,6 +8046,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -8412,6 +8550,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -8905,6 +9049,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -9401,6 +9551,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -9895,6 +10051,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -10391,6 +10553,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -10887,6 +11055,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -11382,6 +11556,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -11879,6 +12059,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -12373,6 +12559,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -12868,6 +13060,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -13364,6 +13562,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -13860,6 +14064,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -14354,6 +14564,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -14849,6 +15065,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -15346,6 +15568,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -15842,6 +16070,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -16337,6 +16571,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -16832,6 +17072,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -17327,6 +17573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -17822,6 +18074,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -18316,6 +18574,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -18810,6 +19074,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -19304,6 +19574,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -19798,6 +20074,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -20293,6 +20575,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -20792,6 +21080,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -21291,6 +21585,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -21783,6 +22083,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -22275,6 +22581,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -22767,6 +23079,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -23259,6 +23577,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -23751,6 +24075,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -24243,6 +24573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -24752,6 +25088,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -25251,6 +25593,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -25748,6 +26096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -26246,6 +26600,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -26748,6 +27108,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -27262,6 +27628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -27758,6 +28130,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -28256,6 +28634,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -28754,6 +29138,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -29249,6 +29639,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -29747,6 +30143,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -30242,6 +30644,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -30736,6 +31144,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -31231,6 +31645,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -31736,6 +32156,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -32238,6 +32664,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -32748,6 +33180,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -33262,6 +33700,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -33766,6 +34210,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -34262,6 +34712,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -34760,6 +35216,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -35257,6 +35719,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -35754,6 +36222,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -36249,6 +36723,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -36744,6 +37224,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -37241,6 +37727,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -37737,6 +38229,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -38235,6 +38733,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -38738,6 +39242,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -39245,6 +39755,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -39748,6 +40264,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -40253,6 +40775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -40757,6 +41285,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -41256,6 +41790,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -41751,6 +42291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -42250,6 +42796,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -42746,6 +43298,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -43241,6 +43799,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -43736,6 +44300,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -44233,6 +44803,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -44730,6 +45306,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -45226,6 +45808,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -45722,6 +46310,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -46217,6 +46811,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -46712,6 +47312,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -47207,6 +47813,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -47704,6 +48316,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -48201,6 +48819,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -48696,6 +49320,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -49191,6 +49821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -49686,6 +50322,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -50182,6 +50824,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -50680,6 +51328,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -51185,6 +51839,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -51684,6 +52344,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -52190,6 +52856,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -52694,6 +53366,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -53189,6 +53867,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -53717,6 +54401,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -54216,6 +54906,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -54724,6 +55420,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -55242,6 +55944,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -55750,6 +56458,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -56248,6 +56962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -56747,6 +57467,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -57252,6 +57978,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -57867,6 +58599,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -58366,6 +59104,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -58863,6 +59607,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -59361,6 +60111,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -59860,6 +60616,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -60358,6 +61120,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -60858,6 +61626,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -61357,6 +62131,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -61978,6 +62758,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -62476,6 +63262,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -62974,6 +63766,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -63520,6 +64318,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -64027,6 +64831,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -64534,6 +65344,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -65078,6 +65894,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -65633,6 +66455,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -66145,6 +66973,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -66658,6 +67492,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -67161,6 +68001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -67670,6 +68516,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -68183,6 +69035,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -68694,6 +69552,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -69196,6 +70060,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -69710,6 +70580,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -70256,6 +71132,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -70757,6 +71639,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -71259,6 +72147,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -71760,6 +72654,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -72266,6 +73166,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -72778,6 +73684,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -73288,6 +74200,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -73796,6 +74714,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -74299,6 +75223,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -74803,6 +75733,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -75318,6 +76254,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -75832,6 +76774,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -76349,6 +77297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -76882,6 +77836,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -77445,6 +78405,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -77949,6 +78915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -78452,6 +79424,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -78965,6 +79943,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -79468,6 +80452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -79975,6 +80965,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -80475,6 +81471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -80977,6 +81979,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -81471,6 +82479,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -82005,6 +83019,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -82511,6 +83531,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -83039,6 +84065,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -83549,6 +84581,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -84055,6 +85093,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -84567,6 +85611,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -85101,6 +86151,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -85620,6 +86676,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -86193,6 +87255,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -86703,6 +87771,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -87215,6 +88289,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -87738,6 +88818,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -88254,6 +89340,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -88757,6 +89849,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -89260,6 +90358,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -89765,6 +90869,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -90341,6 +91451,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -90865,6 +91981,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -91403,6 +92525,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -91929,6 +93057,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -92459,6 +93593,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -92957,6 +94097,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -93507,6 +94653,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -94021,6 +95173,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -94522,6 +95680,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -95073,6 +96237,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -95603,6 +96773,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -96166,6 +97342,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -96667,6 +97849,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -97227,6 +98415,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -97725,6 +98919,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -98222,6 +99422,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -98723,6 +99929,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -99224,6 +100436,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -99770,6 +100988,12 @@ docs/
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -100339,6 +101563,12 @@ docs/
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -100842,6 +102072,12 @@ docs/
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -101379,6 +102615,12 @@ docs/
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -101881,6 +103123,12 @@ docs/
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -102405,6 +103653,12 @@ docs/
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -102905,6 +104159,12 @@ docs/
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -103594,6 +104854,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -104117,6 +105383,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -104667,6 +105939,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -105203,6 +106481,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -105725,6 +107009,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -106254,6 +107544,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -106775,6 +108071,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -107285,6 +108587,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -107787,6 +109095,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -108305,6 +109619,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -108807,6 +110127,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -109309,6 +110635,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -109813,6 +111145,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -110335,6 +111673,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire
@@ -110831,6 +112175,12 @@ ance future
 
 ---
 
+## [5.0.118] - 2026-03-11
+
+### Modifié - Timelapse: barre latérale réduite, export sur plage chargée
+- **Résumé** : Timelapse: barre latérale réduite, export sur plage chargée.
+
+---
 ## [5.0.117] - 2026-03-11
 
 ### Modifié - Export timelapse : format MP4 H.264/AAC prioritaire

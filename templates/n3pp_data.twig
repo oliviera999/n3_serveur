@@ -1,18 +1,255 @@
-{% extends 'data_page.twig' %}
+{% extends 'layout.twig' %}
 
-{% block extra_styles %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/common-data.css" />
     <style>
         .stat-card.pump { border-left: 5px solid #008B74; background: linear-gradient(180deg, #fff 0%, #f0faf8 100%); }
         .stat-card.pump .stat-card-icon { color: #008B74; }
     </style>
 {% endblock %}
 
-{% block chart_js %}
+{% block head_scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% include 'partials/_hero_data.twig' with {
+        hero_title: data_config.hero_title,
+        hero_icon: data_config.hero_icon,
+        hero_subtitle: data_config.hero_subtitle,
+        hero_more_url: data_config.hero_more_url|default(''),
+        hero_more_label: data_config.hero_more_label|default(''),
+        hero_synthesis: '📊 Synthèse du ' ~ start_date|date('d/m/Y H:i') ~ ' au ' ~ end_date|date('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' mesures — ' ~ duration_str
+    } %}
+
+    <article class="post featured">
+        {% if not latest and measure_count == 0 %}
+            <div class="no-data"><i class="fas fa-database" style="font-size:2em;margin-bottom:10px;color:#bbb;"></i><br>Aucune donnée enregistrée.</div>
+        {% else %}
+            {# Section 1 : Humidité du sol #}
+            <div class="section-header alt-section-title-full">
+                <i class="fas fa-seedling"></i>
+                <h3>Humidité du sol</h3>
+            </div>
+            <div class="alt-data-chart-row">
+                <div class="alt-stats-column">
+                    <div class="stats-grid">
+                        {% if latest %}
+                        <div class="stat-card humidity">
+                            <i class="fas fa-seedling stat-card-icon"></i>
+                            <div class="stat-card-label">Humid. sol moy.</div>
+                            <div class="stat-card-value"><span data-sensor="HumidMoy" data-decimals="0">{{ latest.HumidMoy|default('-')|number_format(0) }}</span> <span class="stat-card-unit">UA</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_humidMoy|default(0)|number_format(0) }} | Min: {{ min_humidMoy|default(0)|number_format(0) }} | Max: {{ max_humidMoy|default(0)|number_format(0) }} UA</div>
+                        </div>
+                        <div class="stat-card humidity">
+                            <i class="fas fa-droplet stat-card-icon"></i>
+                            <div class="stat-card-label">Humid. sol 1</div>
+                            <div class="stat-card-value"><span data-sensor="Humid1" data-decimals="0">{{ latest.Humid1|default('-')|number_format(0) }}</span> <span class="stat-card-unit">UA</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_humid1|default(0)|number_format(0) }} | Min: {{ min_humid1|default(0)|number_format(0) }} | Max: {{ max_humid1|default(0)|number_format(0) }} UA</div>
+                        </div>
+                        <div class="stat-card humidity">
+                            <i class="fas fa-droplet stat-card-icon"></i>
+                            <div class="stat-card-label">Humid. sol 2</div>
+                            <div class="stat-card-value"><span data-sensor="Humid2" data-decimals="0">{{ latest.Humid2|default('-')|number_format(0) }}</span> <span class="stat-card-unit">UA</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_humid2|default(0)|number_format(0) }} | Min: {{ min_humid2|default(0)|number_format(0) }} | Max: {{ max_humid2|default(0)|number_format(0) }} UA</div>
+                        </div>
+                        <div class="stat-card humidity">
+                            <i class="fas fa-droplet stat-card-icon"></i>
+                            <div class="stat-card-label">Humid. sol 3</div>
+                            <div class="stat-card-value"><span data-sensor="Humid3" data-decimals="0">{{ latest.Humid3|default('-')|number_format(0) }}</span> <span class="stat-card-unit">UA</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_humid3|default(0)|number_format(0) }} | Min: {{ min_humid3|default(0)|number_format(0) }} | Max: {{ max_humid3|default(0)|number_format(0) }} UA</div>
+                        </div>
+                        <div class="stat-card humidity">
+                            <i class="fas fa-droplet stat-card-icon"></i>
+                            <div class="stat-card-label">Humid. sol 4</div>
+                            <div class="stat-card-value"><span data-sensor="Humid4" data-decimals="0">{{ latest.Humid4|default('-')|number_format(0) }}</span> <span class="stat-card-unit">UA</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_humid4|default(0)|number_format(0) }} | Min: {{ min_humid4|default(0)|number_format(0) }} | Max: {{ max_humid4|default(0)|number_format(0) }} UA</div>
+                        </div>
+                        <div class="stat-card pump">
+                            <i class="fas fa-water stat-card-icon"></i>
+                            <div class="stat-card-label">État pompe</div>
+                            <div class="stat-card-value"><span data-sensor="etatPompe" data-decimals="0">{{ latest.etatPompe|default('-')|number_format(0) }}</span></div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="alt-chart-column">
+                    <div id="chart-niveauxeaux" style="min-height:350px;"></div>
+                    <div class="chart-legend-items">
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#27ae60"></span> Humid. moy.</span>
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#3498db"></span> Humid. 1</span>
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#2980b9"></span> Humid. 2</span>
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#1abc9c"></span> Humid. 3</span>
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#16a085"></span> Humid. 4</span>
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#008B74"></span> État pompe</span>
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#bdc3c7"></span> Reset</span>
+                    </div>
+                </div>
+            </div>
+
+            {# Section 2 : Paramètres physiques #}
+            <div class="section-header alt-section-title-full">
+                <i class="fas fa-thermometer-half"></i>
+                <h3>Paramètres physiques</h3>
+            </div>
+            <div class="alt-data-chart-row">
+                <div class="alt-stats-column">
+                    <div class="stats-grid">
+                        {% if latest %}
+                        <div class="stat-card temp">
+                            <i class="fas fa-thermometer-half stat-card-icon"></i>
+                            <div class="stat-card-label">Température air</div>
+                            <div class="stat-card-value"><span data-sensor="TempAir" data-decimals="1">{{ latest.TempAir|default('-')|number_format(1) }}</span> <span class="stat-card-unit">°C</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_tempAir|default(0)|number_format(1) }} °C | Min: {{ min_tempAir|default(0)|number_format(1) }} °C | Max: {{ max_tempAir|default(0)|number_format(1) }} °C</div>
+                        </div>
+                        <div class="stat-card humidity">
+                            <i class="fas fa-tint stat-card-icon"></i>
+                            <div class="stat-card-label">Humidité air</div>
+                            <div class="stat-card-value"><span data-sensor="Humidite" data-decimals="0">{{ latest.Humidite|default('-')|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_humidite|default(0)|number_format(0) }}% | Min: {{ min_humidite|default(0)|number_format(0) }}% | Max: {{ max_humidite|default(0)|number_format(0) }}%</div>
+                        </div>
+                        <div class="stat-card light">
+                            <i class="fas fa-sun stat-card-icon"></i>
+                            <div class="stat-card-label">Luminosité</div>
+                            <div class="stat-card-value"><span data-sensor="Luminosite" data-decimals="0">{{ latest.Luminosite|default('-')|number_format(0) }}</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_luminosite|default(0)|number_format(0) }} | Min: {{ min_luminosite|default(0)|number_format(0) }} | Max: {{ max_luminosite|default(0)|number_format(0) }}</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="alt-chart-column">
+                    <div id="chart-temperatures" style="min-height:350px;"></div>
+                    <div class="chart-legend-items">
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#e74c3c"></span> Temp. air</span>
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#3498db"></span> Humidité</span>
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#f39c12"></span> Luminosité</span>
+                    </div>
+                </div>
+            </div>
+
+            {# Section 3 : Système #}
+            <div class="section-header alt-section-title-full">
+                <i class="fas fa-cog"></i>
+                <h3>Système</h3>
+            </div>
+            <div class="alt-data-chart-row">
+                <div class="alt-stats-column">
+                    <div class="stats-grid">
+                        {% if latest %}
+                        <div class="stat-card system">
+                            <i class="fas fa-sync stat-card-icon"></i>
+                            <div class="stat-card-label">Redémarrages</div>
+                            <div class="stat-card-value"><span data-sensor="bootCount" data-decimals="0">{{ latest.bootCount|default('-')|number_format(0) }}</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_bootCount|default(0)|number_format(0) }} | Min: {{ min_bootCount|default(0)|number_format(0) }} | Max: {{ max_bootCount|default(0)|number_format(0) }}</div>
+                        </div>
+                        <div class="stat-card system">
+                            <i class="fas fa-battery-half stat-card-icon"></i>
+                            <div class="stat-card-label">Pont div. (batterie)</div>
+                            <div class="stat-card-value"><span data-sensor="PontDiv" data-decimals="0">{{ latest.PontDiv|default('-')|number_format(0) }}</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_pontDiv|default(0)|number_format(0) }} | Min: {{ min_pontDiv|default(0)|number_format(0) }} | Max: {{ max_pontDiv|default(0)|number_format(0) }}</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="alt-chart-column">
+                    <div id="chart-cycles" style="min-height:300px;"></div>
+                    <div class="chart-legend-items">
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#2c3e50"></span> bootCount</span>
+                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#e74c3c"></span> PontDiv</span>
+                    </div>
+                </div>
+            </div>
+
+            {% if latest and latest.sensor is defined %}<p style="font-size:0.9em;color:#7f8c8d;margin-top:1rem;">Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}</p>{% endif %}
+        {% endif %}
+
+        <div class="filter-section">
+            <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
+            <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}">
+                {{ csrf_field|raw }}
+                <div>
+                    <label for="start_datetime">Début</label>
+                    <input type="datetime-local" id="start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d\\TH:i') }}">
+                </div>
+                <div>
+                    <label for="end_datetime">Fin</label>
+                    <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d\\TH:i') }}">
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Afficher</button>
+                <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-download"></i> CSV</button>
+            </form>
+            <div class="quick-filters">
+                <span class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</span>
+                <span class="quick-filter-btn" onclick="setPeriod(3,'h')">3h</span>
+                <span class="quick-filter-btn" onclick="setPeriod(6,'h')">6h</span>
+                <span class="quick-filter-btn" onclick="setPeriod(12,'h')">12h</span>
+                <span class="quick-filter-btn" onclick="setPeriod(1,'d')">1 jour</span>
+                <span class="quick-filter-btn" onclick="setPeriod(7,'d')">1 sem</span>
+                <span class="quick-filter-btn" onclick="setPeriod(30,'d')">1 mois</span>
+            </div>
+            <div class="period-info">
+                <span><i class="fas fa-database"></i> {{ measure_count }} mesures</span>
+                <span><i class="fas fa-clock"></i> {{ duration_str }}</span>
+            </div>
+        </div>
+
+        {% embed 'partials/_system_health_panel.twig' with { health_panel_title: 'État du système' } %}
+            {% block health_items %}
+                <div class="health-item">
+                    <div class="health-item-label">Firmware</div>
+                    <div class="health-item-value">v{{ firmware_version }}</div>
+                </div>
+                <div class="health-item">
+                    <div class="health-item-label">Serveur</div>
+                    <div class="health-item-value">{{ version }}</div>
+                </div>
+                <div class="health-item">
+                    <div class="health-item-label">Mesures affichées</div>
+                    <div class="health-item-value">{{ measure_count }}</div>
+                </div>
+                <div class="health-item">
+                    <div class="health-item-label">Environnement</div>
+                    <div class="health-item-value">{{ environment }}</div>
+                </div>
+            {% endblock %}
+        {% endembed %}
+    </article>
+{% endblock %}
+
+{% block footer %}
+    <footer id="footer" style="text-align: center; padding: 1.5rem 2rem; margin-top: 2rem; color: #6c757d; font-size: 0.9em; border-top: 1px solid rgba(0,139,116,0.15); background: rgba(255,255,255,0.92);">
+        <div class="context-badges">
+            <span class="context-badge {{ environment == data_config.test_env ? 'context-badge-test' : 'context-badge-prod' }}"><i class="fas fa-globe"></i> {{ environment == data_config.test_env ? 'Environnement TEST' : 'Environnement production' }}</span>
+            <span class="context-badge"><i class="fas fa-database"></i> {{ data_config.table_label|default(environment) }}</span>
+            <span class="context-badge"><i class="fas fa-code-branch"></i> {{ version }}</span>
+            {% if firmware_version %}<span class="context-badge"><i class="fas fa-microchip"></i> Firmware v{{ firmware_version }}</span>{% endif %}
+        </div>
+        <p style="margin:0;">{{ data_config.footer_text }} | n3 IoT | &copy; 2025 olution</p>
+    </footer>
+{% endblock %}
+
+{% block scripts %}
+    {% include 'partials/_live_badge.twig' %}
+    <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
+    <script>
+    var reading_time = {{ reading_time|json_encode|raw }};
+    {% for col in chart_columns %}
+    var {{ col }} = {{ attribute(_context, col)|json_encode|raw }};
+    {% endfor %}
+    </script>
+
     {% if measure_count > 0 %}
     <script>
     Highcharts.stockChart('chart-niveauxeaux', {
         rangeSelector: { enabled: false },
-        title: { text: 'Humidité du sol' },
+        title: { text: '' },
         yAxis: [{ title: { text: 'Humidité sol (UA)' }, opposite: false }],
         series: [
             { name: 'Humid. moy.', data: zipSeries(reading_time, HumidMoy), type: 'spline', color: '#27ae60', lineWidth: 3, tooltip: { valueSuffix: ' UA' }},
@@ -28,7 +265,7 @@
     });
     Highcharts.stockChart('chart-temperatures', {
         rangeSelector: { enabled: false },
-        title: { text: 'Température, Humidité air & Luminosité' },
+        title: { text: '' },
         yAxis: [
             { title: { text: 'Température (°C)' }, opposite: false },
             { title: { text: 'Humidité (%)' }, opposite: true },
@@ -44,7 +281,7 @@
     });
     Highcharts.stockChart('chart-cycles', {
         rangeSelector: { enabled: false },
-        title: { text: 'Autonomie & Système' },
+        title: { text: '' },
         yAxis: [
             { title: { text: 'Cycles' }, opposite: false },
             { title: { text: 'Batterie' }, opposite: true }
@@ -58,4 +295,20 @@
     });
     </script>
     {% endif %}
+
+    <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-updater-generic.js"></script>
+    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+    {% if measure_count > 0 %}
+    {% include 'partials/_chart_init_js.twig' with {
+        chart_ids_json: chart_ids_json,
+        chart_debug: true,
+        sensor_map_json: sensor_map_json
+    } %}
+    {% endif %}
+    {% include 'partials/_realtime_init_js.twig' with {
+        realtime_api_base: realtime_api_base,
+        poll_interval: 15000,
+        base_path: base_path|default('')
+    } %}
 {% endblock %}
