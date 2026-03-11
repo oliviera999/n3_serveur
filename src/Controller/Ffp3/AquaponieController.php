@@ -139,7 +139,7 @@ class AquaponieController
             'end_date'   => $endDate,
             'reading_time' => $reading_time,
             'measure_count' => $measure_count,
-            'duration_str' => DurationFormatter::long($startDate, $endDate),
+            'duration_str' => DurationFormatter::short($startDate, $endDate),
             'version' => Version::getWithPrefix(),
             'firmware_version' => $firmwareVersion,
             'environment' => $environment,

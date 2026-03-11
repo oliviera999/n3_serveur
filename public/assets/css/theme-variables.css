@@ -157,4 +157,10 @@
     display: none;
 }
 
-[data-theme="dark"] .theme-toggle
+[data-theme="dark"] .theme-toggle-btn .theme-icon-light {
+    display: inline-block;
+}
+
+.nav-theme-toggle {
+    margin-left: auto;
+}

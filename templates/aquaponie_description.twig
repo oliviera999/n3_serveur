@@ -68,17 +68,7 @@
         .desc-images figure { margin: 0; }
         .desc-images figcaption { font-size: 0.9em; color: #6c757d; margin-top: 0.3em; }
         /* Footer aligné aquaponie-alt */
-        #footer {
-            text-align: center;
-            padding: 1.5rem 2rem 2rem;
-            margin-top: 2rem;
-            color: #6c757d;
-            font-size: 0.9em;
-            line-height: 1.5;
-            border-top: 1px solid rgba(0,139,116,0.15);
-            background: rgba(255,255,255,0.92);
-        }
-        #footer .footer-copyright { margin-top: 0; margin-bottom: 0; color: #6c757d; }
+        #footer .footer-copyright { margin-top: 0; margin-bottom: 0; color: var(--footer-color, #6b7280); }
     </style>
 {% endblock %}
 
@@ -172,6 +162,7 @@
     </article>
 {% endblock %}
 
+{% block footer_class %}app-footer app-footer--elevated{% endblock %}
 {% block footer_content %}
     <p class="footer-copyright">{% if version is defined and version %}{{ version }} | {% endif %}Système d'aquaponie FFP3 | © 2025 olution</p>
 {% endblock %}

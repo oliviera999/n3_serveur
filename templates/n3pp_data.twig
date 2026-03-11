@@ -205,7 +205,7 @@
 {% endblock %}
 
 {% block footer %}
-    <footer id="footer" style="text-align: center; padding: 1.5rem 2rem; margin-top: 2rem; color: var(--footer-color, #6b7280); font-size: 0.9em; border-top: 1px solid rgba(0,139,116,0.15); background: rgba(255,255,255,0.92);">
+    <footer id="footer" class="app-footer app-footer--elevated">
         <div class="context-badges">
             <span class="context-badge {{ environment == data_config.test_env ? 'context-badge-test' : 'context-badge-prod' }}"><i class="fas fa-globe"></i> {{ environment == data_config.test_env ? 'Environnement TEST' : 'Environnement production' }}</span>
             <span class="context-badge"><i class="fas fa-database"></i> {{ data_config.table_label|default(environment) }}</span>

@@ -1164,6 +1164,26 @@ body.is-preload #wrapper.fade-in::before {
     color: var(--footer-color) !important;
 }
 
+/* Footer applicatif N3 IoT — override Massively, styles unifiés */
+#footer.app-footer {
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+    color: var(--footer-color, #6b7280);
+    font-size: 0.9em;
+    background: transparent;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    cursor: default;
+}
+#footer.app-footer--elevated {
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--footer-border-elevated, rgba(0, 139, 116, 0.15));
+    background: var(--footer-bg-elevated, rgba(255, 255, 255, 0.92));
+}
+
 [data-theme="dark"] .live-controls-integrated {
     border-top-color: var(--border-color);
 }

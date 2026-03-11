@@ -7,6 +7,24 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
+## [5.0.136] - 2026-03-11
+
+### Modifié - audit footer : version sur toutes les pages, couleurs WCAG, classes CSS unifiées
+- **TemplateRenderer** : injection automatique de `version` dans tous les templates
+- **layout.twig** : footer par défaut affiche la version ; classes `app-footer` / `app-footer--elevated`
+- **aquaponie.twig**, **supervision.twig**, **tide_stats.twig** : `#999` remplacé par `var(--footer-color)` ; suppression commentaire DEBUG
+- **msp1_data.twig**, **n3pp_data.twig** : couleur unifiée ; classes CSS
+- **aquaponie_description.twig**, **aquaponie_alt.twig**, **_control_base.twig** : classes footer
+- **theme-variables.css** : variables `--footer-bg-elevated`, `--footer-border-elevated` (light/dark)
+- **realtime-styles.css** : classes `.app-footer`, `.app-footer--elevated` (override Massively)
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -30,6 +48,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -168,6 +192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -271,6 +301,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -376,6 +412,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -493,6 +535,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -655,6 +703,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -902,6 +956,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -1111,6 +1171,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -1701,6 +1767,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -2279,6 +2351,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -2856,6 +2934,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -3433,6 +3517,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -4019,6 +4109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -4598,6 +4694,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -5177,6 +5279,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -5757,6 +5865,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -6336,6 +6450,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -6917,6 +7037,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -7496,6 +7622,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -8075,6 +8207,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -8654,6 +8792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -9234,6 +9378,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -9811,6 +9961,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -10393,6 +10549,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -10970,6 +11132,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -11550,6 +11718,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -12128,6 +12302,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -12708,6 +12888,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -13288,6 +13474,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -13867,6 +14059,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -14448,6 +14646,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -15026,6 +15230,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -15605,6 +15815,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -16185,6 +16401,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -16765,6 +16987,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -17343,6 +17571,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -17922,6 +18156,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -18503,6 +18743,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -19083,6 +19329,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -19662,6 +19914,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -20241,6 +20499,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -20820,6 +21084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -21399,6 +21669,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -21977,6 +22253,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -22555,6 +22837,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -23133,6 +23421,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -23711,6 +24005,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -24290,6 +24590,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -24873,6 +25179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -25456,6 +25768,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -26032,6 +26350,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -26608,6 +26932,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -27184,6 +27514,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -27760,6 +28096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -28336,6 +28678,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -28912,6 +29260,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -29505,6 +29859,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -30088,6 +30448,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -30669,6 +31035,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -31251,6 +31623,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -31837,6 +32215,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -32435,6 +32819,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -33015,6 +33405,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -33597,6 +33993,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -34179,6 +34581,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -34758,6 +35166,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -35340,6 +35754,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -35919,6 +36339,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -36497,6 +36923,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -37076,6 +37508,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -37665,6 +38103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -38251,6 +38695,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -38845,6 +39295,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -39443,6 +39899,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -40031,6 +40493,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -40611,6 +41079,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -41193,6 +41667,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -41774,6 +42254,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -42355,6 +42841,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -42934,6 +43426,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -43513,6 +44011,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -44094,6 +44598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -44674,6 +45184,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -45256,6 +45772,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -45843,6 +46365,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -46434,6 +46962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -47021,6 +47555,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -47610,6 +48150,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -48198,6 +48744,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -48781,6 +49333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -49360,6 +49918,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -49943,6 +50507,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -50523,6 +51093,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -51102,6 +51678,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -51681,6 +52263,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -52262,6 +52850,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -52843,6 +53437,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -53423,6 +54023,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -54003,6 +54609,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -54582,6 +55194,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -55161,6 +55779,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -55740,6 +56364,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -56321,6 +56951,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -56902,6 +57538,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -57481,6 +58123,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -58060,6 +58708,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -58639,6 +59293,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -59219,6 +59879,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -59801,6 +60467,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -60390,6 +61062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -60973,6 +61651,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -61563,6 +62247,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -62151,6 +62841,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -62730,6 +63426,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -63342,6 +64044,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -63925,6 +64633,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -64517,6 +65231,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -65119,6 +65839,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -65711,6 +66437,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -66293,6 +67025,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -66876,6 +67614,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -67465,6 +68209,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -68164,6 +68914,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -68747,6 +69503,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -69328,6 +70090,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -69910,6 +70678,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -70493,6 +71267,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -71075,6 +71855,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -71659,6 +72445,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -72242,6 +73034,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -72947,6 +73745,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -73529,6 +74333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -74111,6 +74921,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -74741,6 +75557,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -75332,6 +76154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -75923,6 +76751,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -76551,6 +77385,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -77190,6 +78030,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -77786,6 +78632,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -78383,6 +79235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -78970,6 +79828,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -79563,6 +80427,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -80160,6 +81030,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -80755,6 +81631,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -81341,6 +82223,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -81939,6 +82827,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -82569,6 +83463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -83154,6 +84054,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -83740,6 +84646,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -84325,6 +85237,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -84915,6 +85833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -85511,6 +86435,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -86105,6 +87035,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -86697,6 +87633,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -87284,6 +88226,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -87872,6 +88820,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -88471,6 +89425,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -89069,6 +90029,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -89670,6 +90636,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -90287,6 +91259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -90934,6 +91912,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -91522,6 +92506,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -92109,6 +93099,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -92706,6 +93702,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -93293,6 +94295,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -93884,6 +94892,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -94468,6 +95482,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -95054,6 +96074,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -95632,6 +96658,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -96250,6 +97282,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -96840,6 +97878,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -97452,6 +98496,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -98046,6 +99096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -98636,6 +99692,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -99232,6 +100294,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -99850,6 +100918,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -100453,6 +101527,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -101110,6 +102190,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -101704,6 +102790,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -102300,6 +103392,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -102907,6 +104005,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -103507,6 +104611,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -104094,6 +105204,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -104681,6 +105797,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -105270,6 +106392,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -105930,6 +107058,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -106538,6 +107672,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -107160,6 +108300,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -107770,6 +108916,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -108384,6 +109536,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -108966,6 +110124,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -109600,6 +110764,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -110198,6 +111368,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -110783,6 +111959,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -111418,6 +112600,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -112032,6 +113220,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -112679,6 +113873,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -113264,6 +114464,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -113908,6 +115114,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -114490,6 +115702,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -115071,6 +116289,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -115656,6 +116880,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -116241,6 +117471,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -116871,6 +118107,12 @@ docs/
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -117524,6 +118766,12 @@ docs/
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -118111,6 +119359,12 @@ docs/
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -118732,6 +119986,12 @@ docs/
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -119318,6 +120578,12 @@ docs/
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -119926,6 +121192,12 @@ docs/
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -120510,6 +121782,12 @@ docs/
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -121283,6 +122561,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -121890,6 +123174,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -122524,6 +123814,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -123144,6 +124440,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -123750,6 +125052,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -124363,6 +125671,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -124968,6 +126282,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -125562,6 +126882,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -126148,6 +127474,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -126750,6 +128082,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -127336,6 +128674,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -127922,6 +129266,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -128510,6 +129860,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -129116,6 +130472,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig
@@ -129696,6 +131058,12 @@ ance future
 
 ---
 
+## [5.0.137] - 2026-03-11
+
+### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
+- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+
+---
 ## [5.0.135] - 2026-03-11
 
 ### Modifié - audit menu navigation: nav_active, base_path, galeries, supervision, gallery.twig

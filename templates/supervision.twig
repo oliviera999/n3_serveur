@@ -233,7 +233,7 @@
 {% endblock %}
 
 {% block footer %}
-<footer id="footer" style="text-align: center; padding: 20px 0; color: var(--footer-color, #6b7280); font-size: 0.9em;">
+<footer id="footer" class="app-footer">
     {% block footer_content %}
     <p>{% if version is defined and version %}{{ version }} | {% endif %}N3 IoT Datas – Supervision | © 2025 olution</p>
     <p style="margin-top: 10px;"><a href="{{ base_path|default('') }}/" style="color: #999; text-decoration: none;"><i class="fas fa-home"></i> Retour à l'accueil</a></p>
