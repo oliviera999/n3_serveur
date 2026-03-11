@@ -44,6 +44,12 @@
     transition: all 0.2s;
   }
   .gallery-back:hover { background: #008B74; color: white; }
+  .timelapse-nav-links {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
   .timelapse-status {
     display: flex;
     align-items: center;
@@ -392,20 +398,153 @@
     width: 100%;
     border-radius: 4px;
   }
+  /* Mobile-first : smartphones */
   @media (max-width: 768px) {
+    .timelapse-page {
+      padding-left: max(0.5rem, env(safe-area-inset-left));
+      padding-right: max(0.5rem, env(safe-area-inset-right));
+    }
+    .timelapse-nav-links {
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .gallery-back {
+      flex: 1 1 auto;
+      min-width: 0;
+      justify-content: center;
+      padding: 12px 16px;
+      font-size: 0.85em;
+    }
+    .timelapse-hero {
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      border-radius: 12px;
+    }
+    .timelapse-hero h1 { font-size: 1.35em; }
+    .timelapse-hero p { font-size: 0.85em; }
+    .timelapse-status { font-size: 0.75em; margin-top: 0.5rem; }
     .timelapse-grid {
       grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr auto;
+      grid-template-rows: auto minmax(0, auto) auto;
+      gap: 0;
+      min-height: unset;
+      border-radius: 12px;
     }
-    .timelapse-sidebar { max-height: 40vh; }
-    .timelapse-hero { flex-direction: column; align-items: flex-start; padding: 1.5rem; }
+    .timelapse-viewer {
+      min-height: 220px;
+      aspect-ratio: 4/3;
+    }
+    .timelapse-timestamp { font-size: 0.65rem; bottom: 8px; left: 8px; }
+    .timelapse-frame-count { font-size: 0.65rem; top: 8px; right: 8px; }
+    .timelapse-viewer { order: 0; }
+    .timelapse-controls { order: 1; border-bottom: 1px solid var(--border); }
+    .timelapse-sidebar {
+      max-height: 45vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      order: 2;
+      border-top: 1px solid var(--border);
+    }
+    .timelapse-sidebar .timelapse-section {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .timelapse-config-input { display: none; }
+    .timelapse-section input[type="checkbox"] {
+      min-width: 22px;
+      min-height: 22px;
+    }
+    .timelapse-range-btns {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .timelapse-range-btn, .timelapse-speed-btn {
+      min-height: 44px;
+      padding: 10px 8px;
+      font-size: 0.8rem;
+    }
+    .timelapse-speed-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .timelapse-btn {
+      min-height: 44px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+    .timelapse-date-row input {
+      min-height: 44px;
+      padding: 10px 12px;
+      font-size: 0.85rem;
+    }
+    .timelapse-controls {
+      padding: 10px 12px;
+      gap: 8px;
+    }
+    .timelapse-scrubber-wrap {
+      height: 32px;
+      min-height: 44px;
+      align-items: center;
+    }
+    .timelapse-scrubber-track { height: 6px; }
+    .timelapse-scrubber-fill::after {
+      width: 16px;
+      height: 16px;
+      right: -8px;
+    }
+    .timelapse-playback-row {
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .timelapse-ctrl-btn {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      min-height: 42px;
+      font-size: 0.95rem;
+    }
+    .timelapse-ctrl-btn.play-pause {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      min-height: 48px;
+      font-size: 1.1rem;
+    }
+    .timelapse-live-btn {
+      width: 100%;
+      justify-content: center;
+      min-height: 44px;
+      margin-left: 0;
+      margin-top: 4px;
+    }
+    .timelapse-time-labels { font-size: 0.65rem; }
+    .timelapse-toast {
+      bottom: max(80px, env(safe-area-inset-bottom, 0px));
+      left: 1rem;
+      right: 1rem;
+      transform: translateY(60px);
+      max-width: calc(100% - 2rem);
+      margin: 0 auto;
+    }
+    .timelapse-toast.show { transform: translateY(0); }
+  }
+  /* Très petits écrans (< 400px) */
+  @media (max-width: 400px) {
+    .timelapse-hero h1 { font-size: 1.2em; }
+    .timelapse-range-btns { grid-template-columns: repeat(2, 1fr); }
+    .timelapse-speed-grid { grid-template-columns: repeat(2, 1fr); }
+    .timelapse-ctrl-btn { width: 38px; height: 38px; min-width: 38px; min-height: 38px; }
+    .timelapse-ctrl-btn.play-pause { width: 44px; height: 44px; min-width: 44px; min-height: 44px; }
   }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="timelapse-page">
-  <div style="display:flex;gap:12px;margin-bottom:1.5rem;flex-wrap:wrap;">
+  <div class="timelapse-nav-links">
     <a href="{{ back_url }}" class="gallery-back"><i class="fas fa-arrow-left"></i> Retour aux données</a>
     <a href="{{ gallery_url }}" class="gallery-back"><i class="fas fa-images"></i> Galerie classique</a>
   </div>

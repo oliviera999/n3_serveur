@@ -5,6 +5,8 @@
 {% block body_tag %}<body class="is-preload aquaponie-alt">{% endblock %}
 
 {% block head_css %}
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/common-data.css" />
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/aquaponie.css" />
     <link rel="preload" href="{{ base_path }}/assets/bg-aquaponie.png" as="image" />
     <style id="page-bg-override">
         body { background: transparent !important; }
@@ -39,9 +41,7 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 {% endblock %}
 
-{% block styles %}
-        <link rel="stylesheet" href="{{ base_path }}/assets/css/aquaponie.css" />
-{% endblock %}
+{% block styles %}{% endblock %}
 
 {% block content %}
                 <!-- Modern Header Hero Section -->
@@ -72,8 +72,8 @@
                         <div class="alt-stats-column">
                             <div class="stats-grid">
                                 <!-- Aquarium (en premier), puis Réserve, Potager -->
-                                <div class="stat-card" style="border-left-color:#FF6300">
-                                    <i class="fas fa-fish stat-card-icon" style="color:#FF6300"></i>
+                                <div class="stat-card aquarium">
+                                    <i class="fas fa-fish stat-card-icon"></i>
                                     <div class="stat-card-label">Aquarium</div>
                                     <div class="stat-card-value" id="eauaqua-display">{{ last_reading_eauaqua|default(0)|round(0) }} <span class="stat-card-unit">cm</span></div>
                                     <div class="progress-bar-container">
@@ -85,8 +85,8 @@
                                     </div>
                                 </div>
 
-                                <div class="stat-card" style="border-left-color:#008B74">
-                                    <i class="fas fa-droplet stat-card-icon" style="color:#008B74"></i>
+                                <div class="stat-card reserve">
+                                    <i class="fas fa-droplet stat-card-icon"></i>
                                     <div class="stat-card-label">Réserve</div>
                                     <div class="stat-card-value" id="eaureserve-display">{{ last_reading_eaureserve|default(0)|round(0) }} <span class="stat-card-unit">cm</span></div>
                                     <div class="progress-bar-container">
@@ -98,8 +98,8 @@
                                     </div>
                                 </div>
 
-                                <div class="stat-card" style="border-left-color:#27BDA0">
-                                    <i class="fas fa-seedling stat-card-icon" style="color:#27BDA0"></i>
+                                <div class="stat-card potager">
+                                    <i class="fas fa-seedling stat-card-icon"></i>
                                     <div class="stat-card-label">Potager</div>
                                     <div class="stat-card-value" id="eaupota-display">{{ last_reading_eaupota|default(0)|round(0) }} <span class="stat-card-unit">cm</span></div>
                                     <div class="progress-bar-container">
@@ -222,8 +222,8 @@
                         <div class="alt-stats-column">
                             <div class="stats-grid">
                                 <!-- Température eau -->
-                                <div class="stat-card" style="border-left-color:#00B794">
-                                    <i class="fas fa-water stat-card-icon" style="color:#00B794"></i>
+                                <div class="stat-card tempeau">
+                                    <i class="fas fa-water stat-card-icon"></i>
                                     <div class="stat-card-label">Température eau</div>
                                     <div class="stat-card-value" id="tempeau-display">{{ last_reading_tempeau|default(0)|round(1) }} <span class="stat-card-unit">°C</span></div>
                                     <div class="progress-bar-container">
@@ -236,8 +236,8 @@
                                 </div>
 
                                 <!-- Température air -->
-                                <div class="stat-card" style="border-left-color:#008B74">
-                                    <i class="fas fa-temperature-high stat-card-icon" style="color:#008B74"></i>
+                                <div class="stat-card reserve">
+                                    <i class="fas fa-temperature-high stat-card-icon"></i>
                                     <div class="stat-card-label">Température air</div>
                                     <div class="stat-card-value" id="tempair-display">{{ last_reading_tempair|default(0)|round(1) }} <span class="stat-card-unit">°C</span></div>
                                     <div class="progress-bar-container">
@@ -250,8 +250,8 @@
                                 </div>
 
                                 <!-- Humidité -->
-                                <div class="stat-card" style="border-left-color:#2980b9">
-                                    <i class="fas fa-cloud stat-card-icon" style="color:#2980b9"></i>
+                                <div class="stat-card humidity">
+                                    <i class="fas fa-cloud stat-card-icon"></i>
                                     <div class="stat-card-label">Humidité</div>
                                     <div class="stat-card-value" id="humi-display">{{ last_reading_humi|default(0)|round(1) }} <span class="stat-card-unit">%</span></div>
                                     <div class="progress-bar-container">
@@ -264,8 +264,8 @@
                                 </div>
 
                                 <!-- Luminosité -->
-                                <div class="stat-card" style="border-left-color:#FF6300">
-                                    <i class="fas fa-lightbulb stat-card-icon" style="color:#FF6300"></i>
+                                <div class="stat-card aquarium">
+                                    <i class="fas fa-lightbulb stat-card-icon"></i>
                                     <div class="stat-card-label">Luminosité</div>
                                     <div class="stat-card-value" id="lumi-display">{{ last_reading_lumi|default(0)|round(0) }} <span class="stat-card-unit">UA</span></div>
                                     <div class="progress-bar-container">
@@ -306,7 +306,7 @@
                             <div class="period-info-dates">
                                 <i class="far fa-calendar-alt"></i>
                                 Du <span id="period-start-date">{{ start_date|date('d/m/Y H:i') }}</span> au <span id="period-end-date">{{ end_date|date('d/m/Y H:i') }}</span>
-                                <small style="opacity: 0.8; font-size: 0.85em;">(heure Casablanca)</small>
+                                <small class="period-tz-hint">(heure Casablanca)</small>
                             </div>
                             <div class="period-info-stats">
                                 <div class="period-stat-item">
