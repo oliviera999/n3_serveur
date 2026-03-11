@@ -1,125 +1,103 @@
 {% extends 'partials/_control_base.twig' %}
 
 {% block outputs_section %}
-    <div id="params-n3pp-container">
     <section class="controls-section">
-        <div class="controls-group">
-            <header>
-                <h2><i class="fas fa-water"></i> Gestion de l'eau</h2>
-            </header>
-            <div class="control-cards-grid">
-                {% for output in part_outputs %}
-                <article class="action-card" data-state="{{ output.state }}" data-gpio="{{ output.gpio }}">
-                    <header>
-                        <div class="action-icon"><i class="fas fa-droplet"></i></div>
-                        <div>
-                            <h3>{{ output.name|default('GPIO ' ~ output.gpio) }}</h3>
-                        </div>
-                    </header>
-                    <footer>
-                        <span data-state-label>{{ output.state == '1' ? 'Activé' : 'Désactivé' }}</span>
-                        <label class="modern-switch" title="Toggle sortie">
-                            <input type="checkbox" onchange="updateOutput(this)" id="output-{{ output.id }}" data-id="{{ output.id }}" data-gpio="{{ output.gpio }}" {{ output.state == '1' ? 'checked' : '' }} role="switch" aria-checked="{{ output.state == '1' ? 'true' : 'false' }}" aria-label="{{ output.name|default('GPIO ' ~ output.gpio) }}">
-                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                        </label>
-                    </footer>
-                </article>
-                {% endfor %}
-            </div>
-            <section class="parameters-panel">
-                <h3>Paramètres arrosage</h3>
-                <div class="parameters-grid">
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Limite de sécheresse (SeuilSec)</span>
-                        <input type="number" data-parameter="SeuilSec" data-parameter-gpio="102" id="SeuilSec" min="0" value="{{ params.SeuilSec|default('0') }}">
-                        <small class="save-indicator" data-save-indicator data-parameter="SeuilSec" data-state="idle"></small>
+        <h2><i class="fas fa-bolt"></i> Sorties</h2>
+        <div class="control-cards-grid">
+            {% for output in part_outputs %}
+            <article class="action-card" data-state="{{ output.state }}" data-gpio="{{ output.gpio }}">
+                <header>
+                    <div class="action-icon"><i class="fas fa-droplet"></i></div>
+                    <div><h3>{{ output.name|default('GPIO ' ~ output.gpio) }}</h3></div>
+                </header>
+                <footer>
+                    <span data-state-label>{{ output.state == '1' ? 'Activé' : 'Désactivé' }}</span>
+                    <label class="modern-switch" title="Toggle sortie">
+                        <input type="checkbox" onchange="updateOutput(this)" id="output-{{ output.id }}" data-id="{{ output.id }}" data-gpio="{{ output.gpio }}" {{ output.state == '1' ? 'checked' : '' }} role="switch" aria-checked="{{ output.state == '1' ? 'true' : 'false' }}" aria-label="{{ output.name|default('GPIO ' ~ output.gpio) }}">
+                        <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
                     </label>
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Heure arrosage</span>
-                        <input type="number" data-parameter="HeureArrosage" data-parameter-gpio="104" id="HeureArrosage" min="0" value="{{ params.HeureArrosage|default('0') }}">
-                        <small class="save-indicator" data-save-indicator data-parameter="HeureArrosage" data-state="idle"></small>
-                    </label>
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Temps arrosage (en ms)</span>
-                        <input type="number" data-parameter="tempsArrosage" data-parameter-gpio="105" id="tempsArrosage" min="0" value="{{ params.tempsArrosage|default('0') }}">
-                        <small class="save-indicator" data-save-indicator data-parameter="tempsArrosage" data-state="idle"></small>
-                    </label>
-                </div>
-            </section>
-        </div>
-
-        <div class="controls-group">
-            <header>
-                <h2><i class="fas fa-envelope"></i> Notification</h2>
-            </header>
-            <div class="parameters-panel">
-                <div class="parameters-grid">
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Mail</span>
-                        <input type="text" data-parameter="mail" data-parameter-gpio="100" id="mail" value="{{ params.mail|default('')|e('html_attr') }}" placeholder="email@exemple.com">
-                        <small class="save-indicator" data-save-indicator data-parameter="mail" data-state="idle"></small>
-                    </label>
-                    <label class="parameter-item parameter-item-switch">
-                        <span>Notification par mail</span>
-                        <label class="modern-switch" title="Activer/désactiver les notifications par mail">
-                            <input type="checkbox" data-parameter-gpio="101" id="mailNotif" {{ params.mailNotif|default('') == 'checked' ? 'checked' : '' }} role="switch" aria-label="Notification par mail" onchange="saveParamSwitch('mailNotif', this.checked, 'checked', 'false')">
-                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                        </label>
-                        <span class="parameter-item-hint" id="mailNotif-hint">{{ params.mailNotif|default('') == 'checked' ? 'Activé' : 'Désactivé' }}</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="controls-group">
-            <header>
-                <h2><i class="fas fa-bolt"></i> Énergie</h2>
-            </header>
-            <div class="parameters-panel">
-                <div class="parameters-grid">
-                    <label class="parameter-item parameter-item-switch">
-                        <span>Éco d'énergie (WakeUp)</span>
-                        <label class="modern-switch" title="Activer/désactiver l'éco d'énergie">
-                            <input type="checkbox" data-parameter-gpio="106" id="WakeUp" {{ params.WakeUp|default('0') == '1' ? 'checked' : '' }} role="switch" aria-label="Éco d'énergie (WakeUp)" onchange="saveParamSwitch('WakeUp', this.checked, '1', '0')">
-                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                        </label>
-                        <span class="parameter-item-hint" id="WakeUp-hint">{{ params.WakeUp|default('0') == '1' ? 'Activé' : 'Désactivé' }}</span>
-                    </label>
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Fréquence d'éveil (FreqWakeUp)</span>
-                        <input type="number" data-parameter="FreqWakeUp" data-parameter-gpio="107" id="FreqWakeUp" min="0" value="{{ params.FreqWakeUp|default('0') }}">
-                        <small class="save-indicator" data-save-indicator data-parameter="FreqWakeUp" data-state="idle"></small>
-                    </label>
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Limite du pont diviseur (SeuilPontDiv)</span>
-                        <input type="number" data-parameter="SeuilPontDiv" data-parameter-gpio="103" id="SeuilPontDiv" min="0" value="{{ params.SeuilPontDiv|default('0') }}">
-                        <small class="save-indicator" data-save-indicator data-parameter="SeuilPontDiv" data-state="idle"></small>
-                    </label>
-                </div>
-            </div>
+                </footer>
+            </article>
+            {% endfor %}
             {% if reset_output is defined and reset_output is not null %}
-            <div class="control-cards-grid" style="margin-top: 1rem;">
-                <article class="action-card warning" data-state="{{ reset_output.state }}" data-gpio="110">
-                    <header>
-                        <div class="action-icon"><i class="fas fa-arrows-rotate"></i></div>
-                        <div>
-                            <h3>Reset ESP</h3>
-                        </div>
-                    </header>
-                    <p class="action-description">Redémarre le microcontrôleur. À utiliser en dernier recours.</p>
-                    <footer>
-                        <span data-state-label>{{ reset_output.state == '1' ? 'Activé' : 'Désactivé' }}</span>
-                        <label class="modern-switch" title="Reset ESP">
-                            <input type="checkbox" onchange="updateOutput(this)" id="output-reset-esp" data-id="{{ reset_output.id }}" data-gpio="110" {{ reset_output.state == '1' ? 'checked' : '' }} role="switch" aria-label="Reset ESP">
-                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                        </label>
-                    </footer>
-                </article>
-            </div>
+            <article class="action-card warning" data-state="{{ reset_output.state }}" data-gpio="110">
+                <header>
+                    <div class="action-icon"><i class="fas fa-arrows-rotate"></i></div>
+                    <div><h3>Reset ESP</h3></div>
+                </header>
+                <p class="action-description">Redémarre le microcontrôleur. À utiliser en dernier recours.</p>
+                <footer>
+                    <span data-state-label>{{ reset_output.state == '1' ? 'Activé' : 'Désactivé' }}</span>
+                    <label class="modern-switch" title="Reset ESP">
+                        <input type="checkbox" onchange="updateOutput(this)" id="output-reset-esp" data-id="{{ reset_output.id }}" data-gpio="110" {{ reset_output.state == '1' ? 'checked' : '' }} role="switch" aria-label="Reset ESP">
+                        <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                    </label>
+                </footer>
+            </article>
             {% endif %}
         </div>
+
+        <h2><i class="fas fa-cog"></i> Paramètres</h2>
+        <div class="parameters-panel">
+            <h3><i class="fas fa-seedling"></i> Arrosage</h3>
+            <div class="parameters-grid">
+                <label class="parameter-item" data-parameter-wrapper>
+                    <span>Limite de sécheresse (SeuilSec)</span>
+                    <input type="number" data-parameter="SeuilSec" data-parameter-gpio="102" id="SeuilSec" min="0" value="{{ params.SeuilSec|default('0') }}">
+                    <small class="save-indicator" data-save-indicator data-parameter="SeuilSec" data-state="idle"></small>
+                </label>
+                <label class="parameter-item" data-parameter-wrapper>
+                    <span>Heure arrosage</span>
+                    <input type="number" data-parameter="HeureArrosage" data-parameter-gpio="104" id="HeureArrosage" min="0" value="{{ params.HeureArrosage|default('0') }}">
+                    <small class="save-indicator" data-save-indicator data-parameter="HeureArrosage" data-state="idle"></small>
+                </label>
+                <label class="parameter-item" data-parameter-wrapper>
+                    <span>Temps arrosage (en ms)</span>
+                    <input type="number" data-parameter="tempsArrosage" data-parameter-gpio="105" id="tempsArrosage" min="0" value="{{ params.tempsArrosage|default('0') }}">
+                    <small class="save-indicator" data-save-indicator data-parameter="tempsArrosage" data-state="idle"></small>
+                </label>
+            </div>
+
+            <h3><i class="fas fa-envelope"></i> Notification</h3>
+            <div class="parameters-grid">
+                <label class="parameter-item" data-parameter-wrapper>
+                    <span>Mail</span>
+                    <input type="text" data-parameter="mail" data-parameter-gpio="100" id="mail" value="{{ params.mail|default('')|e('html_attr') }}" placeholder="email@exemple.com">
+                    <small class="save-indicator" data-save-indicator data-parameter="mail" data-state="idle"></small>
+                </label>
+                <label class="parameter-item parameter-item-switch">
+                    <span>Notification par mail</span>
+                    <label class="modern-switch" title="Activer/désactiver les notifications par mail">
+                        <input type="checkbox" data-parameter-gpio="101" id="mailNotif" {{ params.mailNotif|default('') == 'checked' ? 'checked' : '' }} role="switch" aria-label="Notification par mail" onchange="saveParamSwitch('mailNotif', this.checked, 'checked', 'false')">
+                        <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                    </label>
+                    <span class="parameter-item-hint" id="mailNotif-hint">{{ params.mailNotif|default('') == 'checked' ? 'Activé' : 'Désactivé' }}</span>
+                </label>
+            </div>
+
+            <h3><i class="fas fa-bolt"></i> Énergie</h3>
+            <div class="parameters-grid">
+                <label class="parameter-item parameter-item-switch">
+                    <span>Éco d'énergie (WakeUp)</span>
+                    <label class="modern-switch" title="Activer/désactiver l'éco d'énergie">
+                        <input type="checkbox" data-parameter-gpio="106" id="WakeUp" {{ params.WakeUp|default('0') == '1' ? 'checked' : '' }} role="switch" aria-label="Éco d'énergie (WakeUp)" onchange="saveParamSwitch('WakeUp', this.checked, '1', '0')">
+                        <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                    </label>
+                    <span class="parameter-item-hint" id="WakeUp-hint">{{ params.WakeUp|default('0') == '1' ? 'Activé' : 'Désactivé' }}</span>
+                </label>
+                <label class="parameter-item" data-parameter-wrapper>
+                    <span>Fréquence d'éveil (FreqWakeUp)</span>
+                    <input type="number" data-parameter="FreqWakeUp" data-parameter-gpio="107" id="FreqWakeUp" min="0" value="{{ params.FreqWakeUp|default('0') }}">
+                    <small class="save-indicator" data-save-indicator data-parameter="FreqWakeUp" data-state="idle"></small>
+                </label>
+                <label class="parameter-item" data-parameter-wrapper>
+                    <span>Limite du pont diviseur (SeuilPontDiv)</span>
+                    <input type="number" data-parameter="SeuilPontDiv" data-parameter-gpio="103" id="SeuilPontDiv" min="0" value="{{ params.SeuilPontDiv|default('0') }}">
+                    <small class="save-indicator" data-save-indicator data-parameter="SeuilPontDiv" data-state="idle"></small>
+                </label>
+            </div>
+        </div>
     </section>
-    </div>
 {% endblock %}
 
 {% block quick_actions_links %}

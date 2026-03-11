@@ -141,7 +141,10 @@ class ControlSync {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
             
-            const states = await response.json();
+            const raw = await response.json();
+            // Normaliser le format : API MSP1/N3PP retourne { timestamp, outputs: [...] }
+            // alors que processStates/onStatesReceived attendent { gpio: state, ... }
+            const states = this._normalizeStateResponse(raw);
             
             // Traiter les changements d'état
             this.processStates(states);
@@ -162,6 +165,31 @@ class ControlSync {
         } catch (error) {
             this.handleError(error);
         }
+    }
+    
+    /**
+     * Normalise la réponse API : convertit { outputs: [...] } (MSP1/N3PP) en { gpio: state }.
+     * Conserve le format plat si déjà conforme (FFP3).
+     *
+     * @param {Object} raw - Réponse brute de l'API
+     * @returns {Object} Objet { gpio: state, ... } pour processStates / onStatesReceived
+     */
+    _normalizeStateResponse(raw) {
+        if (Array.isArray(raw.outputs)) {
+            const result = {};
+            raw.outputs.forEach(o => {
+                const gpio = parseInt(o.gpio, 10);
+                if (!isNaN(gpio)) {
+                    result[String(gpio)] = o.state ?? '';
+                }
+            });
+            if (raw.dataStates && typeof raw.dataStates === 'object') {
+                result.dataStates = raw.dataStates;
+                result.dataStatesReadingTime = raw.dataStatesReadingTime;
+            }
+            return result;
+        }
+        return raw;
     }
     
     /**

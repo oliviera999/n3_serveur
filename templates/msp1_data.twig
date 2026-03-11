@@ -72,13 +72,6 @@
                 </div>
                 <div class="alt-chart-column">
                     <div id="chart-lights" style="min-height:350px;"></div>
-                    <div class="chart-legend-items">
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#f39c12"></span> Moy.</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#e67e22"></span> A</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#d35400"></span> B</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#f1c40f"></span> C</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#e74c3c"></span> D</span>
-                    </div>
                 </div>
             </div>
 
@@ -114,12 +107,6 @@
                 </div>
                 <div class="alt-chart-column">
                     <div id="chart-niveauxeaux" style="min-height:350px;"></div>
-                    <div class="chart-legend-items">
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#27ae60"></span> Humid. sol</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#9b59b6"></span> Pluie</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#008B74"></span> Temp. eau</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#bdc3c7"></span> Reset</span>
-                    </div>
                 </div>
             </div>
 
@@ -161,12 +148,6 @@
                 </div>
                 <div class="alt-chart-column">
                     <div id="chart-temperatures" style="min-height:350px;"></div>
-                    <div class="chart-legend-items">
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#e74c3c"></span> Temp. int.</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#c0392b"></span> Temp. ext.</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#3498db"></span> Humid. int.</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#2980b9"></span> Humid. ext.</span>
-                    </div>
                 </div>
             </div>
 
@@ -208,12 +189,6 @@
                 </div>
                 <div class="alt-chart-column">
                     <div id="chart-cycles" style="min-height:300px;"></div>
-                    <div class="chart-legend-items">
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#2c3e50"></span> bootCount</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#e74c3c"></span> PontDiv</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#3498db"></span> ServoHB</span>
-                        <span class="chart-legend-item"><span class="chart-legend-swatch" style="background-color:#f39c12"></span> ServoGD</span>
-                    </div>
                 </div>
             </div>
 
@@ -352,6 +327,7 @@
             { name: 'Humid. int.', data: zipSeries(reading_time, HumidAirInt), type: 'spline', color: '#3498db', yAxis: 1, tooltip: { valueSuffix: ' %' }},
             { name: 'Humid. ext.', data: zipSeries(reading_time, HumidAirExt), type: 'spline', color: '#2980b9', yAxis: 1, tooltip: { valueSuffix: ' %' }}
         ],
+        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
         chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
@@ -366,6 +342,7 @@
             { name: 'C', data: zipSeries(reading_time, LuminositeC), type: 'spline', color: '#f1c40f', dashStyle: 'Dash' },
             { name: 'D', data: zipSeries(reading_time, LuminositeD), type: 'spline', color: '#e74c3c', dashStyle: 'Dash' }
         ],
+        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
         chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
@@ -383,6 +360,7 @@
             { name: 'Temp. eau', data: zipSeries(reading_time, TempEau), type: 'spline', color: '#008B74', yAxis: 1, tooltip: { valueSuffix: ' °C' }},
             { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7', yAxis: 0 }
         ],
+        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
         chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
@@ -400,6 +378,7 @@
             { name: 'ServoHB', data: zipSeries(reading_time, ServoHB), type: 'spline', color: '#3498db', yAxis: 0 },
             { name: 'ServoGD', data: zipSeries(reading_time, ServoGD), type: 'spline', color: '#f39c12', yAxis: 0 }
         ],
+        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
         chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
