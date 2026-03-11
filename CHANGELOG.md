@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -72,6 +78,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -121,6 +133,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -172,6 +190,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -235,6 +259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -343,6 +373,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -536,6 +572,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -691,6 +733,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -1227,6 +1275,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -1751,6 +1805,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -2274,6 +2334,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -2797,6 +2863,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -3329,6 +3401,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -3854,6 +3932,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -4379,6 +4463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -4905,6 +4995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -5430,6 +5526,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -5957,6 +6059,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -6482,6 +6590,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -7007,6 +7121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -7532,6 +7652,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -8058,6 +8184,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -8581,6 +8713,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -9109,6 +9247,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -9632,6 +9776,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -10158,6 +10308,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -10682,6 +10838,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -11208,6 +11370,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -11734,6 +11902,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -12259,6 +12433,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -12786,6 +12966,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -13310,6 +13496,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -13835,6 +14027,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -14361,6 +14559,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -14887,6 +15091,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -15411,6 +15621,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -15936,6 +16152,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -16463,6 +16685,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -16989,6 +17217,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -17514,6 +17748,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -18039,6 +18279,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -18564,6 +18810,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -19089,6 +19341,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -19613,6 +19871,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -20137,6 +20401,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -20661,6 +20931,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -21185,6 +21461,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -21710,6 +21992,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -22239,6 +22527,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -22768,6 +23062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -23290,6 +23590,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -23812,6 +24118,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -24334,6 +24646,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -24856,6 +25174,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -25378,6 +25702,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -25900,6 +26230,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -26439,6 +26775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -26968,6 +27310,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -27495,6 +27843,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -28023,6 +28377,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -28555,6 +28915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -29099,6 +29465,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -29625,6 +29997,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -30153,6 +30531,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -30681,6 +31065,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -31206,6 +31596,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -31734,6 +32130,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -32259,6 +32661,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -32783,6 +33191,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -33308,6 +33722,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -33843,6 +34263,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -34375,6 +34801,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -34915,6 +35347,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -35459,6 +35897,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -35993,6 +36437,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -36519,6 +36969,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -37047,6 +37503,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -37574,6 +38036,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -38101,6 +38569,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -38626,6 +39100,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -39151,6 +39631,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -39678,6 +40164,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -40204,6 +40696,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -40732,6 +41230,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -41265,6 +41769,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -41802,6 +42312,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -42335,6 +42851,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -42870,6 +43392,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -43404,6 +43932,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -43933,6 +44467,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -44458,6 +44998,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -44987,6 +45533,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -45513,6 +46065,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -46038,6 +46596,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -46563,6 +47127,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -47090,6 +47660,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -47617,6 +48193,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -48143,6 +48725,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -48669,6 +49257,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -49194,6 +49788,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -49719,6 +50319,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -50244,6 +50850,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -50771,6 +51383,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -51298,6 +51916,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -51823,6 +52447,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -52348,6 +52978,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -52873,6 +53509,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -53399,6 +54041,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -53927,6 +54575,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -54462,6 +55116,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -54991,6 +55651,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -55527,6 +56193,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -56061,6 +56733,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -56586,6 +57264,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -57144,6 +57828,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -57673,6 +58363,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -58211,6 +58907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -58759,6 +59461,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -59297,6 +60005,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -59825,6 +60539,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -60354,6 +61074,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -60889,6 +61615,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -61534,6 +62266,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -62063,6 +62801,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -62590,6 +63334,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -63118,6 +63868,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -63647,6 +64403,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -64175,6 +64937,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -64705,6 +65473,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -65234,6 +66008,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -65885,6 +66665,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -66413,6 +67199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -66941,6 +67733,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -67517,6 +68315,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -68054,6 +68858,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -68591,6 +69401,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -69165,6 +69981,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -69750,6 +70572,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -70292,6 +71120,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -70835,6 +71669,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -71368,6 +72208,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -71907,6 +72753,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -72450,6 +73302,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -72991,6 +73849,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -73523,6 +74387,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -74067,6 +74937,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -74643,6 +75519,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -75174,6 +76056,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -75706,6 +76594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -76237,6 +77131,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -76773,6 +77673,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -77315,6 +78221,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -77855,6 +78767,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -78393,6 +79311,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -78926,6 +79850,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -79460,6 +80390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -80005,6 +80941,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -80549,6 +81491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -81096,6 +82044,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -81659,6 +82613,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -82252,6 +83212,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -82786,6 +83752,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -83319,6 +84291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -83862,6 +84840,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -84395,6 +85379,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -84932,6 +85922,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -85462,6 +86458,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -85994,6 +86996,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -86518,6 +87526,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -87082,6 +88096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -87618,6 +88638,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -88176,6 +89202,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -88716,6 +89748,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -89252,6 +90290,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -89794,6 +90838,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -90358,6 +91408,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -90907,6 +91963,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -91510,6 +92572,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -92050,6 +93118,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -92592,6 +93666,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -93145,6 +94225,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -93691,6 +94777,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -94224,6 +95316,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -94757,6 +95855,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -95292,6 +96396,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -95898,6 +97008,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -96452,6 +97568,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -97020,6 +98142,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -97576,6 +98704,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -98136,6 +99270,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -98664,6 +99804,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -99244,6 +100390,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -99788,6 +100940,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -100319,6 +101477,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -100900,6 +102064,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -101460,6 +102630,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -102053,6 +103229,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -102584,6 +103766,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -103174,6 +104362,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -103702,6 +104896,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -104229,6 +105429,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -104760,6 +105966,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -105291,6 +106503,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -105867,6 +107085,12 @@ docs/
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -106466,6 +107690,12 @@ docs/
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -106999,6 +108229,12 @@ docs/
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -107566,6 +108802,12 @@ docs/
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -108098,6 +109340,12 @@ docs/
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -108652,6 +109900,12 @@ docs/
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -109182,6 +110436,12 @@ docs/
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -109901,6 +111161,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -110454,6 +111720,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -111034,6 +112306,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -111600,6 +112878,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -112152,6 +113436,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -112711,6 +114001,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -113262,6 +114558,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -113802,6 +115104,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -114334,6 +115642,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -114882,6 +116196,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -115414,6 +116734,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -115946,6 +117272,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -116480,6 +117812,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -117032,6 +118370,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
@@ -117558,6 +118902,12 @@ ance future
 
 ---
 
+## [5.0.124] - 2026-03-11
+
+### Correctif - correctif bouton toggle dark mode (délégation événement)
+- **Résumé** : correctif bouton toggle dark mode (délégation événement).
+
+---
 ## [5.0.123] - 2026-03-11
 
 ### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
