@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -102,6 +108,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -175,6 +187,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -250,6 +268,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -337,6 +361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -469,6 +499,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -686,6 +722,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -865,6 +907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -1425,6 +1473,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -1973,6 +2027,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -2520,6 +2580,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -3067,6 +3133,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -3623,6 +3695,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -4172,6 +4250,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -4721,6 +4805,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -5271,6 +5361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -5820,6 +5916,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -6371,6 +6473,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -6920,6 +7028,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -7469,6 +7583,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -8018,6 +8138,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -8568,6 +8694,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -9115,6 +9247,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -9667,6 +9805,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -10214,6 +10358,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -10764,6 +10914,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -11312,6 +11468,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -11862,6 +12024,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -12412,6 +12580,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -12961,6 +13135,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -13512,6 +13692,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -14060,6 +14246,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -14609,6 +14801,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -15159,6 +15357,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -15709,6 +15913,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -16257,6 +16467,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -16806,6 +17022,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -17357,6 +17579,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -17907,6 +18135,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -18456,6 +18690,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -19005,6 +19245,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -19554,6 +19800,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -20103,6 +20355,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -20651,6 +20909,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -21199,6 +21463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -21747,6 +22017,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -22295,6 +22571,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -22844,6 +23126,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -23397,6 +23685,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -23950,6 +24244,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -24496,6 +24796,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -25042,6 +25348,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -25588,6 +25900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -26134,6 +26452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -26680,6 +27004,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -27226,6 +27556,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -27789,6 +28125,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -28342,6 +28684,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -28893,6 +29241,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -29445,6 +29799,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -30001,6 +30361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -30569,6 +30935,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -31119,6 +31491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -31671,6 +32049,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -32223,6 +32607,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -32772,6 +33162,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -33324,6 +33720,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -33873,6 +34275,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -34421,6 +34829,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -34970,6 +35384,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -35529,6 +35949,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -36085,6 +36511,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -36649,6 +37081,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -37217,6 +37655,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -37775,6 +38219,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -38325,6 +38775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -38877,6 +39333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -39428,6 +39890,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -39979,6 +40447,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -40528,6 +41002,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -41077,6 +41557,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -41628,6 +42114,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -42178,6 +42670,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -42730,6 +43228,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -43287,6 +43791,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -43848,6 +44358,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -44405,6 +44921,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -44964,6 +45486,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -45522,6 +46050,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -46075,6 +46609,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -46624,6 +47164,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -47177,6 +47723,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -47727,6 +48279,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -48276,6 +48834,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -48825,6 +49389,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -49376,6 +49946,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -49927,6 +50503,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -50477,6 +51059,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -51027,6 +51615,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -51576,6 +52170,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -52125,6 +52725,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -52674,6 +53280,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -53225,6 +53837,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -53776,6 +54394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -54325,6 +54949,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -54874,6 +55504,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -55423,6 +56059,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -55973,6 +56615,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -56525,6 +57173,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -57084,6 +57738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -57637,6 +58297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -58197,6 +58863,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -58755,6 +59427,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -59304,6 +59982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -59886,6 +60570,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -60439,6 +61129,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -61001,6 +61697,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -61573,6 +62275,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -62135,6 +62843,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -62687,6 +63401,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -63240,6 +63960,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -63799,6 +64525,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -64468,6 +65200,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -65021,6 +65759,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -65572,6 +66316,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -66124,6 +66874,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -66677,6 +67433,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -67229,6 +67991,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -67783,6 +68551,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -68336,6 +69110,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -69011,6 +69791,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -69563,6 +70349,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -70115,6 +70907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -70715,6 +71513,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -71276,6 +72080,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -71837,6 +72647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -72435,6 +73251,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -73044,6 +73866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -73610,6 +74438,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -74177,6 +75011,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -74734,6 +75574,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -75297,6 +76143,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -75864,6 +76716,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -76429,6 +77287,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -76985,6 +77849,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -77553,6 +78423,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -78153,6 +79029,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -78708,6 +79590,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -79264,6 +80152,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -79819,6 +80713,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -80379,6 +81279,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -80945,6 +81851,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -81509,6 +82421,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -82071,6 +82989,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -82628,6 +83552,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -83186,6 +84116,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -83755,6 +84691,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -84323,6 +85265,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -84894,6 +85842,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -85481,6 +86435,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -86098,6 +87058,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -86656,6 +87622,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -87213,6 +88185,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -87780,6 +88758,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -88337,6 +89321,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -88898,6 +89888,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -89452,6 +90448,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -90008,6 +91010,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -90556,6 +91564,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -91144,6 +92158,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -91704,6 +92724,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -92286,6 +93312,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -92850,6 +93882,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -93410,6 +94448,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -93976,6 +95020,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -94564,6 +95614,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -95137,6 +96193,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -95764,6 +96826,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -96328,6 +97396,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -96894,6 +97968,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -97471,6 +98551,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -98041,6 +99127,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -98598,6 +99690,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -99155,6 +100253,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -99714,6 +100818,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -100344,6 +101454,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -100922,6 +102038,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -101514,6 +102636,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -102094,6 +103222,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -102678,6 +103812,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -103230,6 +104370,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -103834,6 +104980,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -104402,6 +105554,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -104957,6 +106115,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -105562,6 +106726,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -106146,6 +107316,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -106763,6 +107939,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -107318,6 +108500,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -107932,6 +109120,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -108484,6 +109678,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -109035,6 +110235,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -109590,6 +110796,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -110145,6 +111357,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -110745,6 +111963,12 @@ docs/
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -111368,6 +112592,12 @@ docs/
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -111925,6 +113155,12 @@ docs/
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -112516,6 +113752,12 @@ docs/
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -113072,6 +114314,12 @@ docs/
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -113650,6 +114898,12 @@ docs/
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -114204,6 +115458,12 @@ docs/
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -114947,6 +116207,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -115524,6 +116790,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -116128,6 +117400,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -116718,6 +117996,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -117294,6 +118578,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -117877,6 +119167,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -118452,6 +119748,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -119016,6 +120318,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -119572,6 +120880,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -120144,6 +121458,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -120700,6 +122020,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -121256,6 +122582,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -121814,6 +123146,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -122390,6 +123728,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
@@ -122940,6 +124284,12 @@ ance future
 
 ---
 
+## [5.0.129] - 2026-03-11
+
+### Modifié - badge LIVE en haut à droite, menu dépliant sur toutes les pages
+- **Résumé** : badge LIVE en haut à droite, menu dépliant sur toutes les pages.
+
+---
 ## [5.0.128] - 2026-03-11
 
 ### Ajout - bloc Images et vidéos page d'accueil
