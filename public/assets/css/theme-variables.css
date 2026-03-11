@@ -12,10 +12,10 @@
     --bg-secondary: #f8f9fa;
     --bg-input: #ffffff;
     
-    /* Texte */
+    /* Texte (WCAG AA : contrast ratio ≥ 4,5:1 sur fond clair) */
     --text-primary: #2c3e50;
-    --text-secondary: #7f8c8d;
-    --text-muted: #95a5a6;
+    --text-secondary: #6b7280;
+    --text-muted: #6b7280;
     --text-inverse: #ffffff;
     
     /* Accents */
@@ -36,8 +36,8 @@
     --border-color: #e0e0e0;
     --border-light: #f0f0f0;
     
-    /* Footer */
-    --footer-color: #999999;
+    /* Footer (WCAG AA) */
+    --footer-color: #6b7280;
     
     /* Page background (realtime) */
     --page-bg-color: #e8f4f2;

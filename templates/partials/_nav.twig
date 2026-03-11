@@ -6,8 +6,8 @@
         <li class="{{ nav_active == 'aquaponie' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'aquaponie-test' : (environment == 'test3' ? 'aquamobile-test' : (environment == 's3' ? 'aquamobile' : 'aquaponie')) }}">Aquaponie</a></li>
         <li class="{{ nav_active == 'control_ffp3' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'aquaponie-control-test' : (environment == 'test3' ? 'aquamobile-control-test' : (environment == 's3' ? 'aquamobile-control' : 'aquaponie-control')) }}">Contrôle</a></li>
         <li class="{{ nav_active == 'tide_stats' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'tide-stats-test' : (environment == 'test3' ? 'tide-stats3-test' : (environment == 's3' ? 'tide-stats3' : 'tide-stats')) }}">Statistiques marées</a></li>
-        <li class="{{ nav_active == 'potager' or nav_active == 'potager_control' ? 'active' }}"><a href="{{ bp }}/meteo">Potager (MSP1)</a></li>
-        <li class="{{ nav_active == 'elevage' or nav_active == 'elevage_control' ? 'active' }}"><a href="{{ bp }}/serre">Élevage (N3PP)</a></li>
+        <li class="{{ nav_active == 'potager' or nav_active == 'potager_control' ? 'active' }}"><a href="{{ bp }}/meteo" title="Potager connecté — Station météo (MSP1)">Potager (MSP1)</a></li>
+        <li class="{{ nav_active == 'elevage' or nav_active == 'elevage_control' ? 'active' }}"><a href="{{ bp }}/serre" title="Élevage d'insectes — Serre connectée (N3PP)">Élevage (N3PP)</a></li>
         <li class="nav-theme-toggle">
             <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Basculer le mode sombre" title="Mode sombre / clair">
                 <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>

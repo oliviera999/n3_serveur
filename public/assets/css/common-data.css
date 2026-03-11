@@ -38,11 +38,11 @@
     box-shadow: 0 6px 18px rgba(0,139,116,0.15);
 }
 
-.stat-card-icon { font-size: 1.5em; margin-bottom: 6px; color: #7f8c8d; }
-.stat-card-label { font-size: 0.82em; color: #7f8c8d; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+.stat-card-icon { font-size: 1.5em; margin-bottom: 6px; color: var(--text-secondary, #6b7280); }
+.stat-card-label { font-size: 0.9em; color: var(--text-secondary, #6b7280); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
 .stat-card-value { font-size: 1.6em; font-weight: 700; color: #2c3e50; }
-.stat-card-unit { font-size: 0.55em; font-weight: 500; color: #7f8c8d; }
-.stat-card-secondary { font-size: 0.78em; color: #95a5a6; margin-top: 6px; }
+.stat-card-unit { font-size: 0.55em; font-weight: 500; color: var(--text-secondary, #6b7280); }
+.stat-card-secondary { font-size: 0.78em; color: var(--text-muted, #6b7280); margin-top: 6px; }
 
 /* Variantes couleur */
 .stat-card.temp { border-left-color: #e74c3c; }
@@ -63,8 +63,8 @@
 .stat-card.pump { border-left-color: #008B74; background: linear-gradient(180deg, #fff 0%, #f0faf8 100%); }
 .stat-card.pump .stat-card-icon { color: #008B74; }
 
-.stat-card.system { border-left-color: #7f8c8d; }
-.stat-card.system .stat-card-icon { color: #7f8c8d; }
+.stat-card.system { border-left-color: var(--text-secondary, #6b7280); }
+.stat-card.system .stat-card-icon { color: var(--text-secondary, #6b7280); }
 
 /* Barre de progression dans stat-card */
 .progress-bar-container {
@@ -104,7 +104,7 @@
     padding-top: 12px;
     border-top: 1px solid rgba(0,139,116,0.15);
     font-size: 0.82em;
-    color: #7f8c8d;
+    color: var(--text-secondary, #6b7280);
     line-height: 1.4;
 }
 
@@ -118,7 +118,7 @@
     gap: 12px 20px;
     align-items: center;
     font-size: 0.82em;
-    color: #7f8c8d;
+    color: var(--text-secondary, #6b7280);
     line-height: 1.4;
 }
 .chart-legend-item {
@@ -225,7 +225,7 @@
     gap: 1.5rem;
     margin-top: 10px;
     font-size: 0.88em;
-    color: #7f8c8d;
+    color: var(--text-secondary, #6b7280);
 }
 .period-info i { color: #008B74; margin-right: 4px; }
 
@@ -261,7 +261,7 @@
 .no-data {
     text-align: center;
     padding: 3rem 1rem;
-    color: #999;
+    color: var(--footer-color, #6b7280);
     font-size: 0.95em;
 }
 
@@ -320,7 +320,7 @@
 .alt-data-chart-row .alt-stats-column .stat-card { padding: 8px 10px; }
 .alt-data-chart-row .alt-stats-column .stat-card-icon { font-size: 1.4em; margin-bottom: 4px; }
 .alt-data-chart-row .alt-stats-column .stat-card-value { font-size: 1.15em; }
-.alt-data-chart-row .alt-stats-column .stat-card-label { font-size: 0.72em; }
+.alt-data-chart-row .alt-stats-column .stat-card-label { font-size: 0.82em; }
 .alt-data-chart-row .alt-stats-column .stat-card .progress-bar-container { margin: 3px 0; height: 6px; }
 .alt-data-chart-row .alt-stats-column .stat-card-secondary { font-size: 0.7em; margin-top: 2px; color: #6c757d; }
 .alt-chart-column {

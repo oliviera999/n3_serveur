@@ -274,7 +274,7 @@ body.is-preload #wrapper.fade-in::before {
 .toast-close {
     background: none;
     border: none;
-    color: #999;
+    color: var(--footer-color, #6b7280);
     cursor: pointer;
     font-size: 18px;
     padding: 0;
@@ -659,7 +659,7 @@ body.is-preload #wrapper.fade-in::before {
 
 .log-entry .log-time {
     font-family: 'Fira Mono', Consolas, monospace;
-    color: #7f8c8d;
+    color: var(--text-secondary, #6b7280);
     font-size: 0.8em;
 }
 
@@ -703,7 +703,7 @@ body.is-preload #wrapper.fade-in::before {
 }
 
 .log-entry.log-status {
-    border-left: 3px solid #7f8c8d;
+    border-left: 3px solid var(--text-secondary, #6b7280);
     font-style: italic;
 }
 
@@ -729,7 +729,7 @@ body.is-preload #wrapper.fade-in::before {
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.02em;
-    color: #7f8c8d;
+    color: var(--text-secondary, #6b7280);
     opacity: 0;
     transform: translateY(-4px);
     transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
