@@ -7,6 +7,18 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
+## [5.0.127] - 2026-03-11
+
+### Ajout - bloc Images et vidéos sur la page d'accueil
+- **Résumé** : nouveau bloc « Images et vidéos » sur la page d'accueil, regroupant tous les boutons des galeries photo (aquaponie, potager, élevage).
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -90,6 +102,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -157,6 +175,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -226,6 +250,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -307,6 +337,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -433,6 +469,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -644,6 +686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -817,6 +865,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -1371,6 +1425,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -1913,6 +1973,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -2454,6 +2520,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -2995,6 +3067,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -3545,6 +3623,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -4088,6 +4172,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -4631,6 +4721,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -5175,6 +5271,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -5718,6 +5820,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -6263,6 +6371,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -6806,6 +6920,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -7349,6 +7469,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -7892,6 +8018,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -8436,6 +8568,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -8977,6 +9115,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -9523,6 +9667,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -10064,6 +10214,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -10608,6 +10764,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -11150,6 +11312,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -11694,6 +11862,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -12238,6 +12412,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -12781,6 +12961,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -13326,6 +13512,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -13868,6 +14060,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -14411,6 +14609,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -14955,6 +15159,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -15499,6 +15709,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -16041,6 +16257,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -16584,6 +16806,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -17129,6 +17357,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -17673,6 +17907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -18216,6 +18456,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -18759,6 +19005,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -19302,6 +19554,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -19845,6 +20103,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -20387,6 +20651,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -20929,6 +21199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -21471,6 +21747,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -22013,6 +22295,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -22556,6 +22844,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -23103,6 +23397,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -23650,6 +23950,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -24190,6 +24496,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -24730,6 +25042,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -25270,6 +25588,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -25810,6 +26134,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -26350,6 +26680,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -26890,6 +27226,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -27447,6 +27789,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -27994,6 +28342,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -28539,6 +28893,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -29085,6 +29445,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -29635,6 +30001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -30197,6 +30569,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -30741,6 +31119,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -31287,6 +31671,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -31833,6 +32223,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -32376,6 +32772,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -32922,6 +33324,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -33465,6 +33873,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -34007,6 +34421,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -34550,6 +34970,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -35103,6 +35529,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -35653,6 +36085,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -36211,6 +36649,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -36773,6 +37217,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -37325,6 +37775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -37869,6 +38325,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -38415,6 +38877,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -38960,6 +39428,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -39505,6 +39979,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -40048,6 +40528,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -40591,6 +41077,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -41136,6 +41628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -41680,6 +42178,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -42226,6 +42730,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -42777,6 +43287,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -43332,6 +43848,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -43883,6 +44405,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -44436,6 +44964,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -44988,6 +45522,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -45535,6 +46075,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -46078,6 +46624,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -46625,6 +47177,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -47169,6 +47727,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -47712,6 +48276,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -48255,6 +48825,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -48800,6 +49376,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -49345,6 +49927,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -49889,6 +50477,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -50433,6 +51027,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -50976,6 +51576,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -51519,6 +52125,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -52062,6 +52674,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -52607,6 +53225,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -53152,6 +53776,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -53695,6 +54325,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -54238,6 +54874,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -54781,6 +55423,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -55325,6 +55973,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -55871,6 +56525,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -56424,6 +57084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -56971,6 +57637,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -57525,6 +58197,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -58077,6 +58755,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -58620,6 +59304,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -59196,6 +59886,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -59743,6 +60439,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -60299,6 +61001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -60865,6 +61573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -61421,6 +62135,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -61967,6 +62687,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -62514,6 +63240,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -63067,6 +63799,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -63730,6 +64468,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -64277,6 +65021,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -64822,6 +65572,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -65368,6 +66124,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -65915,6 +66677,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -66461,6 +67229,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -67009,6 +67783,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -67556,6 +68336,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -68225,6 +69011,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -68771,6 +69563,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -69317,6 +70115,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -69911,6 +70715,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -70466,6 +71276,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -71021,6 +71837,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -71613,6 +72435,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -72216,6 +73044,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -72776,6 +73610,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -73337,6 +74177,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -73888,6 +74734,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -74445,6 +75297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -75006,6 +75864,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -75565,6 +76429,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -76115,6 +76985,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -76677,6 +77553,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -77271,6 +78153,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -77820,6 +78708,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -78370,6 +79264,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -78919,6 +79819,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -79473,6 +80379,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -80033,6 +80945,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -80591,6 +81509,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -81147,6 +82071,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -81698,6 +82628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -82250,6 +83186,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -82813,6 +83755,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -83375,6 +84323,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -83940,6 +84894,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -84521,6 +85481,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -85132,6 +86098,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -85684,6 +86656,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -86235,6 +87213,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -86796,6 +87780,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -87347,6 +88337,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -87902,6 +88898,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -88450,6 +89452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -89000,6 +90008,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -89542,6 +90556,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -90124,6 +91144,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -90678,6 +91704,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -91254,6 +92286,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -91812,6 +92850,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -92366,6 +93410,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -92926,6 +93976,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -93508,6 +94564,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -94075,6 +95137,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -94696,6 +95764,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -95254,6 +96328,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -95814,6 +96894,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -96385,6 +97471,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -96949,6 +98041,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -97500,6 +98598,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -98051,6 +99155,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -98604,6 +99714,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -99228,6 +100344,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -99800,6 +100922,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -100386,6 +101514,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -100960,6 +102094,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -101538,6 +102678,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -102084,6 +103230,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -102682,6 +103834,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -103244,6 +104402,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -103793,6 +104957,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -104392,6 +105562,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -104970,6 +106146,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -105581,6 +106763,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -106130,6 +107318,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -106738,6 +107932,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -107284,6 +108484,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -107829,6 +109035,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -108378,6 +109590,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -108927,6 +110145,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -109521,6 +110745,12 @@ docs/
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -110138,6 +111368,12 @@ docs/
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -110689,6 +111925,12 @@ docs/
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -111274,6 +112516,12 @@ docs/
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -111824,6 +113072,12 @@ docs/
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -112396,6 +113650,12 @@ docs/
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -112944,6 +114204,12 @@ docs/
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -113681,6 +114947,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -114252,6 +115524,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -114850,6 +116128,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -115434,6 +116718,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -116004,6 +117294,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -116581,6 +117877,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -117150,6 +118452,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -117708,6 +119016,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -118258,6 +119572,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -118824,6 +120144,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -119374,6 +120700,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -119924,6 +121256,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -120476,6 +121814,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -121046,6 +122390,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
@@ -121590,6 +122940,12 @@ ance future
 
 ---
 
+## [5.0.128] - 2026-03-11
+
+### Ajout - bloc Images et vidéos page d'accueil
+- **Résumé** : bloc Images et vidéos page d'accueil.
+
+---
 ## [5.0.126] - 2026-03-11
 
 ### Modifié - légendes Highcharts cliquables sur MSP et N3PP (masquer/afficher les courbes comme aquaponie)
