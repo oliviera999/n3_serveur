@@ -1,0 +1,162 @@
+/* =================================================================
+   theme-variables.css — Variables sémantiques light/dark pour iot.olution.info
+   Dark mode : [data-theme="dark"]
+   ================================================================= */
+
+:root {
+    /* Fond et surfaces */
+    --bg-page: #e8f4f2;
+    --bg-main: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f8fffe;
+    --bg-secondary: #f8f9fa;
+    --bg-input: #ffffff;
+    
+    /* Texte */
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --text-muted: #95a5a6;
+    --text-inverse: #ffffff;
+    
+    /* Accents */
+    --accent-primary: #008B74;
+    --accent-primary-hover: #00A896;
+    --accent-secondary: #FF6300;
+    --accent-muted: rgba(0, 139, 116, 0.15);
+    --accent-border: rgba(0, 139, 116, 0.2);
+    
+    /* Header et nav (main.css) */
+    --header-nav-bg: #1e252d;
+    --header-nav-text: #ffffff;
+    --header-nav-active-bg: #ffffff;
+    --header-nav-active-text: #1e252d;
+    --header-nav-hover: #00B794;
+    
+    /* Bordures */
+    --border-color: #e0e0e0;
+    --border-light: #f0f0f0;
+    
+    /* Footer */
+    --footer-color: #999999;
+    
+    /* Page background (realtime) */
+    --page-bg-color: #e8f4f2;
+    --page-bg-overlay: transparent;
+    
+    /* Wrapper contrôle */
+    --wrapper-control-bg: linear-gradient(180deg, rgba(248, 250, 252, 0.35) 0%, rgba(238, 242, 246, 0.4) 100%);
+    
+    /* Chart container */
+    --chart-bg: rgba(255, 255, 255, 0.95);
+    --chart-border: rgba(0, 139, 116, 0.15);
+    
+    /* Toast */
+    --toast-bg: #2c3e50;
+    --toast-text: #ecf0f1;
+    
+    /* Control panel (control-styles) */
+    --control-bg: #f6f9fc;
+    --panel-bg: #ffffff;
+    --control-border: #e3e8ee;
+    --control-text: #1b2a4b;
+}
+
+/* -----------------------------------------------------------------
+   Dark mode
+----------------------------------------------------------------- */
+[data-theme="dark"] {
+    --bg-page: #0f172a;
+    --bg-main: #1e293b;
+    --bg-card: #1e293b;
+    --bg-card-hover: #334155;
+    --bg-secondary: #334155;
+    --bg-input: #334155;
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --text-inverse: #0f172a;
+    
+    --accent-primary: #2dd4bf;
+    --accent-primary-hover: #5eead4;
+    --accent-secondary: #fb923c;
+    --accent-muted: rgba(45, 212, 191, 0.2);
+    --accent-border: rgba(45, 212, 191, 0.35);
+    
+    --header-nav-bg: #0f172a;
+    --header-nav-text: #f1f5f9;
+    --header-nav-active-bg: #334155;
+    --header-nav-active-text: #2dd4bf;
+    --header-nav-hover: #2dd4bf;
+    
+    --border-color: #475569;
+    --border-light: #334155;
+    
+    --footer-color: #94a3b8;
+    
+    --page-bg-color: #0f172a;
+    --page-bg-overlay: linear-gradient(180deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+    
+    --wrapper-control-bg: linear-gradient(180deg, rgba(30, 41, 59, 0.85) 0%, rgba(51, 65, 85, 0.7) 100%);
+    
+    --chart-bg: rgba(30, 41, 59, 0.95);
+    --chart-border: rgba(45, 212, 191, 0.2);
+    
+    --toast-bg: #334155;
+    --toast-text: #f1f5f9;
+    
+    --control-bg: #0f172a;
+    --panel-bg: #1e293b;
+    --control-border: #475569;
+    --control-text: #f1f5f9;
+}
+
+/* -----------------------------------------------------------------
+   Bouton toggle thème (nav)
+----------------------------------------------------------------- */
+.theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    margin: 0.5rem 0.5rem 0 0;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: inherit;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--header-nav-hover, #00B794);
+}
+
+.theme-toggle-btn:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+.theme-toggle-btn .theme-icon-light {
+    display: none;
+}
+
+.theme-toggle-btn .theme-icon-dark {
+    display: inline-block;
+}
+
+[data-theme="dark"] .theme-toggle-btn .theme-icon-dark {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle-btn .theme-icon-light {
+    display: inline-block;
+}
+
+.nav-theme-toggle {
+    margin-left: auto;
+}
