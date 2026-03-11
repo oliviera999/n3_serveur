@@ -1,7 +1,5 @@
-@media (prefers-color-scheme: dark) {
-    .value-updated {
-        animation: glowValueDark 0.8s ease-in-out;
-    }
+[data-theme="dark"] .value-updated {
+    animation: glowValueDark 0.8s ease-in-out;
 }
 
 @keyframes glowValueDark {
@@ -141,7 +139,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #e8f4f2;
+    background-color: var(--page-bg-color, #e8f4f2);
     background-image: url('../bg-aquaponie.png');
     background-size: cover;
     background-position: center;
@@ -150,6 +148,11 @@ body {
     opacity: 0;
     animation: bgFadeIn 1.2s ease-out forwards !important;
     pointer-events: none;
+}
+
+[data-theme="dark"] #page-bg {
+    background-color: var(--page-bg-color);
+    background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.97) 100%), url('../bg-aquaponie.png');
 }
 @keyframes bgFadeIn {
     from { opacity: 0; }
@@ -164,7 +167,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #e8f4f2;
+    background-color: var(--page-bg-color, #e8f4f2);
     background-image: url('../bg-aquaponie.png');
     background-size: cover;
     background-position: center;
@@ -175,6 +178,11 @@ body::before {
 }
 body.is-preload::before {
     animation: bgFadeIn 1.2s ease-out forwards !important;
+}
+
+[data-theme="dark"] body::before {
+    background-color: var(--page-bg-color);
+    background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.97) 100%), url('../bg-aquaponie.png');
 }
 
 /* Wrapper semi-transparent pour laisser voir l'image de fond (fondu) sur les pages type controle */
@@ -192,7 +200,7 @@ body.is-preload #wrapper.fade-in::before {
 
 /* Overlay léger pour lisibilité du contenu, sans masquer la photo de fond */
 #wrapper.control-wrapper {
-    background: linear-gradient(180deg, rgba(248, 250, 252, 0.35) 0%, rgba(238, 242, 246, 0.4) 100%) !important;
+    background: var(--wrapper-control-bg, linear-gradient(180deg, rgba(248, 250, 252, 0.35) 0%, rgba(238, 242, 246, 0.4) 100%)) !important;
 }
 
 /**
@@ -798,40 +806,38 @@ body.is-preload #wrapper.fade-in::before {
 }
 
 /* =================================================================
-   MODE SOMBRE (POUR FUTURE IMPL├ëMENTATION)
+   MODE SOMBRE (data-theme="dark")
 ================================================================= */
-@media (prefers-color-scheme: dark) {
-    .toast {
-        background: #2c3e50;
-        color: #ecf0f1;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    }
-    
-    .toast-message {
-        color: #ecf0f1;
-    }
-    
-    .toast-close {
-        color: #bdc3c7;
-    }
-    
-    .toast-close:hover {
-        background: #34495e;
-        color: #ecf0f1;
-    }
-    
-    .system-health-panel {
-        background: #2c3e50;
-        color: #ecf0f1;
-    }
-    
-    .health-item {
-        background: #34495e;
-    }
-    
-    .health-item-value {
-        color: #ecf0f1;
-    }
+[data-theme="dark"] .toast {
+    background: var(--toast-bg);
+    color: var(--toast-text);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .toast-message {
+    color: var(--toast-text, #ecf0f1);
+}
+
+[data-theme="dark"] .toast-close {
+    color: #94a3b8;
+}
+
+[data-theme="dark"] .toast-close:hover {
+    background: #334155;
+    color: var(--toast-text);
+}
+
+[data-theme="dark"] .system-health-panel {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .health-item {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .health-item-value {
+    color: var(--text-primary);
 }
 
 /* =================================================================
@@ -847,11 +853,9 @@ body.is-preload #wrapper.fade-in::before {
     50% { box-shadow: 0 0 22px rgba(0, 139, 116, 0.45); }
 }
 
-@media (prefers-color-scheme: dark) {
-    .value-updated {
-        animation: glowValueDark 0.9s ease-in-out;
-        background: linear-gradient(90deg, rgba(0, 255, 200, 0.15), rgba(0, 255, 200, 0));
-    }
+[data-theme="dark"] .value-updated {
+    animation: glowValueDark 0.9s ease-in-out;
+    background: linear-gradient(90deg, rgba(0, 255, 200, 0.15), rgba(0, 255, 200, 0));
 }
 
 @keyframes glowValueDark {
@@ -1050,5 +1054,127 @@ body.is-preload #wrapper.fade-in::before {
     .live-toggle-switch input:checked + .live-toggle-slider:before {
         transform: translateX(18px);
     }
+}
+
+/* =================================================================
+   Surcharges main.css pour dark mode
+   (realtime-styles chargé après main.css)
+================================================================= */
+[data-theme="dark"] body {
+    background-color: var(--bg-page) !important;
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] body a {
+    color: var(--accent-primary) !important;
+    border-bottom-color: var(--accent-border);
+}
+
+[data-theme="dark"] body a:hover {
+    color: var(--accent-primary-hover) !important;
+}
+
+[data-theme="dark"] body strong,
+[data-theme="dark"] body b {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] body h1,
+[data-theme="dark"] body h2 {
+    color: var(--accent-secondary) !important;
+}
+
+[data-theme="dark"] body h3,
+[data-theme="dark"] body h4,
+[data-theme="dark"] body h5,
+[data-theme="dark"] body h6 {
+    color: var(--accent-primary) !important;
+}
+
+[data-theme="dark"] body input,
+[data-theme="dark"] body select,
+[data-theme="dark"] body textarea {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] body blockquote {
+    border-left-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] body code {
+    background: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] body hr {
+    border-bottom-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] #main {
+    background-color: var(--bg-main) !important;
+}
+
+[data-theme="dark"] #main > * {
+    border-top-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] #header,
+[data-theme="dark"] #nav {
+    color: var(--header-nav-text);
+    background: rgba(15, 23, 42, 0.95) !important;
+}
+
+[data-theme="dark"] #header a,
+[data-theme="dark"] #nav a {
+    color: var(--header-nav-text) !important;
+}
+
+[data-theme="dark"] #header a:hover,
+[data-theme="dark"] #nav a:hover {
+    color: var(--header-nav-hover) !important;
+}
+
+[data-theme="dark"] #nav ul.links li.active {
+    background-color: var(--header-nav-active-bg) !important;
+}
+
+[data-theme="dark"] #nav ul.links li.active a {
+    color: var(--header-nav-active-text) !important;
+}
+
+[data-theme="dark"] #header .logo {
+    border-color: var(--header-nav-text) !important;
+}
+
+[data-theme="dark"] #header .logo:hover {
+    border-color: var(--header-nav-hover) !important;
+    color: var(--header-nav-hover) !important;
+}
+
+[data-theme="dark"] #footer {
+    color: var(--footer-color) !important;
+}
+
+[data-theme="dark"] .live-controls-integrated {
+    border-top-color: var(--border-color);
+}
+
+[data-theme="dark"] .live-control-item {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .live-collapse-toggle {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .live-collapse-toggle:hover {
+    color: var(--accent-primary);
+}
+
+[data-theme="dark"] .live-stats-display i,
+[data-theme="dark"] .live-stats-value {
+    color: var(--accent-primary);
 }
 

@@ -1,11 +1,12 @@
 /**
  * Highcharts – configuration globale partagée (FFP3, MSP1, N3PP).
  * Chargé avant la création des graphiques dans les templates.
+ * Support dark mode : applique le thème selon data-theme sur html.
  */
 (function () {
     if (typeof Highcharts === 'undefined') return;
 
-    Highcharts.setOptions({
+    var baseOptions = {
         time: { useUTC: false },
         plotOptions: {
             series: {
@@ -25,9 +26,67 @@
             rangeSelectorFrom: 'Du',
             rangeSelectorTo: 'Au'
         },
-        chart: {
-            backgroundColor: 'transparent'
-        },
+        chart: { backgroundColor: 'transparent' },
         credits: { enabled: false }
-    });
+    };
+
+    var darkTheme = {
+        chart: { backgroundColor: 'transparent' },
+        colors: ['#2dd4bf', '#22d3ee', '#a78bfa', '#f472b6', '#fbbf24', '#34d399', '#60a5fa', '#fb923c'],
+        xAxis: {
+            gridLineColor: '#475569',
+            labels: { style: { color: '#94a3b8' } },
+            lineColor: '#475569',
+            tickColor: '#475569'
+        },
+        yAxis: {
+            gridLineColor: '#475569',
+            labels: { style: { color: '#94a3b8' } },
+            lineColor: '#475569',
+            tickColor: '#475569',
+            title: { style: { color: '#94a3b8' } }
+        },
+        legend: {
+            itemStyle: { color: '#94a3b8' },
+            itemHoverStyle: { color: '#f1f5f9' }
+        },
+        title: { style: { color: '#f1f5f9' } },
+        subtitle: { style: { color: '#94a3b8' } },
+        tooltip: {
+            backgroundColor: '#1e293b',
+            borderColor: '#475569',
+            style: { color: '#f1f5f9' }
+        },
+        rangeSelector: {
+            buttonTheme: {
+                fill: '#334155',
+                stroke: '#475569',
+                style: { color: '#94a3b8' },
+                states: {
+                    hover: { fill: '#475569', style: { color: '#2dd4bf' } },
+                    select: { fill: '#2dd4bf', style: { color: '#0f172a' } }
+                }
+            }
+        },
+        navigator: {
+            series: { lineColor: '#2dd4bf' },
+            xAxis: { gridLineColor: '#475569' }
+        }
+    };
+
+    function isDark() {
+        return document.documentElement.getAttribute('data-theme') === 'dark';
+    }
+
+    function applyTheme() {
+        var opts = baseOptions;
+        if (isDark()) {
+            opts = Object.assign({}, baseOptions, darkTheme);
+        }
+        Highcharts.setOptions(opts);
+    }
+
+    applyTheme();
+
+    window.n3HighchartsApplyTheme = applyTheme;
 })();

@@ -8,5 +8,19 @@
         <li class="{{ nav_active == 'tide_stats' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'tide-stats-test' : (environment == 'test3' ? 'tide-stats3-test' : (environment == 's3' ? 'tide-stats3' : 'tide-stats')) }}">Statistiques marées</a></li>
         <li class="{{ nav_active == 'potager' or nav_active == 'potager_control' ? 'active' }}"><a href="{{ bp }}/meteo">Potager (MSP1)</a></li>
         <li class="{{ nav_active == 'elevage' or nav_active == 'elevage_control' ? 'active' }}"><a href="{{ bp }}/serre">Élevage (N3PP)</a></li>
+        <li class="nav-theme-toggle">
+            <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Basculer le mode sombre" title="Mode sombre / clair">
+                <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+            </button>
+        </li>
     </ul>
 </nav>
+<script>
+(function(){
+    var btn = document.getElementById('theme-toggle-btn');
+    if (btn && window.n3Theme) {
+        btn.addEventListener('click', function () { window.n3Theme.toggle(); });
+    }
+})();
+</script>

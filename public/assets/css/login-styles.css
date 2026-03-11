@@ -222,3 +222,72 @@ body.login-page .login-center {
         font-size: 2.5em;
     }
 }
+
+/* ----- DARK MODE ----- */
+[data-theme="dark"] .login-box {
+    background: var(--bg-card);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .login-header i {
+    color: var(--accent-primary);
+}
+
+[data-theme="dark"] .login-header h1 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .login-header p {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .form-group label {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-group label i {
+    color: var(--accent-primary);
+}
+
+[data-theme="dark"] .form-group input {
+    background: var(--bg-input);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-group input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--accent-muted);
+}
+
+[data-theme="dark"] .form-group input::placeholder {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .login-footer {
+    border-top-color: var(--border-color);
+}
+
+[data-theme="dark"] .login-footer p {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .login-footer i {
+    color: var(--accent-primary);
+}
+
+[data-theme="dark"] .login-info {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .alert-error {
+    background: rgba(220, 38, 38, 0.2);
+    color: #fca5a5;
+    border-left-color: #ef4444;
+}
+
+[data-theme="dark"] .alert-success {
+    background: rgba(34, 197, 94, 0.2);
+    color: #86efac;
+    border-left-color: #22c55e;
+}

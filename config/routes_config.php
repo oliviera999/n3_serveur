@@ -90,11 +90,11 @@ return [
         'chart-updater.js', 'control-actions.js', 'control-auto-save.js', 'control-sync.js',
         'control-values-updater.js', 'highcharts-defaults.js', 'jquery.min.js', 'jquery.scrollex.min.js',
         'jquery.scrolly.min.js', 'main.js', 'pwa-init.js', 'realtime-updater.js', 'stats-updater.js',
-        'toast-notifications.js', 'util.js',
+        'theme-toggle.js', 'toast-notifications.js', 'util.js',
     ],
     'asset_css' => [
         'aquaponie.css', 'common-data.css', 'control-styles.css', 'login-styles.css',
-        'main.css', 'noscript.css', 'realtime-styles.css',
+        'main.css', 'noscript.css', 'realtime-styles.css', 'theme-variables.css',
     ],
     'asset_icons' => [
         'icon-72.png', 'icon-96.png', 'icon-128.png', 'icon-144.png', 'icon-152.png',

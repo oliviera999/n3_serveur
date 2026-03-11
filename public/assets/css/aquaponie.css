@@ -1438,3 +1438,13 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ----- DARK MODE ----- */
+[data-theme="dark"] .quick-stat {
+    background: rgba(45, 212, 191, 0.15);
+}
+
+[data-theme="dark"] .system-status-badge {
+    background: rgba(45, 212, 191, 0.2);
+    border-color: rgba(45, 212, 191, 0.4);
+}

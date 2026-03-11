@@ -1570,3 +1570,29 @@
                 padding: var(--control-padding-md);
             }
         }
+        
+        /* ----- DARK MODE ----- */
+        [data-theme="dark"] {
+            --control-bg: #0f172a;
+            --panel-bg: #1e293b;
+            --panel-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+            --border-color: #475569;
+            --accent: #2dd4bf;
+            --accent-muted: rgba(45, 212, 191, 0.2);
+            --text-muted: #94a3b8;
+            --control-primary: #2dd4bf;
+            --control-primary-light: #5eead4;
+            --control-primary-muted: rgba(45, 212, 191, 0.2);
+        }
+        
+        [data-theme="dark"] body,
+        [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 {
+            color: var(--control-text, #f1f5f9);
+        }
+        
+        [data-theme="dark"] .panel,
+        [data-theme="dark"] .control-card,
+        [data-theme="dark"] .action-button-card {
+            background: var(--panel-bg);
+            border-color: var(--border-color);
+        }

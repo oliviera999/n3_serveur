@@ -7,6 +7,19 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
+## [5.0.122] - 2026-03-11
+
+### Ajout - Dark mode avec toggle et détection préférence système
+- **Résumé** : Mode sombre esthétique pour iot.olution.info (palette slate/teal). Détection automatique via `prefers-color-scheme`, toggle manuel dans la nav, persistance dans localStorage.
+- **Fichiers** : theme-variables.css, theme-toggle.js, adaptations realtime-styles, common-data, control-styles, aquaponie, login-styles, highcharts-defaults, dashboard.
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -59,6 +72,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -102,6 +121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -147,6 +172,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -204,6 +235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -306,6 +343,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -493,6 +536,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -642,6 +691,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -1172,6 +1227,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -1690,6 +1751,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -2207,6 +2274,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -2724,6 +2797,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -3250,6 +3329,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -3769,6 +3854,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -4288,6 +4379,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -4808,6 +4905,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -5327,6 +5430,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -5848,6 +5957,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -6367,6 +6482,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -6886,6 +7007,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -7405,6 +7532,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -7925,6 +8058,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -8442,6 +8581,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -8964,6 +9109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -9481,6 +9632,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -10001,6 +10158,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -10519,6 +10682,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -11039,6 +11208,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -11559,6 +11734,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -12078,6 +12259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -12599,6 +12786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -13117,6 +13310,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -13636,6 +13835,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -14156,6 +14361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -14676,6 +14887,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -15194,6 +15411,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -15713,6 +15936,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -16234,6 +16463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -16754,6 +16989,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -17273,6 +17514,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -17792,6 +18039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -18311,6 +18564,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -18830,6 +19089,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -19348,6 +19613,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -19866,6 +20137,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -20384,6 +20661,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -20902,6 +21185,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -21421,6 +21710,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -21944,6 +22239,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -22467,6 +22768,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -22983,6 +23290,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -23499,6 +23812,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -24015,6 +24334,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -24531,6 +24856,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -25047,6 +25378,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -25563,6 +25900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -26096,6 +26439,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -26619,6 +26968,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -27140,6 +27495,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -27662,6 +28023,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -28188,6 +28555,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -28726,6 +29099,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -29246,6 +29625,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -29768,6 +30153,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -30290,6 +30681,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -30809,6 +31206,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -31331,6 +31734,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -31850,6 +32259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -32368,6 +32783,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -32887,6 +33308,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -33416,6 +33843,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -33942,6 +34375,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -34476,6 +34915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -35014,6 +35459,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -35542,6 +35993,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -36062,6 +36519,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -36584,6 +37047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -37105,6 +37574,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -37626,6 +38101,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -38145,6 +38626,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -38664,6 +39151,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -39185,6 +39678,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -39705,6 +40204,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -40227,6 +40732,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -40754,6 +41265,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -41285,6 +41802,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -41812,6 +42335,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -42341,6 +42870,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -42869,6 +43404,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -43392,6 +43933,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -43911,6 +44458,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -44434,6 +44987,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -44954,6 +45513,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -45473,6 +46038,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -45992,6 +46563,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -46513,6 +47090,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -47034,6 +47617,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -47554,6 +48143,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -48074,6 +48669,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -48593,6 +49194,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -49112,6 +49719,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -49631,6 +50244,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -50152,6 +50771,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -50673,6 +51298,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -51192,6 +51823,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -51711,6 +52348,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -52230,6 +52873,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -52750,6 +53399,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -53272,6 +53927,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -53801,6 +54462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -54324,6 +54991,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -54854,6 +55527,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -55382,6 +56061,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -55901,6 +56586,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -56453,6 +57144,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -56976,6 +57673,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -57508,6 +58211,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -58050,6 +58759,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -58582,6 +59297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -59104,6 +59825,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -59627,6 +60354,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -60156,6 +60889,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -60795,6 +61534,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -61318,6 +62063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -61839,6 +62590,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -62361,6 +63118,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -62884,6 +63647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -63406,6 +64175,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -63930,6 +64705,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -64453,6 +65234,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -65098,6 +65885,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -65620,6 +66413,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -66142,6 +66941,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -66712,6 +67517,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -67243,6 +68054,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -67774,6 +68591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -68342,6 +69165,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -68921,6 +69750,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -69457,6 +70292,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -69994,6 +70835,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -70521,6 +71368,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -71054,6 +71907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -71591,6 +72450,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -72126,6 +72991,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -72652,6 +73523,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -73190,6 +74067,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -73760,6 +74643,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -74285,6 +75174,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -74811,6 +75706,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -75336,6 +76237,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -75866,6 +76773,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -76402,6 +77315,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -76936,6 +77855,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -77468,6 +78393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -77995,6 +78926,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -78523,6 +79460,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -79062,6 +80005,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -79600,6 +80549,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -80141,6 +81096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -80698,6 +81659,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -81285,6 +82252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -81813,6 +82786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -82340,6 +83319,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -82877,6 +83862,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -83404,6 +84395,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -83935,6 +84932,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -84459,6 +85462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -84985,6 +85994,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -85503,6 +86518,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -86061,6 +87082,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -86591,6 +87618,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -87143,6 +88176,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -87677,6 +88716,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -88207,6 +89252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -88743,6 +89794,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -89301,6 +90358,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -89844,6 +90907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -90441,6 +91510,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -90975,6 +92050,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -91511,6 +92592,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -92058,6 +93145,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -92598,6 +93691,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -93125,6 +94224,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -93652,6 +94757,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -94181,6 +95292,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -94781,6 +95898,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -95329,6 +96452,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -95891,6 +97020,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -96441,6 +97576,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -96995,6 +98136,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -97517,6 +98664,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -98091,6 +99244,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -98629,6 +99788,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -99154,6 +100319,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -99729,6 +100900,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -100283,6 +101460,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -100870,6 +102053,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -101395,6 +102584,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -101979,6 +103174,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -102501,6 +103702,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -103022,6 +104229,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -103547,6 +104760,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -104072,6 +105291,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -104642,6 +105867,12 @@ docs/
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -105235,6 +106466,12 @@ docs/
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -105762,6 +106999,12 @@ docs/
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -106323,6 +107566,12 @@ docs/
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -106849,6 +108098,12 @@ docs/
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -107397,6 +108652,12 @@ docs/
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -107921,6 +109182,12 @@ docs/
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -108634,6 +109901,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -109181,6 +110454,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -109755,6 +111034,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -110315,6 +111600,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -110861,6 +112152,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -111414,6 +112711,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -111959,6 +113262,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -112493,6 +113802,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -113019,6 +114334,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -113561,6 +114882,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -114087,6 +115414,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -114613,6 +115946,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -115141,6 +116480,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -115687,6 +117032,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)
@@ -116207,6 +117558,12 @@ ance future
 
 ---
 
+## [5.0.123] - 2026-03-11
+
+### Ajout - dark mode esthétique (toggle, préférence système, graphiques Highcharts)
+- **Résumé** : dark mode esthétique (toggle, préférence système, graphiques Highcharts).
+
+---
 ## [5.0.121] - 2026-03-11
 
 ### Correctif - graphiques MSP et N3PP : affichage complet de la période synthétisée au premier chargement (comme aquaponie)

@@ -257,6 +257,39 @@
             grid-template-columns: 1fr;
         }
     }
+    
+    /* Dark mode */
+    [data-theme="dark"] .stat-card {
+        background: var(--bg-card);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    [data-theme="dark"] .stat-card:hover {
+        box-shadow: 0 6px 16px rgba(45, 212, 191, 0.15);
+    }
+    [data-theme="dark"] .stat-card-value { color: var(--text-primary); }
+    [data-theme="dark"] .stat-card-label,
+    [data-theme="dark"] .stat-card-unit,
+    [data-theme="dark"] .stat-card-details { color: var(--text-secondary); }
+    [data-theme="dark"] .quick-link-card {
+        background: var(--bg-card);
+        color: var(--text-primary);
+        border-color: var(--accent-border);
+    }
+    [data-theme="dark"] .quick-link-card:hover {
+        box-shadow: 0 8px 24px rgba(45, 212, 191, 0.2);
+    }
+    [data-theme="dark"] .quick-link-card i { color: var(--accent-primary); }
+    [data-theme="dark"] .quick-link-description { color: var(--text-secondary); }
+    [data-theme="dark"] .modern-table {
+        background: var(--bg-card);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    [data-theme="dark"] .modern-table td {
+        border-bottom-color: var(--border-light);
+    }
+    [data-theme="dark"] .modern-table tbody tr:hover {
+        background: var(--bg-card-hover);
+    }
 </style>
 {% endblock %}
 
