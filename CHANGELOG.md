@@ -7,6 +7,42 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
+## [5.0.133] - 2026-03-11
+
+### Modifié - page contrôle MSP1 alignée sur N3PP (paramètres, toggle, UX)
+- **msp1_control.twig** : champs texte/nombre pour mail, seuils, servos (ServoHB, ServoGD), WakeUp, FreqWakeUp ; panneaux Capteurs et servos, Notification, Énergie
+- **MspOutputRepository** : getParametersForBoard, updateParameterByName, batchUpdateParameters, updateByGpio, getOutputByGpioAndBoard
+- **MspOutputController** : updateParameters(), doToggle accepte gpio, handleOutputCreate (legacy output_create)
+- **config/modules.php** : has_parameters => true pour msp1 et msp1_test
+- Route POST /msp1/api/outputs/parameters activée
+
+---
+
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
+## [5.0.132] - 2026-03-11
+
+### Modifié - audit pédagogique des textes (accessibilité)
+- **home.twig** : paragraphe technique simplifié pour parents et élèves
+- **aquaponie_description.twig** : explications capteurs (HC-SR04, DS18B20, DHT22), firmware et serveur embarqué vulgarisés
+- **msp1_control.twig**, **n3pp_control.twig** : libellés compréhensibles et infobulles pour paramètres
+- **supervision.twig** : légende WROOM, S3, MSP1, N3PP
+- **aquaponie.twig**, **aquaponie_alt.twig**, **dashboard.twig** : ET remplacé par Écart-type
+- **tide_stats.twig** : définitions Marnage et DiffMaree
+- **control.twig** : infobulles ESP32, Board, GPIO, Actionneurs
+- **partials/_control_base.twig** : footer aligné N3 IoT Datas
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -120,6 +156,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -211,6 +253,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -304,6 +352,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -409,6 +463,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -559,6 +619,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -794,6 +860,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -991,6 +1063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -1569,6 +1647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -2135,6 +2219,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -2700,6 +2790,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -3265,6 +3361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -3839,6 +3941,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -4406,6 +4514,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -4973,6 +5087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -5541,6 +5661,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -6108,6 +6234,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -6677,6 +6809,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -7244,6 +7382,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -7811,6 +7955,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -8378,6 +8528,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -8946,6 +9102,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -9511,6 +9673,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -10081,6 +10249,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -10646,6 +10820,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -11214,6 +11394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -11780,6 +11966,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -12348,6 +12540,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -12916,6 +13114,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -13483,6 +13687,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -14052,6 +14262,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -14618,6 +14834,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -15185,6 +15407,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -15753,6 +15981,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -16321,6 +16555,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -16887,6 +17127,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -17454,6 +17700,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -18023,6 +18275,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -18591,6 +18849,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -19158,6 +19422,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -19725,6 +19995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -20292,6 +20568,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -20859,6 +21141,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -21425,6 +21713,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -21991,6 +22285,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -22557,6 +22857,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -23123,6 +23429,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -23690,6 +24002,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -24261,6 +24579,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -24832,6 +25156,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -25396,6 +25726,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -25960,6 +26296,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -26524,6 +26866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -27088,6 +27436,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -27652,6 +28006,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -28216,6 +28576,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -28797,6 +29163,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -29368,6 +29740,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -29937,6 +30315,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -30507,6 +30891,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -31081,6 +31471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -31667,6 +32063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -32235,6 +32637,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -32805,6 +33213,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -33375,6 +33789,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -33942,6 +34362,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -34512,6 +34938,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -35079,6 +35511,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -35645,6 +36083,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -36212,6 +36656,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -36789,6 +37239,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -37363,6 +37819,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -37945,6 +38407,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -38531,6 +38999,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -39107,6 +39581,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -39675,6 +40155,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -40245,6 +40731,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -40814,6 +41306,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -41383,6 +41881,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -41950,6 +42454,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -42517,6 +43027,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -43086,6 +43602,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -43654,6 +44176,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -44224,6 +44752,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -44799,6 +45333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -45378,6 +45918,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -45953,6 +46499,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -46530,6 +47082,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -47106,6 +47664,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -47677,6 +48241,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -48244,6 +48814,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -48815,6 +49391,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -49383,6 +49965,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -49950,6 +50538,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -50517,6 +51111,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -51086,6 +51686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -51655,6 +52261,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -52223,6 +52835,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -52791,6 +53409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -53358,6 +53982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -53925,6 +54555,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -54492,6 +55128,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -55061,6 +55703,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -55630,6 +56278,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -56197,6 +56851,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -56764,6 +57424,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -57331,6 +57997,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -57899,6 +58571,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -58469,6 +59147,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -59046,6 +59730,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -59617,6 +60307,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -60195,6 +60891,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -60771,6 +61473,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -61338,6 +62046,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -61938,6 +62652,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -62509,6 +63229,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -63089,6 +63815,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -63679,6 +64411,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -64259,6 +64997,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -64829,6 +65573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -65400,6 +66150,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -65977,6 +66733,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -66664,6 +67426,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -67235,6 +68003,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -67804,6 +68578,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -68374,6 +69154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -68945,6 +69731,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -69515,6 +70307,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -70087,6 +70885,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -70658,6 +71462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -71351,6 +72161,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -71921,6 +72737,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -72491,6 +73313,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -73109,6 +73937,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -73688,6 +74522,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -74267,6 +75107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -74883,6 +75729,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -75510,6 +76362,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -76094,6 +76952,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -76679,6 +77543,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -77254,6 +78124,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -77835,6 +78711,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -78420,6 +79302,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -79003,6 +79891,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -79577,6 +80471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -80163,6 +81063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -80781,6 +81687,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -81354,6 +82266,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -81928,6 +82846,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -82501,6 +83425,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -83079,6 +84009,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -83663,6 +84599,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -84245,6 +85187,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -84825,6 +85773,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -85400,6 +86354,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -85976,6 +86936,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -86563,6 +87529,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -87149,6 +88121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -87738,6 +88716,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -88343,6 +89327,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -88978,6 +89968,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -89554,6 +90550,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -90129,6 +91131,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -90714,6 +91722,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -91289,6 +92303,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -91868,6 +92888,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -92440,6 +93466,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -93014,6 +94046,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -93580,6 +94618,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -94186,6 +95230,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -94764,6 +95814,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -95364,6 +96420,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -95946,6 +97008,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -96524,6 +97592,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -97108,6 +98182,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -97714,6 +98794,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -98305,6 +99391,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -98950,6 +100042,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -99532,6 +100630,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -100116,6 +101220,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -100711,6 +101821,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -101299,6 +102415,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -101874,6 +102996,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -102449,6 +103577,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -103026,6 +104160,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -103674,6 +104814,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -104270,6 +105416,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -104880,6 +106032,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -105478,6 +106636,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -106080,6 +107244,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -106650,6 +107820,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -107272,6 +108448,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -107858,6 +109040,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -108431,6 +109619,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -109054,6 +110248,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -109656,6 +110856,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -110291,6 +111497,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -110864,6 +112076,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -111496,6 +112714,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -112066,6 +113290,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -112635,6 +113865,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -113208,6 +114444,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -113781,6 +115023,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -114399,6 +115647,12 @@ docs/
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -115040,6 +116294,12 @@ docs/
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -115615,6 +116875,12 @@ docs/
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -116224,6 +117490,12 @@ docs/
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -116798,6 +118070,12 @@ docs/
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -117394,6 +118672,12 @@ docs/
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -117966,6 +119250,12 @@ docs/
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -118727,6 +120017,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -119322,6 +120618,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -119944,6 +121246,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -120552,6 +121860,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -121146,6 +122460,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -121747,6 +123067,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -122340,6 +123666,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -122922,6 +124254,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -123496,6 +124834,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -124086,6 +125430,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -124660,6 +126010,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -125234,6 +126590,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -125810,6 +127172,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -126404,6 +127772,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3
@@ -126972,6 +128346,12 @@ ance future
 
 ---
 
+## [5.0.134] - 2026-03-11
+
+### Modifié - Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description
+- **Résumé** : Unification hero: partial _hero_data, aquaponie référence, suppression CSS dupliqué aquaponie_description.
+
+---
 ## [5.0.131] - 2026-03-11
 
 ### Modifié - audit CSS: aquaponie.css créé, unification dashboard/tide_stats, suppression doublons ffp3

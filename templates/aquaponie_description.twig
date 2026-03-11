@@ -28,72 +28,7 @@
         #wrapper.fade-in::before { background: transparent !important; background-color: transparent !important; }
     </style>
     <style>
-        /* Hero aligné aquaponie-alt (modern-header) */
-        .modern-header {
-            background: linear-gradient(145deg, #008B74 0%, #007A61 25%, #00B794 50%, #008B74 100%);
-            color: white;
-            padding: 58px 0;
-            margin: -20px -20px 20px -20px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 0 0 16px 16px;
-        }
-        .modern-header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.2;
-        }
-        .header-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .header-title {
-            font-size: 3.5em;
-            font-weight: bold;
-            margin: 0 0 15px 0;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-        .header-title i { font-size: 0.8em; }
-        .header-subtitle {
-            font-size: 1.3em;
-            margin: 0 0 1.25rem 0;
-            opacity: 0.9;
-            font-weight: 300;
-            line-height: 1.6;
-            text-align: center;
-        }
-        .header-more {
-            margin-top: 1rem;
-            opacity: 0.95;
-            text-align: center;
-        }
-        .header-more a {
-            display: inline-block;
-            color: white;
-            text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.8);
-            border-radius: 8px;
-            padding: 8px 16px;
-            font-weight: 500;
-            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-        }
-        .header-more a:hover {
-            color: #FF6300 !important;
-            background: rgba(255,255,255,0.2);
-            border-color: #FF6300;
-            opacity: 1;
-        }
-        /* Sections style carte (esthétique aquaponie-alt) */
+        /* Sections style carte (esthétique aquaponie-alt) - Hero défini dans realtime-styles.css */
         .desc-section {
             margin-bottom: 1.5rem;
             background: rgba(255,255,255,0.92);
@@ -148,16 +83,13 @@
 {% endblock %}
 
 {% block content %}
-    <div class="modern-header">
-        <div class="header-content">
-            <div class="header-title">
-                <i class="fas fa-info-circle" aria-hidden="true"></i>
-                Caractéristiques du module FFP3
-            </div>
-            <p class="header-subtitle">Description du système, des capteurs, actionneurs et logiciels</p>
-            <p class="header-more"><a href="/aquaponie">Voir les données en direct</a></p>
-        </div>
-    </div>
+    {% include 'partials/_hero_data.twig' with {
+        hero_icon: 'fa-info-circle',
+        hero_title: "Caractéristiques du module FFP3",
+        hero_subtitle: "Description du système, des capteurs, actionneurs et logiciels",
+        hero_more_url: '/aquaponie',
+        hero_more_label: 'Voir les données en direct'
+    } %}
 
     <article class="post featured">
         <section class="desc-section">
@@ -179,10 +111,10 @@
             <h2><i class="fas fa-tint"></i> Capteurs</h2>
             <p>Le module mesure :</p>
             <ul>
-                <li><strong>Niveaux d'eau</strong> (aquarium, réserve, potager) — capteurs à ultrasons type HC-SR04, en cm</li>
-                <li><strong>Température eau</strong> — sonde DS18B20, en °C</li>
-                <li><strong>Température air</strong> et <strong>humidité</strong> — DHT22, en °C et %</li>
-                <li><strong>Luminosité</strong> — capteur lumière, en UA (unité arbitraire)</li>
+                <li><strong>Niveaux d'eau</strong> (aquarium, réserve, potager) — capteur à ultrasons (HC-SR04) mesurant la hauteur en cm</li>
+                <li><strong>Température eau</strong> — sonde étanche (DS18B20) en °C</li>
+                <li><strong>Température air</strong> et <strong>humidité</strong> — capteur combiné (DHT22) en °C et %</li>
+                <li><strong>Luminosité</strong> — capteur lumière, en UA (échelle relative)</li>
                 <li><strong>Marée</strong> — différence de niveau pour l'analyse des cycles</li>
             </ul>
             <div class="desc-images">
@@ -206,13 +138,13 @@
 
         <section class="desc-section">
             <h2><i class="fas fa-microchip"></i> Firmware (ESP32)</h2>
-            <p>Le firmware assure la lecture des capteurs, la commande des actionneurs et les échanges avec le serveur. Principales caractéristiques :</p>
+            <p>Le firmware (programme embarqué sur la carte ESP32) assure la lecture des capteurs, la commande des actionneurs et les échanges avec le serveur. Principales caractéristiques :</p>
             <ul>
-                <li><strong>Offline-first</strong> — fonctionnement sans réseau, config en NVS</li>
-                <li><strong>Envoi périodique</strong> des données (POST environ toutes les 2 minutes)</li>
-                <li><strong>Réception des commandes</strong> (GET état des sorties environ toutes les 4 secondes)</li>
-                <li>File de <strong>retry</strong> en cas d'échec réseau (données rejouées au retour de la connexion)</li>
-                <li>Mise à jour <strong>OTA</strong> du firmware</li>
+                <li><strong>Offline-first</strong> — fonctionnement sans réseau, configuration stockée localement</li>
+                <li><strong>Envoi périodique</strong> des données vers le serveur (environ toutes les 2 minutes)</li>
+                <li><strong>Réception des commandes</strong> — synchronisation des ordres environ toutes les 4 secondes</li>
+                <li><strong>Résilience réseau</strong> — les données sont rejouées au retour de la connexion en cas de coupure</li>
+                <li><strong>Mise à jour OTA</strong> — mise à jour du programme à distance sans câble</li>
             </ul>
             <div class="desc-images">
                 <figure>
@@ -224,12 +156,7 @@
 
         <section class="desc-section">
             <h2><i class="fas fa-server"></i> Serveur embarqué (ESP32)</h2>
-            <p>L'ESP32 expose une API locale pour la visualisation et le pilotage sur le réseau local :</p>
-            <ul>
-                <li><strong>HTTP port 80</strong>, <strong>WebSocket port 81</strong> (path <code>/ws</code>)</li>
-                <li>Endpoints : état (<code>/api/status</code>), configuration (<code>/api/config</code>), nourrissage (<code>/api/feed</code>)</li>
-                <li>Permet de consulter et piloter le module sans dépendre d'internet</li>
-            </ul>
+            <p>La carte ESP32 héberge une interface locale sur le réseau de l'établissement, permettant de consulter et piloter le module sans dépendre d'internet.</p>
         </section>
 
         <section class="desc-section">

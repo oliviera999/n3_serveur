@@ -1,6 +1,6 @@
 {% extends 'layout.twig' %}
 
-{% block title %}olution iot datas{% endblock %}
+{% block title %}n3 iot datas{% endblock %}
 
 {% block head_css %}
     <link rel="stylesheet" href="{{ base_path }}/assets/css/control-styles.css" />
@@ -42,16 +42,16 @@
                     </div>
                     <div class="context-summary">
                         <h2><i class="fas fa-sliders-h"></i> Tableau de bord</h2>
-                        <p class="context-description">
+                        <p class="context-description" title="ESP32 = microcontrôleur qui pilote le système physiquement">
                             Commandez les pompes, le chauffage et la programmation automatique du système aquaponique. Chaque action est synchronisée avec l'ESP32 en moins de 4 secondes.
                         </p>
                         <div class="context-stats">
                             <div class="context-stat">
-                                <span class="stat-label">Actionneurs</span>
+                                <span class="stat-label" title="Actionneurs = pompes, chauffage, lumière, etc.">Actionneurs</span>
                                 <span class="stat-value">{{ outputs|length }}</span>
                             </div>
                             <div class="context-stat">
-                                <span class="stat-label">Boards</span>
+                                <span class="stat-label" title="Boards = cartes électroniques connectées au système">Boards</span>
                                 <span class="stat-value">{{ boards|length }}</span>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                         {% for board in boards %}
                             <article class="board-card" data-board="{{ board.board }}">
                                 <header>
-                                    <span class="board-title"><i class="fas fa-microchip"></i> Board {{ board.board }}</span>
+                                    <span class="board-title" title="Board = carte électronique connectée"><i class="fas fa-microchip"></i> Board {{ board.board }}</span>
                                     <span class="board-last">Dernière requête&nbsp;: <span class="last-request-time">{{ board.last_request }}</span></span>
                                 </header>
                                 {% if board.last_gpio %}
@@ -107,7 +107,7 @@
                                             </span>
                                         </div>
                                         <div class="activity-meta">
-                                            <span><i class="fas fa-microchip"></i> GPIO {{ board.last_gpio.gpio }}</span>
+                                            <span title="GPIO = numéro de broche de connexion sur la carte"><i class="fas fa-microchip"></i> GPIO {{ board.last_gpio.gpio }}</span>
                                             <span><i class="fas fa-clock"></i> <span class="last-gpio-time">{{ board.last_gpio.last_modified_time }}</span></span>
                                         </div>
                                     </div>
@@ -388,7 +388,7 @@
                             <section class="parameters-panel">
                                 <h3>Configuration</h3>
                                 <div class="parameters-grid">
-                                    <label class="parameter-item">
+                                    <label class="parameter-item" title="Durée pendant laquelle le système dort entre deux réveils pour prendre les mesures (secondes)">
                                         <span>Temps de sommeil (s)</span>
                                         <input type="number" name="FreqWakeUp" min="0" id="FreqWakeUp" data-parameter="FreqWakeUp" data-parameter-gpio="{{ parameter_gpio_map['FreqWakeUp'] }}" value="{{ params.FreqWakeUp|default(0) }}">
                                         <small class="save-indicator" data-save-indicator data-parameter="FreqWakeUp" data-state="idle"></small>

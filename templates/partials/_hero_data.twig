@@ -1,8 +1,8 @@
-{# Bloc hero unifié (même style que aquaponie) pour MSP1, N3PP. #}
+{# Bloc hero unifié (référence: aquaponie) pour aquaponie, MSP1, N3PP. #}
 <div class="modern-header">
     <div class="header-content">
         <div class="header-title">
-            {% if hero_icon_left is defined %}<i class="fas {{ hero_icon_left }} header-icon-float" aria-hidden="true"></i>{% elseif hero_icon is defined %}<i class="fas {{ hero_icon }} header-icon-float" aria-hidden="true"></i>{% endif %}
+            {% if hero_icon_left is defined %}<i class="fas {{ hero_icon_left }}" aria-hidden="true"></i>{% elseif hero_icon is defined %}<i class="fas {{ hero_icon }}" aria-hidden="true"></i>{% endif %}
             {{ hero_title|default('Données') }}
             {% if hero_icon_right is defined %}<i class="fas {{ hero_icon_right }}" aria-hidden="true"></i>{% endif %}
         </div>

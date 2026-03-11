@@ -141,7 +141,17 @@ class ControlSync {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
             
-            const states = await response.json();
+            let states = await response.json();
+            
+            // Support format MSP1/N3PP : { timestamp, outputs: [{ gpio, state, ... }, ...] }
+            if (states && states.outputs && Array.isArray(states.outputs)) {
+                const flat = {};
+                for (const o of states.outputs) {
+                    const g = parseInt(o.gpio, 10);
+                    if (!isNaN(g)) flat[String(g)] = o.state;
+                }
+                states = flat;
+            }
             
             // Traiter les changements d'état
             this.processStates(states);

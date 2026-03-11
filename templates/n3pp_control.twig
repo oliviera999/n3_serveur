@@ -29,18 +29,18 @@
             <section class="parameters-panel">
                 <h3>Paramètres arrosage</h3>
                 <div class="parameters-grid">
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Limite de sécheresse (SeuilSec)</span>
+                    <label class="parameter-item" data-parameter-wrapper title="En dessous de ce niveau d'humidité, le système déclenche l'arrosage">
+                        <span>Seuil de sécheresse</span>
                         <input type="number" data-parameter="SeuilSec" data-parameter-gpio="102" id="SeuilSec" min="0" value="{{ params.SeuilSec|default('0') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="SeuilSec" data-state="idle"></small>
                     </label>
-                    <label class="parameter-item" data-parameter-wrapper>
+                    <label class="parameter-item" data-parameter-wrapper title="Heure de la journée pour le déclenchement de l'arrosage automatique">
                         <span>Heure arrosage</span>
                         <input type="number" data-parameter="HeureArrosage" data-parameter-gpio="104" id="HeureArrosage" min="0" value="{{ params.HeureArrosage|default('0') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="HeureArrosage" data-state="idle"></small>
                     </label>
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Temps arrosage (en ms)</span>
+                    <label class="parameter-item" data-parameter-wrapper title="Durée d'un cycle d'arrosage en millisecondes">
+                        <span>Durée arrosage (ms)</span>
                         <input type="number" data-parameter="tempsArrosage" data-parameter-gpio="105" id="tempsArrosage" min="0" value="{{ params.tempsArrosage|default('0') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="tempsArrosage" data-state="idle"></small>
                     </label>
@@ -77,21 +77,21 @@
             </header>
             <div class="parameters-panel">
                 <div class="parameters-grid">
-                    <label class="parameter-item parameter-item-switch">
-                        <span>Éco d'énergie (WakeUp)</span>
+                    <label class="parameter-item parameter-item-switch" title="Met le système en veille entre les mesures pour économiser la batterie">
+                        <span>Mode économie d'énergie</span>
                         <label class="modern-switch" title="Activer/désactiver l'éco d'énergie">
-                            <input type="checkbox" data-parameter-gpio="106" id="WakeUp" {{ params.WakeUp|default('0') == '1' ? 'checked' : '' }} role="switch" aria-label="Éco d'énergie (WakeUp)" onchange="saveParamSwitch('WakeUp', this.checked, '1', '0')">
+                            <input type="checkbox" data-parameter-gpio="106" id="WakeUp" {{ params.WakeUp|default('0') == '1' ? 'checked' : '' }} role="switch" aria-label="Mode économie d'énergie" onchange="saveParamSwitch('WakeUp', this.checked, '1', '0')">
                             <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
                         </label>
                         <span class="parameter-item-hint" id="WakeUp-hint">{{ params.WakeUp|default('0') == '1' ? 'Activé' : 'Désactivé' }}</span>
                     </label>
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Fréquence d'éveil (FreqWakeUp)</span>
+                    <label class="parameter-item" data-parameter-wrapper title="Intervalle entre les réveils du système pour prendre les mesures (secondes)">
+                        <span>Fréquence de réveil (s)</span>
                         <input type="number" data-parameter="FreqWakeUp" data-parameter-gpio="107" id="FreqWakeUp" min="0" value="{{ params.FreqWakeUp|default('0') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="FreqWakeUp" data-state="idle"></small>
                     </label>
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Limite du pont diviseur (SeuilPontDiv)</span>
+                    <label class="parameter-item" data-parameter-wrapper title="Seuil de tension batterie en dessous duquel le système se met en veille">
+                        <span>Seuil batterie (veille)</span>
                         <input type="number" data-parameter="SeuilPontDiv" data-parameter-gpio="103" id="SeuilPontDiv" min="0" value="{{ params.SeuilPontDiv|default('0') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="SeuilPontDiv" data-state="idle"></small>
                     </label>

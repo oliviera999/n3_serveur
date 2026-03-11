@@ -44,24 +44,18 @@
 {% block styles %}{% endblock %}
 
 {% block content %}
-                <!-- Modern Header Hero Section -->
-                <div class="modern-header">
-                    <div class="header-content">
-                        <div class="header-title">
-                            <i class="fas fa-seedling header-icon-float" aria-hidden="true"></i>
-                            L'aquaponie
-                            <i class="fas fa-fish" aria-hidden="true"></i>
-                        </div>
-                        <p class="header-subtitle">
-                            Supervision en direct des capteurs, pompes et indicateurs de la ferme aquaponique.
-                        </p>
-                        <p class="header-more"><a href="/aquaponie-description">En savoir plus sur le module</a></p>
-                        <p class="header-synthesis">📊 Synthèse des mesures du <span id="summary-start-date">{{ start_date|date('d/m/Y H:i:s') }}</span> au <span id="summary-end-date">{{ end_date|date('d/m/Y H:i:s') }}</span></p>
-                    </div>
-                </div>
+                {% include 'partials/_hero_data.twig' with {
+                    hero_icon_left: 'fa-seedling',
+                    hero_icon_right: 'fa-fish',
+                    hero_title: "L'aquaponie",
+                    hero_subtitle: 'Supervision en direct des capteurs, pompes et indicateurs de la ferme aquaponique.',
+                    hero_more_url: '/aquaponie-description',
+                    hero_more_label: 'En savoir plus sur le module'
+                } %}
 
                 <!-- Featured Post -->
                 <article class="post featured">
+                    <h2 class="synthesis-title">📊 Synthèse des mesures du <span id="summary-start-date">{{ start_date|date('d/m/Y H:i:s') }}</span> au <span id="summary-end-date">{{ end_date|date('d/m/Y H:i:s') }}</span></h2>
                     <!-- Titre pleine largeur : Niveaux d'eau -->
                     <div class="section-header alt-section-title-full">
                         <i class="fas fa-tint"></i>
@@ -80,7 +74,7 @@
                                         <div class="progress-bar" id="eauaqua-progress" style="width: {{ (last_reading_eauaqua|default(0) / 100 * 100)|round(0) }}%;"></div>
                                     </div>
                                     <div class="stat-card-secondary">
-                                        <div>Moy: <span id="eauaqua-avg">{{ avg_eauaqua|default(0)|round(1) }}</span> cm | ET: <span id="eauaqua-stddev">{{ stddev_eauaqua|default(0)|round(2) }}</span></div>
+                                        <div>Moy: <span id="eauaqua-avg">{{ avg_eauaqua|default(0)|round(1) }}</span> cm | Écart-type: <span id="eauaqua-stddev">{{ stddev_eauaqua|default(0)|round(2) }}</span></div>
                                         <div>Min: <span id="eauaqua-min">{{ min_eauaqua|default(0) }}</span> cm | Max: <span id="eauaqua-max">{{ max_eauaqua|default(0) }}</span> cm</div>
                                     </div>
                                 </div>
@@ -93,7 +87,7 @@
                                         <div class="progress-bar" id="eaureserve-progress" style="width: {{ (last_reading_eaureserve|default(0) / 100 * 100)|round(0) }}%;"></div>
                                     </div>
                                     <div class="stat-card-secondary">
-                                        <div>Moy: <span id="eaureserve-avg">{{ avg_eaureserve|default(0)|round(1) }}</span> cm | ET: <span id="eaureserve-stddev">{{ stddev_eaureserve|default(0)|round(2) }}</span></div>
+                                        <div>Moy: <span id="eaureserve-avg">{{ avg_eaureserve|default(0)|round(1) }}</span> cm | Écart-type: <span id="eaureserve-stddev">{{ stddev_eaureserve|default(0)|round(2) }}</span></div>
                                         <div>Min: <span id="eaureserve-min">{{ min_eaureserve|default(0) }}</span> cm | Max: <span id="eaureserve-max">{{ max_eaureserve|default(0) }}</span> cm</div>
                                     </div>
                                 </div>
@@ -106,7 +100,7 @@
                                         <div class="progress-bar" id="eaupota-progress" style="width: {{ (last_reading_eaupota|default(0) / 100 * 100)|round(0) }}%;"></div>
                                     </div>
                                     <div class="stat-card-secondary">
-                                        <div>Moy: <span id="eaupota-avg">{{ avg_eaupota|default(0)|round(1) }}</span> cm | ET: <span id="eaupota-stddev">{{ stddev_eaupota|default(0)|round(2) }}</span></div>
+                                        <div>Moy: <span id="eaupota-avg">{{ avg_eaupota|default(0)|round(1) }}</span> cm | Écart-type: <span id="eaupota-stddev">{{ stddev_eaupota|default(0)|round(2) }}</span></div>
                                         <div>Min: <span id="eaupota-min">{{ min_eaupota|default(0) }}</span> cm | Max: <span id="eaupota-max">{{ max_eaupota|default(0) }}</span> cm</div>
                                     </div>
                                 </div>
@@ -230,7 +224,7 @@
                                         <div class="progress-bar" id="tempeau-progress" style="width: {{ (last_reading_tempeau|default(0) / 40 * 100)|round(0) }}%;"></div>
                                     </div>
                                     <div class="stat-card-secondary">
-                                        <div>Moy: <span id="tempeau-avg">{{ avg_tempeau|default(0)|round(1) }}</span> °C | ET: <span id="tempeau-stddev">{{ stddev_tempeau|default(0)|round(2) }}</span></div>
+                                        <div>Moy: <span id="tempeau-avg">{{ avg_tempeau|default(0)|round(1) }}</span> °C | Écart-type: <span id="tempeau-stddev">{{ stddev_tempeau|default(0)|round(2) }}</span></div>
                                         <div>Min: <span id="tempeau-min">{{ min_tempeau|default(0) }}</span> °C | Max: <span id="tempeau-max">{{ max_tempeau|default(0) }}</span> °C</div>
                                     </div>
                                 </div>
@@ -244,7 +238,7 @@
                                         <div class="progress-bar" id="tempair-progress" style="width: {{ (last_reading_tempair|default(0) / 40 * 100)|round(0) }}%;"></div>
                                     </div>
                                     <div class="stat-card-secondary">
-                                        <div>Moy: <span id="tempair-avg">{{ avg_tempair|default(0)|round(1) }}</span> °C | ET: <span id="tempair-stddev">{{ stddev_tempair|default(0)|round(2) }}</span></div>
+                                        <div>Moy: <span id="tempair-avg">{{ avg_tempair|default(0)|round(1) }}</span> °C | Écart-type: <span id="tempair-stddev">{{ stddev_tempair|default(0)|round(2) }}</span></div>
                                         <div>Min: <span id="tempair-min">{{ min_tempair|default(0) }}</span> °C | Max: <span id="tempair-max">{{ max_tempair|default(0) }}</span> °C</div>
                                     </div>
                                 </div>
@@ -258,7 +252,7 @@
                                         <div class="progress-bar" id="humi-progress" style="width: {{ last_reading_humi|default(0) }}%;"></div>
                                     </div>
                                     <div class="stat-card-secondary">
-                                        <div>Moy: <span id="humi-avg">{{ avg_humi|default(0)|round(1) }}</span> % | ET: <span id="humi-stddev">{{ stddev_humi|default(0)|round(2) }}</span></div>
+                                        <div>Moy: <span id="humi-avg">{{ avg_humi|default(0)|round(1) }}</span> % | Écart-type: <span id="humi-stddev">{{ stddev_humi|default(0)|round(2) }}</span></div>
                                         <div>Min: <span id="humi-min">{{ min_humi|default(0) }}</span> % | Max: <span id="humi-max">{{ max_humi|default(0) }}</span> %</div>
                                     </div>
                                 </div>
@@ -272,7 +266,7 @@
                                         <div class="progress-bar" id="lumi-progress" style="width: {{ (last_reading_lumi|default(0) / 4000 * 100)|round(0) }}%;"></div>
                                     </div>
                                     <div class="stat-card-secondary">
-                                        <div>Moy: <span id="lumi-avg">{{ avg_lumi|default(0)|round(0) }}</span> UA | ET: <span id="lumi-stddev">{{ stddev_lumi|default(0)|round(2) }}</span></div>
+                                        <div>Moy: <span id="lumi-avg">{{ avg_lumi|default(0)|round(0) }}</span> UA | Écart-type: <span id="lumi-stddev">{{ stddev_lumi|default(0)|round(2) }}</span></div>
                                         <div>Min: <span id="lumi-min">{{ min_lumi|default(0) }}</span> UA | Max: <span id="lumi-max">{{ max_lumi|default(0) }}</span> UA</div>
                                     </div>
                                 </div>
