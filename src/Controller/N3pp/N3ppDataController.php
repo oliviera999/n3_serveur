@@ -82,6 +82,8 @@ class N3ppDataController extends AbstractDataController
             ['key' => 'HumidMoy', 'label' => 'Humid. sol moy.', 'icon' => 'fa-seedling', 'class' => 'humidity', 'unit' => 'UA', 'decimals' => 0, 'unit_suffix' => ' UA'],
             ['icon' => 'fa-droplet', 'class' => 'humidity', 'unit' => 'UA', 'decimals' => 0, 'unit_suffix' => ' UA', 'loop' => ['from' => 1, 'to' => 4, 'prefix' => 'Humid', 'label_prefix' => 'Humid. sol']],
             ['key' => 'etatPompe', 'label' => 'État pompe', 'icon' => 'fa-water', 'class' => 'pump', 'unit' => '', 'decimals' => 0, 'no_stats' => true],
+            ['key' => 'bootCount', 'label' => 'Redémarrages', 'icon' => 'fa-sync', 'class' => 'system', 'unit' => '', 'decimals' => 0],
+            ['key' => 'PontDiv', 'label' => 'Pont div. (batterie)', 'icon' => 'fa-battery-half', 'class' => 'system', 'unit' => '', 'decimals' => 0],
         ];
     }
 
@@ -92,20 +94,35 @@ class N3ppDataController extends AbstractDataController
                 'id' => 'chart-niveauxeaux',
                 'title' => 'Humidité du sol',
                 'icon' => 'fa-seedling',
-                'legend' => 'Humid. moy. : moyenne des 4 capteurs. Humid. 1 à 4 : humidité du sol à chaque capteur (UA). État pompe : indicateur marche/arrêt de la pompe. Reset : redémarrage du firmware.',
+                'legend_items' => [
+                    ['name' => 'Humid. moy.', 'color' => '#27ae60'],
+                    ['name' => 'Humid. 1', 'color' => '#3498db'],
+                    ['name' => 'Humid. 2', 'color' => '#2980b9'],
+                    ['name' => 'Humid. 3', 'color' => '#1abc9c'],
+                    ['name' => 'Humid. 4', 'color' => '#16a085'],
+                    ['name' => 'État pompe', 'color' => '#008B74'],
+                    ['name' => 'Reset', 'color' => '#bdc3c7'],
+                ],
             ],
             [
                 'id' => 'chart-temperatures',
                 'title' => 'Température, Humidité air & Luminosité',
                 'icon' => 'fa-thermometer-half',
-                'legend' => 'Temp. air : température ambiante (°C). Humidité : humidité relative de l\'air (%). Luminosité : intensité lumineuse (UA) dans la serre N3PP.',
+                'legend_items' => [
+                    ['name' => 'Temp. air', 'color' => '#e74c3c'],
+                    ['name' => 'Humidité', 'color' => '#3498db'],
+                    ['name' => 'Luminosité', 'color' => '#f39c12'],
+                ],
             ],
             [
                 'id' => 'chart-cycles',
                 'title' => 'Autonomie & Système',
                 'icon' => 'fa-cog',
                 'height' => '300px',
-                'legend' => 'bootCount : nombre de redémarrages du firmware. PontDiv : tension batterie (diviseur de pont) pour suivre l\'autonomie.',
+                'legend_items' => [
+                    ['name' => 'bootCount', 'color' => '#2c3e50'],
+                    ['name' => 'PontDiv', 'color' => '#e74c3c'],
+                ],
             ],
         ];
     }

@@ -50,6 +50,7 @@ class MspDataController extends AbstractDataController
             'TempAirInt', 'TempAirExt', 'HumidAirInt', 'HumidAirExt',
             'LuminositeMoy', 'LuminositeA', 'LuminositeB', 'LuminositeC', 'LuminositeD',
             'HumidSol', 'TempEau', 'Pluie', 'PontDiv', 'bootCount',
+            'ServoHB', 'ServoGD',
         ];
     }
 
@@ -83,9 +84,17 @@ class MspDataController extends AbstractDataController
             ['key' => 'HumidAirInt', 'label' => 'Humid. air int.', 'icon' => 'fa-tint', 'class' => 'humidity', 'unit' => '%', 'decimals' => 0, 'unit_suffix' => '%'],
             ['key' => 'HumidAirExt', 'label' => 'Humid. air ext.', 'icon' => 'fa-cloud', 'class' => 'humidity', 'unit' => '%', 'decimals' => 0, 'unit_suffix' => '%'],
             ['key' => 'LuminositeMoy', 'label' => 'Luminosité moy.', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
+            ['key' => 'LuminositeA', 'label' => 'Luminosité A', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
+            ['key' => 'LuminositeB', 'label' => 'Luminosité B', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
+            ['key' => 'LuminositeC', 'label' => 'Luminosité C', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
+            ['key' => 'LuminositeD', 'label' => 'Luminosité D', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
             ['key' => 'TempEau', 'label' => 'Temp. eau', 'icon' => 'fa-water', 'class' => 'water', 'unit' => '°C', 'decimals' => 1],
             ['key' => 'HumidSol', 'label' => 'Humid. sol', 'icon' => 'fa-seedling', 'class' => 'humidity', 'unit' => '%', 'decimals' => 0, 'unit_suffix' => '%'],
             ['key' => 'Pluie', 'label' => 'Pluie', 'icon' => 'fa-cloud-rain', 'class' => 'rain', 'unit' => '', 'decimals' => 0],
+            ['key' => 'bootCount', 'label' => 'Redémarrages', 'icon' => 'fa-sync', 'class' => 'system', 'unit' => '', 'decimals' => 0, 'no_stats' => false],
+            ['key' => 'PontDiv', 'label' => 'Pont div. (batterie)', 'icon' => 'fa-battery-half', 'class' => 'system', 'unit' => '', 'decimals' => 0],
+            ['key' => 'ServoHB', 'label' => 'Servo H-B', 'icon' => 'fa-cog', 'class' => 'system', 'unit' => '', 'decimals' => 0],
+            ['key' => 'ServoGD', 'label' => 'Servo G-D', 'icon' => 'fa-cog', 'class' => 'system', 'unit' => '', 'decimals' => 0],
         ];
     }
 
@@ -96,26 +105,47 @@ class MspDataController extends AbstractDataController
                 'id' => 'chart-temperatures',
                 'title' => 'Températures & Humidité',
                 'icon' => 'fa-thermometer-half',
-                'legend' => 'Temp. int./ext. : températures intérieure et extérieure (°C). Humid. int./ext. : humidité relative de l\'air (%) mesurée en intérieur et extérieur.',
+                'legend_items' => [
+                    ['name' => 'Temp. int.', 'color' => '#e74c3c'],
+                    ['name' => 'Temp. ext.', 'color' => '#c0392b'],
+                    ['name' => 'Humid. int.', 'color' => '#3498db'],
+                    ['name' => 'Humid. ext.', 'color' => '#2980b9'],
+                ],
             ],
             [
                 'id' => 'chart-lights',
                 'title' => 'Luminosité',
                 'icon' => 'fa-sun',
-                'legend' => 'Moy. : luminosité moyenne. A, B, C, D : capteurs de luminosité aux quatre zones de la serre météo (en lux ou unités arbitraires).',
+                'legend_items' => [
+                    ['name' => 'Moy.', 'color' => '#f39c12'],
+                    ['name' => 'A', 'color' => '#e67e22'],
+                    ['name' => 'B', 'color' => '#d35400'],
+                    ['name' => 'C', 'color' => '#f1c40f'],
+                    ['name' => 'D', 'color' => '#e74c3c'],
+                ],
             ],
             [
                 'id' => 'chart-niveauxeaux',
                 'title' => 'Humidité du sol & Eau',
                 'icon' => 'fa-seedling',
-                'legend' => 'Humid. sol : humidité du substrat (%). Pluie : indicateur de pluie. Temp. eau : température de l\'eau du système (°C). Reset : redémarrage du firmware.',
+                'legend_items' => [
+                    ['name' => 'Humid. sol', 'color' => '#27ae60'],
+                    ['name' => 'Pluie', 'color' => '#9b59b6'],
+                    ['name' => 'Temp. eau', 'color' => '#008B74'],
+                    ['name' => 'Reset', 'color' => '#bdc3c7'],
+                ],
             ],
             [
                 'id' => 'chart-cycles',
                 'title' => 'Autonomie & Système',
                 'icon' => 'fa-cog',
                 'height' => '300px',
-                'legend' => 'bootCount : nombre de redémarrages. PontDiv : tension de la batterie (diviseur de pont). ServoHB / ServoGD : cycles des servomoteurs haut-bas et gauche-droite.',
+                'legend_items' => [
+                    ['name' => 'bootCount', 'color' => '#2c3e50'],
+                    ['name' => 'PontDiv', 'color' => '#e74c3c'],
+                    ['name' => 'ServoHB', 'color' => '#3498db'],
+                    ['name' => 'ServoGD', 'color' => '#f39c12'],
+                ],
             ],
         ];
     }

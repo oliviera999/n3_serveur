@@ -7,6 +7,12 @@
 
     Highcharts.setOptions({
         time: { useUTC: false },
+        plotOptions: {
+            series: {
+                visible: true,
+                dataGrouping: { enabled: false }
+            }
+        },
         lang: {
             months: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
             shortMonths: ['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'],

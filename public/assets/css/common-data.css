@@ -63,6 +63,9 @@
 .stat-card.pump { border-left-color: #008B74; background: linear-gradient(180deg, #fff 0%, #f0faf8 100%); }
 .stat-card.pump .stat-card-icon { color: #008B74; }
 
+.stat-card.system { border-left-color: #7f8c8d; }
+.stat-card.system .stat-card-icon { color: #7f8c8d; }
+
 /* Barre de progression dans stat-card */
 .progress-bar-container {
     height: 6px;
@@ -103,6 +106,32 @@
     font-size: 0.82em;
     color: #7f8c8d;
     line-height: 1.4;
+}
+
+/* Légende avec pastilles de couleur (comme aquaponie) */
+.chart-legend-items {
+    margin: 12px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,139,116,0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    align-items: center;
+    font-size: 0.82em;
+    color: #7f8c8d;
+    line-height: 1.4;
+}
+.chart-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.chart-legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
 }
 
 /* ----- FILTER SECTION ----- */

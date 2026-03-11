@@ -491,10 +491,10 @@
         <div class="timelapse-stat-row"><span class="timelapse-stat-key">Intervalle moy.</span><span class="timelapse-stat-val" id="statInterval">--</span></div>
       </div>
       <div class="timelapse-section">
-        <div class="timelapse-section-label">Export vidéo</div>
+        <div class="timelapse-section-label">Export vidéo (MP4 H.264/AAC)</div>
         <div class="timelapse-date-row"><label>Début export</label><input type="datetime-local" id="exportFrom"></div>
         <div class="timelapse-date-row" style="margin-bottom:10px"><label>Fin export</label><input type="datetime-local" id="exportTo"></div>
-        <button class="timelapse-btn timelapse-btn-amber" id="btnExport" disabled>Générer vidéo WebM</button>
+        <button class="timelapse-btn timelapse-btn-amber" id="btnExport" disabled>Générer vidéo MP4</button>
         <div class="timelapse-progress" id="exportProgress">
           <div class="timelapse-progress-bar"><div class="timelapse-progress-fill" id="exportFill"></div></div>
           <div class="timelapse-progress-text" id="exportText">Encodage...</div>
@@ -717,13 +717,41 @@ async function exportVideo() {
   exportCanvas.width = canvas.width;
   exportCanvas.height = canvas.height;
   const exportCtx = exportCanvas.getContext('2d');
-  let stream;
-  try { stream = exportCanvas.captureStream(state.fps); } catch(e) { showToast('MediaRecorder non supporté', 'error'); return; }
-  const mimeType = ['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'].find(m => MediaRecorder.isTypeSupported(m)) || 'video/webm';
-  state.recordedChunks = [];
-  state.mediaRecorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 4000000 });
-  state.mediaRecorder.ondataavailable = e => { if (e.data.size > 0) state.recordedChunks.push(e.data); };
-  state.mediaRecorder.onstop = () => { const blob = new Blob(state.recordedChunks, { type: mimeType }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'n3-timelapse-' + new Date().toISOString().slice(0,10) + '.webm'; a.click(); URL.revokeObjectURL(url); state.recording = false; document.getElementById('btnExport').disabled = false; hideExportProgress(); showToast('Vidéo générée (' + (blob.size/1024/1024).toFixed(1) + ' Mo)', 'success'); };
+  let videoStream;
+  try { videoStream = exportCanvas.captureStream(state.fps); } catch(e) { showToast('Capture non supportée: ' + e.message, 'error'); return; }
+  const mimeTypes = [
+    'video/mp4;codecs=avc1.42E01E,mp4a.40.2',
+    'video/mp4;codecs=avc1,mp4a.40.2',
+    'video/mp4',
+    'video/webm;codecs=vp9',
+    'video/webm;codecs=vp8',
+    'video/webm'
+  ];
+  const mimeType = mimeTypes.find(m => MediaRecorder.isTypeSupported(m)) || 'video/webm';
+  const isMp4 = mimeType.startsWith('video/mp4');
+  let stream = videoStream;
+  let audioCleanup = null;
+  if (isMp4) {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = ctx.createOscillator();
+      const gain = ctx.createGain();
+      gain.gain.value = 0;
+      oscillator.connect(gain);
+      const dest = ctx.createMediaStreamDestination();
+      gain.connect(dest);
+      oscillator.start(0);
+      stream = new MediaStream([...videoStream.getVideoTracks(), ...dest.stream.getAudioTracks()]);
+      audioCleanup = () => { try { oscillator.stop(); ctx.close(); } catch(e) {} };
+    } catch (e) { /* pas d'audio, MP4 vidéo seule */ }
+  }
+  try {
+    state.recordedChunks = [];
+    state.mediaRecorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 4000000, audioBitsPerSecond: 128000 });
+    state.mediaRecorder.ondataavailable = e => { if (e.data.size > 0) state.recordedChunks.push(e.data); };
+    const ext = isMp4 ? 'mp4' : 'webm';
+    state.mediaRecorder.onstop = () => { if (audioCleanup) audioCleanup(); const blob = new Blob(state.recordedChunks, { type: mimeType }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'n3-timelapse-' + new Date().toISOString().slice(0,10) + '.' + ext; a.click(); URL.revokeObjectURL(url); state.recording = false; document.getElementById('btnExport').disabled = false; hideExportProgress(); showToast('Vidéo générée (' + (blob.size/1024/1024).toFixed(1) + ' Mo) - ' + (isMp4 ? 'MP4 H.264/AAC' : 'WebM'), 'success'); };
+  } catch (e) { showToast('MediaRecorder non supporté: ' + e.message, 'error'); return; }
   state.mediaRecorder.start();
   document.getElementById('btnExport').disabled = true;
   state.recording = true;
