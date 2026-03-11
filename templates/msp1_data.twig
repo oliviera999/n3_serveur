@@ -37,32 +37,32 @@
                 <div class="alt-stats-column">
                     <div class="stats-grid">
                         {% if latest %}
-                        <div class="stat-card light">
-                            <i class="fas fa-sun stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#f39c12">
+                            <i class="fas fa-sun stat-card-icon" style="color:#f39c12"></i>
                             <div class="stat-card-label">Luminosité moy.</div>
                             <div class="stat-card-value"><span data-sensor="LuminositeMoy" data-decimals="0">{{ latest.LuminositeMoy|default('-')|number_format(0) }}</span></div>
-                            <div class="stat-card-secondary">Moy: Moy: {{ avg_luminositeMoy|default(0)|number_format(0) }} | Min: {{ min_luminositeMoy|default(0)|number_format(0) }} | Max: {{ max_luminositeMoy|default(0)|number_format(0) }}</div>
+                            <div class="stat-card-secondary">Moy: {{ avg_luminositeMoy|default(0)|number_format(0) }} | Min: {{ min_luminositeMoy|default(0)|number_format(0) }} | Max: {{ max_luminositeMoy|default(0)|number_format(0) }}</div>
                         </div>
-                        <div class="stat-card light">
-                            <i class="fas fa-sun stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#e67e22">
+                            <i class="fas fa-sun stat-card-icon" style="color:#e67e22"></i>
                             <div class="stat-card-label">A</div>
                             <div class="stat-card-value"><span data-sensor="LuminositeA" data-decimals="0">{{ latest.LuminositeA|default('-')|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_luminositeA|default('-')|number_format(0) }} | Min: {{ min_luminositeA|default('-')|number_format(0) }} | Max: {{ max_luminositeA|default('-')|number_format(0) }}</div>
                         </div>
-                        <div class="stat-card light">
-                            <i class="fas fa-sun stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#d35400">
+                            <i class="fas fa-sun stat-card-icon" style="color:#d35400"></i>
                             <div class="stat-card-label">B</div>
                             <div class="stat-card-value"><span data-sensor="LuminositeB" data-decimals="0">{{ latest.LuminositeB|default('-')|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_luminositeB|default('-')|number_format(0) }} | Min: {{ min_luminositeB|default('-')|number_format(0) }} | Max: {{ max_luminositeB|default('-')|number_format(0) }}</div>
                         </div>
-                        <div class="stat-card light">
-                            <i class="fas fa-sun stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#f1c40f">
+                            <i class="fas fa-sun stat-card-icon" style="color:#f1c40f"></i>
                             <div class="stat-card-label">C</div>
                             <div class="stat-card-value"><span data-sensor="LuminositeC" data-decimals="0">{{ latest.LuminositeC|default('-')|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_luminositeC|default('-')|number_format(0) }} | Min: {{ min_luminositeC|default('-')|number_format(0) }} | Max: {{ max_luminositeC|default('-')|number_format(0) }}</div>
                         </div>
-                        <div class="stat-card light">
-                            <i class="fas fa-sun stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#e74c3c">
+                            <i class="fas fa-sun stat-card-icon" style="color:#e74c3c"></i>
                             <div class="stat-card-label">D</div>
                             <div class="stat-card-value"><span data-sensor="LuminositeD" data-decimals="0">{{ latest.LuminositeD|default('-')|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_luminositeD|default('-')|number_format(0) }} | Min: {{ min_luminositeD|default('-')|number_format(0) }} | Max: {{ max_luminositeD|default('-')|number_format(0) }}</div>
@@ -91,20 +91,20 @@
                 <div class="alt-stats-column">
                     <div class="stats-grid">
                         {% if latest %}
-                        <div class="stat-card humidity">
-                            <i class="fas fa-seedling stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#27ae60">
+                            <i class="fas fa-seedling stat-card-icon" style="color:#27ae60"></i>
                             <div class="stat-card-label">Humidité sol</div>
                             <div class="stat-card-value"><span data-sensor="HumidSol" data-decimals="0">{{ latest.HumidSol|default('-')|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_humidSol|default('-')|number_format(0) }}% | Min: {{ min_humidSol|default('-')|number_format(0) }}% | Max: {{ max_humidSol|default('-')|number_format(0) }}%</div>
                         </div>
-                        <div class="stat-card rain">
-                            <i class="fas fa-cloud-rain stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#9b59b6">
+                            <i class="fas fa-cloud-rain stat-card-icon" style="color:#9b59b6"></i>
                             <div class="stat-card-label">Pluie</div>
                             <div class="stat-card-value"><span data-sensor="Pluie" data-decimals="0">{{ latest.Pluie|default('-')|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_pluie|default('-')|number_format(0) }} | Min: {{ min_pluie|default('-')|number_format(0) }} | Max: {{ max_pluie|default('-')|number_format(0) }}</div>
                         </div>
-                        <div class="stat-card water">
-                            <i class="fas fa-water stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#008B74">
+                            <i class="fas fa-water stat-card-icon" style="color:#008B74"></i>
                             <div class="stat-card-label">Température eau</div>
                             <div class="stat-card-value"><span data-sensor="TempEau" data-decimals="1">{{ latest.TempEau|default('-')|number_format(1) }}</span> <span class="stat-card-unit">°C</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_tempEau|default('-')|number_format(1) }} °C | Min: {{ min_tempEau|default('-')|number_format(1) }} °C | Max: {{ max_tempEau|default('-')|number_format(1) }} °C</div>
@@ -132,26 +132,26 @@
                 <div class="alt-stats-column">
                     <div class="stats-grid">
                         {% if latest %}
-                        <div class="stat-card temp">
-                            <i class="fas fa-thermometer-half stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#e74c3c">
+                            <i class="fas fa-thermometer-half stat-card-icon" style="color:#e74c3c"></i>
                             <div class="stat-card-label">Temp. air int.</div>
                             <div class="stat-card-value"><span data-sensor="TempAirInt" data-decimals="1">{{ latest.TempAirInt|default('-')|number_format(1) }}</span> <span class="stat-card-unit">°C</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_tempAirInt|default('-')|number_format(1) }} °C | Min: {{ min_tempAirInt|default('-')|number_format(1) }} °C | Max: {{ max_tempAirInt|default('-')|number_format(1) }} °C</div>
                         </div>
-                        <div class="stat-card temp">
-                            <i class="fas fa-temperature-low stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#c0392b">
+                            <i class="fas fa-temperature-low stat-card-icon" style="color:#c0392b"></i>
                             <div class="stat-card-label">Temp. air ext.</div>
                             <div class="stat-card-value"><span data-sensor="TempAirExt" data-decimals="1">{{ latest.TempAirExt|default('-')|number_format(1) }}</span> <span class="stat-card-unit">°C</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_tempAirExt|default('-')|number_format(1) }} °C | Min: {{ min_tempAirExt|default('-')|number_format(1) }} °C | Max: {{ max_tempAirExt|default('-')|number_format(1) }} °C</div>
                         </div>
-                        <div class="stat-card humidity">
-                            <i class="fas fa-tint stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#3498db">
+                            <i class="fas fa-tint stat-card-icon" style="color:#3498db"></i>
                             <div class="stat-card-label">Humid. air int.</div>
                             <div class="stat-card-value"><span data-sensor="HumidAirInt" data-decimals="0">{{ latest.HumidAirInt|default('-')|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_humidAirInt|default('-')|number_format(0) }}% | Min: {{ min_humidAirInt|default('-')|number_format(0) }}% | Max: {{ max_humidAirInt|default('-')|number_format(0) }}%</div>
                         </div>
-                        <div class="stat-card humidity">
-                            <i class="fas fa-cloud stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#2980b9">
+                            <i class="fas fa-cloud stat-card-icon" style="color:#2980b9"></i>
                             <div class="stat-card-label">Humid. air ext.</div>
                             <div class="stat-card-value"><span data-sensor="HumidAirExt" data-decimals="0">{{ latest.HumidAirExt|default('-')|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_humidAirExt|default('-')|number_format(0) }}% | Min: {{ min_humidAirExt|default('-')|number_format(0) }}% | Max: {{ max_humidAirExt|default('-')|number_format(0) }}%</div>
@@ -179,26 +179,26 @@
                 <div class="alt-stats-column">
                     <div class="stats-grid">
                         {% if latest %}
-                        <div class="stat-card system">
-                            <i class="fas fa-sync stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#2c3e50">
+                            <i class="fas fa-sync stat-card-icon" style="color:#2c3e50"></i>
                             <div class="stat-card-label">Redémarrages</div>
                             <div class="stat-card-value"><span data-sensor="bootCount" data-decimals="0">{{ latest.bootCount|default('-')|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_bootCount|default('-')|number_format(0) }} | Min: {{ min_bootCount|default('-')|number_format(0) }} | Max: {{ max_bootCount|default('-')|number_format(0) }}</div>
                         </div>
-                        <div class="stat-card system">
-                            <i class="fas fa-battery-half stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#e74c3c">
+                            <i class="fas fa-battery-half stat-card-icon" style="color:#e74c3c"></i>
                             <div class="stat-card-label">Pont div. (batterie)</div>
                             <div class="stat-card-value"><span data-sensor="PontDiv" data-decimals="0">{{ latest.PontDiv|default('-')|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_pontDiv|default('-')|number_format(0) }} | Min: {{ min_pontDiv|default('-')|number_format(0) }} | Max: {{ max_pontDiv|default('-')|number_format(0) }}</div>
                         </div>
-                        <div class="stat-card system">
-                            <i class="fas fa-cog stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#3498db">
+                            <i class="fas fa-cog stat-card-icon" style="color:#3498db"></i>
                             <div class="stat-card-label">Servo H-B</div>
                             <div class="stat-card-value"><span data-sensor="ServoHB" data-decimals="0">{{ latest.ServoHB|default('-')|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_servoHB|default('-')|number_format(0) }} | Min: {{ min_servoHB|default('-')|number_format(0) }} | Max: {{ max_servoHB|default('-')|number_format(0) }}</div>
                         </div>
-                        <div class="stat-card system">
-                            <i class="fas fa-cog stat-card-icon"></i>
+                        <div class="stat-card" style="border-left-color:#f39c12">
+                            <i class="fas fa-cog stat-card-icon" style="color:#f39c12"></i>
                             <div class="stat-card-label">Servo G-D</div>
                             <div class="stat-card-value"><span data-sensor="ServoGD" data-decimals="0">{{ latest.ServoGD|default('-')|number_format(0) }}</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_servoGD|default('-')|number_format(0) }} | Min: {{ min_servoGD|default('-')|number_format(0) }} | Max: {{ max_servoGD|default('-')|number_format(0) }}</div>
