@@ -247,9 +247,17 @@
 
     {% if measure_count > 0 %}
     <script>
+    (function() {
+        var chartLoadExtremes = function() {
+            var xAxis = this.xAxis && this.xAxis[0];
+            if (xAxis && xAxis.dataMin != null && xAxis.dataMax != null) {
+                xAxis.setExtremes(xAxis.dataMin, xAxis.dataMax);
+            }
+        };
     Highcharts.stockChart('chart-niveauxeaux', {
         rangeSelector: { enabled: false },
         title: { text: '' },
+        xAxis: { ordinal: false },
         yAxis: [{ title: { text: 'Humidité sol (UA)' }, opposite: false }],
         series: [
             { name: 'Humid. moy.', data: zipSeries(reading_time, HumidMoy), type: 'spline', color: '#27ae60', lineWidth: 3, tooltip: { valueSuffix: ' UA' }},
@@ -260,12 +268,13 @@
             { name: 'État pompe', data: zipSeries(reading_time, etatPompe), type: 'column', color: '#008B74', opacity: 0.5 },
             { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7' }
         ],
-        chart: { backgroundColor: 'transparent' },
+        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     Highcharts.stockChart('chart-temperatures', {
         rangeSelector: { enabled: false },
         title: { text: '' },
+        xAxis: { ordinal: false },
         yAxis: [
             { title: { text: 'Température (°C)' }, opposite: false },
             { title: { text: 'Humidité (%)' }, opposite: true },
@@ -276,12 +285,13 @@
             { name: 'Humidité', data: zipSeries(reading_time, Humidite), type: 'spline', color: '#3498db', yAxis: 1, tooltip: { valueSuffix: ' %' }},
             { name: 'Luminosité', data: zipSeries(reading_time, Luminosite), type: 'spline', color: '#f39c12', yAxis: 2 }
         ],
-        chart: { backgroundColor: 'transparent' },
+        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     Highcharts.stockChart('chart-cycles', {
         rangeSelector: { enabled: false },
         title: { text: '' },
+        xAxis: { ordinal: false },
         yAxis: [
             { title: { text: 'Cycles' }, opposite: false },
             { title: { text: 'Batterie' }, opposite: true }
@@ -290,9 +300,10 @@
             { name: 'bootCount', data: zipSeries(reading_time, bootCount), type: 'spline', color: '#2c3e50', yAxis: 0 },
             { name: 'PontDiv', data: zipSeries(reading_time, PontDiv), type: 'spline', color: '#e74c3c', yAxis: 1 }
         ],
-        chart: { backgroundColor: 'transparent' },
+        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
+    })();
     </script>
     {% endif %}
 

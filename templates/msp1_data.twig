@@ -331,9 +331,17 @@
 
     {% if measure_count > 0 %}
     <script>
+    (function() {
+        var chartLoadExtremes = function() {
+            var xAxis = this.xAxis && this.xAxis[0];
+            if (xAxis && xAxis.dataMin != null && xAxis.dataMax != null) {
+                xAxis.setExtremes(xAxis.dataMin, xAxis.dataMax);
+            }
+        };
     Highcharts.stockChart('chart-temperatures', {
         rangeSelector: { enabled: false },
         title: { text: '' },
+        xAxis: { ordinal: false },
         yAxis: [
             { title: { text: 'Température (°C)' }, opposite: false },
             { title: { text: 'Humidité (%)' }, opposite: true }
@@ -344,12 +352,13 @@
             { name: 'Humid. int.', data: zipSeries(reading_time, HumidAirInt), type: 'spline', color: '#3498db', yAxis: 1, tooltip: { valueSuffix: ' %' }},
             { name: 'Humid. ext.', data: zipSeries(reading_time, HumidAirExt), type: 'spline', color: '#2980b9', yAxis: 1, tooltip: { valueSuffix: ' %' }}
         ],
-        chart: { backgroundColor: 'transparent' },
+        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     Highcharts.stockChart('chart-lights', {
         rangeSelector: { enabled: false },
         title: { text: '' },
+        xAxis: { ordinal: false },
         series: [
             { name: 'Moy.', data: zipSeries(reading_time, LuminositeMoy), type: 'spline', color: '#f39c12', lineWidth: 3 },
             { name: 'A', data: zipSeries(reading_time, LuminositeA), type: 'spline', color: '#e67e22', dashStyle: 'Dash' },
@@ -357,12 +366,13 @@
             { name: 'C', data: zipSeries(reading_time, LuminositeC), type: 'spline', color: '#f1c40f', dashStyle: 'Dash' },
             { name: 'D', data: zipSeries(reading_time, LuminositeD), type: 'spline', color: '#e74c3c', dashStyle: 'Dash' }
         ],
-        chart: { backgroundColor: 'transparent' },
+        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     Highcharts.stockChart('chart-niveauxeaux', {
         rangeSelector: { enabled: false },
         title: { text: '' },
+        xAxis: { ordinal: false },
         yAxis: [
             { title: { text: 'Humidité sol / Pluie' }, opposite: false },
             { title: { text: 'Temp. eau (°C)' }, opposite: true }
@@ -373,12 +383,13 @@
             { name: 'Temp. eau', data: zipSeries(reading_time, TempEau), type: 'spline', color: '#008B74', yAxis: 1, tooltip: { valueSuffix: ' °C' }},
             { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7', yAxis: 0 }
         ],
-        chart: { backgroundColor: 'transparent' },
+        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     Highcharts.stockChart('chart-cycles', {
         rangeSelector: { enabled: false },
         title: { text: '' },
+        xAxis: { ordinal: false },
         yAxis: [
             { title: { text: 'Cycles / Servos' }, opposite: false },
             { title: { text: 'Batterie' }, opposite: true }
@@ -389,9 +400,10 @@
             { name: 'ServoHB', data: zipSeries(reading_time, ServoHB), type: 'spline', color: '#3498db', yAxis: 0 },
             { name: 'ServoGD', data: zipSeries(reading_time, ServoGD), type: 'spline', color: '#f39c12', yAxis: 0 }
         ],
-        chart: { backgroundColor: 'transparent' },
+        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
+    })();
     </script>
     {% endif %}
 
