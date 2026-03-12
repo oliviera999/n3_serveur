@@ -48,12 +48,17 @@ class TemplateRenderer
      */
     public function render(string $template, array $context = []): string
     {
-        $context['base_path'] = $GLOBALS['base_path'] ?? '';
+        $bp = $GLOBALS['base_path'] ?? '';
+        $context['base_path'] = ($bp !== '' && $bp !== '/') ? '/' . trim($bp, '/') : $bp;
         $context['version'] = $context['version'] ?? Version::getWithPrefix();
         if ($this->authService !== null) {
-            $queryParams = $_GET ?? [];
-            $context['is_admin'] = $this->authService->isAuthenticated()
-                || $this->authService->isAuthenticatedByToken($queryParams);
+            try {
+                $queryParams = $_GET ?? [];
+                $context['is_admin'] = $this->authService->isAuthenticated()
+                    || $this->authService->isAuthenticatedByToken($queryParams);
+            } catch (\Throwable) {
+                $context['is_admin'] = false;
+            }
         } else {
             $context['is_admin'] = false;
         }

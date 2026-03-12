@@ -114,8 +114,7 @@
         }
     }
 
-    // Délégation d'événement : écouter clics ET touchend (mobile)
-    // Sur smartphone, le click peut ne pas se déclencher dans le menu déroulant
-    document.addEventListener('click', handleThemeClick);
-    document.addEventListener('touchend', handleThemeClick, { passive: false });
+    // Délégation : phase capture pour fonctionner dans #navPanel (stopPropagation du panneau)
+    document.addEventListener('click', handleThemeClick, true);
+    document.addEventListener('touchend', handleThemeClick, { passive: false, capture: true });
 })();

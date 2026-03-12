@@ -7,6 +7,22 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
+## [5.0.166] - 2026-03-12
+
+### Correctif - Affichage graphiques Highcharts aquaponie sur mobile
+- **Problème** : Les graphiques Highcharts ne s'affichaient pas correctement sur smartphone
+- **Corrections** :
+  - CSS `.chart-stock-wrapper` : min-heights explicites par breakpoint (380px mobile, 450px tablette, 500px desktop) pour garantir des dimensions avant rendu Highcharts
+  - `width: 100%` et `min-width: 1px` pour éviter le collapse des conteneurs sur grilles flex étroites
+- **Fichiers modifiés** : `public/assets/css/aquaponie.css`
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -150,6 +166,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -402,6 +424,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -619,6 +647,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -838,6 +872,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -1069,6 +1109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -1345,6 +1391,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -1706,6 +1758,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -2029,6 +2087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -2733,6 +2797,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -3425,6 +3495,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -4116,6 +4192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -4807,6 +4889,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -5507,6 +5595,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -6200,6 +6294,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -6893,6 +6993,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -7587,6 +7693,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -8280,6 +8392,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -8975,6 +9093,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -9668,6 +9792,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -10361,6 +10491,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -11054,6 +11190,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -11748,6 +11890,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -12439,6 +12587,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -13135,6 +13289,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -13826,6 +13986,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -14520,6 +14686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -15212,6 +15384,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -15906,6 +16084,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -16600,6 +16784,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -17293,6 +17483,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -17988,6 +18184,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -18680,6 +18882,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -19373,6 +19581,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -20067,6 +20281,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -20761,6 +20981,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -21453,6 +21679,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -22146,6 +22378,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -22841,6 +23079,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -23535,6 +23779,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -24228,6 +24478,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -24921,6 +25177,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -25614,6 +25876,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -26307,6 +26575,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -26999,6 +27273,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -27691,6 +27971,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -28383,6 +28669,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -29075,6 +29367,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -29768,6 +30066,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -30465,6 +30769,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -31162,6 +31472,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -31852,6 +32168,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -32542,6 +32864,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -33232,6 +33560,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -33922,6 +34256,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -34612,6 +34952,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -35302,6 +35648,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -36009,6 +36361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -36706,6 +37064,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -37401,6 +37765,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -38097,6 +38467,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -38797,6 +39173,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -39509,6 +39891,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -40203,6 +40591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -40899,6 +41293,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -41595,6 +41995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -42288,6 +42694,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -42984,6 +43396,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -43677,6 +44095,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -44369,6 +44793,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -45062,6 +45492,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -45765,6 +46201,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -46465,6 +46907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -47173,6 +47621,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -47885,6 +48339,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -48587,6 +49047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -49281,6 +49747,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -49977,6 +50449,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -50672,6 +51150,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -51367,6 +51851,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -52060,6 +52550,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -52753,6 +53249,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -53448,6 +53950,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -54142,6 +54650,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -54838,6 +55352,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -55539,6 +56059,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -56244,6 +56770,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -56945,6 +57477,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -57648,6 +58186,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -58350,6 +58894,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -59047,6 +59597,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -59740,6 +60296,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -60437,6 +60999,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -61131,6 +61699,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -61824,6 +62398,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -62517,6 +63097,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -63212,6 +63798,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -63907,6 +64499,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -64601,6 +65199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -65295,6 +65899,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -65988,6 +66598,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -66681,6 +67297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -67374,6 +67996,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -68069,6 +68697,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -68764,6 +69398,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -69457,6 +70097,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -70150,6 +70796,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -70843,6 +71495,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -71537,6 +72195,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -72233,6 +72897,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -72936,6 +73606,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -73633,6 +74309,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -74337,6 +75019,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -75039,6 +75727,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -75732,6 +76426,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -76458,6 +77158,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -77155,6 +77861,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -77861,6 +78573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -78577,6 +79295,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -79283,6 +80007,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -79979,6 +80709,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -80676,6 +81412,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -81379,6 +82121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -82192,6 +82940,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -82889,6 +83643,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -83584,6 +84344,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -84280,6 +85046,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -84977,6 +85749,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -85673,6 +86451,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -86371,6 +87155,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -87068,6 +87858,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -87887,6 +88683,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -88583,6 +89385,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -89279,6 +90087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -90023,6 +90837,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -90728,6 +91548,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -91433,6 +92259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -92175,6 +93007,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -92928,6 +93766,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -93638,6 +94482,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -94349,6 +95199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -95050,6 +95906,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -95757,6 +96619,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -96468,6 +97336,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -97177,6 +98051,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -97877,6 +98757,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -98589,6 +99475,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -99333,6 +100225,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -100032,6 +100930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -100732,6 +101636,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -101431,6 +102341,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -102135,6 +103051,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -102845,6 +103767,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -103553,6 +104481,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -104259,6 +105193,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -104960,6 +105900,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -105662,6 +106608,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -106375,6 +107327,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -107087,6 +108045,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -107802,6 +108766,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -108533,6 +109503,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -109294,6 +110270,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -109996,6 +110978,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -110697,6 +111685,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -111408,6 +112402,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -112109,6 +113109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -112814,6 +113820,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -113512,6 +114524,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -114212,6 +115230,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -114904,6 +115928,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -115636,6 +116666,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -116340,6 +117376,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -117066,6 +118108,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -117774,6 +118822,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -118478,6 +119532,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -119188,6 +120248,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -119920,6 +120986,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -120637,6 +121709,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -121408,6 +122486,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -122116,6 +123200,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -122826,6 +123916,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -123547,6 +124643,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -124261,6 +125363,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -124962,6 +126070,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -125663,6 +126777,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -126366,6 +127486,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -127140,6 +128266,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -127862,6 +128994,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -128598,6 +129736,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -129322,6 +130466,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -130050,6 +131200,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -130746,6 +131902,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -131494,6 +132656,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -132206,6 +133374,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -132905,6 +134079,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -133654,6 +134834,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -134382,6 +135568,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -135143,6 +136335,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -135842,6 +137040,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -136600,6 +137804,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -137296,6 +138506,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -137991,6 +139207,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -138690,6 +139912,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -139389,6 +140617,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -140133,6 +141367,12 @@ docs/
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -140900,6 +142140,12 @@ docs/
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -141601,6 +142847,12 @@ docs/
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -142336,6 +143588,12 @@ docs/
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -143036,6 +144294,12 @@ docs/
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -143758,6 +145022,12 @@ docs/
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -144456,6 +145726,12 @@ docs/
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -145343,6 +146619,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -146064,6 +147346,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -146812,6 +148100,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -147546,6 +148840,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -148266,6 +149566,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -148993,6 +150299,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -149712,6 +151024,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -150420,6 +151738,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -151120,6 +152444,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -151836,6 +153166,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -152536,6 +153872,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -153236,6 +154578,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -153938,6 +155286,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -154658,6 +156012,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
@@ -155352,6 +156712,12 @@ ance future
 
 ---
 
+## [5.0.167] - 2026-03-12
+
+### Modifié - Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService
+- **Résumé** : Galeries: timelapse par defaut, galerie photo admin, robustesse landing et AuthService.
+
+---
 ## [5.0.165] - 2026-03-12
 
 ### Correctif - titres restent orange en mode clair
