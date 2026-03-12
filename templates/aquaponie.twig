@@ -150,11 +150,17 @@
                         </div>
                     </div>
 
-                    <!-- Section Bilan Hydrique -->
-                    <div class="section-header">
-                        <i class="fas fa-water"></i>
-                        <h3>Bilan Hydrique</h3>
-                    </div>
+                    <!-- Section Bilan Hydrique (révélable) -->
+                    <div class="balance-reveal-wrapper">
+                        <div class="section-header balance-reveal-header">
+                            <i class="fas fa-water"></i>
+                            <h3>Bilan Hydrique</h3>
+                            <button type="button" class="balance-reveal-btn" aria-expanded="false" aria-controls="balance-reveal-content" id="balance-reveal-btn">
+                                <i class="fas fa-chevron-down balance-reveal-btn-icon"></i>
+                                En savoir plus
+                            </button>
+                        </div>
+                        <div class="balance-reveal-content" id="balance-reveal-content" role="region" aria-label="Statistiques de consommation et marnage">
                     <div class="water-balance-grid">
                         <!-- Carte Réserve -->
                         <div class="balance-card reserve">
@@ -263,6 +269,8 @@
                             </div>
                         </div>
                     </div>
+                        </div>
+                    </div>
 
                     <hr />
 
@@ -276,8 +284,9 @@
                     <hr />
 
                     {# --------------------------------------------------------------------- #}
-                    {# FORMULAIRE DE FILTRAGE MODERNE ET ERGONOMIQUE                              #}
+                    {# FORMULAIRE DE FILTRAGE + ÉTAT DU SYSTÈME (2 colonnes sur écrans larges)      #}
                     {# --------------------------------------------------------------------- #}
+                    <div class="filter-system-row">
                     <div class="filter-section">
                         <!-- En-tête de la section -->
                         <div class="filter-header">
@@ -385,7 +394,12 @@
                             </form>
                         </div>
 
-                        <!-- Informations système -->
+                        <!-- Temps total depuis le début du fonctionnement du module -->
+                        <div class="filter-module-uptime" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9em;">
+                            <i class="fas fa-clock"></i>
+                            <strong>Temps total depuis le début du fonctionnement du module :</strong>
+                            <span id="module-uptime-total"><i class="fas fa-spinner fa-spin"></i></span>
+                        </div>
                     </div>
 
                     <!-- Panneau d'état du système (temps réel) -->
@@ -444,6 +458,7 @@
                         <div class="next-update-countdown" id="next-update-info">
                             Prochaine mise à jour dans <strong id="countdown-seconds">15</strong> secondes
                         </div>
+                    </div>
 
                         <!-- Contrôles mode live intégrés -->
                         <div class="live-controls-integrated">
@@ -496,7 +511,9 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
+                    </div><!-- .filter-system-row -->
 
                     <script>
                         function setPeriod(value, unit) {
@@ -1883,6 +1900,7 @@
     <script src="{{ base_path }}/assets/js/stats-updater.js"></script>
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
     <script src="{{ base_path }}/assets/js/pwa-init.js"></script>
+    <script src="{{ base_path }}/assets/js/balance-reveal.js"></script>
         
     <script>
         // Variables globales pour les modules

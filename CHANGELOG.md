@@ -7,64 +7,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
-
----
-## [5.0.136] - 2026-03-11
-
-### Modifié - audit footer : version sur toutes les pages, couleurs WCAG, classes CSS unifiées
-- **TemplateRenderer** : injection automatique de `version` dans tous les templates
-- **layout.twig** : footer par défaut affiche la version ; classes `app-footer` / `app-footer--elevated`
-- **aquaponie.twig**, **supervision.twig**, **tide_stats.twig** : `#999` remplacé par `var(--footer-color)` ; suppression commentaire DEBUG
-- **msp1_data.twig**, **n3pp_data.twig** : couleur unifiée ; classes CSS
-- **aquaponie_description.twig**, **aquaponie_alt.twig**, **_control_base.twig** : classes footer
-- **theme-variables.css** : variables `--footer-bg-elevated`, `--footer-border-elevated` (light/dark)
-- **realtime-styles.css** : classes `.app-footer`, `.app-footer--elevated` (override Massively)
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -90,52 +36,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -276,52 +180,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -427,52 +289,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -580,52 +400,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -745,52 +523,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -955,52 +691,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -1250,52 +944,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -1507,52 +1159,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -2145,52 +1755,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -2771,52 +2339,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -3396,52 +2922,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -4021,52 +3505,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -4655,52 +4097,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -5282,52 +4682,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -5909,52 +5267,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -6537,52 +5853,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -7164,52 +6438,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -7793,52 +7025,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -8420,52 +7610,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -9047,52 +8195,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -9674,52 +8780,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -10302,52 +9366,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -10927,52 +9949,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -11557,52 +10537,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -12182,52 +11120,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -12810,52 +11706,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -13436,52 +12290,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -14064,52 +12876,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -14692,52 +13462,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -15319,52 +14047,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -15948,52 +14634,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -16574,52 +15218,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -17201,52 +15803,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -17829,52 +16389,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -18457,52 +16975,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -19083,52 +17559,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -19710,52 +18144,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -20339,52 +18731,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -20967,52 +19317,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -21594,52 +19902,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -22221,52 +20487,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -22848,52 +21072,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -23475,52 +21657,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -24101,52 +22241,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -24727,52 +22825,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -25353,52 +23409,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -25979,52 +23993,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -26606,52 +24578,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -27237,52 +25167,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -27868,52 +25756,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -28492,52 +26338,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -29116,52 +26920,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -29740,52 +27502,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -30364,52 +28084,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -30988,52 +28666,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -31612,52 +29248,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -32253,52 +29847,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -32884,52 +30436,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -33513,52 +31023,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -34143,52 +31611,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -34777,52 +32203,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -35423,52 +32807,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -36051,52 +33393,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -36681,52 +33981,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -37311,52 +34569,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -37938,52 +35154,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -38568,52 +35742,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -39195,52 +36327,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -39821,52 +36911,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -40448,52 +37496,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -41085,52 +38091,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -41719,52 +38683,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -42361,52 +39283,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -43007,52 +39887,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -43643,52 +40481,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -44271,52 +41067,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -44901,52 +41655,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -45530,52 +42242,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -46159,52 +42829,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -46786,52 +43414,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -47413,52 +43999,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -48042,52 +44586,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -48670,52 +45172,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -49300,52 +45760,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -49935,52 +46353,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -50574,52 +46950,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -51209,52 +47543,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -51846,52 +48138,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -52482,52 +48732,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -53113,52 +49321,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -53740,52 +49906,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -54371,52 +50495,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -54999,52 +51081,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -55626,52 +51666,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -56253,52 +52251,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -56882,52 +52838,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -57511,52 +53425,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -58139,52 +54011,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -58767,52 +54597,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -59394,52 +55182,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -60021,52 +55767,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -60648,52 +56352,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -61277,52 +56939,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -61906,52 +57526,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -62533,52 +58111,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -63160,52 +58696,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -63787,52 +59281,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -64415,52 +59867,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -65045,52 +60455,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -65682,52 +61050,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -66313,52 +61639,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -66951,52 +62235,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -67587,52 +62829,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -68214,52 +63414,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -68874,52 +64032,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -69505,52 +64621,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -70145,52 +65219,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -70795,52 +65827,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -71435,52 +66425,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -72065,52 +67013,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -72696,52 +67602,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -73333,52 +68197,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -74080,52 +68902,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -74711,52 +69491,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -75340,52 +70078,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -75970,52 +70666,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -76601,52 +71255,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -77231,52 +71843,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -77863,52 +72433,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -78494,52 +73022,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -79247,52 +73733,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -79877,52 +74321,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -80507,52 +74909,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -81185,52 +75545,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -81824,52 +76142,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -82463,52 +76739,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -83139,52 +77373,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -83826,52 +78018,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -84470,52 +78620,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -85115,52 +79223,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -85750,52 +79816,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -86391,52 +80415,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -87036,52 +81018,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -87679,52 +81619,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -88313,52 +82211,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -88959,52 +82815,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -89637,52 +83451,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -90270,52 +84042,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -90904,52 +84634,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -91537,52 +85225,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -92175,52 +85821,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -92819,52 +86423,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -93461,52 +87023,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -94101,52 +87621,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -94736,52 +88214,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -95372,52 +88808,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -96019,52 +89413,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -96665,52 +90017,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -97314,52 +90624,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -97979,52 +91247,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -98674,52 +91900,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -99310,52 +92494,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -99945,52 +93087,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -100590,52 +93690,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -101225,52 +94283,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -101864,52 +94880,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -102496,52 +95470,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -103130,52 +96062,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -103756,52 +96646,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -104422,52 +97270,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -105060,52 +97866,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -105720,52 +98484,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -106362,52 +99084,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -107000,52 +99680,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -107644,52 +100282,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -108310,52 +100906,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -108961,52 +101515,10 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -109666,52 +102178,10 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -110308,52 +102778,10 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -110952,52 +103380,10 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -111607,52 +103993,10 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -112255,52 +104599,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -112890,52 +105192,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -113525,52 +105785,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -114162,52 +106380,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -114870,52 +107046,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -115526,52 +107660,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -116196,52 +108288,10 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -116854,52 +108904,10 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -117516,52 +109524,10 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -118146,52 +110112,10 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -118828,52 +110752,10 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -119474,52 +111356,10 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -120107,52 +111947,10 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -120790,52 +112588,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -121452,52 +113208,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -122147,52 +113861,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -122780,52 +114452,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -123472,52 +115102,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -124102,52 +115690,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -124731,52 +116277,10 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -125364,52 +116868,10 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -125997,52 +117459,10 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -126675,52 +118095,10 @@ docs/
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -127376,52 +118754,10 @@ docs/
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -128011,52 +119347,10 @@ docs/
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -128680,52 +119974,10 @@ docs/
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -129314,52 +120566,10 @@ docs/
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -129970,52 +121180,10 @@ docs/
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -130602,52 +121770,10 @@ docs/
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -131423,52 +122549,10 @@ Pour migrer vers v4.0.0 :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -132078,52 +123162,10 @@ Pour migrer vers v4.0.0 :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -132760,52 +123802,10 @@ Pour migrer vers v4.0.0 :
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -133428,52 +124428,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -134082,52 +125040,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -134743,52 +125659,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -135396,52 +126270,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -136038,52 +126870,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -136672,52 +127462,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -137322,52 +128070,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -137956,52 +128662,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -138590,52 +129254,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -139226,52 +129848,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -139880,52 +130460,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11
@@ -140508,52 +131046,10 @@ ance future
 
 ---
 
-## [5.0.145] - 2026-03-12
+## [5.0.146] - 2026-03-12
 
-### Correctif - fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32
-- **Résumé** : fix OTA: /ffp3/ota/ sans redirection 301 pour firmware ESP32.
-
----
-## [5.0.144] - 2026-03-12
-
-### Modifié - Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels
-- **Résumé** : Cabin appliquée partout : main.css, control-styles, login-styles, checkbox labels.
-
----
-## [5.0.143] - 2026-03-12
-
-### Modifié - Polices Raleway et Cabin, couleurs et agencement page supervision
-- **Résumé** : Polices Raleway et Cabin, couleurs et agencement page supervision.
-
----
-## [5.0.142] - 2026-03-12
-
-### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
-- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
-
----
-## [5.0.141] - 2026-03-12
-
-### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
-- **Résumé** : audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md.
-
----
-## [5.0.140] - 2026-03-12
-
-### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
-- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
-
----
-## [5.0.139] - 2026-03-12
-
-### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
-- **Résumé** : audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs.
-
----
-## [5.0.137] - 2026-03-11
-
-### Modifié - Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale
-- **Résumé** : Hero unifié sur MSP: synthèse dans hero aquaponie/aquaponie_alt, duration_str short, cohérence totale.
+### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
+- **Résumé** : graphiques Google Sheets visibles à 100% sur tous les affichages.
 
 ---
 ## [5.0.135] - 2026-03-11

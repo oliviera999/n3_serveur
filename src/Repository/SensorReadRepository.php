@@ -49,6 +49,20 @@ class SensorReadRepository extends AbstractRepository
     }
 
     /**
+     * Retourne la date/heure de la première mesure enregistrée, ou null si aucune donnée.
+     *
+     * @return string|null Date/heure SQL de la première mesure, ou null
+     */
+    public function getFirstReadingDate(): ?string
+    {
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
+        $sql = "SELECT MIN(reading_time) AS first_date FROM `{$table}`";
+
+        $result = $this->fetchOne($sql);
+        return $result['first_date'] ?? null;
+    }
+
+    /**
      * Retourne la date/heure de la dernière mesure enregistrée, ou null si aucune donnée.
      *
      * @return string|null Date/heure SQL de la dernière mesure, ou null

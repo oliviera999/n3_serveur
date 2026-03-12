@@ -1237,3 +1237,11 @@ body.is-preload #wrapper.fade-in::before {
     color: var(--accent-primary);
 }
 
+/* =================================================================
+   Highcharts navigator — correctifs bugs connus
+   (Highcharts issue #16901 : parent visibility:hidden non respecté)
+================================================================= */
+.highcharts-navigator {
+    visibility: inherit !important;
+}
+

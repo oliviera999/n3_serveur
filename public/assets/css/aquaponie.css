@@ -123,6 +123,74 @@
     margin-top: 1rem;
 }
 
+/* ----- Révélation fluide : Bilan Hydrique (consommation + marnage) ----- */
+.balance-reveal-wrapper {
+    margin: 1rem 0 1.5rem;
+}
+
+.balance-reveal-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.balance-reveal-header.balance-reveal-header .balance-reveal-btn {
+    margin-left: auto;
+}
+
+.balance-reveal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #008B74;
+    background: rgba(0, 139, 116, 0.1);
+    border: 1px solid rgba(0, 139, 116, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.balance-reveal-btn:hover {
+    background: rgba(0, 139, 116, 0.2);
+    color: #006b5a;
+    border-color: rgba(0, 139, 116, 0.5);
+}
+
+.balance-reveal-btn-icon {
+    transition: transform 0.35s ease;
+}
+
+.balance-reveal-btn[aria-expanded="true"] .balance-reveal-btn-icon {
+    transform: rotate(180deg);
+}
+
+.balance-reveal-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.4s ease, opacity 0.35s ease, visibility 0.35s;
+}
+
+.balance-reveal-content.is-visible {
+    max-height: 800px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Layout alt : bouton seul */
+.alt-balance-wrapper .alt-balance-header {
+    margin-bottom: 0;
+}
+
+.alt-balance-header .balance-reveal-btn {
+    margin: 0;
+}
+
 /* Dark mode */
 [data-theme="dark"] .balance-card {
     background: var(--chart-bg);
@@ -137,3 +205,19 @@
 [data-theme="dark"] .balance-stat { border-bottom-color: var(--chart-border); }
 [data-theme="dark"] .balance-note { background: var(--accent-muted); color: var(--text-secondary); }
 [data-theme="dark"] .balance-note i { color: var(--accent-primary); }
+
+/* ----- FILTRAGE + ÉTAT SYSTÈME : 2 colonnes sur écrans larges ----- */
+.filter-system-row,
+.alt-two-cols {
+    display: block;
+    margin: 1.5rem 0;
+}
+@media (min-width: 901px) {
+    .filter-system-row,
+    .alt-two-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        align-items: start;
+    }
+}

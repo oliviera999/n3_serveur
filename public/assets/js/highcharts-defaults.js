@@ -27,7 +27,14 @@
             rangeSelectorTo: 'Au'
         },
         chart: { backgroundColor: 'transparent' },
-        credits: { enabled: false }
+        credits: { enabled: false },
+        legend: {
+            enabled: true,
+            /* Désactive l'accessibilité sur la légende uniquement pour restaurer les clics
+             * show/hide des séries (bug connu : accessibility.js casse les itemClick).
+             * Le reste du graphique conserve les fonctionnalités d'accessibilité. */
+            accessibility: { enabled: false }
+        }
     };
 
     var darkTheme = {
@@ -47,6 +54,7 @@
             title: { style: { color: '#94a3b8' } }
         },
         legend: {
+            accessibility: { enabled: false },
             itemStyle: { color: '#94a3b8' },
             itemHoverStyle: { color: '#f1f5f9' }
         },

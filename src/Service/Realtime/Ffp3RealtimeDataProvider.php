@@ -79,11 +79,17 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
                 'readings_today' => 0,
                 'average_latency_seconds' => null,
                 'device_ip' => $this->readDeviceIpFile(),
+                'module_uptime_seconds' => null,
             ];
         }
 
         $secondsSinceLastReading = time() - strtotime($lastReadingDateStr);
         $isOnline = $secondsSinceLastReading < self::ONLINE_THRESHOLD_SECONDS;
+
+        $firstReadingDateStr = $this->sensorReadRepo->getFirstReadingDate();
+        $moduleUptimeSeconds = $firstReadingDateStr !== null
+            ? time() - strtotime($firstReadingDateStr)
+            : null;
 
         return [
             'online' => $isOnline,
@@ -93,6 +99,7 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
             'readings_today' => $this->countReadingsToday(),
             'average_latency_seconds' => $isOnline ? self::ESTIMATED_LATENCY_SECONDS : null,
             'device_ip' => $this->readDeviceIpFile(),
+            'module_uptime_seconds' => $moduleUptimeSeconds,
         ];
     }
 
@@ -171,5 +178,18 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
             date('Y-m-d 00:00:00'),
             date('Y-m-d 23:59:59')
         );
+    }
+
+    /**
+     * Calcule le temps total (en secondes) depuis la première mesure enregistrée.
+     * Correspond au « temps depuis le début du fonctionnement du module » côté serveur.
+     */
+    private function computeModuleUptimeSeconds(): ?int
+    {
+        $firstDate = $this->sensorReadRepo->getFirstReadingDate();
+        if ($firstDate === null) {
+            return null;
+        }
+        return (int) (time() - strtotime($firstDate));
     }
 }

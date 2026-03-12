@@ -110,7 +110,15 @@
                             <div id="chart-stock-area-eau-D" class="chart-stock-wrapper"></div>
                         </div>
                     </div>
-                    <!-- Bilan hydrique : Réserve d'eau et Cycles de marée sous le graphique, 2 colonnes -->
+                    <!-- Bilan hydrique : Réserve d'eau et Cycles de marée (révélable) -->
+                    <div class="balance-reveal-wrapper alt-balance-wrapper">
+                        <div class="balance-reveal-header alt-balance-header">
+                            <button type="button" class="balance-reveal-btn" id="balance-reveal-btn-alt" aria-expanded="false" aria-controls="balance-reveal-content-alt">
+                                <i class="fas fa-chevron-down balance-reveal-btn-icon"></i>
+                                En savoir plus
+                            </button>
+                        </div>
+                        <div class="balance-reveal-content" id="balance-reveal-content-alt" role="region" aria-label="Statistiques de consommation et marnage">
                     <div class="alt-balance-below-chart">
                         <div class="balance-card reserve">
                                     <div class="balance-card-header">
@@ -203,6 +211,8 @@
                                             <span class="balance-stat-unit">cm</span>
                                         </span>
                                     </div>
+                        </div>
+                    </div>
                         </div>
                     </div>
 
@@ -392,7 +402,12 @@
                             </form>
                         </div>
 
-                        <!-- Informations système -->
+                        <!-- Temps total depuis le début du fonctionnement du module -->
+                        <div class="filter-module-uptime" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9em;">
+                            <i class="fas fa-clock"></i>
+                            <strong>Temps total depuis le début du fonctionnement du module :</strong>
+                            <span id="module-uptime-total"><i class="fas fa-spinner fa-spin"></i></span>
+                        </div>
                     </div>
 
                     </div>
@@ -506,6 +521,8 @@
                             </div>
                         </div>
                     </div>
+                    </div>
+                    </div><!-- .alt-two-cols -->
 
                     <script>
                         function setPeriod(value, unit) {
@@ -1937,6 +1954,7 @@
     <script src="{{ base_path }}/assets/js/stats-updater.js"></script>
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
     <script src="{{ base_path }}/assets/js/pwa-init.js"></script>
+    <script src="{{ base_path }}/assets/js/balance-reveal.js"></script>
         
     <script>
         // Variables globales pour les modules

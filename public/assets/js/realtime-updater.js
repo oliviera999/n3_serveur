@@ -242,6 +242,16 @@ class RealtimeUpdater {
             uptimeEl.textContent = `${health.uptime_percentage.toFixed(1)}%`;
         }
 
+        // Temps total depuis le début du fonctionnement du module (section Filtrage)
+        const moduleUptimeEl = document.getElementById('module-uptime-total');
+        if (moduleUptimeEl) {
+            if (health.module_uptime_seconds !== null && health.module_uptime_seconds !== undefined) {
+                moduleUptimeEl.textContent = this.formatTimeSince(health.module_uptime_seconds);
+            } else {
+                moduleUptimeEl.textContent = '—';
+            }
+        }
+
         // Lectures aujourd'hui
         const readingsTodayEl = document.getElementById('readings-today');
         if (readingsTodayEl) {
@@ -311,6 +321,22 @@ class RealtimeUpdater {
         if (seconds < 3600) return `${Math.floor(seconds / 60)}min`;
         if (seconds < 86400) return `${Math.floor(seconds / 3600)}h`;
         return `${Math.floor(seconds / 86400)}j`;
+    }
+
+    /**
+     * Formate un temps total (uptime) en secondes en chaîne lisible (jours, semaines, mois)
+     */
+    formatUptimeTotal(seconds) {
+        if (seconds < 60) return `${seconds} s`;
+        if (seconds < 3600) return `${Math.floor(seconds / 60)} min`;
+        if (seconds < 86400) return `${Math.floor(seconds / 3600)} h`;
+        const days = Math.floor(seconds / 86400);
+        if (days < 30) return `${days} j`;
+        if (days < 365) return `${Math.floor(days / 30)} mois`;
+        const years = Math.floor(days / 365);
+        const remainderMonths = Math.floor((days % 365) / 30);
+        if (remainderMonths === 0) return `${years} an${years > 1 ? 's' : ''}`;
+        return `${years} an${years > 1 ? 's' : ''} ${remainderMonths} mois`;
     }
 
     /**
