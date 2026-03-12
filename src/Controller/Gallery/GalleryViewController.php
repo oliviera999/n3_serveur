@@ -63,31 +63,97 @@ class GalleryViewController
         return $files;
     }
 
-    /** Page index : présente les différentes galeries (aquaponie, potager, élevage). */
+    /** Page index : landing avec 3 blocs (aquaponie, potager, élevage) + dernière photo de chaque galerie. */
     public function showIndex(Request $request, Response $response): Response
     {
-        $html = $this->renderer->render('gallery_index.twig', [
+        $basePath = trim((string) ($GLOBALS['base_path'] ?? ''), '/');
+        $pathPrefix = $basePath !== '' ? '/' . $basePath . '/' : '/';
+
+        $galleries = [
+            [
+                'slug' => 'ffp3',
+                'title' => "Photos aquaponie (FFP3)",
+                'icon' => 'fa-fish',
+                'description' => "La caméra du bassin aquaponie capture régulièrement l'état des plantes, des poissons et du système. Les photos permettent de suivre la croissance et l'évolution du projet.",
+                'url' => $pathPrefix . 'gallery/ffp3',
+            ],
+            [
+                'slug' => 'msp1',
+                'title' => 'Photos du potager (MSP1)',
+                'icon' => 'fa-sun',
+                'description' => "La caméra de la station météo enregistre les conditions du potager et des cultures. Idéal pour observer la météo, la lumière et l'état des plantes au fil du temps.",
+                'url' => $pathPrefix . 'gallery/msp1',
+            ],
+            [
+                'slug' => 'n3pp',
+                'title' => "Photos de l'élevage (N3PP)",
+                'icon' => 'fa-leaf',
+                'description' => "La serre et l'élevage d'insectes sont filmés par une caméra ESP32-CAM. Suivez l'évolution des cultures et de l'environnement en temps réel.",
+                'url' => $pathPrefix . 'gallery/n3pp',
+            ],
+        ];
+
+        foreach ($galleries as &$g) {
+            try {
+                $uploadDir = $this->getUploadDir($g['slug']);
+                $files = $this->listImageFiles($uploadDir);
+                $g['last_photo'] = $files[0] ?? null;
+                $g['last_photo_url'] = $g['last_photo']
+                    ? $pathPrefix . 'gallery/' . $g['slug'] . '/files/' . $g['last_photo']
+                    : null;
+            } catch (\Throwable) {
+                $g['last_photo'] = null;
+                $g['last_photo_url'] = null;
+            }
+        }
+        unset($g);
+
+        $html = $this->renderer->render('gallery_landing.twig', [
             'page_title' => 'Galeries photos - n3 iot datas',
             'active_page' => 'gallery',
             'nav_active' => 'gallery',
+            'galleries' => $galleries,
+            'base_path' => $basePath !== '' ? '/' . $basePath : '',
         ]);
         $response->getBody()->write($html);
         return $response;
     }
 
+    /** Galerie photo (grille) — route admin /admin/gallery/{slug}. */
+    public function showGalleryAdmin(Request $request, Response $response, array $args): Response
+    {
+        $slug = $args['slug'] ?? '';
+        $meta = [
+            'msp1' => ['title' => 'Photos du potager – station météo', 'back' => '/meteo', 'nav_active' => 'gallery'],
+            'n3pp' => ['title' => "Photos de l'élevage d'insectes (N3PP)", 'back' => '/serre', 'nav_active' => 'gallery'],
+            'ffp3' => ['title' => 'Photos du potager aquaponie (FFP3)', 'back' => '/aquaponie', 'nav_active' => 'gallery'],
+        ];
+        if (!isset($meta[$slug])) {
+            return $response->withStatus(404);
+        }
+        return $this->showGallery(
+            $request, $response, $slug,
+            $meta[$slug]['title'],
+            $meta[$slug]['title'],
+            $meta[$slug]['back'],
+            'gallery'
+        );
+    }
+
+    /** Page par défaut : timelapse 24h x2. */
     public function showMsp1(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'msp1', 'Le potager (MSP1)', 'Photos du potager – station météo', '/meteo', 'gallery');
+        return $this->showTimelapse($request, $response, ['slug' => 'msp1']);
     }
 
     public function showN3pp(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'n3pp', "L'élevage d'insectes (N3PP)", "Photos de l'élevage d'insectes", '/serre', 'gallery');
+        return $this->showTimelapse($request, $response, ['slug' => 'n3pp']);
     }
 
     public function showFfp3(Request $request, Response $response): Response
     {
-        return $this->showGallery($request, $response, 'ffp3', "L'aquaponie (FFP3)", 'Photos du potager aquaponie', '/aquaponie', 'gallery');
+        return $this->showTimelapse($request, $response, ['slug' => 'ffp3']);
     }
 
     /** Page timelapse pour une galerie (slug msp1, n3pp, ffp3). */
@@ -105,13 +171,13 @@ class GalleryViewController
         $basePath = trim((string) ($GLOBALS['base_path'] ?? ''), '/');
         $pathPrefix = $basePath !== '' ? '/' . $basePath . '/' : '/';
         $apiUrl = $pathPrefix . 'api/gallery/' . $slug . '/photos';
-        $galleryUrl = $pathPrefix . 'gallery/' . $slug;
+        $galleryAdminUrl = $pathPrefix . 'admin/gallery/' . $slug;
         $html = $this->renderer->render('gallery_timelapse.twig', [
             'page_title' => $meta[$slug]['title'] . ' - n3 iot datas',
             'gallery_slug' => $slug,
             'gallery_title' => $meta[$slug]['title'],
             'back_url' => $pathPrefix . ltrim((string) $meta[$slug]['back'], '/'),
-            'gallery_url' => $galleryUrl,
+            'gallery_admin_url' => $galleryAdminUrl,
             'api_photos_url' => $apiUrl,
             'nav_active' => $meta[$slug]['nav_active'],
             'active_page' => 'gallery',

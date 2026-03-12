@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Config\Version;
+use App\Security\AuthService;
 use App\Security\CsrfService;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -11,13 +12,16 @@ class TemplateRenderer
 {
     private Environment $twig;
     private ?CsrfService $csrfService;
+    private ?AuthService $authService;
 
     public function __construct(
         string $templatesPath,
         bool $useCache = true,
-        ?CsrfService $csrfService = null
+        ?CsrfService $csrfService = null,
+        ?AuthService $authService = null
     ) {
         $this->csrfService = $csrfService;
+        $this->authService = $authService;
         
         $loader = new FilesystemLoader($templatesPath);
 
@@ -46,6 +50,13 @@ class TemplateRenderer
     {
         $context['base_path'] = $GLOBALS['base_path'] ?? '';
         $context['version'] = $context['version'] ?? Version::getWithPrefix();
+        if ($this->authService !== null) {
+            $queryParams = $_GET ?? [];
+            $context['is_admin'] = $this->authService->isAuthenticated()
+                || $this->authService->isAuthenticatedByToken($queryParams);
+        } else {
+            $context['is_admin'] = false;
+        }
         if ($this->csrfService !== null) {
             $context['csrf_token'] = $this->csrfService->getToken();
             $context['csrf_field'] = $this->csrfService->getHiddenField();

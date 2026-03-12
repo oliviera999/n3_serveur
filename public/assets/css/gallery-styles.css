@@ -126,3 +126,99 @@
 .gallery-back:hover {
     background: #00B794;
 }
+
+/* Landing page galeries : 3 cartes avec dernière photo + texte */
+.gallery-landing {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+.gallery-landing-header {
+    margin-bottom: 36px;
+    text-align: center;
+}
+.gallery-landing-header h1 {
+    margin: 0 0 12px 0;
+    color: #2c3e50;
+    font-size: 2em;
+}
+.gallery-landing-header h1 i {
+    margin-right: 10px;
+    color: #008B74;
+}
+.gallery-landing-header p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 1.05em;
+    line-height: 1.5;
+}
+.gallery-landing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+.gallery-landing-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,139,116,0.12);
+    border: 1px solid rgba(0,139,116,0.2);
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.gallery-landing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,139,116,0.2);
+}
+.gallery-landing-card-image {
+    aspect-ratio: 4/3;
+    background: #f0f4f3;
+    overflow: hidden;
+}
+.gallery-landing-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.gallery-landing-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3a8;
+}
+.gallery-landing-placeholder i {
+    font-size: 3em;
+    margin-bottom: 8px;
+}
+.gallery-landing-card-body {
+    padding: 20px;
+}
+.gallery-landing-card-body h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #008B74;
+}
+.gallery-landing-card-body p {
+    margin: 0 0 12px 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #4a5568;
+}
+.gallery-landing-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    color: #008B74;
+    font-size: 0.9em;
+}
+.gallery-landing-card:hover .gallery-landing-cta {
+    color: #00B794;
+}

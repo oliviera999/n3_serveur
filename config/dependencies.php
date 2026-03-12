@@ -189,7 +189,8 @@ return [
         return new TemplateRenderer(
             $resolved !== false ? $resolved : $templatesPath,
             ($_ENV['ENV'] ?? 'prod') === 'prod',
-            $c->get(CsrfService::class)
+            $c->get(CsrfService::class),
+            $c->get(AuthService::class)
         );
     },
 

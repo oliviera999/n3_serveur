@@ -70,7 +70,7 @@ input[type="radio"] + label {
     font-size: 3.5em;
     font-weight: bold;
     margin: 0 0 15px 0;
-    color: #FF6300;
+    color: #FF6300 !important;
     text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
@@ -141,6 +141,24 @@ article.post.featured > h2:first-of-type,
 @media (max-width: 480px) {
     .modern-header { padding: 32px 0; margin: -20px -10px 20px -10px; }
     .header-title { font-size: 1.8em; }
+}
+
+/* Mode clair : titres hero, principaux et sections restent orange (surcharge main.css h1..h6 #212931) */
+body:not([data-theme="dark"]) .modern-header .header-title,
+body:not([data-theme="dark"]) .header-title {
+    color: #FF6300 !important;
+}
+body:not([data-theme="dark"]) header.major h1,
+body:not([data-theme="dark"]) header.major h2,
+body:not([data-theme="dark"]) .section-header h2,
+body:not([data-theme="dark"]) .section-header h3,
+body:not([data-theme="dark"]) .home-section-header h2 {
+    color: #FF6300 !important;
+}
+body:not([data-theme="dark"]) .section-header h2,
+body:not([data-theme="dark"]) .section-header h3,
+body:not([data-theme="dark"]) .home-section-header h2 {
+    color: #FF6300 !important;
 }
 
 /* =================================================================
@@ -1336,6 +1354,13 @@ body.is-preload #wrapper.fade-in::before {
     background: var(--footer-bg-elevated, rgba(255, 255, 255, 0.92));
 }
 
+/* Espacement réduit entre les lignes du footer */
+#footer.app-footer p,
+#footer.app-footer--elevated p {
+    margin: 2px 0;
+    line-height: 1.4;
+}
+
 [data-theme="dark"] .live-controls-integrated {
     border-top-color: var(--border-color);
 }
@@ -1407,12 +1432,35 @@ body.is-preload #wrapper.fade-in::before {
 }
 
 /* =================================================================
-   AOS (Animate On Scroll) — override is-preload pour permettre les animations
-   body.is-preload bloque transitions/animations ; [data-aos] doit pouvoir animer
+   Scroll Reveal — animations d'apparition au défilement (remplace AOS)
+   Implémentation native : Intersection Observer + CSS, pas de dépendance externe
+   Sans JS : éléments visibles (pas de .js-scroll-reveal)
 ================================================================= */
-body.is-preload [data-aos],
-body.is-preload [data-aos]::before,
-body.is-preload [data-aos]::after {
+.js-scroll-reveal [data-aos] {
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+.js-scroll-reveal [data-aos="fade-up"] { opacity: 0; transform: translateY(40px); }
+.js-scroll-reveal [data-aos="fade-up"].sr-visible { opacity: 1; transform: translateY(0); }
+.js-scroll-reveal [data-aos="fade-down"] { opacity: 0; transform: translateY(-40px); }
+.js-scroll-reveal [data-aos="fade-down"].sr-visible { opacity: 1; transform: translateY(0); }
+.js-scroll-reveal [data-aos="fade-left"] { opacity: 0; transform: translateX(40px); }
+.js-scroll-reveal [data-aos="fade-left"].sr-visible { opacity: 1; transform: translateX(0); }
+.js-scroll-reveal [data-aos="fade-right"] { opacity: 0; transform: translateX(-40px); }
+.js-scroll-reveal [data-aos="fade-right"].sr-visible { opacity: 1; transform: translateX(0); }
+.js-scroll-reveal [data-aos="zoom-in"] { opacity: 0; transform: scale(0.92); }
+.js-scroll-reveal [data-aos="zoom-in"].sr-visible { opacity: 1; transform: scale(1); }
+.js-scroll-reveal [data-aos="fade-up"].sr-visible,
+.js-scroll-reveal [data-aos="fade-down"].sr-visible,
+.js-scroll-reveal [data-aos="fade-left"].sr-visible,
+.js-scroll-reveal [data-aos="fade-right"].sr-visible,
+.js-scroll-reveal [data-aos="zoom-in"].sr-visible {
+    opacity: 1 !important;
+}
+/* Override is-preload pour [data-aos] — permet les transitions */
+body.is-preload [data-aos] {
     transition: opacity 0.8s ease, transform 0.8s ease !important;
 }
-
+/* prefers-reduced-motion : pas d'animation, affichage direct */
+@media (prefers-reduced-motion: reduce) {
+    [data-aos] { opacity: 1 !important; transform: none !important; transition: none !important; }
+    [data-aos].sr-visible

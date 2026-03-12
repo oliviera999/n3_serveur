@@ -7,7 +7,7 @@
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin: 40px 0;
 }
@@ -271,7 +271,7 @@
 .home-link-btn--aefe { background: #002395; }
 
 .footer-tech {
-    margin-top: 8px;
+    margin-top: 2px;
     font-size: 0.8em;
     opacity: 0.85;
     color: var(--footer-color, #6b7280);

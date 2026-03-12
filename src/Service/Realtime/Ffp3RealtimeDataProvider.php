@@ -14,7 +14,10 @@ use App\Repository\SensorReadRepository;
  */
 class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
 {
-    private const ONLINE_THRESHOLD_SECONDS = 600;
+    /** GPIO stockant FreqWakeUp (temps de veille en secondes) dans ffp3Outputs. */
+    private const FREQ_WAKEUP_GPIO = 116;
+    /** Seuil par défaut si FreqWakeUp absent ou invalide en BDD. */
+    private const DEFAULT_ONLINE_THRESHOLD_SECONDS = 600;
     private const EXPECTED_READING_INTERVAL_MINUTES = 3;
     private const ESTIMATED_LATENCY_SECONDS = 3.5;
     private const DEFAULT_UPTIME_DAYS = 30;
@@ -84,7 +87,8 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         }
 
         $secondsSinceLastReading = time() - strtotime($lastReadingDateStr);
-        $isOnline = $secondsSinceLastReading < self::ONLINE_THRESHOLD_SECONDS;
+        $thresholdSeconds = $this->resolveOnlineThresholdSeconds();
+        $isOnline = $secondsSinceLastReading < $thresholdSeconds;
 
         $firstReadingDateStr = $this->sensorReadRepo->getFirstReadingDate();
         $moduleUptimeSeconds = $firstReadingDateStr !== null
@@ -178,6 +182,25 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
             date('Y-m-d 00:00:00'),
             date('Y-m-d 23:59:59')
         );
+    }
+
+    /**
+     * Détermine le seuil en secondes pour considérer le module comme « live ».
+     * Utilise FreqWakeUp (GPIO 116, temps de veille) en BDD ; sinon 600 s par défaut.
+     * Le module reste live pendant FreqWakeUp secondes après la dernière mesure.
+     * Bornes : min 60 s, max 86400 s (24 h).
+     */
+    private function resolveOnlineThresholdSeconds(): int
+    {
+        $output = $this->outputRepo->findByGpio(self::FREQ_WAKEUP_GPIO);
+        if ($output === null || $output['state'] === null || $output['state'] === '') {
+            return self::DEFAULT_ONLINE_THRESHOLD_SECONDS;
+        }
+        $seconds = (int) $output['state'];
+        if ($seconds <= 0) {
+            return self::DEFAULT_ONLINE_THRESHOLD_SECONDS;
+        }
+        return max(60, min(86400, $seconds));
     }
 
     /**

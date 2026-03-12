@@ -586,7 +586,9 @@
 <div class="timelapse-page">
   <div class="timelapse-nav-links">
     <a href="{{ back_url }}" class="gallery-back"><i class="fas fa-arrow-left"></i> Retour aux données</a>
-    <a href="{{ gallery_url }}" class="gallery-back"><i class="fas fa-images"></i> Galerie classique</a>
+    {% if is_admin|default(false) %}
+    <a href="{{ gallery_admin_url }}" class="gallery-back"><i class="fas fa-images"></i> Galerie classique</a>
+    {% endif %}
   </div>
 
   <div class="timelapse-hero">
@@ -951,6 +953,7 @@ function updateClock() { document.getElementById('clock').textContent = new Date
 setInterval(updateClock, 1000); updateClock();
 document.addEventListener('DOMContentLoaded', () => {
   setDateRange(24);
+  loadRange();
   document.querySelectorAll('.timelapse-range-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-range-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); setDateRange(parseInt(btn.dataset.hours)); }); });
   document.querySelectorAll('.timelapse-speed-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-speed-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); state.fps = parseInt(btn.dataset.fps); document.getElementById('fpsLabel').textContent = state.fps + ' fps'; if (state.isPlaying) { stopPlay(); startPlay(); } updateStats(); }); });
   document.getElementById('btnLoad').addEventListener('click', loadRange);

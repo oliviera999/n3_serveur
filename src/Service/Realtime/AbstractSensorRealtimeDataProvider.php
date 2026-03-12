@@ -14,7 +14,10 @@ use App\Repository\AbstractSensorRepository;
  */
 abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProviderInterface
 {
-    private const ONLINE_THRESHOLD_SECONDS = 600;
+    /** GPIO stockant FreqWakeUp (temps de veille en secondes) pour MSP et N3PP. */
+    private const FREQ_WAKEUP_GPIO = 107;
+    /** Seuil par défaut si FreqWakeUp absent ou invalide en BDD. */
+    private const DEFAULT_ONLINE_THRESHOLD_SECONDS = 600;
     private const ESTIMATED_LATENCY_SECONDS = 3.5;
     private const DEFAULT_UPTIME_DAYS = 30;
 
@@ -73,7 +76,8 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
 
         $lastTs = strtotime($lastReadingDate);
         $secondsAgo = time() - $lastTs;
-        $isOnline = $secondsAgo < self::ONLINE_THRESHOLD_SECONDS;
+        $thresholdSeconds = $this->resolveOnlineThresholdSeconds();
+        $isOnline = $secondsAgo < $thresholdSeconds;
 
         return [
             'online' => $isOnline,
@@ -114,6 +118,30 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
             $sensors[$col] = $row[$col] ?? null;
         }
         return $sensors;
+    }
+
+    /**
+     * Seuil (secondes) sans nouvelle mesure au-delà duquel le module est considéré hors ligne.
+     * Utilise FreqWakeUp (GPIO 107) en BDD si configuré, sinon 600 s par défaut.
+     * Bornes : min 60 s, max 86400 s (24 h).
+     */
+    private function resolveOnlineThresholdSeconds(): int
+    {
+        $outputs = $this->getOutputsForBoard();
+        foreach ($outputs as $o) {
+            if ((int) ($o['gpio'] ?? 0) === self::FREQ_WAKEUP_GPIO) {
+                $state = $o['state'] ?? null;
+                if ($state === null || $state === '') {
+                    return self::DEFAULT_ONLINE_THRESHOLD_SECONDS;
+                }
+                $seconds = (int) $state;
+                if ($seconds <= 0) {
+                    return self::DEFAULT_ONLINE_THRESHOLD_SECONDS;
+                }
+                return max(60, min(86400, $seconds));
+            }
+        }
+        return self::DEFAULT_ONLINE_THRESHOLD_SECONDS;
     }
 
     private function calculateUptime(int $days): float

@@ -23,7 +23,6 @@
     <link rel="shortcut icon" type="image/png" href="{{ base_path|default('') }}/assets/logo.png"/>
     <link rel="manifest" href="{{ base_path|default('') }}/manifest.json" />
     <link rel="apple-touch-icon" href="{{ base_path|default('') }}/assets/icons/icon-192.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqI4ko/XG63A4vvnkVo8amI7h0Fn36oG8/g6k2oTf2yf9Y0+voHdOJxrJ9J8PQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% block head_css %}{% endblock %}
     {% block head_scripts %}{% endblock %}
     <script src="{{ base_path|default('') }}/assets/js/highcharts-theme.js"></script>
@@ -58,22 +57,7 @@
     <script src="{{ base_path|default('') }}/assets/js/util.js"></script>
     <script src="{{ base_path|default('') }}/assets/js/main.js"></script>
     {% endblock %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX92SACKIcXrCkM9146OdBovex/f86eScyxR5L7Sqj/e8r8Uj/nzJpP/73GAuwOyJyO+a/zeFfz7Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-    (function() {
-      function initAOS() {
-        document.body.classList.remove('is-preload');
-        if (typeof AOS !== 'undefined') {
-          AOS.init({ duration: 800, offset: 50, once: true, easing: 'ease-out-cubic' });
-        }
-      }
-      if (document.readyState === 'complete') {
-        setTimeout(initAOS, 50);
-      } else {
-        window.addEventListener('load', function() { setTimeout(initAOS, 100); });
-      }
-    })();
-    </script>
+    <script src="{{ base_path|default('') }}/assets/js/scroll-reveal.js"></script>
     {% block scripts %}{% endblock %}
 </body>
 </html>

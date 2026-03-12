@@ -94,8 +94,9 @@ return [
         'theme-toggle.js', 'toast-notifications.js', 'util.js',
     ],
     'asset_css' => [
-        'aquaponie.css', 'common-data.css', 'control-styles.css', 'login-styles.css',
-        'main.css', 'noscript.css', 'realtime-styles.css', 'theme-variables.css',
+        'aquaponie.css', 'common-data.css', 'control-styles.css', 'gallery-styles.css',
+        'login-styles.css', 'main.css', 'noscript.css', 'realtime-styles.css',
+        'theme-variables.css', 'timelapse-styles.css',
     ],
     'asset_icons' => [
         'icon-72.png', 'icon-96.png', 'icon-128.png', 'icon-144.png', 'icon-152.png',
