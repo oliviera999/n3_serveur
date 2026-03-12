@@ -1,0 +1,66 @@
+/* ============================================================
+   aquaponie-description-styles.css — Page description aquaponie
+   Extraction des styles inline + support dark mode
+   ============================================================ */
+
+.desc-section {
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 139, 116, 0.06);
+    border: 1px solid rgba(0, 139, 116, 0.08);
+}
+.desc-section h2 {
+    color: #008B74;
+    font-size: 1.35em;
+    margin-bottom: 1em;
+    padding-bottom: 0.4em;
+    border-bottom: 2px solid rgba(0, 139, 116, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.desc-section p { line-height: 1.6; margin-bottom: 0.8em; }
+.desc-section ul {
+    margin: 0.5em 0 1em 0;
+    padding-left: 1.25em;
+    line-height: 1.6;
+}
+.desc-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1em;
+    margin: 1em 0;
+}
+.desc-images img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+.desc-images figure { margin: 0; }
+.desc-images figcaption { font-size: 0.9em; color: #6c757d; margin-top: 0.3em; }
+
+#footer .footer-copyright {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--footer-color, #6b7280);
+}
+
+/* ----- DARK MODE ----- */
+[data-theme="dark"] .desc-section {
+    background: rgba(30, 41, 59, 0.95);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    border-color: rgba(45, 212, 191, 0.2);
+}
+[data-theme="dark"] .desc-section h2 {
+    color: var(--accent-primary);
+    border-bottom-color: rgba(45, 212, 191, 0.3);
+}
+[data-theme="dark"] .desc-images img {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+[data-theme="dark"] .desc-images figcaption {
+    color: var(--text-muted);
+}

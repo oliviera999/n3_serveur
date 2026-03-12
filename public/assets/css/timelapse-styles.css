@@ -1,0 +1,19 @@
+/* ============================================================
+   timelapse-styles.css — Surcharges dark mode pour page Timelapse
+   Les variables --surface, --surface2, etc. sont définies dans
+   gallery_timelapse.twig ; ici on les surcharge en dark.
+   ============================================================ */
+
+[data-theme="dark"] .timelapse-page {
+    --accent: #2dd4bf;
+    --accent-light: #5eead4;
+    --accent-bg: rgba(45, 212, 191, 0.2);
+    --accent-border: rgba(45, 212, 191, 0.35);
+    --surface: #1e293b;
+    --surface2: #334155;
+    --border: #475569;
+    --text: #f1f5f9;
+    --text-dim: #94a3b8;
+    --amber: #fbbf24;
+    --red: #f87171;
+}
