@@ -139,7 +139,7 @@
 .theme-toggle-btn:focus,
 .theme-toggle-btn:active {
     background: rgba(255, 255, 255, 0.2);
-    color: var(--header-nav-hover, #00B794) !important;
+    color: #ffffff !important;
     box-shadow: none;
 }
 
@@ -174,7 +174,7 @@
 [data-theme="dark"] .theme-toggle-btn:focus,
 [data-theme="dark"] .theme-toggle-btn:active {
     background: rgba(255, 255, 255, 0.2);
-    color: var(--header-nav-hover, #2dd4bf) !important;
+    color: #ffffff !important;
 }
 
 /* Panneau mobile en dark mode : icône et cercle blancs aussi */
@@ -187,7 +187,7 @@
 [data-theme="dark"] #navPanel .theme-toggle-btn:focus,
 [data-theme="dark"] #navPanel .theme-toggle-btn:active {
     background: rgba(255, 255, 255, 0.2);
-    color: var(--header-nav-hover, #2dd4bf) !important;
+    color: #ffffff !important;
 }
 
 .nav-theme-toggle {
@@ -221,7 +221,7 @@
 #navPanel .theme-toggle-btn:focus,
 #navPanel .theme-toggle-btn:active {
     background: rgba(255, 255, 255, 0.2);
-    color: var(--header-nav-hover, #00B794) !important;
+    color: #ffffff !important;
     box-shadow: none;
 }
 
