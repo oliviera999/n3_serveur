@@ -7,6 +7,18 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
+## [5.0.157] - 2026-03-12
+
+### Ajout - animations AOS sur les pages du site
+- **Résumé** : Intégration AOS (Animate On Scroll) pour effets d'apparition au défilement sur home, aquaponie, msp1, n3pp, galeries, supervision.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -96,6 +108,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -300,6 +318,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -469,6 +493,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -640,6 +670,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -823,6 +859,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -1051,6 +1093,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -1364,6 +1412,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -1639,6 +1693,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -2295,6 +2355,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -2939,6 +3005,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -3582,6 +3654,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -4225,6 +4303,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -4877,6 +4961,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -5522,6 +5612,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -6167,6 +6263,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -6813,6 +6915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -7458,6 +7566,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -8105,6 +8219,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -8750,6 +8870,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -9395,6 +9521,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -10040,6 +10172,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -10686,6 +10824,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -11329,6 +11473,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -11977,6 +12127,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -12620,6 +12776,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -13266,6 +13428,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -13910,6 +14078,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -14556,6 +14730,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -15202,6 +15382,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -15847,6 +16033,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -16494,6 +16686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -17138,6 +17336,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -17783,6 +17987,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -18429,6 +18639,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -19075,6 +19291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -19719,6 +19941,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -20364,6 +20592,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -21011,6 +21245,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -21657,6 +21897,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -22302,6 +22548,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -22947,6 +23199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -23592,6 +23850,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -24237,6 +24501,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -24881,6 +25151,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -25525,6 +25801,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -26169,6 +26451,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -26813,6 +27101,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -27458,6 +27752,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -28107,6 +28407,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -28756,6 +29062,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -29398,6 +29710,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -30040,6 +30358,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -30682,6 +31006,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -31324,6 +31654,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -31966,6 +32302,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -32608,6 +32950,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -33267,6 +33615,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -33916,6 +34270,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -34563,6 +34923,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -35211,6 +35577,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -35863,6 +36235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -36527,6 +36905,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -37173,6 +37557,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -37821,6 +38211,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -38469,6 +38865,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -39114,6 +39516,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -39762,6 +40170,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -40407,6 +40821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -41051,6 +41471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -41696,6 +42122,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -42351,6 +42783,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -43003,6 +43441,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -43663,6 +44107,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -44327,6 +44777,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -44981,6 +45437,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -45627,6 +46089,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -46275,6 +46743,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -46922,6 +47396,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -47569,6 +48049,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -48214,6 +48700,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -48859,6 +49351,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -49506,6 +50004,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -50152,6 +50656,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -50800,6 +51310,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -51453,6 +51969,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -52110,6 +52632,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -52763,6 +53291,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -53418,6 +53952,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -54072,6 +54612,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -54721,6 +55267,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -55366,6 +55918,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -56015,6 +56573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -56661,6 +57225,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -57306,6 +57876,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -57951,6 +58527,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -58598,6 +59180,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -59245,6 +59833,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -59891,6 +60485,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -60537,6 +61137,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -61182,6 +61788,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -61827,6 +62439,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -62472,6 +63090,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -63119,6 +63743,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -63766,6 +64396,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -64411,6 +65047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -65056,6 +65698,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -65701,6 +66349,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -66347,6 +67001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -66995,6 +67655,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -67650,6 +68316,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -68299,6 +68971,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -68955,6 +69633,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -69609,6 +70293,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -70254,6 +70944,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -70932,6 +71628,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -71581,6 +72283,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -72239,6 +72947,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -72907,6 +73621,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -73565,6 +74285,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -74213,6 +74939,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -74862,6 +75594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -75517,6 +76255,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -76282,6 +77026,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -76931,6 +77681,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -77578,6 +78334,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -78226,6 +78988,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -78875,6 +79643,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -79523,6 +80297,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -80173,6 +80953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -80822,6 +81608,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -81593,6 +82385,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -82241,6 +83039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -82889,6 +83693,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -83585,6 +84395,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -84242,6 +85058,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -84899,6 +85721,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -85593,6 +86421,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -86298,6 +87132,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -86960,6 +87800,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -87623,6 +88469,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -88276,6 +89128,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -88935,6 +89793,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -89598,6 +90462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -90259,6 +91129,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -90911,6 +91787,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -91575,6 +92457,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -92271,6 +93159,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -92922,6 +93816,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -93574,6 +94474,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -94225,6 +95131,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -94881,6 +95793,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -95543,6 +96461,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -96203,6 +97127,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -96861,6 +97791,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -97514,6 +98450,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -98168,6 +99110,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -98833,6 +99781,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -99497,6 +100451,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -100164,6 +101124,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -100847,6 +101813,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -101560,6 +102532,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -102214,6 +103192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -102867,6 +103851,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -103530,6 +104520,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -104183,6 +105179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -104840,6 +105842,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -105490,6 +106498,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -106142,6 +107156,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -106786,6 +107806,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -107470,6 +108496,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -108126,6 +109158,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -108804,6 +109842,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -109464,6 +110508,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -110120,6 +111170,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -110782,6 +111838,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -111466,6 +112528,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -112135,6 +113203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -112858,6 +113932,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -113518,6 +114598,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -114180,6 +115266,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -114853,6 +115945,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -115519,6 +116617,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -116172,6 +117276,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -116825,6 +117935,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -117480,6 +118596,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -118206,6 +119328,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -118880,6 +120008,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -119568,6 +120702,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -120244,6 +121384,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -120924,6 +122070,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -121572,6 +122724,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -122272,6 +123430,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -122936,6 +124100,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -123587,6 +124757,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -124288,6 +125464,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -124968,6 +126150,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -125681,6 +126869,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -126332,6 +127526,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -127042,6 +128242,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -127690,6 +128896,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -128337,6 +129549,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -128988,6 +130206,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -129639,6 +130863,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -130335,6 +131565,12 @@ docs/
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -131054,6 +132290,12 @@ docs/
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -131707,6 +132949,12 @@ docs/
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -132394,6 +133642,12 @@ docs/
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -133046,6 +134300,12 @@ docs/
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -133720,6 +134980,12 @@ docs/
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -134370,6 +135636,12 @@ docs/
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -135209,6 +136481,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -135882,6 +137160,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -136582,6 +137866,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -137268,6 +138558,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -137940,6 +139236,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -138619,6 +139921,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -139290,6 +140598,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -139950,6 +141264,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -140602,6 +141922,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -141270,6 +142596,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -141922,6 +143254,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -142574,6 +143912,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -143228,6 +144572,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -143900,6 +145250,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries
@@ -144546,6 +145902,12 @@ ance future
 
 ---
 
+## [5.0.158] - 2026-03-12
+
+### Modifié - Ajout animations AOS sur les pages
+- **Résumé** : Ajout animations AOS sur les pages.
+
+---
 ## [5.0.156] - 2026-03-12
 
 ### Correctif - landing page /gallery avec accès aux 3 galeries

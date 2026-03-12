@@ -3,6 +3,7 @@
 {% block title %}{{ page_title|default('Timelapse - n3 iot datas') }}{% endblock %}
 
 {% block head_css %}
+<link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/common-data.css" />
 <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/timelapse-styles.css" />
 {% endblock %}
 
@@ -37,10 +38,10 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 18px;
+    padding: 8px 16px;
     background: rgba(0,139,116,0.08);
     border: 1px solid rgba(0,139,116,0.15);
-    border-radius: 10px;
+    border-radius: 8px;
     color: #008B74;
     font-weight: 600;
     font-size: 0.9em;
@@ -74,25 +75,25 @@
     grid-template-rows: auto 1fr auto;
     gap: 0;
     min-height: 480px;
-    background: var(--surface2);
-    border-radius: 12px;
-    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.95);
+    border-radius: 14px;
+    border: 1px solid #e0e0e0;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
 
   .timelapse-config-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    background: var(--surface2);
+    background: transparent;
   }
 
   .timelapse-config-col {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    border-right: 1px solid var(--border);
+    border-right: 1px solid #e0e0e0;
   }
 
   .timelapse-config-col:last-child {
@@ -161,64 +162,70 @@
   }
   @keyframes timelapse-spin { to { transform: rotate(360deg); } }
 
-  .timelapse-viewer {
   .timelapse-section {
-    border-bottom: 1px solid var(--border);
-    padding: 10px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 14px 20px;
   }
   .timelapse-section-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: #2c3e50;
+    margin: 0 0 14px;
     font-weight: 600;
-    padding-bottom: 6px;
-    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #008B74;
   }
+  .timelapse-section-label i { color: #008B74; }
   .timelapse-range-btns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
   }
   .timelapse-range-btn, .timelapse-speed-btn {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 6px 8px;
-    font-size: 0.75rem;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.15s;
+    background: rgba(0,139,116,0.08);
+    color: #008B74;
+    border: 1px solid rgba(0,139,116,0.15);
+    transition: all 0.2s;
   }
   .timelapse-range-btn:hover, .timelapse-speed-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    background: #008B74;
+    color: white;
   }
   .timelapse-range-btn.active, .timelapse-speed-btn.active {
-    background: var(--accent-bg);
-    border-color: var(--accent);
-    color: var(--accent);
+    background: #008B74;
+    color: white;
+    border-color: #008B74;
   }
-  .timelapse-date-row { margin-bottom: 8px; }
+  .timelapse-date-row { margin-bottom: 10px; }
   .timelapse-date-row label {
     display: block;
-    font-size: 0.65rem;
-    color: var(--text-dim);
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #555;
     margin-bottom: 4px;
   }
   .timelapse-date-row input {
     width: 100%;
-    padding: 6px 10px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-size: 0.75rem;
-    border-radius: 6px;
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #ddd;
+    color: #2c3e50;
+    font-size: 0.9em;
+    border-radius: 8px;
     outline: none;
   }
-  .timelapse-date-row input:focus { border-color: var(--accent); }
+  .timelapse-date-row input:focus {
+    border-color: #008B74;
+    box-shadow: 0 0 0 2px rgba(0,139,116,0.2);
+  }
   .timelapse-speed-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -236,31 +243,30 @@
   .timelapse-stat-val { color: var(--accent); font-weight: 600; }
   .timelapse-btn {
     width: 100%;
-    padding: 10px;
-    font-size: 0.8rem;
+    padding: 8px 16px;
+    font-size: 0.9em;
     font-weight: 600;
     cursor: pointer;
     border-radius: 8px;
-    border: 1px solid;
+    border: none;
     transition: all 0.2s;
     margin-bottom: 8px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
   }
   .timelapse-btn-primary {
-    background: var(--accent-bg);
-    border-color: var(--accent);
-    color: var(--accent);
+    background: #008B74;
+    color: white;
   }
-  .timelapse-btn-primary:hover { background: rgba(0,139,116,0.22); }
+  .timelapse-btn-primary:hover { background: #00A896; }
   .timelapse-btn-amber {
-    background: rgba(245,158,11,0.1);
-    border-color: var(--amber);
-    color: var(--amber);
+    background: #f0f0f0;
+    color: #555;
+    border: 1px solid #ddd;
   }
-  .timelapse-btn-amber:hover { background: rgba(245,158,11,0.2); }
+  .timelapse-btn-amber:hover { background: #e0e0e0; }
   .timelapse-btn-amber:disabled { opacity: 0.4; cursor: not-allowed; }
   .timelapse-progress { margin-top: 8px; display: none; }
   .timelapse-progress.visible { display: block; }
@@ -279,9 +285,9 @@
   .timelapse-progress-text { font-size: 0.7rem; color: var(--text-dim); margin-top: 4px; }
 
   .timelapse-controls {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    padding: 12px 16px;
+    background: rgba(255,255,255,0.95);
+    border-top: 1px solid #e0e0e0;
+    padding: 16px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -339,37 +345,39 @@
     gap: 8px;
   }
   .timelapse-ctrl-btn {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--text);
+    background: white;
+    border: 1px solid #ddd;
+    color: #2c3e50;
     width: 34px;
     height: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.9rem;
-    transition: all 0.15s;
+    transition: all 0.2s;
   }
-  .timelapse-ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .timelapse-ctrl-btn:hover { border-color: #008B74; color: #008B74; }
   .timelapse-ctrl-btn.play-pause {
     width: 40px;
     height: 40px;
-    background: var(--accent-bg);
-    border-color: var(--accent);
-    color: var(--accent);
+    background: #008B74;
+    border-color: #008B74;
+    color: white;
     font-size: 1rem;
   }
+  .timelapse-ctrl-btn.play-pause:hover { background: #00A896; border-color: #00A896; color: white; }
   .timelapse-live-btn {
     margin-left: auto;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-    padding: 6px 12px;
-    font-size: 0.7rem;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 6px;
+    background: rgba(0,139,116,0.08);
+    color: #008B74;
+    border: 1px solid rgba(0,139,116,0.15);
     display: flex;
     align-items: center;
     gap: 6px;
@@ -614,8 +622,6 @@
           </div>
           <button class="timelapse-btn timelapse-btn-primary" id="btnLoad">Charger la plage</button>
         </div>
-      </div>
-      <div class="timelapse-config-col timelapse-config-right">
         <div class="timelapse-section">
           <div class="timelapse-section-label">Vitesse</div>
           <div class="timelapse-speed-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;">
@@ -627,6 +633,8 @@
           </div>
           <div style="font-size:0.7rem;color:var(--text-dim);margin-top:6px;text-align:center" id="fpsLabel">24 fps</div>
         </div>
+      </div>
+      <div class="timelapse-config-col timelapse-config-right">
         <div class="timelapse-section">
           <div class="timelapse-section-label">Informations</div>
           <div class="timelapse-stat-row"><span class="timelapse-stat-key">Images</span><span class="timelapse-stat-val" id="statCount">0</span></div>

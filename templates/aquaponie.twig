@@ -37,14 +37,14 @@
                 <!-- Featured Post -->
                 <article class="post featured">
                     <!-- Section Niveaux d'eau -->
-                    <div class="section-header">
+                    <div class="section-header" data-aos="fade-up">
                         <i class="fas fa-tint"></i>
                         <h3>Niveaux d'eau</h3>
                     </div>
                     
                     <div class="stats-grid">
                         <!-- Aquarium -->
-                        <div class="stat-card aquarium">
+                        <div class="stat-card aquarium" data-aos="fade-up" data-aos-delay="0">
                             <i class="fas fa-fish stat-card-icon"></i>
                             <div class="stat-card-label">Aquarium</div>
                             <div class="stat-card-value" id="eauaqua-display">{{ last_reading_eauaqua|default(0)|round(0) }} <span class="stat-card-unit">cm</span></div>
@@ -58,7 +58,7 @@
                         </div>
                         
                         <!-- Réserve -->
-                        <div class="stat-card reserve">
+                        <div class="stat-card reserve" data-aos="fade-up" data-aos-delay="50">
                             <i class="fas fa-droplet stat-card-icon"></i>
                             <div class="stat-card-label">Réserve</div>
                             <div class="stat-card-value" id="eaureserve-display">{{ last_reading_eaureserve|default(0)|round(0) }} <span class="stat-card-unit">cm</span></div>
@@ -72,7 +72,7 @@
                         </div>
                         
                         <!-- Potager -->
-                        <div class="stat-card potager">
+                        <div class="stat-card potager" data-aos="fade-up" data-aos-delay="100">
                             <i class="fas fa-seedling stat-card-icon"></i>
                             <div class="stat-card-label">Potager</div>
                             <div class="stat-card-value" id="eaupota-display">{{ last_reading_eaupota|default(0)|round(0) }} <span class="stat-card-unit">cm</span></div>
@@ -87,14 +87,14 @@
                 </div>
 
                     <!-- Section Paramètres physiques -->
-                    <div class="section-header">
+                    <div class="section-header" data-aos="fade-up">
                         <i class="fas fa-thermometer-half"></i>
                         <h3>Paramètres physiques</h3>
                     </div>
                     
                     <div class="stats-grid">
                         <!-- Température eau -->
-                        <div class="stat-card tempeau">
+                        <div class="stat-card tempeau" data-aos="fade-up" data-aos-delay="0">
                             <i class="fas fa-water stat-card-icon"></i>
                             <div class="stat-card-label">Température eau</div>
                             <div class="stat-card-value" id="tempeau-display">{{ last_reading_tempeau|default(0)|round(1) }} <span class="stat-card-unit">°C</span></div>
@@ -108,7 +108,7 @@
                         </div>
                         
                         <!-- Température air -->
-                        <div class="stat-card reserve">
+                        <div class="stat-card reserve" data-aos="fade-up" data-aos-delay="50">
                             <i class="fas fa-temperature-high stat-card-icon"></i>
                             <div class="stat-card-label">Température air</div>
                             <div class="stat-card-value" id="tempair-display">{{ last_reading_tempair|default(0)|round(1) }} <span class="stat-card-unit">°C</span></div>
@@ -122,7 +122,7 @@
                         </div>
                         
                         <!-- Humidité -->
-                        <div class="stat-card humidity">
+                        <div class="stat-card humidity" data-aos="fade-up" data-aos-delay="100">
                             <i class="fas fa-cloud stat-card-icon"></i>
                             <div class="stat-card-label">Humidité</div>
                             <div class="stat-card-value" id="humi-display">{{ last_reading_humi|default(0)|round(1) }} <span class="stat-card-unit">%</span></div>
@@ -136,7 +136,7 @@
                         </div>
                         
                         <!-- Luminosité -->
-                        <div class="stat-card aquarium">
+                        <div class="stat-card aquarium" data-aos="fade-up" data-aos-delay="150">
                             <i class="fas fa-lightbulb stat-card-icon"></i>
                             <div class="stat-card-label">Luminosité</div>
                             <div class="stat-card-value" id="lumi-display">{{ last_reading_lumi|default(0)|round(0) }} <span class="stat-card-unit">UA</span></div>
@@ -151,7 +151,7 @@
                     </div>
 
                     <!-- Section Bilan Hydrique (révélable) -->
-                    <div class="balance-reveal-wrapper">
+                    <div class="balance-reveal-wrapper" data-aos="fade-up">
                         <div class="section-header balance-reveal-header">
                             <i class="fas fa-water"></i>
                             <h3>Bilan Hydrique</h3>
@@ -163,7 +163,7 @@
                         <div class="balance-reveal-content" id="balance-reveal-content" role="region" aria-label="Statistiques de consommation et marnage">
                     <div class="water-balance-grid">
                         <!-- Carte Réserve -->
-                        <div class="balance-card reserve">
+                        <div class="balance-card reserve" data-aos="fade-up" data-aos-delay="0">
                             <div class="balance-card-header">
                                 <i class="fas fa-droplet balance-card-icon"></i>
                                 <h4 class="balance-card-title">Réserve d'eau</h4>
@@ -209,7 +209,7 @@
                         </div>
                         
                         <!-- Carte Aquarium - Marées -->
-                        <div class="balance-card aquarium">
+                        <div class="balance-card aquarium" data-aos="fade-up" data-aos-delay="100">
                             <div class="balance-card-header">
                                 <i class="fas fa-water balance-card-icon"></i>
                                 <h4 class="balance-card-title">Cycles de marée</h4>
@@ -275,11 +275,11 @@
                     <hr />
 
                     <!-- Graphiques Stock Navigator + Aires colorées -->
-                    <h3 class="chart-container-title">📊 Niveaux d'eau</h3>
-                    <div id="chart-stock-area-eau-D" class="chart-stock-wrapper"></div>
+                    <h3 class="chart-container-title" data-aos="fade-up">📊 Niveaux d'eau</h3>
+                    <div id="chart-stock-area-eau-D" class="chart-stock-wrapper" data-aos="fade-up"></div>
                     
-                    <h3 class="chart-container-title">🌡️ Paramètres physiques</h3>
-                    <div id="chart-stock-area-temp-D" class="chart-stock-wrapper"></div>
+                    <h3 class="chart-container-title" data-aos="fade-up">🌡️ Paramètres physiques</h3>
+                    <div id="chart-stock-area-temp-D" class="chart-stock-wrapper" data-aos="fade-up"></div>
                     
                     <hr />
 
@@ -574,7 +574,7 @@
                         <!-- Grille des graphiques -->
                         <div class="chemistry-charts-grid">
                             <!-- Graphique 1 -->
-                            <div class="chemistry-chart-card">
+                            <div class="chemistry-chart-card" data-aos="fade-up" data-aos-delay="0">
                                 <div class="chemistry-chart-header">
                                     <i class="fas fa-chart-line chemistry-chart-icon"></i>
                                     <h3 class="chemistry-chart-title">Paramètres principaux</h3>
@@ -587,7 +587,7 @@
                             </div>
 
                             <!-- Graphique 2 -->
-                            <div class="chemistry-chart-card">
+                            <div class="chemistry-chart-card" data-aos="fade-up" data-aos-delay="100">
                                 <div class="chemistry-chart-header">
                                     <i class="fas fa-chart-area chemistry-chart-icon"></i>
                                     <h3 class="chemistry-chart-title">Nutriments et minéraux</h3>
@@ -600,7 +600,7 @@
                             </div>
 
                             <!-- Graphique 3 -->
-                            <div class="chemistry-chart-card">
+                            <div class="chemistry-chart-card" data-aos="fade-up" data-aos-delay="200">
                                 <div class="chemistry-chart-header">
                                     <i class="fas fa-chart-bar chemistry-chart-icon"></i>
                                     <h3 class="chemistry-chart-title">Équilibre chimique</h3>
