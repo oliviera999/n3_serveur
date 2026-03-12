@@ -28,7 +28,13 @@ body h6,
 button,
 .button,
 label {
-    font-family: 'Raleway', 'Source Sans Pro', Helvetica, sans-serif !important;
+    font-family: 'Raleway', Helvetica, sans-serif !important;
+}
+
+/* Labels checkbox/radio : Cabin (corps) pour cohérence */
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    font-family: 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
 }
 
 /* =================================================================
