@@ -1260,7 +1260,12 @@ body.is-preload #wrapper.fade-in::before {
 [data-theme="dark"] #header,
 [data-theme="dark"] #nav {
     color: var(--header-nav-text);
-    background: var(--bg-main) !important;
+    /* Même fond que #page-bg : photo + gradient, cohérent avec le reste de la page */
+    background-color: var(--page-bg-color) !important;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.75) 100%), url('../bg-aquaponie.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 [data-theme="dark"] #nav {
     border-bottom: 1px solid var(--accent-border);
