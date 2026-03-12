@@ -1,16 +1,12 @@
-{# Barre de navigation commune FFP3 / Dashboard / Contrôle #}
+{# Barre de navigation — Accueil, Aquaponie, Potager, Élevage, Galeries, toggle dark mode #}
 {% set bp = base_path|default('') %}
 <nav id="nav">
     <ul class="links">
         <li class="{{ nav_active == 'home' ? 'active' }}"><a href="{{ bp }}/">Accueil</a></li>
         <li class="{{ nav_active == 'aquaponie' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'aquaponie-test' : (environment == 'test3' ? 'aquamobile-test' : (environment == 's3' ? 'aquamobile' : 'aquaponie')) }}">Aquaponie</a></li>
-        <li class="{{ nav_active == 'control_ffp3' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'aquaponie-control-test' : (environment == 'test3' ? 'aquamobile-control-test' : (environment == 's3' ? 'aquamobile-control' : 'aquaponie-control')) }}">Contrôle</a></li>
-        <li class="{{ nav_active == 'tide_stats' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'tide-stats-test' : (environment == 'test3' ? 'tide-stats3-test' : (environment == 's3' ? 'tide-stats3' : 'tide-stats')) }}">Statistiques marées</a></li>
-        <li class="{{ nav_active == 'potager' or nav_active == 'potager_control' ? 'active' }}"><a href="{{ bp }}/meteo" title="Potager connecté — Station météo (MSP1)">Potager (MSP1)</a></li>
-        <li class="{{ nav_active == 'elevage' or nav_active == 'elevage_control' ? 'active' }}"><a href="{{ bp }}/serre" title="Élevage d'insectes — Serre connectée (N3PP)">Élevage (N3PP)</a></li>
+        <li class="{{ nav_active == 'potager' or nav_active == 'potager_control' ? 'active' }}"><a href="{{ bp }}/meteo" title="Potager — Station météo">Potager</a></li>
+        <li class="{{ nav_active == 'elevage' or nav_active == 'elevage_control' ? 'active' }}"><a href="{{ bp }}/serre" title="Élevage d'insectes — Serre">Élevage</a></li>
         <li class="{{ nav_active == 'gallery' ? 'active' }}"><a href="{{ bp }}/gallery/ffp3" title="Galeries photos des projets">Galeries</a></li>
-        <li class="{{ nav_active == 'dashboard' ? 'active' }}"><a href="{{ bp }}/dashboard" title="Tableau de bord aquaponie">Dashboard</a></li>
-        <li class="{{ nav_active == 'supervision' ? 'active' }}"><a href="{{ bp }}/supervision" title="Supervision technique">Supervision</a></li>
         <li class="nav-theme-toggle">
             <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Basculer le mode sombre" title="Mode sombre / clair">
                 <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>

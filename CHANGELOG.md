@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -66,6 +72,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -228,6 +240,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -355,6 +373,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -484,6 +508,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -625,6 +655,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -811,6 +847,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -1082,6 +1124,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -1315,6 +1363,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -1929,6 +1983,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -2531,6 +2591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -3132,6 +3198,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -3733,6 +3805,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -4343,6 +4421,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -4946,6 +5030,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -5549,6 +5639,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -6153,6 +6249,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -6756,6 +6858,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -7361,6 +7469,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -7964,6 +8078,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -8567,6 +8687,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -9170,6 +9296,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -9774,6 +9906,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -10375,6 +10513,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -10981,6 +11125,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -11582,6 +11732,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -12186,6 +12342,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -12788,6 +12950,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -13392,6 +13560,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -13996,6 +14170,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -14599,6 +14779,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -15204,6 +15390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -15806,6 +15998,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -16409,6 +16607,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -17013,6 +17217,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -17617,6 +17827,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -18219,6 +18435,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -18822,6 +19044,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -19427,6 +19655,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -20031,6 +20265,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -20634,6 +20874,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -21237,6 +21483,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -21840,6 +22092,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -22443,6 +22701,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -23045,6 +23309,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -23647,6 +23917,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -24249,6 +24525,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -24851,6 +25133,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -25454,6 +25742,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -26061,6 +26355,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -26668,6 +26968,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -27268,6 +27574,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -27868,6 +28180,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -28468,6 +28786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -29068,6 +29392,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -29668,6 +29998,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -30268,6 +30604,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -30885,6 +31227,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -31492,6 +31840,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -32097,6 +32451,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -32703,6 +33063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -33313,6 +33679,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -33935,6 +34307,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -34539,6 +34917,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -35145,6 +35529,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -35751,6 +36141,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -36354,6 +36750,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -36960,6 +37362,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -37563,6 +37971,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -38165,6 +38579,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -38768,6 +39188,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -39381,6 +39807,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -39991,6 +40423,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -40609,6 +41047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -41231,6 +41675,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -41843,6 +42293,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -42447,6 +42903,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -43053,6 +43515,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -43658,6 +44126,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -44263,6 +44737,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -44866,6 +45346,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -45469,6 +45955,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -46074,6 +46566,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -46678,6 +47176,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -47284,6 +47788,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -47895,6 +48405,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -48510,6 +49026,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -49121,6 +49643,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -49734,6 +50262,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -50346,6 +50880,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -50953,6 +51493,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -51556,6 +52102,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -52163,6 +52715,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -52767,6 +53325,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -53370,6 +53934,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -53973,6 +54543,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -54578,6 +55154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -55183,6 +55765,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -55787,6 +56375,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -56391,6 +56985,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -56994,6 +57594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -57597,6 +58203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -58200,6 +58812,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -58805,6 +59423,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -59410,6 +60034,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -60013,6 +60643,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -60616,6 +61252,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -61219,6 +61861,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -61823,6 +62471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -62429,6 +63083,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -63042,6 +63702,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -63649,6 +64315,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -64263,6 +64935,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -64875,6 +65553,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -65478,6 +66162,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -66114,6 +66804,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -66721,6 +67417,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -67337,6 +68039,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -67963,6 +68671,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -68579,6 +69293,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -69185,6 +69905,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -69792,6 +70518,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -70405,6 +71137,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -71128,6 +71866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -71735,6 +72479,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -72340,6 +73090,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -72946,6 +73702,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -73553,6 +74315,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -74159,6 +74927,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -74767,6 +75541,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -75374,6 +76154,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -76103,6 +76889,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -76709,6 +77501,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -77315,6 +78113,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -77969,6 +78773,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -78584,6 +79394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -79199,6 +80015,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -79851,6 +80673,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -80514,6 +81342,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -81134,6 +81968,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -81755,6 +82595,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -82366,6 +83212,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -82983,6 +83835,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -83604,6 +84462,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -84223,6 +85087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -84833,6 +85703,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -85455,6 +86331,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -86109,6 +86991,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -86718,6 +87606,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -87328,6 +88222,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -87937,6 +88837,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -88551,6 +89457,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -89171,6 +90083,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -89789,6 +90707,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -90405,6 +91329,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -91016,6 +91946,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -91628,6 +92564,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -92251,6 +93193,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -92873,6 +93821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -93498,6 +94452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -94139,6 +95099,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -94810,6 +95776,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -95422,6 +96394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -96033,6 +97011,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -96654,6 +97638,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -97265,6 +98255,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -97880,6 +98876,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -98488,6 +99490,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -99098,6 +100106,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -99700,6 +100714,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -100342,6 +101362,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -100956,6 +101982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -101592,6 +102624,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -102210,6 +103248,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -102824,6 +103868,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -103444,6 +104494,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -104086,6 +105142,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -104713,6 +105775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -105394,6 +106462,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -106012,6 +107086,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -106632,6 +107712,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -107263,6 +108349,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -107887,6 +108979,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -108498,6 +109596,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -109109,6 +110213,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -109722,6 +110832,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -110406,6 +111522,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -111038,6 +112160,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -111684,6 +112812,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -112318,6 +113452,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -112956,6 +114096,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -113562,6 +114708,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -114220,6 +115372,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -114842,6 +116000,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -115451,6 +116615,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -116110,6 +117280,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -116748,6 +117924,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -117419,6 +118601,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -118028,6 +119216,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -118696,6 +119890,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -119302,6 +120502,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -119907,6 +121113,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -120516,6 +121728,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -121125,6 +122343,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -121779,6 +123003,12 @@ docs/
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -122456,6 +123686,12 @@ docs/
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -123067,6 +124303,12 @@ docs/
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -123712,6 +124954,12 @@ docs/
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -124322,6 +125570,12 @@ docs/
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -124954,6 +126208,12 @@ docs/
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -125562,6 +126822,12 @@ docs/
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -126359,6 +127625,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -126990,6 +128262,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -127648,6 +128926,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -128292,6 +129576,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -128922,6 +130212,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -129559,6 +130855,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -130188,6 +131490,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -130806,6 +132114,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -131416,6 +132730,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -132042,6 +133362,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -132652,6 +133978,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -133262,6 +134594,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -133874,6 +135212,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -134504,6 +135848,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
@@ -135108,6 +136458,12 @@ ance future
 
 ---
 
+## [5.0.142] - 2026-03-12
+
+### Modifié - menu simplifié: accueil aquaponie potager élevage galeries + dark mode
+- **Résumé** : menu simplifié: accueil aquaponie potager élevage galeries + dark mode.
+
+---
 ## [5.0.141] - 2026-03-12
 
 ### Modifié - audit dark mode - fichiers CSS/JS et documentation DARK_MODE.md
