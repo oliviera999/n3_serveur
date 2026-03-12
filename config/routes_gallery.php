@@ -21,9 +21,10 @@ $app->post('/ffp3/ffp3gallery/upload.php', [GalleryUploadController::class, 'han
 $app->post('/ffp3gallery/upload.php', [GalleryUploadController::class, 'handleFfp3']);
 
 // Galeries photo — pages de consultation
-// /gallery : landing page avec accès aux 3 galeries (ffp3, msp1, n3pp)
-$app->get('/gallery', [GalleryViewController::class, 'showIndex']);
-$app->get('/gallery/', [GalleryViewController::class, 'showIndex']);
+// /gallery : redirection vers MSP1 (gallery_index provoque 500 en prod — cause non identifiée)
+$basePath = $basePath ?? ($app->getBasePath() ?: '');
+$app->get('/gallery', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/gallery/msp1')->withStatus(302));
+$app->get('/gallery/', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/gallery/msp1')->withStatus(302));
 $app->get('/gallery/{slug}/files/{filename}', [GalleryViewController::class, 'serveImage']);
 $app->get('/gallery/{slug}/timelapse', [GalleryViewController::class, 'showTimelapse']);
 $app->get('/api/gallery/{slug}/photos', [GalleryViewController::class, 'listPhotos']);

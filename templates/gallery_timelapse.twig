@@ -1,6 +1,6 @@
 {% extends 'layout.twig' %}
 
-{% block title %}{{ page_title|default('Timelapse - n3 iot datas') }}{% endblock %}
+{% block title %}{{ page_title|default('Timelapse - n³ iot datas') }}{% endblock %}
 
 {% block head_css %}
 <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/common-data.css" />
@@ -185,6 +185,9 @@
     margin-bottom: 12px;
   }
   .timelapse-range-btn, .timelapse-speed-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 6px 14px;
     border-radius: 8px;
     font-size: 0.85em;
@@ -204,7 +207,14 @@
     color: white;
     border-color: #008B74;
   }
+  .timelapse-date-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
   .timelapse-date-row { margin-bottom: 10px; }
+  .timelapse-date-grid .timelapse-date-row { margin-bottom: 0; }
   .timelapse-date-row label {
     display: block;
     font-size: 0.85em;
@@ -227,8 +237,9 @@
     box-shadow: 0 0 0 2px rgba(0,139,116,0.2);
   }
   .timelapse-speed-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 4px;
   }
   .timelapse-stat-row {
@@ -594,16 +605,7 @@
   <div class="timelapse-grid">
     <div class="timelapse-config-row">
       <div class="timelapse-config-col timelapse-config-left">
-        <div class="timelapse-section">
-          <div class="timelapse-section-label">Configuration</div>
-          <input class="timelapse-config-input" id="apiUrl" type="text" value="{{ api_photos_url }}" readonly>
-          <div class="timelapse-date-row" style="margin-top:8px;">
-            <label style="display:inline;cursor:pointer">
-              <input type="checkbox" id="demoMode" style="accent-color:var(--accent)">
-              Mode démo (données simulées si aucune photo)
-            </label>
-          </div>
-        </div>
+        <input type="hidden" id="apiUrl" value="{{ api_photos_url }}">
         <div class="timelapse-section">
           <div class="timelapse-section-label">Plage temporelle</div>
           <div class="timelapse-range-btns">
@@ -612,19 +614,21 @@
             <button class="timelapse-range-btn" data-hours="48">48 h</button>
             <button class="timelapse-range-btn" data-hours="168">7 j</button>
           </div>
-          <div class="timelapse-date-row">
-            <label>Début</label>
-            <input type="datetime-local" id="dateFrom">
-          </div>
-          <div class="timelapse-date-row">
-            <label>Fin</label>
-            <input type="datetime-local" id="dateTo">
+          <div class="timelapse-date-grid">
+            <div class="timelapse-date-row">
+              <label>Début</label>
+              <input type="datetime-local" id="dateFrom">
+            </div>
+            <div class="timelapse-date-row">
+              <label>Fin</label>
+              <input type="datetime-local" id="dateTo">
+            </div>
           </div>
           <button class="timelapse-btn timelapse-btn-primary" id="btnLoad">Charger la plage</button>
         </div>
         <div class="timelapse-section">
           <div class="timelapse-section-label">Vitesse</div>
-          <div class="timelapse-speed-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;">
+          <div class="timelapse-speed-grid">
             <button class="timelapse-speed-btn" data-fps="2">½×</button>
             <button class="timelapse-speed-btn" data-fps="12">1×</button>
             <button class="timelapse-speed-btn active" data-fps="24">2×</button>
@@ -752,7 +756,7 @@ function drawDemoFrame(frame, c) {
   ctx.fillText(`n³ · FRAME ${String(frame.demoIndex).padStart(4,'0')} · DEMO`, 12, H-14);
 }
 async function fetchFrames(from, to) {
-  if (document.getElementById('demoMode').checked) return generateDemoFrames(from, to);
+  if (document.getElementById('demoMode')?.checked) return generateDemoFrames(from, to);
   const apiUrl = document.getElementById('apiUrl').value;
   const url = apiUrl + '?from=' + encodeURIComponent(from.toISOString()) + '&to=' + encodeURIComponent(to.toISOString());
   const resp = await fetch(url);
@@ -764,7 +768,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 function renderFrame(frame) {
   if (!frame) return;
-  const demoMode = document.getElementById('demoMode').checked;
+  const demoMode = document.getElementById('demoMode')?.checked ?? false;
   if (demoMode || !frame.img) { drawDemoFrame(frame, canvas); } else { try { ctx.drawImage(frame.img, 0, 0, canvas.width, canvas.height); } catch(e) {} }
   document.getElementById('noImage').style.display = 'none';
   document.getElementById('tsOverlay').textContent = frame.timestamp.toLocaleDateString('fr-FR') + ' · ' + frame.timestamp.toLocaleTimeString('fr-FR');
@@ -822,7 +826,7 @@ async function loadRange() {
     hideLoading();
     renderFrame(state.frames[0]);
     showToast(rawFrames.length + ' images chargées', 'success');
-    if (document.getElementById('demoMode').checked) startPlay();
+    if (document.getElementById('demoMode')?.checked) startPlay();
   } catch(e) { hideLoading(); showToast('Erreur: ' + e.message, 'error'); }
 }
 function setDateRange(hours) {
@@ -877,7 +881,7 @@ function toggleLive() {
 async function exportVideo() {
   if (state.frames.length === 0) return;
   const exportFrames = state.frames;
-  const demoMode = document.getElementById('demoMode').checked;
+  const demoMode = document.getElementById('demoMode')?.checked ?? false;
   if (!demoMode) { showExportProgress(0, 'Préchargement...'); for (let i = 0; i < exportFrames.length; i++) { await preloadImage(exportFrames[i]); if (i % 10 === 0) showExportProgress((i/exportFrames.length)*40, 'Chargement...'); } }
   const exportCanvas = document.createElement('canvas');
   exportCanvas.width = canvas.width;

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
-    <title>{% block page_title %}n3 iot{% endblock %}</title>
+    <title>{% block page_title %}n³ iot{% endblock %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="theme-color" content="#008B74" />
@@ -23,7 +23,7 @@
     <div id="page-bg" aria-hidden="true"></div>
     <div id="wrapper" class="fade-in">
         <header id="header">
-            <a href="/" class="logo"><img src="{{ base_path|default('') }}/assets/logo.png" alt="n3 iot datas" /><span class="logo-text">IOT</span></a>
+            <a href="/" class="logo"><img src="{{ base_path|default('') }}/assets/logo.png" alt="n³ iot datas" /><span class="logo-text">IOT</span></a>
         </header>
         {% include 'partials/_nav.twig' with { nav_active: block('nav_active')|trim, environment: environment|default('prod'), base_path: base_path|default('') } %}
 
@@ -33,7 +33,7 @@
 
         <footer id="footer">
             <div class="context-badges">{% block footer_badges %}{% endblock %}</div>
-            <p>n3 IoT — Données et contrôle</p>
+            <p>n³ IoT — Données et contrôle</p>
         </footer>
     </div>
     {% block scripts %}{% endblock %}

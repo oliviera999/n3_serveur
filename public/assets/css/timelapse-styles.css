@@ -17,3 +17,195 @@
     --amber: #fbbf24;
     --red: #f87171;
 }
+
+/* Éléments avec couleurs en dur à surcharger en dark */
+[data-theme="dark"] .timelapse-page .gallery-back {
+    background: var(--accent-muted);
+    border-color: var(--accent-border);
+    color: var(--accent-primary);
+}
+[data-theme="dark"] .timelapse-page .gallery-back:hover {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-grid {
+    background: var(--chart-bg);
+    border-color: var(--border-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-config-col {
+    border-right-color: var(--border-color);
+}
+[data-theme="dark"] .timelapse-page .timelapse-config-col:last-child {
+    border-right: none;
+}
+[data-theme="dark"] .timelapse-page .timelapse-config-row .timelapse-config-col {
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-section {
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-section-label {
+    color: var(--text-primary);
+    border-bottom-color: var(--accent-primary);
+}
+[data-theme="dark"] .timelapse-page .timelapse-section-label i {
+    color: var(--accent-primary);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-range-btn,
+[data-theme="dark"] .timelapse-page .timelapse-speed-btn {
+    background: var(--accent-muted);
+    color: var(--accent-primary);
+    border-color: var(--accent-border);
+}
+[data-theme="dark"] .timelapse-page .timelapse-range-btn:hover,
+[data-theme="dark"] .timelapse-page .timelapse-speed-btn:hover {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+}
+[data-theme="dark"] .timelapse-page .timelapse-range-btn.active,
+[data-theme="dark"] .timelapse-page .timelapse-speed-btn.active {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    border-color: var(--accent-primary);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-date-row label {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-date-row input {
+    background: var(--bg-input);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+[data-theme="dark"] .timelapse-page .timelapse-date-row input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px var(--accent-muted);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-stat-row {
+    border-bottom-color: var(--border-light);
+}
+[data-theme="dark"] .timelapse-page .timelapse-stat-key {
+    color: var(--text-secondary);
+}
+[data-theme="dark"] .timelapse-page .timelapse-stat-val {
+    color: var(--accent-primary);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-btn-primary {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+}
+[data-theme="dark"] .timelapse-page .timelapse-btn-primary:hover {
+    background: var(--accent-primary-hover);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-btn-amber {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+[data-theme="dark"] .timelapse-page .timelapse-btn-amber:hover {
+    background: var(--border-color);
+}
+[data-theme="dark"] .timelapse-page .timelapse-btn-amber:disabled {
+    opacity: 0.4;
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-progress-bar {
+    background: var(--bg-secondary);
+}
+[data-theme="dark"] .timelapse-page .timelapse-progress-fill {
+    background: var(--amber);
+}
+[data-theme="dark"] .timelapse-page .timelapse-progress-text {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-controls {
+    background: var(--chart-bg);
+    border-top-color: var(--border-color);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-scrubber-track {
+    background: var(--bg-secondary);
+}
+[data-theme="dark"] .timelapse-page .timelapse-scrubber-fill {
+    background: var(--accent-primary);
+}
+[data-theme="dark"] .timelapse-page .timelapse-scrubber-fill::after {
+    background: var(--accent-primary);
+    box-shadow: 0 0 6px var(--accent-primary);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-time-labels {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-ctrl-btn {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+[data-theme="dark"] .timelapse-page .timelapse-ctrl-btn:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+[data-theme="dark"] .timelapse-page .timelapse-ctrl-btn.play-pause {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+[data-theme="dark"] .timelapse-page .timelapse-ctrl-btn.play-pause:hover {
+    background: var(--accent-primary-hover);
+    border-color: var(--accent-primary-hover);
+    color: var(--text-inverse);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-live-btn {
+    background: var(--accent-muted);
+    color: var(--accent-primary);
+    border-color: var(--accent-border);
+}
+[data-theme="dark"] .timelapse-page .timelapse-live-btn:hover {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+}
+[data-theme="dark"] .timelapse-page .timelapse-live-btn.active {
+    border-color: var(--red);
+    color: var(--red);
+    background: rgba(248, 113, 113, 0.2);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-toast {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+[data-theme="dark"] .timelapse-page .timelapse-toast.success {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+[data-theme="dark"] .timelapse-page .timelapse-toast.error {
+    border-color: var(--red);
+    color: var(--red);
+}
+
+[data-theme="dark"] .timelapse-page .timelapse-config-input {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+/* Hero : gradient adapté dark (teal plus lumineux) */
+[data-theme="dark"] .timelapse-page .timelapse-hero {
+    background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #2dd4bf 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}

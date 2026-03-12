@@ -1,6 +1,6 @@
 {
     "name": "olution/n3-iot-server",
-    "description": "Serveur IoT unifié n3 — salle aérée n³ (Slim 4)",
+    "description": "Serveur IoT unifié n³ — salle aérée n³ (Slim 4)",
     "type": "project",
     "require": {
         "vlucas/phpdotenv": "^5.5",
