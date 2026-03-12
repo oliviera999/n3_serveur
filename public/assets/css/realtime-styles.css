@@ -1260,7 +1260,10 @@ body.is-preload #wrapper.fade-in::before {
 [data-theme="dark"] #header,
 [data-theme="dark"] #nav {
     color: var(--header-nav-text);
-    background: rgba(15, 23, 42, 0.95) !important;
+    background: var(--bg-main) !important;
+}
+[data-theme="dark"] #nav {
+    border-bottom: 1px solid var(--accent-border);
 }
 
 [data-theme="dark"] #header a,
