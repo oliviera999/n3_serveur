@@ -238,6 +238,31 @@
                 xAxis.setExtremes(xAxis.dataMin, xAxis.dataMax);
             }
         };
+        function calculateLinearRegression(data) {
+            if (!data || data.length < 2) return null;
+            var valid = [];
+            for (var i = 0; i < data.length; i++) {
+                var y = data[i][1];
+                if (y !== null && y !== undefined && !isNaN(y)) valid.push({ idx: i, y: y });
+            }
+            if (valid.length < 2) return null;
+            var n = valid.length, sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+            for (var k = 0; k < n; k++) {
+                var x = valid[k].idx, y = valid[k].y;
+                sumX += x; sumY += y; sumXY += x * y; sumXX += x * x;
+            }
+            var denom = n * sumXX - sumX * sumX;
+            if (denom === 0) return null;
+            var a = (n * sumXY - sumX * sumY) / denom;
+            var b = (sumY - a * sumX) / n;
+            var trendData = [];
+            for (var j = 0; j < data.length; j++) {
+                trendData.push([data[j][0], a * j + b]);
+            }
+            return { data: trendData };
+        }
+        var HumidMoyData = zipSeries(reading_time, HumidMoy);
+        var HumidMoyTrendLine = (HumidMoyData && HumidMoyData.length >= 2) ? calculateLinearRegression(HumidMoyData) : null;
     Highcharts.stockChart('chart-niveauxeaux', {
         rangeSelector: { enabled: false },
         title: { text: '' },
@@ -245,10 +270,11 @@
         yAxis: [{ title: { text: 'Humidité sol (UA)' }, opposite: false }],
         series: [
             { name: 'Humid. moy.', data: zipSeries(reading_time, HumidMoy), type: 'spline', color: '#27ae60', lineWidth: 3, tooltip: { valueSuffix: ' UA' }},
-            { name: 'Humid. 1', data: zipSeries(reading_time, Humid1), type: 'spline', color: '#3498db', dashStyle: 'Dash', tooltip: { valueSuffix: ' UA' }},
-            { name: 'Humid. 2', data: zipSeries(reading_time, Humid2), type: 'spline', color: '#2980b9', dashStyle: 'Dash', tooltip: { valueSuffix: ' UA' }},
-            { name: 'Humid. 3', data: zipSeries(reading_time, Humid3), type: 'spline', color: '#1abc9c', dashStyle: 'Dash', tooltip: { valueSuffix: ' UA' }},
-            { name: 'Humid. 4', data: zipSeries(reading_time, Humid4), type: 'spline', color: '#16a085', dashStyle: 'Dash', tooltip: { valueSuffix: ' UA' }},
+            { name: 'Tendance humid. moy.', data: HumidMoyTrendLine ? HumidMoyTrendLine.data : [], type: 'line', color: '#1e8449', lineWidth: 2, dashStyle: 'Dot', tooltip: { valueSuffix: ' UA' }},
+            { name: 'Humid. 1', data: zipSeries(reading_time, Humid1), type: 'spline', color: '#3498db', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
+            { name: 'Humid. 2', data: zipSeries(reading_time, Humid2), type: 'spline', color: '#2980b9', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
+            { name: 'Humid. 3', data: zipSeries(reading_time, Humid3), type: 'spline', color: '#1abc9c', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
+            { name: 'Humid. 4', data: zipSeries(reading_time, Humid4), type: 'spline', color: '#16a085', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
             { name: 'État pompe', data: zipSeries(reading_time, etatPompe), type: 'column', color: '#008B74', opacity: 0.5 },
             { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7' }
         ],
