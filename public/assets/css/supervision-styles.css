@@ -1,7 +1,29 @@
 /* ============================================================
    supervision-styles.css — Page supervision
-   Extraction des styles inline + support dark mode
+   Polices : Raleway (titres), Cabin (corps)
+   Couleurs initiales n3 IoT (#008B74)
    ============================================================ */
+
+/* Polices page supervision : Raleway titres, Cabin corps */
+.supervision-wrapper article h1,
+.supervision-wrapper .section-header h2,
+.supervision-wrapper .link-card .label {
+    font-family: "Raleway", "Source Sans Pro", Helvetica, sans-serif;
+}
+.supervision-wrapper article,
+.supervision-wrapper article p,
+.supervision-wrapper .link-card .hint,
+.supervision-wrapper .live-section-intro,
+.supervision-wrapper .live-section-legend,
+.supervision-wrapper .live-card-name,
+.supervision-wrapper .live-card-datetime {
+    font-family: "Cabin", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Fond blanc pour zone contenu (couleurs initiales) */
+.supervision-wrapper #main {
+    background-color: #ffffff !important;
+}
 
 .version-badge {
     margin: 0 0 0.5em 0;
