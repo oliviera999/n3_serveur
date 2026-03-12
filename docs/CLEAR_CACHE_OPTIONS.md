@@ -6,7 +6,7 @@ Le projet FFP3 utilise plusieurs types de cache qui peuvent nécessiter un netto
 
 1. **Cache Twig** : Templates compilés (`var/cache/twig/`)
 2. **Cache DI Container** : Injection de dépendances compilée (`var/cache/di/`)
-3. **Cache en mémoire (OutputCacheService)** : Cache des états outputs (TTL 5 secondes, auto-invalidé)
+3. ~~Cache en mémoire (OutputCacheService)~~ : **Supprimé v5.x** — Lecture BDD directe (évitait stale data en PHP-FPM multi-workers)
 
 ---
 
@@ -262,35 +262,13 @@ New-Item -ItemType Directory -Path "var\cache\twig", "var\cache\di" -Force
 
 ---
 
-### Option 7 : Invalidation du cache en mémoire (OutputCacheService)
+### Option 7 : ~~Invalidation du cache OutputCacheService~~ (Obsolète)
 
-**Service** : `App\Service\OutputCacheService`
+**Statut** : **Cache supprimé v5.x** — `OutputCacheService` lit désormais directement en BDD à chaque GET.
 
-**Type de cache** : Cache en mémoire des états outputs (TTL 5 secondes)
+**Raison** : En PHP-FPM multi-workers, l'invalidation ne s'appliquait qu'au worker courant ; un autre worker pouvait servir des données obsolètes (jusqu'à 5 s) à l'ESP32. Une requête SELECT par poll (60 s prod, 6 s test) est négligeable.
 
-**Avantages** :
-- ✅ Auto-invalidé après chaque modification d'output
-- ✅ TTL court (5 secondes) donc se renouvelle automatiquement
-- ✅ Séparé par environnement (PROD/TEST)
-
-**Utilisation programmatique** :
-```php
-use App\Service\OutputCacheService;
-
-$outputCache = new OutputCacheService();
-$outputCache->invalidateCache(); // Invalide le cache pour l'environnement actuel
-```
-
-**Quand c'est nécessaire** :
-- ✅ **Déjà automatique** : Le cache est invalidé automatiquement après chaque modification d'output
-- ✅ **TTL court** : Le cache expire automatiquement après 5 secondes
-- ✅ **Pas d'action manuelle nécessaire** dans la plupart des cas
-
-**Vérification des statistiques** :
-```php
-$stats = $outputCache->getCacheStats();
-// Retourne : ['valid', 'environment', 'age_seconds', 'ttl_seconds', 'cached_items']
-```
+Les méthodes `invalidateCache()` et `getCacheStats()` restent pour compatibilité API mais sont des no-ops.
 
 ---
 
@@ -304,7 +282,7 @@ $stats = $outputCache->getCacheStats();
 | **Hook Git** | Git | ✅ | ⚠️ Silencieux | Déploiements automatiques |
 | **Script deploy.sh** | SSH | ⚠️ Semi | ✅ Complet | Déploiements complets |
 | **Nettoyage manuel** | SSH/Fichier | ❌ | ❌ | Dépannage |
-| **Cache mémoire** | Code PHP | ✅ | ❌ | Déjà automatique |
+| ~~Cache mémoire~~ | — | — | — | Obsolète (supprimé v5.x) |
 
 ---
 

@@ -115,6 +115,10 @@ WHERE gpio = :gpio AND name IS NOT NULL AND name != ''
 2. **Race conditions**: Possibles si modifications simultanées web + ESP32
 3. **Dépendance réseau**: Synchronisation dépendante de la connectivité ESP32
 
+### Cache OutputCacheService (v5.x — supprimé)
+
+**Historique** : Un cache en mémoire (TTL 5 s) réduisait les requêtes SQL pour le GET outputs/state. En PHP-FPM multi-workers, l'invalidation ne s'appliquait qu'au worker courant ; un autre worker pouvait servir des données obsolètes (jusqu'à 5 s) à l'ESP32. **Le cache a été supprimé** ; chaque GET lit directement la BDD. Une requête SELECT par poll (60 s prod, 6 s test) est négligeable.
+
 ---
 
 ## 🔧 Configuration et Maintenance

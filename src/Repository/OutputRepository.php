@@ -216,9 +216,7 @@ class OutputRepository extends AbstractRepository
      * 
      * v11.168: Si configSynced=0 (ou null), ignore les GPIO de configuration (100-116)
      *          pour éviter l'écrasement par des valeurs par défaut de l'ESP32
-     * 
-     * @deprecated Utilisez OutputSyncService::syncFromSensorData() à la place
-     * 
+     *
      * @param SensorData $data Données capteurs contenant les états à synchroniser
      */
     public function syncStatesFromSensorData(SensorData $data): void
@@ -310,7 +308,7 @@ class OutputRepository extends AbstractRepository
         foreach ($filtered as $gpio => $value) {
             $ph = ':s' . $gpio;
             $caseParts[] = "WHEN {$gpio} THEN {$ph}";
-            $params[$ph] = (string) $value;
+            $params[$ph] = (string) StateNormalizer::normalize($gpio, $value);
         }
         $caseSql = 'CASE gpio ' . implode(' ', $caseParts) . ' END';
         $inList = implode(',', array_map('intval', $gpioList));

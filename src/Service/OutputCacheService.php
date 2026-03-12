@@ -7,24 +7,18 @@ use App\Util\StateNormalizer;
 use App\Service\OutputSyncService;
 
 /**
- * Service de cache pour les états outputs
- * 
- * Réduit la charge serveur en évitant les requêtes SQL répétées
- * pour getOutputsState() qui est appelé toutes les 4-12 secondes par ESP32
- * 
- * Cache en mémoire avec TTL configurable
- * 
+ * Service pour les états outputs (anciennement avec cache, désormais lecture BDD directe)
+ *
  * v4.9.41: Lorsque la table outputs est vide ou sans lignes pour les GPIO demandés,
  * retourne des valeurs par défaut pour tous les GPIO attendus (alignées firmware/sql)
  * pour éviter que l'ESP32 reçoive un JSON vide et affiche des défauts.
+ *
+ * v5.x: Cache supprimé - en PHP-FPM l'invalidation ne s'appliquait qu'au worker courant,
+ * créant des données obsolètes (jusqu'à 5s) pour l'ESP32 quand un autre worker servait le GET.
+ * Une requête SELECT par poll (60s prod, 6s test) est négligeable.
  */
 class OutputCacheService
 {
-    /**
-     * Durée de vie du cache (en secondes)
-     */
-    private const CACHE_TTL_SECONDS = 5; // 5 secondes (moitié de l'intervalle polling)
-
     /**
      * Valeurs par défaut pour chaque GPIO attendu par l'ESP32
      * Alignées avec include/gpio_mapping.h (GPIODefaults) et migrations/INIT_GPIO_BASE_ROWS.sql
@@ -36,54 +30,30 @@ class OutputCacheService
         108 => 0, 109 => 0, 110 => 0,              // commandes nourrissage + reset
         111 => 3, 112 => 2, 113 => 120, 114 => 8, 115 => 0, 116 => 600, // durées / limites / wake
     ];
-    
-    /**
-     * Cache en mémoire (static pour persister entre requêtes)
-     * Séparé par environnement pour éviter les conflits PROD/TEST
-     */
-    private static array $cache = [];
-    private static array $cacheTimestamp = [];
 
     /**
      * Demande de vérification OTA par environnement (page contrôle).
      * Une seule réponse GET state contiendra triggerOtaCheck: true puis le flag est effacé.
      */
     private static array $triggerOtaRequested = [];
-    
+
     /**
-     * Récupère les états outputs depuis le cache ou la base de données
+     * Récupère les états outputs depuis la base de données
      *
      * @param \PDO $pdo Connexion PDO
      * @param array $gpioList Liste des GPIOs à récupérer
-     * @param bool $skipCache Si true, ignore le cache et lit toujours en BDD (pour la page de contrôle)
+     * @param bool $skipCache Ignoré (conservé pour compatibilité API)
      * @return array Tableau associatif [gpio => state]
      */
     public function getOutputsState(\PDO $pdo, array $gpioList, bool $skipCache = false): array
     {
-        $now = time();
         $env = TableConfig::getEnvironment();
 
         if ($gpioList === []) {
-            self::$cache[$env] = [];
-            self::$cacheTimestamp[$env] = $now;
             return [];
         }
-        
-        // Cache valide : retourner le cache sauf si skipCache (page de contrôle = données toujours à jour)
-        if (!$skipCache &&
-            isset(self::$cache[$env]) &&
-            isset(self::$cacheTimestamp[$env]) &&
-            ($now - self::$cacheTimestamp[$env]) < self::CACHE_TTL_SECONDS) {
-            $cached = self::$cache[$env];
-            // Demande OTA : injecter triggerOtaCheck dans la réponse même en cas de cache hit (sinon l'ESP32 ne le reçoit jamais)
-            if (isset(self::$triggerOtaRequested[$env]) && self::$triggerOtaRequested[$env]) {
-                unset(self::$triggerOtaRequested[$env]);
-                $cached = $cached + ['triggerOtaCheck' => true];
-            }
-            return $cached;
-        }
-        
-        // Requête BDD (cache expiré, inexistant, ou bypass demandé)
+
+        // Lecture directe BDD (cache supprimé)
         $table = TableConfig::getOutputsTable();
         
         // Construire requête IN sécurisée
@@ -132,12 +102,6 @@ class OutputCacheService
             }
         }
         
-        // Mettre à jour le cache uniquement si on n'a pas bypassé (évite de remplir le cache avec une lecture "control")
-        if (!$skipCache) {
-            self::$cache[$env] = $result;
-            self::$cacheTimestamp[$env] = $now;
-        }
-
         // Demande OTA depuis la page contrôle : une seule réponse contient triggerOtaCheck puis le flag est effacé
         if (isset(self::$triggerOtaRequested[$env]) && self::$triggerOtaRequested[$env]) {
             $result['triggerOtaCheck'] = true;
@@ -158,44 +122,35 @@ class OutputCacheService
     }
     
     /**
-     * Invalide le cache (appelé après modification d'un output)
-     * Invalide le cache pour l'environnement actuel
+     * Invalide le cache (no-op, conservé pour compatibilité API).
+     * Le cache a été supprimé ; les appels depuis OutputService restent sans effet.
      */
     public function invalidateCache(): void
     {
-        $env = TableConfig::getEnvironment();
-        unset(self::$cache[$env]);
-        unset(self::$cacheTimestamp[$env]);
+        // NOP - cache supprimé
     }
 
     /**
-     * Invalide le cache pour tous les environnements (supervision : vider tous les caches du site)
+     * Invalide le cache pour tous les environnements (no-op, conservé pour compatibilité API).
      */
     public function invalidateAllEnvironments(): void
     {
-        self::$cache = [];
-        self::$cacheTimestamp = [];
+        // NOP - cache supprimé
     }
     
     /**
-     * Obtient les statistiques du cache
-     * 
-     * @return array Statistiques (age, valid, etc.)
+     * Obtient les statistiques du cache (toujours vide, conservé pour compatibilité API).
+     *
+     * @return array Statistiques avec valid=false, cached_items=0
      */
     public function getCacheStats(): array
     {
-        $now = time();
-        $env = TableConfig::getEnvironment();
-        $isValid = (isset(self::$cache[$env]) && 
-                   isset(self::$cacheTimestamp[$env]) && 
-                   ($now - self::$cacheTimestamp[$env]) < self::CACHE_TTL_SECONDS);
-        
         return [
-            'valid' => $isValid,
-            'environment' => $env,
-            'age_seconds' => isset(self::$cacheTimestamp[$env]) ? ($now - self::$cacheTimestamp[$env]) : null,
-            'ttl_seconds' => self::CACHE_TTL_SECONDS,
-            'cached_items' => isset(self::$cache[$env]) ? count(self::$cache[$env]) : 0,
+            'valid' => false,
+            'environment' => TableConfig::getEnvironment(),
+            'age_seconds' => null,
+            'ttl_seconds' => 0,
+            'cached_items' => 0,
         ];
     }
 }

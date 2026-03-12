@@ -472,6 +472,9 @@
 [data-theme="dark"] .stat-card-unit { color: var(--text-secondary); }
 [data-theme="dark"] .stat-card-value { color: var(--text-primary); }
 [data-theme="dark"] .stat-card-secondary { color: var(--text-muted); }
+[data-theme="dark"] .stat-card.pump {
+    background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+}
 
 [data-theme="dark"] .progress-bar-container { background: var(--bg-secondary); }
 [data-theme="dark"] .progress-bar { background: var(--accent-primary); }

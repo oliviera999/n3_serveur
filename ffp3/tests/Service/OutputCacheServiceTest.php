@@ -38,8 +38,9 @@ class OutputCacheServiceTest extends TestCase
 
     protected function tearDown(): void
     {
-        // Invalider le cache après chaque test
-        $this->service->invalidateCache();
+        // Nettoyage (invalidateCache est désormais un no-op)
+        putenv('ENV');
+        unset($_ENV['ENV']);
     }
 
     public function testGetOutputsStateReturnsEmptyArrayForEmptyList(): void
@@ -57,21 +58,14 @@ class OutputCacheServiceTest extends TestCase
         $this->assertArrayHasKey('18', $result);
     }
 
-    public function testInvalidateCacheClearsCache(): void
+    public function testInvalidateCacheNoOp(): void
     {
-        // Populate cache
+        // Cache supprimé : invalidateCache est un no-op, getCacheStats retourne toujours valid=false
         $this->service->getOutputsState($this->pdo, [16]);
-        
-        // Verify cache is valid
-        $stats = $this->service->getCacheStats();
-        $this->assertTrue($stats['valid']);
-        
-        // Invalidate
         $this->service->invalidateCache();
-        
-        // Verify cache is invalid
         $stats = $this->service->getCacheStats();
         $this->assertFalse($stats['valid']);
+        $this->assertSame(0, $stats['cached_items']);
     }
 
     public function testGetCacheStatsReturnsExpectedStructure(): void
@@ -85,18 +79,12 @@ class OutputCacheServiceTest extends TestCase
         $this->assertArrayHasKey('cached_items', $stats);
     }
 
-    public function testCacheIsPopulatedAfterQuery(): void
+    public function testGetOutputsStateAlwaysReadsFromBdd(): void
     {
-        $this->service->invalidateCache();
-        
-        $statsBefore = $this->service->getCacheStats();
-        $this->assertFalse($statsBefore['valid']);
-        
-        // Query to populate cache
+        // Cache supprimé : chaque appel lit en BDD, getCacheStats reste valid=false
         $this->service->getOutputsState($this->pdo, [16, 18]);
-        
-        $statsAfter = $this->service->getCacheStats();
-        $this->assertTrue($statsAfter['valid']);
-        $this->assertSame(2, $statsAfter['cached_items']);
+        $stats = $this->service->getCacheStats();
+        $this->assertFalse($stats['valid']);
+        $this->assertSame(0, $stats['cached_items']);
     }
 }

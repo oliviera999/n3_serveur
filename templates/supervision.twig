@@ -3,120 +3,14 @@
 
 {% block title %}{{ page_title|default('Supervision') }} - n3 iot datas{% endblock %}
 
-{% block styles %}
-<style>
-    .section-header {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin: 40px 0 20px 0;
-        padding-bottom: 10px;
-        border-bottom: 3px solid #008B74;
-    }
-    .section-header h2 { margin: 0; color: #008B74; font-size: 2em; }
-    .section-header i { font-size: 2em; color: #008B74; }
-    .links-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 16px;
-        margin: 20px 0;
-    }
-    .link-card {
-        display: block;
-        padding: 18px 20px;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0,139,116,0.15);
-        border-left: 4px solid #008B74;
-        text-decoration: none;
-        color: #2c3e50;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .link-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0,139,116,0.25);
-        color: #008B74;
-    }
-    .link-card i { margin-right: 10px; color: #008B74; }
-    .link-card .label { font-weight: 600; }
-    .link-card .hint { font-size: 0.85em; color: #7f8c8d; margin-top: 4px; }
-    .cache-card { cursor: default; }
-    .cache-card:hover { transform: none; }
-    .btn-cache {
-        margin-top: 12px;
-        padding: 10px 20px;
-        background: linear-gradient(135deg, #008B74 0%, #00B794 100%);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: opacity 0.2s, transform 0.2s;
-    }
-    .btn-cache:hover:not(:disabled) { opacity: 0.9; transform: scale(1.02); }
-    .btn-cache:disabled { opacity: 0.6; cursor: not-allowed; }
-    .cache-result {
-        margin-top: 10px;
-        padding: 10px;
-        border-radius: 8px;
-        font-size: 0.9em;
-        display: none;
-    }
-    .cache-result.success { background: #d4edda; color: #155724; display: block; }
-    .cache-result.error { background: #f8d7da; color: #721c24; display: block; }
-    .live-section .live-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 12px;
-        margin: 20px 0;
-    }
-    .live-card {
-        display: block;
-        padding: 14px 16px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0,139,116,0.12);
-        border-left: 4px solid #ccc;
-        text-decoration: none;
-        color: inherit;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .live-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0,139,116,0.2);
-    }
-    .live-card.live-online { border-left-color: #28a745; }
-    .live-card.live-offline { border-left-color: #dc3545; }
-    .live-card.live-loading { border-left-color: #6c757d; }
-    .live-card.live-error { border-left-color: #ffc107; }
-    .live-card-name { font-weight: 600; font-size: 0.95em; margin-bottom: 6px; color: #2c3e50; }
-    .live-card-badge {
-        display: inline-block;
-        padding: 4px 10px;
-        border-radius: 6px;
-        font-size: 0.8em;
-        font-weight: 700;
-        margin-bottom: 6px;
-    }
-    .live-card-badge.online { background: #d4edda; color: #155724; }
-    .live-card-badge.online i.fa-circle {
-        animation: live-point-fade 1.8s ease-in-out infinite;
-    }
-    @keyframes live-point-fade {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.45; }
-    }
-    .live-card-badge.offline { background: #f8d7da; color: #721c24; }
-    .live-card-badge.loading { background: #e2e3e5; color: #383d41; }
-    .live-card-badge.error { background: #fff3cd; color: #856404; }
-    .live-card-datetime { font-size: 0.85em; color: #6c757d; }
-</style>
+{% block head_css %}
+<link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/supervision-styles.css" />
 {% endblock %}
 
 {% block content %}
 <article class="post featured">
     <header class="major">
-        <p class="version-badge" style="margin: 0 0 0.5em 0; font-size: 0.95em; color: #008B74; font-weight: 600;">Version du site {{ version|default('–') }}</p>
+        <p class="version-badge">Version du site {{ version|default('–') }}</p>
         <h1><i class="fas fa-cog"></i> Supervision</h1>
         <p>Accès central à toutes les pages du projet n3 IoT (dashboards, contrôle, administration).</p>
         <hr />
@@ -127,8 +21,8 @@
         <h2>Live</h2>
     </div>
     <div class="live-section">
-        <p style="margin: 0 0 12px 0; font-size: 0.95em; color: #6c757d;">Témoins de connexion et dernière réception de données par module — mise à jour en temps réel</p>
-        <p style="margin: 0 0 16px 0; font-size: 0.85em; color: #6c757d;"><strong>Légende :</strong> WROOM et S3 = types de cartes électroniques (ESP32) ; MSP1 = potager (station météo) ; N3PP = serre (élevage d'insectes)</p>
+        <p class="live-section-intro">Témoins de connexion et dernière réception de données par module — mise à jour en temps réel</p>
+        <p class="live-section-legend"><strong>Légende :</strong> WROOM et S3 = types de cartes électroniques (ESP32) ; MSP1 = potager (station météo) ; N3PP = serre (élevage d'insectes)</p>
         <div class="live-grid" id="live-status-grid" aria-live="polite">
             <a href="{{ base_path|default('') }}/aquaponie" class="live-card live-loading" data-module="ffp3-wroom-prod"><div class="live-card-name">Aquaponie (WROOM prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
             <a href="{{ base_path|default('') }}/aquaponie-test" class="live-card live-loading" data-module="ffp3-wroom-test"><div class="live-card-name">Aquaponie (WROOM test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
