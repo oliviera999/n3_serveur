@@ -56,6 +56,7 @@ return [
         '/ffp3/api/outputs-test/state',
         '/ffp3/api/outputs3/state',
         '/ffp3/api/outputs3-test/state',
+        '/ffp3/ota/',
         '/ota/',
         '/assets/',
         '/msp1gallery/',

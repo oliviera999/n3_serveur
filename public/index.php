@@ -94,7 +94,7 @@ $loadRoutesConfig = static function () use ($routesConfigPath): array {
     error_log('[iot.olution.info] routes_config.php absent: ' . $routesConfigPath);
     return [
         'exact_public_paths' => ['/', '/login', '/logout', '/ping', '/favicon.ico'],
-        'public_paths' => ['/api/', '/post-data', '/heartbeat', '/assets/', '/aquaponie', '/meteo', '/serre', '/gallery/', '/ota/'],
+        'public_paths' => ['/api/', '/post-data', '/heartbeat', '/assets/', '/aquaponie', '/meteo', '/serre', '/gallery/', '/ota/', '/ffp3/ota/'],
         'protected_paths' => ['/dashboard', '/supervision', '/export-data', '/admin/'],
         'asset_js' => [],
         'asset_css' => [],
@@ -130,9 +130,10 @@ $app->add(function (Request $request, $handler) {
         $response = new \Slim\Psr7\Response();
         return $response->withHeader('Location', $location)->withStatus(301);
     }
-    // /ffp3/xxx -> /xxx (sauf /ffp3/ffp3gallery/ et /ffp3/api/outputs* pour contrôle aquaponie)
+    // /ffp3/xxx -> /xxx (sauf /ffp3/ffp3gallery/, /ffp3/api/outputs*, /ffp3/ota/ pour OTA firmware ESP32)
     $isFfp3ApiOutputs = (strpos($path, '/ffp3/api/outputs') === 0);
-    if (strpos($path, '/ffp3/') === 0 && strpos($path, '/ffp3/ffp3gallery/') !== 0 && !$isFfp3ApiOutputs) {
+    $isFfp3Ota = (strpos($path, '/ffp3/ota/') === 0);
+    if (strpos($path, '/ffp3/') === 0 && strpos($path, '/ffp3/ffp3gallery/') !== 0 && !$isFfp3ApiOutputs && !$isFfp3Ota) {
         $target = '/' . substr($path, 6); // enlever '/ffp3/'
         $query = $request->getUri()->getQuery();
         $location = $target . ($query !== '' ? '?' . $query : '');
@@ -319,8 +320,8 @@ $app->get('/aquaponie-description', [AquaponieDescriptionController::class, 'sho
 $app->get('/meteo-description', [MspDescriptionController::class, 'show']);
 $app->get('/serre-description', [N3ppDescriptionController::class, 'show']);
 
-// Fichiers OTA (n3pp, msp, cam) — servis depuis serveur/ota/
-$app->get('/ota/{path:.+}', function (Request $request, Response $response, array $args) {
+// Handler OTA : sert les fichiers depuis serveur/ota/
+$otaHandler = function (Request $request, Response $response, array $args): Response {
     $path = $args['path'] ?? '';
     if (strpos($path, '..') !== false || $path === '') {
         return $response->withStatus(400);
@@ -340,7 +341,12 @@ $app->get('/ota/{path:.+}', function (Request $request, Response $response, arra
         return $response->withHeader('Content-Type', 'application/octet-stream');
     }
     return $response;
-});
+};
+
+// Fichiers OTA (n3pp, msp, cam, ffp3) — servis depuis serveur/ota/
+$app->get('/ota/{path:.+}', $otaHandler);
+// /ffp3/ota/* : même contenu (URL utilisée par firmware ESP32, pas de redirection 301)
+$app->get('/ffp3/ota/{path:.+}', $otaHandler);
 
 // Ping / diagnostic latence - PUBLIC (GET et POST, réponse minimale, pas de BDD)
 $app->map(['GET', 'POST'], '/ping', function (Request $request, Response $response): Response {
