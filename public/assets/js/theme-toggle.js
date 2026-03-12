@@ -69,6 +69,9 @@
         if (typeof window.n3HighchartsApplyTheme === 'function') {
             window.n3HighchartsApplyTheme();
         }
+        if (typeof window.n3ChartJsApplyTheme === 'function') {
+            window.n3ChartJsApplyTheme();
+        }
         return next;
     }
 

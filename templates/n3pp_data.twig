@@ -7,6 +7,8 @@
     <style>
         .stat-card.pump { border-left: 5px solid #008B74; background: linear-gradient(180deg, #fff 0%, #f0faf8 100%); }
         .stat-card.pump .stat-card-icon { color: #008B74; }
+        [data-theme="dark"] .stat-card.pump { background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-secondary) 100%); }
+        [data-theme="dark"] .stat-card.pump .stat-card-icon { color: var(--accent-primary); }
     </style>
 {% endblock %}
 
@@ -30,7 +32,7 @@
 
     <article class="post featured">
         {% if not latest and measure_count == 0 %}
-            <div class="no-data"><i class="fas fa-database" style="font-size:2em;margin-bottom:10px;color:#bbb;"></i><br>Aucune donnée enregistrée.</div>
+            <div class="no-data"><i class="fas fa-database no-data-icon"></i><br>Aucune donnée enregistrée.</div>
         {% else %}
             {# Section 1 : Humidité du sol #}
             <div class="section-header alt-section-title-full">
@@ -148,7 +150,7 @@
                 </div>
             </div>
 
-            {% if latest and latest.sensor is defined %}<p style="font-size:0.9em;color:#7f8c8d;margin-top:1rem;">Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}</p>{% endif %}
+            {% if latest and latest.sensor is defined %}<p class="data-sensor-caption">Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}</p>{% endif %}
         {% endif %}
 
         <div class="filter-section">

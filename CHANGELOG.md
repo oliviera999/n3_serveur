@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -54,6 +60,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -204,6 +216,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -319,6 +337,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -436,6 +460,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -565,6 +595,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -739,6 +775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -998,6 +1040,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -1219,6 +1267,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -1821,6 +1875,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -2411,6 +2471,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -3000,6 +3066,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -3589,6 +3661,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -4187,6 +4265,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -4778,6 +4862,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -5369,6 +5459,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -5961,6 +6057,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -6552,6 +6654,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -7145,6 +7253,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -7736,6 +7850,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -8327,6 +8447,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -8918,6 +9044,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -9510,6 +9642,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -10099,6 +10237,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -10693,6 +10837,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -11282,6 +11432,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -11874,6 +12030,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -12464,6 +12626,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -13056,6 +13224,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -13648,6 +13822,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -14239,6 +14419,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -14832,6 +15018,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -15422,6 +15614,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -16013,6 +16211,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -16605,6 +16809,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -17197,6 +17407,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -17787,6 +18003,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -18378,6 +18600,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -18971,6 +19199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -19563,6 +19797,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -20154,6 +20394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -20745,6 +20991,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -21336,6 +21588,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -21927,6 +22185,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -22517,6 +22781,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -23107,6 +23377,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -23697,6 +23973,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -24287,6 +24569,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -24878,6 +25166,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -25473,6 +25767,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -26068,6 +26368,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -26656,6 +26962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -27244,6 +27556,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -27832,6 +28150,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -28420,6 +28744,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -29008,6 +29338,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -29596,6 +29932,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -30201,6 +30543,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -30796,6 +31144,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -31389,6 +31743,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -31983,6 +32343,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -32581,6 +32947,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -33191,6 +33563,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -33783,6 +34161,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -34377,6 +34761,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -34971,6 +35361,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -35562,6 +35958,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -36156,6 +36558,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -36747,6 +37155,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -37337,6 +37751,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -37928,6 +38348,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -38529,6 +38955,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -39127,6 +39559,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -39733,6 +40171,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -40343,6 +40787,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -40943,6 +41393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -41535,6 +41991,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -42129,6 +42591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -42722,6 +43190,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -43315,6 +43789,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -43906,6 +44386,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -44497,6 +44983,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -45090,6 +45582,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -45682,6 +46180,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -46276,6 +46780,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -46875,6 +47385,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -47478,6 +47994,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -48077,6 +48599,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -48678,6 +49206,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -49278,6 +49812,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -49873,6 +50413,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -50464,6 +51010,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -51059,6 +51611,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -51651,6 +52209,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -52242,6 +52806,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -52833,6 +53403,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -53426,6 +54002,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -54019,6 +54601,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -54611,6 +55199,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -55203,6 +55797,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -55794,6 +56394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -56385,6 +56991,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -56976,6 +57588,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -57569,6 +58187,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -58162,6 +58786,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -58753,6 +59383,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -59344,6 +59980,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -59935,6 +60577,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -60527,6 +61175,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -61121,6 +61775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -61722,6 +62382,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -62317,6 +62983,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -62919,6 +63591,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -63519,6 +64197,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -64110,6 +64794,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -64734,6 +65424,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -65329,6 +66025,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -65933,6 +66635,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -66547,6 +67255,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -67151,6 +67865,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -67745,6 +68465,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -68340,6 +69066,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -68941,6 +69673,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -69652,6 +70390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -70247,6 +70991,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -70840,6 +71590,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -71434,6 +72190,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -72029,6 +72791,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -72623,6 +73391,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -73219,6 +73993,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -73814,6 +74594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -74531,6 +75317,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -75125,6 +75917,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -75719,6 +76517,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -76361,6 +77165,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -76964,6 +77774,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -77567,6 +78383,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -78207,6 +79029,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -78858,6 +79686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -79466,6 +80300,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -80075,6 +80915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -80674,6 +81520,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -81279,6 +82131,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -81888,6 +82746,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -82495,6 +83359,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -83093,6 +83963,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -83703,6 +84579,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -84345,6 +85227,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -84942,6 +85830,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -85540,6 +86434,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -86137,6 +87037,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -86739,6 +87645,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -87347,6 +88259,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -87953,6 +88871,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -88557,6 +89481,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -89156,6 +90086,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -89756,6 +90692,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -90367,6 +91309,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -90977,6 +91925,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -91590,6 +92544,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -92219,6 +93179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -92878,6 +93844,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -93478,6 +94450,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -94077,6 +95055,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -94686,6 +95670,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -95285,6 +96275,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -95888,6 +96884,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -96484,6 +97486,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -97082,6 +98090,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -97672,6 +98686,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -98302,6 +99322,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -98904,6 +99930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -99528,6 +100560,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -100134,6 +101172,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -100736,6 +101780,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -101344,6 +102394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -101974,6 +103030,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -102589,6 +103651,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -103258,6 +104326,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -103864,6 +104938,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -104472,6 +105552,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -105091,6 +106177,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -105703,6 +106795,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -106302,6 +107400,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -106901,6 +108005,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -107502,6 +108612,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -108174,6 +109290,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -108794,6 +109916,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -109428,6 +110556,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -110050,6 +111184,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -110676,6 +111816,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -111270,6 +112416,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -111916,6 +113068,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -112526,6 +113684,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -113123,6 +114287,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -113770,6 +114940,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -114396,6 +115572,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -115055,6 +116237,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -115652,6 +116840,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -116308,6 +117502,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -116902,6 +118102,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -117495,6 +118701,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -118092,6 +119304,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -118689,6 +119907,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -119331,6 +120555,12 @@ docs/
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -119996,6 +121226,12 @@ docs/
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -120595,6 +121831,12 @@ docs/
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -121228,6 +122470,12 @@ docs/
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -121826,6 +123074,12 @@ docs/
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -122446,6 +123700,12 @@ docs/
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -123042,6 +124302,12 @@ docs/
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -123827,6 +125093,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -124446,6 +125718,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -125092,6 +126370,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -125724,6 +127008,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -126342,6 +127632,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -126967,6 +128263,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -127584,6 +128886,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -128190,6 +129498,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -128788,6 +130102,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -129402,6 +130722,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -130000,6 +131326,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -130598,6 +131930,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -131198,6 +132536,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -131816,6 +133160,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs
@@ -132408,6 +133758,12 @@ ance future
 
 ---
 
+## [5.0.140] - 2026-03-12
+
+### Correctif - Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS
+- **Résumé** : Audit dark mode: n3pp pump, styles inline, supervision-back-link, doublons CSS.
+
+---
 ## [5.0.139] - 2026-03-12
 
 ### Correctif - audit échanges firmware-serveur: suppression cache OutputCacheService, StateNormalizer dans sync outputs, doc scénarios asymétriques et surveillance logs

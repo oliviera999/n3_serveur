@@ -4,6 +4,7 @@
 
 {% block head_css %}
     <link rel="preload" href="{{ base_path }}/assets/bg-aquaponie.png" as="image" />
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/aquaponie-description-styles.css" />
 {% endblock %}
 
 {% block styles %}
@@ -12,7 +13,7 @@
         #page-bg {
             position: fixed !important; top: 0; left: 0; right: 0; bottom: 0;
             z-index: -1 !important;
-            background-color: #e8f4f2;
+            background-color: var(--page-bg-color, #e8f4f2);
             background-image: url('{{ base_path }}/assets/bg-aquaponie.png');
             background-size: cover !important;
             background-position: center !important;
@@ -26,49 +27,6 @@
             to { opacity: 1; }
         }
         #wrapper.fade-in::before { background: transparent !important; background-color: transparent !important; }
-    </style>
-    <style>
-        /* Sections style carte (esthétique aquaponie-alt) - Hero défini dans realtime-styles.css */
-        .desc-section {
-            margin-bottom: 1.5rem;
-            background: rgba(255,255,255,0.92);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 12px rgba(0,139,116,0.06);
-            border: 1px solid rgba(0,139,116,0.08);
-        }
-        .desc-section h2 {
-            color: #008B74;
-            font-size: 1.35em;
-            margin-bottom: 1em;
-            padding-bottom: 0.4em;
-            border-bottom: 2px solid rgba(0,139,116,0.15);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .desc-section p { line-height: 1.6; margin-bottom: 0.8em; }
-        .desc-section ul {
-            margin: 0.5em 0 1em 0;
-            padding-left: 1.25em;
-            line-height: 1.6;
-        }
-        .desc-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1em;
-            margin: 1em 0;
-        }
-        .desc-images img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-        .desc-images figure { margin: 0; }
-        .desc-images figcaption { font-size: 0.9em; color: #6c757d; margin-top: 0.3em; }
-        /* Footer aligné aquaponie-alt */
-        #footer .footer-copyright { margin-top: 0; margin-bottom: 0; color: var(--footer-color, #6b7280); }
     </style>
 {% endblock %}
 

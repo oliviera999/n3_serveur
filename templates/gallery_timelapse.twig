@@ -2,6 +2,10 @@
 
 {% block title %}{{ page_title|default('Timelapse - n3 iot datas') }}{% endblock %}
 
+{% block head_css %}
+<link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/timelapse-styles.css" />
+{% endblock %}
+
 {% block styles %}
 <style>
   /* Timelapse — thème clair aligné sur gallery/control (#main blanc) */

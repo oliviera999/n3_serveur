@@ -1664,27 +1664,3 @@
         [data-theme="dark"] .parameter-item input:disabled {
             background: var(--bg-secondary);
         }
-        [data-theme="dark"] .quick-action-card {
-            background: var(--accent-muted);
-            color: var(--accent-primary);
-        }
-        [data-theme="dark"] .quick-action-card:hover {
-            box-shadow: 0 12px 24px rgba(45, 212, 191, 0.25);
-        }
-        [data-theme="dark"] .esp32-sync-info {
-            background: var(--bg-secondary);
-            border-left-color: var(--accent-primary);
-        }
-        [data-theme="dark"] .esp32-sync-info .sync-timestamp { color: var(--accent-primary); }
-        [data-theme="dark"] .context-stat {
-            background: var(--accent-muted);
-        }
-        [data-theme="dark"] .context-stat .stat-value { color: var(--control-text, #f1f5f9); }
-        [data-theme="dark"] .callout-warning {
-            background: rgba(251, 146, 60, 0.15);
-            border-color: rgba(251, 146, 60, 0.4);
-            color: #fed7aa;
-        }
-        [data-theme="dark"] .parameter-item input:disabled {
-            background: var(--bg-secondary);
-        }
