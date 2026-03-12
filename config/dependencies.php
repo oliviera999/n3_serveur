@@ -184,8 +184,10 @@ return [
     },
 
     TemplateRenderer::class => function (ContainerInterface $c) {
+        $templatesPath = __DIR__ . '/../templates';
+        $resolved = realpath($templatesPath);
         return new TemplateRenderer(
-            __DIR__ . '/../templates',
+            $resolved !== false ? $resolved : $templatesPath,
             ($_ENV['ENV'] ?? 'prod') === 'prod',
             $c->get(CsrfService::class)
         );
