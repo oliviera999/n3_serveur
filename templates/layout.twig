@@ -59,7 +59,17 @@
     <script src="{{ base_path|default('') }}/assets/js/main.js"></script>
     {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX92SACKIcXrCkM9146OdBovex/f86eScyxR5L7Sqj/e8r8Uj/nzJpP/73GAuwOyJyO+a/zeFfz7Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>AOS.init({ duration: 600, offset: 80, once: true });</script>
+    <script>
+    (function() {
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          if (typeof AOS !== 'undefined') {
+            AOS.init({ duration: 600, offset: 80, once: true });
+          }
+        }, 150);
+      });
+    })();
+    </script>
     {% block scripts %}{% endblock %}
 </body>
 </html>
