@@ -155,11 +155,6 @@ body:not([data-theme="dark"]) .section-header h3,
 body:not([data-theme="dark"]) .home-section-header h2 {
     color: #FF6300 !important;
 }
-body:not([data-theme="dark"]) .section-header h2,
-body:not([data-theme="dark"]) .section-header h3,
-body:not([data-theme="dark"]) .home-section-header h2 {
-    color: #FF6300 !important;
-}
 
 /* =================================================================
    FOND DE PAGE : IMAGE AQUAPONIE AVEC APPARITION EN FONDU
@@ -1463,4 +1458,7 @@ body.is-preload [data-aos] {
 /* prefers-reduced-motion : pas d'animation, affichage direct */
 @media (prefers-reduced-motion: reduce) {
     [data-aos] { opacity: 1 !important; transform: none !important; transition: none !important; }
-    [data-aos].sr-visible
+    [data-aos].sr-visible { opacity: 1 !important; transform: none !important; }
+}
+/* Sans JS : pas de .js-scroll-reveal, donc [data-aos] garde le style par défaut (visible) */
+
