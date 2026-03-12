@@ -61,13 +61,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX92SACKIcXrCkM9146OdBovex/f86eScyxR5L7Sqj/e8r8Uj/nzJpP/73GAuwOyJyO+a/zeFfz7Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
     (function() {
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          if (typeof AOS !== 'undefined') {
-            AOS.init({ duration: 600, offset: 80, once: true });
-          }
-        }, 150);
-      });
+      function initAOS() {
+        document.body.classList.remove('is-preload');
+        if (typeof AOS !== 'undefined') {
+          AOS.init({ duration: 800, offset: 50, once: true, easing: 'ease-out-cubic' });
+        }
+      }
+      if (document.readyState === 'complete') {
+        setTimeout(initAOS, 50);
+      } else {
+        window.addEventListener('load', function() { setTimeout(initAOS, 100); });
+      }
     })();
     </script>
     {% block scripts %}{% endblock %}

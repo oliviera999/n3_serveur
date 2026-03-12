@@ -1406,3 +1406,13 @@ body.is-preload #wrapper.fade-in::before {
     visibility: inherit !important;
 }
 
+/* =================================================================
+   AOS (Animate On Scroll) — override is-preload pour permettre les animations
+   body.is-preload bloque transitions/animations ; [data-aos] doit pouvoir animer
+================================================================= */
+body.is-preload [data-aos],
+body.is-preload [data-aos]::before,
+body.is-preload [data-aos]::after {
+    transition: opacity 0.8s ease, transform 0.8s ease !important;
+}
+
