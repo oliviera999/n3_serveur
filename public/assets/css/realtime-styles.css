@@ -1260,11 +1260,16 @@ body.is-preload #wrapper.fade-in::before {
 [data-theme="dark"] #header,
 [data-theme="dark"] #nav {
     color: var(--header-nav-text);
-    /* Barre opaque : masque la photo dans le menu ; la photo reste visible ailleurs via #page-bg */
-    background: var(--header-nav-bg) !important;
+}
+[data-theme="dark"] #header {
+    /* Transparent : photo visible via #page-bg, comme en mode clair */
+    background: transparent !important;
     background-image: none !important;
 }
 [data-theme="dark"] #nav {
+    /* Barre opaque pour le menu uniquement */
+    background: var(--header-nav-bg) !important;
+    background-image: none !important;
     border-bottom: 1px solid var(--accent-border);
 }
 
