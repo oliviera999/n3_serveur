@@ -21,7 +21,10 @@ $app->post('/ffp3/ffp3gallery/upload.php', [GalleryUploadController::class, 'han
 $app->post('/ffp3gallery/upload.php', [GalleryUploadController::class, 'handleFfp3']);
 
 // Galeries photo — pages de consultation
-$app->get('/gallery', [GalleryViewController::class, 'showIndex']);
+// /gallery : redirection vers galerie MSP1 (index en 500 sur prod — correctif temporaire)
+$basePath = $basePath ?? ($app->getBasePath() ?: '');
+$app->get('/gallery', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/gallery/msp1')->withStatus(302));
+$app->get('/gallery/', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/gallery/msp1')->withStatus(302));
 $app->get('/gallery/{slug}/files/{filename}', [GalleryViewController::class, 'serveImage']);
 $app->get('/gallery/{slug}/timelapse', [GalleryViewController::class, 'showTimelapse']);
 $app->get('/api/gallery/{slug}/photos', [GalleryViewController::class, 'listPhotos']);
