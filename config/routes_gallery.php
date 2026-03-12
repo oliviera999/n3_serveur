@@ -22,9 +22,14 @@ $app->post('/ffp3gallery/upload.php', [GalleryUploadController::class, 'handleFf
 
 // Galeries photo — pages de consultation
 // /gallery : redirection vers MSP1 (gallery_index provoque 500 en prod — cause non identifiée)
-$basePath = $basePath ?? ($app->getBasePath() ?: '');
-$app->get('/gallery', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/gallery/msp1')->withStatus(302));
-$app->get('/gallery/', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/gallery/msp1')->withStatus(302));
+$app->get('/gallery', function ($rq, $rs) use ($app) {
+    $bp = $app->getBasePath() ?: '';
+    return $rs->withHeader('Location', $bp . '/gallery/msp1')->withStatus(302);
+});
+$app->get('/gallery/', function ($rq, $rs) use ($app) {
+    $bp = $app->getBasePath() ?: '';
+    return $rs->withHeader('Location', $bp . '/gallery/msp1')->withStatus(302);
+});
 $app->get('/gallery/{slug}/files/{filename}', [GalleryViewController::class, 'serveImage']);
 $app->get('/gallery/{slug}/timelapse', [GalleryViewController::class, 'showTimelapse']);
 $app->get('/api/gallery/{slug}/photos', [GalleryViewController::class, 'listPhotos']);
