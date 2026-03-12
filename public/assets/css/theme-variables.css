@@ -161,6 +161,49 @@
     display: inline-block;
 }
 
+/* En dark mode : icône et cercle blancs */
+[data-theme="dark"] .theme-toggle-btn {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+[data-theme="dark"] .theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Panneau mobile en dark mode : icône et cercle blancs aussi */
+[data-theme="dark"] #navPanel .theme-toggle-btn {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+[data-theme="dark"] #navPanel .theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
 .nav-theme-toggle {
     margin-left: auto;
 }
+
+/* Panneau mobile (#navPanel) : fond clair → bouton visible */
+#navPanel .nav-theme-toggle {
+    margin-left: 0;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: solid 2px #eeeeee;
+}
+#navPanel .theme-toggle-btn {
+    background: rgba(33, 41, 49, 0.08);
+    border-color: rgba(33, 41, 49, 0.3);
+    color: #212931;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    -webkit-tap-highlight-color: rgba(0, 139, 116, 0.2);
+}
+#navPanel .theme-toggle-btn:hover {
+    background: rgba(33, 41, 49, 0.15);
+    color: #008B74;
+}
+

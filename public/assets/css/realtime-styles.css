@@ -181,9 +181,10 @@ body {
     pointer-events: none;
 }
 
+/* Mode sombre : photo de fond avec fondu noir pour lisibilité */
 [data-theme="dark"] #page-bg {
     background-color: var(--page-bg-color);
-    background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.97) 100%), url('../bg-aquaponie.png');
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.75) 100%), url('../bg-aquaponie.png');
 }
 @keyframes bgFadeIn {
     from { opacity: 0; }
@@ -211,9 +212,10 @@ body.is-preload::before {
     animation: bgFadeIn 1.2s ease-out forwards !important;
 }
 
+/* Mode sombre : photo de fond avec fondu noir (fallback) */
 [data-theme="dark"] body::before {
     background-color: var(--page-bg-color);
-    background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.97) 100%), url('../bg-aquaponie.png');
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.75) 100%), url('../bg-aquaponie.png');
 }
 
 /* Wrapper semi-transparent pour laisser voir l'image de fond (fondu) sur les pages type controle */
@@ -429,7 +431,9 @@ body.is-preload #wrapper.fade-in::before {
     border: 1px solid rgba(0, 139, 116, 0.1);
 }
 
-.system-health-panel h3 {
+.system-health-panel h3,
+.system-health-panel h4,
+.system-health-panel .system-health-panel-title {
     margin: 0 0 15px 0;
     color: #008B74;
     font-size: 1.3em;
@@ -438,6 +442,13 @@ body.is-preload #wrapper.fade-in::before {
     gap: 10px;
     border-bottom: 2px solid #008B74;
     padding-bottom: 10px;
+}
+
+.health-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-top: 12px;
 }
 
 .health-grid {
@@ -869,14 +880,101 @@ body.is-preload #wrapper.fade-in::before {
 [data-theme="dark"] .system-health-panel {
     background: var(--bg-card);
     color: var(--text-primary);
+    border-color: var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .system-health-panel h3,
+[data-theme="dark"] .system-health-panel h4,
+[data-theme="dark"] .system-health-panel .system-health-panel-title {
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
 }
 
 [data-theme="dark"] .health-item {
     background: var(--bg-secondary);
+    border-left-color: var(--accent-primary);
+}
+
+[data-theme="dark"] .health-item-label {
+    color: var(--text-secondary);
 }
 
 [data-theme="dark"] .health-item-value {
     color: var(--text-primary);
+}
+
+[data-theme="dark"] .health-item-value .reading-timestamp,
+[data-theme="dark"] .health-item-value .reading-hint {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .health-item-value .reading-none {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .next-update-countdown {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .next-update-countdown strong {
+    color: var(--accent-primary);
+}
+
+[data-theme="dark"] .refresh-spinner {
+    color: var(--accent-primary);
+}
+
+/* Indicateurs de statut (En ligne, Hors ligne, etc.) — variantes mode sombre */
+[data-theme="dark"] .status-online {
+    background: rgba(45, 212, 191, 0.2);
+    color: #5eead4;
+    box-shadow: 0 3px 10px rgba(45, 212, 191, 0.2);
+}
+
+[data-theme="dark"] .status-online i {
+    color: #2dd4bf;
+}
+
+[data-theme="dark"] .status-offline {
+    background: rgba(248, 113, 113, 0.2);
+    color: #fca5a5;
+    box-shadow: 0 3px 10px rgba(248, 113, 113, 0.2);
+}
+
+[data-theme="dark"] .status-offline i {
+    color: #f87171;
+}
+
+[data-theme="dark"] .status-warning {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fcd34d;
+    box-shadow: 0 3px 10px rgba(251, 191, 36, 0.2);
+}
+
+[data-theme="dark"] .status-warning i {
+    color: #fbbf24;
+}
+
+[data-theme="dark"] .status-paused {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .status-paused i {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .status-error {
+    background: rgba(248, 113, 113, 0.2);
+    color: #fca5a5;
+    box-shadow: 0 3px 10px rgba(248, 113, 113, 0.2);
+}
+
+[data-theme="dark"] .status-error i {
+    color: #f87171;
 }
 
 /* =================================================================
@@ -1099,8 +1197,9 @@ body.is-preload #wrapper.fade-in::before {
    Surcharges main.css pour dark mode
    (realtime-styles chargé après main.css)
 ================================================================= */
+/* Body reste transparent pour laisser voir #page-bg (photo + fondu noir) en mode sombre */
 [data-theme="dark"] body {
-    background-color: var(--bg-page) !important;
+    background: transparent !important;
     color: var(--text-primary);
 }
 
@@ -1224,6 +1323,25 @@ body.is-preload #wrapper.fade-in::before {
     border-color: var(--border-color);
 }
 
+[data-theme="dark"] .live-control-label {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .live-stats-display {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .live-interval-selector {
+    background: var(--bg-input, var(--bg-secondary));
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .live-interval-selector:hover,
+[data-theme="dark"] .live-interval-selector:focus {
+    border-color: var(--accent-primary);
+}
+
 [data-theme="dark"] .live-collapse-toggle {
     color: var(--text-secondary);
 }
@@ -1235,6 +1353,27 @@ body.is-preload #wrapper.fade-in::before {
 [data-theme="dark"] .live-stats-display i,
 [data-theme="dark"] .live-stats-value {
     color: var(--accent-primary);
+}
+
+[data-theme="dark"] .live-toggle-slider {
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .live-toggle-slider:before {
+    background-color: var(--text-primary);
+}
+
+[data-theme="dark"] .live-toggle-switch input:checked + .live-toggle-slider {
+    background-color: var(--accent-primary);
+}
+
+[data-theme="dark"] .live-refresh-button {
+    background: var(--accent-primary);
+    color: var(--bg-card);
+}
+
+[data-theme="dark"] .live-refresh-button:hover {
+    background: var(--accent-primary-hover, #34d399);
 }
 
 /* =================================================================

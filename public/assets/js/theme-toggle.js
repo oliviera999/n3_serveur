@@ -99,12 +99,23 @@
         apply: applyTheme
     };
 
-    // Délégation d'événement : écouter les clics sur document
-    // (fonctionne même si le bouton est rendu après ou si le script nav échoue)
-    document.addEventListener('click', function (e) {
+    function isThemeButton(el) {
+        if (!el) return false;
+        return el.id === 'theme-toggle-btn' || (el.closest && el.closest('#theme-toggle-btn'));
+    }
+
+    function handleThemeClick(e) {
         var t = e.target;
-        if (!t) return;
-        if (t.id === 'theme-toggle-btn') { toggle(); return; }
-        if (t.closest && t.closest('#theme-toggle-btn')) { toggle(); }
-    });
+        if (!isThemeButton(t)) return;
+        toggle();
+        // Sur mobile : éviter le double déclenchement (touchend + click)
+        if (e.type === 'touchend') {
+            e.preventDefault();
+        }
+    }
+
+    // Délégation d'événement : écouter clics ET touchend (mobile)
+    // Sur smartphone, le click peut ne pas se déclencher dans le menu déroulant
+    document.addEventListener('click', handleThemeClick);
+    document.addEventListener('touchend', handleThemeClick, { passive: false });
 })();

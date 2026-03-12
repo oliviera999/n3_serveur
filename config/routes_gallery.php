@@ -21,6 +21,7 @@ $app->post('/ffp3/ffp3gallery/upload.php', [GalleryUploadController::class, 'han
 $app->post('/ffp3gallery/upload.php', [GalleryUploadController::class, 'handleFfp3']);
 
 // Galeries photo — pages de consultation
+$app->get('/gallery', [GalleryViewController::class, 'showIndex']);
 $app->get('/gallery/{slug}/files/{filename}', [GalleryViewController::class, 'serveImage']);
 $app->get('/gallery/{slug}/timelapse', [GalleryViewController::class, 'showTimelapse']);
 $app->get('/api/gallery/{slug}/photos', [GalleryViewController::class, 'listPhotos']);

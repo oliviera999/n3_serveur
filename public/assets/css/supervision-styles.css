@@ -85,6 +85,8 @@
 .cache-card:hover { transform: none; }
 
 .btn-cache {
+    display: inline-flex;
+    align-items: center;
     margin-top: 12px;
     padding: 10px 20px;
     background: linear-gradient(135deg, #008B74 0%, #00B794 100%);

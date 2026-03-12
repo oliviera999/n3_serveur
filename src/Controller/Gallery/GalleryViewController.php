@@ -63,6 +63,18 @@ class GalleryViewController
         return $files;
     }
 
+    /** Page index : présente les différentes galeries (aquaponie, potager, élevage). */
+    public function showIndex(Request $request, Response $response): Response
+    {
+        $html = $this->renderer->render('gallery_index.twig', [
+            'page_title' => 'Galeries photos - n3 iot datas',
+            'active_page' => 'gallery',
+            'nav_active' => 'gallery',
+        ]);
+        $response->getBody()->write($html);
+        return $response;
+    }
+
     public function showMsp1(Request $request, Response $response): Response
     {
         return $this->showGallery($request, $response, 'msp1', 'Le potager (MSP1)', 'Photos du potager – station météo', '/meteo', 'gallery');

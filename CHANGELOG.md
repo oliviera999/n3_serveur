@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -36,6 +42,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -180,6 +192,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -289,6 +307,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -400,6 +424,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -523,6 +553,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -691,6 +727,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -944,6 +986,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -1159,6 +1207,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -1755,6 +1809,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -2339,6 +2399,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -2922,6 +2988,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -3505,6 +3577,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -4097,6 +4175,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -4682,6 +4766,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -5267,6 +5357,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -5853,6 +5949,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -6438,6 +6540,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -7025,6 +7133,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -7610,6 +7724,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -8195,6 +8315,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -8780,6 +8906,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -9366,6 +9498,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -9949,6 +10087,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -10537,6 +10681,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -11120,6 +11270,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -11706,6 +11862,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -12290,6 +12452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -12876,6 +13044,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -13462,6 +13636,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -14047,6 +14227,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -14634,6 +14820,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -15218,6 +15410,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -15803,6 +16001,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -16389,6 +16593,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -16975,6 +17185,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -17559,6 +17775,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -18144,6 +18366,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -18731,6 +18959,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -19317,6 +19551,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -19902,6 +20142,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -20487,6 +20733,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -21072,6 +21324,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -21657,6 +21915,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -22241,6 +22505,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -22825,6 +23095,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -23409,6 +23685,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -23993,6 +24275,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -24578,6 +24866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -25167,6 +25461,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -25756,6 +26056,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -26338,6 +26644,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -26920,6 +27232,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -27502,6 +27820,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -28084,6 +28408,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -28666,6 +28996,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -29248,6 +29584,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -29847,6 +30189,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -30436,6 +30784,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -31023,6 +31377,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -31611,6 +31971,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -32203,6 +32569,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -32807,6 +33179,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -33393,6 +33771,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -33981,6 +34365,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -34569,6 +34959,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -35154,6 +35550,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -35742,6 +36144,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -36327,6 +36735,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -36911,6 +37325,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -37496,6 +37916,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -38091,6 +38517,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -38683,6 +39115,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -39283,6 +39721,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -39887,6 +40331,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -40481,6 +40931,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -41067,6 +41523,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -41655,6 +42117,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -42242,6 +42710,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -42829,6 +43303,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -43414,6 +43894,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -43999,6 +44485,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -44586,6 +45078,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -45172,6 +45670,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -45760,6 +46264,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -46353,6 +46863,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -46950,6 +47466,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -47543,6 +48065,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -48138,6 +48666,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -48732,6 +49266,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -49321,6 +49861,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -49906,6 +50452,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -50495,6 +51047,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -51081,6 +51639,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -51666,6 +52230,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -52251,6 +52821,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -52838,6 +53414,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -53425,6 +54007,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -54011,6 +54599,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -54597,6 +55191,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -55182,6 +55782,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -55767,6 +56373,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -56352,6 +56964,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -56939,6 +57557,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -57526,6 +58150,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -58111,6 +58741,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -58696,6 +59332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -59281,6 +59923,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -59867,6 +60515,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -60455,6 +61109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -61050,6 +61710,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -61639,6 +62305,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -62235,6 +62907,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -62829,6 +63507,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -63414,6 +64098,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -64032,6 +64722,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -64621,6 +65317,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -65219,6 +65921,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -65827,6 +66535,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -66425,6 +67139,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -67013,6 +67733,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -67602,6 +68328,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -68197,6 +68929,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -68902,6 +69640,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -69491,6 +70235,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -70078,6 +70828,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -70666,6 +71422,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -71255,6 +72017,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -71843,6 +72611,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -72433,6 +73207,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -73022,6 +73802,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -73733,6 +74519,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -74321,6 +75113,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -74909,6 +75707,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -75545,6 +76349,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -76142,6 +76952,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -76739,6 +77555,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -77373,6 +78195,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -78018,6 +78846,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -78620,6 +79454,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -79223,6 +80063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -79816,6 +80662,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -80415,6 +81267,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -81018,6 +81876,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -81619,6 +82483,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -82211,6 +83081,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -82815,6 +83691,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -83451,6 +84333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -84042,6 +84930,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -84634,6 +85528,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -85225,6 +86125,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -85821,6 +86727,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -86423,6 +87335,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -87023,6 +87941,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -87621,6 +88545,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -88214,6 +89144,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -88808,6 +89744,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -89413,6 +90355,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -90017,6 +90965,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -90624,6 +91578,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -91247,6 +92207,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -91900,6 +92866,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -92494,6 +93466,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -93087,6 +94065,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -93690,6 +94674,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -94283,6 +95273,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -94880,6 +95876,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -95470,6 +96472,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -96062,6 +97070,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -96646,6 +97660,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -97270,6 +98290,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -97866,6 +98892,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -98484,6 +99516,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -99084,6 +100122,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -99680,6 +100724,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -100282,6 +101332,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -100906,6 +101962,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -101515,6 +102577,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -102178,6 +103246,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -102778,6 +103852,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -103380,6 +104460,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -103993,6 +105079,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -104599,6 +105691,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -105192,6 +106290,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -105785,6 +106889,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -106380,6 +107490,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -107046,6 +108162,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -107660,6 +108782,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -108288,6 +109416,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -108904,6 +110038,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -109524,6 +110664,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -110112,6 +111258,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -110752,6 +111904,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -111356,6 +112514,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -111947,6 +113111,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -112588,6 +113758,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -113208,6 +114384,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -113861,6 +115043,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -114452,6 +115640,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -115102,6 +116296,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -115690,6 +116890,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -116277,6 +117483,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -116868,6 +118080,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -117459,6 +118677,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -118095,6 +119319,12 @@ docs/
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -118754,6 +119984,12 @@ docs/
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -119347,6 +120583,12 @@ docs/
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -119974,6 +121216,12 @@ docs/
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -120566,6 +121814,12 @@ docs/
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -121180,6 +122434,12 @@ docs/
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -121770,6 +123030,12 @@ docs/
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -122549,6 +123815,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -123162,6 +124434,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -123802,6 +125080,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -124428,6 +125712,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -125040,6 +126330,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -125659,6 +126955,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -126270,6 +127572,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -126870,6 +128178,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -127462,6 +128776,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -128070,6 +129390,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -128662,6 +129988,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -129254,6 +130586,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -129848,6 +131186,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -130460,6 +131804,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
@@ -131046,6 +132396,12 @@ ance future
 
 ---
 
+## [5.0.147] - 2026-03-12
+
+### Modifié - Bouton dark mode : icône et cercle blancs
+- **Résumé** : Bouton dark mode : icône et cercle blancs.
+
+---
 ## [5.0.146] - 2026-03-12
 
 ### Modifié - graphiques Google Sheets visibles à 100% sur tous les affichages
