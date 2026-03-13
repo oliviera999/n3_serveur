@@ -3,14 +3,15 @@
    Réutilise les styles supervision pour links-grid / link-card
    ============================================================ */
 
-/* Wrapper galerie index — mêmes styles que supervision */
-.gallery-index-wrapper #main,
-.gallery-page #main {
+/* Wrapper galerie — #main est dans #wrapper ; les templates ajoutent wrapper_class */
+#wrapper.gallery-landing-wrapper #main,
+#wrapper.gallery-page-wrapper #main,
+#wrapper.gallery-timelapse-wrapper #main {
     background-color: #ffffff !important;
 }
 
-.gallery-index-wrapper .section-header,
-.gallery-page .section-header {
+#wrapper.gallery-landing-wrapper .section-header,
+#wrapper.gallery-page-wrapper .section-header {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -18,28 +19,28 @@
     padding-bottom: 10px;
     border-bottom: 3px solid #008B74;
 }
-.gallery-index-wrapper .section-header h2,
-.gallery-page .section-header h2 {
+#wrapper.gallery-landing-wrapper .section-header h2,
+#wrapper.gallery-page-wrapper .section-header h2 {
     margin: 0;
     color: #008B74;
     font-size: 2em;
 }
-.gallery-index-wrapper .section-header i,
-.gallery-page .section-header i {
+#wrapper.gallery-landing-wrapper .section-header i,
+#wrapper.gallery-page-wrapper .section-header i {
     font-size: 2em;
     color: #008B74;
 }
 
-.gallery-index-wrapper .links-grid,
-.gallery-page .links-grid {
+#wrapper.gallery-landing-wrapper .links-grid,
+#wrapper.gallery-page-wrapper .links-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
     margin: 20px 0;
 }
 
-.gallery-index-wrapper .link-card,
-.gallery-page .link-card {
+#wrapper.gallery-landing-wrapper .link-card,
+#wrapper.gallery-page-wrapper .link-card {
     display: block;
     padding: 18px 20px;
     background: white;
@@ -50,21 +51,21 @@
     color: #2c3e50;
     transition: transform 0.2s, box-shadow 0.2s;
 }
-.gallery-index-wrapper .link-card:hover,
-.gallery-page .link-card:hover {
+#wrapper.gallery-landing-wrapper .link-card:hover,
+#wrapper.gallery-page-wrapper .link-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0,139,116,0.25);
     color: #008B74;
 }
-.gallery-index-wrapper .link-card .label,
-.gallery-page .link-card .label {
+#wrapper.gallery-landing-wrapper .link-card .label,
+#wrapper.gallery-page-wrapper .link-card .label {
     font-weight: 600;
     font-size: 1.1em;
     display: block;
     margin-bottom: 4px;
 }
-.gallery-index-wrapper .link-card .hint,
-.gallery-page .link-card .hint {
+#wrapper.gallery-landing-wrapper .link-card .hint,
+#wrapper.gallery-page-wrapper .link-card .hint {
     font-size: 0.9em;
     color: #6c757d;
 }

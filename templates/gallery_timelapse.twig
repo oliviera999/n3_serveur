@@ -2,6 +2,8 @@
 
 {% block title %}{{ page_title|default('Timelapse - n³ iot datas') }}{% endblock %}
 
+{% block wrapper_class %} gallery-timelapse-wrapper{% endblock %}
+
 {% block head_css %}
 <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/common-data.css" />
 <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/timelapse-styles.css" />
