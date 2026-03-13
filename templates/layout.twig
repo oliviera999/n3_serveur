@@ -29,6 +29,7 @@
     {% block styles %}{% endblock %}
 </head>
 {% block body_tag %}<body class="is-preload">{% endblock %}
+    <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
     <div id="page-bg" aria-hidden="true"></div>
     {% block before_wrapper %}{% endblock %}
     <div id="wrapper" class="fade-in{% block wrapper_class %}{% endblock %}">
@@ -57,6 +58,7 @@
     <script src="{{ base_path|default('') }}/assets/js/util.js"></script>
     <script src="{{ base_path|default('') }}/assets/js/main.js"></script>
     {% endblock %}
+    <script src="{{ base_path|default('') }}/assets/js/scroll-progress.js"></script>
     <script src="{{ base_path|default('') }}/assets/js/scroll-reveal.js"></script>
     {% block scripts %}{% endblock %}
 </body>

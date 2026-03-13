@@ -15,7 +15,7 @@
 
 {% block content %}
     <article class="post featured">
-        <header class="major">
+        <header class="major" data-aos="fade-up">
             <h2>
                 <i class="icon solid fa-water"></i>
                 Statistiques avancées des marées
@@ -26,7 +26,7 @@
         </header>
 
         <!-- Bannière période -->
-        <div class="info-banner">
+        <div class="info-banner" data-aos="fade-up">
             <div class="info-banner-title">📊 Période analysée</div>
             <div class="info-banner-value">
                 Du {{ start_date|date('d/m/Y H:i:s') }} au {{ end_date|date('d/m/Y H:i:s') }}
@@ -35,12 +35,12 @@
         <p class="tide-stats-definitions"><strong>Définitions :</strong> <em>Marnage</em> = amplitude de variation du niveau d'eau sur un cycle (hauteur max − min). <em>DiffMaree</em> = différence instantanée entre les niveaux réserve et aquarium (indicateur du flux d'eau).</p>
 
         <!-- Section Résultats principaux -->
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <i class="fas fa-chart-line"></i>
             <h3>Résultats principaux</h3>
         </div>
         
-        <div class="stats-grid">
+        <div class="stats-grid" data-aos="fade-up">
             <div class="stat-card">
                 <i class="fas fa-arrows-alt-v stat-card-icon"></i>
                 <div class="stat-card-label">Marnage moyen</div>
@@ -61,12 +61,12 @@
         </div>
 
         <!-- Section Variations réserve -->
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <i class="fas fa-droplet"></i>
             <h3>Variations de la réserve</h3>
         </div>
         
-        <div class="stats-grid">
+        <div class="stats-grid" data-aos="fade-up">
             <div class="stat-card positive">
                 <i class="fas fa-arrow-up stat-card-icon"></i>
                 <div class="stat-card-label">Variation positive</div>
@@ -87,12 +87,12 @@
         </div>
 
         <!-- Section DiffMaree -->
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <i class="fas fa-wave-square"></i>
             <h3>Statistiques DiffMaree</h3>
         </div>
         
-        <div class="stats-grid">
+        <div class="stats-grid" data-aos="fade-up">
             <div class="stat-card">
                 <i class="fas fa-chart-line stat-card-icon"></i>
                 <div class="stat-card-label">Moyenne</div>
@@ -121,53 +121,53 @@
         <hr/>
 
         <!-- Section Évolution -->
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <i class="fas fa-chart-bar"></i>
             <h3>Évolution sur les 6 derniers mois (moyenne hebdomadaire)</h3>
         </div>
 
-        <div class="chart-container">
+        <div class="chart-container" data-aos="fade-up">
             <div class="chart-title">📈 Marnage moyen</div>
             <canvas id="chartMarnage" height="100"></canvas>
         </div>
         
-        <div class="chart-container">
+        <div class="chart-container" data-aos="fade-up">
             <div class="chart-title">🔄 Fréquence des marées</div>
             <canvas id="chartFrequence" height="100"></canvas>
         </div>
         
-        <div class="chart-container">
+        <div class="chart-container" data-aos="fade-up">
             <div class="chart-title">⬆️ Variation positive réserve</div>
             <canvas id="chartReservePos" height="100"></canvas>
         </div>
         
-        <div class="chart-container">
+        <div class="chart-container" data-aos="fade-up">
             <div class="chart-title">⬇️ Variation négative réserve</div>
             <canvas id="chartReserveNeg" height="100"></canvas>
         </div>
         
-        <div class="chart-container">
+        <div class="chart-container" data-aos="fade-up">
             <div class="chart-title">📊 Variation globale réserve</div>
             <canvas id="chartReserveVar" height="100"></canvas>
         </div>
         
         <!-- Graphiques DiffMaree -->
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <i class="fas fa-wave-square"></i>
             <h3>Évolution DiffMaree</h3>
         </div>
         
-        <div class="chart-container">
+        <div class="chart-container" data-aos="fade-up">
             <div class="chart-title">📈 DiffMaree moyenne</div>
             <canvas id="chartDiffMareeMoyenne" height="100"></canvas>
         </div>
         
-        <div class="chart-container">
+        <div class="chart-container" data-aos="fade-up">
             <div class="chart-title">📉 DiffMaree minimum</div>
             <canvas id="chartDiffMareeMin" height="100"></canvas>
         </div>
         
-        <div class="chart-container">
+        <div class="chart-container" data-aos="fade-up">
             <div class="chart-title">📈 DiffMaree maximum</div>
             <canvas id="chartDiffMareeMax" height="100"></canvas>
         </div>
@@ -175,12 +175,12 @@
         <hr/>
 
         <!-- Section Filtrage -->
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <i class="fas fa-filter"></i>
             <h3>Choisir une autre période</h3>
         </div>
 
-        <div class="filter-section">
+        <div class="filter-section" data-aos="fade-up">
             <!-- Filtres rapides (chart-helpers.js setPeriod attend start_datetime / end_datetime) -->
             <div class="quick-filters">
                 <button type="button" class="quick-filter-btn" onclick="setPeriod(1, 'hours')">

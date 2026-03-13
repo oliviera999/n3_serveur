@@ -40,7 +40,7 @@
     } %}
 
     <article class="post featured">
-        <section class="desc-section">
+        <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-globe"></i> Vue d'ensemble</h2>
             <p>Le module FFP3 permet la <strong>supervision et le pilotage</strong> d'une installation aquaponique : suivi des niveaux d'eau, des températures, de l'humidité, commande des pompes, du chauffage et de la lumière, et programmation du nourrissage. Le système fonctionne en <strong>offline-first</strong> : la configuration est stockée localement sur l'ESP32 et le système continue à fonctionner sans réseau.</p>
             <div class="desc-images">
@@ -55,7 +55,7 @@
             </div>
         </section>
 
-        <section class="desc-section">
+        <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-tint"></i> Capteurs</h2>
             <p>Le module mesure :</p>
             <ul>
@@ -73,7 +73,7 @@
             </div>
         </section>
 
-        <section class="desc-section">
+        <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-sliders-h"></i> Actionneurs</h2>
             <p>Les sorties pilotées par le module :</p>
             <ul>
@@ -84,7 +84,7 @@
             </ul>
         </section>
 
-        <section class="desc-section">
+        <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-microchip"></i> Firmware (ESP32)</h2>
             <p>Le firmware (programme embarqué sur la carte ESP32) assure la lecture des capteurs, la commande des actionneurs et les échanges avec le serveur. Principales caractéristiques :</p>
             <ul>
@@ -102,12 +102,12 @@
             </div>
         </section>
 
-        <section class="desc-section">
+        <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-server"></i> Serveur embarqué (ESP32)</h2>
             <p>La carte ESP32 héberge une interface locale sur le réseau de l'établissement, permettant de consulter et piloter le module sans dépendre d'internet.</p>
         </section>
 
-        <section class="desc-section">
+        <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-cloud"></i> Serveur distant</h2>
             <p>Le serveur web (iot.olution.info) agrège les données, conserve l'historique et permet le pilotage à distance. Flux :</p>
             <ul>

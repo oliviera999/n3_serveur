@@ -10,7 +10,7 @@
 
 {% block content %}
 <article class="post featured">
-    <header class="major">
+    <header class="major" data-aos="fade-up">
         <h2>
             <i class="icon solid fa-chart-line"></i>
             Dashboard des capteurs
@@ -21,7 +21,7 @@
     </header>
 
     <!-- Bannière période -->
-    <div class="info-banner">
+    <div class="info-banner" data-aos="fade-up">
         <div class="info-banner-title">📊 Période analysée</div>
         <div class="info-banner-value">
             Du {{ startDate|date('d/m/Y H:i:s') }} au {{ endDate|date('d/m/Y H:i:s') }}
@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <div class="context-badges context-badges-dashboard">
+    <div class="context-badges context-badges-dashboard" data-aos="fade-up">
         <span class="context-badge {{ environment == 'test' or environment == 'test3' ? 'context-badge-test' : 'context-badge-prod' }}">
             <i class="fas fa-globe"></i>
             <span>{{ environment == 'test' ? 'Environnement : TEST' : (environment == 'test3' ? 'Environnement : TEST3' : (environment == 's3' ? 'Environnement : S3' : 'Environnement : PROD')) }}</span>
@@ -50,8 +50,8 @@
         </span>
     </div>
 
-    <div class="quick-links-grid">
-        <a class="quick-link-card" href="/{{ environment == 'test' ? 'aquaponie-test' : (environment == 'test3' ? 'aquamobile-test' : (environment == 's3' ? 'aquamobile' : 'aquaponie')) }}">
+    <div class="quick-links-grid" data-aos="fade-up">
+        <a class="quick-link-card" href="/{{ environment == 'test' ? 'aquaponie-test' : (environment == 'test3' ? 'aquamobile-test' : (environment == 's3' ? 'aquamobile' : 'aquaponie')) }}" data-aos="fade-up" data-aos-delay="0">
             <i class="fas fa-water"></i>
             <span class="quick-link-title">Vue Aquaponie</span>
             <span class="quick-link-description">Graphiques en direct, filtres de période et indicateurs hydriques.</span>

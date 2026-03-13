@@ -57,12 +57,12 @@
                 <!-- Featured Post -->
                 <article class="post featured">
                     <!-- Titre pleine largeur : Niveaux d'eau -->
-                    <div class="section-header alt-section-title-full">
+                    <div class="section-header alt-section-title-full" data-aos="fade-up">
                         <i class="fas fa-tint"></i>
                         <h3>Niveaux d'eau</h3>
                     </div>
                     <!-- Bloc 1 : Niveaux d'eau – données à gauche, graphique à droite -->
-                    <div class="alt-data-chart-row">
+                    <div class="alt-data-chart-row" data-aos="fade-up">
                         <div class="alt-stats-column">
                             <div class="stats-grid">
                                 <!-- Aquarium (en premier), puis Réserve, Potager -->
@@ -217,12 +217,12 @@
                     </div>
 
                     <!-- Titre pleine largeur : Paramètres physiques -->
-                    <div class="section-header alt-section-title-full">
+                    <div class="section-header alt-section-title-full" data-aos="fade-up">
                         <i class="fas fa-thermometer-half"></i>
                         <h3>Paramètres physiques</h3>
                     </div>
                     <!-- Bloc 2 : Paramètres physiques – données à gauche, graphique à droite -->
-                    <div class="alt-data-chart-row">
+                    <div class="alt-data-chart-row" data-aos="fade-up">
                         <div class="alt-stats-column">
                             <div class="stats-grid">
                                 <!-- Température eau -->
@@ -286,8 +286,125 @@
                             <div id="chart-stock-area-temp-D" class="chart-stock-wrapper"></div>
                         </div>
                     </div>
+
                     {# --------------------------------------------------------------------- #}
-                    {# FORMULAIRE DE FILTRAGE MODERNE ET ERGONOMIQUE                              #}
+                    {# SUIVI DES PARAMÈTRES CHIMIQUES (même zone que Niveaux d'eau, Paramètres physiques) #}
+                    {# --------------------------------------------------------------------- #}
+                    <div class="alt-data-chart-row alt-chemistry-row" data-aos="fade-up">
+                        <div class="alt-chemistry-section alt-chart-column">
+                        <div class="section-header alt-section-title-full" data-aos="fade-up">
+                            <i class="fas fa-flask"></i>
+                            <h3>Suivi des paramètres chimiques de l'eau</h3>
+                        </div>
+
+                        <!-- Texte de présentation au-dessus des blocs -->
+                        <div class="chemistry-info-banner">
+                            <div class="chemistry-info-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="chemistry-info-content">
+                                <div class="chemistry-info-title">
+                                    <i class="fas fa-users"></i>
+                                    Analyses manuelles réalisées par les élèves
+                                </div>
+                                <div class="chemistry-info-text">
+                                    Ces mesures sont effectuées régulièrement par les élèves à l'aide d'un kit d'analyse dédié à l'aquariophilie. 
+                                    Le suivi de ces paramètres chimiques est essentiel pour maintenir un écosystème aquaponique équilibré et assurer 
+                                    le bien-être des poissons et la croissance optimale des plantes.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4 blocs en grille 2x2 (référence MSP) -->
+                        <div class="chemistry-blocks-grid">
+                            <!-- Bloc 1 : Paramètres principaux -->
+                            <div class="chemistry-chart-card">
+                                <div class="chemistry-chart-header">
+                                    <i class="fas fa-chart-line chemistry-chart-icon"></i>
+                                    <h3 class="chemistry-chart-title">Paramètres principaux</h3>
+                                </div>
+                                <div class="chemistry-chart-container">
+                                    <iframe seamless scrolling="no"
+                                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=209032696&amp;format=interactive">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            <!-- Bloc 2 : Nutriments et minéraux -->
+                            <div class="chemistry-chart-card">
+                                <div class="chemistry-chart-header">
+                                    <i class="fas fa-chart-area chemistry-chart-icon"></i>
+                                    <h3 class="chemistry-chart-title">Nutriments et minéraux</h3>
+                                </div>
+                                <div class="chemistry-chart-container">
+                                    <iframe seamless scrolling="no"
+                                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=699943208&amp;format=interactive">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            <!-- Bloc 3 : Équilibre chimique -->
+                            <div class="chemistry-chart-card">
+                                <div class="chemistry-chart-header">
+                                    <i class="fas fa-chart-bar chemistry-chart-icon"></i>
+                                    <h3 class="chemistry-chart-title">Équilibre chimique</h3>
+                                </div>
+                                <div class="chemistry-chart-container">
+                                    <iframe seamless scrolling="no"
+                                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=1338338691&amp;format=interactive">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            <!-- Bloc 4 : Paramètres surveillés -->
+                            <div class="chemistry-chart-card chemistry-legend-card">
+                                <div class="chemistry-legend">
+                                    <div class="chemistry-legend-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Paramètres surveillés
+                                    </div>
+                                    <div class="chemistry-legend-grid">
+                                        <div class="chemistry-legend-item">
+                                            <i class="fas fa-tint chemistry-legend-icon"></i>
+                                            <div class="chemistry-legend-content">
+                                                <div class="chemistry-legend-label">pH (Potentiel Hydrogène)</div>
+                                                <div class="chemistry-legend-value">Mesure l'acidité ou l'alcalinité de l'eau. Idéal : 6,8-7,2</div>
+                                            </div>
+                                        </div>
+                                        <div class="chemistry-legend-item">
+                                            <i class="fas fa-wind chemistry-legend-icon"></i>
+                                            <div class="chemistry-legend-content">
+                                                <div class="chemistry-legend-label">Ammoniaque (NH₃)</div>
+                                                <div class="chemistry-legend-value">Toxique pour les poissons. Doit rester < 0,02 mg/L</div>
+                                            </div>
+                                        </div>
+                                        <div class="chemistry-legend-item">
+                                            <i class="fas fa-leaf chemistry-legend-icon"></i>
+                                            <div class="chemistry-legend-content">
+                                                <div class="chemistry-legend-label">Nitrites (NO₂)</div>
+                                                <div class="chemistry-legend-value">Indicateur du cycle de l'azote. Doit être indétectable</div>
+                                            </div>
+                                        </div>
+                                        <div class="chemistry-legend-item">
+                                            <i class="fas fa-seedling chemistry-legend-icon"></i>
+                                            <div class="chemistry-legend-content">
+                                                <div class="chemistry-legend-label">Nitrates (NO₃)</div>
+                                                <div class="chemistry-legend-value">Nutriment pour les plantes. Optimal : 5-150 mg/L</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div><!-- .alt-chemistry-row -->
+
+                    {# --------------------------------------------------------------------- #}
+                    {# FORMULAIRE DE FILTRAGE ET ÉTAT DU SYSTÈME                                 #}
                     {# --------------------------------------------------------------------- #}
 
                     <div class="alt-two-cols">
@@ -552,117 +669,6 @@
                     </script>
 
                     </div>
-                    </div>
-
-                    {# --------------------------------------------------------------------- #}
-                    {# PARAMÈTRES CHIMIQUES (référence MSP : titre, texte présentation au-dessus, 4 blocs 2x2) #}
-                    {# --------------------------------------------------------------------- #}
-
-                    <div class="alt-chemistry-section">
-                        <div class="section-header alt-section-title-full">
-                            <i class="fas fa-flask"></i>
-                            <h3>Suivi des paramètres chimiques de l'eau</h3>
-                        </div>
-
-                        <!-- Texte de présentation au-dessus des blocs -->
-                        <div class="chemistry-info-banner">
-                            <div class="chemistry-info-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="chemistry-info-content">
-                                <div class="chemistry-info-title">
-                                    <i class="fas fa-users"></i>
-                                    Analyses manuelles réalisées par les élèves
-                                </div>
-                                <div class="chemistry-info-text">
-                                    Ces mesures sont effectuées régulièrement par les élèves à l'aide d'un kit d'analyse dédié à l'aquariophilie. 
-                                    Le suivi de ces paramètres chimiques est essentiel pour maintenir un écosystème aquaponique équilibré et assurer 
-                                    le bien-être des poissons et la croissance optimale des plantes.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 4 blocs en grille 2x2 (référence MSP) -->
-                        <div class="chemistry-blocks-grid">
-                            <!-- Bloc 1 : Paramètres principaux -->
-                            <div class="chemistry-chart-card">
-                                <div class="chemistry-chart-header">
-                                    <i class="fas fa-chart-line chemistry-chart-icon"></i>
-                                    <h3 class="chemistry-chart-title">Paramètres principaux</h3>
-                                </div>
-                                <div class="chemistry-chart-container">
-                                    <iframe seamless scrolling="no"
-                                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=209032696&amp;format=interactive">
-                                    </iframe>
-                                </div>
-                            </div>
-
-                            <!-- Bloc 2 : Nutriments et minéraux -->
-                            <div class="chemistry-chart-card">
-                                <div class="chemistry-chart-header">
-                                    <i class="fas fa-chart-area chemistry-chart-icon"></i>
-                                    <h3 class="chemistry-chart-title">Nutriments et minéraux</h3>
-                                </div>
-                                <div class="chemistry-chart-container">
-                                    <iframe seamless scrolling="no"
-                                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=699943208&amp;format=interactive">
-                                    </iframe>
-                                </div>
-                            </div>
-
-                            <!-- Bloc 3 : Équilibre chimique -->
-                            <div class="chemistry-chart-card">
-                                <div class="chemistry-chart-header">
-                                    <i class="fas fa-chart-bar chemistry-chart-icon"></i>
-                                    <h3 class="chemistry-chart-title">Équilibre chimique</h3>
-                                </div>
-                                <div class="chemistry-chart-container">
-                                    <iframe seamless scrolling="no"
-                                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=1338338691&amp;format=interactive">
-                                    </iframe>
-                                </div>
-                            </div>
-
-                            <!-- Bloc 4 : Paramètres surveillés -->
-                            <div class="chemistry-chart-card chemistry-legend-card">
-                                <div class="chemistry-legend">
-                                    <div class="chemistry-legend-title">
-                                        <i class="fas fa-info-circle"></i>
-                                        Paramètres surveillés
-                                    </div>
-                                    <div class="chemistry-legend-grid">
-                                        <div class="chemistry-legend-item">
-                                            <i class="fas fa-tint chemistry-legend-icon"></i>
-                                            <div class="chemistry-legend-content">
-                                                <div class="chemistry-legend-label">pH (Potentiel Hydrogène)</div>
-                                                <div class="chemistry-legend-value">Mesure l'acidité ou l'alcalinité de l'eau. Idéal : 6,8-7,2</div>
-                                            </div>
-                                        </div>
-                                        <div class="chemistry-legend-item">
-                                            <i class="fas fa-wind chemistry-legend-icon"></i>
-                                            <div class="chemistry-legend-content">
-                                                <div class="chemistry-legend-label">Ammoniaque (NH₃)</div>
-                                                <div class="chemistry-legend-value">Toxique pour les poissons. Doit rester < 0,02 mg/L</div>
-                                            </div>
-                                        </div>
-                                        <div class="chemistry-legend-item">
-                                            <i class="fas fa-leaf chemistry-legend-icon"></i>
-                                            <div class="chemistry-legend-content">
-                                                <div class="chemistry-legend-label">Nitrites (NO₂)</div>
-                                                <div class="chemistry-legend-value">Indicateur du cycle de l'azote. Doit être indétectable</div>
-                                            </div>
-                                        </div>
-                                        <div class="chemistry-legend-item">
-                                            <i class="fas fa-seedling chemistry-legend-icon"></i>
-                                            <div class="chemistry-legend-content">
-                                                <div class="chemistry-legend-label">Nitrates (NO₃)</div>
-                                                <div class="chemistry-legend-value">Nutriment pour les plantes. Optimal : 5-150 mg/L</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     {# --------------------------------------------------------------------- #}

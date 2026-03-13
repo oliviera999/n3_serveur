@@ -18,7 +18,7 @@
     padding: 30px;
     box-shadow: 0 4px 16px rgba(0,139,116,0.15);
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-top: 5px solid #008B74;
     position: relative;
     overflow: hidden;

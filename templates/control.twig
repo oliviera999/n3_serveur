@@ -22,7 +22,7 @@
 {% block content %}
         {% set lastDataStates = lastDataStates|default({}) %}
         <div class="control-layout">
-            <aside class="control-sidebar panel">
+            <aside class="control-sidebar panel" data-aos="fade-up">
                 <section class="control-context">
                     <div class="context-badges">
                         <span class="context-badge {{ environment == 'test' or environment == 'test3' ? 'context-badge-test' : 'context-badge-prod' }}">

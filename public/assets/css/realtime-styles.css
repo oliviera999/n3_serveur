@@ -1,3 +1,30 @@
+/* =================================================================
+   Smooth scroll (style index.olution.info) — ancres fluides
+================================================================= */
+html {
+    scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
+/* =================================================================
+   Barre de progression au scroll (style index.olution.info)
+================================================================= */
+#scroll-progress.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #008B74;
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+    #scroll-progress.scroll-progress { display: none !important; }
+}
+
 [data-theme="dark"] .value-updated {
     animation: glowValueDark 0.8s ease-in-out;
 }
@@ -45,7 +72,7 @@ input[type="radio"] + label {
     background: linear-gradient(145deg, #008B74 0%, #007A61 25%, #00B794 50%, #008B74 100%);
     color: white;
     padding: 58px 0;
-    margin: -20px -20px 20px -20px;
+    margin: -20px -20px 0 -20px;
     position: relative;
     overflow: hidden;
     border-radius: 0 0 16px 16px;
@@ -134,12 +161,17 @@ article.post.featured > h2:first-of-type,
 .synthesis-title {
     text-align: center;
 }
+/* Réduire l'espace entre hero et premier bloc de contenu */
+.modern-header + article.post.featured > .section-header:first-of-type,
+.modern-header + article.post.featured > .alt-section-title-full:first-of-type {
+    margin-top: 0 !important;
+}
 @media (max-width: 768px) {
-    .modern-header { padding: 40px 0; margin: -20px -10px 20px -10px; }
+    .modern-header { padding: 40px 0; margin: -20px -10px 0 -10px; }
     .header-title { font-size: 2.2em; gap: 12px; }
 }
 @media (max-width: 480px) {
-    .modern-header { padding: 32px 0; margin: -20px -10px 20px -10px; }
+    .modern-header { padding: 32px 0; margin: -20px -10px 0 -10px; }
     .header-title { font-size: 1.8em; }
 }
 

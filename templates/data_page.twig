@@ -32,11 +32,11 @@
 
     <article class="post featured">
         {% if latest %}
-            <div class="section-header" style="flex-wrap: wrap; gap: 10px;">
+            <div class="section-header" style="flex-wrap: wrap; gap: 10px;" data-aos="fade-up">
                 <i class="fas fa-chart-line"></i>
                 <h3>Dernière mesure</h3>
             </div>
-            <div class="stats-grid">
+            <div class="stats-grid" data-aos="fade-up">
                 {% for sensor in sensors_config %}
                     {% if sensor.loop is defined %}
                         {# Capteurs générés par boucle (ex: Humid1..4) #}
@@ -74,12 +74,12 @@
         {% endif %}
 
         {% if measure_count > 0 %}
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <i class="fas fa-chart-area"></i>
             <h3>Graphiques</h3>
         </div>
         {% for chart in charts_config %}
-        <div class="chart-container">
+        <div class="chart-container" data-aos="fade-up">
             <p class="chart-container-title"><i class="fas {{ chart.icon }}"></i> {{ chart.title }}</p>
             <div id="{{ chart.id }}" style="min-height:{{ chart.height|default('350px') }};"></div>
             {% if chart.legend_items is defined and chart.legend_items|length > 0 %}
@@ -95,7 +95,7 @@
         {% endfor %}
         {% endif %}
 
-        <div class="filter-health-row">
+        <div class="filter-health-row" data-aos="fade-up">
         <div class="filter-section">
             <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
             <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}">
