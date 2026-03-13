@@ -211,77 +211,32 @@ class OutputRepository extends AbstractRepository
     }
 
     /**
-     * Synchronise les états des GPIO depuis les données capteurs
-     * Met à jour ffp3Outputs ou ffp3Outputs2 selon l'environnement
-     * 
-     * v11.168: Si configSynced=0 (ou null), ignore les GPIO de configuration (100-116)
-     *          pour éviter l'écrasement par des valeurs par défaut de l'ESP32
+     * Synchronise les états des GPIO depuis les données capteurs (POST ESP32).
+     * v5.0.168: Simplifié — uniquement actionneurs physiques + acks nourrissage.
+     * La config (100–107, 111–116) n'est plus synchronisée depuis le POST :
+     * le serveur est source de vérité, l'ESP32 récupère via GET.
      *
      * @param SensorData $data Données capteurs contenant les états à synchroniser
      */
     public function syncStatesFromSensorData(SensorData $data): void
     {
-        // v11.168: Vérifier si la config ESP est synchronisée
-        // configSynced=1 signifie que l'ESP a fait au moins un poll serveur réussi
-        // et donc ses valeurs de config sont fiables
-        $configIsSynced = ($data->configSynced === 1);
-        
-        // Actionneurs physiques - toujours synchronisés (états réels des relais)
-        // 110 (resetMode) : l'ESP32 envoie toujours 0 (après reset ou idle) ; le sync permet
-        // de remettre le switch à "désactivé" une fois le reset effectif (évite switch bloqué à "activé")
-        $gpioUpdates = [
+        // Actionneurs physiques — toujours synchronisés (états réels des relais)
+        $physicalGpios = [
             2 => $data->etatHeat,
             15 => $data->etatUV,
             16 => $data->etatPompeAqua,
             18 => $data->etatPompeTank,
             110 => $data->resetMode,
         ];
-        
-        // v11.168: Variables de configuration - UNIQUEMENT si configSynced=1
-        // Sinon, on risque d'écraser les vraies valeurs avec les défauts du firmware
-        if ($configIsSynced) {
-            $gpioUpdates += [
-                // Configuration
-                100 => $data->mail,
-                101 => $data->mailNotif,
-                102 => $data->aqThreshold,
-                103 => $data->tankThreshold,
-                104 => $data->chauffageThreshold,
-                105 => $data->bouffeMatin,
-                106 => $data->bouffeMidi,
-                107 => $data->bouffeSoir,
-                
-                // Commandes nourrissage (108/109) : ne jamais écrire 1 depuis le POST ESP32.
-                // Un 1 reçu = ack "nourrissage exécuté" (auto ou manuel). Si on le persistait ici,
-                // le prochain GET renverrait 1 → front montant côté ESP → nourrissage manuel en double.
-                // On force 0 pour que le serveur ne réinjecte pas 108/109=1 au prochain poll.
-                // Le suivi en BDD est assuré par SensorRepository::insert() (table données capteurs),
-                // appelé avant syncStatesFromSensorData : bouffePetits/bouffeGros y sont enregistrés.
-                108 => 0,
-                109 => 0,
-                
-                // Paramètres timing
-                111 => $data->tempsGros,
-                112 => $data->tempsPetits,
-                113 => $data->tempsRemplissageSec,
-                114 => $data->limFlood,
-                115 => $data->wakeUp,
-                116 => $data->freqWakeUp,
-            ];
+        $physicalFiltered = array_filter($physicalGpios, fn($v) => $v !== null);
+        if ($physicalFiltered !== []) {
+            $this->batchUpdateStatesSingleQuery($physicalFiltered, 'esp32', 0);
         }
-        // Note: Si configSynced=0, on ne log pas ici pour éviter spam
-        // Le log est fait côté ESP32
-        
-        // Priorité plus longue pour 108/109 (nourrissage) : l'ESP32 poll toutes les 6 s,
-        // on protège 20 s pour qu'au moins un GET voie la commande avant qu'un POST n'écrase.
-        $feedGpios = [108 => $gpioUpdates[108] ?? null, 109 => $gpioUpdates[109] ?? null];
-        $feedGpios = array_filter($feedGpios, fn($v) => $v !== null);
-        $rest = array_diff_key($gpioUpdates, [108 => 1, 109 => 1]);
-        if ($feedGpios !== []) {
-            $this->batchUpdateStatesSingleQuery($feedGpios, 'esp32', 20);
-        }
-        if ($rest !== []) {
-            $this->batchUpdateStatesSingleQuery($rest, 'esp32', 10);
+
+        // 108/109 (acks nourrissage) : toujours forcer 0 ; priorité 20 s pour éviter
+        // qu'un POST n'écrase une commande web récente avant que l'ESP32 ne la voie
+        if ($data->configSynced === 1) {
+            $this->batchUpdateStatesSingleQuery([108 => 0, 109 => 0], 'esp32', 20);
         }
     }
 
@@ -313,10 +268,13 @@ class OutputRepository extends AbstractRepository
         $caseSql = 'CASE gpio ' . implode(' ', $caseParts) . ' END';
         $inList = implode(',', array_map('intval', $gpioList));
 
+        $whereWebProtection = $prioritySeconds > 0
+            ? "AND (lastModifiedBy != 'web' OR requestTime IS NULL OR requestTime < DATE_SUB(NOW(), INTERVAL :priority SECOND))"
+            : '';
         $sql = "UPDATE `{$table}` SET state = {$caseSql}, requestTime = NOW(), lastModifiedBy = :modifiedBy
-                WHERE gpio IN ({$inList}) AND name IS NOT NULL AND name != ''
-                AND (lastModifiedBy != 'web' OR requestTime IS NULL OR requestTime < DATE_SUB(NOW(), INTERVAL :priority SECOND))";
+                WHERE gpio IN ({$inList}) AND name IS NOT NULL AND name != '' {$whereWebProtection}";
 
-        $this->execute($sql, $params);
+        $execParams = $prioritySeconds > 0 ? $params : array_diff_key($params, [':priority' => 1]);
+        $this->execute($sql, $execParams);
     }
 }

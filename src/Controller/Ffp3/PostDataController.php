@@ -12,7 +12,6 @@ use App\Repository\OutputRepository;
 use App\Repository\SensorRepository;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
-use App\Service\OutputCacheService;
 use App\Security\SignatureValidator;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -28,7 +27,6 @@ class PostDataController extends AbstractPostDataController
     public function __construct(
         LogService $logger,
         private ErrorAlertService $errorAlert,
-        private OutputCacheService $outputCache,
         private SensorRepository $sensorRepo,
         private OutputRepository $outputRepo,
         private BoardRepository $boardRepo
@@ -171,28 +169,16 @@ class PostDataController extends AbstractPostDataController
         $this->outputRepo->syncStatesFromSensorData($data);
         $t2 = microtime(true);
 
-        // v5.0.108 : différer cache + board après envoi réponse pour réduire latence 200 (suggestion POST 100%)
-        $cache = $this->outputCache;
-        $boardRepo = $this->boardRepo;
-        $boardId = TableConfig::getPostDataBoardId();
-        $logger = $this->logger;
-        register_shutdown_function(function () use ($cache, $boardRepo, $boardId, $logger) {
-            $t3 = microtime(true);
-            $cache->invalidateCache();
-            $boardRepo->updateLastRequest($boardId);
-            $t4 = microtime(true);
-            $logger->info(
-                'PostData deferred_ms: cache+board={ms}',
-                ['ms' => round(($t4 - $t3) * 1000)]
-            );
-        });
+        $this->boardRepo->updateLastRequest(TableConfig::getPostDataBoardId());
+        $t3 = microtime(true);
 
         $this->logger->info(
-            'PostData timing_ms: insert={insertMs} sync={syncMs} total_before_response={totalMs}',
+            'PostData timing_ms: insert={insertMs} sync={syncMs} board={boardMs} total={totalMs}',
             [
                 'insertMs' => round(($t1 - $t0) * 1000),
                 'syncMs' => round(($t2 - $t1) * 1000),
-                'totalMs' => round(($t2 - $t0) * 1000),
+                'boardMs' => round(($t3 - $t2) * 1000),
+                'totalMs' => round(($t3 - $t0) * 1000),
             ]
         );
     }
