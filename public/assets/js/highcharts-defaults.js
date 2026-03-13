@@ -30,10 +30,14 @@
         credits: { enabled: false },
         legend: {
             enabled: true,
+            floating: false,
             /* Désactive l'accessibilité sur la légende uniquement pour restaurer les clics
              * show/hide des séries (bug connu : accessibility.js casse les itemClick).
              * Le reste du graphique conserve les fonctionnalités d'accessibilité. */
-            accessibility: { enabled: false }
+            accessibility: { enabled: false },
+            /* Réduire le flickering : config stable, espacement fixe */
+            itemDistance: 12,
+            margin: 8
         }
     };
 

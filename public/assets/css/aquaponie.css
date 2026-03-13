@@ -211,26 +211,12 @@
 [data-theme="dark"] .balance-note i { color: var(--accent-primary); }
 
 /* ----- CONTENEURS HIGHCHARTS (niveaux eau, paramètres physiques) ----- */
-/* Min-heights explicites pour garantir dimensions avant rendu Highcharts sur mobile */
+/* Remplit la hauteur de la colonne stats pour éviter les blancs (align-items: stretch sur alt-data-chart-row) */
 .chart-stock-wrapper {
     width: 100%;
-    min-width: 1px; /* évite collapse sur flex/grid étroits */
-    min-height: 400px;
-}
-@media (max-width: 480px) {
-    .chart-stock-wrapper {
-        min-height: 380px; /* eau: 400px chart + navigator, temp: 450px */
-    }
-}
-@media (min-width: 481px) and (max-width: 768px) {
-    .chart-stock-wrapper {
-        min-height: 450px;
-    }
-}
-@media (min-width: 769px) {
-    .chart-stock-wrapper {
-        min-height: 500px;
-    }
+    min-width: 1px;
+    flex: 1;
+    min-height: 320px; /* minimum garanti avant syncChartHeightsToStats */
 }
 
 /* ----- FILTRAGE + ÉTAT SYSTÈME : 2 colonnes sur écrans larges ----- */

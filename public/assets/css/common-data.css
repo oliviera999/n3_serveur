@@ -186,6 +186,89 @@
     gap: 1.5rem;
     margin: 1rem 0;
 }
+/* Section chimie : 4 blocs 2x2, référence MSP (Mesures manuelles) */
+.chemistry-section-block,
+.alt-chemistry-section {
+    margin: 1.5rem 0;
+}
+.chemistry-blocks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+@media (max-width: 768px) {
+    .chemistry-blocks-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+/* Bannière de présentation au-dessus des blocs (comme MSP) */
+.chemistry-info-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid #008B74;
+}
+.chemistry-info-icon { font-size: 1.5em; color: #008B74; flex-shrink: 0; }
+.chemistry-info-content { flex: 1; min-width: 0; }
+.chemistry-info-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1em;
+}
+.chemistry-info-title i { color: #008B74; }
+.chemistry-info-text {
+    font-size: 0.9em;
+    color: var(--text-secondary, #6b7280);
+    line-height: 1.5;
+}
+/* En-têtes des cartes chimie (aligné msp-sheet-card) */
+.chemistry-chart-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(0, 139, 116, 0.15);
+}
+.chemistry-chart-icon { color: #008B74; }
+.chemistry-chart-title { margin: 0; font-size: 1.1em; font-weight: 600; color: #2c3e50; }
+/* Légende dans bloc 4 */
+.chemistry-legend { padding: 0; }
+.chemistry-legend-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1em;
+}
+.chemistry-legend-title i { color: #008B74; }
+.chemistry-legend-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.chemistry-legend-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.88em;
+}
+.chemistry-legend-icon { color: #008B74; flex-shrink: 0; margin-top: 2px; }
+.chemistry-legend-label { font-weight: 600; color: #2c3e50; }
+.chemistry-legend-value { color: var(--text-secondary, #6b7280); line-height: 1.4; }
 .chemistry-chart-card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 14px;
@@ -193,6 +276,97 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     overflow: hidden;
 }
+/* Suivi paramètres chimiques : structure MSP (titre + texte présentation au-dessus, 4 blocs 2x2) */
+.chemistry-section,
+.alt-chemistry-section { margin: 1.5rem 0; }
+.chemistry-section .section-header,
+.alt-chemistry-section .section-header { margin-bottom: 1rem; }
+.chemistry-info-banner {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    background: rgba(0, 139, 116, 0.06);
+    border-radius: 12px;
+    border-left: 4px solid #008B74;
+}
+.chemistry-info-icon { font-size: 1.5em; color: #008B74; flex-shrink: 0; }
+.chemistry-info-content { flex: 1; min-width: 0; }
+.chemistry-info-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.chemistry-info-title i { color: #008B74; }
+.chemistry-info-text {
+    font-size: 0.9em;
+    color: var(--text-secondary, #6b7280);
+    line-height: 1.5;
+}
+.chemistry-blocks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 0;
+}
+.chemistry-blocks-grid .chemistry-chart-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+.chemistry-blocks-grid .chemistry-chart-header,
+.chemistry-chart-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid rgba(0, 139, 116, 0.15);
+}
+.chemistry-chart-icon { color: #008B74; font-size: 1.1em; }
+.chemistry-chart-title { margin: 0; font-size: 1.05em; font-weight: 600; color: #2c3e50; }
+.chemistry-legend-card .chemistry-legend-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 12px;
+}
+.chemistry-legend-card .chemistry-legend-title i { color: #008B74; }
+.chemistry-legend-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.chemistry-legend-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.88em;
+}
+.chemistry-legend-icon { color: #008B74; flex-shrink: 0; margin-top: 2px; }
+.chemistry-legend-label { font-weight: 600; color: #2c3e50; }
+.chemistry-legend-value { color: var(--text-secondary, #6b7280); line-height: 1.4; }
+@media (max-width: 768px) {
+    .chemistry-blocks-grid { grid-template-columns: 1fr; gap: 1rem; }
+}
+[data-theme="dark"] .chemistry-info-banner { background: var(--accent-muted); border-left-color: var(--accent-primary); }
+[data-theme="dark"] .chemistry-info-icon,
+[data-theme="dark"] .chemistry-info-title i { color: var(--accent-primary); }
+[data-theme="dark"] .chemistry-info-title { color: var(--text-primary); }
+[data-theme="dark"] .chemistry-info-text { color: var(--text-secondary); }
+[data-theme="dark"] .chemistry-chart-header { border-bottom-color: var(--accent-border); }
+[data-theme="dark"] .chemistry-chart-icon { color: var(--accent-primary); }
+[data-theme="dark"] .chemistry-chart-title,
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-title { color: var(--text-primary); }
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-title i { color: var(--accent-primary); }
+[data-theme="dark"] .chemistry-legend-label { color: var(--text-primary); }
+[data-theme="dark"] .chemistry-legend-value { color: var(--text-secondary); }
 /* MSP1 mesures manuelles */
 .msp-sheets-section { margin: 1.5rem 0; }
 .msp-sheets-grid {
@@ -237,6 +411,25 @@
 [data-theme="dark"] .msp-sheet-card-header { border-bottom-color: var(--chart-border); }
 [data-theme="dark"] .msp-sheet-card-title { color: var(--text-primary); }
 [data-theme="dark"] .msp-sheet-card-header i { color: var(--accent-primary); }
+
+/* ----- FILTRAGE + ÉTAT DU SYSTÈME (2 colonnes MSP/N3PP) ----- */
+.filter-health-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    align-items: start;
+}
+.filter-health-row .filter-section,
+.filter-health-row .system-health-panel {
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .filter-health-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
 
 /* ----- FILTER SECTION ----- */
 .filter-section {
@@ -537,7 +730,7 @@ button.quick-filter-btn:hover {
     display: grid;
     grid-template-columns: minmax(280px, 1fr) minmax(400px, 1.5fr);
     gap: 1.25rem;
-    align-items: start;
+    align-items: stretch;
     margin: 15px 0;
     min-width: 0;
 }
@@ -568,11 +761,14 @@ button.quick-filter-btn:hover {
 .alt-data-chart-row .alt-stats-column .stat-card .progress-bar-container { margin: 3px 0; height: 6px; }
 .alt-data-chart-row .alt-stats-column .stat-card-secondary { font-size: 0.7em; margin-top: 2px; color: #6c757d; }
 .alt-chart-column {
+    display: flex;
+    flex-direction: column;
     background: rgba(255,255,255,0.6);
     border-radius: 12px;
     padding: 12px;
     box-shadow: 0 2px 8px rgba(0,139,116,0.06);
     min-width: 0;
+    min-height: 0;
     overflow: hidden;
 }
 .alt-chart-column .chart-legend-items { margin: 8px 0 0; padding-top: 8px; }

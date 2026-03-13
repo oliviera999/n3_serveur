@@ -95,6 +95,7 @@
         {% endfor %}
         {% endif %}
 
+        <div class="filter-health-row">
         <div class="filter-section">
             <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
             <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}">
@@ -145,6 +146,7 @@
                 </div>
             {% endblock %}
         {% endembed %}
+        </div>
 
         {% block extra_sections %}{% endblock %}
     </article>

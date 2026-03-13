@@ -196,6 +196,7 @@
             {% if latest and latest.sensor is defined %}<p class="data-sensor-caption">Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}</p>{% endif %}
         {% endif %}
 
+        <div class="filter-health-row">
         <div class="filter-section">
             <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
             <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}">
@@ -246,6 +247,7 @@
                 </div>
             {% endblock %}
         {% endembed %}
+        </div>
 
         {# Mesures manuelles (Google Sheets) #}
         <div class="section-header">

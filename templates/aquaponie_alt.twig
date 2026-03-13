@@ -555,17 +555,16 @@
                     </div>
 
                     {# --------------------------------------------------------------------- #}
-                    {# PARAMÈTRES CHIMIQUES (Google Sheets) – bloc isolé pour éviter chevauchement #}
+                    {# PARAMÈTRES CHIMIQUES (référence MSP : titre, texte présentation au-dessus, 4 blocs 2x2) #}
                     {# --------------------------------------------------------------------- #}
 
                     <div class="alt-chemistry-section">
-                    <!-- Titre pleine largeur : même style que Niveaux d'eau / Paramètres physiques -->
-                    <div class="section-header alt-section-title-full">
-                        <i class="fas fa-flask"></i>
-                        <h3>Suivi des paramètres chimiques de l'eau</h3>
-                    </div>
-                    <div class="alt-chemistry-wrapper">
-                        <!-- Bannière d'information -->
+                        <div class="section-header alt-section-title-full">
+                            <i class="fas fa-flask"></i>
+                            <h3>Suivi des paramètres chimiques de l'eau</h3>
+                        </div>
+
+                        <!-- Texte de présentation au-dessus des blocs -->
                         <div class="chemistry-info-banner">
                             <div class="chemistry-info-icon">
                                 <i class="fas fa-graduation-cap"></i>
@@ -583,9 +582,9 @@
                             </div>
                         </div>
 
-                        <!-- Graphiques et paramètres surveillés : ligne 1 = Paramètres principaux | Nutriments et minéraux ; ligne 2 = Équilibre chimique | Paramètres surveillés -->
-                        <div class="chemistry-content-row">
-                            <!-- Graphique 1 : Paramètres principaux -->
+                        <!-- 4 blocs en grille 2x2 (référence MSP) -->
+                        <div class="chemistry-blocks-grid">
+                            <!-- Bloc 1 : Paramètres principaux -->
                             <div class="chemistry-chart-card">
                                 <div class="chemistry-chart-header">
                                     <i class="fas fa-chart-line chemistry-chart-icon"></i>
@@ -598,7 +597,7 @@
                                 </div>
                             </div>
 
-                            <!-- Graphique 2 : Nutriments et minéraux -->
+                            <!-- Bloc 2 : Nutriments et minéraux -->
                             <div class="chemistry-chart-card">
                                 <div class="chemistry-chart-header">
                                     <i class="fas fa-chart-area chemistry-chart-icon"></i>
@@ -611,7 +610,7 @@
                                 </div>
                             </div>
 
-                            <!-- Graphique 3 : Équilibre chimique -->
+                            <!-- Bloc 3 : Équilibre chimique -->
                             <div class="chemistry-chart-card">
                                 <div class="chemistry-chart-header">
                                     <i class="fas fa-chart-bar chemistry-chart-icon"></i>
@@ -624,45 +623,46 @@
                                 </div>
                             </div>
 
-                        <!-- Légende informative : Paramètres surveillés (vis-à-vis Équilibre chimique) -->
-                        <div class="chemistry-legend">
-                            <div class="chemistry-legend-title">
-                                <i class="fas fa-info-circle"></i>
-                                Paramètres surveillés
-                            </div>
-                            <div class="chemistry-legend-grid">
-                                <div class="chemistry-legend-item">
-                                    <i class="fas fa-tint chemistry-legend-icon"></i>
-                                    <div class="chemistry-legend-content">
-                                        <div class="chemistry-legend-label">pH (Potentiel Hydrogène)</div>
-                                        <div class="chemistry-legend-value">Mesure l'acidité ou l'alcalinité de l'eau. Idéal : 6,8-7,2</div>
+                            <!-- Bloc 4 : Paramètres surveillés -->
+                            <div class="chemistry-chart-card chemistry-legend-card">
+                                <div class="chemistry-legend">
+                                    <div class="chemistry-legend-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Paramètres surveillés
                                     </div>
-                                </div>
-                                <div class="chemistry-legend-item">
-                                    <i class="fas fa-wind chemistry-legend-icon"></i>
-                                    <div class="chemistry-legend-content">
-                                        <div class="chemistry-legend-label">Ammoniaque (NH₃)</div>
-                                        <div class="chemistry-legend-value">Toxique pour les poissons. Doit rester < 0,02 mg/L</div>
-                                    </div>
-                                </div>
-                                <div class="chemistry-legend-item">
-                                    <i class="fas fa-leaf chemistry-legend-icon"></i>
-                                    <div class="chemistry-legend-content">
-                                        <div class="chemistry-legend-label">Nitrites (NO₂)</div>
-                                        <div class="chemistry-legend-value">Indicateur du cycle de l'azote. Doit être indétectable</div>
-                                    </div>
-                                </div>
-                                <div class="chemistry-legend-item">
-                                    <i class="fas fa-seedling chemistry-legend-icon"></i>
-                                    <div class="chemistry-legend-content">
-                                        <div class="chemistry-legend-label">Nitrates (NO₃)</div>
-                                        <div class="chemistry-legend-value">Nutriment pour les plantes. Optimal : 5-150 mg/L</div>
+                                    <div class="chemistry-legend-grid">
+                                        <div class="chemistry-legend-item">
+                                            <i class="fas fa-tint chemistry-legend-icon"></i>
+                                            <div class="chemistry-legend-content">
+                                                <div class="chemistry-legend-label">pH (Potentiel Hydrogène)</div>
+                                                <div class="chemistry-legend-value">Mesure l'acidité ou l'alcalinité de l'eau. Idéal : 6,8-7,2</div>
+                                            </div>
+                                        </div>
+                                        <div class="chemistry-legend-item">
+                                            <i class="fas fa-wind chemistry-legend-icon"></i>
+                                            <div class="chemistry-legend-content">
+                                                <div class="chemistry-legend-label">Ammoniaque (NH₃)</div>
+                                                <div class="chemistry-legend-value">Toxique pour les poissons. Doit rester < 0,02 mg/L</div>
+                                            </div>
+                                        </div>
+                                        <div class="chemistry-legend-item">
+                                            <i class="fas fa-leaf chemistry-legend-icon"></i>
+                                            <div class="chemistry-legend-content">
+                                                <div class="chemistry-legend-label">Nitrites (NO₂)</div>
+                                                <div class="chemistry-legend-value">Indicateur du cycle de l'azote. Doit être indétectable</div>
+                                            </div>
+                                        </div>
+                                        <div class="chemistry-legend-item">
+                                            <i class="fas fa-seedling chemistry-legend-icon"></i>
+                                            <div class="chemistry-legend-content">
+                                                <div class="chemistry-legend-label">Nitrates (NO₃)</div>
+                                                <div class="chemistry-legend-value">Nutriment pour les plantes. Optimal : 5-150 mg/L</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
                     </div>
 
                     {# --------------------------------------------------------------------- #}
@@ -857,15 +857,16 @@
                             var statsColTemp = rows[1].querySelector('.alt-stats-column');
                             var elEau = document.getElementById('chart-stock-area-eau-D');
                             var elTemp = document.getElementById('chart-stock-area-temp-D');
+                            var minH = 320;
                             if (statsColEau && elEau && window.chartEau) {
-                                var hEau = statsColEau.offsetHeight;
+                                var hEau = Math.max(minH, statsColEau.offsetHeight || 0);
                                 if (hEau > 0) {
                                     window.chartEau.setSize(null, hEau);
                                     elEau.style.height = hEau + 'px';
                                 }
                             }
                             if (statsColTemp && elTemp && window.chartTemp) {
-                                var hTemp = statsColTemp.offsetHeight;
+                                var hTemp = Math.max(minH, statsColTemp.offsetHeight || 0);
                                 if (hTemp > 0) {
                                     window.chartTemp.setSize(null, hTemp);
                                     elTemp.style.height = hTemp + 'px';
@@ -873,26 +874,16 @@
                             }
                         }
                         function handleChartResize() {
-                            if (window.chartEau) {
-                                var newHeight = getChartHeight('eau');
-                                window.chartEau.setSize(null, newHeight);
+                            // Priorité : hauteur des blocs stats (évite blancs inutiles). Fallback si stats pas encore rendus.
+                            var rows = document.querySelectorAll('.alt-data-chart-row');
+                            var statsColEau = rows[0] && rows[0].querySelector('.alt-stats-column');
+                            var statsColTemp = rows[1] && rows[1].querySelector('.alt-stats-column');
+                            var hasStatsHeights = statsColEau && statsColEau.offsetHeight > 0 && statsColTemp && statsColTemp.offsetHeight > 0;
+                            if (!hasStatsHeights && (window.chartEau || window.chartTemp)) {
+                                var fallbackEau = getChartHeight('eau'), fallbackTemp = getChartHeight('temp');
+                                if (window.chartEau) window.chartEau.setSize(null, fallbackEau);
+                                if (window.chartTemp) window.chartTemp.setSize(null, fallbackTemp);
                             }
-                            if (window.chartTemp) {
-                                var newHeight = getChartHeight('temp');
-                                window.chartTemp.setSize(null, newHeight);
-                            }
-                            setTimeout(function() {
-                                var cEau = document.getElementById('chart-stock-area-eau-D');
-                                var cTemp = document.getElementById('chart-stock-area-temp-D');
-                                if (cEau && window.chartEau) {
-                                    var inner = cEau.querySelector('.highcharts-container') || cEau.firstElementChild;
-                                    if (inner && inner.offsetHeight > 0) cEau.style.height = inner.offsetHeight + 'px';
-                                }
-                                if (cTemp && window.chartTemp) {
-                                    var inner = cTemp.querySelector('.highcharts-container') || cTemp.firstElementChild;
-                                    if (inner && inner.offsetHeight > 0) cTemp.style.height = inner.offsetHeight + 'px';
-                                }
-                            }, 100);
                             syncChartHeightsToStats();
                         }
                         
@@ -983,7 +974,7 @@
                                         },
                                         chartOptions: {
                                             chart: {
-                                                height: 350,
+                                                /* height contrôlé par syncChartHeightsToStats */
                                                 spacingTop: 10,
                                                 spacingRight: 10,
                                                 spacingBottom: 10,
@@ -1030,7 +1021,7 @@
                                         },
                                         chartOptions: {
                                             chart: {
-                                                height: 450,
+                                                /* height contrôlé par syncChartHeightsToStats */
                                                 spacingTop: 15,
                                                 spacingRight: 15,
                                                 spacingBottom: 15,
@@ -1064,7 +1055,7 @@
                                         },
                                         chartOptions: {
                                             chart: {
-                                                height: 500
+                                                /* height contrôlé par syncChartHeightsToStats */
                                             },
                                             rangeSelector: {
                                                 enabled: false
