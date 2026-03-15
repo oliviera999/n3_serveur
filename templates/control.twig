@@ -1,15 +1,12 @@
 {% extends 'layout.twig' %}
 
-{% block title %}n³ iot datas{% endblock %}
+{% block title %}Contrôle FFP3 | n³ IoT{% endblock %}
 
 {% block head_css %}
     <link rel="stylesheet" href="{{ base_path }}/assets/css/control-styles.css" />
 {% endblock %}
 
-{% block head_scripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-{% endblock %}
+{% block head_scripts %}{% endblock %}
 
 {% block body_tag %}<body class="is-preload" data-environment="{{ environment }}">{% endblock %}
 
@@ -301,7 +298,7 @@
                                 </div>
                             </section>
 
-                            <header style="margin-top: 1.5rem;">
+                            <header class="controls-column-header-secondary">
                                 <h2><i class="fas fa-envelope"></i> Notifications</h2>
                             </header>
                             <div class="control-cards-grid">

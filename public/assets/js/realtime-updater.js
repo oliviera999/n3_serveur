@@ -362,7 +362,7 @@ class RealtimeUpdater {
     /**
      * Change l'intervalle de polling (en millisecondes)
      */
-    setInterval(newInterval) {
+    updatePollInterval(newInterval) {
         this.pollInterval = newInterval;
         if (this.pollTimer) {
             this.stop();
