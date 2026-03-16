@@ -1,0 +1,30 @@
+{% extends 'layout.twig' %}
+{# Page d'index des galeries — présente les différentes galeries (aquaponie, potager, élevage) #}
+
+{% block title %}{{ page_title|default('Galeries photos') }} - n³ iot datas{% endblock %}
+
+{% block wrapper_class %}supervision-wrapper{% endblock %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/supervision-styles.css" />
+{% endblock %}
+
+{% block content %}
+<article class="post featured">
+    <header class="major" data-aos="fade-up">
+        <h1><i class="fas fa-images"></i> Galeries photos</h1>
+        <p>Photos et vidéos capturées par les caméras ESP32-CAM des projets IoT (aquaponie, potager, élevage).</p>
+        <hr />
+    </header>
+
+    <div class="section-header" data-aos="fade-up">
+        <i class="fas fa-camera"></i>
+        <h2>Choisir une galerie</h2>
+    </div>
+    <div class="links-grid">
+        <a href="{{ base_path|default('') }}/gallery/ffp3" class="link-card" data-aos="fade-up" data-aos-delay="0"><i class="fas fa-fish"></i><span class="label">Photos aquaponie (FFP3)</span><div class="hint">Galerie photos du bassin aquaponie</div></a>
+        <a href="{{ base_path|default('') }}/gallery/msp1" class="link-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-sun"></i><span class="label">Photos du potager (MSP1)</span><div class="hint">Galerie photos station météo</div></a>
+        <a href="{{ base_path|default('') }}/gallery/n3pp" class="link-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-leaf"></i><span class="label">Photos de l'élevage (N3PP)</span><div class="hint">Galerie photos de la serre et élevage d'insectes</div></a>
+    </div>
+</article>
+{% endblock %}

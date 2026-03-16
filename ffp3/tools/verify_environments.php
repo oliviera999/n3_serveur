@@ -76,6 +76,18 @@ echo "TEST: " . TableConfig::getDataTable() . " / " . TableConfig::getOutputsTab
 TableConfig::setEnvironment('prod');
 echo "PROD: " . TableConfig::getDataTable() . " / " . TableConfig::getOutputsTable() . "\n";
 
+// S3 PROD
+TableConfig::setEnvironment('s3');
+echo "S3: " . TableConfig::getDataTable() . " / " . TableConfig::getOutputsTable() . "\n";
+
+// S3 TEST
+TableConfig::setEnvironment('s3test');
+echo "S3TEST: " . TableConfig::getDataTable() . " / " . TableConfig::getOutputsTable() . "\n";
+
+// PROD
+TableConfig::setEnvironment('prod');
+echo "PROD: " . TableConfig::getDataTable() . " / " . TableConfig::getOutputsTable() . "\n";
+
 echo "✅ Basculement fonctionne correctement\n";
 
 echo "\n";
@@ -107,6 +119,15 @@ try {
     
     $stmt = $pdo->query("SHOW TABLES LIKE 'ffp3Outputs2'");
     $testOutputsExists = $stmt->rowCount() > 0;
+
+    $stmt = $pdo->query("SHOW TABLES LIKE 'ffp3DataS3'");
+    $s3DataExists = $stmt->rowCount() > 0;
+    $stmt = $pdo->query("SHOW TABLES LIKE 'ffp3OutputsS3'");
+    $s3OutputsExists = $stmt->rowCount() > 0;
+    $stmt = $pdo->query("SHOW TABLES LIKE 'ffp3DataS3Test'");
+    $s3TestDataExists = $stmt->rowCount() > 0;
+    $stmt = $pdo->query("SHOW TABLES LIKE 'ffp3OutputsS3Test'");
+    $s3TestOutputsExists = $stmt->rowCount() > 0;
     
     echo "Tables PROD:\n";
     echo "  ffp3Data: " . ($prodDataExists ? "✅ Existe" : "❌ Manquante") . "\n";
@@ -115,6 +136,14 @@ try {
     echo "Tables TEST:\n";
     echo "  ffp3Data2: " . ($testDataExists ? "✅ Existe" : "❌ Manquante") . "\n";
     echo "  ffp3Outputs2: " . ($testOutputsExists ? "✅ Existe" : "❌ Manquante") . "\n";
+
+    echo "Tables S3 PROD:\n";
+    echo "  ffp3DataS3: " . ($s3DataExists ? "✅ Existe" : "❌ Manquante") . "\n";
+    echo "  ffp3OutputsS3: " . ($s3OutputsExists ? "✅ Existe" : "❌ Manquante") . "\n";
+
+    echo "Tables S3 TEST:\n";
+    echo "  ffp3DataS3Test: " . ($s3TestDataExists ? "✅ Existe" : "❌ Manquante") . "\n";
+    echo "  ffp3OutputsS3Test: " . ($s3TestOutputsExists ? "✅ Existe" : "❌ Manquante") . "\n";
     
 } catch (Exception $e) {
     echo "❌ Erreur DB: " . $e->getMessage() . "\n";

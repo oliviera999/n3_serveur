@@ -313,6 +313,12 @@ $app->group('', function ($group) use ($useLocalDataFallback) {
     $group->map(['GET', 'POST'], '/aquamobile-alt', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponieClassic' : 'show']);
 })->add(new EnvironmentMiddleware('s3'));
 
+// S3 TEST (tables ffp3DataS3Test, ffp3OutputsS3Test)
+$app->group('', function ($group) use ($useLocalDataFallback) {
+    $group->map(['GET', 'POST'], '/aquamobile-s3-test', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponie' : 'showAlt']);
+    $group->map(['GET', 'POST'], '/aquamobile-alt-s3-test', [($useLocalDataFallback ? LocalDataPagesController::class : AquaponieController::class), $useLocalDataFallback ? 'showAquaponieClassic' : 'show']);
+})->add(new EnvironmentMiddleware('s3test'));
+
 // Page Caractéristiques du module FFP3 - PUBLIQUE (pas de variante env)
 $app->get('/aquaponie-description', [AquaponieDescriptionController::class, 'show']);
 
@@ -332,8 +338,10 @@ $otaHandler = function (Request $request, Response $response, array $args): Resp
         return $response->withStatus(404);
     }
     $body = (string) file_get_contents($file);
+    $bodyLen = strlen($body);
     $response->getBody()->write($body);
     $ext = pathinfo($file, PATHINFO_EXTENSION);
+    $response = $response->withHeader('Content-Length', (string) $bodyLen);
     if ($ext === 'json') {
         return $response->withHeader('Content-Type', 'application/json');
     }

@@ -66,7 +66,7 @@ class OutputCacheService
         }
         
         // Valider le nom de table pour sécurité
-        $allowedTables = ['ffp3Outputs', 'ffp3Outputs2', 'ffp3Outputs3', 'ffp3Outputs4'];
+        $allowedTables = ['ffp3Outputs', 'ffp3Outputs2', 'ffp3Outputs3', 'ffp3OutputsS3', 'ffp3OutputsS3Test'];
         if (!in_array($table, $allowedTables, true)) {
             throw new \InvalidArgumentException("Table name not allowed: {$table}");
         }

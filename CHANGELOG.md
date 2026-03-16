@@ -7,6 +7,13 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.174] - 2026-03-16
+
+### Modifié - Enregistrement des changements en attente
+- **Résumé** : routes, config FFP3, Env, OutputController, EnvironmentMiddleware, OutputCacheService, TableValidator, assets (favicon, balance-reveal, scroll-progress, scroll-reveal), maintenance clear-cache, templates galeries.
+
+---
+
 ## [5.0.173] - 2026-03-13
 
 ### Modifié - corrections affichage galeries (CSS wrapper, fond blanc #main)

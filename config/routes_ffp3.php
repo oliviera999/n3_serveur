@@ -18,6 +18,7 @@ registerRealtimeRoutes($app, '/api/realtime', 'prod', ['/api/health']);
 registerRealtimeRoutes($app, '/api/realtime-test', 'test', ['/api/health-test', '/api/realtime/system/health-test']);
 registerRealtimeRoutes($app, '/api/realtime3-test', 'test3');
 registerRealtimeRoutes($app, '/api/realtime3', 's3');
+registerRealtimeRoutes($app, '/api/realtime-s3-test', 's3test');
 
 // Endpoints Firmware ESP32 - PUBLICS (factorisés)
 registerFirmwareRoutes($app, '', 'prod', '/post-data', '/api/outputs/state', '/heartbeat',
@@ -30,18 +31,21 @@ registerFirmwareRoutes($app, '', 'test', '/post-data-test', '/api/outputs-test/s
     [], ['/heartbeat-test.php']);
 registerFirmwareRoutes($app, '', 'test3', '/post-data3-test', '/api/outputs3-test/state', '/heartbeat3-test');
 registerFirmwareRoutes($app, '', 's3', '/post-data3', '/api/outputs3/state', '/heartbeat3');
+registerFirmwareRoutes($app, '', 's3test', '/post-data-s3-test', '/api/outputs-s3-test/state', '/heartbeat-s3-test');
 
 // Alias /ffp3/* : mêmes endpoints pour firmwares utilisant base URL /ffp3/
 registerFirmwareRoutes($app, '/ffp3', 'prod', '/post-data', '/api/outputs/state', '/heartbeat');
 registerFirmwareRoutes($app, '/ffp3', 'test', '/post-data-test', '/api/outputs-test/state', '/heartbeat-test');
 registerFirmwareRoutes($app, '/ffp3', 'test3', '/post-data3-test', '/api/outputs3-test/state', '/heartbeat3-test');
 registerFirmwareRoutes($app, '/ffp3', 's3', '/post-data3', '/api/outputs3/state', '/heartbeat3');
+registerFirmwareRoutes($app, '/ffp3', 's3test', '/post-data-s3-test', '/api/outputs-s3-test/state', '/heartbeat-s3-test');
 
 // Contrôle aquaponie sous /ffp3 (toggle, parameters) — protégé par auth
 registerFfp3ControlRoutes($app, '/api/outputs', 'toggleOutput', 'prod', $applyAuth);
 registerFfp3ControlRoutes($app, '/api/outputs-test', 'toggleOutputTest', 'test', $applyAuth);
 registerFfp3ControlRoutes($app, '/api/outputs3-test', 'toggleOutputTest3', 'test3', $applyAuth);
 registerFfp3ControlRoutes($app, '/api/outputs3', 'toggleOutputS3', 's3', $applyAuth);
+registerFfp3ControlRoutes($app, '/api/outputs-s3-test', 'toggleOutputS3Test', 's3test', $applyAuth);
 
 // Routes FFP3 protégées par environnement (dashboard, tide-stats, export, contrôle)
 $ffp3RoutesConfig = [
@@ -99,6 +103,19 @@ $ffp3RoutesConfig = [
         'board_status' => '/api/outputs3/board/{board}/status',
         'admin_clear' => '/admin/clear-cache3',
         'admin_clear_page' => '/admin/clear-cache-page3',
+    ],
+    's3test' => [
+        'dashboard' => '/dashboard-s3-test',
+        'export' => '/export-data-s3-test',
+        'tide_stats' => '/tide-stats-s3-test',
+        'control' => '/aquamobile-control-s3-test',
+        'toggle' => '/api/outputs-s3-test/toggle',
+        'toggle_method' => 'toggleOutputS3Test',
+        'parameters' => '/api/outputs-s3-test/parameters',
+        'trigger_ota' => '/api/outputs-s3-test/trigger-ota-check',
+        'board_status' => '/api/outputs-s3-test/board/{board}/status',
+        'admin_clear' => '/admin/clear-cache-s3-test',
+        'admin_clear_page' => '/admin/clear-cache-page-s3-test',
     ],
 ];
 

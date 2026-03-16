@@ -20,11 +20,11 @@ class EnvironmentMiddleware implements MiddlewareInterface
     private string $environment;
 
     /**
-     * @param string $environment 'prod', 'test', 'test3' ou 's3'
+     * @param string $environment 'prod', 'test', 'test3', 's3', 's3test', 'n3pp_test', 'msp_test'
      */
     public function __construct(string $environment)
     {
-        $allowed = ['prod', 'test', 'test3', 's3', 'n3pp_test', 'msp_test'];
+        $allowed = ['prod', 'test', 'test3', 's3', 's3test', 'n3pp_test', 'msp_test'];
         if (!in_array($environment, $allowed, true)) {
             throw new \InvalidArgumentException(
                 "Environment must be one of: " . implode(', ', $allowed) . ", got: {$environment}"

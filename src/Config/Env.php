@@ -46,11 +46,11 @@ class Env
 
     /**
      * Valide les variables d'environnement critiques.
-     * Aligné sur TableConfig::ENVIRONMENTS (prod, test, test3, s3).
+     * Aligné sur TableConfig::ENVIRONMENTS (prod, test, test3, s3, s3test).
      */
     private static function validateEnvironment(): void
     {
-        $allowed = ['prod', 'test', 'test3', 's3'];
+        $allowed = ['prod', 'test', 'test3', 's3', 's3test'];
         $env = $_ENV['ENV'] ?? 'prod';
         if (!in_array($env, $allowed, true)) {
             throw new \RuntimeException(
