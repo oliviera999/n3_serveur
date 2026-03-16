@@ -14,6 +14,7 @@
 {% block styles %}{% endblock %}
 
 {% block content %}
+    {# Ordre des sections : header, info-banner, Résultats principaux, Variations réserve, DiffMaree, Évolution (graphiques), Filtrage période #}
     <article class="post featured">
         <header class="major" data-aos="fade-up">
             <h2>
@@ -200,16 +201,16 @@
                 </button>
             </div>
 
-            <form method="POST">
+            <form method="POST" id="tideStatsFilterForm">
                 {{ csrf_field|raw }}
                 <div class="datetime-grid">
                     <div class="datetime-field">
-                        <label for="start_datetime">Début</label>
-                        <input type="datetime-local" id="start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d') }}T{{ start_date|date('H:i') }}" required step="60">
+                        <label for="tide_stats_start_datetime">Début</label>
+                        <input type="datetime-local" id="tide_stats_start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d') }}T{{ start_date|date('H:i') }}" required step="60">
                     </div>
                     <div class="datetime-field">
-                        <label for="end_datetime">Fin</label>
-                        <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d') }}T{{ end_date|date('H:i') }}" required step="60">
+                        <label for="tide_stats_end_datetime">Fin</label>
+                        <input type="datetime-local" id="tide_stats_end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d') }}T{{ end_date|date('H:i') }}" required step="60">
                     </div>
                 </div>
                 <button type="submit" class="btn-primary">
@@ -234,7 +235,27 @@
     <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
     <script src="{{ base_path }}/assets/js/pwa-init.js"></script>
-    
+    <script>
+    function setPeriod(value, unit) {
+        var now = new Date();
+        var start = new Date(now);
+        if (unit === 'hours') start.setHours(start.getHours() - value);
+        else if (unit === 'days') start.setDate(start.getDate() - value);
+        var fmt = function(d) {
+            var y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
+            var h = String(d.getHours()).padStart(2, '0'), min = String(d.getMinutes()).padStart(2, '0');
+            return y + '-' + m + '-' + day + 'T' + h + ':' + min;
+        };
+        var form = document.getElementById('tideStatsFilterForm');
+        if (form) {
+            var startEl = form.querySelector('#tide_stats_start_datetime');
+            var endEl = form.querySelector('#tide_stats_end_datetime');
+            if (startEl) startEl.value = fmt(start);
+            if (endEl) endEl.value = fmt(now);
+            form.submit();
+        }
+    }
+    </script>
     <script>
         const weeklyStats = {{ weekly_stats_json|raw }};
         const labels = weeklyStats.labels;

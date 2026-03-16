@@ -1,19 +1,25 @@
-{# Bloc hero unifié (référence: MSP) pour aquaponie, MSP1, N3PP — titre, sous-titre, lien, synthèse. #}
-<div class="modern-header">
-    <div class="header-content">
-        <div class="header-title">
-            {% if hero_icon_left is defined %}<i class="fas {{ hero_icon_left }}" aria-hidden="true"></i>{% elseif hero_icon is defined %}<i class="fas {{ hero_icon }}" aria-hidden="true"></i>{% endif %}
-            {{ hero_title|default('Données') }}
-            {% if hero_icon_right is defined %}<i class="fas {{ hero_icon_right }}" aria-hidden="true"></i>{% endif %}
-        </div>
-        {% if hero_subtitle is defined %}
-            <p class="header-subtitle">{{ hero_subtitle }}</p>
+{# Bloc hero pour les pages de données (MSP1, N3PP, FFP3) #}
+<header class="major hero-data" data-aos="fade-up">
+    <h1 style="margin-bottom: 0.5em;">
+        {% if hero_icon_left is defined and hero_icon_left %}
+            <i class="fas {{ hero_icon_left }}"></i>
         {% endif %}
-        {% if hero_more_url is defined and hero_more_label is defined and hero_more_url and hero_more_label %}
-            <p class="header-more"><a href="{{ hero_more_url }}">{{ hero_more_label }}</a></p>
+        {% if hero_icon is defined and hero_icon %}
+            <i class="fas {{ hero_icon }}"></i>
         {% endif %}
-        {% if hero_synthesis is defined %}
-            <p class="header-synthesis">{{ hero_synthesis|raw }}</p>
+        {{ hero_title|default('Données') }}
+        {% if hero_icon_right is defined and hero_icon_right %}
+            <i class="fas {{ hero_icon_right }}"></i>
         {% endif %}
-    </div>
-</div>
+    </h1>
+    {% if hero_subtitle is defined and hero_subtitle %}
+        <p class="hero-subtitle">{{ hero_subtitle }}</p>
+    {% endif %}
+    {% if hero_more_url is defined and hero_more_url and hero_more_label is defined and hero_more_label %}
+        <p><a href="{{ base_path|default('') }}{{ hero_more_url }}" class="button primary">{{ hero_more_label }}</a></p>
+    {% endif %}
+    {% if hero_synthesis is defined and hero_synthesis %}
+        <p class="hero-synthesis">{{ hero_synthesis|raw }}</p>
+    {% endif %}
+    <hr />
+</header>

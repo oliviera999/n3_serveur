@@ -54,7 +54,7 @@
                     hero_synthesis: '📊 Synthèse du <span id="summary-start-date">' ~ start_date|date('d/m/Y H:i') ~ '</span> au <span id="summary-end-date">' ~ end_date|date('d/m/Y H:i') ~ '</span> — ' ~ measure_count ~ ' mesures — ' ~ duration_str
                 } %}
 
-                <!-- Featured Post -->
+                {# Ordre des sections : Hero, Niveaux d'eau (alt-data-chart-row), Bilan hydrique (révélable), Paramètres physiques (alt-data-chart-row), Chimie, filter-system-row (filtrage + état + contrôles live) #}
                 <article class="post featured">
                     <!-- Titre pleine largeur : Niveaux d'eau -->
                     <div class="section-header alt-section-title-full" data-aos="fade-up">

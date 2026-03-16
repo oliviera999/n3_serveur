@@ -7,7 +7,8 @@
     if (typeof Highcharts === 'undefined') return;
 
     var baseOptions = {
-        time: { useUTC: false },
+        /* Projet physique à Casablanca : affichage cohérent avec FFP3 et TIMEZONE_MANAGEMENT.md */
+        time: { useUTC: false, timezone: 'Africa/Casablanca' },
         plotOptions: {
             series: {
                 visible: true,

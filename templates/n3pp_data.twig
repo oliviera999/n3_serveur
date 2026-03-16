@@ -30,6 +30,7 @@
         hero_synthesis: '📊 Synthèse du ' ~ start_date|date('d/m/Y H:i') ~ ' au ' ~ end_date|date('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' mesures — ' ~ duration_str
     } %}
 
+    {# Ordre des sections : Hero, Humidité du sol, Paramètres physiques, Système, filter-health-row (filtrage + état) #}
     <article class="post featured">
         {% if not latest and measure_count == 0 %}
             <div class="no-data"><i class="fas fa-database no-data-icon"></i><br>Aucune donnée enregistrée.</div>
@@ -155,8 +156,11 @@
 
         <div class="filter-health-row">
         <div class="filter-section">
-            <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
-            <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}">
+            <div class="filter-header">
+                <i class="fas fa-filter"></i>
+                <h3>Filtrage des données</h3>
+            </div>
+            <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}" id="n3ppFilterForm">
                 {{ csrf_field|raw }}
                 <div>
                     <label for="start_datetime">Début</label>
@@ -170,13 +174,13 @@
                 <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-download"></i> CSV</button>
             </form>
             <div class="quick-filters">
-                <span class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</span>
-                <span class="quick-filter-btn" onclick="setPeriod(3,'h')">3h</span>
-                <span class="quick-filter-btn" onclick="setPeriod(6,'h')">6h</span>
-                <span class="quick-filter-btn" onclick="setPeriod(12,'h')">12h</span>
-                <span class="quick-filter-btn" onclick="setPeriod(1,'d')">1 jour</span>
-                <span class="quick-filter-btn" onclick="setPeriod(7,'d')">1 sem</span>
-                <span class="quick-filter-btn" onclick="setPeriod(30,'d')">1 mois</span>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(3,'h')">3h</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(6,'h')">6h</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(12,'h')">12h</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(1,'d')">1 jour</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(7,'d')">1 sem</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(30,'d')">1 mois</button>
             </div>
             <div class="period-info">
                 <span><i class="fas fa-database"></i> {{ measure_count }} mesures</span>
@@ -224,6 +228,27 @@
     {% include 'partials/_live_badge.twig' %}
     <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
     <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
+    <script>
+    function setPeriod(value, unit) {
+        var now = new Date();
+        var start = new Date(now);
+        if (unit === 'h') start.setHours(start.getHours() - value);
+        else if (unit === 'd') start.setDate(start.getDate() - value);
+        var fmt = function(d) {
+            var y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
+            var h = String(d.getHours()).padStart(2, '0'), min = String(d.getMinutes()).padStart(2, '0');
+            return y + '-' + m + '-' + day + 'T' + h + ':' + min;
+        };
+        var form = document.getElementById('n3ppFilterForm');
+        if (form) {
+            var startEl = form.querySelector('#start_datetime');
+            var endEl = form.querySelector('#end_datetime');
+            if (startEl) startEl.value = fmt(start);
+            if (endEl) endEl.value = fmt(now);
+            form.submit();
+        }
+    }
+    </script>
     <script>
     var reading_time = {{ reading_time|json_encode|raw }};
     {% for col in chart_columns %}

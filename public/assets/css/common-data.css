@@ -439,6 +439,14 @@
     margin: 1.5rem 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
 }
+.filter-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.filter-header i { color: #008B74; }
+.filter-header h3 { margin: 0; }
 .filter-section h3 {
     margin: 0 0 14px;
     color: #2c3e50;

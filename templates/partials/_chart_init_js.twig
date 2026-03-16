@@ -1,27 +1,20 @@
-{#
-  Initialise ChartUpdaterGeneric avec le mapping capteurs -> graphiques.
-  Variables attendues :
-    - chart_ids_json  : chaîne JSON, ex '["chart-temperatures","chart-lights"]'
-    - sensor_map_json : chaîne JSON, ex '{"TempAirInt":{"chartId":"chart-temperatures","seriesIndex":0}}'
-    - chart_debug     : booléen (optionnel, défaut false)
-#}
+{# Initialisation du ChartUpdater générique (MSP1 / N3PP) pour mise à jour temps réel des graphiques Highcharts #}
 <script>
-(function () {
+(function() {
     var chartIds = {{ chart_ids_json|raw }};
     var sensorMap = {{ sensor_map_json|raw }};
-
-    window.chartUpdater = new ChartUpdaterGeneric({
-        chartIds: chartIds,
-        sensorMap: sensorMap,
-        maxPoints: 10000,
-        autoScroll: true
-    });
-
-    {% if chart_debug|default(false) %}
-    console.log('[_chart_init_js] chartIds:', chartIds);
-    console.log('[_chart_init_js] sensorMap keys:', Object.keys(sensorMap));
-    {% endif %}
-
-    window.chartUpdater.init();
+    if (typeof window.ChartUpdaterGeneric !== 'undefined' && chartIds && chartIds.length && sensorMap) {
+        window.chartUpdater = new window.ChartUpdaterGeneric({
+            chartIds: chartIds,
+            sensorMap: sensorMap,
+            maxPoints: 10000,
+            autoScroll: true
+        });
+        if (window.chartUpdater.init()) {
+            {% if chart_debug|default(false) %}
+            console.log('[ChartInit] ChartUpdaterGeneric initialisé avec ' + chartIds.length + ' graphique(s)');
+            {% endif %}
+        }
+    }
 })();
 </script>

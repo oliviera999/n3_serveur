@@ -1,43 +1,14 @@
-{#
-  Initialise le RealtimeUpdater (polling) pour les pages données.
-  Variables attendues :
-    - realtime_api_base : préfixe de l'API (ex '/msp1/api/realtime')
-    - poll_interval     : intervalle de polling en ms (défaut 15000)
-    - base_path         : chemin de base du serveur
-#}
+{# Initialisation du polling temps réel (MSP1 / N3PP) #}
 <script>
-(function () {
-    var apiBase = '{{ realtime_api_base|default("/api/realtime") }}';
-    var interval = {{ poll_interval|default(15000) }};
-
-    if (typeof initRealtimeUpdater === 'function') {
+(function() {
+    var apiBase = {{ realtime_api_base|json_encode|raw }};
+    var pollInterval = {{ poll_interval|default(15000) }};
+    if (typeof initRealtimeUpdater === 'function' && apiBase) {
         initRealtimeUpdater({
             apiBasePath: apiBase,
-            pollInterval: interval,
-            onNewData: function (readings) {
-                if (window.chartUpdater && typeof window.chartUpdater.addNewReadings === 'function') {
-                    window.chartUpdater.addNewReadings(readings);
-                }
-                // Mise à jour des cartes stats via data-sensor
-                if (readings.length > 0) {
-                    var last = readings[readings.length - 1];
-                    if (last && last.sensors) {
-                        var sensors = last.sensors;
-                        for (var key in sensors) {
-                            if (!sensors.hasOwnProperty(key) || sensors[key] === null) continue;
-                            var els = document.querySelectorAll('[data-sensor="' + key + '"]');
-                            for (var i = 0; i < els.length; i++) {
-                                var dec = parseInt(els[i].getAttribute('data-decimals') || '1', 10);
-                                var val = parseFloat(sensors[key]);
-                                els[i].textContent = isNaN(val) ? sensors[key] : val.toFixed(dec);
-                            }
-                        }
-                    }
-                }
-            }
+            pollInterval: pollInterval,
+            enabled: true
         });
-    } else {
-        console.warn('[_realtime_init_js] initRealtimeUpdater non disponible');
     }
 })();
 </script>
