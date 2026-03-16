@@ -10,7 +10,7 @@ use App\Repository\N3ppSensorRepository;
 use App\Service\LogService;
 
 /**
- * Reception des donnees POST du firmware n3pp4_2 (serre).
+ * Reception des donnees POST du firmware n3pp (serre).
  * Herite du flux commun AbstractPostDataController.
  */
 class N3ppPostDataController extends AbstractPostDataController

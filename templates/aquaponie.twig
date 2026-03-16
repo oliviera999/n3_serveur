@@ -824,15 +824,15 @@
                         function getChartHeight(chartType) {
                             var width = window.innerWidth || document.documentElement.clientWidth || 1024;
                             if (chartType === 'eau') {
-                                if (width < 480) return 400;
-                                if (width < 768) return 450;
-                                if (width < 1024) return 500;
-                                return 600;
+                                if (width < 480) return 440;
+                                if (width < 768) return 520;
+                                if (width < 1024) return 580;
+                                return 680;
                             } else { // temp
-                                if (width < 480) return 450;
-                                if (width < 768) return 550;
-                                if (width < 1024) return 600;
-                                return 700;
+                                if (width < 480) return 500;
+                                if (width < 768) return 620;
+                                if (width < 1024) return 680;
+                                return 780;
                             }
                         }
                         
@@ -937,7 +937,7 @@
                                         },
                                         chartOptions: {
                                             chart: {
-                                                height: 350,
+                                                height: 400,
                                                 spacingTop: 10,
                                                 spacingRight: 10,
                                                 spacingBottom: 10,
@@ -960,7 +960,7 @@
                                             },
                                             navigator: {
                                                 enabled: true,
-                                                height: 25
+                                                height: 22
                                             },
                                             scrollbar: {
                                                 enabled: true,
@@ -983,7 +983,7 @@
                                         },
                                         chartOptions: {
                                             chart: {
-                                                height: 450,
+                                                height: 520,
                                                 spacingTop: 15,
                                                 spacingRight: 15,
                                                 spacingBottom: 15,
@@ -1006,7 +1006,7 @@
                                             },
                                             navigator: {
                                                 enabled: true,
-                                                height: 35
+                                                height: 30
                                             }
                                         }
                                     }, {
@@ -1016,7 +1016,7 @@
                                         },
                                         chartOptions: {
                                             chart: {
-                                                height: 500
+                                                height: 580
                                             },
                                             rangeSelector: {
                                                 enabled: false
@@ -1030,7 +1030,7 @@
                                                 symbolRadius: 4
                                             },
                                             navigator: {
-                                                height: 40
+                                                height: 35
                                             }
                                         }
                                     }]
@@ -1283,7 +1283,7 @@
                                 ],
                                 navigator: { 
                                     enabled: true,
-                                    height: 40,
+                                    height: 35,
                                     xAxis: {
                                         ordinal: false  // Forcer l'espacement proportionnel dans le navigator aussi
                                     }
@@ -1308,7 +1308,7 @@
                                         },
                                         chartOptions: {
                                             chart: {
-                                                height: 450,
+                                                height: 500,
                                                 spacingTop: 10,
                                                 spacingRight: 10,
                                                 spacingBottom: 10,
@@ -1331,7 +1331,7 @@
                                             },
                                             navigator: {
                                                 enabled: true,
-                                                height: 25
+                                                height: 22
                                             },
                                             scrollbar: {
                                                 enabled: true,
@@ -1401,7 +1401,7 @@
                                         },
                                         chartOptions: {
                                             chart: {
-                                                height: 550,
+                                                height: 620,
                                                 spacingTop: 15,
                                                 spacingRight: 15,
                                                 spacingBottom: 15,
@@ -1424,7 +1424,7 @@
                                             },
                                             navigator: {
                                                 enabled: true,
-                                                height: 35
+                                                height: 30
                                             },
                                             yAxis: [{
                                                 labels: { 
@@ -1458,7 +1458,7 @@
                                         },
                                         chartOptions: {
                                             chart: {
-                                                height: 600
+                                                height: 680
                                             },
                                             rangeSelector: {
                                                 enabled: false
@@ -1472,7 +1472,7 @@
                                                 symbolRadius: 4
                                             },
                                             navigator: {
-                                                height: 40
+                                                height: 35
                                             }
                                         }
                                     }]
@@ -1624,7 +1624,7 @@
                                 ],
                                 navigator: { 
                                     enabled: true,
-                                    height: 40,
+                                    height: 35,
                                     xAxis: {
                                         ordinal: false  // Forcer l'espacement proportionnel dans le navigator aussi
                                     }

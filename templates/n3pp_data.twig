@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="alt-chart-column">
-                    <div id="chart-niveauxeaux" style="min-height:350px;"></div>
+                    <div id="chart-niveauxeaux" style="min-height:420px;"></div>
                 </div>
             </div>
 
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <div class="alt-chart-column">
-                    <div id="chart-temperatures" style="min-height:350px;"></div>
+                    <div id="chart-temperatures" style="min-height:420px;"></div>
                 </div>
             </div>
 
@@ -147,7 +147,7 @@
                     </div>
                 </div>
                 <div class="alt-chart-column">
-                    <div id="chart-cycles" style="min-height:300px;"></div>
+                    <div id="chart-cycles" style="min-height:380px;"></div>
                 </div>
             </div>
 
@@ -306,7 +306,7 @@
             { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7' }
         ],
         legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
+        chart: { backgroundColor: 'transparent', height: 420, events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     Highcharts.stockChart('chart-temperatures', {
@@ -324,7 +324,7 @@
             { name: 'Luminosité', data: zipSeries(reading_time, Luminosite), type: 'spline', color: '#f39c12', yAxis: 2 }
         ],
         legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
+        chart: { backgroundColor: 'transparent', height: 420, events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     Highcharts.stockChart('chart-cycles', {
@@ -340,7 +340,7 @@
             { name: 'PontDiv', data: zipSeries(reading_time, PontDiv), type: 'spline', color: '#e74c3c', yAxis: 1 }
         ],
         legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
+        chart: { backgroundColor: 'transparent', height: 380, events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     })();

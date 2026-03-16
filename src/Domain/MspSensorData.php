@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Domain;
 
 /**
- * DTO pour les donnees capteurs de la station meteo (firmware msp2_5).
+ * DTO pour les donnees capteurs de la station meteo (firmware msp).
  * Les noms de proprietes correspondent aux champs POST du firmware.
  */
 class MspSensorData

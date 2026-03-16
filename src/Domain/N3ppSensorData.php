@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Domain;
 
 /**
- * DTO pour les donnees capteurs de la serre/aquaponie (firmware n3pp4_2).
+ * DTO pour les donnees capteurs de la serre/aquaponie (firmware n3pp).
  * Les noms de proprietes correspondent aux champs POST du firmware.
  */
 class N3ppSensorData

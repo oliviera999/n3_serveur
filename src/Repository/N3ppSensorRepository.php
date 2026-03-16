@@ -8,7 +8,7 @@ use App\Config\TableConfig;
 use App\Domain\N3ppSensorData;
 
 /**
- * Repository pour l'insertion et la lecture des mesures serre/élevage (n3pp4_2).
+ * Repository pour l'insertion et la lecture des mesures serre/élevage (n3pp).
  * Hérite des méthodes communes d'AbstractSensorRepository.
  */
 class N3ppSensorRepository extends AbstractSensorRepository

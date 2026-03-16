@@ -8,7 +8,7 @@ use App\Config\TableConfig;
 use App\Domain\MspSensorData;
 
 /**
- * Repository pour l'insertion et la lecture des mesures station météo (msp2_5).
+ * Repository pour l'insertion et la lecture des mesures station météo (msp).
  * Hérite des méthodes communes d'AbstractSensorRepository.
  */
 class MspSensorRepository extends AbstractSensorRepository

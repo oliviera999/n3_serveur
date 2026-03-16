@@ -29,6 +29,9 @@
         },
         chart: { backgroundColor: 'transparent' },
         credits: { enabled: false },
+        /* Réduire la timeline (navigator) pour laisser plus de place au graphique principal */
+        navigator: { height: 32 },
+        scrollbar: { height: 10 },
         legend: {
             enabled: true,
             floating: false,

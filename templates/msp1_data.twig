@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="alt-chart-column">
-                    <div id="chart-lights" style="min-height:350px;"></div>
+                    <div id="chart-lights" style="min-height:420px;"></div>
                 </div>
             </div>
 
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <div class="alt-chart-column">
-                    <div id="chart-niveauxeaux" style="min-height:350px;"></div>
+                    <div id="chart-niveauxeaux" style="min-height:420px;"></div>
                 </div>
             </div>
 
@@ -149,7 +149,7 @@
                     </div>
                 </div>
                 <div class="alt-chart-column">
-                    <div id="chart-temperatures" style="min-height:350px;"></div>
+                    <div id="chart-temperatures" style="min-height:420px;"></div>
                 </div>
             </div>
 
@@ -190,7 +190,7 @@
                     </div>
                 </div>
                 <div class="alt-chart-column">
-                    <div id="chart-cycles" style="min-height:300px;"></div>
+                    <div id="chart-cycles" style="min-height:380px;"></div>
                 </div>
             </div>
 
@@ -344,7 +344,7 @@
             { name: 'Humid. ext.', data: zipSeries(reading_time, HumidAirExt), type: 'spline', color: '#2980b9', yAxis: 1, tooltip: { valueSuffix: ' %' }}
         ],
         legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
+        chart: { backgroundColor: 'transparent', height: 420, events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     Highcharts.stockChart('chart-lights', {
@@ -359,7 +359,7 @@
             { name: 'D', data: zipSeries(reading_time, LuminositeD), type: 'spline', color: '#e74c3c', dashStyle: 'Dash' }
         ],
         legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
+        chart: { backgroundColor: 'transparent', height: 420, events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     Highcharts.stockChart('chart-niveauxeaux', {
@@ -377,7 +377,7 @@
             { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7', yAxis: 0 }
         ],
         legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
+        chart: { backgroundColor: 'transparent', height: 420, events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     Highcharts.stockChart('chart-cycles', {
@@ -395,7 +395,7 @@
             { name: 'ServoGD', data: zipSeries(reading_time, ServoGD), type: 'spline', color: '#f39c12', yAxis: 0 }
         ],
         legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', events: { load: chartLoadExtremes } },
+        chart: { backgroundColor: 'transparent', height: 380, events: { load: chartLoadExtremes } },
         credits: { enabled: false }
     });
     })();

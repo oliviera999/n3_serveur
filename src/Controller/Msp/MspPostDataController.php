@@ -11,7 +11,7 @@ use App\Service\LogService;
 use Psr\Http\Message\ResponseInterface as Response;
 
 /**
- * Reception des donnees POST du firmware msp2_5 (station meteo).
+ * Reception des donnees POST du firmware msp (station meteo).
  * Herite du flux commun AbstractPostDataController.
  */
 class MspPostDataController extends AbstractPostDataController
