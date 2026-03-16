@@ -34,7 +34,7 @@
                     hero_synthesis: '📊 Synthèse du <span id="summary-start-date">' ~ start_date|date('d/m/Y H:i') ~ '</span> au <span id="summary-end-date">' ~ end_date|date('d/m/Y H:i') ~ '</span> — ' ~ measure_count ~ ' mesures — ' ~ duration_str
                 } %}
 
-                <!-- Featured Post -->
+                <!-- Featured Post : ordre des sections = Hero, Niveaux d'eau, Paramètres physiques, Bilan hydrique (révélable), Graphiques eau/temp, Chimie, Filtrage + État système + Contrôles live -->
                 <article class="post featured">
                     <!-- Section Niveaux d'eau -->
                     <div class="section-header" data-aos="fade-up">
@@ -83,8 +83,8 @@
                                 <div>Moy: <span id="eaupota-avg">{{ avg_eaupota|default(0)|round(1) }}</span> cm | Écart-type: <span id="eaupota-stddev">{{ stddev_eaupota|default(0)|round(2) }}</span></div>
                                 <div>Min: <span id="eaupota-min">{{ min_eaupota|default(0) }}</span> cm | Max: <span id="eaupota-max">{{ max_eaupota|default(0) }}</span> cm</div>
                             </div>
+                        </div>
                     </div>
-                </div>
 
                     <!-- Section Paramètres physiques -->
                     <div class="section-header" data-aos="fade-up">
@@ -622,7 +622,6 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                     </div><!-- .filter-system-row -->
