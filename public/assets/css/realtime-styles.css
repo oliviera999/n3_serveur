@@ -184,7 +184,9 @@ body:not([data-theme="dark"]) header.major h1,
 body:not([data-theme="dark"]) header.major h2,
 body:not([data-theme="dark"]) .section-header h2,
 body:not([data-theme="dark"]) .section-header h3,
-body:not([data-theme="dark"]) .home-section-header h2 {
+body:not([data-theme="dark"]) .home-section-header h2,
+body:not([data-theme="dark"]) .filter-header h3,
+body:not([data-theme="dark"]) .system-health-panel h3 {
     color: #FF6300 !important;
 }
 
@@ -488,17 +490,23 @@ body.is-preload #wrapper.fade-in::before {
     border: 1px solid rgba(0, 139, 116, 0.1);
 }
 
+/* Titre « État du système » : même style que .section-header (vert/orange selon page) */
 .system-health-panel h3,
 .system-health-panel h4,
 .system-health-panel .system-health-panel-title {
     margin: 0 0 15px 0;
-    color: #008B74;
-    font-size: 1.3em;
+    color: #2c3e50;
+    font-size: 1.15em;
     display: flex;
     align-items: center;
     gap: 10px;
     border-bottom: 2px solid #008B74;
     padding-bottom: 10px;
+}
+.system-health-panel h3 i,
+.system-health-panel h4 i,
+.system-health-panel .system-health-panel-title i {
+    color: #008B74;
 }
 
 .health-items {
@@ -944,8 +952,12 @@ body.is-preload #wrapper.fade-in::before {
 [data-theme="dark"] .system-health-panel h3,
 [data-theme="dark"] .system-health-panel h4,
 [data-theme="dark"] .system-health-panel .system-health-panel-title {
-    color: var(--accent-primary);
+    color: var(--text-primary);
     border-bottom-color: var(--accent-primary);
+}
+[data-theme="dark"] .system-health-panel h3 i,
+[data-theme="dark"] .system-health-panel h4 i {
+    color: var(--accent-primary);
 }
 
 [data-theme="dark"] .health-item {

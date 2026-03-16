@@ -7,6 +7,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -32,6 +38,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -239,6 +251,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -545,6 +563,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -816,6 +840,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -1089,6 +1119,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -1374,6 +1410,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -1704,6 +1746,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -2119,6 +2167,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -2496,6 +2550,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -3254,6 +3314,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -4000,6 +4066,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -4745,6 +4817,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -5490,6 +5568,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -6244,6 +6328,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -6991,6 +7081,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -7738,6 +7834,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -8486,6 +8588,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -9233,6 +9341,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -9982,6 +10096,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -10729,6 +10849,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -11476,6 +11602,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -12223,6 +12355,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -12971,6 +13109,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -13716,6 +13860,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -14466,6 +14616,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -15211,6 +15367,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -15959,6 +16121,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -16705,6 +16873,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -17453,6 +17627,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -18201,6 +18381,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -18948,6 +19134,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -19697,6 +19889,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -20443,6 +20641,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -21190,6 +21394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -21938,6 +22148,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -22686,6 +22902,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -23432,6 +23654,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -24179,6 +24407,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -24928,6 +25162,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -25676,6 +25916,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -26423,6 +26669,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -27170,6 +27422,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -27917,6 +28175,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -28664,6 +28928,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -29410,6 +29680,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -30156,6 +30432,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -30902,6 +31184,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -31648,6 +31936,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -32395,6 +32689,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -33146,6 +33446,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -33897,6 +34203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -34641,6 +34953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -35385,6 +35703,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -36129,6 +36453,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -36873,6 +37203,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -37617,6 +37953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -38361,6 +38703,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -39122,6 +39470,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -39873,6 +40227,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -40622,6 +40982,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -41372,6 +41738,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -42126,6 +42498,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -42892,6 +43270,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -43640,6 +44024,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -44390,6 +44780,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -45140,6 +45536,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -45887,6 +46289,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -46637,6 +47045,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -47384,6 +47798,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -48130,6 +48550,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -48877,6 +49303,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -49634,6 +50066,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -50388,6 +50826,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -51150,6 +51594,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -51916,6 +52366,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -52672,6 +53128,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -53420,6 +53882,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -54170,6 +54638,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -54919,6 +55393,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -55668,6 +56148,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -56415,6 +56901,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -57162,6 +57654,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -57911,6 +58409,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -58659,6 +59163,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -59409,6 +59919,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -60164,6 +60680,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -60923,6 +61445,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -61678,6 +62206,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -62435,6 +62969,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -63191,6 +63731,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -63942,6 +64488,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -64689,6 +65241,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -65440,6 +65998,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -66188,6 +66752,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -66935,6 +67505,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -67682,6 +68258,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -68431,6 +69013,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -69180,6 +69768,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -69928,6 +70522,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -70676,6 +71276,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -71423,6 +72029,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -72170,6 +72782,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -72917,6 +73535,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -73666,6 +74290,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -74415,6 +75045,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -75162,6 +75798,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -75909,6 +76551,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -76656,6 +77304,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -77404,6 +78058,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -78154,6 +78814,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -78911,6 +79577,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -79662,6 +80334,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -80420,6 +81098,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -81176,6 +81860,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -81923,6 +82613,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -82703,6 +83399,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -83454,6 +84156,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -84214,6 +84922,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -84984,6 +85698,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -85744,6 +86464,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -86494,6 +87220,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -87245,6 +87977,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -88002,6 +88740,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -88869,6 +89613,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -89620,6 +90370,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -90369,6 +91125,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -91119,6 +91881,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -91870,6 +92638,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -92620,6 +93394,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -93372,6 +94152,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -94123,6 +94909,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -94996,6 +95788,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -95746,6 +96544,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -96496,6 +97300,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -97294,6 +98104,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -98053,6 +98869,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -98812,6 +99634,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -99608,6 +100436,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -100415,6 +101249,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -101179,6 +102019,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -101944,6 +102790,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -102699,6 +103551,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -103460,6 +104318,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -104225,6 +105089,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -104988,6 +105858,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -105742,6 +106618,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -106508,6 +107390,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -107306,6 +108194,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -108059,6 +108953,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -108813,6 +109713,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -109566,6 +110472,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -110324,6 +111236,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -111088,6 +112006,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -111850,6 +112774,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -112610,6 +113540,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -113365,6 +114301,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -114121,6 +115063,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -114888,6 +115836,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -115654,6 +116608,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -116423,6 +117383,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -117208,6 +118174,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -118023,6 +118995,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -118779,6 +119757,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -119534,6 +120518,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -120299,6 +121289,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -121054,6 +122050,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -121813,6 +122815,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -122565,6 +123573,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -123319,6 +124333,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -124065,6 +125085,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -124851,6 +125877,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -125609,6 +126641,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -126389,6 +127427,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -127151,6 +128195,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -127909,6 +128959,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -128673,6 +129729,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -129459,6 +130521,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -130230,6 +131298,12 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -131055,6 +132129,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -131817,6 +132897,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -132581,6 +133667,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -133356,6 +134448,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -134124,6 +135222,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -134879,6 +135983,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -135634,6 +136744,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -136391,6 +137507,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -137219,6 +138341,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -137995,6 +139123,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -138785,6 +139919,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -139563,6 +140703,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -140345,6 +141491,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -141095,6 +142247,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -141897,6 +143055,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -142663,6 +143827,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -143416,6 +144586,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -144219,6 +145395,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -145001,6 +146183,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -145816,6 +147004,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -146569,6 +147763,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -147381,6 +148581,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -148131,6 +149337,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -148880,6 +150092,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -149633,6 +150851,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -150386,6 +151610,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -151184,6 +152414,12 @@ docs/
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -152005,6 +153241,12 @@ docs/
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -152760,6 +154002,12 @@ docs/
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -153549,6 +154797,12 @@ docs/
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -154303,6 +155557,12 @@ docs/
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -155079,6 +156339,12 @@ docs/
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -155831,6 +157097,12 @@ docs/
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -156772,6 +158044,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -157547,6 +158825,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -158349,6 +159633,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -159137,6 +160427,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -159911,6 +161207,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -160692,6 +161994,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -161465,6 +162773,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -162227,6 +163541,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -162981,6 +164301,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -163751,6 +165077,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -164505,6 +165837,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -165259,6 +166597,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -166015,6 +167359,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -166789,6 +168139,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
@@ -167537,6 +168893,12 @@ ance future
 
 ---
 
+## [5.0.178] - 2026-03-16
+
+### Modifié - CSS common-data et realtime-styles, doc audit Highcharts
+- **Résumé** : CSS common-data et realtime-styles, doc audit Highcharts.
+
+---
 ## [5.0.177] - 2026-03-16
 
 ### Modifié - déploiement: controllers Msp/N3pp, repositories, templates, highcharts
