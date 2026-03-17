@@ -490,10 +490,11 @@ body.is-preload #wrapper.fade-in::before {
     border: 1px solid rgba(0, 139, 116, 0.1);
 }
 
-/* Titre « État du système » : même style que .section-header (vert/orange selon page) */
+/* Titres de section « État du système » et « Filtrage des données » : style identique sur toutes les pages */
 .system-health-panel h3,
 .system-health-panel h4,
-.system-health-panel .system-health-panel-title {
+.system-health-panel .system-health-panel-title,
+.filter-header h3 {
     margin: 0 0 15px 0;
     color: #2c3e50;
     font-size: 1.15em;
@@ -505,8 +506,22 @@ body.is-preload #wrapper.fade-in::before {
 }
 .system-health-panel h3 i,
 .system-health-panel h4 i,
-.system-health-panel .system-health-panel-title i {
+.system-health-panel .system-health-panel-title i,
+.filter-header h3 i {
     color: #008B74;
+}
+
+/* Boutons « Afficher les mesures » et « Télécharger CSV » : toujours sur la même ligne, toutes pages */
+.action-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+.action-buttons button {
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .health-items {
@@ -951,12 +966,14 @@ body.is-preload #wrapper.fade-in::before {
 
 [data-theme="dark"] .system-health-panel h3,
 [data-theme="dark"] .system-health-panel h4,
-[data-theme="dark"] .system-health-panel .system-health-panel-title {
+[data-theme="dark"] .system-health-panel .system-health-panel-title,
+[data-theme="dark"] .filter-header h3 {
     color: var(--text-primary);
     border-bottom-color: var(--accent-primary);
 }
 [data-theme="dark"] .system-health-panel h3 i,
-[data-theme="dark"] .system-health-panel h4 i {
+[data-theme="dark"] .system-health-panel h4 i,
+[data-theme="dark"] .filter-header h3 i {
     color: var(--accent-primary);
 }
 

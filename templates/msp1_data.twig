@@ -213,8 +213,10 @@
                     <label for="end_datetime">Fin</label>
                     <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d\\TH:i') }}">
                 </div>
-                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Afficher</button>
-                <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-download"></i> CSV</button>
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Afficher les mesures</button>
+                    <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-file-csv"></i> Télécharger CSV</button>
+                </div>
             </form>
             <div class="quick-filters">
                 <button type="button" class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</button>
