@@ -14,8 +14,7 @@
             const isExpanded = btn.getAttribute('aria-expanded') === 'true';
             content.classList.toggle('is-visible', !isExpanded);
             btn.setAttribute('aria-expanded', !isExpanded);
-            btn.querySelector('.balance-reveal-btn-icon')?.classList.toggle('fa-chevron-down', isExpanded);
-            btn.querySelector('.balance-reveal-btn-icon')?.classList.toggle('fa-chevron-up', !isExpanded);
+            /* Icône : rotation 180° gérée en CSS via .balance-reveal-btn[aria-expanded="true"] */
             const textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3 && n.textContent.trim(); });
             if (textNode) {
                 textNode.textContent = isExpanded ? ' En savoir plus' : ' Masquer';

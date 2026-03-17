@@ -519,9 +519,44 @@ body.is-preload #wrapper.fade-in::before {
     gap: 12px;
     margin-top: 12px;
 }
+/* Même style que « En savoir plus » (balance-reveal-btn) sur toutes les pages */
 .action-buttons button {
     white-space: nowrap;
     flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #008B74;
+    background: rgba(0, 139, 116, 0.08);
+    border: 1px solid rgba(0, 139, 116, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+.action-buttons button:hover {
+    background: rgba(0, 139, 116, 0.15);
+    border-color: #008B74;
+}
+
+/* Presets de période (1h, 3h, 1j…) : centrés horizontalement dans le bloc */
+.quick-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 12px;
+    margin-top: 12px;
+}
+
+/* Durée de la fenêtre / Mesures chargées / Lectures live reçues : centrés horizontalement */
+.period-info-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    margin-top: 12px;
 }
 
 .health-items {
@@ -997,6 +1032,16 @@ body.is-preload #wrapper.fade-in::before {
 
 [data-theme="dark"] .health-item-value .reading-none {
     color: var(--text-muted);
+}
+
+[data-theme="dark"] .action-buttons button {
+    color: var(--accent-primary);
+    background: var(--accent-muted);
+    border-color: var(--accent-border);
+}
+[data-theme="dark"] .action-buttons button:hover {
+    background: var(--accent-muted);
+    border-color: var(--accent-primary);
 }
 
 [data-theme="dark"] .next-update-countdown {

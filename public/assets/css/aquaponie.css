@@ -30,14 +30,28 @@
     margin: 1.5rem 0;
 }
 .balance-reveal-header {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 12px;
 }
 .balance-reveal-header.section-header { margin-bottom: 12px; }
+.balance-reveal-header.section-header > i:first-child { grid-column: 1; grid-row: 1; }
+.balance-reveal-header.section-header > h3 { grid-column: 2; grid-row: 1; }
+.balance-reveal-header.section-header > .balance-reveal-btn {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+}
+/* Vue alt : header avec uniquement le bouton → centrer */
+.balance-reveal-header.alt-balance-header {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+}
 .balance-reveal-btn {
     display: inline-flex;
     align-items: center;
@@ -57,14 +71,21 @@
     border-color: #008B74;
 }
 .balance-reveal-btn-icon {
-    transition: transform 0.25s ease;
+    transition: transform 0.3s ease;
+}
+.balance-reveal-btn[aria-expanded="true"] .balance-reveal-btn-icon {
+    transform: rotate(180deg);
 }
 .balance-reveal-content {
-    display: none;
     margin-top: 12px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.45s ease-out, opacity 0.35s ease-out;
 }
 .balance-reveal-content.is-visible {
-    display: block;
+    max-height: 1600px;
+    opacity: 1;
 }
 
 .water-balance-grid {
