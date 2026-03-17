@@ -7,6 +7,16 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.179] - 2026-03-17
+
+### Correctif - Badge LIVE reste vert pendant toute la durée de veille (BDD)
+- **Badge live/hors ligne** : le badge reste vert (LIVE) quand le serveur reçoit des données et durant tout le temps de veille prévu en BDD (FreqWakeUp, GPIO 116)
+- **Seuil online** : utilisation du temps de veille stocké en BDD + marge de 60 s pour éviter le passage hors ligne juste avant le prochain réveil (latence, horloge)
+- **Défaut** : seuil par défaut porté à 900 s (15 min) lorsque FreqWakeUp est absent ou invalide en BDD
+- Fichier modifié : `src/Service/Realtime/Ffp3RealtimeDataProvider.php`
+
+---
+
 ## [4.9.94] - 2026-03-08
 
 ### Ajout - Accès error_log en production et script d'analyse des erreurs

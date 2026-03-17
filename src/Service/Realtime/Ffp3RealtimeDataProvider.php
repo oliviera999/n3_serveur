@@ -16,8 +16,10 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
 {
     /** GPIO stockant FreqWakeUp (temps de veille en secondes) dans ffp3Outputs. */
     private const FREQ_WAKEUP_GPIO = 116;
-    /** Seuil par défaut si FreqWakeUp absent ou invalide en BDD. */
-    private const DEFAULT_ONLINE_THRESHOLD_SECONDS = 600;
+    /** Seuil par défaut si FreqWakeUp absent ou invalide en BDD (15 min pour couvrir une veille typique). */
+    private const DEFAULT_ONLINE_THRESHOLD_SECONDS = 900;
+    /** Marge ajoutée au seuil pour éviter de passer hors ligne juste avant le prochain réveil (latence, horloge). */
+    private const ONLINE_THRESHOLD_MARGIN_SECONDS = 60;
     private const EXPECTED_READING_INTERVAL_MINUTES = 3;
     private const ESTIMATED_LATENCY_SECONDS = 3.5;
     private const DEFAULT_UPTIME_DAYS = 30;
@@ -87,7 +89,8 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         }
 
         $secondsSinceLastReading = time() - strtotime($lastReadingDateStr);
-        $thresholdSeconds = $this->resolveOnlineThresholdSeconds();
+        // Seuil = temps de veille prévu en BDD (FreqWakeUp) + marge : le badge reste LIVE pendant toute la veille
+        $thresholdSeconds = min(86400, $this->resolveOnlineThresholdSeconds() + self::ONLINE_THRESHOLD_MARGIN_SECONDS);
         $isOnline = $secondsSinceLastReading < $thresholdSeconds;
 
         $firstReadingDateStr = $this->sensorReadRepo->getFirstReadingDate();
@@ -185,9 +188,10 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
     }
 
     /**
-     * Détermine le seuil en secondes pour considérer le module comme « live ».
-     * Utilise FreqWakeUp (GPIO 116, temps de veille) en BDD ; sinon 600 s par défaut.
-     * Le module reste live pendant FreqWakeUp secondes après la dernière mesure.
+     * Détermine le seuil en secondes pour considérer le module comme « live » (badge vert).
+     * Utilise FreqWakeUp (GPIO 116, temps de veille) en BDD ; sinon 900 s par défaut.
+     * Le badge reste LIVE quand le serveur reçoit des données ET durant tout le temps de veille
+     * prévu en BDD (le module est considéré en ligne tant que dernière_lecture + veille n’est pas dépassé).
      * Bornes : min 60 s, max 86400 s (24 h).
      */
     private function resolveOnlineThresholdSeconds(): int

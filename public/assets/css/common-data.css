@@ -448,12 +448,18 @@
     padding-bottom: 10px;
     border-bottom: 2px solid #008B74;
 }
-.filter-header i { color: #008B74; font-size: 1.2em; }
+.filter-header i {
+    color: #008B74;
+    font-size: 1.2em;
+    flex-shrink: 0;
+    line-height: 1;
+}
 .filter-header h3 {
     margin: 0;
     color: #2c3e50;
     font-size: 1.15em;
-    display: flex;
+    line-height: 1.2;
+    display: inline-flex;
     align-items: center;
     gap: 10px;
 }
