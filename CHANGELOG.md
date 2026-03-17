@@ -7,6 +7,18 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.181] - 2026-03-17
+
+### Ajouté - améliorations visuelles (fiches 01 à 09, dossier ameliorations-visuelles-iot-serveur)
+- **Variables CSS** (theme-variables.css) : --transition-smooth, --transition-bounce, --shadow-card, --shadow-card-hover (light/dark).
+- **Barre de progression** au scroll en gradient (realtime-styles.css).
+- **Back-to-top** : bouton fixe, HTML dans layout.twig, CSS dans realtime-styles.css, back-to-top.js.
+- **Liens** : soulignement animé au survol (header-content, section-header, #main .post, #footer) dans realtime-styles.css.
+- **Titres de section décoratifs** (.section-title-decorative), **blobs** (.section-with-blob), **section fond motif** (.section-bg-motif) dans common-data.css.
+- **Cards** : box-shadow via variables (stat-card, chart-container, quick-link-card, filter-section, chemistry-chart-card) dans common-data.css.
+- **Header au scroll** : classe .header-scrolled avec backdrop-filter et fond semi-transparent (realtime-styles.css), toggle dans scroll-progress.js.
+
+---
 ## [5.0.180] - 2026-03-17
 
 ### Modifié - données temps réel FFP3 et styles communs

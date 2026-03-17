@@ -15,9 +15,9 @@ html {
     position: fixed;
     top: 0;
     left: 0;
-    height: 3px;
+    height: 4px;
     width: 0%;
-    background: #008B74;
+    background: linear-gradient(90deg, var(--accent-primary, #008B74), var(--accent-primary-hover, #00A896));
     z-index: 9999;
     transition: width 0.1s ease-out;
 }
@@ -1505,4 +1505,96 @@ body.is-preload [data-aos] {
     [data-aos].sr-visible { opacity: 1 !important; transform: none !important; }
 }
 /* Sans JS : pas de .js-scroll-reveal, donc [data-aos] garde le style par défaut (visible) */
+
+/* =================================================================
+   Back-to-top (fiche 03, ameliorations visuelles)
+================================================================= */
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: var(--accent-primary, #008B74);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    transition: opacity 0.4s, visibility 0.4s, background 0.2s;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.back-to-top i {
+    font-size: 1.25rem;
+    line-height: 0;
+}
+.back-to-top:hover {
+    background: var(--accent-primary-hover, #00A896);
+    color: #fff;
+}
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top { transition: none; }
+}
+
+/* =================================================================
+   Liens underline animé (fiche 04) — contenu principal et footer, hors nav
+================================================================= */
+.header-content a,
+.section-header a,
+#main .post a,
+#footer a {
+    position: relative;
+}
+.header-content a::after,
+.section-header a::after,
+#main .post a::after,
+#footer a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+.header-content a:hover::after,
+.section-header a:hover::after,
+#main .post a:hover::after,
+#footer a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+@media (prefers-reduced-motion: reduce) {
+    .header-content a::after,
+    .section-header a::after,
+    #main .post a::after,
+    #footer a::after {
+        transition: none;
+    }
+}
+
+/* =================================================================
+   Header au scroll — blur et fond semi-transparent (fiche 09)
+================================================================= */
+#header {
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+#header.header-scrolled {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(30, 37, 45, 0.92);
+}
+[data-theme="dark"] #header.header-scrolled {
+    background: rgba(15, 23, 42, 0.92);
+}
 

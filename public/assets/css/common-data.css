@@ -15,6 +15,99 @@
 .section-header i { color: #008B74; font-size: 1.2em; }
 .section-header h3 { margin: 0; color: #2c3e50; font-size: 1.15em; }
 
+/* ----- Titres de section décoratifs (fiche 05) — scroll-reveal .sr-visible ----- */
+.section-title-decorative {
+    text-align: center;
+    padding: 30px 0;
+    position: relative;
+}
+.section-title-decorative h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+    color: var(--text-primary, #2c3e50);
+}
+.section-title-decorative span {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    line-height: 0;
+    opacity: 0;
+    transform: scale(0.98);
+    color: var(--border-light, #eef0f2);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.section-title-decorative.sr-visible span {
+    opacity: 0.5;
+    transform: scale(1.02);
+}
+.section-title-decorative p {
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+    color: var(--text-secondary, #6b7280);
+}
+@media (prefers-reduced-motion: reduce) {
+    .section-title-decorative span { transition: none; }
+}
+
+/* ----- Blobs décoratifs en arrière-plan de sections (fiche 06) ----- */
+.section-with-blob {
+    position: relative;
+    overflow: hidden;
+}
+.section-with-blob.blob-top-right::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 350px;
+    height: 350px;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: rgba(0, 139, 116, 0.06);
+    z-index: 0;
+}
+.section-with-blob.blob-bottom-left::before {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    border-radius: 40% 60% 70% 30% / 30% 70% 60% 40%;
+    background: rgba(0, 139, 116, 0.05);
+    z-index: 0;
+}
+.section-with-blob > * {
+    position: relative;
+    z-index: 1;
+}
+[data-theme="dark"] .section-with-blob.blob-top-right::before {
+    background: rgba(45, 212, 191, 0.06);
+}
+[data-theme="dark"] .section-with-blob.blob-bottom-left::before {
+    background: rgba(45, 212, 191, 0.05);
+}
+
+/* ----- Section fond motif pointillé (fiche 07) ----- */
+.section-bg-motif {
+    background-color: var(--bg-secondary, #f8f9fa);
+    background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.03) 1px, transparent 0);
+    background-size: 24px 24px;
+    background-position: 0 0;
+}
+[data-theme="dark"] .section-bg-motif {
+    background-color: var(--bg-secondary);
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+}
+
 /* Hero : défini dans realtime-styles.css (style unifié aquaponie/MSP/N3PP) */
 
 /* ----- STATS GRID (stat-cards) ----- */
@@ -29,13 +122,13 @@
     background: white;
     border-radius: 14px;
     padding: 18px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.06));
     border-left: 5px solid #bbb;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .stat-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0,139,116,0.15);
+    box-shadow: var(--shadow-card-hover, 0 6px 18px rgba(0,139,116,0.15));
 }
 
 .stat-card-icon { font-size: 1.5em; margin-bottom: 6px; color: var(--text-secondary, #6b7280); }
@@ -87,7 +180,7 @@
     border-radius: 14px;
     padding: 20px;
     margin-bottom: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.06));
 }
 .chart-container-title,
 .chart-title {
@@ -273,7 +366,7 @@
     background: rgba(255, 255, 255, 0.95);
     border-radius: 14px;
     padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-card, 0 2px 10px rgba(0, 0, 0, 0.06));
     overflow: hidden;
 }
 /* Suivi paramètres chimiques : structure MSP (titre + texte présentation au-dessus, 4 blocs 2x2) */
@@ -406,7 +499,7 @@
 [data-theme="dark"] .chemistry-chart-card,
 [data-theme="dark"] .msp-sheet-card {
     background: var(--chart-bg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-card, 0 2px 10px rgba(0, 0, 0, 0.2));
 }
 [data-theme="dark"] .msp-sheet-card-header { border-bottom-color: var(--chart-border); }
 [data-theme="dark"] .msp-sheet-card-title { color: var(--text-primary); }
@@ -437,7 +530,7 @@
     border-radius: 14px;
     padding: 20px;
     margin: 1.5rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.06));
 }
 /* Titre « Filtrage des données » : même style que .section-header (vert/orange selon page) */
 .filter-header {
@@ -694,12 +787,12 @@ button.quick-filter-btn:hover {
     background: white;
     color: #2c3e50;
     border: 1px solid rgba(0, 139, 116, 0.15);
-    box-shadow: 0 2px 10px rgba(0, 139, 116, 0.12);
+    box-shadow: var(--shadow-card, 0 2px 10px rgba(0, 139, 116, 0.12));
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .quick-link-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 139, 116, 0.22);
+    box-shadow: var(--shadow-card-hover, 0 8px 24px rgba(0, 139, 116, 0.22));
 }
 .quick-link-card i { font-size: 1.6em; color: #008B74; }
 .quick-link-title { font-weight: 700; font-size: 1.05em; }
@@ -825,10 +918,10 @@ button.quick-filter-btn:hover {
 
 [data-theme="dark"] .stat-card {
     background: var(--bg-card);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.2));
 }
 [data-theme="dark"] .stat-card:hover {
-    box-shadow: 0 6px 18px rgba(45, 212, 191, 0.15);
+    box-shadow: var(--shadow-card-hover, 0 6px 18px rgba(45, 212, 191, 0.15));
 }
 [data-theme="dark"] .stat-card-icon,
 [data-theme="dark"] .stat-card-label,
@@ -844,7 +937,7 @@ button.quick-filter-btn:hover {
 
 [data-theme="dark"] .chart-container {
     background: var(--chart-bg);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.2));
 }
 [data-theme="dark"] .chart-container-title { color: var(--text-primary); }
 [data-theme="dark"] .chart-container-title i { color: var(--accent-primary); }
@@ -853,7 +946,7 @@ button.quick-filter-btn:hover {
 
 [data-theme="dark"] .filter-section {
     background: var(--chart-bg);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.2));
 }
 [data-theme="dark"] .filter-header {
     border-bottom-color: var(--accent-primary);
@@ -954,7 +1047,7 @@ button.quick-filter-btn:hover {
     color: var(--text-primary);
     border-color: var(--accent-border);
 }
-[data-theme="dark"] .quick-link-card:hover { box-shadow: 0 8px 24px rgba(45, 212, 191, 0.2); }
+[data-theme="dark"] .quick-link-card:hover { box-shadow: var(--shadow-card-hover, 0 8px 24px rgba(45, 212, 191, 0.2)); }
 [data-theme="dark"] .quick-link-card i { color: var(--accent-primary); }
 [data-theme="dark"] .quick-link-description { color: var(--text-secondary); }
 [data-theme="dark"] .modern-table { background: var(--bg-card); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); }
