@@ -26,6 +26,7 @@ $app->get('/gallery/', [GalleryViewController::class, 'showIndex']);
 $app->get('/gallery/{slug}/files/{filename}', [GalleryViewController::class, 'serveImage']);
 $app->get('/gallery/{slug}/timelapse', [GalleryViewController::class, 'showTimelapse']);
 $app->get('/api/gallery/{slug}/photos', [GalleryViewController::class, 'listPhotos']);
+$app->get('/api/gallery/{slug}/latest', [GalleryViewController::class, 'latestPhoto']);
 $app->get('/gallery/msp1', [GalleryViewController::class, 'showMsp1']);
 $app->get('/gallery/n3pp', [GalleryViewController::class, 'showN3pp']);
 $app->get('/gallery/ffp3', [GalleryViewController::class, 'showFfp3']);

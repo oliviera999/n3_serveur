@@ -44,6 +44,43 @@ class GalleryViewController
      * Liste les fichiers image d'un dossier (ordre antéchronologique).
      * @return list<string> noms de fichiers uniquement
      */
+    /**
+     * Pagination compacte : 1 … pages voisines … dernière (évite des dizaines de liens).
+     *
+     * @return list<array{type: 'ellipsis'}|array{type: 'page', num: int}>
+     */
+    private function buildGalleryPaginationItems(int $current, int $last, int $neighbors = 2): array
+    {
+        if ($last < 2) {
+            return [];
+        }
+        if ($last <= 9) {
+            $out = [];
+            for ($p = 1; $p <= $last; $p++) {
+                $out[] = ['type' => 'page', 'num' => $p];
+            }
+
+            return $out;
+        }
+
+        $items = [['type' => 'page', 'num' => 1]];
+        $start = max(2, $current - $neighbors);
+        $end = min($last - 1, $current + $neighbors);
+
+        if ($start > 2) {
+            $items[] = ['type' => 'ellipsis'];
+        }
+        for ($p = $start; $p <= $end; $p++) {
+            $items[] = ['type' => 'page', 'num' => $p];
+        }
+        if ($end < $last - 1) {
+            $items[] = ['type' => 'ellipsis'];
+        }
+        $items[] = ['type' => 'page', 'num' => $last];
+
+        return $items;
+    }
+
     private function listImageFiles(string $uploadDir): array
     {
         if (!is_dir($uploadDir)) {
@@ -171,6 +208,7 @@ class GalleryViewController
         $basePath = trim((string) ($GLOBALS['base_path'] ?? ''), '/');
         $pathPrefix = $basePath !== '' ? '/' . $basePath . '/' : '/';
         $apiUrl = $pathPrefix . 'api/gallery/' . $slug . '/photos';
+        $apiLatestUrl = $pathPrefix . 'api/gallery/' . $slug . '/latest';
         $galleryAdminUrl = $pathPrefix . 'admin/gallery/' . $slug;
         $html = $this->renderer->render('gallery_timelapse.twig', [
             'page_title' => $meta[$slug]['title'] . ' - n3 iot datas',
@@ -179,6 +217,7 @@ class GalleryViewController
             'back_url' => $pathPrefix . ltrim((string) $meta[$slug]['back'], '/'),
             'gallery_admin_url' => $galleryAdminUrl,
             'api_photos_url' => $apiUrl,
+            'api_latest_url' => $apiLatestUrl,
             'nav_active' => $meta[$slug]['nav_active'],
             'active_page' => 'gallery',
         ]);
@@ -209,6 +248,7 @@ class GalleryViewController
                 'images' => $files,
                 'current_page' => $page,
                 'max_page' => $maxPage,
+                'pagination_items' => $this->buildGalleryPaginationItems($page, $maxPage),
                 'total_images' => $total,
                 'back_url' => $backUrl,
                 'nav_label' => $navLabel,
@@ -221,6 +261,46 @@ class GalleryViewController
             error_log(sprintf('[Gallery] slug=%s — %s: %s in %s:%d', $slug, $e::class, $e->getMessage(), $e->getFile(), $e->getLine()));
             throw $e;
         }
+    }
+
+    /**
+     * API JSON : horodatage de la photo la plus récente (nom de fichier antéchronologique).
+     * GET /api/gallery/{slug}/latest
+     * Retourne { timestamp: ISO8601|null, filename: string|null }.
+     */
+    public function latestPhoto(Request $request, Response $response, array $args): Response
+    {
+        $slug = $args['slug'] ?? '';
+        if (!in_array($slug, ['msp1', 'n3pp', 'ffp3'], true)) {
+            return $response->withStatus(404);
+        }
+
+        try {
+            $uploadDir = $this->getUploadDir($slug);
+        } catch (\Throwable) {
+            $response->getBody()->write(json_encode(['timestamp' => null, 'filename' => null]));
+            return $response->withHeader('Content-Type', 'application/json');
+        }
+
+        if (!is_dir($uploadDir) || !is_readable($uploadDir)) {
+            $response->getBody()->write(json_encode(['timestamp' => null, 'filename' => null]));
+            return $response->withHeader('Content-Type', 'application/json');
+        }
+
+        $allFiles = $this->listImageFiles($uploadDir);
+        if ($allFiles === []) {
+            $response->getBody()->write(json_encode(['timestamp' => null, 'filename' => null]));
+            return $response->withHeader('Content-Type', 'application/json');
+        }
+
+        $filename = $allFiles[0];
+        $ts = $this->extractTimestampFromFilename($uploadDir . '/' . $filename, $filename);
+        $response->getBody()->write(json_encode([
+            'timestamp' => $ts->format('c'),
+            'filename' => $filename,
+        ]));
+
+        return $response->withHeader('Content-Type', 'application/json');
     }
 
     /**

@@ -8,6 +8,70 @@
 <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/gallery-styles.css" />
 {% endblock %}
 
+{% block styles %}
+<style>
+  .gallery-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 8px;
+    margin: 1.5rem 0 0.75rem;
+    padding: 12px 14px;
+    background: #f0f4f3;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 139, 116, 0.12);
+  }
+  .gallery-pagination a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #008B74;
+    text-decoration: none;
+    background: #fff;
+    border: 1px solid rgba(0, 139, 116, 0.2);
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .gallery-pagination a:hover {
+    background: #008B74;
+    color: #fff;
+    border-color: #008B74;
+  }
+  .gallery-pagination .current {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #fff;
+    background: #008B74;
+    border: 1px solid #008B74;
+  }
+  .gallery-pagination-ellipsis {
+    color: #94a3b8;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    user-select: none;
+    padding: 0 2px;
+  }
+  .gallery-pagination .gallery-nav-prevnext {
+    min-width: auto;
+    padding: 0 14px;
+    font-size: 0.85rem;
+  }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="gallery-page">
     <div class="gallery-links" data-aos="fade-up">
@@ -41,19 +105,22 @@
         {% if max_page > 1 %}
             <nav class="gallery-pagination" aria-label="Pagination">
                 {% if current_page > 1 %}
-                    <a href="?page={{ current_page - 1 }}">&laquo; Précédent</a>
+                    <a href="?page={{ current_page - 1 }}" class="gallery-nav-prevnext">&laquo; Précédent</a>
                 {% endif %}
-                {% for p in 1..max_page %}
-                    {% if p == current_page %}
-                        <span class="current">{{ p }}</span>
+                {% for item in pagination_items %}
+                    {% if item.type == 'ellipsis' %}
+                        <span class="gallery-pagination-ellipsis" aria-hidden="true">&middot;&middot;&middot;</span>
+                    {% elseif item.num == current_page %}
+                        <span class="current" aria-current="page">{{ item.num }}</span>
                     {% else %}
-                        <a href="?page={{ p }}">{{ p }}</a>
+                        <a href="?page={{ item.num }}">{{ item.num }}</a>
                     {% endif %}
                 {% endfor %}
                 {% if current_page < max_page %}
-                    <a href="?page={{ current_page + 1 }}">Suivant &raquo;</a>
+                    <a href="?page={{ current_page + 1 }}" class="gallery-nav-prevnext">Suivant &raquo;</a>
                 {% endif %}
             </nav>
+            <p class="gallery-pagination-summary" style="text-align:center;margin:0 0 1rem;font-size:0.85rem;color:#64748b;">Page {{ current_page }} sur {{ max_page }}</p>
         {% endif %}
         <p class="gallery-photo-count">{{ total_images }} photo(s)</p>
     {% else %}

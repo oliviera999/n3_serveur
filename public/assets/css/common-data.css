@@ -648,6 +648,18 @@ button.quick-filter-btn:hover {
     color: white !important;
     box-shadow: none !important;
 }
+/* État sélectionné (timelapse, futures pages données) */
+.quick-filter-btn.active {
+    background: #008B74;
+    color: white;
+    border-color: #008B74;
+}
+button.quick-filter-btn.active {
+    background: #008B74 !important;
+    color: white !important;
+    border-color: #008B74 !important;
+    box-shadow: none !important;
+}
 .period-info {
     display: flex;
     gap: 1.5rem;
@@ -990,6 +1002,16 @@ button.quick-filter-btn:hover {
     background: var(--accent-primary) !important;
     color: white !important;
     box-shadow: none !important;
+}
+[data-theme="dark"] .quick-filter-btn.active {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+}
+[data-theme="dark"] button.quick-filter-btn.active {
+    background: var(--accent-primary) !important;
+    color: white !important;
+    border-color: var(--accent-primary) !important;
 }
 [data-theme="dark"] .period-info { color: var(--text-secondary); }
 [data-theme="dark"] .period-info i { color: var(--accent-primary); }

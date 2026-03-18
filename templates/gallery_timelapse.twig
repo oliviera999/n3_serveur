@@ -83,20 +83,17 @@
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
-  .timelapse-viewer { order: 0; }
   .timelapse-params-toggle-row {
-    order: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 14px 20px;
+    padding: 14px 20px 16px;
     background: #f0f2f4;
     border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e8e8e8;
   }
-  .timelapse-params-panel { order: 2; }
-  .timelapse-config-row { order: 0; }
-  .timelapse-controls { order: 3; }
+  .timelapse-params-panel:not(.timelapse-params-panel--hidden) {
+    border-top: 1px solid #e8e8e8;
+  }
 
   .timelapse-config-row {
     display: grid;
@@ -194,34 +191,13 @@
     border-bottom: 2px solid #008B74;
   }
   .timelapse-section-label i { color: #008B74; font-size: 1.1em; }
-  .timelapse-range-btns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  /* Plage / vitesse : mêmes boutons que filtrage aquaponie (quick-filter-btn, common-data.css) */
+  .timelapse-section .quick-filters {
     margin-bottom: 12px;
+    margin-top: 0;
   }
-  .timelapse-range-btn, .timelapse-speed-btn {
-    display: flex;
-    align-items: center;
+  .timelapse-section .quick-filters--center {
     justify-content: center;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 0.85em;
-    font-weight: 600;
-    cursor: pointer;
-    background: rgba(0,139,116,0.08);
-    color: #008B74;
-    border: 1px solid rgba(0,139,116,0.15);
-    transition: all 0.2s;
-  }
-  .timelapse-range-btn:hover, .timelapse-speed-btn:hover {
-    background: #008B74;
-    color: white;
-  }
-  .timelapse-range-btn.active, .timelapse-speed-btn.active {
-    background: #008B74;
-    color: white;
-    border-color: #008B74;
   }
   .timelapse-date-grid {
     display: grid;
@@ -251,12 +227,6 @@
   .timelapse-date-row input:focus {
     border-color: #008B74;
     box-shadow: 0 0 0 2px rgba(0,139,116,0.2);
-  }
-  .timelapse-speed-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
   }
   .timelapse-stat-row {
     display: flex;
@@ -505,7 +475,7 @@
     .timelapse-params-toggle { width: 100%; max-width: 320px; padding: 12px 18px; }
     .timelapse-grid {
       grid-template-columns: 1fr;
-      grid-template-rows: auto auto minmax(0, auto) auto;
+      grid-template-rows: auto auto auto minmax(0, auto);
       gap: 0;
       min-height: unset;
       border-radius: 12px;
@@ -528,10 +498,7 @@
       border-bottom: 1px solid var(--border);
     }
     .timelapse-config-col:last-child { border-bottom: none; }
-    .timelapse-params-toggle-row { order: 1; }
-    .timelapse-viewer { order: 0; }
-    .timelapse-params-panel { order: 2; }
-    .timelapse-controls { order: 3; border-bottom: 1px solid var(--border); }
+    .timelapse-controls { border-bottom: 1px solid var(--border); }
     .timelapse-config-row .timelapse-section {
       padding: 10px 12px;
       border-bottom: 1px solid var(--border);
@@ -541,18 +508,10 @@
       min-width: 22px;
       min-height: 22px;
     }
-    .timelapse-range-btns {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-    .timelapse-range-btn, .timelapse-speed-btn {
+    .timelapse-section .quick-filters .quick-filter-btn {
       min-height: 44px;
-      padding: 10px 8px;
+      padding: 10px 14px;
       font-size: 0.8rem;
-    }
-    .timelapse-speed-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
     }
     .timelapse-btn {
       min-height: 44px;
@@ -619,8 +578,6 @@
   /* Très petits écrans (< 400px) */
   @media (max-width: 400px) {
     .timelapse-hero h1 { font-size: 1.2em; }
-    .timelapse-range-btns { grid-template-columns: repeat(2, 1fr); }
-    .timelapse-speed-grid { grid-template-columns: repeat(2, 1fr); }
     .timelapse-ctrl-btn { width: 38px; height: 38px; min-width: 38px; min-height: 38px; }
     .timelapse-ctrl-btn.play-pause { width: 44px; height: 44px; min-width: 44px; min-height: 44px; }
   }
@@ -668,6 +625,30 @@
       </div>
     </div>
 
+    <div class="timelapse-controls">
+      <div>
+        <div class="timelapse-scrubber-wrap" id="scrubberWrap">
+          <div class="timelapse-scrubber-track">
+            <div class="timelapse-scrubber-fill" id="scrubberFill" style="width:0%"></div>
+          </div>
+          <input type="range" id="scrubber" min="0" max="100" value="0" step="1">
+        </div>
+        <div class="timelapse-time-labels">
+          <span id="timeStart">--</span>
+          <span id="timeCurrent" style="color:var(--accent)">--</span>
+          <span id="timeEnd">--</span>
+        </div>
+      </div>
+      <div class="timelapse-playback-row">
+        <button class="timelapse-ctrl-btn" id="btnFirst" title="Première image">⏮</button>
+        <button class="timelapse-ctrl-btn" id="btnPrev" title="Image précédente">◀</button>
+        <button class="timelapse-ctrl-btn play-pause" id="btnPlay" title="Lecture/Pause">▶</button>
+        <button class="timelapse-ctrl-btn" id="btnNext" title="Image suivante">▶</button>
+        <button class="timelapse-ctrl-btn" id="btnLast" title="Dernière image">⏭</button>
+        <button class="timelapse-live-btn" id="btnLive"><span class="timelapse-live-dot"></span>Dernière image</button>
+      </div>
+    </div>
+
     <div class="timelapse-params-toggle-row">
       <button type="button" class="timelapse-params-toggle" id="btnTimelapseParams" aria-expanded="false" aria-controls="timelapseParamsPanel">
         <i class="fas fa-cog"></i>
@@ -680,13 +661,14 @@
     <div class="timelapse-config-row">
       <div class="timelapse-config-col timelapse-config-left">
         <input type="hidden" id="apiUrl" value="{{ api_photos_url }}">
+        <input type="hidden" id="apiLatestUrl" value="{{ api_latest_url }}">
         <div class="timelapse-section">
           <div class="timelapse-section-label"><i class="fas fa-calendar-alt"></i> Plage temporelle</div>
-          <div class="timelapse-range-btns">
-            <button class="timelapse-range-btn" data-hours="6">6 h</button>
-            <button class="timelapse-range-btn active" data-hours="24">24 h</button>
-            <button class="timelapse-range-btn" data-hours="48">48 h</button>
-            <button class="timelapse-range-btn" data-hours="168">7 j</button>
+          <div class="quick-filters">
+            <button type="button" class="quick-filter-btn timelapse-range-btn" data-hours="6">6 h</button>
+            <button type="button" class="quick-filter-btn timelapse-range-btn active" data-hours="24">24 h</button>
+            <button type="button" class="quick-filter-btn timelapse-range-btn" data-hours="48">48 h</button>
+            <button type="button" class="quick-filter-btn timelapse-range-btn" data-hours="168">7 j</button>
           </div>
           <div class="timelapse-date-grid">
             <div class="timelapse-date-row">
@@ -702,12 +684,12 @@
         </div>
         <div class="timelapse-section">
           <div class="timelapse-section-label"><i class="fas fa-tachometer-alt"></i> Vitesse</div>
-          <div class="timelapse-speed-grid">
-            <button class="timelapse-speed-btn" data-fps="2">½×</button>
-            <button class="timelapse-speed-btn" data-fps="12">1×</button>
-            <button class="timelapse-speed-btn active" data-fps="24">2×</button>
-            <button class="timelapse-speed-btn" data-fps="60">4×</button>
-            <button class="timelapse-speed-btn" data-fps="120">8×</button>
+          <div class="quick-filters quick-filters--center">
+            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="2">½×</button>
+            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="12">1×</button>
+            <button type="button" class="quick-filter-btn timelapse-speed-btn active" data-fps="24">2×</button>
+            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="60">4×</button>
+            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="120">8×</button>
           </div>
           <div style="font-size:0.7rem;color:var(--text-dim);margin-top:6px;text-align:center" id="fpsLabel">24 fps</div>
         </div>
@@ -733,30 +715,6 @@
       </div>
     </div>
     </div>
-
-    <div class="timelapse-controls">
-      <div>
-        <div class="timelapse-scrubber-wrap" id="scrubberWrap">
-          <div class="timelapse-scrubber-track">
-            <div class="timelapse-scrubber-fill" id="scrubberFill" style="width:0%"></div>
-          </div>
-          <input type="range" id="scrubber" min="0" max="100" value="0" step="1">
-        </div>
-        <div class="timelapse-time-labels">
-          <span id="timeStart">--</span>
-          <span id="timeCurrent" style="color:var(--accent)">--</span>
-          <span id="timeEnd">--</span>
-        </div>
-      </div>
-      <div class="timelapse-playback-row">
-        <button class="timelapse-ctrl-btn" id="btnFirst" title="Première image">⏮</button>
-        <button class="timelapse-ctrl-btn" id="btnPrev" title="Image précédente">◀</button>
-        <button class="timelapse-ctrl-btn play-pause" id="btnPlay" title="Lecture/Pause">▶</button>
-        <button class="timelapse-ctrl-btn" id="btnNext" title="Image suivante">▶</button>
-        <button class="timelapse-ctrl-btn" id="btnLast" title="Dernière image">⏭</button>
-        <button class="timelapse-live-btn" id="btnLive"><span class="timelapse-live-dot"></span>Dernière image</button>
-      </div>
-    </div>
   </div>
 </div>
 <div class="timelapse-toast" id="toast"></div>
@@ -765,7 +723,7 @@
 {% block scripts %}
 <script>
 const CONFIG = { defaultFps: 24, bufferSize: 40, preloadAhead: 20 };
-let state = { frames: [], currentIndex: 0, fps: CONFIG.defaultFps, isPlaying: false, playInterval: null, isLive: false, liveTimer: null, totalLoaded: 0, recording: false, mediaRecorder: null, recordedChunks: [] };
+let state = { frames: [], currentIndex: 0, fps: CONFIG.defaultFps, isPlaying: false, playInterval: null, isLive: false, liveTimer: null, totalLoaded: 0, recording: false, mediaRecorder: null, recordedChunks: [], latestPhotoAt: null };
 const BASE = '{{ base_path|default('') }}';
 function ensureAbsoluteUrl(url) {
   if (!url || url.startsWith('http') || url.startsWith('//')) return url;
@@ -1032,14 +990,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Par défaut : dernières 24h, chargement immédiat pour que le timelapse soit déjà chargé à l'arrivée
+  // Plage par défaut : 24 h se terminant à l’horodatage de la dernière photo (sinon maintenant)
   const DEFAULT_HOURS = 24;
-  setDateRange(DEFAULT_HOURS);
-  const now = new Date();
-  const fromDefault = new Date(now.getTime() - DEFAULT_HOURS * 3600000);
-  loadRange(fromDefault, now);
+  (async function bootstrapTimelapse() {
+    const latest = await fetchLatestPhotoTimestamp();
+    state.latestPhotoAt = latest;
+    const end = latest instanceof Date ? latest : new Date();
+    const fromDefault = new Date(end.getTime() - DEFAULT_HOURS * 3600000);
+    setDateRangeFromBounds(fromDefault, end);
+    await loadRange(fromDefault, end);
+  })();
 
-  document.querySelectorAll('.timelapse-range-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-range-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); setDateRange(parseInt(btn.dataset.hours)); }); });
+  document.querySelectorAll('.timelapse-range-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-range-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); setDateRange(parseInt(btn.dataset.hours, 10)); }); });
   document.querySelectorAll('.timelapse-speed-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-speed-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); state.fps = parseInt(btn.dataset.fps); document.getElementById('fpsLabel').textContent = state.fps + ' fps'; if (state.isPlaying) { stopPlay(); startPlay(); } updateStats(); }); });
   document.getElementById('btnLoad').addEventListener('click', loadRange);
   document.getElementById('btnPlay').addEventListener('click', () => { if (state.isPlaying) stopPlay(); else startPlay(); });
