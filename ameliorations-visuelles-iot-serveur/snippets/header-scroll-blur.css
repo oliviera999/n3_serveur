@@ -1,0 +1,12 @@
+/* Header qui réagit au scroll : hauteur réduite + backdrop-filter (style index.olution)
+   À adapter au header actuel du serveur (structure différente : #header + #nav) */
+
+#header {
+  transition: height 0.3s ease, background 0.3s ease;
+}
+#header.header-scrolled {
+  /* Exemple : réduire hauteur si le header a une taille fixe */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(30, 37, 45, 0.92);
+}

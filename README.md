@@ -2,12 +2,12 @@
 
 Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collecte des données (msp1, n3pp, ffp3), contrôle des sorties, galeries photo.
 
-- **`site initial/`** : ancienne version des fichiers serveur (archive). **Ne pas modifier** — conservé pour consultation uniquement (référence, comparaison, historique).
+- **`archives/site-initial/`** : ancienne version des fichiers serveur (archive). **Ne pas modifier** — conservé pour consultation uniquement (référence, comparaison, historique).
 
-- **`ffp3/`** : sous-projet historique. Scripts (`bin/`, `tools/`, `scripts/`) et doc utiles. Les doublons (src, config, templates, vendor) ont été supprimés — le code actif est dans `serveur/src/`. Voir section « Scripts FFP3 » ci-dessous.
+- **`archives/ffp3/`** : ancien sous-projet FFP3 (archive). Un extrait des fichiers utiles pour analyse est dans **`analyse-ffp3/`**. Le code actif est dans `src/`, `config/`, `templates/` ; les outils PHP de diagnostic sont dans **`tools/`**. Voir section « Scripts FFP3 » ci-dessous.
 
 - **Point d’entrée** : `public/index.php` (front controller unique).
-- **Documentation détaillée** : voir [ffp3/README.md](ffp3/README.md) pour l’architecture, la configuration et les environnements PROD/TEST.
+- **Documentation détaillée** : voir [archives/ffp3/README.md](archives/ffp3/README.md) pour l’architecture FFP3, ou [analyse-ffp3/README.md](analyse-ffp3/README.md) pour l’extrait à analyser.
 
 ## Test local rapide
 
@@ -43,15 +43,15 @@ Comportement local actuel :
 
 ## Scripts de déploiement et de test (FFP3)
 
-Le dossier **`ffp3/`** est un sous-projet historique / archive. Il contient des scripts utiles (`bin/`, `tools/`, `scripts/`) et de la documentation. Les doublons (`ffp3/src/`, `ffp3/config/`, `ffp3/templates/`, `ffp3/vendor/`) ont été supprimés. Le code actif du serveur est dans `serveur/src/`, `serveur/config/`, `serveur/templates/`. Le point d'entrée réel est `public/index.php`.
+Le dossier **`archives/ffp3/`** contient l’archive de l’ancien sous-projet FFP3. Un **extrait utile** (scripts bin/tools, doc) est dans **`analyse-ffp3/`**. Le code actif du serveur est dans `src/`, `config/`, `templates/` ; le point d’entrée réel est `public/index.php`. Les **outils PHP** de diagnostic (vérification tables, environnements, etc.) sont dans **`tools/`** (versions de référence avec .env).
 
-Les scripts de déploiement, diagnostic et test liés à FFP3 se trouvent dans **`ffp3/`** :
+Scripts FFP3 (extrait dans **`analyse-ffp3/`** ou archive **`archives/ffp3/`**) :
 
-- **`ffp3/bin/`** : `deploy.sh`, `DEPLOY_NOW.sh` (à la racine ffp3), `deploy_diagnostics.sh`, etc.
-- **`ffp3/tools/`** : tests POST, diagnostic (quick_diagnostic.sh, test_post_data.sh, etc.).
-- **`ffp3/scripts/`** : utilitaires (ex. copy_photos_aquaponie.ps1).
+- **`analyse-ffp3/bin/`** ou **`archives/ffp3/bin/`** : `deploy.sh`, `deploy_diagnostics.sh`, `deploy_endpoints.ps1`, etc.
+- **`analyse-ffp3/tools/`** ou **`archives/ffp3/tools/`** : scripts .sh/.ps1 de test POST, diagnostic (quick_diagnostic.sh, test_post_data.sh, etc.).
+- **`analyse-ffp3/scripts/`** : ex. copy_photos_aquaponie.ps1.
 
-**À exécuter depuis la racine de `ffp3/`** (répertoire contenant `composer.json`), sauf indication contraire dans le script ou dans `ffp3/bin/README.md`.
+Pour les scripts PHP de diagnostic (tables, environnements), utiliser **`tools/`** à la racine du serveur.
 
 ## Configuration serveur (URLs /ffp3/*)
 

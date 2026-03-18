@@ -1,0 +1,39 @@
+/* Underline animé pour les liens (style index.olution.info)
+   Cibler : #main a, .contact a, .section-title a, .section-header a (hors nav) */
+
+.hero-data a,
+.section-header a,
+#main .post a,
+.contact a {
+  position: relative;
+}
+.hero-data a::after,
+.section-header a::after,
+#main .post a::after,
+.contact a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-out;
+}
+.hero-data a:hover::after,
+.section-header a:hover::after,
+#main .post a:hover::after,
+.contact a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-data a::after,
+  .section-header a::after,
+  #main .post a::after,
+  .contact a::after {
+    transition: none;
+  }
+}

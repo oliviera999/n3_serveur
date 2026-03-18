@@ -353,7 +353,7 @@ $otaHandler = function (Request $request, Response $response, array $args): Resp
 
 // Fichiers OTA (n3pp, msp, cam, ffp3) — servis depuis serveur/ota/
 $app->get('/ota/{path:.+}', $otaHandler);
-// /ffp3/ota/* : même contenu (URL utilisée par firmware ESP32, pas de redirection 301)
+// /ffp3/ota/* : alias legacy (firmware ffp5cs >= 13.12 utilise /ota/)
 $app->get('/ffp3/ota/{path:.+}', $otaHandler);
 
 // Ping / diagnostic latence - PUBLIC (GET et POST, réponse minimale, pas de BDD)

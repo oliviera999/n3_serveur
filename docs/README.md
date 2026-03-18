@@ -125,7 +125,7 @@
 ## 📊 Documentation Structure
 
 ```
-ffp3/
+archives/ffp3/   (ou extrait dans analyse-ffp3/)
 ├── README.md                      # Main documentation
 ├── CHANGELOG.md                   # Version history
 ├── VERSION                        # Current version

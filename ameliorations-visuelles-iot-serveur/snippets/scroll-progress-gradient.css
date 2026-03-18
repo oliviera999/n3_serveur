@@ -1,0 +1,16 @@
+/* Barre de progression au scroll — gradient (style index.olution.info)
+   Remplacer la barre unie dans realtime-styles.css */
+
+#scroll-progress.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-primary, #008B74), var(--accent-primary-hover, #00A896));
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  #scroll-progress.scroll-progress { display: none !important; }
+}

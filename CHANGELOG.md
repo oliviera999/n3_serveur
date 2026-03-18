@@ -1,31 +1,46 @@
 # Changelog FFP3 Datas
 
-Toutes les modifications notables de ce projet seront documentÃ©es dans ce fichier.
+Toutes les modifications notables de ce projet seront documentées dans ce fichier.
 
-Le format est basÃ© sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
-et ce projet adhÃ¨re Ã  [Semantic Versioning](https://semver.org/lang/fr/).
+Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
+et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
+
+---
+
+## [5.0.189] - 2026-03-17
+
+### Modifié - Libellés courts filtrage par période
+- **Templates** : champs date/heure du bloc filtrage affichent **debut** et **fin** (pages données génériques, MSP1, N3PP, marées, aquaponie, timelapse).
+
+---
+
+## [5.0.188] - 2026-03-18
+
+### Modifié - OTA ffp5cs sur /ota/
+- **serveur/ota/metadata.json** : URLs `https://iot.olution.info/ota/...` (alignement firmware ffp5cs 13.12+).
+- **index.php** : commentaire alias legacy `/ffp3/ota/`.
 
 ---
 
 ## [5.0.187] - 2026-03-18
 
-### ModifiÃ© - timelapse : boutons plage / vitesse = style aquaponie
-- MÃªmes classes `quick-filter-btn` que filtrage 1h/3h aquaponie ; Ã©tat actif dans common-data.css.
+### Modifié - timelapse : boutons plage / vitesse = style aquaponie
+- M?mes classes `quick-filter-btn` que filtrage 1h/3h aquaponie ; état actif dans common-data.css.
 
 ---
 
 ## [5.0.186] - 2026-03-18
 
-### ModifiÃ© - galeries (admin) : pagination compacte
-- **Galerie classique** : au lieu d'afficher tous les numÃ©ros de page, affichage compact (dÃ©but ... milieu ... fin) + libellÃ© Page x sur y.
+### Modifié - galeries (admin) : pagination compacte
+- **Galerie classique** : au lieu d'afficher tous les numéros de page, affichage compact (début ... milieu ... fin) + libellé Page x sur y.
 
 ---
 
 ## [5.0.185] - 2026-03-18
 
-### ModifiÃ© - timelapse : plage par dÃ©faut ancrÃ©e sur la derniÃ¨re photo
+### Modifié - timelapse : plage par défaut ancrée sur la derni?re photo
 - **API** : GET /api/gallery/{slug}/latest (timestamp + filename, ou null si galerie vide).
-- **Timelapse** : plage par dÃ©faut et boutons 6 h / 24 h / 48 h / 7 j : fin = horodatage de la derniÃ¨re photo (sinon maintenant).
+- **Timelapse** : plage par défaut et boutons 6 h / 24 h / 48 h / 7 j : fin = horodatage de la derni?re photo (sinon maintenant).
 
 ---
 ## [5.0.184] - 2026-03-18

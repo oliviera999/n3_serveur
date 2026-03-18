@@ -1,0 +1,35 @@
+/* Blobs décoratifs en arrière-plan de sections (style index.olution.info)
+   Appliquer .section-with-blob et variantes .blob-top-right / .blob-bottom-left sur une section */
+
+.section-with-blob {
+  position: relative;
+  overflow: hidden;
+}
+/* Blob en haut à droite (ex. #about) */
+.section-with-blob.blob-top-right::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 350px;
+  height: 350px;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  background: rgba(0, 139, 116, 0.06);
+  z-index: 0;
+}
+/* Blob en bas à gauche (ex. #results) */
+.section-with-blob.blob-bottom-left::before {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 40% 60% 70% 30% / 30% 70% 60% 40%;
+  background: rgba(0, 139, 116, 0.05);
+  z-index: 0;
+}
+.section-with-blob > * {
+  position: relative;
+  z-index: 1;
+}

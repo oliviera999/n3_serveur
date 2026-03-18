@@ -1,0 +1,13 @@
+/* Utilisation des variables shadow sur les cartes (après ajout dans theme-variables.css)
+   À appliquer sur .stat-card, .chart-container, .quick-link-card, .filter-section */
+
+.stat-card,
+.chart-container,
+.quick-link-card {
+  box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.06));
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.stat-card:hover,
+.quick-link-card:hover {
+  box-shadow: var(--shadow-card-hover, 0 6px 18px rgba(0,139,116,0.15));
+}

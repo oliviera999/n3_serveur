@@ -1,0 +1,44 @@
+/* Titre de section avec fond décoratif (style index.olution.info)
+   Le serveur utilise scroll-reveal.js : ajouter .sr-visible sur le parent pour révéler le span */
+
+.section-title-decorative {
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+}
+.section-title-decorative h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+  color: var(--text-primary, #2c3e50);
+}
+.section-title-decorative span {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  line-height: 0;
+  opacity: 0;
+  transform: scale(0.98);
+  color: var(--border-light, #eef0f2);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.section-title-decorative.sr-visible span {
+  opacity: 0.5;
+  transform: scale(1.02);
+}
+.section-title-decorative p {
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+  color: var(--text-secondary, #6b7280);
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-title-decorative span { transition: none; }
+}
