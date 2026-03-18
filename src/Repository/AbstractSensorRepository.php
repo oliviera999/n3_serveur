@@ -55,6 +55,17 @@ abstract class AbstractSensorRepository extends AbstractRepository
     }
 
     /**
+     * Retourne la date/heure de la première mesure (début du fonctionnement du module), ou null si aucune donnée.
+     */
+    public function getFirstReadingDate(): ?string
+    {
+        $table = $this->getTableName();
+        $sql = "SELECT MIN(reading_time) AS first_date FROM `{$table}`";
+        $result = $this->fetchOne($sql);
+        return isset($result['first_date']) ? (string) $result['first_date'] : null;
+    }
+
+    /**
      * Compte le nombre de mesures reçues aujourd'hui.
      */
     public function countReadingsToday(): int

@@ -74,7 +74,7 @@
   .timelapse-grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(320px, 1fr) auto auto;
+    grid-template-rows: minmax(320px, 1fr) auto auto auto;
     gap: 0;
     min-height: 480px;
     background: rgba(255,255,255,0.95);
@@ -84,8 +84,19 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
   .timelapse-viewer { order: 0; }
-  .timelapse-config-row { order: 1; }
-  .timelapse-controls { order: 2; }
+  .timelapse-params-toggle-row {
+    order: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 20px;
+    background: #f0f2f4;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .timelapse-params-panel { order: 2; }
+  .timelapse-config-row { order: 0; }
+  .timelapse-controls { order: 3; }
 
   .timelapse-config-row {
     display: grid;
@@ -441,22 +452,25 @@
   .timelapse-params-toggle {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 8px 16px;
-    margin-top: 1rem;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 8px;
-    color: white;
-    font-size: 0.9em;
+    padding: 10px 22px;
+    margin: 0;
+    background: rgba(0,139,116,0.1);
+    border: 1px solid rgba(0,139,116,0.25);
+    border-radius: 10px;
+    color: #008B74;
+    font-size: 0.95em;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
   }
   .timelapse-params-toggle:hover {
-    background: rgba(255,255,255,0.3);
-    border-color: rgba(255,255,255,0.6);
+    background: #008B74;
+    border-color: #008B74;
+    color: #fff;
   }
+  .timelapse-params-toggle:hover i { color: #fff; }
   .timelapse-params-toggle i.fa-chevron-down { transition: transform 0.2s; }
   .timelapse-params-toggle[aria-expanded="true"] i.fa-chevron-down { transform: rotate(180deg); }
   .timelapse-params-panel { transition: opacity 0.2s ease-out; }
@@ -487,10 +501,11 @@
     .timelapse-hero h1 { font-size: 1.35em; }
     .timelapse-hero p { font-size: 0.85em; }
     .timelapse-status { font-size: 0.75em; margin-top: 0.5rem; }
-    .timelapse-params-toggle { width: 100%; justify-content: center; margin-top: 0.75rem; padding: 10px 16px; }
+    .timelapse-params-toggle-row { padding: 12px 14px; }
+    .timelapse-params-toggle { width: 100%; max-width: 320px; padding: 12px 18px; }
     .timelapse-grid {
       grid-template-columns: 1fr;
-      grid-template-rows: auto minmax(0, auto) auto;
+      grid-template-rows: auto auto minmax(0, auto) auto;
       gap: 0;
       min-height: unset;
       border-radius: 12px;
@@ -507,15 +522,16 @@
       overflow-y: auto;
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
-      order: 1;
     }
     .timelapse-config-col {
       border-right: none;
       border-bottom: 1px solid var(--border);
     }
     .timelapse-config-col:last-child { border-bottom: none; }
+    .timelapse-params-toggle-row { order: 1; }
     .timelapse-viewer { order: 0; }
-    .timelapse-controls { order: 2; border-bottom: 1px solid var(--border); }
+    .timelapse-params-panel { order: 2; }
+    .timelapse-controls { order: 3; border-bottom: 1px solid var(--border); }
     .timelapse-config-row .timelapse-section {
       padding: 10px 12px;
       border-bottom: 1px solid var(--border);
@@ -630,11 +646,6 @@
         <span style="opacity:0.5">|</span>
         <span id="clock">--:--:--</span>
       </div>
-      <button type="button" class="timelapse-params-toggle" id="btnTimelapseParams" aria-expanded="false" aria-controls="timelapseParamsPanel">
-        <i class="fas fa-cog"></i>
-        <span id="timelapseParamsLabel">Paramètres du timelapse</span>
-        <i class="fas fa-chevron-down"></i>
-      </button>
     </div>
   </div>
 
@@ -655,6 +666,14 @@
         <div class="timelapse-spinner"></div>
         <span id="loadingText">Chargement...</span>
       </div>
+    </div>
+
+    <div class="timelapse-params-toggle-row">
+      <button type="button" class="timelapse-params-toggle" id="btnTimelapseParams" aria-expanded="false" aria-controls="timelapseParamsPanel">
+        <i class="fas fa-cog"></i>
+        <span id="timelapseParamsLabel">Paramètres du timelapse</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
     </div>
 
     <div class="timelapse-params-panel timelapse-params-panel--hidden" id="timelapseParamsPanel">
@@ -845,9 +864,14 @@ function goTo(idx) {
   renderFrame(state.frames[state.currentIndex]);
   preloadAround(state.currentIndex);
 }
-async function loadRange() {
-  const from = new Date(document.getElementById('dateFrom').value);
-  const to = new Date(document.getElementById('dateTo').value);
+/**
+ * Charge les images pour la plage indiquée.
+ * Si from/to sont fournis (Date), ils sont utilisés ; sinon lecture depuis les champs Début/Fin.
+ * Utilisé au chargement de la page avec les dernières 24h par défaut.
+ */
+async function loadRange(fromOrNull, toOrNull) {
+  let from = fromOrNull != null ? fromOrNull : new Date(document.getElementById('dateFrom').value);
+  let to = toOrNull != null ? toOrNull : new Date(document.getElementById('dateTo').value);
   if (isNaN(from) || isNaN(to) || from >= to) { showToast('Plage invalide', 'error'); return; }
   stopPlay();
   showLoading('Récupération des métadonnées...');
@@ -991,15 +1015,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const paramsPanel = document.getElementById('timelapseParamsPanel');
   const paramsBtn = document.getElementById('btnTimelapseParams');
   const paramsLabel = document.getElementById('timelapseParamsLabel');
-  paramsBtn.addEventListener('click', () => {
-    const isHidden = paramsPanel.classList.contains('timelapse-params-panel--hidden');
-    paramsPanel.classList.toggle('timelapse-params-panel--hidden', !isHidden);
-    paramsBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-    paramsLabel.textContent = isHidden ? 'Masquer les paramètres' : 'Paramètres du timelapse';
-  });
+  if (paramsPanel && paramsBtn && paramsLabel) {
+    paramsBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isHidden = paramsPanel.classList.contains('timelapse-params-panel--hidden');
+      if (isHidden) {
+        paramsPanel.classList.remove('timelapse-params-panel--hidden');
+        paramsBtn.setAttribute('aria-expanded', 'true');
+        paramsLabel.textContent = 'Masquer les paramètres';
+        paramsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        paramsPanel.classList.add('timelapse-params-panel--hidden');
+        paramsBtn.setAttribute('aria-expanded', 'false');
+        paramsLabel.textContent = 'Paramètres du timelapse';
+      }
+    });
+  }
 
-  setDateRange(24);
-  loadRange();
+  // Par défaut : dernières 24h, chargement immédiat pour que le timelapse soit déjà chargé à l'arrivée
+  const DEFAULT_HOURS = 24;
+  setDateRange(DEFAULT_HOURS);
+  const now = new Date();
+  const fromDefault = new Date(now.getTime() - DEFAULT_HOURS * 3600000);
+  loadRange(fromDefault, now);
+
   document.querySelectorAll('.timelapse-range-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-range-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); setDateRange(parseInt(btn.dataset.hours)); }); });
   document.querySelectorAll('.timelapse-speed-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-speed-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); state.fps = parseInt(btn.dataset.fps); document.getElementById('fpsLabel').textContent = state.fps + ' fps'; if (state.isPlaying) { stopPlay(); startPlay(); } updateStats(); }); });
   document.getElementById('btnLoad').addEventListener('click', loadRange);

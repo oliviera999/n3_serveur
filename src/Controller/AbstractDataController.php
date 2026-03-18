@@ -113,6 +113,12 @@ abstract class AbstractDataController
         $chartsConfig = $this->getChartsConfig();
         $chartIds = array_column($chartsConfig, 'id');
 
+        $firstReadingDate = $this->sensorRepo->getFirstReadingDate();
+        $now = date('Y-m-d H:i:s');
+        $tempsTotalModule = $firstReadingDate !== null
+            ? DurationFormatter::short($firstReadingDate, $now)
+            : null;
+
         $context = [
             'page_title' => $this->getPageTitle($testSuffix),
             'nav_active' => $this->getNavActive(),
@@ -129,6 +135,7 @@ abstract class AbstractDataController
             'end_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $endDate),
             'measure_count' => $measureCount,
             'duration_str' => DurationFormatter::short($startDate, $endDate),
+            'temps_total_module' => $tempsTotalModule,
             'firmware_version' => $this->sensorRepo->getFirmwareVersion(),
             'version' => Version::getWithPrefix(),
         ];

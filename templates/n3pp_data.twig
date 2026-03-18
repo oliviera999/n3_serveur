@@ -188,6 +188,12 @@
                 <span><i class="fas fa-database"></i> {{ measure_count }} mesures</span>
                 <span><i class="fas fa-clock"></i> {{ duration_str }}</span>
             </div>
+            <!-- Temps total depuis le début du fonctionnement du module -->
+            <div class="filter-module-uptime" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9em;">
+                <i class="fas fa-clock"></i>
+                <strong>Temps total depuis le début du fonctionnement du module :</strong>
+                <span id="module-uptime-total">{% if temps_total_module %}{{ temps_total_module }}{% else %}—{% endif %}</span>
+            </div>
         </div>
 
         {% embed 'partials/_system_health_panel.twig' with { health_panel_title: 'État du système' } %}
