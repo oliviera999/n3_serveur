@@ -1,7 +1,6 @@
 {
-  "version": "4.16",
-  "min_version": "4.16",
+  "version": "4.17",
+  "min_version": "4.17",
   "url": "https://iot.olution.info/ota/n3pp/firmware.bin",
-  "sha256": "08037b20dd1cb5174a7bc5d69484c850fb15e6bc462865df3086006835ad5612",
-  "signature": "MIGHAkIBIoTz4rzjOz1Axb+KukmwpdX98/8CYpWs1oqsnPy8+nHIlod35+C5Bsa0agUMXt9XXVQfGomIL32JDyhp1QpGT4YCQS++I2kI25n8BSWHvcrr06xCaa8vKLjcpe2cUnCJcr09j1k8thsbtlrxsFlALZMHFIwcQsuyM6jiDbtkqQEso4Vx"
+  "sha256": "2caa79ae6d03472e80672b09d3862e3e5b825b86c98f8621a8e140b7bf1c4d2e"
 }
