@@ -245,6 +245,107 @@ class GalleryTrashService
         return $counts;
     }
 
+    /**
+     * Rejoue l'analyse auto sur une galerie complete (photos deja presentes).
+     *
+     * @return array{
+     *   scanned:int,
+     *   moved:int,
+     *   skipped:int,
+     *   failed:int,
+     *   by_reason: array<string,int>
+     * }
+     */
+    public function autoSortGallery(string $slug): array
+    {
+        $this->validateSlug($slug);
+        $galleryDir = $this->getGalleryDir($slug);
+        if (!is_dir($galleryDir)) {
+            return [
+                'scanned' => 0,
+                'moved' => 0,
+                'skipped' => 0,
+                'failed' => 0,
+                'by_reason' => [],
+            ];
+        }
+
+        $result = [
+            'scanned' => 0,
+            'moved' => 0,
+            'skipped' => 0,
+            'failed' => 0,
+            'by_reason' => [],
+        ];
+
+        foreach (scandir($galleryDir) as $name) {
+            if ($name === '.' || $name === '..') {
+                continue;
+            }
+
+            $path = $galleryDir . '/' . $name;
+            $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+            if (!is_file($path) || !in_array($ext, ['jpg', 'jpeg'], true)) {
+                continue;
+            }
+
+            if (!preg_match(self::FILENAME_PATTERN, $name)) {
+                $result['failed']++;
+                continue;
+            }
+
+            $result['scanned']++;
+            $analysis = $this->analyzeImage($path);
+            if (($analysis['quality'] ?? 'corrupted') === 'ok') {
+                $result['skipped']++;
+                continue;
+            }
+
+            $reason = (string) ($analysis['quality'] ?? 'corrupted');
+            if ($this->moveToTrash($slug, $name, $reason)) {
+                $result['moved']++;
+                $result['by_reason'][$reason] = ($result['by_reason'][$reason] ?? 0) + 1;
+            } else {
+                $result['failed']++;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Rejoue l'analyse auto pour toutes les galeries.
+     *
+     * @return array{
+     *   scanned:int,
+     *   moved:int,
+     *   skipped:int,
+     *   failed:int,
+     *   by_slug: array<string,array{scanned:int,moved:int,skipped:int,failed:int,by_reason:array<string,int>}>
+     * }
+     */
+    public function autoSortAllGalleries(): array
+    {
+        $global = [
+            'scanned' => 0,
+            'moved' => 0,
+            'skipped' => 0,
+            'failed' => 0,
+            'by_slug' => [],
+        ];
+
+        foreach (GalleryConfig::getAllowedSlugs() as $slug) {
+            $res = $this->autoSortGallery($slug);
+            $global['by_slug'][$slug] = $res;
+            $global['scanned'] += $res['scanned'];
+            $global['moved'] += $res['moved'];
+            $global['skipped'] += $res['skipped'];
+            $global['failed'] += $res['failed'];
+        }
+
+        return $global;
+    }
+
     public function getTrashImagePath(string $slug, string $filename): ?string
     {
         $this->validateSlug($slug);

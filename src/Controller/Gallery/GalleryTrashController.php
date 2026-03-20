@@ -68,6 +68,17 @@ class GalleryTrashController
     }
 
     /**
+     * GET /admin/gallery-trash — point d'entrée unique vers la corbeille.
+     */
+    public function showTrashIndex(Request $request, Response $response): Response
+    {
+        $defaultSlug = GalleryConfig::getAllowedSlugs()[0] ?? 'msp1';
+        return $response
+            ->withHeader('Location', '/admin/gallery/' . $defaultSlug . '/trash')
+            ->withStatus(302);
+    }
+
+    /**
      * GET /admin/gallery/{slug}/trash/files/{filename} — sert une image de la corbeille.
      */
     public function serveTrashImage(Request $request, Response $response, array $args): Response
@@ -197,6 +208,15 @@ class GalleryTrashController
         }
 
         $result = $this->trashService->purgeAll($slug);
+        return ResponseHelper::success($response, $result);
+    }
+
+    /**
+     * POST /admin/api/gallery/auto-sort-all — rejoue l'algo de tri sur toutes les galeries.
+     */
+    public function apiAutoSortAll(Request $request, Response $response): Response
+    {
+        $result = $this->trashService->autoSortAllGalleries();
         return ResponseHelper::success($response, $result);
     }
 

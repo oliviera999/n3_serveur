@@ -350,6 +350,9 @@
     </div>
     <div class="links-grid" data-aos="fade-up">
         <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/admin/gallery-trash" class="link-card"><i class="fas fa-trash-restore-alt"></i><span class="label">Galerie trash (toutes)</span><div class="hint">Point d'entrée unique vers toutes les corbeilles</div></a>
+        </div>
+        <div class="link-card-wrap">
             <a href="{{ base_path|default('') }}/admin/gallery/msp1/trash" class="link-card"><i class="fas fa-trash"></i><span class="label">Corbeille Potager (MSP1)</span><div class="hint">Photos retirées automatiquement ou manuellement</div></a>
         </div>
         <div class="link-card-wrap">
@@ -370,6 +373,12 @@
             <div class="hint">Twig, DI, OpCache PHP, cache outputs (prod, test, S3, test3)</div>
             <button type="button" id="clearAllCacheBtn" class="btn-cache" data-clear-url="{{ base_path }}/admin/clear-cache">Vider tous les caches</button>
             <div id="clearCacheResult" class="cache-result" aria-live="polite"></div>
+        </div>
+        <div class="link-card cache-card">
+            <div><i class="fas fa-sort-amount-down"></i><span class="label">Tri automatique des galeries</span></div>
+            <div class="hint">Rejoue l'analyse qualité sur MSP1, N3PP et FFP3 en un clic</div>
+            <button type="button" id="runGallerySortBtn" class="btn-cache" data-sort-url="{{ base_path }}/admin/api/gallery/auto-sort-all">Lancer le tri global</button>
+            <div id="runGallerySortResult" class="cache-result" aria-live="polite"></div>
         </div>
         <div class="link-card-wrap">
             <a href="{{ base_path }}/admin/deploy-script" class="link-card">
@@ -490,6 +499,36 @@ document.getElementById('clearAllCacheBtn').addEventListener('click', async func
         var data = await response.json();
         resultEl.className = 'cache-result ' + (data.success ? 'success' : 'error');
         resultEl.textContent = data.message || (data.errors && data.errors.join(' ; ')) || 'Erreur inconnue';
+    } catch (e) {
+        resultEl.className = 'cache-result error';
+        resultEl.textContent = 'Erreur : ' + (e.message || 'réseau');
+    } finally {
+        btn.disabled = false;
+    }
+});
+
+document.getElementById('runGallerySortBtn').addEventListener('click', async function () {
+    var btn = this;
+    var resultEl = document.getElementById('runGallerySortResult');
+    var url = btn.getAttribute('data-sort-url');
+    if (!confirm('Lancer le tri auto sur toutes les galeries (MSP1, N3PP, FFP3) ?')) {
+        return;
+    }
+    btn.disabled = true;
+    resultEl.className = 'cache-result';
+    resultEl.textContent = 'Tri global en cours…';
+    resultEl.style.display = 'block';
+    try {
+        var response = await fetch(url, { method: 'POST' });
+        var data = await response.json();
+        if (data.success) {
+            var r = data.data || {};
+            resultEl.className = 'cache-result success';
+            resultEl.textContent = 'Tri terminé : ' + (r.moved || 0) + ' photo(s) déplacée(s) en corbeille sur ' + (r.scanned || 0) + ' analysée(s).';
+        } else {
+            resultEl.className = 'cache-result error';
+            resultEl.textContent = data.message || 'Erreur pendant le tri';
+        }
     } catch (e) {
         resultEl.className = 'cache-result error';
         resultEl.textContent = 'Erreur : ' + (e.message || 'réseau');

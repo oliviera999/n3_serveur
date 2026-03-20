@@ -36,8 +36,10 @@ $app->get('/gallery/ffp3', [GalleryViewController::class, 'showFfp3']);
 $app->get('/admin/gallery/{slug}', [GalleryViewController::class, 'showGalleryAdmin']);
 
 // Corbeille galerie — accès admin uniquement
+$app->get('/admin/gallery-trash', [GalleryTrashController::class, 'showTrashIndex']);
 $app->get('/admin/gallery/{slug}/trash', [GalleryTrashController::class, 'showTrash']);
 $app->get('/admin/gallery/{slug}/trash/files/{filename}', [GalleryTrashController::class, 'serveTrashImage']);
+$app->post('/admin/api/gallery/auto-sort-all', [GalleryTrashController::class, 'apiAutoSortAll']);
 $app->post('/admin/api/gallery/{slug}/move-to-trash', [GalleryTrashController::class, 'apiMoveToTrash']);
 $app->post('/admin/api/gallery/{slug}/restore', [GalleryTrashController::class, 'apiRestore']);
 $app->post('/admin/api/gallery/{slug}/purge', [GalleryTrashController::class, 'apiPurge']);

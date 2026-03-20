@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.211] - 2026-03-20
+
+### Ajout - acces central corbeille + tri global des galeries
+- **Resume** : ajout d'une tuile "Galerie trash (toutes)" dans la supervision (route `/admin/gallery-trash`) et d'une action admin "Lancer le tri global" qui rejoue en un clic l'algorithme de tri qualite sur toutes les galeries (MSP1, N3PP, FFP3) via le nouvel endpoint `/admin/api/gallery/auto-sort-all`. Le tri reste actif a l'upload et peut maintenant aussi etre force manuellement sur l'existant.
+
+---
+
 ## [5.0.210] - 2026-03-20
 
 ### Modifie - Factorisation et unification du code serveur
