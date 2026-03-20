@@ -711,8 +711,39 @@
 
 {% block scripts %}
 <script>
-const CONFIG = { defaultFps: 24, bufferSize: 40, preloadAhead: 20 };
+const CONFIG = { defaultFps: 24, bufferSize: 40, preloadAhead: 15, preloadConcurrency: 4 };
 let state = { frames: [], currentIndex: 0, fps: CONFIG.defaultFps, isPlaying: false, playInterval: null, isLive: false, liveTimer: null, totalLoaded: 0, recording: false, mediaRecorder: null, recordedChunks: [], latestPhotoAt: null };
+// File de préchargement avec deux niveaux de priorité
+const preloadQ = { hi: [], lo: [] };
+let preloadWorkers = 0;
+function queuePreload(frame, hi = false) {
+  if (frame.img || !frame.url) return;
+  const q = hi ? preloadQ.hi : preloadQ.lo;
+  if (q.includes(frame)) return;
+  q.push(frame);
+  runPreloadWorkers();
+}
+function runPreloadWorkers() {
+  while (preloadWorkers < CONFIG.preloadConcurrency) {
+    const frame = preloadQ.hi.shift() || preloadQ.lo.shift();
+    if (!frame) break;
+    if (frame.img || !frame.url) continue;
+    preloadWorkers++;
+    preloadImage(frame).finally(() => { preloadWorkers--; updateLoadProgress(); runPreloadWorkers(); });
+  }
+}
+function updateLoadProgress() {
+  if (!state.frames.length) return;
+  const loaded = state.frames.reduce((n, f) => n + (f.img ? 1 : 0), 0);
+  document.getElementById('statCount').textContent = loaded + ' / ' + state.frames.length;
+}
+function startBulkPreload() {
+  preloadQ.lo.length = 0;
+  for (let i = 0; i < state.frames.length; i++) {
+    if (!state.frames[i].img && state.frames[i].url) preloadQ.lo.push(state.frames[i]);
+  }
+  runPreloadWorkers();
+}
 const BASE = '{{ base_path|default('') }}';
 function ensureAbsoluteUrl(url) {
   if (!url || url.startsWith('http') || url.startsWith('//')) return url;
@@ -789,12 +820,10 @@ async function preloadImage(frame) {
     img.src = frame.url;
   });
 }
-async function preloadAround(idx) {
-  const start = Math.max(0, idx - 5);
+function preloadAround(idx) {
+  const start = Math.max(0, idx - 3);
   const end = Math.min(state.frames.length - 1, idx + CONFIG.preloadAhead);
-  const promises = [];
-  for (let i = start; i <= end; i++) promises.push(preloadImage(state.frames[i]));
-  await Promise.all(promises);
+  for (let i = start; i <= end; i++) queuePreload(state.frames[i], true);
 }
 function startPlay() {
   if (state.frames.length === 0) return;
@@ -826,6 +855,7 @@ async function loadRange(fromOrNull, toOrNull) {
   let to = toOrNull != null ? toOrNull : new Date(document.getElementById('dateTo').value);
   if (isNaN(from) || isNaN(to) || from >= to) { showToast('Plage invalide', 'error'); return; }
   stopPlay();
+  preloadQ.hi.length = 0; preloadQ.lo.length = 0; // annuler les préchargements précédents
   showLoading('Récupération des métadonnées...');
   try {
     const rawFrames = await fetchFrames(from, to);
@@ -836,10 +866,12 @@ async function loadRange(fromOrNull, toOrNull) {
     updateTimeLabels();
     updateStats();
     showLoading('Préchargement...');
-    await preloadAround(0);
+    preloadAround(0);
+    await preloadImage(state.frames[0]);
     hideLoading();
     renderFrame(state.frames[0]);
-    showToast(rawFrames.length + ' images chargées', 'success');
+    showToast(rawFrames.length + ' images — chargement en cours…', 'success');
+    startBulkPreload();
     if (document.getElementById('demoMode')?.checked) startPlay();
   } catch(e) { hideLoading(); showToast('Erreur: ' + e.message, 'error'); }
 }
