@@ -205,6 +205,103 @@
     color: #fcd34d;
 }
 
+/* ---- Tuiles avec toggle de navigation ---- */
+
+.link-card-wrap {
+    position: relative;
+}
+
+/* La tuile prend un peu plus de padding à droite pour le toggle */
+.link-card-wrap > .link-card {
+    padding-right: 52px;
+}
+
+/* Indicateur visuel quand la page est activée dans le menu */
+.link-card-wrap.nav-active > .link-card {
+    border-left-color: #00b794;
+    box-shadow: 0 2px 8px rgba(0,183,148,0.30);
+}
+
+[data-theme="dark"] .link-card-wrap.nav-active > .link-card {
+    border-left-color: var(--accent-primary);
+    box-shadow: 0 2px 10px rgba(45,212,191,0.25);
+}
+
+/* Le toggle switch positionné à droite, centré verticalement */
+.page-nav-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 3;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.page-nav-toggle:hover {
+    opacity: 0.85;
+}
+
+.page-nav-cb {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.page-nav-slider {
+    display: inline-block;
+    width: 34px;
+    height: 19px;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.page-nav-slider::before {
+    content: '';
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: #fff;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.page-nav-cb:checked + .page-nav-slider {
+    background: #008B74;
+}
+
+.page-nav-cb:checked + .page-nav-slider::before {
+    transform: translateX(15px);
+}
+
+[data-theme="dark"] .page-nav-slider {
+    background: #555;
+}
+
+[data-theme="dark"] .page-nav-cb:checked + .page-nav-slider {
+    background: var(--accent-primary, #2dd4bf);
+}
+
+/* Tooltip (title) hint visible on hover */
+.page-nav-toggle::after {
+    content: attr(data-hint);
+    display: none;
+}
+
+/* ---- Éléments dynamiques dans la nav ---- */
+/* Les <li class="nav-dyn-item"> héritent des styles existants de #nav ul.links li */
+
 .supervision-back-link-wrap { margin-top: 10px; }
 
 .supervision-back-link {

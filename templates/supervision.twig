@@ -42,7 +42,13 @@
         <h2>Accueil & projet</h2>
     </div>
     <div class="links-grid" data-aos="fade-up">
-        <a href="{{ base_path|default('') }}/" class="link-card"><i class="fas fa-home"></i><span class="label">Accueil</span><div class="hint">Page d'accueil du portail</div></a>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/" class="link-card"><i class="fas fa-home"></i><span class="label">Accueil</span><div class="hint">Page d'accueil du portail</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="home" data-page-label="Accueil" data-page-url="{{ base_path|default('') }}/">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
     </div>
 
     <div class="section-header" data-aos="fade-up">
@@ -50,14 +56,62 @@
         <h2>Aquaponie FFP3 (WROOM)</h2>
     </div>
     <div class="links-grid" data-aos="fade-up">
-        <a href="{{ base_path|default('') }}/aquaponie" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Vue principale (prod)</span><div class="hint">Vue paysage</div></a>
-        <a href="{{ base_path|default('') }}/aquaponie-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Vue classique (prod)</span><div class="hint">Vue alternative</div></a>
-        <a href="{{ base_path|default('') }}/aquaponie-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle (prod)</span><div class="hint">Pompes, chauffage, lumière</div></a>
-        <a href="{{ base_path|default('') }}/dashboard" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod)</span><div class="hint">Capteurs FFP3</div></a>
-        <a href="{{ base_path|default('') }}/tide-stats" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod)</span><div class="hint">Analyse des marées</div></a>
-        <a href="{{ base_path|default('') }}/aquaponie-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
-        <a href="{{ base_path|default('') }}/dashboard-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test)</span><div class="hint">Environnement test</div></a>
-        <a href="{{ base_path|default('') }}/tide-stats-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test)</span><div class="hint">Environnement test</div></a>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/aquaponie" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Vue principale (prod)</span><div class="hint">Vue paysage</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="aquaponie" data-page-label="Aquaponie" data-page-url="{{ base_path|default('') }}/aquaponie">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/aquaponie-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Vue classique (prod)</span><div class="hint">Vue alternative</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="aquaponie-alt" data-page-label="Aquaponie alt" data-page-url="{{ base_path|default('') }}/aquaponie-alt">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/aquaponie-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle (prod)</span><div class="hint">Pompes, chauffage, lumière</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="aquaponie-control" data-page-label="Ctrl aquaponie" data-page-url="{{ base_path|default('') }}/aquaponie-control">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/dashboard" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod)</span><div class="hint">Capteurs FFP3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="dashboard" data-page-label="Dashboard" data-page-url="{{ base_path|default('') }}/dashboard">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/tide-stats" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod)</span><div class="hint">Analyse des marées</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="tide-stats" data-page-label="Marées" data-page-url="{{ base_path|default('') }}/tide-stats">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/aquaponie-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="aquaponie-control-test" data-page-label="Ctrl FFP3 test" data-page-url="{{ base_path|default('') }}/aquaponie-control-test">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/dashboard-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test)</span><div class="hint">Environnement test</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="dashboard-test" data-page-label="Dashboard test" data-page-url="{{ base_path|default('') }}/dashboard-test">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/tide-stats-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test)</span><div class="hint">Environnement test</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="tide-stats-test" data-page-label="Marées test" data-page-url="{{ base_path|default('') }}/tide-stats-test">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
     </div>
 
     <div class="section-header" data-aos="fade-up">
@@ -65,16 +119,76 @@
         <h2>Aquamobile (S3)</h2>
     </div>
     <div class="links-grid" data-aos="fade-up">
-        <a href="{{ base_path|default('') }}/aquamobile" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Vue principale (prod S3)</span><div class="hint">Vue paysage – board S3</div></a>
-        <a href="{{ base_path|default('') }}/aquamobile-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Vue classique (prod S3)</span><div class="hint">Vue alternative – board S3</div></a>
-        <a href="{{ base_path|default('') }}/aquamobile-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle (prod S3)</span><div class="hint">Board S3</div></a>
-        <a href="{{ base_path|default('') }}/dashboard3" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod S3)</span><div class="hint">Capteurs board S3</div></a>
-        <a href="{{ base_path|default('') }}/tide-stats3" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod S3)</span><div class="hint">Analyse des marées S3</div></a>
-        <a href="{{ base_path|default('') }}/aquamobile-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Vue principale (test3)</span><div class="hint">Environnement test3</div></a>
-        <a href="{{ base_path|default('') }}/aquamobile-alt-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Vue classique (test3)</span><div class="hint">Environnement test3</div></a>
-        <a href="{{ base_path|default('') }}/aquamobile-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test3)</span><div class="hint">Environnement test3</div></a>
-        <a href="{{ base_path|default('') }}/dashboard3-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test3)</span><div class="hint">Environnement test3</div></a>
-        <a href="{{ base_path|default('') }}/tide-stats3-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test3)</span><div class="hint">Environnement test3</div></a>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/aquamobile" class="link-card"><i class="fas fa-chart-area"></i><span class="label">Vue principale (prod S3)</span><div class="hint">Vue paysage – board S3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="aquamobile" data-page-label="Aquamobile" data-page-url="{{ base_path|default('') }}/aquamobile">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/aquamobile-alt" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Vue classique (prod S3)</span><div class="hint">Vue alternative – board S3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="aquamobile-alt" data-page-label="Aquamobile alt" data-page-url="{{ base_path|default('') }}/aquamobile-alt">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/aquamobile-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle (prod S3)</span><div class="hint">Board S3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="aquamobile-control" data-page-label="Ctrl S3" data-page-url="{{ base_path|default('') }}/aquamobile-control">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/dashboard3" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (prod S3)</span><div class="hint">Capteurs board S3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="dashboard3" data-page-label="Dashboard S3" data-page-url="{{ base_path|default('') }}/dashboard3">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/tide-stats3" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (prod S3)</span><div class="hint">Analyse des marées S3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="tide-stats3" data-page-label="Marées S3" data-page-url="{{ base_path|default('') }}/tide-stats3">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/aquamobile-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Vue principale (test3)</span><div class="hint">Environnement test3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="aquamobile-test" data-page-label="Aquamobile test" data-page-url="{{ base_path|default('') }}/aquamobile-test">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/aquamobile-alt-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Vue classique (test3)</span><div class="hint">Environnement test3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="aquamobile-alt-test" data-page-label="Aquamobile alt test" data-page-url="{{ base_path|default('') }}/aquamobile-alt-test">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/aquamobile-control-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test3)</span><div class="hint">Environnement test3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="aquamobile-control-test" data-page-label="Ctrl S3 test" data-page-url="{{ base_path|default('') }}/aquamobile-control-test">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/dashboard3-test" class="link-card"><i class="fas fa-tachometer-alt"></i><span class="label">Dashboard (test3)</span><div class="hint">Environnement test3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="dashboard3-test" data-page-label="Dashboard S3 test" data-page-url="{{ base_path|default('') }}/dashboard3-test">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/tide-stats3-test" class="link-card"><i class="fas fa-water"></i><span class="label">Statistiques marées (test3)</span><div class="hint">Environnement test3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="tide-stats3-test" data-page-label="Marées S3 test" data-page-url="{{ base_path|default('') }}/tide-stats3-test">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
     </div>
 
     <div class="section-header" data-aos="fade-up">
@@ -82,10 +196,34 @@
         <h2>Potager (MSP1)</h2>
     </div>
     <div class="links-grid" data-aos="fade-up">
-        <a href="{{ base_path|default('') }}/meteo" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Station météo / potager (prod)</div></a>
-        <a href="{{ base_path|default('') }}/meteo-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle</span><div class="hint">Sorties station météo (prod)</div></a>
-        <a href="{{ base_path|default('') }}/msp1-test/msp1datas/msp1-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Environnement test</div></a>
-        <a href="{{ base_path|default('') }}/msp1-test/msp1control/" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/meteo" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Station météo / potager (prod)</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="potager" data-page-label="Potager" data-page-url="{{ base_path|default('') }}/meteo">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/meteo-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle</span><div class="hint">Sorties station météo (prod)</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="potager-control" data-page-label="Ctrl potager" data-page-url="{{ base_path|default('') }}/meteo-control">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/msp1-test/msp1datas/msp1-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Environnement test</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="potager-test" data-page-label="Potager test" data-page-url="{{ base_path|default('') }}/msp1-test/msp1datas/msp1-data.php">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/msp1-test/msp1control/" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="potager-control-test" data-page-label="Ctrl potager test" data-page-url="{{ base_path|default('') }}/msp1-test/msp1control/">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
     </div>
 
     <div class="section-header" data-aos="fade-up">
@@ -93,10 +231,34 @@
         <h2>Élevage (N3PP)</h2>
     </div>
     <div class="links-grid" data-aos="fade-up">
-        <a href="{{ base_path|default('') }}/serre" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Serre / élevage (prod)</div></a>
-        <a href="{{ base_path|default('') }}/serre-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle</span><div class="hint">Sorties serre (prod)</div></a>
-        <a href="{{ base_path|default('') }}/n3pp-test/n3ppdatas/n3pp-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Environnement test</div></a>
-        <a href="{{ base_path|default('') }}/n3pp-test/n3ppcontrol/" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/serre" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Serre / élevage (prod)</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="elevage" data-page-label="Élevage" data-page-url="{{ base_path|default('') }}/serre">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/serre-control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle</span><div class="hint">Sorties serre (prod)</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="elevage-control" data-page-label="Ctrl élevage" data-page-url="{{ base_path|default('') }}/serre-control">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/n3pp-test/n3ppdatas/n3pp-data.php" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Environnement test</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="elevage-test" data-page-label="Élevage test" data-page-url="{{ base_path|default('') }}/n3pp-test/n3ppdatas/n3pp-data.php">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/n3pp-test/n3ppcontrol/" class="link-card"><i class="fas fa-vial"></i><span class="label">Contrôle (test)</span><div class="hint">Environnement test</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="elevage-control-test" data-page-label="Ctrl élevage test" data-page-url="{{ base_path|default('') }}/n3pp-test/n3ppcontrol/">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
     </div>
 
     <div class="section-header" data-aos="fade-up">
@@ -104,9 +266,27 @@
         <h2>Galeries photo (ESP32-CAM)</h2>
     </div>
     <div class="links-grid" data-aos="fade-up">
-        <a href="{{ base_path|default('') }}/gallery/msp1" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos du potager (MSP1)</span><div class="hint">Galerie photos station météo</div></a>
-        <a href="{{ base_path|default('') }}/gallery/n3pp" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos de l'élevage (N3PP)</span><div class="hint">Galerie photos N3PP</div></a>
-        <a href="{{ base_path|default('') }}/gallery/ffp3" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos aquaponie (FFP3)</span><div class="hint">Galerie photos FFP3</div></a>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/gallery/msp1" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos du potager (MSP1)</span><div class="hint">Galerie photos station météo</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="gallery-msp1" data-page-label="Galerie potager" data-page-url="{{ base_path|default('') }}/gallery/msp1">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/gallery/n3pp" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos de l'élevage (N3PP)</span><div class="hint">Galerie photos N3PP</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="gallery-n3pp" data-page-label="Galerie élevage" data-page-url="{{ base_path|default('') }}/gallery/n3pp">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/gallery/ffp3" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos aquaponie (FFP3)</span><div class="hint">Galerie photos FFP3</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="gallery-ffp3" data-page-label="Galerie FFP3" data-page-url="{{ base_path|default('') }}/gallery/ffp3">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
     </div>
 
     <div class="section-header" data-aos="fade-up">
@@ -120,10 +300,16 @@
             <button type="button" id="clearAllCacheBtn" class="btn-cache" data-clear-url="{{ base_path }}/admin/clear-cache">Vider tous les caches</button>
             <div id="clearCacheResult" class="cache-result" aria-live="polite"></div>
         </div>
-        <a href="{{ base_path }}/admin/deploy-script" class="link-card">
-            <div><i class="fas fa-rocket"></i><span class="label">Script de déploiement</span></div>
-            <div class="hint">Voir DEPLOY_NOW.sh – à exécuter sur le serveur (SSH) après git pull</div>
-        </a>
+        <div class="link-card-wrap">
+            <a href="{{ base_path }}/admin/deploy-script" class="link-card">
+                <div><i class="fas fa-rocket"></i><span class="label">Script de déploiement</span></div>
+                <div class="hint">Voir DEPLOY_NOW.sh – à exécuter sur le serveur (SSH) après git pull</div>
+            </a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="deploy-script" data-page-label="Déploiement" data-page-url="{{ base_path }}/admin/deploy-script">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
     </div>
 </article>
 {% endblock %}
