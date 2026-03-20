@@ -3,20 +3,18 @@
  * Remplace AOS : utilise Intersection Observer pour révéler les éléments [data-aos]
  * Respecte prefers-reduced-motion pour l'accessibilité
  *
- * Stratégie : .js-scroll-reveal n'est ajouté qu'au moment de init() APRÈS
- * avoir pré-détecté les éléments dans le viewport, évitant tout fondu de
- * disparition (le CSS opacity:0 et sr-visible sont appliqués dans le même
- * tick, donc aucune transition indésirable).
+ * Stratégie « visible par défaut » :
+ * - Le CSS ne masque aucun élément. Tout est visible sans JS.
+ * - Le JS ajoute .sr-hidden aux seuls éléments hors viewport.
+ * - L'Observer les révèle avec .sr-visible quand ils scrollent en vue.
+ * - Filet de sécurité : timeout 3 s révèle tout ce qui reste caché.
  */
 (function() {
   'use strict';
 
+  var elements = [];
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('js-scroll-reveal');
-    document.querySelectorAll('[data-aos]').forEach(function(el) {
-      el.classList.add('sr-visible');
-    });
-    document.body.classList.remove('is-preload');
     return;
   }
 
@@ -27,9 +25,9 @@
         observer.unobserve(el);
         var delay = parseInt(el.getAttribute('data-aos-delay'), 10) || 0;
         if (delay > 0) {
-          setTimeout(function() { el.classList.add('sr-visible'); }, delay);
+          setTimeout(function() { reveal(el); }, delay);
         } else {
-          el.classList.add('sr-visible');
+          reveal(el);
         }
       }
     });
@@ -38,6 +36,11 @@
     threshold: 0.01
   });
 
+  function reveal(el) {
+    el.classList.remove('sr-hidden');
+    el.classList.add('sr-visible');
+  }
+
   function isInViewport(el) {
     var rect = el.getBoundingClientRect();
     var vh = window.innerHeight || document.documentElement.clientHeight;
@@ -45,30 +48,14 @@
   }
 
   function init() {
-    var elements = document.querySelectorAll('[data-aos]');
-
-    // Pré-détecter les éléments visibles AVANT d'activer le CSS de masquage
-    var visibleNow = [];
-    elements.forEach(function(el) {
-      if (isInViewport(el)) {
-        visibleNow.push(el);
-      }
-    });
-
-    // Activer le masquage CSS (opacity: 0 via .js-scroll-reveal)
-    document.documentElement.classList.add('js-scroll-reveal');
-
-    // Révéler immédiatement les éléments pré-détectés (même tick, pas de fondu)
-    visibleNow.forEach(function(el) {
-      el.classList.add('sr-visible');
-    });
-
-    // Maintenant activer les transitions en retirant is-preload
+    elements = document.querySelectorAll('[data-aos]');
     document.body.classList.remove('is-preload');
 
-    // Observer les éléments restants pour le reveal au scroll
     elements.forEach(function(el) {
-      if (!el.classList.contains('sr-visible')) {
+      if (isInViewport(el)) {
+        el.classList.add('sr-visible');
+      } else {
+        el.classList.add('sr-hidden');
         observer.observe(el);
       }
     });
@@ -77,19 +64,19 @@
     requestAnimationFrame(function() {
       requestAnimationFrame(function() {
         elements.forEach(function(el) {
-          if (!el.classList.contains('sr-visible') && isInViewport(el)) {
-            el.classList.add('sr-visible');
+          if (el.classList.contains('sr-hidden') && isInViewport(el)) {
+            reveal(el);
             observer.unobserve(el);
           }
         });
       });
     });
 
-    // Filet de sécurité : révéler tout après 3 s si le JS échoue
+    // Filet de sécurité : révéler tout après 3 s
     setTimeout(function() {
       elements.forEach(function(el) {
-        if (!el.classList.contains('sr-visible')) {
-          el.classList.add('sr-visible');
+        if (el.classList.contains('sr-hidden')) {
+          reveal(el);
           observer.unobserve(el);
         }
       });

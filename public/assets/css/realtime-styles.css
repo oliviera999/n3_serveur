@@ -1569,47 +1569,40 @@ body.is-preload #wrapper.fade-in::before {
 
 /* =================================================================
    Scroll Reveal — animations d'apparition au défilement (remplace AOS)
-   Implémentation native : Intersection Observer + CSS, pas de dépendance externe
-   Sans JS : éléments visibles (pas de .js-scroll-reveal)
+   Stratégie « visible par défaut » :
+   - CSS ne masque RIEN. Les éléments [data-aos] restent visibles.
+   - Le JS ajoute la classe .sr-hidden aux éléments hors viewport.
+   - L'IntersectionObserver remplace .sr-hidden par .sr-visible.
+   - Si le JS échoue, aucun élément n'est masqué → contenu 100 % visible.
 ================================================================= */
-.js-scroll-reveal [data-aos] {
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+
+/* Transition commune pour le reveal au scroll */
+[data-aos] {
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.js-scroll-reveal [data-aos="fade-up"] { opacity: 0; transform: translateY(40px); }
-.js-scroll-reveal [data-aos="fade-up"].sr-visible { opacity: 1; transform: translateY(0); }
-.js-scroll-reveal [data-aos="fade-down"] { opacity: 0; transform: translateY(-40px); }
-.js-scroll-reveal [data-aos="fade-down"].sr-visible { opacity: 1; transform: translateY(0); }
-.js-scroll-reveal [data-aos="fade-left"] { opacity: 0; transform: translateX(40px); }
-.js-scroll-reveal [data-aos="fade-left"].sr-visible { opacity: 1; transform: translateX(0); }
-.js-scroll-reveal [data-aos="fade-right"] { opacity: 0; transform: translateX(-40px); }
-.js-scroll-reveal [data-aos="fade-right"].sr-visible { opacity: 1; transform: translateX(0); }
-.js-scroll-reveal [data-aos="zoom-in"] { opacity: 0; transform: scale(0.92); }
-.js-scroll-reveal [data-aos="zoom-in"].sr-visible { opacity: 1; transform: scale(1); }
-.js-scroll-reveal [data-aos="fade-up"].sr-visible,
-.js-scroll-reveal [data-aos="fade-down"].sr-visible,
-.js-scroll-reveal [data-aos="fade-left"].sr-visible,
-.js-scroll-reveal [data-aos="fade-right"].sr-visible,
-.js-scroll-reveal [data-aos="zoom-in"].sr-visible {
+
+/* Éléments hors viewport, masqués par JS (jamais par CSS seul) */
+[data-aos="fade-up"].sr-hidden    { opacity: 0; transform: translateY(40px); }
+[data-aos="fade-down"].sr-hidden  { opacity: 0; transform: translateY(-40px); }
+[data-aos="fade-left"].sr-hidden  { opacity: 0; transform: translateX(40px); }
+[data-aos="fade-right"].sr-hidden { opacity: 0; transform: translateX(-40px); }
+[data-aos="zoom-in"].sr-hidden    { opacity: 0; transform: scale(0.92); }
+
+/* Éléments révélés (remplace sr-hidden) */
+[data-aos].sr-visible {
     opacity: 1 !important;
+    transform: none !important;
 }
-/* Pendant is-preload : pas de transitions sur [data-aos] (évite le fondu de disparition) */
+
+/* Pendant is-preload : pas de transitions (évite le fondu de disparition) */
 body.is-preload [data-aos] {
     transition: none !important;
 }
-/* Filet de sécurité CSS : si sr-visible n'est pas ajouté après 4 s, forcer la visibilité */
-@keyframes aosSafetyReveal {
-    from { opacity: 0; }
-    to   { opacity: 1; transform: none; }
-}
-.js-scroll-reveal [data-aos]:not(.sr-visible) {
-    animation: aosSafetyReveal 0.6s ease 4s forwards !important;
-}
+
 /* prefers-reduced-motion : pas d'animation, affichage direct */
 @media (prefers-reduced-motion: reduce) {
     [data-aos] { opacity: 1 !important; transform: none !important; transition: none !important; }
-    [data-aos].sr-visible { opacity: 1 !important; transform: none !important; }
 }
-/* Sans JS : pas de .js-scroll-reveal, donc [data-aos] garde le style par défaut (visible) */
 
 /* =================================================================
    Back-to-top (fiche 03, ameliorations visuelles)
