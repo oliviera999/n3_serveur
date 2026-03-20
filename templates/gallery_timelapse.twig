@@ -792,22 +792,28 @@ async function preloadImage(frame) {
 async function preloadAround(idx) {
   const start = Math.max(0, idx - 5);
   const end = Math.min(state.frames.length - 1, idx + CONFIG.preloadAhead);
-  for (let i = start; i <= end; i++) await preloadImage(state.frames[i]);
+  const promises = [];
+  for (let i = start; i <= end; i++) promises.push(preloadImage(state.frames[i]));
+  await Promise.all(promises);
 }
 function startPlay() {
   if (state.frames.length === 0) return;
   state.isPlaying = true;
   document.getElementById('btnPlay').textContent = '⏸';
-  state.playInterval = setInterval(() => {
+  state.playInterval = setInterval(async () => {
     state.currentIndex = state.currentIndex >= state.frames.length - 1 ? 0 : state.currentIndex + 1;
-    renderFrame(state.frames[state.currentIndex]);
+    const frame = state.frames[state.currentIndex];
+    if (!frame.img && frame.url) await preloadImage(frame);
+    renderFrame(frame);
     preloadAround(state.currentIndex);
   }, 1000 / state.fps);
 }
 function stopPlay() { state.isPlaying = false; document.getElementById('btnPlay').textContent = '▶'; clearInterval(state.playInterval); }
-function goTo(idx) {
+async function goTo(idx) {
   state.currentIndex = Math.max(0, Math.min(state.frames.length - 1, idx));
-  renderFrame(state.frames[state.currentIndex]);
+  const frame = state.frames[state.currentIndex];
+  await preloadImage(frame);
+  renderFrame(frame);
   preloadAround(state.currentIndex);
 }
 /**
