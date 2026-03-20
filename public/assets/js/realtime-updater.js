@@ -246,7 +246,7 @@ class RealtimeUpdater {
         const moduleUptimeEl = document.getElementById('module-uptime-total');
         if (moduleUptimeEl) {
             if (health.module_uptime_seconds !== null && health.module_uptime_seconds !== undefined) {
-                moduleUptimeEl.textContent = this.formatTimeSince(health.module_uptime_seconds);
+                moduleUptimeEl.textContent = this.formatUptimeTotal(health.module_uptime_seconds);
             } else {
                 moduleUptimeEl.textContent = '—';
             }

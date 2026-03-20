@@ -109,6 +109,10 @@
 }
 
 /* Hero : défini dans realtime-styles.css (style unifié aquaponie/MSP/N3PP) */
+/* Réduit l'espace excessif au-dessus du contenu sur les pages données */
+.modern-header + article.post.featured {
+    padding-top: 2.5rem;
+}
 
 /* ----- STATS GRID (stat-cards) ----- */
 .stats-grid {

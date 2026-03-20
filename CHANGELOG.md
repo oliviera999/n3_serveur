@@ -13,6 +13,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -56,6 +62,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -102,6 +114,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -147,6 +165,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -190,6 +214,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -234,6 +264,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -277,6 +313,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -320,6 +362,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -430,6 +478,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -703,6 +757,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -1075,6 +1135,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -1412,6 +1478,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -1751,6 +1823,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -2102,6 +2180,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -2498,6 +2582,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -2979,6 +3069,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -3422,6 +3518,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -4246,6 +4348,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -5058,6 +5166,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -5869,6 +5983,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -6680,6 +6800,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -7500,6 +7626,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -8313,6 +8445,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -9126,6 +9264,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -9940,6 +10084,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -10753,6 +10903,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -11568,6 +11724,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -12381,6 +12543,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -13194,6 +13362,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -14007,6 +14181,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -14821,6 +15001,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -15632,6 +15818,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -16448,6 +16640,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -17259,6 +17457,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -18073,6 +18277,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -18885,6 +19095,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -19699,6 +19915,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -20513,6 +20735,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -21326,6 +21554,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -22141,6 +22375,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -22953,6 +23193,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -23766,6 +24012,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -24580,6 +24832,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -25394,6 +25652,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -26206,6 +26470,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -27019,6 +27289,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -27834,6 +28110,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -28648,6 +28930,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -29461,6 +29749,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -30274,6 +30568,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -31087,6 +31387,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -31900,6 +32206,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -32712,6 +33024,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -33524,6 +33842,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -34336,6 +34660,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -35148,6 +35478,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -35961,6 +36297,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -36778,6 +37120,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -37595,6 +37943,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -38405,6 +38759,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -39215,6 +39575,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -40025,6 +40391,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -40835,6 +41207,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -41645,6 +42023,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -42455,6 +42839,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -43282,6 +43672,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -44099,6 +44495,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -44914,6 +45316,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -45730,6 +46138,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -46550,6 +46964,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -47382,6 +47802,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -48196,6 +48622,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -49012,6 +49444,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -49828,6 +50266,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -50641,6 +51085,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -51457,6 +51907,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -52270,6 +52726,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -53082,6 +53544,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -53895,6 +54363,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -54718,6 +55192,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -55538,6 +56018,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -56366,6 +56852,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -57198,6 +57690,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -58020,6 +58518,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -58834,6 +59338,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -59650,6 +60160,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -60465,6 +60981,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -61280,6 +61802,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -62093,6 +62621,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -62906,6 +63440,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -63721,6 +64261,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -64535,6 +65081,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -65351,6 +65903,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -66172,6 +66730,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -66997,6 +67561,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -67818,6 +68388,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -68641,6 +69217,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -69463,6 +70045,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -70280,6 +70868,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -71093,6 +71687,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -71910,6 +72510,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -72724,6 +73330,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -73537,6 +74149,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -74350,6 +74968,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -75165,6 +75789,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -75980,6 +76610,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -76794,6 +77430,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -77608,6 +78250,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -78421,6 +79069,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -79234,6 +79888,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -80047,6 +80707,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -80862,6 +81528,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -81677,6 +82349,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -82490,6 +83168,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -83303,6 +83987,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -84116,6 +84806,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -84930,6 +85626,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -85746,6 +86448,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -86569,6 +87277,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -87386,6 +88100,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -88210,6 +88930,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -89032,6 +89758,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -89845,6 +90577,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -90691,6 +91429,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -91508,6 +92252,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -92334,6 +93084,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -93170,6 +93926,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -93996,6 +94758,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -94812,6 +95580,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -95629,6 +96403,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -96452,6 +97232,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -97385,6 +98171,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -98202,6 +98994,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -99017,6 +99815,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -99833,6 +100637,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -100650,6 +101460,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -101466,6 +102282,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -102284,6 +103106,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -103101,6 +103929,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -104040,6 +104874,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -104856,6 +105696,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -105672,6 +106518,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -106536,6 +107388,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -107361,6 +108219,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -108186,6 +109050,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -109048,6 +109918,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -109921,6 +110797,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -110751,6 +111633,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -111582,6 +112470,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -112403,6 +113297,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -113230,6 +114130,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -114061,6 +114967,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -114890,6 +115802,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -115710,6 +116628,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -116542,6 +117466,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -117406,6 +118336,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -118225,6 +119161,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -119045,6 +119987,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -119864,6 +120812,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -120688,6 +121642,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -121518,6 +122478,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -122346,6 +123312,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -123172,6 +124144,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -123993,6 +124971,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -124815,6 +125799,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -125648,6 +126638,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -126480,6 +127476,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -127315,6 +128317,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -128166,6 +129174,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -129047,6 +130061,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -129869,6 +130889,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -130690,6 +131716,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -131521,6 +132553,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -132342,6 +133380,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -133167,6 +134211,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -133985,6 +135035,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -134805,6 +135861,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -135617,6 +136679,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -136469,6 +137537,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -137293,6 +138367,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -138139,6 +139219,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -138967,6 +140053,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -139791,6 +140883,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -140621,6 +141719,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -141473,6 +142577,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -142310,6 +143420,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -143201,6 +144317,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -144029,6 +145151,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -144859,6 +145987,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -145700,6 +146834,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -146534,6 +147674,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -147355,6 +148501,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -148176,6 +149328,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -148999,6 +150157,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -149893,6 +151057,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -150735,6 +151905,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -151591,6 +152767,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -152435,6 +153617,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -153283,6 +154471,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -154099,6 +155293,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -154967,6 +156167,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -155799,6 +157005,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -156618,6 +157830,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -157487,6 +158705,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -158335,6 +159559,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -159216,6 +160446,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -160035,6 +161271,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -160913,6 +162155,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -161729,6 +162977,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -162544,6 +163798,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -163363,6 +164623,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -164182,6 +165448,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -165046,6 +166318,12 @@ docs/
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -165933,6 +167211,12 @@ docs/
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -166754,6 +168038,12 @@ docs/
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -167609,6 +168899,12 @@ docs/
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -168429,6 +169725,12 @@ docs/
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -169271,6 +170573,12 @@ docs/
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -170089,6 +171397,12 @@ docs/
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -171096,6 +172410,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -171937,6 +173257,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -172805,6 +174131,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -173659,6 +174991,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -174499,6 +175837,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -175346,6 +176690,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -176185,6 +177535,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -177013,6 +178369,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -177833,6 +179195,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -178669,6 +180037,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -179489,6 +180863,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -180309,6 +181689,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -181131,6 +182517,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -181971,6 +183363,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage
@@ -182785,6 +184183,12 @@ ance future
 
 ---
 
+## [5.0.201] - 2026-03-20
+
+### Modifié - retrait lightbox et agrandissement au clic sur les galeries classiques
+- **Résumé** : retrait lightbox et agrandissement au clic sur les galeries classiques.
+
+---
 ## [5.0.198] - 2026-03-20
 
 ### Correctif - deplacement controles live (Mode Live, Auto-scroll, Intervalle, Rafraichir) a l'interieur du bloc Etat du systeme sur pages potager et elevage

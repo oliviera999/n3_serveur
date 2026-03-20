@@ -260,7 +260,7 @@
                 </form>
             </div>
 
-            <div class="filter-module-uptime" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9em;">
+            <div class="filter-module-uptime" style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9em;">
                 <i class="fas fa-clock"></i>
                 <strong>Temps total depuis le début du fonctionnement du module :</strong>
                 <span id="module-uptime-total"><i class="fas fa-spinner fa-spin"></i></span>
@@ -279,30 +279,6 @@
             
             <div class="health-grid">
                 <div class="health-item">
-                    <div class="health-item-label">Statut</div>
-                    <div id="system-status-indicator" class="status-indicator status-online is-animated">
-                        <span class="status-pill" data-status-badge>
-                            <i class="fas fa-circle"></i>
-                            <strong>TEMPS RÉEL</strong>
-                        </span>
-                        <span class="status-text" data-status-label>
-                            <i class="fas fa-check-circle"></i>
-                            <span>En ligne</span>
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="health-item">
-                    <div class="health-item-label">Dernière réception</div>
-                    <div class="health-item-value" id="last-reading-time" data-default="pending">
-                        <span class="reading-ago" data-reading-ago>
-                            <i class="fas fa-spinner fa-spin"></i>
-                        </span>
-                        <span class="reading-timestamp" data-reading-timestamp style="display: none;"></span>
-                    </div>
-                </div>
-                
-                <div class="health-item">
                     <div class="health-item-label">Uptime (30j)</div>
                     <div class="health-item-value" id="system-uptime">
                         <i class="fas fa-spinner fa-spin"></i>
@@ -320,10 +296,6 @@
                 </div>
             </div>
             
-            <div class="next-update-countdown" id="next-update-info">
-                Prochaine mise à jour dans <strong id="countdown-seconds">15</strong> secondes
-            </div>
-
             <!-- Contrôles mode live intégrés -->
             <div class="live-controls-integrated">
                 <div class="live-control-row">

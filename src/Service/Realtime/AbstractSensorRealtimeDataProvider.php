@@ -71,6 +71,7 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
                 'readings_today' => 0,
                 'average_latency_seconds' => null,
                 'device_ip' => null,
+                'module_uptime_seconds' => null,
             ];
         }
 
@@ -87,6 +88,7 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
             'readings_today' => $this->sensorRepo->countReadingsToday(),
             'average_latency_seconds' => $isOnline ? self::ESTIMATED_LATENCY_SECONDS : null,
             'device_ip' => null,
+            'module_uptime_seconds' => $this->computeModuleUptimeSeconds(),
         ];
     }
 
@@ -154,5 +156,17 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
         }
         $rows = $this->sensorRepo->fetchBetween($start, $end);
         return min(count($rows) / $expected * 100, 100.0);
+    }
+
+    /**
+     * Calcule le temps total (en secondes) depuis la première mesure enregistrée.
+     */
+    private function computeModuleUptimeSeconds(): ?int
+    {
+        $firstDate = $this->sensorRepo->getFirstReadingDate();
+        if ($firstDate === null) {
+            return null;
+        }
+        return (int) (time() - strtotime($firstDate));
     }
 }
