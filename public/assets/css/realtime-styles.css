@@ -1440,6 +1440,57 @@ body.is-preload #wrapper.fade-in::before {
     color: var(--header-nav-hover) !important;
 }
 
+/* Panneau de navigation mobile (navPanel) */
+[data-theme="dark"] #navPanel {
+    background: var(--header-nav-bg) !important;
+    color: var(--header-nav-text) !important;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] #navPanel .links li {
+    border-top-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] #navPanel .links li a {
+    color: var(--header-nav-text) !important;
+}
+
+[data-theme="dark"] #navPanel .links li a:hover {
+    color: var(--header-nav-hover) !important;
+}
+
+[data-theme="dark"] #navPanel .links li.active {
+    background-color: var(--header-nav-active-bg) !important;
+}
+
+[data-theme="dark"] #navPanel .links li.active a {
+    color: var(--header-nav-active-text) !important;
+}
+
+[data-theme="dark"] #navPanel .close {
+    color: var(--header-nav-text) !important;
+}
+
+[data-theme="dark"] #navPanel .close:hover {
+    color: var(--header-nav-hover) !important;
+}
+
+/* Bouton toggle panneau de navigation mobile (navPanelToggle) */
+[data-theme="dark"] #navPanelToggle {
+    color: var(--header-nav-text) !important;
+}
+
+[data-theme="dark"] #navPanelToggle.alt {
+    background-color: var(--header-nav-bg) !important;
+    color: var(--header-nav-text) !important;
+    box-shadow: 0 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] #navPanelToggle.alt:hover {
+    background-color: var(--bg-card) !important;
+    color: var(--header-nav-hover) !important;
+}
+
 [data-theme="dark"] #footer {
     color: var(--footer-color) !important;
 }

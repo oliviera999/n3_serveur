@@ -134,6 +134,11 @@
     border-top-color: var(--border-color);
 }
 
+[data-theme="dark"] .timelapse-page .timelapse-params-toggle-row {
+    background: var(--chart-bg);
+    border-top-color: var(--border-color);
+}
+
 [data-theme="dark"] .timelapse-page .timelapse-scrubber-track {
     background: var(--bg-secondary);
 }

@@ -1,41 +1,202 @@
 {% extends 'layout.twig' %}
-{# Landing galeries : 3 blocs avec dernière photo, texte et lien vers chaque galerie #}
 
-{% block title %}{{ page_title|default('Galeries photos') }} - n³ iot datas{% endblock %}
-
-{% block wrapper_class %} gallery-landing-wrapper{% endblock %}
+{% block title %}{{ page_title|default('Galeries photos - n3 iot datas') }}{% endblock %}
 
 {% block head_css %}
 <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/gallery-styles.css" />
 {% endblock %}
 
-{% block content %}
-<div class="gallery-landing">
-    <div class="gallery-landing-header" data-aos="fade-up">
-        <h1><i class="fas fa-images"></i> Galeries photos</h1>
-        <p>Photos capturées automatiquement par les caméras ESP32-CAM des projets IoT : aquaponie, potager et élevage d'insectes.</p>
-    </div>
+{% block styles %}
+<style>
+  .gallery-landing-page {
+    padding: 2rem 0;
+  }
+  
+  .gallery-landing-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .gallery-landing-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .gallery-landing-header p {
+    font-size: 1.1em;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .gallery-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .gallery-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gallery-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+  
+  .gallery-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .gallery-card-icon {
+    font-size: 2.5em;
+    color: var(--accent-primary);
+  }
+  
+  .gallery-card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  
+  .gallery-card-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  
+  .gallery-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+  }
+  
+  .gallery-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .gallery-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin-top: auto;
+  }
+  
+  .gallery-card-link:hover {
+    background: var(--accent-primary-hover);
+    transform: translateX(4px);
+  }
+  
+  .gallery-card-no-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-muted);
+    font-size: 0.9em;
+  }
+  
+  .gallery-card-no-photo i {
+    font-size: 3em;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+  }
+  
+  /* Mode sombre */
+  [data-theme="dark"] .gallery-landing-page {
+    background: var(--bg-main);
+  }
+  
+  [data-theme="dark"] .gallery-card {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+  }
+  
+  [data-theme="dark"] .gallery-card-image {
+    background: var(--bg-secondary);
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-cards {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .gallery-landing-header h1 {
+      font-size: 2em;
+    }
+  }
+</style>
+{% endblock %}
 
-    <div class="gallery-landing-grid" data-aos="fade-up">
-        {% for g in galleries|default([]) %}
-        <a href="{{ g.url }}" class="gallery-landing-card" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 50 }}">
-            <div class="gallery-landing-card-image">
-                {% if g.last_photo_url %}
-                <img src="{{ g.last_photo_url }}" alt="Dernière photo {{ g.title }}" loading="lazy" />
-                {% else %}
-                <div class="gallery-landing-placeholder">
-                    <i class="fas fa-camera"></i>
-                    <span>Aucune photo</span>
-                </div>
-                {% endif %}
-            </div>
-            <div class="gallery-landing-card-body">
-                <h2>{{ g.title }}</h2>
-                <p>{{ g.description }}</p>
-                <span class="gallery-landing-cta">Voir la galerie <i class="fas fa-arrow-right"></i></span>
-            </div>
-        </a>
-        {% endfor %}
+{% block content %}
+<div class="gallery-landing-page">
+  <div class="gallery-landing-header">
+    <h1><i class="fas fa-images"></i> Galeries photos</h1>
+    <p>Photos capturées automatiquement par les caméras ESP32-CAM des projets IoT : aquaponie, potager et élevage d'insectes.</p>
+  </div>
+  
+  <div class="gallery-cards">
+    {% for gallery in galleries %}
+    <div class="gallery-card">
+      <div class="gallery-card-header">
+        <i class="fas {{ gallery.icon }} gallery-card-icon"></i>
+        <h2 class="gallery-card-title">{{ gallery.title }}</h2>
+      </div>
+      
+      {% if gallery.last_photo_url %}
+      <div class="gallery-card-image">
+        <img src="{{ gallery.last_photo_url }}" alt="Dernière photo {{ gallery.title }}" loading="lazy" />
+      </div>
+      {% else %}
+      <div class="gallery-card-image">
+        <div class="gallery-card-no-photo">
+          <i class="fas fa-image"></i>
+          <span>Aucune photo</span>
+        </div>
+      </div>
+      {% endif %}
+      
+      <p class="gallery-card-description">{{ gallery.description }}</p>
+      
+      <a href="{{ gallery.url }}" class="gallery-card-link">
+        <i class="fas fa-arrow-right"></i>
+        Voir la galerie
+      </a>
     </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
