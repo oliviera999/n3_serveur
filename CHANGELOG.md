@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.214] - 2026-03-20
+
+### Correctif - timelapse sans frames grises sur images manquantes
+- **Resume** : les images introuvables (supprimees ou deplacees en corbeille) sont retirees de la sequence du timelapse au chargement, en lecture et en navigation manuelle. Les frames de fallback grises ne sont plus affichees.
+
+---
+
 ## [5.0.211] - 2026-03-20
 
 ## [5.0.212] - 2026-03-20

@@ -747,12 +747,13 @@ function renderFrame(frame) {
   updateStats();
 }
 async function preloadImage(frame) {
-  if (frame.img || !frame.url) return;
+  if (frame.img) return true;
+  if (!frame.url) return false;
   return new Promise(resolve => {
     const img = new Image();
     img.crossOrigin = 'anonymous';
-    img.onload = () => { frame.img = img; resolve(); };
-    img.onerror = () => resolve();
+    img.onload = () => { frame.img = img; frame.loadFailed = false; resolve(true); };
+    img.onerror = () => { frame.loadFailed = true; resolve(false); };
     img.src = frame.url;
   });
 }
@@ -766,12 +767,9 @@ let renderGen = 0;
 async function playLoop() {
   if (!state.isPlaying) return;
   const t0 = performance.now();
-  state.currentIndex = state.currentIndex >= state.frames.length - 1 ? 0 : state.currentIndex + 1;
-  const frame = state.frames[state.currentIndex];
-  if (!frame.img && frame.url) await preloadImage(frame);
-  if (!state.isPlaying) return; // annulé pendant le chargement
-  renderFrame(frame);
-  preloadAround(state.currentIndex);
+  const nextIndex = state.currentIndex >= state.frames.length - 1 ? 0 : state.currentIndex + 1;
+  const rendered = await renderAtIndexSkippingMissing(nextIndex, true);
+  if (!rendered || !state.isPlaying) return;
   const delay = Math.max(0, (1000 / state.fps) - (performance.now() - t0));
   state.playInterval = setTimeout(playLoop, delay);
 }
@@ -784,12 +782,70 @@ function startPlay() {
 function stopPlay() { state.isPlaying = false; document.getElementById('btnPlay').textContent = '▶'; clearTimeout(state.playInterval); }
 async function goTo(idx) {
   const gen = ++renderGen;
-  state.currentIndex = Math.max(0, Math.min(state.frames.length - 1, idx));
-  const frame = state.frames[state.currentIndex];
-  await preloadImage(frame);
-  if (gen !== renderGen) return; // navigation plus récente a pris le dessus
-  renderFrame(frame);
-  preloadAround(state.currentIndex);
+  await renderAtIndexSkippingMissing(idx, false, gen);
+}
+
+function handleNoFrames() {
+  stopPlay();
+  state.currentIndex = 0;
+  state.frames = [];
+  document.getElementById('btnExport').disabled = true;
+  document.getElementById('noImage').style.display = 'flex';
+  document.getElementById('tsOverlay').textContent = '--';
+  document.getElementById('statCount').textContent = '0';
+  document.getElementById('timeStart').textContent = '--';
+  document.getElementById('timeCurrent').textContent = '--';
+  document.getElementById('timeEnd').textContent = '--';
+  document.getElementById('scrubberFill').style.width = '0%';
+  document.getElementById('scrubber').value = 0;
+}
+
+async function renderAtIndexSkippingMissing(targetIndex, silent, expectedGen) {
+  if (state.frames.length === 0) {
+    handleNoFrames();
+    return false;
+  }
+
+  let idx = Math.max(0, Math.min(state.frames.length - 1, targetIndex));
+  let removed = 0;
+
+  while (state.frames.length > 0) {
+    if (expectedGen && expectedGen !== renderGen) return false;
+
+    idx = Math.max(0, Math.min(state.frames.length - 1, idx));
+    state.currentIndex = idx;
+    const frame = state.frames[idx];
+    const demoMode = document.getElementById('demoMode')?.checked ?? false;
+
+    if (demoMode || frame.img) {
+      renderFrame(frame);
+      preloadAround(state.currentIndex);
+      if (removed > 0 && !silent) {
+        showToast(removed + ' image(s) supprimée(s) du timelapse (introuvables)', 'success');
+      }
+      return true;
+    }
+
+    const ok = await preloadImage(frame);
+    if (expectedGen && expectedGen !== renderGen) return false;
+    if (ok) {
+      renderFrame(frame);
+      preloadAround(state.currentIndex);
+      if (removed > 0 && !silent) {
+        showToast(removed + ' image(s) supprimée(s) du timelapse (introuvables)', 'success');
+      }
+      return true;
+    }
+
+    state.frames.splice(idx, 1);
+    removed++;
+  }
+
+  handleNoFrames();
+  if (removed > 0 && !silent) {
+    showToast('Toutes les images de cette plage ont été retirées (introuvables)', 'error');
+  }
+  return false;
 }
 /**
  * Charge les images pour la plage indiquée.
@@ -813,7 +869,13 @@ async function loadRange(fromOrNull, toOrNull) {
     updateStats();
     showLoading('Préchargement...');
     preloadAround(0);
-    await preloadImage(state.frames[0]);
+    const firstOk = await preloadImage(state.frames[0]);
+    if (!firstOk) {
+      await renderAtIndexSkippingMissing(0, false);
+      hideLoading();
+      startBulkPreload();
+      return;
+    }
     hideLoading();
     renderFrame(state.frames[0]);
     showToast(rawFrames.length + ' images — chargement en cours…', 'success');
