@@ -96,7 +96,7 @@ class SensorDataService
     {
         $this->validateColumn($column);
         $table = \App\Config\TableConfig::getDataTable();
-        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM {$table} WHERE {$column} < :threshold");
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM `{$table}` WHERE `{$column}` < :threshold");
         $stmt->execute([':threshold' => $threshold]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return (int) $result['COUNT(*)'];
@@ -113,7 +113,7 @@ class SensorDataService
     {
         $this->validateColumn($column);
         $table = \App\Config\TableConfig::getDataTable();
-        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM {$table} WHERE {$column} > :threshold");
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM `{$table}` WHERE `{$column}` > :threshold");
         $stmt->execute([':threshold' => $threshold]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return (int) $result['COUNT(*)'];
@@ -129,7 +129,7 @@ class SensorDataService
     {
         $this->validateColumn($column);
         $table = \App\Config\TableConfig::getDataTable();
-        $stmt = $this->pdo->prepare("UPDATE {$table} SET {$column} = NULL WHERE {$column} < :threshold");
+        $stmt = $this->pdo->prepare("UPDATE `{$table}` SET `{$column}` = NULL WHERE `{$column}` < :threshold");
         $stmt->execute([':threshold' => $threshold]);
     }
 
@@ -143,7 +143,7 @@ class SensorDataService
     {
         $this->validateColumn($column);
         $table = \App\Config\TableConfig::getDataTable();
-        $stmt = $this->pdo->prepare("UPDATE {$table} SET {$column} = NULL WHERE {$column} > :threshold");
+        $stmt = $this->pdo->prepare("UPDATE `{$table}` SET `{$column}` = NULL WHERE `{$column}` > :threshold");
         $stmt->execute([':threshold' => $threshold]);
     }
 

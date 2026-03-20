@@ -139,10 +139,7 @@ return [
     },
 
     OutputSyncService::class => function (ContainerInterface $c) {
-        return new OutputSyncService(
-            $c->get(OutputRepository::class),
-            $c->get(LogService::class)
-        );
+        return new OutputSyncService();
     },
 
     SensorDataService::class => function (ContainerInterface $c) {

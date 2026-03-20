@@ -238,7 +238,7 @@ class OutputController
         // JSON_INVALID_UTF8_SUBSTITUTE: évite JSON invalide si données BDD contiennent UTF-8 corrompu (InvalidInput ArduinoJson)
         $json = json_encode($result, JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE);
         if ($json === false) {
-            throw new \RuntimeException('getOutputsState: json_encode failed');
+            throw new \RuntimeException('getOutputsState: json_encode failed — ' . json_last_error_msg());
         }
         $response->getBody()->write($json);
         return $response
