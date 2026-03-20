@@ -184,18 +184,20 @@
     background: rgba(248, 113, 113, 0.2);
 }
 
-[data-theme="dark"] .timelapse-page .timelapse-toast {
+[data-theme="dark"] .timelapse-page .timelapse-feedback {
     background: var(--bg-card);
     border-color: var(--border-color);
     color: var(--text-primary);
 }
-[data-theme="dark"] .timelapse-page .timelapse-toast.success {
-    border-color: var(--accent-primary);
+[data-theme="dark"] .timelapse-page .timelapse-feedback.success {
+    border-color: var(--accent-border);
+    background: var(--accent-muted);
     color: var(--accent-primary);
 }
-[data-theme="dark"] .timelapse-page .timelapse-toast.error {
-    border-color: var(--red);
-    color: var(--red);
+[data-theme="dark"] .timelapse-page .timelapse-feedback.error {
+    border-color: rgba(248, 113, 113, 0.45);
+    background: rgba(248, 113, 113, 0.2);
+    color: #fca5a5;
 }
 
 [data-theme="dark"] .timelapse-page .timelapse-config-input {

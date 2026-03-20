@@ -383,24 +383,27 @@
     border-radius: 50%;
     background: currentColor;
   }
-  .timelapse-toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%) translateY(60px);
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--text);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    padding: 10px 20px;
+  .timelapse-feedback {
+    display: none;
+    margin: 10px 20px 0;
+    padding: 10px 14px;
     font-size: 0.8rem;
     border-radius: 8px;
-    transition: transform 0.3s;
-    z-index: 2000;
+    border: 1px solid #d7dde5;
+    background: #f8fafc;
+    color: #334155;
   }
-  .timelapse-toast.show { transform: translateX(-50%) translateY(0); }
-  .timelapse-toast.success { border-color: var(--accent); color: var(--accent); }
-  .timelapse-toast.error { border-color: var(--red); color: var(--red); }
+  .timelapse-feedback.show { display: block; }
+  .timelapse-feedback.success {
+    border-color: rgba(0,139,116,0.35);
+    background: rgba(0,139,116,0.1);
+    color: #006b57;
+  }
+  .timelapse-feedback.error {
+    border-color: rgba(239,68,68,0.35);
+    background: rgba(239,68,68,0.1);
+    color: #b91c1c;
+  }
   .timelapse-config-input {
     font-size: 0.65rem;
     background: var(--surface);
@@ -555,15 +558,7 @@
       margin-top: 4px;
     }
     .timelapse-time-labels { font-size: 0.65rem; }
-    .timelapse-toast {
-      bottom: max(80px, env(safe-area-inset-bottom, 0px));
-      left: 1rem;
-      right: 1rem;
-      transform: translateY(60px);
-      max-width: calc(100% - 2rem);
-      margin: 0 auto;
-    }
-    .timelapse-toast.show { transform: translateY(0); }
+    .timelapse-feedback { margin: 10px 12px 0; }
   }
   /* Très petits écrans (< 400px) */
   @media (max-width: 400px) {
@@ -614,6 +609,7 @@
         <span id="loadingText">Chargement...</span>
       </div>
     </div>
+    <div class="timelapse-feedback" id="timelapseFeedback" aria-live="polite"></div>
 
     <div class="timelapse-controls">
       <div>
@@ -633,7 +629,7 @@
         <button class="timelapse-ctrl-btn" id="btnFirst" title="Première image">⏮</button>
         <button class="timelapse-ctrl-btn" id="btnPrev" title="Image précédente">◀</button>
         <button class="timelapse-ctrl-btn play-pause" id="btnPlay" title="Lecture/Pause">▶</button>
-        <button class="timelapse-ctrl-btn" id="btnNext" title="Image suivante">⏩</button>
+        <button class="timelapse-ctrl-btn" id="btnNext" title="Image suivante">▶</button>
         <button class="timelapse-ctrl-btn" id="btnLast" title="Dernière image">⏭</button>
         <button class="timelapse-live-btn" id="btnLive"><span class="timelapse-live-dot"></span>Dernière image</button>
       </div>
@@ -707,13 +703,12 @@
     </div>
   </div>
 </div>
-<div class="timelapse-toast" id="toast"></div>
 {% endblock %}
 
 {% block scripts %}
 <script>
 const CONFIG = { defaultFps: 24, bufferSize: 40, preloadAhead: 15, preloadConcurrency: 4 };
-let state = { frames: [], currentIndex: 0, fps: CONFIG.defaultFps, isPlaying: false, playInterval: null, isLive: false, liveTimer: null, totalLoaded: 0, recording: false, mediaRecorder: null, recordedChunks: [], latestPhotoAt: null };
+let state = { frames: [], currentIndex: 0, fps: CONFIG.defaultFps, isPlaying: false, playInterval: null, isLive: false, liveTimer: null, totalLoaded: 0, recording: false, mediaRecorder: null, recordedChunks: [], latestPhotoAt: null, feedbackTimer: null };
 // File de préchargement avec deux niveaux de priorité
 const preloadQ = { hi: [], lo: [] };
 let preloadWorkers = 0;
@@ -1003,7 +998,14 @@ function showExportProgress(pct, text) { document.getElementById('exportProgress
 function hideExportProgress() { setTimeout(() => document.getElementById('exportProgress').classList.remove('visible'), 2000); }
 function showLoading(text) { document.getElementById('loadingText').textContent = text; document.getElementById('loadingOverlay').classList.add('visible'); }
 function hideLoading() { document.getElementById('loadingOverlay').classList.remove('visible'); }
-function showToast(msg, type) { const t = document.getElementById('toast'); t.textContent = msg; t.className = 'timelapse-toast ' + type + ' show'; setTimeout(() => t.classList.remove('show'), 3500); }
+function showToast(msg, type) {
+  const feedback = document.getElementById('timelapseFeedback');
+  if (!feedback) return;
+  feedback.textContent = msg;
+  feedback.className = 'timelapse-feedback ' + type + ' show';
+  if (state.feedbackTimer) clearTimeout(state.feedbackTimer);
+  state.feedbackTimer = setTimeout(() => feedback.classList.remove('show'), 3500);
+}
 function updateClock() { document.getElementById('clock').textContent = new Date().toLocaleTimeString('fr-FR'); }
 async function fetchLatestPhotoTimestamp() {
   const url = document.getElementById('apiLatestUrl').value;
