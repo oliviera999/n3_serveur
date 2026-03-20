@@ -77,30 +77,83 @@
     gap: 16px;
     margin: 24px 0;
 }
+.gallery-item-link {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+}
 .gallery-item img {
     width: 100%;
     height: auto;
     border-radius: 8px;
     display: block;
+    cursor: zoom-in;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.gallery-item-link:hover img {
+    transform: scale(1.02);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
 }
 
 /* Pagination */
 .gallery-pagination {
     display: flex;
-    gap: 8px;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin: 24px 0;
-    flex-wrap: wrap;
+    gap: 6px 8px;
+    margin: 1.5rem 0 0.75rem;
+    padding: 12px 14px;
+    background: #f0f4f3;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 139, 116, 0.12);
 }
-.gallery-pagination a,
-.gallery-pagination span {
-    padding: 8px 12px;
-    text-decoration: none;
+.gallery-pagination a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
     color: #008B74;
+    text-decoration: none;
+    background: #fff;
+    border: 1px solid rgba(0, 139, 116, 0.2);
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.gallery-pagination a:hover {
+    background: #008B74;
+    color: #fff;
+    border-color: #008B74;
 }
 .gallery-pagination .current {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 10px;
+    border-radius: 8px;
     font-weight: 700;
+    font-size: 0.9rem;
+    color: #fff;
+    background: #008B74;
+    border: 1px solid #008B74;
+}
+.gallery-pagination-ellipsis {
+    color: #94a3b8;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    user-select: none;
+    padding: 0 2px;
+}
+.gallery-pagination .gallery-nav-prevnext {
+    min-width: auto;
+    padding: 0 14px;
+    font-size: 0.85rem;
 }
 .gallery-empty {
     text-align: center;
@@ -123,6 +176,156 @@
 }
 .gallery-back:hover {
     background: #00B794;
+}
+
+/* Hero page galerie (mode clair) */
+.gallery-hero {
+    margin: 0 0 1.25rem 0;
+}
+
+.gallery-hero h1 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+    font-size: 2em;
+}
+
+.gallery-hero h1 i {
+    color: #008B74;
+    margin-right: 10px;
+}
+
+.gallery-hero p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 1.05em;
+}
+
+/* Encart liens admin */
+.gallery-others {
+    margin-bottom: 20px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.gallery-others a {
+    margin: 0 8px;
+}
+
+.gallery-pagination-summary {
+    text-align: center;
+    margin: 0 0 1rem;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* Landing galeries (styles externalises depuis le template) */
+.gallery-landing-page {
+    padding: 2rem 0;
+}
+
+.gallery-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gallery-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+}
+
+.gallery-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.gallery-card-icon {
+    font-size: 2.5em;
+    color: var(--accent-primary);
+}
+
+.gallery-card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.gallery-card-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.gallery-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+.gallery-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gallery-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin-top: auto;
+}
+
+.gallery-card-link:hover {
+    background: var(--accent-primary-hover);
+    transform: translateX(4px);
+}
+
+.gallery-card-no-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-muted);
+    font-size: 0.9em;
+}
+
+.gallery-card-no-photo i {
+    font-size: 3em;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
 }
 
 /* Landing page galeries : 3 cartes avec dernière photo + texte */
@@ -248,6 +451,7 @@
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    cursor: zoom-out;
 }
 .gallery-lightbox-caption {
     position: absolute;
@@ -313,6 +517,19 @@
 [data-theme="dark"] #wrapper.gallery-page-wrapper #main,
 [data-theme="dark"] #wrapper.gallery-timelapse-wrapper #main {
     background-color: var(--bg-main) !important;
+}
+
+[data-theme="dark"] .gallery-landing-page {
+    background: var(--bg-main);
+}
+
+[data-theme="dark"] .gallery-card {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .gallery-card-image {
+    background: var(--bg-secondary);
 }
 
 [data-theme="dark"] #wrapper.gallery-landing-wrapper .section-header,
@@ -500,4 +717,15 @@
 
 [data-theme="dark"] .gallery-links .gallery-back:hover {
     background: var(--accent-primary-hover);
+}
+
+@media (max-width: 768px) {
+    .gallery-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .gallery-landing-header h1 {
+        font-size: 2em;
+    }
 }
