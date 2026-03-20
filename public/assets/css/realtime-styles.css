@@ -494,7 +494,8 @@ body.is-preload #wrapper.fade-in::before {
 .system-health-panel h3,
 .system-health-panel h4,
 .system-health-panel .system-health-panel-title,
-.filter-header h3 {
+.filter-header h3,
+.filter-section h3 {
     margin: 0 0 15px 0;
     color: #2c3e50;
     font-size: 1.15em;
@@ -507,7 +508,8 @@ body.is-preload #wrapper.fade-in::before {
 .system-health-panel h3 i,
 .system-health-panel h4 i,
 .system-health-panel .system-health-panel-title i,
-.filter-header h3 i {
+.filter-header h3 i,
+.filter-section h3 i {
     color: #008B74;
 }
 
@@ -1583,9 +1585,17 @@ body.is-preload #wrapper.fade-in::before {
 .js-scroll-reveal [data-aos="zoom-in"].sr-visible {
     opacity: 1 !important;
 }
-/* Override is-preload pour [data-aos] — permet les transitions */
+/* Pendant is-preload : pas de transitions sur [data-aos] (évite le fondu de disparition) */
 body.is-preload [data-aos] {
-    transition: opacity 0.8s ease, transform 0.8s ease !important;
+    transition: none !important;
+}
+/* Filet de sécurité CSS : si sr-visible n'est pas ajouté après 4 s, forcer la visibilité */
+@keyframes aosSafetyReveal {
+    from { opacity: 0; }
+    to   { opacity: 1; transform: none; }
+}
+.js-scroll-reveal [data-aos]:not(.sr-visible) {
+    animation: aosSafetyReveal 0.6s ease 4s forwards !important;
 }
 /* prefers-reduced-motion : pas d'animation, affichage direct */
 @media (prefers-reduced-motion: reduce) {

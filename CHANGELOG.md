@@ -7,6 +7,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.192] - 2026-03-20
 
 ### Modifi� - Navigation galeries
@@ -14,6 +20,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.191] - 2026-03-20
 
 ### Correctif - L�gendes Highcharts aquaponie
@@ -24,6 +36,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.190] - 2026-03-20
 
 ### Modifi� - Supervision : menu nav et grille Live
@@ -33,6 +51,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.189] - 2026-03-17
 
 ### Modifi� - Libell�s courts filtrage par p�riode
@@ -40,6 +64,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.188] - 2026-03-18
 
 ### Modifi� - OTA ffp5cs sur /ota/
@@ -48,6 +78,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.187] - 2026-03-18
 
 ### Modifi� - timelapse : boutons plage / vitesse = style aquaponie
@@ -55,6 +91,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.186] - 2026-03-18
 
 ### Modifi� - galeries (admin) : pagination compacte
@@ -62,6 +104,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.185] - 2026-03-18
 
 ### Modifi� - timelapse : plage par d�faut ancr�e sur la derni?re photo
@@ -136,6 +184,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -373,6 +427,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -709,6 +769,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -1010,6 +1076,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -1313,6 +1385,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -1628,6 +1706,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -1988,6 +2072,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -2433,6 +2523,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -2840,6 +2936,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -3628,6 +3730,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -4404,6 +4512,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -5179,6 +5293,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -5954,6 +6074,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -6738,6 +6864,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -7515,6 +7647,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -8292,6 +8430,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -9070,6 +9214,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -9847,6 +9997,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -10626,6 +10782,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -11403,6 +11565,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -12180,6 +12348,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -12957,6 +13131,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -13735,6 +13915,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -14510,6 +14696,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -15290,6 +15482,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -16065,6 +16263,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -16843,6 +17047,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -17619,6 +17829,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -18397,6 +18613,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -19175,6 +19397,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -19952,6 +20180,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -20731,6 +20965,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -21507,6 +21747,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -22284,6 +22530,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -23062,6 +23314,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -23840,6 +24098,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -24616,6 +24880,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -25393,6 +25663,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -26172,6 +26448,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -26950,6 +27232,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -27727,6 +28015,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -28504,6 +28798,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -29281,6 +29581,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -30058,6 +30364,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -30834,6 +31146,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -31610,6 +31928,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -32386,6 +32710,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -33162,6 +33492,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -33939,6 +34275,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -34720,6 +35062,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -35501,6 +35849,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -36275,6 +36629,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -37049,6 +37409,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -37823,6 +38189,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -38597,6 +38969,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -39371,6 +39749,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -40145,6 +40529,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -40936,6 +41326,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -41717,6 +42113,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -42496,6 +42898,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -43276,6 +43684,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -44060,6 +44474,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -44856,6 +45276,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -45634,6 +46060,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -46414,6 +46846,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -47194,6 +47632,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -47971,6 +48415,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -48751,6 +49201,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -49528,6 +49984,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -50304,6 +50766,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -51081,6 +51549,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -51868,6 +52342,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -52652,6 +53132,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -53444,6 +53930,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -54240,6 +54732,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -55026,6 +55524,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -55804,6 +56308,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -56584,6 +57094,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -57363,6 +57879,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -58142,6 +58664,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -58919,6 +59447,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -59696,6 +60230,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -60475,6 +61015,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -61253,6 +61799,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -62033,6 +62585,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -62818,6 +63376,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -63607,6 +64171,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -64392,6 +64962,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -65179,6 +65755,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -65965,6 +66547,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -66746,6 +67334,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -67523,6 +68117,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -68304,6 +68904,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -69082,6 +69688,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -69859,6 +70471,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -70636,6 +71254,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -71415,6 +72039,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -72194,6 +72824,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -72972,6 +73608,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -73750,6 +74392,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -74527,6 +75175,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -75304,6 +75958,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -76081,6 +76741,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -76860,6 +77526,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -77639,6 +78311,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -78416,6 +79094,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -79193,6 +79877,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -79970,6 +80660,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -80748,6 +81444,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -81528,6 +82230,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -82315,6 +83023,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -83096,6 +83810,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -83884,6 +84604,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -84670,6 +85396,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -85447,6 +86179,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -86257,6 +86995,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -87038,6 +87782,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -87828,6 +88578,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -88628,6 +89384,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -89418,6 +90180,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -90198,6 +90966,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -90979,6 +91753,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -91766,6 +92546,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -92663,6 +93449,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -93444,6 +94236,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -94223,6 +95021,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -95003,6 +95807,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -95784,6 +96594,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -96564,6 +97380,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -97346,6 +98168,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -98127,6 +98955,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -99030,6 +99864,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -99810,6 +100650,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -100590,6 +101436,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -101418,6 +102270,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -102207,6 +103065,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -102996,6 +103860,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -103822,6 +104692,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -104659,6 +105535,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -105453,6 +106335,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -106248,6 +107136,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -107033,6 +107927,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -107824,6 +108724,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -108619,6 +109525,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -109412,6 +110324,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -110196,6 +111114,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -110992,6 +111916,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -111820,6 +112750,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -112603,6 +113539,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -113387,6 +114329,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -114170,6 +115118,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -114958,6 +115912,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -115752,6 +116712,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -116544,6 +117510,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -117334,6 +118306,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -118119,6 +119097,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -118905,6 +119889,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -119702,6 +120692,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -120498,6 +121494,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -121297,6 +122299,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -122112,6 +123120,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -122957,6 +123971,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -123743,6 +124763,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -124528,6 +125554,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -125323,6 +126355,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -126108,6 +127146,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -126897,6 +127941,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -127679,6 +128729,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -128463,6 +129519,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -129239,6 +130301,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -130055,6 +131123,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -130843,6 +131917,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -131653,6 +132733,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -132445,6 +133531,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -133233,6 +134325,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -134027,6 +135125,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -134843,6 +135947,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -135644,6 +136754,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -136499,6 +137615,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -137291,6 +138413,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -138085,6 +139213,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -138890,6 +140024,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -139688,6 +140828,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -140473,6 +141619,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -141258,6 +142410,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -142045,6 +143203,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -142903,6 +144067,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -143709,6 +144879,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -144529,6 +145705,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -145337,6 +146519,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -146149,6 +147337,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -146929,6 +148123,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -147761,6 +148961,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -148557,6 +149763,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -149340,6 +150552,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -150173,6 +151391,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -150985,6 +152209,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -151830,6 +153060,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -152613,6 +153849,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -153455,6 +154697,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -154235,6 +155483,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -155014,6 +156268,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -155797,6 +157057,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -156580,6 +157846,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -157408,6 +158680,12 @@ docs/
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -158259,6 +159537,12 @@ docs/
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -159044,6 +160328,12 @@ docs/
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -159863,6 +161153,12 @@ docs/
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -160647,6 +161943,12 @@ docs/
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -161453,6 +162755,12 @@ docs/
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -162235,6 +163543,12 @@ docs/
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -163206,6 +164520,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -164011,6 +165331,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -164843,6 +166169,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -165661,6 +166993,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -166465,6 +167803,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -167276,6 +168620,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -168079,6 +169429,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -168871,6 +170227,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -169655,6 +171017,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -170455,6 +171823,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -171239,6 +172613,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -172023,6 +173403,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -172809,6 +174195,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -173613,6 +175005,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)
@@ -174391,6 +175789,12 @@ ance future
 
 ---
 
+## [5.0.193] - 2026-03-20
+
+### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
+- **Résumé** : unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates.
+
+---
 ## [5.0.184] - 2026-03-18
 
 ### Correctif - correctif affichage page serre (r?v?lation imm?diate contenu d?j? ? l'?cran)

@@ -65,25 +65,33 @@
     }
 
     /**
+     * Applique localStorage à toutes les cases (y compris doublons Live + grille liens).
+     */
+    function syncCheckboxesFromState() {
+        var state = getState();
+        var all = document.querySelectorAll('.page-nav-cb');
+        for (var i = 0; i < all.length; i++) {
+            var cb = all[i];
+            var key = cb.getAttribute('data-page-key');
+            if (!key) continue;
+            var on = !!(state[key] && state[key].active);
+            cb.checked = on;
+            markWrapActive(cb, on);
+        }
+    }
+
+    /**
      * Initialise les checkboxes toggle sur la page supervision.
      */
     function initToggles() {
         var checkboxes = document.querySelectorAll('.page-nav-cb');
         if (checkboxes.length === 0) return;
 
-        var state = getState();
-
         for (var i = 0; i < checkboxes.length; i++) {
             (function (cb) {
                 var key = cb.getAttribute('data-page-key');
                 var label = cb.getAttribute('data-page-label');
                 var url = cb.getAttribute('data-page-url');
-
-                // État initial depuis localStorage
-                if (state[key] && state[key].active) {
-                    cb.checked = true;
-                    markWrapActive(cb, true);
-                }
 
                 cb.addEventListener('change', function (e) {
                     e.stopPropagation();
@@ -94,19 +102,23 @@
                         delete s[key];
                     }
                     setState(s);
+                    syncCheckboxesFromState();
                     renderNavItems();
-                    markWrapActive(cb, cb.checked);
                 });
             })(checkboxes[i]);
         }
+        syncCheckboxesFromState();
     }
 
     function markWrapActive(cb, active) {
         var wrap = cb;
-        while (wrap && !wrap.classList.contains('link-card-wrap')) {
+        while (wrap && wrap !== document.body) {
+            if (wrap.classList && (wrap.classList.contains('link-card-wrap') || wrap.classList.contains('live-card-wrap'))) {
+                break;
+            }
             wrap = wrap.parentElement;
         }
-        if (wrap) {
+        if (wrap && wrap.classList) {
             if (active) {
                 wrap.classList.add('nav-active');
             } else {

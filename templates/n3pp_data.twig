@@ -14,6 +14,8 @@
 
 {% block head_scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"></script>
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -160,62 +162,168 @@
                 <i class="fas fa-filter"></i>
                 <h3>Filtrage des données</h3>
             </div>
-            <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}" id="n3ppFilterForm">
-                {{ csrf_field|raw }}
-                <div>
-                    <label for="start_datetime">debut</label>
-                    <input type="datetime-local" id="start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d\\TH:i') }}">
-                </div>
-                <div>
-                    <label for="end_datetime">fin</label>
-                    <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d\\TH:i') }}">
-                </div>
-                <div class="action-buttons">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Afficher les mesures</button>
-                    <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-file-csv"></i> Télécharger CSV</button>
-                </div>
-            </form>
-            <div class="quick-filters">
-                <button type="button" class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</button>
-                <button type="button" class="quick-filter-btn" onclick="setPeriod(3,'h')">3h</button>
-                <button type="button" class="quick-filter-btn" onclick="setPeriod(6,'h')">6h</button>
-                <button type="button" class="quick-filter-btn" onclick="setPeriod(12,'h')">12h</button>
-                <button type="button" class="quick-filter-btn" onclick="setPeriod(1,'d')">1 jour</button>
-                <button type="button" class="quick-filter-btn" onclick="setPeriod(7,'d')">1 sem</button>
-                <button type="button" class="quick-filter-btn" onclick="setPeriod(30,'d')">1 mois</button>
-            </div>
+
             <div class="period-info">
-                <span><i class="fas fa-database"></i> {{ measure_count }} mesures</span>
-                <span><i class="fas fa-clock"></i> {{ duration_str }}</span>
+                <div class="period-info-title">
+                    📊 Période analysée
+                    <span id="period-mode-badge" class="mode-badge mode-badge-historical">
+                        <i class="fas fa-history"></i> HISTORIQUE
+                    </span>
+                </div>
+                <div class="period-info-dates">
+                    <i class="far fa-calendar-alt"></i>
+                    Du <span id="period-start-date">{{ start_date|date('d/m/Y H:i') }}</span> au <span id="period-end-date">{{ end_date|date('d/m/Y H:i') }}</span>
+                    <small class="period-tz-hint">(heure Casablanca)</small>
+                </div>
+                <div class="period-info-stats">
+                    <div class="period-stat-item">
+                        <span class="period-stat-value" id="period-duration">{{ duration_str }}</span>
+                        <span class="period-stat-label">Durée de la fenêtre</span>
+                    </div>
+                    <div class="period-stat-item">
+                        <span class="period-stat-value" id="period-measure-count">{{ measure_count }}</span>
+                        <span class="period-stat-label">Mesures chargées</span>
+                    </div>
+                    <div class="period-stat-item">
+                        <span class="period-stat-value" id="live-readings-count">0</span>
+                        <span class="period-stat-label">Lectures live reçues</span>
+                    </div>
+                </div>
             </div>
-            <!-- Temps total depuis le début du fonctionnement du module -->
+
+            <div class="quick-filters">
+                <button class="quick-filter-btn" onclick="setPeriod(1, 'hours')">
+                    <i class="far fa-clock"></i> 1 heure
+                </button>
+                <button class="quick-filter-btn" onclick="setPeriod(3, 'hours')">
+                    <i class="far fa-clock"></i> 3 heures
+                </button>
+                <button class="quick-filter-btn" onclick="setPeriod(6, 'hours')">
+                    <i class="far fa-clock"></i> 6 heures
+                </button>
+                <button class="quick-filter-btn" onclick="setPeriod(12, 'hours')">
+                    <i class="far fa-clock"></i> 12 heures
+                </button>
+                <button class="quick-filter-btn" onclick="setPeriod(1, 'days')">
+                    <i class="far fa-calendar"></i> 1 jour
+                </button>
+                <button class="quick-filter-btn" onclick="setPeriod(7, 'days')">
+                    <i class="far fa-calendar-alt"></i> 1 semaine
+                </button>
+                <button class="quick-filter-btn" onclick="setPeriod(30, 'days')">
+                    <i class="far fa-calendar-alt"></i> 1 mois
+                </button>
+            </div>
+
+            <div class="custom-filter">
+                <div class="custom-filter-title">
+                    <i class="fas fa-calendar-days"></i>
+                    Période personnalisée
+                </div>
+
+                <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}" id="n3ppFilterForm">
+                    {{ csrf_field|raw }}
+                    <div class="datetime-grid">
+                        <div class="datetime-field">
+                            <label for="start_datetime">
+                                <i class="fas fa-play"></i> debut
+                            </label>
+                            <input type="datetime-local" 
+                                   id="start_datetime" 
+                                   name="start_datetime" 
+                                   value="{{ start_date|date('Y-m-d\\TH:i') }}" 
+                                   required>
+                        </div>
+
+                        <div class="datetime-field">
+                            <label for="end_datetime">
+                                <i class="fas fa-stop"></i> fin
+                            </label>
+                            <input type="datetime-local" 
+                                   id="end_datetime" 
+                                   name="end_datetime" 
+                                   value="{{ end_date|date('Y-m-d\\TH:i') }}" 
+                                   required>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-chart-line"></i>
+                            Afficher les mesures
+                        </button>
+                        <button type="submit" name="export_csv" class="btn-secondary">
+                            <i class="fas fa-file-csv"></i>
+                            Télécharger CSV
+                        </button>
+                    </div>
+                </form>
+            </div>
+
             <div class="filter-module-uptime" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9em;">
                 <i class="fas fa-clock"></i>
                 <strong>Temps total depuis le début du fonctionnement du module :</strong>
-                <span id="module-uptime-total">{% if temps_total_module %}{{ temps_total_module }}{% else %}—{% endif %}</span>
+                <span id="module-uptime-total"><i class="fas fa-spinner fa-spin"></i></span>
             </div>
         </div>
 
-        {% embed 'partials/_system_health_panel.twig' with { health_panel_title: 'État du système' } %}
-            {% block health_items %}
+        <!-- Panneau d'état du système (temps réel) -->
+        <div class="system-health-panel">
+            <h3>
+                <i class="fas fa-heartbeat"></i>
+                État du système
+                <span class="refresh-spinner" id="health-spinner">
+                    <i class="fas fa-sync-alt"></i>
+                </span>
+            </h3>
+            
+            <div class="health-grid">
                 <div class="health-item">
-                    <div class="health-item-label">Firmware</div>
-                    <div class="health-item-value">v{{ firmware_version }}</div>
+                    <div class="health-item-label">Statut</div>
+                    <div id="system-status-indicator" class="status-indicator status-online is-animated">
+                        <span class="status-pill" data-status-badge>
+                            <i class="fas fa-circle"></i>
+                            <strong>TEMPS RÉEL</strong>
+                        </span>
+                        <span class="status-text" data-status-label>
+                            <i class="fas fa-check-circle"></i>
+                            <span>En ligne</span>
+                        </span>
+                    </div>
                 </div>
+                
                 <div class="health-item">
-                    <div class="health-item-label">Serveur</div>
-                    <div class="health-item-value">{{ version }}</div>
+                    <div class="health-item-label">Dernière réception</div>
+                    <div class="health-item-value" id="last-reading-time" data-default="pending">
+                        <span class="reading-ago" data-reading-ago>
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                        <span class="reading-timestamp" data-reading-timestamp style="display: none;"></span>
+                    </div>
                 </div>
+                
                 <div class="health-item">
-                    <div class="health-item-label">Mesures affichées</div>
-                    <div class="health-item-value">{{ measure_count }}</div>
+                    <div class="health-item-label">Uptime (30j)</div>
+                    <div class="health-item-value" id="system-uptime">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
                 </div>
+                
                 <div class="health-item">
-                    <div class="health-item-label">Environnement</div>
-                    <div class="health-item-value">{{ environment }}</div>
+                    <div class="health-item-label">Lectures aujourd'hui</div>
+                    <div class="health-item-value" id="readings-today" data-default="pending">
+                        <span class="reading-count" data-reading-count>
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                        <span class="reading-hint" data-reading-hint>/ jour</span>
+                    </div>
                 </div>
-            {% endblock %}
-        {% endembed %}
+            </div>
+            
+            <div class="next-update-countdown" id="next-update-info">
+                Prochaine mise à jour dans <strong id="countdown-seconds">15</strong> secondes
+            </div>
+        </div>
         </div>
     </article>
 {% endblock %}
@@ -230,23 +338,23 @@
     <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
     <script>
     function setPeriod(value, unit) {
-        var now = new Date();
-        var start = new Date(now);
-        if (unit === 'h') start.setHours(start.getHours() - value);
-        else if (unit === 'd') start.setDate(start.getDate() - value);
-        var fmt = function(d) {
-            var y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
-            var h = String(d.getHours()).padStart(2, '0'), min = String(d.getMinutes()).padStart(2, '0');
-            return y + '-' + m + '-' + day + 'T' + h + ':' + min;
-        };
-        var form = document.getElementById('n3ppFilterForm');
-        if (form) {
-            var startEl = form.querySelector('#start_datetime');
-            var endEl = form.querySelector('#end_datetime');
-            if (startEl) startEl.value = fmt(start);
-            if (endEl) endEl.value = fmt(now);
-            form.submit();
+        const now = moment().tz('Africa/Casablanca');
+        let start = moment(now);
+        
+        if (unit === 'hours') {
+            start = start.subtract(value, 'hours');
+        } else if (unit === 'days') {
+            start = start.subtract(value, 'days');
         }
+        
+        const formatDateTime = (momentObj) => {
+            return momentObj.format('YYYY-MM-DDTHH:mm');
+        };
+        
+        document.getElementById('start_datetime').value = formatDateTime(start);
+        document.getElementById('end_datetime').value = formatDateTime(now);
+        
+        document.getElementById('n3ppFilterForm').submit();
     }
     </script>
     <script>

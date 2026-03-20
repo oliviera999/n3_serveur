@@ -585,7 +585,7 @@
                                     <h3 class="chemistry-chart-title">Paramètres principaux</h3>
                                 </div>
                                 <div class="chemistry-chart-container">
-                                    <iframe seamless scrolling="no"
+                                    <iframe seamless scrolling="auto"
                                             src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=209032696&amp;format=interactive">
                                     </iframe>
                                 </div>
@@ -598,7 +598,7 @@
                                     <h3 class="chemistry-chart-title">Nutriments et minéraux</h3>
                                 </div>
                                 <div class="chemistry-chart-container">
-                                    <iframe seamless scrolling="no"
+                                    <iframe seamless scrolling="auto"
                                             src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=699943208&amp;format=interactive">
                                     </iframe>
                                 </div>
@@ -611,7 +611,7 @@
                                     <h3 class="chemistry-chart-title">Équilibre chimique</h3>
                                 </div>
                                 <div class="chemistry-chart-container">
-                                    <iframe seamless scrolling="no"
+                                    <iframe seamless scrolling="auto"
                                             src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=1338338691&amp;format=interactive">
                                     </iframe>
                                 </div>
@@ -626,31 +626,31 @@
                                     </div>
                                     <div class="chemistry-legend-grid">
                                         <div class="chemistry-legend-item">
-                                            <i class="fas fa-tint chemistry-legend-icon"></i>
+                                            <i class="fas fa-tint chemistry-legend-icon legend-ph"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">pH (Potentiel Hydrogène)</div>
-                                                <div class="chemistry-legend-value">Mesure l'acidité ou l'alcalinité de l'eau. Idéal : 6,8-7,2</div>
+                                                <div class="chemistry-legend-value">Acidité / alcalinité. Idéal : 6,8–7,2</div>
                                             </div>
                                         </div>
                                         <div class="chemistry-legend-item">
-                                            <i class="fas fa-wind chemistry-legend-icon"></i>
+                                            <i class="fas fa-wind chemistry-legend-icon legend-nh3"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">Ammoniaque (NH₃)</div>
-                                                <div class="chemistry-legend-value">Toxique pour les poissons. Doit rester < 0,02 mg/L</div>
+                                                <div class="chemistry-legend-value">Toxique pour les poissons. &lt; 0,02 mg/L</div>
                                             </div>
                                         </div>
                                         <div class="chemistry-legend-item">
-                                            <i class="fas fa-leaf chemistry-legend-icon"></i>
+                                            <i class="fas fa-leaf chemistry-legend-icon legend-no2"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">Nitrites (NO₂)</div>
-                                                <div class="chemistry-legend-value">Indicateur du cycle de l'azote. Doit être indétectable</div>
+                                                <div class="chemistry-legend-value">Cycle de l'azote. Doit être indétectable</div>
                                             </div>
                                         </div>
                                         <div class="chemistry-legend-item">
-                                            <i class="fas fa-seedling chemistry-legend-icon"></i>
+                                            <i class="fas fa-seedling chemistry-legend-icon legend-no3"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">Nitrates (NO₃)</div>
-                                                <div class="chemistry-legend-value">Nutriment pour les plantes. Optimal : 5-150 mg/L</div>
+                                                <div class="chemistry-legend-value">Nutriment plantes. Optimal : 5–150 mg/L</div>
                                             </div>
                                         </div>
                                     </div>
@@ -679,8 +679,6 @@
                             time: {
                                 timezone: 'Africa/Casablanca'
                             },
-                            // Configuration globale pour désactiver l'espacement ordinal (uniforme)
-                            // et forcer l'espacement proportionnel au temps réel
                             xAxis: {
                                 ordinal: false
                             },
@@ -690,6 +688,13 @@
                                         enabled: false
                                     }
                                 }
+                            },
+                            legend: {
+                                enabled: true,
+                                floating: false,
+                                accessibility: { enabled: false },
+                                itemDistance: 12,
+                                margin: 8
                             }
                         });
 
@@ -1135,6 +1140,7 @@
                                 },
                                 legend: {
                                     enabled: true,
+                                    accessibility: { enabled: false },
                                     align: 'center',
                                     verticalAlign: 'bottom',
                                     layout: 'horizontal',
@@ -1652,6 +1658,8 @@
                                     }
                                 ],
                                 legend: {
+                                    enabled: true,
+                                    accessibility: { enabled: false },
                                     verticalAlign: 'bottom',
                                     layout: 'horizontal',
                                     itemMarginBottom: 2,

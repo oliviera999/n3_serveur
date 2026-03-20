@@ -231,46 +231,20 @@
 }
 
 /* ----- GOOGLE SHEETS CHARTS (mesures manuelles) — visible 100 % quel que soit l'affichage ----- */
-/* Conteneur responsive : proportion 4:3 pour les graphiques Google Sheets */
 .chemistry-chart-container,
 .msp-sheet-card-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    min-height: 240px;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-}
-/* Fallback sans aspect-ratio (navigateurs anciens) */
-@supports not (aspect-ratio: 4 / 3) {
-    .chemistry-chart-container::before,
-    .msp-sheet-card-container::before {
-        content: "";
-        display: block;
-        padding-bottom: 75%; /* 3/4 = 4:3 */
-    }
-    .chemistry-chart-container,
-    .msp-sheet-card-container {
-        min-height: 0;
-    }
+    overflow: hidden;
 }
 .chemistry-chart-container iframe,
 .msp-sheet-card-container iframe {
     display: block;
     width: 100%;
-    height: 100%;
-    min-height: 240px;
+    height: 0;
+    min-height: 380px;
+    aspect-ratio: 4 / 3;
     border: none;
-}
-@supports not (aspect-ratio: 4 / 3) {
-    .chemistry-chart-container iframe,
-    .msp-sheet-card-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
 }
 /* Grille et cartes (aquaponie) */
 .chemistry-charts-grid {
@@ -428,23 +402,62 @@
     gap: 8px;
     font-weight: 600;
     color: #2c3e50;
-    margin: 0 0 12px;
+    margin: 0 0 14px;
 }
 .chemistry-legend-card .chemistry-legend-title i { color: #008B74; }
-.chemistry-legend-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.chemistry-legend-card .chemistry-legend-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
 }
-.chemistry-legend-item {
+.chemistry-legend-card .chemistry-legend-item {
     display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    font-size: 0.88em;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.85em;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0, 139, 116, 0.04);
+    transition: background 0.2s;
 }
-.chemistry-legend-icon { color: #008B74; flex-shrink: 0; margin-top: 2px; }
-.chemistry-legend-label { font-weight: 600; color: #2c3e50; }
-.chemistry-legend-value { color: var(--text-secondary, #6b7280); line-height: 1.4; }
+.chemistry-legend-card .chemistry-legend-item:hover {
+    background: rgba(0, 139, 116, 0.09);
+}
+.chemistry-legend-card .chemistry-legend-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-size: 0.95em;
+    background: rgba(0, 139, 116, 0.12);
+    color: #008B74;
+}
+.chemistry-legend-card .chemistry-legend-icon.legend-ph {
+    background: rgba(52, 152, 219, 0.12);
+    color: #2980b9;
+}
+.chemistry-legend-card .chemistry-legend-icon.legend-nh3 {
+    background: rgba(231, 76, 60, 0.12);
+    color: #c0392b;
+}
+.chemistry-legend-card .chemistry-legend-icon.legend-no2 {
+    background: rgba(243, 156, 18, 0.12);
+    color: #d68910;
+}
+.chemistry-legend-card .chemistry-legend-icon.legend-no3 {
+    background: rgba(39, 174, 96, 0.12);
+    color: #1e8449;
+}
+.chemistry-legend-card .chemistry-legend-label { font-weight: 600; color: #2c3e50; line-height: 1.3; }
+.chemistry-legend-card .chemistry-legend-value { color: var(--text-secondary, #6b7280); line-height: 1.35; font-size: 0.92em; }
+@media (max-width: 520px) {
+    .chemistry-legend-card .chemistry-legend-grid {
+        grid-template-columns: 1fr;
+    }
+}
 @media (max-width: 768px) {
     .chemistry-blocks-grid { grid-template-columns: 1fr; gap: 1rem; }
 }
@@ -460,6 +473,31 @@
 [data-theme="dark"] .chemistry-legend-card .chemistry-legend-title i { color: var(--accent-primary); }
 [data-theme="dark"] .chemistry-legend-label { color: var(--text-primary); }
 [data-theme="dark"] .chemistry-legend-value { color: var(--text-secondary); }
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-item {
+    background: rgba(255, 255, 255, 0.04);
+}
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-icon {
+    background: rgba(0, 139, 116, 0.18);
+}
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-icon.legend-ph {
+    background: rgba(52, 152, 219, 0.18);
+    color: #5dade2;
+}
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-icon.legend-nh3 {
+    background: rgba(231, 76, 60, 0.18);
+    color: #ec7063;
+}
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-icon.legend-no2 {
+    background: rgba(243, 156, 18, 0.18);
+    color: #f4d03f;
+}
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-icon.legend-no3 {
+    background: rgba(39, 174, 96, 0.18);
+    color: #58d68d;
+}
 /* MSP1 mesures manuelles */
 .msp-sheets-section { margin: 1.5rem 0; }
 .msp-sheets-grid {
@@ -483,16 +521,12 @@
 .msp-sheet-card-header i { color: #008B74; }
 .msp-sheet-card-title { margin: 0; font-size: 1.1em; font-weight: 600; color: #2c3e50; }
 .msp-sheet-card-container { padding: 1rem; }
-/* Responsive : petits écrans — conserver proportion 4:3, iframe remplit le conteneur */
+/* Responsive : petits écrans — iframe plein conteneur, ratio 16:10 pour ne rien couper */
 @media (max-width: 768px) {
-    .chemistry-chart-container,
-    .msp-sheet-card-container {
-        min-height: 200px;
-    }
     .chemistry-chart-container iframe,
     .msp-sheet-card-container iframe {
-        height: 100%;
-        min-height: 200px;
+        aspect-ratio: 16 / 10;
+        min-height: 280px;
     }
 }
 /* Dark mode Google Sheets */
@@ -533,13 +567,11 @@
     box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.06));
 }
 /* Titre « Filtrage des données » : même style que .section-header (vert/orange selon page) */
+/* Note: le border-bottom est géré par realtime-styles.css sur .filter-header h3 pour cohérence avec "État du système" */
 .filter-header {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #008B74;
 }
 .filter-header i {
     color: #008B74;
@@ -556,14 +588,7 @@
     align-items: center;
     gap: 10px;
 }
-.filter-section h3 {
-    margin: 0 0 14px;
-    color: #2c3e50;
-    font-size: 1.1em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+/* Style de .filter-section h3 géré par realtime-styles.css pour cohérence avec "État du système" */
 .filter-section h3 i { color: #008B74; }
 .filter-header h3 i { color: #008B74; }
 .filter-section form {

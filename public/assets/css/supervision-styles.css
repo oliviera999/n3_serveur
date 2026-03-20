@@ -116,6 +116,23 @@
     gap: 12px;
     margin: 20px 0;
 }
+
+/* Tuile Live avec interrupteur menu (même logique que link-card-wrap) */
+.live-card-wrap {
+    position: relative;
+}
+.live-card-wrap > .live-card {
+    padding-right: 48px;
+}
+.live-card-wrap.nav-active > .live-card {
+    border-left-color: #00b794;
+    box-shadow: 0 2px 8px rgba(0,183,148,0.30);
+}
+[data-theme="dark"] .live-card-wrap.nav-active > .live-card {
+    border-left-color: var(--accent-primary);
+    box-shadow: 0 2px 10px rgba(45,212,191,0.25);
+}
+
 .live-card {
     display: block;
     padding: 14px 16px;
