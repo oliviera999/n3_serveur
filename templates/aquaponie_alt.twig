@@ -852,41 +852,18 @@
                             }
                         }
                         
-                        function syncChartHeightsToStats() {
+                        function getStatsHeight(rowIndex, fallbackType) {
                             var rows = document.querySelectorAll('.alt-data-chart-row');
-                            if (rows.length < 2) return;
-                            var statsColEau = rows[0].querySelector('.alt-stats-column');
-                            var statsColTemp = rows[1].querySelector('.alt-stats-column');
-                            var elEau = document.getElementById('chart-stock-area-eau-D');
-                            var elTemp = document.getElementById('chart-stock-area-temp-D');
-                            var minH = 320;
-                            if (statsColEau && elEau && window.chartEau) {
-                                var hEau = Math.max(minH, statsColEau.offsetHeight || 0);
-                                if (hEau > 0) {
-                                    window.chartEau.setSize(null, hEau);
-                                    elEau.style.height = hEau + 'px';
-                                }
+                            var isMobileView = (window.innerWidth || 1024) <= 768;
+                            if (!isMobileView && rows[rowIndex]) {
+                                var sc = rows[rowIndex].querySelector('.alt-stats-column');
+                                if (sc && sc.offsetHeight > 200) return sc.offsetHeight;
                             }
-                            if (statsColTemp && elTemp && window.chartTemp) {
-                                var hTemp = Math.max(minH, statsColTemp.offsetHeight || 0);
-                                if (hTemp > 0) {
-                                    window.chartTemp.setSize(null, hTemp);
-                                    elTemp.style.height = hTemp + 'px';
-                                }
-                            }
+                            return getChartHeight(fallbackType);
                         }
                         function handleChartResize() {
-                            // Priorité : hauteur des blocs stats (évite blancs inutiles). Fallback si stats pas encore rendus.
-                            var rows = document.querySelectorAll('.alt-data-chart-row');
-                            var statsColEau = rows[0] && rows[0].querySelector('.alt-stats-column');
-                            var statsColTemp = rows[1] && rows[1].querySelector('.alt-stats-column');
-                            var hasStatsHeights = statsColEau && statsColEau.offsetHeight > 0 && statsColTemp && statsColTemp.offsetHeight > 0;
-                            if (!hasStatsHeights && (window.chartEau || window.chartTemp)) {
-                                var fallbackEau = getChartHeight('eau'), fallbackTemp = getChartHeight('temp');
-                                if (window.chartEau) window.chartEau.setSize(null, fallbackEau);
-                                if (window.chartTemp) window.chartTemp.setSize(null, fallbackTemp);
-                            }
-                            syncChartHeightsToStats();
+                            if (window.chartEau) window.chartEau.setSize(null, getStatsHeight(0, 'eau'), false);
+                            if (window.chartTemp) window.chartTemp.setSize(null, getStatsHeight(1, 'temp'), false);
                         }
                         
                         // Écouter les changements de taille d'écran
@@ -962,8 +939,8 @@
                             
                             // 1. Stock Chart Niveaux d'eau avec aires
                             window.chartEau = Highcharts.stockChart('chart-stock-area-eau-D', {
-                                chart: { 
-                                    height: getChartHeight('eau'),
+                                chart: {
+                                    height: getStatsHeight(0, 'eau'),
                                     spacingTop: 20,
                                     spacingRight: 20,
                                     spacingBottom: 20,
@@ -1334,8 +1311,8 @@
                             
                             // 2. Stock Chart Paramètres physiques avec aires
                             window.chartTemp = Highcharts.stockChart('chart-stock-area-temp-D', {
-                                chart: { 
-                                    height: getChartHeight('temp'),
+                                chart: {
+                                    height: getStatsHeight(1, 'temp'),
                                     spacingTop: 20,
                                     spacingRight: 20,
                                     spacingBottom: 8,
@@ -1693,27 +1670,6 @@
                                 credits: { enabled: false }
                             });
                             
-                            // Synchroniser la hauteur des conteneurs avec les graphiques pour éviter le blanc sous les graphiques
-                            function syncChartContainerHeights() {
-                                var cEau = document.getElementById('chart-stock-area-eau-D');
-                                var cTemp = document.getElementById('chart-stock-area-temp-D');
-                                if (cEau && window.chartEau) {
-                                    var inner = cEau.querySelector('.highcharts-container') || cEau.firstElementChild;
-                                    if (inner && inner.offsetHeight > 0) cEau.style.height = inner.offsetHeight + 'px';
-                                    else if (window.chartEau.chartHeight) cEau.style.height = (window.chartEau.chartHeight + 80) + 'px';
-                                }
-                                if (cTemp && window.chartTemp) {
-                                    var inner = cTemp.querySelector('.highcharts-container') || cTemp.firstElementChild;
-                                    if (inner && inner.offsetHeight > 0) cTemp.style.height = inner.offsetHeight + 'px';
-                                    else if (window.chartTemp.chartHeight) cTemp.style.height = (window.chartTemp.chartHeight + 80) + 'px';
-                                }
-                            }
-                            if (window.requestAnimationFrame) {
-                                requestAnimationFrame(function() { requestAnimationFrame(syncChartContainerHeights); });
-                            } else {
-                                setTimeout(syncChartContainerHeights, 50);
-                            }
-                            syncChartHeightsToStats();
                             console.log('[Highcharts] Graphiques créés avec succès');
                         }
                         

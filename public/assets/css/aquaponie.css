@@ -201,6 +201,11 @@
     min-height: 350px;
     margin-bottom: 1.5rem;
 }
+/* Vue alt : le chart remplit la colonne grâce à la hauteur calculée en JS, pas de min-height imposée */
+.alt-chart-column .chart-stock-wrapper {
+    min-height: 0;
+    margin-bottom: 0;
+}
 
 /* ----- DARK MODE ----- */
 [data-theme="dark"] .balance-card {
