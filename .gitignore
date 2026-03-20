@@ -24,8 +24,8 @@ desktop.ini
 # Cache
 /var/cache/
 
-# Anciens dossiers (a supprimer apres migration)
-ffp3_backup/
+# Archives (exclues du depot — conservees localement)
+/archives/
 
 # PHP
 .phpunit.result.cache
@@ -38,6 +38,3 @@ ffp3_backup/
 /uploads/ffp3/*
 !/uploads/ffp3/.gitkeep
 
-# Archives trop volumineuses pour GitHub (> 100 Mo)
-site initial/archives/n3pp.zip
-site initial/archives/n3pp2.zip
