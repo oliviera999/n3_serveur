@@ -825,23 +825,33 @@ function preloadAround(idx) {
   const end = Math.min(state.frames.length - 1, idx + CONFIG.preloadAhead);
   for (let i = start; i <= end; i++) queuePreload(state.frames[i], true);
 }
+// Compteur de génération : empêche les renders obsolètes (navigation rapide)
+let renderGen = 0;
+async function playLoop() {
+  if (!state.isPlaying) return;
+  const t0 = performance.now();
+  state.currentIndex = state.currentIndex >= state.frames.length - 1 ? 0 : state.currentIndex + 1;
+  const frame = state.frames[state.currentIndex];
+  if (!frame.img && frame.url) await preloadImage(frame);
+  if (!state.isPlaying) return; // annulé pendant le chargement
+  renderFrame(frame);
+  preloadAround(state.currentIndex);
+  const delay = Math.max(0, (1000 / state.fps) - (performance.now() - t0));
+  state.playInterval = setTimeout(playLoop, delay);
+}
 function startPlay() {
   if (state.frames.length === 0) return;
   state.isPlaying = true;
   document.getElementById('btnPlay').textContent = '⏸';
-  state.playInterval = setInterval(async () => {
-    state.currentIndex = state.currentIndex >= state.frames.length - 1 ? 0 : state.currentIndex + 1;
-    const frame = state.frames[state.currentIndex];
-    if (!frame.img && frame.url) await preloadImage(frame);
-    renderFrame(frame);
-    preloadAround(state.currentIndex);
-  }, 1000 / state.fps);
+  state.playInterval = setTimeout(playLoop, 0);
 }
-function stopPlay() { state.isPlaying = false; document.getElementById('btnPlay').textContent = '▶'; clearInterval(state.playInterval); }
+function stopPlay() { state.isPlaying = false; document.getElementById('btnPlay').textContent = '▶'; clearTimeout(state.playInterval); }
 async function goTo(idx) {
+  const gen = ++renderGen;
   state.currentIndex = Math.max(0, Math.min(state.frames.length - 1, idx));
   const frame = state.frames[state.currentIndex];
   await preloadImage(frame);
+  if (gen !== renderGen) return; // navigation plus récente a pris le dessus
   renderFrame(frame);
   preloadAround(state.currentIndex);
 }
