@@ -156,7 +156,6 @@
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.7);
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -415,7 +414,6 @@
     border: 1px solid var(--border);
     padding: 6px;
     color: var(--text-dim);
-    border-radius: 6px;
     width: 100%;
     border-radius: 4px;
   }
@@ -643,7 +641,7 @@
         <button class="timelapse-ctrl-btn" id="btnFirst" title="Première image">⏮</button>
         <button class="timelapse-ctrl-btn" id="btnPrev" title="Image précédente">◀</button>
         <button class="timelapse-ctrl-btn play-pause" id="btnPlay" title="Lecture/Pause">▶</button>
-        <button class="timelapse-ctrl-btn" id="btnNext" title="Image suivante">▶</button>
+        <button class="timelapse-ctrl-btn" id="btnNext" title="Image suivante">⏩</button>
         <button class="timelapse-ctrl-btn" id="btnLast" title="Dernière image">⏭</button>
         <button class="timelapse-live-btn" id="btnLive"><span class="timelapse-live-dot"></span>Dernière image</button>
       </div>
@@ -968,6 +966,22 @@ function showLoading(text) { document.getElementById('loadingText').textContent 
 function hideLoading() { document.getElementById('loadingOverlay').classList.remove('visible'); }
 function showToast(msg, type) { const t = document.getElementById('toast'); t.textContent = msg; t.className = 'timelapse-toast ' + type + ' show'; setTimeout(() => t.classList.remove('show'), 3500); }
 function updateClock() { document.getElementById('clock').textContent = new Date().toLocaleTimeString('fr-FR'); }
+async function fetchLatestPhotoTimestamp() {
+  const url = document.getElementById('apiLatestUrl').value;
+  if (!url) return null;
+  try {
+    const resp = await fetch(url);
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    if (data.timestamp) return new Date(data.timestamp);
+  } catch(e) {}
+  return null;
+}
+function setDateRangeFromBounds(from, to) {
+  const toLocal = d => { const off = d.getTimezoneOffset(); const local = new Date(d.getTime() - off * 60000); return local.toISOString().slice(0, 16); };
+  document.getElementById('dateFrom').value = toLocal(from);
+  document.getElementById('dateTo').value = toLocal(to);
+}
 setInterval(updateClock, 1000); updateClock();
 document.addEventListener('DOMContentLoaded', () => {
   const paramsPanel = document.getElementById('timelapseParamsPanel');
@@ -1003,7 +1017,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.timelapse-range-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-range-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); setDateRange(parseInt(btn.dataset.hours, 10)); }); });
   document.querySelectorAll('.timelapse-speed-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-speed-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); state.fps = parseInt(btn.dataset.fps); document.getElementById('fpsLabel').textContent = state.fps + ' fps'; if (state.isPlaying) { stopPlay(); startPlay(); } updateStats(); }); });
-  document.getElementById('btnLoad').addEventListener('click', loadRange);
+  document.getElementById('btnLoad').addEventListener('click', () => loadRange(null, null));
   document.getElementById('btnPlay').addEventListener('click', () => { if (state.isPlaying) stopPlay(); else startPlay(); });
   document.getElementById('btnFirst').addEventListener('click', () => { stopPlay(); goTo(0); });
   document.getElementById('btnLast').addEventListener('click', () => { stopPlay(); goTo(state.frames.length - 1); });
