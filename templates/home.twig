@@ -77,7 +77,7 @@
             <a href="{{ base_path|default('') }}/aquaponie" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
             </a>
-            <a href="{{ base_path|default('') }}/aquaponie-description" class="project-link project-link-desc" class="project-link-spaced">
+            <a href="{{ base_path|default('') }}/aquaponie-description" class="project-link project-link-desc project-link-spaced">
                 <i class="fas fa-info-circle"></i> Description
             </a>
         </div>
@@ -105,7 +105,7 @@
             <a href="{{ base_path|default('') }}/meteo" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
             </a>
-            <a href="{{ base_path|default('') }}/meteo-description" class="project-link project-link-desc" class="project-link-spaced">
+            <a href="{{ base_path|default('') }}/meteo-description" class="project-link project-link-desc project-link-spaced">
                 <i class="fas fa-info-circle"></i> Description
             </a>
         </div>
@@ -132,7 +132,7 @@
             <a href="{{ base_path|default('') }}/serre" class="project-link">
                 <i class="fas fa-chart-line"></i> Voir les données
             </a>
-            <a href="{{ base_path|default('') }}/serre-description" class="project-link project-link-desc" class="project-link-spaced">
+            <a href="{{ base_path|default('') }}/serre-description" class="project-link project-link-desc project-link-spaced">
                 <i class="fas fa-info-circle"></i> Description
             </a>
         </div>
@@ -152,10 +152,10 @@
             <a href="{{ base_path|default('') }}/gallery/ffp3" class="project-link">
                 <i class="fas fa-images"></i> Galerie aquaponie
             </a>
-            <a href="{{ base_path|default('') }}/gallery/msp1" class="project-link" class="project-link-spaced">
+            <a href="{{ base_path|default('') }}/gallery/msp1" class="project-link project-link-spaced">
                 <i class="fas fa-images"></i> Galerie potager
             </a>
-            <a href="{{ base_path|default('') }}/gallery/n3pp" class="project-link" class="project-link-spaced">
+            <a href="{{ base_path|default('') }}/gallery/n3pp" class="project-link project-link-spaced">
                 <i class="fas fa-images"></i> Galerie élevage
             </a>
         </div>
@@ -170,17 +170,17 @@
     <div class="home-links-section" data-aos="fade-up">
         <div class="home-links-grid">
             <div data-aos="zoom-in" data-aos-delay="0">
-                <a href="https://n3.olution.info" class="home-link-btn home-link-btn--n3">
+                <a href="https://n3.olution.info" class="home-link-btn home-link-btn--n3" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-wind"></i> La salle aérée n³
                 </a>
             </div>
             <div data-aos="zoom-in" data-aos-delay="50">
-                <a href="https://olution.info/course/view.php?id=511" class="home-link-btn home-link-btn--olution">
+                <a href="https://olution.info/course/view.php?id=511" class="home-link-btn home-link-btn--olution" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-leaf"></i> Plateforme olution
                 </a>
             </div>
             <div data-aos="zoom-in" data-aos-delay="100">
-                <a href="https://farmflow.marout.org/" class="home-link-btn home-link-btn--farmflow">
+                <a href="https://farmflow.marout.org/" class="home-link-btn home-link-btn--farmflow" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-fish"></i> Projet FarmFlow
                 </a>
             </div>
@@ -280,8 +280,30 @@
         });
     }
 
+    var pollTimer = null;
+
+    function startPolling() {
+        if (pollTimer !== null) return;
+        pollTimer = setInterval(function() { pollAll(false); }, POLL_INTERVAL_MS);
+    }
+
+    function stopPolling() {
+        if (pollTimer === null) return;
+        clearInterval(pollTimer);
+        pollTimer = null;
+    }
+
     pollAll(true);
-    setInterval(function() { pollAll(false); }, POLL_INTERVAL_MS);
+    startPolling();
+
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            stopPolling();
+            return;
+        }
+        pollAll(false);
+        startPolling();
+    });
 })();
 </script>
 {% endblock %}

@@ -69,7 +69,7 @@
 
                 <button type="submit" class="btn-login" id="btn-login">
                     <span class="btn-login-text"><i class="fas fa-sign-in-alt"></i> Se connecter</span>
-                    <span class="btn-login-loading" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Connexion...</span>
+                    <span class="btn-login-loading is-hidden"><i class="fas fa-spinner fa-spin"></i> Connexion...</span>
                 </button>
             </form>
 
@@ -78,8 +78,8 @@
                     <i class="fas fa-shield-alt"></i>
                     Connexion sécurisée
                 </p>
-                <p style="margin-top: 10px;">
-                    <a href="{{ base_path|default('') }}/" style="color: var(--accent-primary, #008B74); text-decoration: none;">
+                <p class="login-footer-link-row">
+                    <a href="{{ base_path|default('') }}/" class="login-footer-link">
                         <i class="fas fa-arrow-left"></i> Retour à l'accueil
                     </a>
                 </p>

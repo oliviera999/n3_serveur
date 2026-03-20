@@ -18,6 +18,8 @@
 | **ENVIRONNEMENT_TEST.md** | PROD/TEST environment configuration guide | ✅ Active |
 | **LEGACY_README.md** | Legacy files explanation and status | ✅ Active |
 | **TODO_AMELIORATIONS_CONTROL.md** | Control interface improvements TODO list | ✅ Active |
+| **AUDIT_UI_ACCUEIL_LOGIN_NAV.md** | UI audit focused on Home/Login/Global Nav | ✅ Active |
+| **CHECKLIST_QA_UI_ENTREES.md** | Reusable QA checklist for entry pages UI | ✅ Active |
 
 ---
 

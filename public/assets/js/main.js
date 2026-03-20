@@ -144,8 +144,8 @@
 
 		// Panel.
 		$navPanel = $(
-			'<div id="navPanel" role="dialog" aria-label="Menu de navigation">' +
-				'<nav>' +
+			'<div id="navPanel" aria-label="Menu de navigation">' +
+				'<nav aria-label="Navigation mobile">' +
 				'</nav>' +
 				'<button type="button" class="close" aria-label="Fermer le menu"></button>' +
 			'</div>'
@@ -154,6 +154,7 @@
 			.panel({
 				delay: 500,
 				hideOnClick: true,
+				hideOnEscape: true,
 				hideOnSwipe: true,
 				resetScroll: true,
 				resetForms: true,

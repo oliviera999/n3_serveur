@@ -1,9 +1,17 @@
 {# Barre de navigation — Accueil, Aquaponie, Potager, Élevage, Galeries, toggle dark mode #}
 {% set bp = base_path|default('') %}
+{% set aquaponie_path = 'aquaponie' %}
+{% if environment == 'test' %}
+    {% set aquaponie_path = 'aquaponie-test' %}
+{% elseif environment == 'test3' %}
+    {% set aquaponie_path = 'aquamobile-test' %}
+{% elseif environment == 's3' %}
+    {% set aquaponie_path = 'aquamobile' %}
+{% endif %}
 <nav id="nav" aria-label="Navigation principale">
     <ul class="links">
         <li class="{{ nav_active == 'home' ? 'active' }}"><a href="{{ bp }}/">Accueil</a></li>
-        <li class="{{ nav_active == 'aquaponie' ? 'active' }}"><a href="{{ bp }}/{{ environment == 'test' ? 'aquaponie-test' : (environment == 'test3' ? 'aquamobile-test' : (environment == 's3' ? 'aquamobile' : 'aquaponie')) }}">Aquaponie</a></li>
+        <li class="{{ nav_active == 'aquaponie' ? 'active' }}"><a href="{{ bp }}/{{ aquaponie_path }}">Aquaponie</a></li>
         <li class="{{ nav_active == 'potager' or nav_active == 'potager_control' ? 'active' }}"><a href="{{ bp }}/meteo" title="Potager — Station météo">Potager</a></li>
         <li class="{{ nav_active == 'elevage' or nav_active == 'elevage_control' ? 'active' }}"><a href="{{ bp }}/serre" title="Élevage d'insectes — Serre">Élevage</a></li>
         <li class="{{ nav_active == 'gallery' ? 'active' }}"><a href="{{ bp }}/gallery" title="Galeries photos des projets">Galeries</a></li>

@@ -3712,9 +3712,14 @@ input, select, textarea {
  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
  display: block;
  font-size: 0.8rem;
- outline: none;
+outline-offset: 3px;
  padding: 0 2rem;
  }
+
+#nav ul.links li a:focus-visible {
+outline: 2px solid var(--header-nav-hover, #00B794);
+background-color: rgba(255, 255, 255, 0.16);
+}
 
  #nav ul.links li a:hover {
  color: inherit !important;

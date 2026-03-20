@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.215] - 2026-03-20
+
+### Correctif - application des priorites audit UI accueil/login/navigation
+- **Resume** : correction des classes dupliquees sur les CTA de l'accueil, harmonisation des liens externes, ajout de focus visibles clavier sur la nav principale et le formulaire login, suppression de styles inline login, simplification de la route Aquaponie dans la nav, pause/reprise du polling live selon la visibilite onglet, et activation de la fermeture clavier (`Escape`) du panneau de navigation mobile.
+
+---
+
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.214] - 2026-03-20
 
 ### Correctif - timelapse sans frames grises sur images manquantes
@@ -18,6 +31,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.211] - 2026-03-20
 
 ## [5.0.212] - 2026-03-20
@@ -27,6 +46,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -40,6 +65,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -53,6 +84,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -66,6 +103,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -79,6 +122,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -92,6 +141,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -105,6 +160,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -118,6 +179,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -131,6 +198,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -144,6 +217,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -157,6 +236,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.216] - 2026-03-20
+
+### Correctif - application priorites audit UI accueil login navigation
+- **Résumé** : application priorites audit UI accueil login navigation.
+
+---
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
