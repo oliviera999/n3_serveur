@@ -1,12 +1,18 @@
 # Changelog FFP3 Datas
 
-Toutes les modifications notables de ce projet seront document�es dans ce fichier.
+Toutes les modifications notables de ce projet seront document�es dans ce fichier.
 
-Le format est bas� sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
+Le format est bas� sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
 et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -15,11 +21,17 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 ---
 ## [5.0.192] - 2026-03-20
 
-### Modifi� - Navigation galeries
-- **gallery_timelapse.twig / gallery.twig** : ajout d'un bouton � Toutes les galeries � pointant vers `/gallery` (page de pr�sentation) dans la barre de navigation des pages timelapse et galerie classique.
+### Modifi� - Navigation galeries
+- **gallery_timelapse.twig / gallery.twig** : ajout d'un bouton � Toutes les galeries � pointant vers `/gallery` (page de pr�sentation) dans la barre de navigation des pages timelapse et galerie classique.
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -28,14 +40,20 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 ---
 ## [5.0.191] - 2026-03-20
 
-### Correctif - L�gendes Highcharts aquaponie
-- **aquaponie.twig / aquaponie_alt.twig** : ajout `legend.accessibility: { enabled: false }` dans `Highcharts.setOptions()` et dans chaque graphique (bug connu accessibility.js qui emp�che le rendu de la l�gende).
-- **aquaponie.twig** : ajout d'un bloc `legend` explicite au graphique � Param�tres physiques � (chartTemp) qui n'en avait pas.
-- **aquaponie.twig** : suppression de `syncChartContainerHeights` qui fixait la hauteur des conteneurs et rognait la l�gende apr�s re-render du th�me.
-- **aquaponie.twig** : correction de `handleChartResize` qui r�f�ren�ait des s�lecteurs `.alt-data-chart-row` inexistants et appelait `syncChartHeightsToStats()` (fonction non d�finie ? erreur JS silencieuse � chaque resize).
+### Correctif - L�gendes Highcharts aquaponie
+- **aquaponie.twig / aquaponie_alt.twig** : ajout `legend.accessibility: { enabled: false }` dans `Highcharts.setOptions()` et dans chaque graphique (bug connu accessibility.js qui emp�che le rendu de la l�gende).
+- **aquaponie.twig** : ajout d'un bloc `legend` explicite au graphique � Param�tres physiques � (chartTemp) qui n'en avait pas.
+- **aquaponie.twig** : suppression de `syncChartContainerHeights` qui fixait la hauteur des conteneurs et rognait la l�gende apr�s re-render du th�me.
+- **aquaponie.twig** : correction de `handleChartResize` qui r�f�ren�ait des s�lecteurs `.alt-data-chart-row` inexistants et appelait `syncChartHeightsToStats()` (fonction non d�finie ? erreur JS silencieuse � chaque resize).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -44,13 +62,19 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 ---
 ## [5.0.190] - 2026-03-20
 
-### Modifi� - Supervision : menu nav et grille Live
-- **supervision.twig** : tuile � Vue principale (test) � `/aquaponie-test` avec interrupteur menu ; grille Live envelopp�e en `live-card-wrap` avec les m�mes `data-page-key` que les tuiles liens.
-- **page-nav-toggles.js** : synchronisation de toutes les cases partageant une cl� (Live + sections liens) ; `markWrapActive` supporte `live-card-wrap`.
-- **supervision-styles.css** : styles interrupteur et �tat `nav-active` pour les tuiles Live.
+### Modifi� - Supervision : menu nav et grille Live
+- **supervision.twig** : tuile � Vue principale (test) � `/aquaponie-test` avec interrupteur menu ; grille Live envelopp�e en `live-card-wrap` avec les m�mes `data-page-key` que les tuiles liens.
+- **page-nav-toggles.js** : synchronisation de toutes les cases partageant une cl� (Live + sections liens) ; `markWrapActive` supporte `live-card-wrap`.
+- **supervision-styles.css** : styles interrupteur et �tat `nav-active` pour les tuiles Live.
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -59,11 +83,17 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 ---
 ## [5.0.189] - 2026-03-17
 
-### Modifi� - Libell�s courts filtrage par p�riode
-- **Templates** : champs date/heure du bloc filtrage affichent **debut** et **fin** (pages donn�es g�n�riques, MSP1, N3PP, mar�es, aquaponie, timelapse).
+### Modifi� - Libell�s courts filtrage par p�riode
+- **Templates** : champs date/heure du bloc filtrage affichent **debut** et **fin** (pages donn�es g�n�riques, MSP1, N3PP, mar�es, aquaponie, timelapse).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -72,12 +102,18 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 ---
 ## [5.0.188] - 2026-03-18
 
-### Modifi� - OTA ffp5cs sur /ota/
+### Modifi� - OTA ffp5cs sur /ota/
 - **serveur/ota/metadata.json** : URLs `https://iot.olution.info/ota/...` (alignement firmware ffp5cs 13.12+).
 - **index.php** : commentaire alias legacy `/ffp3/ota/`.
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -86,11 +122,17 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 ---
 ## [5.0.187] - 2026-03-18
 
-### Modifi� - timelapse : boutons plage / vitesse = style aquaponie
-- M?mes classes `quick-filter-btn` que filtrage 1h/3h aquaponie ; �tat actif dans common-data.css.
+### Modifi� - timelapse : boutons plage / vitesse = style aquaponie
+- M?mes classes `quick-filter-btn` que filtrage 1h/3h aquaponie ; �tat actif dans common-data.css.
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -99,11 +141,17 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 ---
 ## [5.0.186] - 2026-03-18
 
-### Modifi� - galeries (admin) : pagination compacte
-- **Galerie classique** : au lieu d'afficher tous les num�ros de page, affichage compact (d�but ... milieu ... fin) + libell� Page x sur y.
+### Modifi� - galeries (admin) : pagination compacte
+- **Galerie classique** : au lieu d'afficher tous les num�ros de page, affichage compact (d�but ... milieu ... fin) + libell� Page x sur y.
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -112,9 +160,9 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 ---
 ## [5.0.185] - 2026-03-18
 
-### Modifi� - timelapse : plage par d�faut ancr�e sur la derni?re photo
+### Modifi� - timelapse : plage par d�faut ancr�e sur la derni?re photo
 - **API** : GET /api/gallery/{slug}/latest (timestamp + filename, ou null si galerie vide).
-- **Timelapse** : plage par d�faut et boutons 6 h / 24 h / 48 h / 7 j : fin = horodatage de la derni?re photo (sinon maintenant).
+- **Timelapse** : plage par d�faut et boutons 6 h / 24 h / 48 h / 7 j : fin = horodatage de la derni?re photo (sinon maintenant).
 
 ---
 ## [5.0.184] - 2026-03-18
@@ -184,6 +232,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -427,6 +481,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -769,6 +829,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -1076,6 +1142,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -1385,6 +1457,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -1706,6 +1784,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -2072,6 +2156,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -2523,6 +2613,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -2936,6 +3032,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -3730,6 +3832,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -4512,6 +4620,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -5293,6 +5407,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -6074,6 +6194,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -6864,6 +6990,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -7647,6 +7779,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -8430,6 +8568,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -9214,6 +9358,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -9997,6 +10147,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -10782,6 +10938,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -11565,6 +11727,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -12348,6 +12516,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -13131,6 +13305,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -13915,6 +14095,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -14696,6 +14882,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -15482,6 +15674,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -16263,6 +16461,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -17047,6 +17251,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -17829,6 +18039,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -18613,6 +18829,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -19397,6 +19619,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -20180,6 +20408,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -20965,6 +21199,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -21747,6 +21987,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -22530,6 +22776,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -23314,6 +23566,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -24098,6 +24356,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -24880,6 +25144,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -25663,6 +25933,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -26448,6 +26724,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -27232,6 +27514,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -28015,6 +28303,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -28798,6 +29092,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -29581,6 +29881,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -30364,6 +30670,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -31146,6 +31458,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -31928,6 +32246,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -32710,6 +33034,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -33492,6 +33822,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -34275,6 +34611,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -35062,6 +35404,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -35849,6 +36197,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -36629,6 +36983,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -37409,6 +37769,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -38189,6 +38555,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -38969,6 +39341,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -39749,6 +40127,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -40529,6 +40913,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -41326,6 +41716,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -42113,6 +42509,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -42898,6 +43300,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -43684,6 +44092,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -44474,6 +44888,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -45276,6 +45696,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -46060,6 +46486,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -46846,6 +47278,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -47632,6 +48070,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -48415,6 +48859,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -49201,6 +49651,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -49984,6 +50440,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -50766,6 +51228,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -51549,6 +52017,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -52342,6 +52816,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -53132,6 +53612,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -53930,6 +54416,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -54732,6 +55224,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -55524,6 +56022,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -56308,6 +56812,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -57094,6 +57604,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -57879,6 +58395,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -58664,6 +59186,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -59447,6 +59975,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -60230,6 +60764,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -61015,6 +61555,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -61799,6 +62345,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -62585,6 +63137,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -63376,6 +63934,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -64171,6 +64735,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -64962,6 +65532,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -65755,6 +66331,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -66547,6 +67129,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -67334,6 +67922,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -68117,6 +68711,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -68904,6 +69504,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -69688,6 +70294,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -70471,6 +71083,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -71254,6 +71872,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -72039,6 +72663,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -72824,6 +73454,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -73608,6 +74244,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -74392,6 +75034,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -75175,6 +75823,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -75958,6 +76612,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -76741,6 +77401,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -77526,6 +78192,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -78311,6 +78983,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -79094,6 +79772,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -79877,6 +80561,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -80660,6 +81350,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -81444,6 +82140,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -82230,6 +82932,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -83023,6 +83731,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -83810,6 +84524,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -84604,6 +85324,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -85396,6 +86122,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -86179,6 +86911,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -86995,6 +87733,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -87782,6 +88526,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -88578,6 +89328,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -89384,6 +90140,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -90180,6 +90942,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -90966,6 +91734,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -91753,6 +92527,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -92546,6 +93326,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -93449,6 +94235,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -94236,6 +95028,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -95021,6 +95819,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -95807,6 +96611,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -96594,6 +97404,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -97380,6 +98196,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -98168,6 +98990,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -98955,6 +99783,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -99864,6 +100698,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -100650,6 +101490,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -101436,6 +102282,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -102270,6 +103122,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -103065,6 +103923,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -103860,6 +104724,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -104692,6 +105562,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -105535,6 +106411,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -106335,6 +107217,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -107136,6 +108024,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -107927,6 +108821,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -108724,6 +109624,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -109525,6 +110431,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -110324,6 +111236,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -111114,6 +112032,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -111916,6 +112840,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -112750,6 +113680,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -113539,6 +114475,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -114329,6 +115271,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -115118,6 +116066,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -115912,6 +116866,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -116712,6 +117672,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -117510,6 +118476,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -118306,6 +119278,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -119097,6 +120075,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -119889,6 +120873,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -120692,6 +121682,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -121494,6 +122490,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -122299,6 +123301,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -123120,6 +124128,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -123971,6 +124985,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -124763,6 +125783,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -125554,6 +126580,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -126355,6 +127387,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -127146,6 +128184,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -127941,6 +128985,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -128729,6 +129779,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -129519,6 +130575,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -130301,6 +131363,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -131123,6 +132191,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -131917,6 +132991,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -132733,6 +133813,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -133531,6 +134617,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -134325,6 +135417,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -135125,6 +136223,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -135947,6 +137051,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -136754,6 +137864,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -137615,6 +138731,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -138413,6 +139535,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -139213,6 +140341,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -140024,6 +141158,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -140828,6 +141968,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -141619,6 +142765,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -142410,6 +143562,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -143203,6 +144361,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -144067,6 +145231,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -144879,6 +146049,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -145705,6 +146881,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -146519,6 +147701,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -147337,6 +148525,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -148123,6 +149317,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -148961,6 +150161,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -149763,6 +150969,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -150552,6 +151764,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -151391,6 +152609,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -152209,6 +153433,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -153060,6 +154290,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -153849,6 +155085,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -154697,6 +155939,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -155483,6 +156731,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -156268,6 +157522,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -157057,6 +158317,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -157846,6 +159112,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -158680,6 +159952,12 @@ docs/
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -159537,6 +160815,12 @@ docs/
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -160328,6 +161612,12 @@ docs/
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -161153,6 +162443,12 @@ docs/
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -161943,6 +163239,12 @@ docs/
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -162755,6 +164057,12 @@ docs/
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -163543,6 +164851,12 @@ docs/
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -164520,6 +165834,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -165331,6 +166651,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -166169,6 +167495,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -166993,6 +168325,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -167803,6 +169141,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -168620,6 +169964,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -169429,6 +170779,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -170227,6 +171583,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -171017,6 +172379,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -171823,6 +173191,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -172613,6 +173987,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -173403,6 +174783,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -174195,6 +175581,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -175005,6 +176397,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates
@@ -175789,6 +177187,12 @@ ance future
 
 ---
 
+## [5.0.194] - 2026-03-20
+
+### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
+- **Résumé** : audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression.
+
+---
 ## [5.0.193] - 2026-03-20
 
 ### Modifié - unification bloc filtrage donnees potager et elevage (identique aquaponie) : periode analysee, filtres rapides stylises, periode personnalisee, moment-timezone ; ameliorations CSS, JS et templates

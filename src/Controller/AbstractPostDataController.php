@@ -79,7 +79,13 @@ abstract class AbstractPostDataController
 
         $apiKey = isset($params['api_key']) ? trim((string) $params['api_key']) : '';
         $expectedKey = $_ENV['API_KEY'] ?? '';
-        if ($expectedKey !== '' && $apiKey !== $expectedKey) {
+        if ($expectedKey === '') {
+            $this->logger->error("{$component}: rejet auth API_KEY non configuree code=500", [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            ]);
+            return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
+        }
+        if ($apiKey !== $expectedKey) {
             $this->logger->warning("{$component}: rejet auth api_key code=401", [
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
                 'sensor' => trim((string) ($params['sensor'] ?? '')),

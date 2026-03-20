@@ -123,6 +123,10 @@ class MspOutputController extends AbstractOutputController
      */
     public function setOutput(Request $request, Response $response): Response
     {
+        $authError = $this->requireAuth($request, $response);
+        if ($authError !== null) {
+            return $authError;
+        }
         $params = $request->getMethod() === 'POST' ? $request->getParsedBody() ?? [] : $request->getQueryParams();
         $action = $params['action'] ?? '';
 
@@ -169,6 +173,10 @@ class MspOutputController extends AbstractOutputController
      */
     public function updateParameters(Request $request, Response $response): Response
     {
+        $authError = $this->requireAuth($request, $response);
+        if ($authError !== null) {
+            return $authError;
+        }
         $payload = RequestHelper::extractParams($request);
         if (isset($payload['param'])) {
             $payload = [$payload['param'] => $payload['value'] ?? null];

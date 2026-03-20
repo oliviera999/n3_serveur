@@ -29,6 +29,32 @@ class AuthController
     }
 
     /**
+     * Valide qu'une URL de redirection est un chemin local interne (pas d'open redirect).
+     */
+    private function sanitizeRedirect(string $redirect, string $basePath): string
+    {
+        $default = ($basePath !== '' ? $basePath : '') . '/';
+        if ($redirect === '') {
+            return $default;
+        }
+        // Rejeter les URL absolues (http://, //, scheme:) et les chemins contenant des caractères suspects
+        if (preg_match('#^https?://#i', $redirect)
+            || str_starts_with($redirect, '//')
+            || preg_match('#^[a-z]+:#i', $redirect)
+            || str_contains($redirect, "\0")
+            || str_contains($redirect, "\n")
+            || str_contains($redirect, "\r")
+        ) {
+            return $default;
+        }
+        // Accepter uniquement les chemins relatifs commençant par /
+        if (!str_starts_with($redirect, '/')) {
+            return $default;
+        }
+        return $redirect;
+    }
+
+    /**
      * Récupère le basePath depuis la requête.
      */
     private function getBasePath(Request $request): string
@@ -57,7 +83,7 @@ class AuthController
         // Si déjà authentifié, rediriger vers la page demandée ou l'accueil
         if ($this->authService->isAuthenticated()) {
             $queryParams = $request->getQueryParams();
-            $redirectUrl = $queryParams['redirect'] ?? ($basePath !== '' ? $basePath : '') . '/';
+            $redirectUrl = $this->sanitizeRedirect($queryParams['redirect'] ?? '', $basePath);
             return $response
                 ->withStatus(302)
                 ->withHeader('Location', $redirectUrl);
@@ -65,7 +91,7 @@ class AuthController
 
         $queryParams = $request->getQueryParams();
         $error = $queryParams['error'] ?? null;
-        $redirect = $queryParams['redirect'] ?? ($basePath !== '' ? $basePath : '') . '/';
+        $redirect = $this->sanitizeRedirect($queryParams['redirect'] ?? '', $basePath);
 
         $html = $this->renderer->render('login.twig', [
             'page_title' => 'Connexion - Administration',
@@ -95,7 +121,7 @@ class AuthController
         $body = $request->getParsedBody();
         $username = $body['username'] ?? '';
         $password = $body['password'] ?? '';
-        $redirect = $body['redirect'] ?? ($basePath !== '' ? $basePath : '') . '/';
+        $redirect = $this->sanitizeRedirect($body['redirect'] ?? '', $basePath);
         $csrfToken = $body['_csrf_token'] ?? '';
 
         // Vérifier le token CSRF

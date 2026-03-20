@@ -114,10 +114,35 @@ abstract class AbstractOutputController
     }
 
     /**
+     * Vérifie si la requête est authentifiée (session ou token).
+     * Utilisé pour protéger les actions de contrôle (toggle, setOutput, parameters).
+     */
+    protected function requireAuth(Request $request, Response $response): ?Response
+    {
+        $authService = null;
+        try {
+            $authService = new \App\Security\AuthService();
+        } catch (\Throwable) {
+            return null;
+        }
+
+        $isAuth = $authService->isAuthenticated()
+            || $authService->isAuthenticatedByToken($request->getQueryParams());
+        if ($isAuth) {
+            return null;
+        }
+        return ResponseHelper::json($response, ['error' => 'Authentification requise'], 401);
+    }
+
+    /**
      * POST API : bascule un output.
      */
     public function toggleOutput(Request $request, Response $response): Response
     {
+        $authError = $this->requireAuth($request, $response);
+        if ($authError !== null) {
+            return $authError;
+        }
         $params = array_merge($request->getQueryParams(), $request->getParsedBody() ?? []);
         $board = (int) ($params['board'] ?? $this->defaultBoard());
 

@@ -132,6 +132,10 @@ class N3ppOutputController extends AbstractOutputController
      */
     public function setOutput(Request $request, Response $response): Response
     {
+        $authError = $this->requireAuth($request, $response);
+        if ($authError !== null) {
+            return $authError;
+        }
         $params = $request->getMethod() === 'POST' ? $request->getParsedBody() ?? [] : $request->getQueryParams();
         $action = $params['action'] ?? '';
         if ($action === 'output_create') {
@@ -166,6 +170,10 @@ class N3ppOutputController extends AbstractOutputController
      */
     public function updateParameters(Request $request, Response $response): Response
     {
+        $authError = $this->requireAuth($request, $response);
+        if ($authError !== null) {
+            return $authError;
+        }
         $payload = RequestHelper::extractParams($request);
         if (isset($payload['param'])) {
             $payload = [$payload['param'] => $payload['value'] ?? null];
@@ -204,6 +212,10 @@ class N3ppOutputController extends AbstractOutputController
 
     private function handleOutputUpdate(Request $request, Response $response): Response
     {
+        $authError = $this->requireAuth($request, $response);
+        if ($authError !== null) {
+            return $authError;
+        }
         $queryParams = $request->getQueryParams();
         $id = (int) ($queryParams['id'] ?? 0);
         $state = trim((string) ($queryParams['state'] ?? '0'));
@@ -225,6 +237,10 @@ class N3ppOutputController extends AbstractOutputController
 
     private function handleOutputDelete(Request $request, Response $response): Response
     {
+        $authError = $this->requireAuth($request, $response);
+        if ($authError !== null) {
+            return $authError;
+        }
         $queryParams = $request->getQueryParams();
         $id = (int) ($queryParams['id'] ?? 0);
 

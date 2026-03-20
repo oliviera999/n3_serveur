@@ -91,9 +91,13 @@ class HeartbeatController
         try {
             $pdo = Database::getConnection();
 
-            // Déterminer la table selon l'environnement
+            // Déterminer la table selon l'environnement (whitelist stricte)
             $table = TableConfig::getHeartbeatTable();
             $env = TableConfig::getEnvironment();
+            $allowedTables = ['ffp3Heartbeat', 'ffp3Heartbeat2', 'ffp3Heartbeat3', 'ffp3HeartbeatS3', 'ffp3HeartbeatS3Test'];
+            if (!in_array($table, $allowedTables, true)) {
+                throw new \RuntimeException("Table heartbeat invalide: {$table}");
+            }
 
             $stmt = $pdo->prepare("
                 INSERT INTO {$table} (uptime, freeHeap, minHeap, reboots)

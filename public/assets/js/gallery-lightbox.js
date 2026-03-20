@@ -1,97 +1,69 @@
 /**
- * Lightbox galeries — affichage plein écran au clic sur une photo.
- * Navigation précédent/suivant parmi les photos visibles sur la page.
- * Vanilla JS, pas de dépendance.
+ * Lightbox simple pour la galerie photo n3 IoT.
+ * Navigation clavier (fleches, Echap), clic overlay pour fermer.
  */
 (function () {
   'use strict';
 
-  var overlay = null;
-  var imgEl = null;
-  var captionEl = null;
-  var prevBtn = null;
-  var nextBtn = null;
-  var closeBtn = null;
-  var currentIndex = 0;
-  var imageUrls = [];
+  var lightbox = document.getElementById('gallery-lightbox');
+  if (!lightbox) return;
 
-  function getElements() {
-    overlay = document.getElementById('gallery-lightbox');
-    if (!overlay) return false;
-    imgEl = overlay.querySelector('.gallery-lightbox-img');
-    captionEl = overlay.querySelector('.gallery-lightbox-caption');
-    prevBtn = overlay.querySelector('.gallery-lightbox-prev');
-    nextBtn = overlay.querySelector('.gallery-lightbox-next');
-    closeBtn = overlay.querySelector('.gallery-lightbox-close');
-    return Boolean(imgEl);
-  }
+  var img = lightbox.querySelector('.gallery-lightbox-img');
+  var caption = lightbox.querySelector('.gallery-lightbox-caption');
+  var closeBtn = lightbox.querySelector('.gallery-lightbox-close');
+  var prevBtn = lightbox.querySelector('.gallery-lightbox-prev');
+  var nextBtn = lightbox.querySelector('.gallery-lightbox-next');
 
-  function collectUrls() {
-    var links = document.querySelectorAll('.gallery-grid .gallery-item a[href]');
-    imageUrls = Array.prototype.map.call(links, function (a) { return a.getAttribute('href'); });
-  }
+  var triggers = Array.from(document.querySelectorAll('.gallery-lightbox-trigger'));
+  var currentIndex = -1;
 
-  function show(index) {
-    if (!overlay || index < 0 || index >= imageUrls.length) return;
+  function open(index) {
+    if (index < 0 || index >= triggers.length) return;
     currentIndex = index;
-    imgEl.src = imageUrls[index];
-    imgEl.alt = 'Photo ' + (index + 1);
-    if (captionEl) captionEl.textContent = 'Photo ' + (index + 1) + ' / ' + imageUrls.length;
-    overlay.classList.add('gallery-lightbox-open');
-    overlay.setAttribute('aria-hidden', 'false');
-    if (prevBtn) prevBtn.style.display = currentIndex > 0 ? '' : 'none';
-    if (nextBtn) nextBtn.style.display = currentIndex < imageUrls.length - 1 ? '' : 'none';
+    var href = triggers[index].getAttribute('href');
+    img.src = href;
+    img.alt = triggers[index].getAttribute('title') || '';
+    caption.textContent = 'Photo ' + (index + 1) + ' / ' + triggers.length;
+    lightbox.setAttribute('aria-hidden', 'false');
+    lightbox.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
 
-  function hide() {
-    if (!overlay) return;
-    overlay.classList.remove('gallery-lightbox-open');
-    overlay.setAttribute('aria-hidden', 'true');
+  function close() {
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.style.display = 'none';
+    img.src = '';
     document.body.style.overflow = '';
+    currentIndex = -1;
   }
 
-  function goPrev() {
-    if (currentIndex > 0) show(currentIndex - 1);
+  function prev() {
+    if (currentIndex > 0) open(currentIndex - 1);
   }
 
-  function goNext() {
-    if (currentIndex < imageUrls.length - 1) show(currentIndex + 1);
+  function next() {
+    if (currentIndex < triggers.length - 1) open(currentIndex + 1);
   }
 
-  function onKeyDown(e) {
-    if (!overlay || !overlay.classList.contains('gallery-lightbox-open')) return;
-    if (e.key === 'Escape') { e.preventDefault(); hide(); }
-    if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); }
-    if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
-  }
-
-  function init() {
-    if (!getElements()) return;
-    collectUrls();
-
-    document.querySelectorAll('.gallery-grid .gallery-item a[href]').forEach(function (a, index) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        var idx = imageUrls.indexOf(a.getAttribute('href'));
-        if (idx !== -1) show(idx);
-      });
+  triggers.forEach(function (trigger, i) {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      open(i);
     });
+  });
 
-    if (closeBtn) closeBtn.addEventListener('click', function (e) { e.preventDefault(); hide(); });
-    if (prevBtn) prevBtn.addEventListener('click', function (e) { e.preventDefault(); goPrev(); });
-    if (nextBtn) nextBtn.addEventListener('click', function (e) { e.preventDefault(); goNext(); });
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  if (prevBtn) prevBtn.addEventListener('click', prev);
+  if (nextBtn) nextBtn.addEventListener('click', next);
 
-    overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) hide();
-    });
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) close();
+  });
 
-    document.addEventListener('keydown', onKeyDown);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  document.addEventListener('keydown', function (e) {
+    if (currentIndex < 0) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') prev();
+    else if (e.key === 'ArrowRight') next();
+  });
 })();

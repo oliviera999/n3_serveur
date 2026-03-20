@@ -111,6 +111,18 @@ class GalleryUploadController
 
         try {
             $imageFile->moveTo($targetPath);
+
+            // Vérification du contenu réel (magic bytes) après écriture
+            $imageInfo = @getimagesize($targetPath);
+            if ($imageInfo === false || !in_array($imageInfo[2], [IMAGETYPE_JPEG, IMAGETYPE_JPEG2000], true)) {
+                @unlink($targetPath);
+                $this->logger->warning("GalleryUpload [{$gallery}]: fichier rejete (contenu non-JPEG)", [
+                    'client_type' => $clientType,
+                    'detected_type' => $imageInfo[2] ?? 'inconnu',
+                ]);
+                return ResponseHelper::text($response, 'Contenu du fichier non valide (JPEG attendu)', 415);
+            }
+
             $this->logger->info("GalleryUpload [{$gallery}]: photo enregistree {$filename}");
             return ResponseHelper::textClose($response, 'Photo enregistree: ' . $filename, 200);
         } catch (\Throwable $e) {
