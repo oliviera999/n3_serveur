@@ -120,7 +120,6 @@
     </article>
 {% endblock %}
 
-{% block footer_class %}app-footer app-footer--elevated{% endblock %}
-{% block footer_content %}
-    <p class="footer-copyright">{% if version is defined and version %}{{ version }} | {% endif %}Système d'aquaponie FFP3 | © 2025 olution</p>
+{% block footer %}
+{% include 'partials/_footer.twig' with {'footer_text': "Système d'aquaponie FFP3"} %}
 {% endblock %}

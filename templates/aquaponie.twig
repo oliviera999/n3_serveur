@@ -1849,29 +1849,7 @@
 {% endblock %}
 
 {% block footer %}
-            <footer id="footer" class="app-footer">
-                <div class="context-badges">
-                    <span class="context-badge {{ environment == 'test' or environment == 'test3' ? 'context-badge-test' : 'context-badge-prod' }}">
-                        <i class="fas fa-globe"></i>
-                        {{ environment == 'test' ? 'Environnement test' : (environment == 'test3' ? 'Environnement test3' : (environment == 's3' ? 'Environnement S3' : 'Environnement production')) }}
-                    </span>
-                    <span class="context-badge">
-                        <i class="fas fa-database"></i>
-                        Table {{ data_table }}
-                    </span>
-                    <span class="context-badge">
-                        <i class="fas fa-code-branch"></i>
-                        {{ version }}
-                    </span>
-                    {% if firmware_version %}
-                    <span class="context-badge">
-                        <i class="fas fa-microchip"></i>
-                        Firmware ESP32 v{{ firmware_version }}
-                    </span>
-                    {% endif %}
-                </div>
-                <p style="margin-top: 15px;">Système d'aquaponie FFP3 | © 2025 olution</p>
-            </footer>
+{% include 'partials/_footer.twig' with {'footer_text': "Système d'aquaponie FFP3"} %}
 {% endblock %}
 
 {% block scripts %}

@@ -129,12 +129,7 @@
 {% endblock %}
 
 {% block footer %}
-<footer id="footer" class="app-footer">
-    {% block footer_content %}
-    <p>{% if version is defined and version %}{{ version }} | {% endif %}N3 IoT Datas – Supervision | © 2025 olution</p>
-    <p class="supervision-back-link-wrap"><a href="{{ base_path|default('') }}/" class="supervision-back-link"><i class="fas fa-home"></i> Retour à l'accueil</a></p>
-    {% endblock %}
-</footer>
+{% include 'partials/_footer.twig' with {'footer_text': 'N3 IoT Datas – Supervision'} %}
 {% endblock %}
 
 {% block scripts_vendor %}

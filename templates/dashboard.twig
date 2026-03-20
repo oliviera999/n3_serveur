@@ -227,8 +227,8 @@
 </article>
 {% endblock %}
 
-{% block footer_content %}
-<p>{{ version }} | Firmware ESP32: v{{ firmware_version }} | Système d'aquaponie FFP3 | © 2025 olution</p>
+{% block footer %}
+{% include 'partials/_footer.twig' with {'footer_text': "Système d'aquaponie FFP3"} %}
 {% endblock %}
 
 {% block scripts_vendor %}

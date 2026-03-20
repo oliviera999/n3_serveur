@@ -222,11 +222,7 @@
 {% endblock %}
 
 {% block footer %}
-    <footer id="footer" class="app-footer">
-        {% block footer_content %}
-        <p>{{ version }} | Système d'aquaponie FFP3 | © 2025 olution</p>
-        {% endblock %}
-    </footer>
+{% include 'partials/_footer.twig' with {'footer_text': "Système d'aquaponie FFP3"} %}
 {% endblock %}
 
 {% block scripts %}

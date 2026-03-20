@@ -41,11 +41,7 @@
             {% block content %}{% endblock %}
         </div>
         {% block footer %}
-        <footer id="footer" class="{% block footer_class %}app-footer{% endblock %}">
-            {% block footer_content %}
-            <p>{% if version is defined and version %}{{ version }} | {% endif %}n³ IoT Datas Platform | &copy; 2025 olution</p>
-            {% endblock %}
-        </footer>
+        {% include 'partials/_footer.twig' %}
         {% endblock %}
     </div>
 

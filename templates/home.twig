@@ -199,16 +199,8 @@
 </article>
 {% endblock %}
 
-{% block footer_content %}
-<p>N3 IoT Datas Platform | © 2025 olution | Projets pédagogiques connectés {% if version %}| Serveur {{ version }}{% endif %}</p>
-<p class="footer-tech">
-    <span class="footer-tech-text">Projet pédagogique · Technologies open source</span>
-</p>
-<p>
-    <a href="{{ base_path|default('') }}/supervision" class="footer-admin-link">
-        <i class="fas fa-cog"></i> Administration
-    </a>
-</p>
+{% block footer %}
+{% include 'partials/_footer.twig' with {'footer_text': 'N3 IoT Datas Platform | Projets pédagogiques connectés'} %}
 {% endblock %}
 
 {% block scripts_vendor %}
