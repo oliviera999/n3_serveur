@@ -323,51 +323,51 @@
             <div class="next-update-countdown" id="next-update-info">
                 Prochaine mise à jour dans <strong id="countdown-seconds">15</strong> secondes
             </div>
-        </div>
 
-        <!-- Contrôles mode live intégrés -->
-        <div class="live-controls-integrated">
-            <div class="live-control-row">
-                <div class="live-control-item">
-                    <span class="live-control-label">Mode Live</span>
-                    <label class="live-toggle-switch">
-                        <input type="checkbox" id="live-mode-toggle" checked>
-                        <span class="live-toggle-slider"></span>
-                    </label>
-                </div>
-                
-                <div class="live-control-item">
-                    <span class="live-control-label">Auto-scroll</span>
-                    <label class="live-toggle-switch">
-                        <input type="checkbox" id="auto-scroll-toggle" checked>
-                        <span class="live-toggle-slider"></span>
-                    </label>
-                </div>
-                
-                <div class="live-control-item">
-                    <span class="live-control-label">Intervalle</span>
-                    <select id="update-interval-selector" class="live-interval-selector">
-                        <option value="5000">5s</option>
-                        <option value="10000">10s</option>
-                        <option value="15000" selected>15s</option>
-                        <option value="30000">30s</option>
-                        <option value="60000">60s</option>
-                    </select>
-                </div>
-                
-                <div class="live-control-item">
-                    <div class="live-stats-display">
-                        <i class="fas fa-chart-line"></i>
-                        <span id="new-readings-count" class="live-stats-value">0</span>
-                        <span>nouvelles données</span>
+            <!-- Contrôles mode live intégrés -->
+            <div class="live-controls-integrated">
+                <div class="live-control-row">
+                    <div class="live-control-item">
+                        <span class="live-control-label">Mode Live</span>
+                        <label class="live-toggle-switch">
+                            <input type="checkbox" id="live-mode-toggle" checked>
+                            <span class="live-toggle-slider"></span>
+                        </label>
                     </div>
-                </div>
-                
-                <div class="live-control-item">
-                    <button id="force-refresh-button" class="live-refresh-button">
-                        <i class="fas fa-sync-alt"></i>
-                        Rafraîchir
-                    </button>
+                    
+                    <div class="live-control-item">
+                        <span class="live-control-label">Auto-scroll</span>
+                        <label class="live-toggle-switch">
+                            <input type="checkbox" id="auto-scroll-toggle" checked>
+                            <span class="live-toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="live-control-item">
+                        <span class="live-control-label">Intervalle</span>
+                        <select id="update-interval-selector" class="live-interval-selector">
+                            <option value="5000">5s</option>
+                            <option value="10000">10s</option>
+                            <option value="15000" selected>15s</option>
+                            <option value="30000">30s</option>
+                            <option value="60000">60s</option>
+                        </select>
+                    </div>
+                    
+                    <div class="live-control-item">
+                        <div class="live-stats-display">
+                            <i class="fas fa-chart-line"></i>
+                            <span id="new-readings-count" class="live-stats-value">0</span>
+                            <span>nouvelles données</span>
+                        </div>
+                    </div>
+                    
+                    <div class="live-control-item">
+                        <button id="force-refresh-button" class="live-refresh-button">
+                            <i class="fas fa-sync-alt"></i>
+                            Rafraîchir
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
