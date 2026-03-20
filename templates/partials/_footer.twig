@@ -1,0 +1,40 @@
+{#
+  Pied de page unifié — modèle pages de datas
+  Variables optionnelles : environment, data_config, data_table, version, firmware_version, footer_text, base_path
+#}
+<footer id="footer" class="app-footer app-footer--elevated">
+    <div class="context-badges">
+        {% if environment is defined and environment %}
+        <span class="context-badge {{ (environment == 'test' or environment == 'test3') ? 'context-badge-test' : 'context-badge-prod' }}">
+            <i class="fas fa-globe"></i>
+            {{ environment == 'test' ? 'Environnement test' : (environment == 'test3' ? 'Environnement test3' : (environment == 's3' ? 'Environnement S3' : 'Environnement production')) }}
+        </span>
+        {% endif %}
+        {% if data_config is defined and data_config.table_label is defined %}
+        <span class="context-badge"><i class="fas fa-database"></i> {{ data_config.table_label }}</span>
+        {% elseif data_table is defined and data_table %}
+        <span class="context-badge"><i class="fas fa-database"></i> Table {{ data_table }}</span>
+        {% endif %}
+        {% if version is defined and version %}
+        <span class="context-badge"><i class="fas fa-code-branch"></i> {{ version }}</span>
+        {% endif %}
+        {% if firmware_version is defined and firmware_version %}
+        <span class="context-badge"><i class="fas fa-microchip"></i> Firmware v{{ firmware_version }}</span>
+        {% endif %}
+    </div>
+    <p class="footer-copyright">
+        {%- if data_config is defined and data_config.footer_text is defined -%}
+            {{- data_config.footer_text -}}
+        {%- elseif footer_text is defined and footer_text -%}
+            {{- footer_text -}}
+        {%- else -%}
+            n³ IoT Datas Platform
+        {%- endif -%}
+        &nbsp;| &copy; 2025 olution
+    </p>
+    <p class="footer-nav-links">
+        <a href="{{ base_path|default('') }}/" class="footer-nav-link"><i class="fas fa-home"></i> Accueil</a>
+        <span class="footer-nav-sep">&nbsp;|&nbsp;</span>
+        <a href="{{ base_path|default('') }}/supervision" class="footer-nav-link"><i class="fas fa-cog"></i> Administration</a>
+    </p>
+</footer>
