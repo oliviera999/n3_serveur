@@ -62,6 +62,16 @@
     --control-border: #e3e8ee;
     --control-text: #1b2a4b;
 
+    /* Statuts (badges, indicateurs en ligne/hors ligne) */
+    --status-success-bg: #d4edda;
+    --status-success-text: #155724;
+    --status-error-bg: #f8d7da;
+    --status-error-text: #721c24;
+    --status-warning-bg: #fff3cd;
+    --status-warning-text: #856404;
+    --status-loading-bg: #e2e3e5;
+    --status-loading-text: #383d41;
+
     /* Transitions et ombres (ameliorations visuelles, fiche 01) */
     --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -119,6 +129,15 @@
     --panel-bg: #1e293b;
     --control-border: #475569;
     --control-text: #f1f5f9;
+
+    --status-success-bg: rgba(34, 197, 94, 0.2);
+    --status-success-text: #86efac;
+    --status-error-bg: rgba(239, 68, 68, 0.2);
+    --status-error-text: #fca5a5;
+    --status-warning-bg: rgba(251, 191, 36, 0.2);
+    --status-warning-text: #fcd34d;
+    --status-loading-bg: var(--bg-secondary);
+    --status-loading-text: var(--text-muted);
 
     /* Ombres cartes (dark) — teinte accent */
     --shadow-card: 0 10px 29px 0 rgba(0, 0, 0, 0.25);
@@ -187,21 +206,21 @@
     color: #ffffff !important;
 }
 
-/* Panneau mobile en dark mode : fond blanc conservé, icône sombre comme les liens */
+/* Panneau mobile en dark mode */
 [data-theme="dark"] #navPanel .nav-theme-toggle {
-    background: #ffffff;
-    border-top-color: #eeeeee;
+    background: var(--bg-card);
+    border-top-color: var(--border-color);
 }
 [data-theme="dark"] #navPanel .theme-toggle-btn {
     background: transparent;
     border: none;
-    color: #212931;
+    color: var(--text-primary);
 }
 [data-theme="dark"] #navPanel .theme-toggle-btn:hover,
 [data-theme="dark"] #navPanel .theme-toggle-btn:focus,
 [data-theme="dark"] #navPanel .theme-toggle-btn:active {
-    background: rgba(0, 0, 0, 0.05);
-    color: #212931 !important;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary) !important;
 }
 
 .nav-theme-toggle {
@@ -243,6 +262,60 @@
 }
 
 /* -----------------------------------------------------------------
+   Fallback sans JavaScript : prefers-color-scheme
+   Si JS est desactive, data-theme n'est jamais applique.
+   Ce bloc assure un mode sombre minimal base sur la preference systeme.
+----------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) {
+        --bg-page: #0f172a;
+        --bg-main: #1e293b;
+        --bg-card: #1e293b;
+        --bg-card-hover: #334155;
+        --bg-secondary: #334155;
+        --bg-input: #334155;
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --text-inverse: #0f172a;
+        --accent-primary: #2dd4bf;
+        --accent-primary-hover: #5eead4;
+        --accent-secondary: #fb923c;
+        --accent-muted: rgba(45, 212, 191, 0.2);
+        --accent-border: rgba(45, 212, 191, 0.35);
+        --header-nav-bg: #0f172a;
+        --header-nav-text: #f1f5f9;
+        --header-nav-active-bg: #334155;
+        --header-nav-active-text: #2dd4bf;
+        --header-nav-hover: #2dd4bf;
+        --border-color: #475569;
+        --border-light: #334155;
+        --footer-color: #94a3b8;
+        --footer-bg-elevated: rgba(30, 41, 59, 0.95);
+        --footer-border-elevated: rgba(45, 212, 191, 0.2);
+        --page-bg-color: #0f172a;
+        --chart-bg: rgba(30, 41, 59, 0.95);
+        --chart-border: rgba(45, 212, 191, 0.2);
+        --toast-bg: #334155;
+        --toast-text: #f1f5f9;
+        --control-bg: #0f172a;
+        --panel-bg: #1e293b;
+        --control-border: #475569;
+        --control-text: #f1f5f9;
+        --status-success-bg: rgba(34, 197, 94, 0.2);
+        --status-success-text: #86efac;
+        --status-error-bg: rgba(239, 68, 68, 0.2);
+        --status-error-text: #fca5a5;
+        --status-warning-bg: rgba(251, 191, 36, 0.2);
+        --status-warning-text: #fcd34d;
+        --status-loading-bg: #334155;
+        --status-loading-text: #64748b;
+        --shadow-card: 0 10px 29px 0 rgba(0, 0, 0, 0.25);
+        --shadow-card-hover: 0 16px 40px 0 rgba(45, 212, 191, 0.15);
+    }
+}
+
+/* -----------------------------------------------------------------
    Transition douce clair ↔ foncé (fondu)
 ----------------------------------------------------------------- */
 html {
@@ -256,9 +329,22 @@ body,
 .system-health-panel, .health-item, .toast, .toast-message {
     transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
-/* Désactiver pendant le preload pour éviter le flash */
+/* Desactiver pendant le preload pour eviter le flash */
 body.is-preload,
 body.is-preload * {
     transition: none !important;
+}
+
+/* Desactiver les transitions de theme pour les utilisateurs qui le demandent */
+@media (prefers-reduced-motion: reduce) {
+    html,
+    body,
+    #main, #header, #nav, #footer,
+    #main > *, #wrapper.control-wrapper,
+    .card, .panel, .link-card, .live-card,
+    .live-controls-integrated, .live-control-item, .live-stats-display,
+    .system-health-panel, .health-item, .toast, .toast-message {
+        transition: none !important;
+    }
 }
 

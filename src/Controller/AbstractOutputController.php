@@ -88,6 +88,14 @@ abstract class AbstractOutputController
     abstract protected function batchUpdateParameters(int $board, array $params): void;
 
     /**
+     * Normalise une valeur de state brute vers '0' ou '1'.
+     */
+    protected function normalizeOutputState(string $state): string
+    {
+        return in_array($state, ['1', '1.00'], true) ? '1' : '0';
+    }
+
+    /**
      * Traitement des actions legacy (surcharge optionnelle).
      */
     protected function handleLegacyAction(Request $request, Response $response, string $action): Response

@@ -121,13 +121,12 @@ class N3ppOutputController extends AbstractOutputController
     protected function doSetOutput(array $params, int $board): array
     {
         $gpio = (int) ($params['gpio'] ?? 0);
-        $state = trim((string) ($params['state'] ?? '0'));
 
         if ($gpio <= 0) {
             return ['success' => false, 'error' => 'Paramètre gpio invalide', 'status' => 400];
         }
 
-        $state = in_array($state, ['0', '1', '1.00'], true) ? '1' : '0';
+        $state = $this->normalizeOutputState(trim((string) ($params['state'] ?? '0')));
         $this->outputRepo->updateByGpio($gpio, $state, $board);
         return ['success' => true, 'gpio' => $gpio, 'state' => $state];
     }

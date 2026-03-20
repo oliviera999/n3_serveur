@@ -8,6 +8,7 @@
 
 use App\Controller\Gallery\GalleryUploadController;
 use App\Controller\Gallery\GalleryViewController;
+use App\Controller\Gallery\GalleryTrashController;
 
 // Routes Galeries photo — compatibilité firmwares ESP32-CAM (upload)
 // Route unifiée paramétrée (optionnelle, pour nouveaux clients)
@@ -33,3 +34,11 @@ $app->get('/gallery/ffp3', [GalleryViewController::class, 'showFfp3']);
 
 // Galerie photo (grille paginée) — accès admin uniquement (/admin/ protégé par middleware)
 $app->get('/admin/gallery/{slug}', [GalleryViewController::class, 'showGalleryAdmin']);
+
+// Corbeille galerie — accès admin uniquement
+$app->get('/admin/gallery/{slug}/trash', [GalleryTrashController::class, 'showTrash']);
+$app->get('/admin/gallery/{slug}/trash/files/{filename}', [GalleryTrashController::class, 'serveTrashImage']);
+$app->post('/admin/api/gallery/{slug}/move-to-trash', [GalleryTrashController::class, 'apiMoveToTrash']);
+$app->post('/admin/api/gallery/{slug}/restore', [GalleryTrashController::class, 'apiRestore']);
+$app->post('/admin/api/gallery/{slug}/purge', [GalleryTrashController::class, 'apiPurge']);
+$app->post('/admin/api/gallery/{slug}/purge-all', [GalleryTrashController::class, 'apiPurgeAll']);

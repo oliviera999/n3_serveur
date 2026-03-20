@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller\Gallery;
 
+use App\Config\GalleryConfig;
 use App\Config\Paths;
+use App\Service\GalleryTrashService;
 use App\Service\LogService;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -24,20 +26,9 @@ class GalleryUploadController
     private const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 Mo
     private const ALLOWED_TYPES = ['image/jpeg', 'image/jpg'];
 
-    private const SLUG_TO_ENV_DIR = [
-        'msp1' => 'GALLERY_MSP1_DIR',
-        'n3pp' => 'GALLERY_N3PP_DIR',
-        'ffp3' => 'GALLERY_FFP3_DIR',
-    ];
-
-    private const SLUG_TO_DEFAULT_DIR = [
-        'msp1' => 'uploads/msp1',
-        'n3pp' => 'uploads/n3pp',
-        'ffp3' => 'uploads/ffp3',
-    ];
-
     public function __construct(
         private LogService $logger,
+        private GalleryTrashService $trashService,
     ) {
     }
 
@@ -47,10 +38,10 @@ class GalleryUploadController
     public function handleBySlug(Request $request, Response $response, array $args): Response
     {
         $slug = $args['slug'] ?? '';
-        if (!isset(self::SLUG_TO_ENV_DIR[$slug])) {
+        if (!GalleryConfig::isValidSlug($slug)) {
             return ResponseHelper::text($response, 'Galerie invalide', 400);
         }
-        $dir = $_ENV[self::SLUG_TO_ENV_DIR[$slug]] ?? self::SLUG_TO_DEFAULT_DIR[$slug];
+        $dir = GalleryConfig::resolveUploadDir($slug);
         return $this->processUpload($request, $response, $dir, $slug);
     }
 
@@ -121,6 +112,13 @@ class GalleryUploadController
                     'detected_type' => $imageInfo[2] ?? 'inconnu',
                 ]);
                 return ResponseHelper::text($response, 'Contenu du fichier non valide (JPEG attendu)', 415);
+            }
+
+            $analysis = $this->trashService->analyzeImage($targetPath);
+            if ($analysis['quality'] !== 'ok') {
+                $this->trashService->moveToTrash($gallery, $filename, $analysis['quality']);
+                $this->logger->info("GalleryUpload [{$gallery}]: photo {$filename} envoyée en corbeille ({$analysis['reason']})");
+                return ResponseHelper::textClose($response, 'Photo enregistree (corbeille auto: ' . $analysis['reason'] . '): ' . $filename, 200);
             }
 
             $this->logger->info("GalleryUpload [{$gallery}]: photo enregistree {$filename}");

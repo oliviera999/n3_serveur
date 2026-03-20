@@ -123,7 +123,7 @@
 }
 
 .stat-card {
-    background: white;
+    background: var(--bg-card);
     border-radius: 14px;
     padding: 18px;
     box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.06));
@@ -455,6 +455,22 @@
     background: rgba(39, 174, 96, 0.12);
     color: #1e8449;
 }
+.chemistry-legend-card .chemistry-legend-icon.legend-o2 {
+    background: rgba(23, 162, 184, 0.12);
+    color: #17a2b8;
+}
+.chemistry-legend-card .chemistry-legend-icon.legend-po4 {
+    background: rgba(142, 68, 173, 0.12);
+    color: #8e44ad;
+}
+.chemistry-legend-card .chemistry-legend-icon.legend-k {
+    background: rgba(211, 84, 0, 0.12);
+    color: #d35400;
+}
+.chemistry-legend-card .chemistry-legend-icon.legend-fe {
+    background: rgba(160, 64, 0, 0.12);
+    color: #a04000;
+}
 .chemistry-legend-card .chemistry-legend-label { font-weight: 600; color: #2c3e50; line-height: 1.3; }
 .chemistry-legend-card .chemistry-legend-value { color: var(--text-secondary, #6b7280); line-height: 1.35; font-size: 0.92em; }
 @media (max-width: 520px) {
@@ -501,6 +517,22 @@
 [data-theme="dark"] .chemistry-legend-card .chemistry-legend-icon.legend-no3 {
     background: rgba(39, 174, 96, 0.18);
     color: #58d68d;
+}
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-icon.legend-o2 {
+    background: rgba(23, 162, 184, 0.18);
+    color: #56d4e8;
+}
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-icon.legend-po4 {
+    background: rgba(142, 68, 173, 0.18);
+    color: #bb8fce;
+}
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-icon.legend-k {
+    background: rgba(211, 84, 0, 0.18);
+    color: #f0a866;
+}
+[data-theme="dark"] .chemistry-legend-card .chemistry-legend-icon.legend-fe {
+    background: rgba(160, 64, 0, 0.18);
+    color: #d4874d;
 }
 /* MSP1 mesures manuelles */
 .msp-sheets-section { margin: 1.5rem 0; }
@@ -718,7 +750,7 @@ button.quick-filter-btn.active {
 .data-table-wrap table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    background: var(--bg-card);
     font-size: 0.88em;
 }
 .data-table-wrap th {
@@ -829,7 +861,7 @@ button.quick-filter-btn.active {
     padding: 18px;
     border-radius: 14px;
     text-decoration: none;
-    background: white;
+    background: var(--bg-card);
     color: #2c3e50;
     border: 1px solid rgba(0, 139, 116, 0.15);
     box-shadow: var(--shadow-card, 0 2px 10px rgba(0, 139, 116, 0.12));
@@ -846,7 +878,7 @@ button.quick-filter-btn.active {
 /* Tableau moderne (dashboard) */
 .modern-table {
     width: 100%;
-    background: white;
+    background: var(--bg-card);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -880,7 +912,7 @@ button.quick-filter-btn.active {
     border-radius: 8px;
     font-size: 1em;
     transition: all 0.3s;
-    background: white;
+    background: var(--bg-card);
 }
 .datetime-field input:focus {
     outline: none;
@@ -1096,7 +1128,7 @@ button.quick-filter-btn.active {
 }
 [data-theme="dark"] .alt-data-chart-row + .alt-data-chart-row { border-top-color: var(--accent-border); }
 
-[data-theme="dark"] .info-banner { background: linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%); }
+[data-theme="dark"] .info-banner { background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-hover) 100%); }
 [data-theme="dark"] .quick-link-card {
     background: var(--bg-card);
     color: var(--text-primary);

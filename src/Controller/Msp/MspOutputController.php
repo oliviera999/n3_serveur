@@ -12,9 +12,6 @@ use App\Repository\MspSensorRepository;
 use App\Security\AuthService;
 use App\Service\LogService;
 use App\Service\TemplateRenderer;
-use App\Util\ResponseHelper;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 
 class MspOutputController extends AbstractOutputController
 {
@@ -113,8 +110,7 @@ class MspOutputController extends AbstractOutputController
     {
         $gpio = (int) ($params['gpio'] ?? 0);
         $name = trim((string) ($params['name'] ?? ''));
-        $state = trim((string) ($params['state'] ?? '0'));
-        $state = in_array($state, ['0', '1', '1.00'], true) ? '1' : '0';
+        $state = $this->normalizeOutputState(trim((string) ($params['state'] ?? '0')));
 
         if ($gpio > 0) {
             $this->outputRepo->updateByGpio($gpio, $state, $board);

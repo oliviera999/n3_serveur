@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Hook Git pre-commit
+# Valide le changelog avant chaque commit.
+#
+
+echo "🔎 pre-commit: verification CHANGELOG.md"
+
+PROJECT_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+SCRIPT_PS1="$PROJECT_ROOT/tools/changelog-maintenance.ps1"
+
+if [ ! -f "$SCRIPT_PS1" ]; then
+    echo "❌ Script introuvable: tools/changelog-maintenance.ps1"
+    exit 1
+fi
+
+if command -v pwsh >/dev/null 2>&1; then
+    pwsh -NoProfile -ExecutionPolicy Bypass -File "$SCRIPT_PS1" -CheckOnly
+    exit $?
+fi
+
+if command -v powershell >/dev/null 2>&1; then
+    powershell -NoProfile -ExecutionPolicy Bypass -File "$SCRIPT_PS1" -CheckOnly
+    exit $?
+fi
+
+echo "⚠️ Ni 'pwsh' ni 'powershell' disponible. Verification changelog ignoree."
+echo "   Lancez manuellement: powershell -File tools/changelog-maintenance.ps1 -CheckOnly"
+exit 0

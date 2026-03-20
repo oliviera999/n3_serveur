@@ -11,66 +11,6 @@
 
 {% block styles %}
 <style>
-  /* Timelapse — thème clair aligné sur gallery/control (#main blanc) */
-  .timelapse-page {
-    --accent: #008B74;
-    --accent-light: #00B794;
-    --accent-bg: rgba(0,139,116,0.08);
-    --accent-border: rgba(0,139,116,0.25);
-    --surface: #f8f9fa;
-    --surface2: #ffffff;
-    --border: #e8e8e8;
-    --text: #2c3e50;
-    --text-dim: #7f8c8d;
-    --amber: #f59e0b;
-    --red: #ef4444;
-  }
-
-  .timelapse-hero {
-    background: linear-gradient(135deg, #008B74 0%, #00B794 100%);
-    color: white;
-    padding: 2rem;
-    border-radius: 16px;
-    margin-bottom: 2rem;
-    text-align: left;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  }
-  .timelapse-hero h1 { margin: 0; font-size: 1.6em; font-weight: 600; }
-  .gallery-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: rgba(0,139,116,0.08);
-    border: 1px solid rgba(0,139,116,0.15);
-    border-radius: 8px;
-    color: #008B74;
-    font-weight: 600;
-    font-size: 0.9em;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .gallery-back:hover { background: #008B74; color: white; }
-  .timelapse-nav-links {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-  }
-  .timelapse-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.8em;
-    opacity: 0.9;
-  }
-  .timelapse-status-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: rgba(255,255,255,0.9);
-    animation: timelapse-pulse 2s ease-in-out infinite;
-  }
-  @keyframes timelapse-pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
-
   .timelapse-grid {
     display: grid;
     grid-template-columns: 1fr;

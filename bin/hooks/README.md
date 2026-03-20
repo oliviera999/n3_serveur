@@ -2,11 +2,19 @@
 
 Ces fichiers sont des **copies** des hooks à installer dans `.git/hooks/` sur le serveur. Git ne versionne pas `.git/hooks/`, donc on garde ici la référence pour installation manuelle.
 
-## Hook disponible
+## Hooks disponibles
 
 ### `post-merge`
 
 Vide automatiquement les caches (Twig, DI, OpCache) après chaque `git pull` ou `git merge`.
+
+### `pre-commit`
+
+Vérifie `CHANGELOG.md` avant chaque commit :
+
+- encodage UTF-8 valide ;
+- unicité des versions ;
+- taille maximale du fichier (paramétrable dans le script).
 
 ## Installation côté serveur
 
@@ -15,6 +23,7 @@ Vide automatiquement les caches (Twig, DI, OpCache) après chaque `git pull` ou 
 ```bash
 # Depuis la racine du projet serveur
 bash bin/install-hook-post-merge.sh
+bash bin/install-hook-pre-commit.sh
 ```
 
 **Méthode manuelle** :
@@ -22,13 +31,16 @@ bash bin/install-hook-post-merge.sh
 ```bash
 # Depuis la racine du projet sur le serveur
 cp bin/hooks/post-merge .git/hooks/post-merge
+cp bin/hooks/pre-commit .git/hooks/pre-commit
 chmod +x .git/hooks/post-merge
+chmod +x .git/hooks/pre-commit
 ```
 
 Vérification :
 
 ```bash
 ls -la .git/hooks/post-merge
+ls -la .git/hooks/pre-commit
 # Doit afficher -rwxr-xr-x ... post-merge
 ```
 
@@ -36,6 +48,7 @@ Test manuel :
 
 ```bash
 .git/hooks/post-merge
+.git/hooks/pre-commit
 ```
 
 Documentation complète : `docs/deployment/INSTALL_HOOKS.md`

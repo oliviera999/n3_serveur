@@ -53,6 +53,32 @@ Scripts FFP3 (extrait dans **`analyse-ffp3/`** ou archive **`archives/ffp3/`**) 
 
 Pour les scripts PHP de diagnostic (tables, environnements), utiliser **`tools/`** à la racine du serveur.
 
+## Maintenance du changelog (durable)
+
+Le dépôt applique une stratégie "rolling window" :
+
+- `CHANGELOG.md` reste court (entrées récentes) ;
+- l'historique est archivé dans `docs/changelog/archive/` ;
+- un garde-fou `pre-commit` peut bloquer les anomalies de changelog avant commit.
+
+Commandes utiles depuis `serveur/` :
+
+```powershell
+# Vérification stricte (UTF-8, doublons, taille)
+composer changelog:check
+
+# Rotation des anciennes entrées vers l'archive
+composer changelog:rotate
+```
+
+Installation du hook local :
+
+```bash
+bash bin/install-hook-pre-commit.sh
+```
+
+Documentation : `docs/changelog/README.md`
+
 ## Configuration serveur (URLs /ffp3/*)
 
 Pour eviter des 404 sur les URLs du type `https://iot.olution.info/ffp3/`, `/ffp3/dashboard`, etc., toutes les requetes doivent etre acheminees vers `public/index.php`. Voir [docs/CONFIG_SERVEUR_FFP3_URLS.md](docs/CONFIG_SERVEUR_FFP3_URLS.md) pour Apache (AllowOverride All) et Nginx.

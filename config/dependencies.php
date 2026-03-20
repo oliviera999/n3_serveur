@@ -438,12 +438,26 @@ return [
 
     \App\Controller\Gallery\GalleryUploadController::class => function (ContainerInterface $c) {
         return new \App\Controller\Gallery\GalleryUploadController(
-            $c->get(\App\Service\LogService::class)
+            $c->get(\App\Service\LogService::class),
+            $c->get(\App\Service\GalleryTrashService::class)
         );
     },
 
     \App\Controller\Gallery\GalleryViewController::class => function (ContainerInterface $c) {
         return new \App\Controller\Gallery\GalleryViewController(
+            $c->get(TemplateRenderer::class)
+        );
+    },
+
+    \App\Service\GalleryTrashService::class => function (ContainerInterface $c) {
+        return new \App\Service\GalleryTrashService(
+            $c->get(LogService::class)
+        );
+    },
+
+    \App\Controller\Gallery\GalleryTrashController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Gallery\GalleryTrashController(
+            $c->get(\App\Service\GalleryTrashService::class),
             $c->get(TemplateRenderer::class)
         );
     },

@@ -1,0 +1,83 @@
+{#
+    Script d'initialisation commun pour les pages contrôle MSP1 et N3PP.
+    Paramètres attendus :
+      - realtime_api_base : base URL de l'API realtime (ex. '/msp1/api/realtime')
+#}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var controlApiBase = window.CONTROL_API_BASE;
+
+    var valuesUpdater = new ControlValuesUpdater();
+    valuesUpdater.init();
+
+    function normalizeStatesForDisplay(states) {
+        var out = {};
+        for (var k in states) {
+            var v = states[k];
+            if (k === '101') out[k] = (v === 'checked' || v === 1 || v === '1') ? 1 : 0;
+            else if (k === '106') out[k] = (v === 1 || v === '1') ? 1 : 0;
+            else out[k] = v;
+        }
+        return out;
+    }
+
+    function updateParamHints(states) {
+        if (states['101'] !== undefined) {
+            var h = document.getElementById('mailNotif-hint');
+            if (h) h.textContent = (states['101'] === 'checked' || states['101'] === 1 || states['101'] === '1') ? 'Activé' : 'Désactivé';
+        }
+        if (states['106'] !== undefined) {
+            var h2 = document.getElementById('WakeUp-hint');
+            if (h2) h2.textContent = (states['106'] === 1 || states['106'] === '1') ? 'Activé' : 'Désactivé';
+        }
+    }
+
+    var controlSync = new ControlSync({
+        apiBase: controlApiBase,
+        pollInterval: 10,
+        useFresh: true,
+        onStatesReceived: function(states) {
+            if (window.controlValuesUpdater && typeof window.controlValuesUpdater.updateParameters === 'function') {
+                var normalized = normalizeStatesForDisplay(states);
+                window.controlValuesUpdater.updateParameters(normalized);
+            }
+            updateParamHints(states);
+        }
+    });
+    controlSync.initializeFromDOM();
+    controlSync.start();
+
+    window.controlSync = controlSync;
+    window.controlValuesUpdater = valuesUpdater;
+
+    window.saveParamSwitch = function(paramName, checked, valOn, valOff) {
+        var value = checked ? valOn : valOff;
+        var hintEl = document.getElementById(paramName + '-hint');
+        if (hintEl) hintEl.textContent = checked ? 'Activé' : 'Désactivé';
+
+        fetch(controlApiBase + '/parameters', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ param: paramName, value: value }),
+            credentials: 'include'
+        })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    if (typeof toastManager !== 'undefined') toastManager.showSuccess('Paramètre enregistré', 2500);
+                } else {
+                    if (typeof toastManager !== 'undefined') toastManager.showError(data.error || 'Erreur', 4000);
+                }
+            })
+            .catch(function() {
+                if (typeof toastManager !== 'undefined') toastManager.showError('Erreur réseau', 4000);
+            });
+    };
+
+    initRealtimeUpdater({
+        apiBasePath: '{{ realtime_api_base }}',
+        pollInterval: 15000,
+        enabled: true
+    });
+});
+</script>

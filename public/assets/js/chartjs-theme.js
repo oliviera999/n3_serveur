@@ -1,109 +1,96 @@
 /**
- * chartjs-theme.js — Adaptation des graphiques Chart.js au thème dark/light
- * Définit n3ChartJsApplyTheme() appelée par theme-toggle.js au changement de thème
- * et à l'init pour les graphiques tide_stats.
+ * chartjs-theme.js — Adaptation des graphiques Chart.js au theme dark/light
+ * Definit n3ChartJsApplyTheme() appelee par theme-toggle.js au changement de theme.
  */
 (function () {
     'use strict';
 
-    var DARK_OPTIONS = {
-        color: '#94a3b8',
-        backgroundColor: '#1e293b',
-        plugins: {
-            legend: { labels: { color: '#94a3b8' } }
-        },
-        scales: {
-            x: {
-                ticks: { color: '#94a3b8' },
-                grid: { color: '#475569' }
-            },
-            y: {
-                ticks: { color: '#94a3b8' },
-                grid: { color: '#475569' }
-            }
-        }
+    var DARK = {
+        bg: '#1e293b',
+        text: '#f1f5f9',
+        textMuted: '#94a3b8',
+        grid: '#475569',
+        border: '#475569'
     };
 
-    var LIGHT_OPTIONS = {
-        color: '#6b7280',
-        backgroundColor: 'rgba(255, 255, 255, 0.95)',
-        plugins: {
-            legend: { labels: { color: '#6b7280' } }
-        },
-        scales: {
-            x: {
-                ticks: { color: '#6b7280' },
-                grid: { color: 'rgba(0, 0, 0, 0.1)' }
-            },
-            y: {
-                ticks: { color: '#6b7280' },
-                grid: { color: 'rgba(0, 0, 0, 0.1)' }
-            }
-        }
+    var LIGHT = {
+        bg: 'transparent',
+        text: '#333333',
+        textMuted: '#666666',
+        grid: '#e6e6e6',
+        border: '#cccccc'
     };
 
     function isDark() {
         return document.documentElement.getAttribute('data-theme') === 'dark';
     }
 
-    function applyDefaults() {
-        if (typeof window.Chart === 'undefined') return;
-        var opts = isDark() ? DARK_OPTIONS : LIGHT_OPTIONS;
-        Chart.defaults.color = opts.color;
-        Chart.defaults.backgroundColor = opts.backgroundColor;
-        if (opts.plugins && opts.plugins.legend) {
-            Chart.defaults.plugins.legend.labels.color = opts.plugins.legend.labels.color;
-        }
-        if (opts.scales) {
-            Chart.defaults.scales.linear.ticks.color = opts.scales.y.ticks.color;
-            Chart.defaults.scales.linear.grid.color = opts.scales.y.grid.color;
-            Chart.defaults.scales.category.ticks.color = opts.scales.x.ticks.color;
-            Chart.defaults.scales.category.grid.color = opts.scales.x.grid.color;
-        }
+    function getColors() {
+        return isDark() ? DARK : LIGHT;
     }
 
-    function updateInstances() {
-        if (typeof window.Chart === 'undefined' || !Chart.getChart) return;
-        var canvases = document.querySelectorAll('.chart-container canvas');
-        canvases.forEach(function (canvas) {
-            var chart = Chart.getChart(canvas);
-            if (chart && chart.canvas) {
-                var opts = isDark() ? DARK_OPTIONS : LIGHT_OPTIONS;
-                chart.options.plugins = chart.options.plugins || {};
-                chart.options.plugins.legend = chart.options.plugins.legend || {};
-                chart.options.plugins.legend.labels = chart.options.plugins.legend.labels || {};
-                chart.options.plugins.legend.labels.color = opts.plugins.legend.labels.color;
-                chart.options.scales = chart.options.scales || {};
-                if (chart.options.scales.x) {
-                    chart.options.scales.x.ticks = chart.options.scales.x.ticks || {};
-                    chart.options.scales.x.ticks.color = opts.scales.x.ticks.color;
-                    chart.options.scales.x.grid = chart.options.scales.x.grid || {};
-                    chart.options.scales.x.grid.color = opts.scales.x.grid.color;
+    function applyToAllCharts() {
+        if (typeof Chart === 'undefined') return;
+
+        var c = getColors();
+
+        Chart.defaults.color = c.text;
+        Chart.defaults.borderColor = c.border;
+
+        if (Chart.defaults.scales && Chart.defaults.scales.linear) {
+            Chart.defaults.scales.linear.grid = Chart.defaults.scales.linear.grid || {};
+            Chart.defaults.scales.linear.grid.color = c.grid;
+            Chart.defaults.scales.linear.ticks = Chart.defaults.scales.linear.ticks || {};
+            Chart.defaults.scales.linear.ticks.color = c.textMuted;
+        }
+        if (Chart.defaults.scales && Chart.defaults.scales.category) {
+            Chart.defaults.scales.category.grid = Chart.defaults.scales.category.grid || {};
+            Chart.defaults.scales.category.grid.color = c.grid;
+            Chart.defaults.scales.category.ticks = Chart.defaults.scales.category.ticks || {};
+            Chart.defaults.scales.category.ticks.color = c.textMuted;
+        }
+
+        var instances = Object.values(Chart.instances || {});
+        for (var i = 0; i < instances.length; i++) {
+            var chart = instances[i];
+            if (!chart || !chart.options) continue;
+
+            chart.options.color = c.text;
+
+            if (chart.options.scales) {
+                var axes = ['x', 'y'];
+                for (var j = 0; j < axes.length; j++) {
+                    var axis = chart.options.scales[axes[j]];
+                    if (axis) {
+                        axis.grid = axis.grid || {};
+                        axis.grid.color = c.grid;
+                        axis.ticks = axis.ticks || {};
+                        axis.ticks.color = c.textMuted;
+                        if (axis.title) {
+                            axis.title.color = c.textMuted;
+                        }
+                    }
                 }
-                if (chart.options.scales.y) {
-                    chart.options.scales.y.ticks = chart.options.scales.y.ticks || {};
-                    chart.options.scales.y.ticks.color = opts.scales.y.ticks.color;
-                    chart.options.scales.y.grid = chart.options.scales.y.grid || {};
-                    chart.options.scales.y.grid.color = opts.scales.y.grid.color;
-                }
-                chart.options.color = opts.color;
-                chart.options.backgroundColor = opts.backgroundColor;
-                chart.update('none');
             }
-        });
+
+            if (chart.options.plugins && chart.options.plugins.legend) {
+                chart.options.plugins.legend.labels = chart.options.plugins.legend.labels || {};
+                chart.options.plugins.legend.labels.color = c.text;
+            }
+
+            try {
+                chart.update('none');
+            } catch (e) {
+                console.warn('[n3ChartJs] Erreur mise a jour theme:', e);
+            }
+        }
     }
 
-    function n3ChartJsApplyTheme() {
-        applyDefaults();
-        updateInstances();
-    }
-
-    window.n3ChartJsApplyTheme = n3ChartJsApplyTheme;
+    window.n3ChartJsApplyTheme = applyToAllCharts;
 
     function initApply() {
-        applyDefaults();
-        setTimeout(updateInstances, 100);
-        setTimeout(updateInstances, 800);
+        applyToAllCharts();
+        setTimeout(applyToAllCharts, 1200);
     }
 
     if (document.readyState === 'loading') {

@@ -28,6 +28,8 @@
     "minimum-stability": "stable",
     "license": "MIT",
     "scripts": {
-        "test": "php tools/run-phpunit.php"
+        "test": "php tools/run-phpunit.php",
+        "changelog:check": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/changelog-maintenance.ps1 -CheckOnly",
+        "changelog:rotate": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/changelog-maintenance.ps1 -Rotate"
     }
 } 

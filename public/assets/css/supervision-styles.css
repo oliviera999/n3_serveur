@@ -20,9 +20,9 @@
     font-family: "Cabin", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* Fond blanc pour zone contenu (couleurs initiales) */
+/* Fond zone contenu */
 .supervision-wrapper #main {
-    background-color: #ffffff !important;
+    background-color: var(--bg-main);
 }
 
 .version-badge {
@@ -191,12 +191,12 @@
 [data-theme="dark"] .link-card .hint { color: var(--text-muted); }
 
 [data-theme="dark"] .cache-result.success {
-    background: rgba(34, 197, 94, 0.2);
-    color: #86efac;
+    background: var(--status-success-bg);
+    color: var(--status-success-text);
 }
 [data-theme="dark"] .cache-result.error {
-    background: rgba(239, 68, 68, 0.2);
-    color: #fca5a5;
+    background: var(--status-error-bg);
+    color: var(--status-error-text);
 }
 
 [data-theme="dark"] .live-card {
@@ -206,20 +206,20 @@
 [data-theme="dark"] .live-card-name { color: var(--text-primary); }
 [data-theme="dark"] .live-card-datetime { color: var(--text-muted); }
 [data-theme="dark"] .live-card-badge.online {
-    background: rgba(34, 197, 94, 0.2);
-    color: #86efac;
+    background: var(--status-success-bg);
+    color: var(--status-success-text);
 }
 [data-theme="dark"] .live-card-badge.offline {
-    background: rgba(239, 68, 68, 0.2);
-    color: #fca5a5;
+    background: var(--status-error-bg);
+    color: var(--status-error-text);
 }
 [data-theme="dark"] .live-card-badge.loading {
-    background: var(--bg-secondary);
-    color: var(--text-muted);
+    background: var(--status-loading-bg);
+    color: var(--status-loading-text);
 }
 [data-theme="dark"] .live-card-badge.error {
-    background: rgba(251, 191, 36, 0.2);
-    color: #fcd34d;
+    background: var(--status-warning-bg);
+    color: var(--status-warning-text);
 }
 
 /* ---- Tuiles avec toggle de navigation ---- */
@@ -303,7 +303,7 @@
 }
 
 [data-theme="dark"] .page-nav-slider {
-    background: #555;
+    background: var(--text-muted);
 }
 
 [data-theme="dark"] .page-nav-cb:checked + .page-nav-slider {

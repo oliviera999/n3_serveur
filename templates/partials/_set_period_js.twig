@@ -1,0 +1,22 @@
+{# Fonction setPeriod commune — paramètre form_id pour cibler le bon formulaire. #}
+<script>
+function setPeriod(value, unit) {
+    const now = moment().tz('Africa/Casablanca');
+    let start = moment(now);
+
+    if (unit === 'hours') {
+        start = start.subtract(value, 'hours');
+    } else if (unit === 'days') {
+        start = start.subtract(value, 'days');
+    }
+
+    const formatDateTime = (momentObj) => {
+        return momentObj.format('YYYY-MM-DDTHH:mm');
+    };
+
+    document.getElementById('start_datetime').value = formatDateTime(start);
+    document.getElementById('end_datetime').value = formatDateTime(now);
+
+    document.getElementById('{{ form_id }}').submit();
+}
+</script>

@@ -136,5 +136,20 @@ abstract class AbstractOutputRepository extends AbstractRepository
     /**
      * Met a jour l'etat d'un output par son GPIO.
      */
-    abstract public function updateByGpio(int $gpio, string $state, int $board): void;
+    public function updateByGpio(int $gpio, string $state, int $board): void
+    {
+        $sql = "UPDATE `" . $this->getTable() . "` SET state = :state WHERE gpio = :gpio AND board = :board";
+        $this->execute($sql, [':state' => $state, ':gpio' => $gpio, ':board' => $board]);
+    }
+
+    /**
+     * Retourne un output par gpio et board (ex. GPIO 110 pour Reset ESP).
+     *
+     * @return array<string, mixed>|null
+     */
+    public function getOutputByGpioAndBoard(int $board, int $gpio): ?array
+    {
+        $sql = "SELECT id, name, gpio, state FROM `" . $this->getTable() . "` WHERE board = :board AND gpio = :gpio LIMIT 1";
+        return $this->fetchOne($sql, [':board' => $board, ':gpio' => $gpio]);
+    }
 }

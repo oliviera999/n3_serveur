@@ -1,19 +1,78 @@
 /* ============================================================
-   timelapse-styles.css — Surcharges dark mode pour page Timelapse
-   Les variables --surface, --surface2, etc. sont définies dans
-   gallery_timelapse.twig ; ici on les surcharge en dark.
+   timelapse-styles.css — Base + dark mode pour page Timelapse
    ============================================================ */
 
+.timelapse-page {
+    --amber: #f59e0b;
+    --red: #ef4444;
+}
+
+.timelapse-hero {
+    background: linear-gradient(135deg, #008B74 0%, #00B794 100%);
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.timelapse-hero h1 {
+    margin: 0;
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.timelapse-nav-links {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.timelapse-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8em;
+    opacity: 0.9;
+}
+
+.timelapse-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    animation: timelapse-pulse 2s ease-in-out infinite;
+}
+
+@keyframes timelapse-pulse {
+    0%,
+    100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.timelapse-page .gallery-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(0, 139, 116, 0.08);
+    border: 1px solid rgba(0, 139, 116, 0.15);
+    border-radius: 8px;
+    color: #008B74;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.timelapse-page .gallery-back:hover {
+    background: #008B74;
+    color: #ffffff;
+}
+
 [data-theme="dark"] .timelapse-page {
-    --accent: #2dd4bf;
-    --accent-light: #5eead4;
-    --accent-bg: rgba(45, 212, 191, 0.2);
-    --accent-border: rgba(45, 212, 191, 0.35);
-    --surface: #1e293b;
-    --surface2: #334155;
-    --border: #475569;
-    --text: #f1f5f9;
-    --text-dim: #94a3b8;
     --amber: #fbbf24;
     --red: #f87171;
 }
