@@ -235,7 +235,7 @@
     text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 736px) {
     .home-links-grid > div {
         flex: 0 0 100%;
     }
@@ -285,7 +285,7 @@
 
 .home-project-link { margin-top: 10px; }
 
-@media (max-width: 768px) {
+@media (max-width: 736px) {
     .projects-grid { grid-template-columns: 1fr; }
     .project-icon { font-size: 3em; }
     .project-badges { gap: 4px; margin: 10px 0 14px 0; }

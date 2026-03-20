@@ -675,7 +675,7 @@ small {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 736px) {
     .control-grid-harmonized {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -1498,7 +1498,7 @@ small {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 736px) {
     .control-wrapper {
         padding: var(--control-spacing-lg) var(--control-padding-md) 30px;
     }

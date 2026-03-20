@@ -36,7 +36,7 @@
             html.setAttribute('data-theme', 'dark');
             updateThemeColor('#0f172a');
         } else {
-            html.removeAttribute('data-theme');
+            html.setAttribute('data-theme', 'light');
             updateThemeColor('#008B74');
         }
     }
@@ -84,11 +84,17 @@
 
     // Écouter changement préférence système si pas de préférence stockée
     if (window.matchMedia) {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+        var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        var handleSystemThemeChange = function () {
             if (!getStoredTheme()) {
                 applyTheme(prefersDark() ? 'dark' : 'light');
             }
-        });
+        };
+        if (typeof mediaQuery.addEventListener === 'function') {
+            mediaQuery.addEventListener('change', handleSystemThemeChange);
+        } else if (typeof mediaQuery.addListener === 'function') {
+            mediaQuery.addListener(handleSystemThemeChange);
+        }
     }
 
     // Exposer API globale

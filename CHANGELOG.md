@@ -11,6 +11,27 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.219] - 2026-03-20
+
+### Correctif - coherence theme clair/sombre et fiabilisation menu mobile
+- **Resume** : correction de la gestion de theme pour appliquer explicitement `data-theme=\"light\"` (au lieu de supprimer l'attribut), ce qui elimine les melanges clair/sombre quand la preference systeme est sombre. Ajustement des selecteurs light dans `realtime-styles.css` (`html:not([data-theme=\"dark\"])`) pour eviter des couleurs incoherentes. Renforcement de la cliquabilite du bouton menu mobile (`#navPanelToggle`) via `pointer-events` et `touch-action`, et compatibilite etendue de l'ecoute des changements de theme systeme (`addEventListener` / `addListener`).
+
+---
+
+## [5.0.218] - 2026-03-20
+
+### Correctif - chargement conditionnel des assets sur pages d'entree
+- **Resume** : ajout de drapeaux Twig dans `layout.twig` pour charger conditionnellement `realtime-styles.css`, `highcharts-theme.js` et les scripts d'amelioration (`page-nav-toggles`, `scroll-progress`, `scroll-reveal`, `back-to-top`). Activation du mode allege sur `/` et `/login` via `home.twig` et `login.twig`, sans impacter la nav principale.
+
+---
+
+## [5.0.217] - 2026-03-20
+
+### Correctif - responsive mobile/laptop sur layouts, tableaux et timelapse
+- **Resume** : suppression du blocage de zoom mobile dans `layout_base.twig`, correction du fond fixe (`100vw` vers `100%`) pour limiter les debordements horizontaux, ajout d'un overflow horizontal tactile sur les tableaux `modern-table` (dashboard), extraction des styles inline du template `gallery_timelapse.twig` vers des classes CSS dediees, et alignement des media queries modulees sur `736px` (home/gallery/common-data/realtime/control) pour reduire l'incoherence 736/768.
+
+---
+
 ## [5.0.215] - 2026-03-20
 
 ### Correctif - application des priorites audit UI accueil/login/navigation
