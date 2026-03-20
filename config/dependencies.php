@@ -30,7 +30,6 @@ use App\Service\TemplateRenderer;
 use App\Service\TideCycleDetector;
 use App\Service\TideAnalysisService;
 use App\Service\WaterBalanceService;
-use App\Service\OutputSyncService;
 use App\Security\CsrfService;
 use App\Security\AuthService;
 use Psr\Container\ContainerInterface;
@@ -138,10 +137,6 @@ return [
         );
     },
 
-    OutputSyncService::class => function (ContainerInterface $c) {
-        return new OutputSyncService();
-    },
-
     SensorDataService::class => function (ContainerInterface $c) {
         return new SensorDataService(
             $c->get(PDO::class),
@@ -243,7 +238,8 @@ return [
     \App\Controller\Ffp3\HeartbeatController::class => function (ContainerInterface $c) {
         return new \App\Controller\Ffp3\HeartbeatController(
             $c->get(\App\Service\LogService::class),
-            $c->get(\App\Service\ErrorAlertService::class)
+            $c->get(\App\Service\ErrorAlertService::class),
+            $c->get(PDO::class)
         );
     },
 
@@ -341,6 +337,14 @@ return [
         );
     },
 
+    \App\Middleware\AuthGuardMiddleware::class => function (ContainerInterface $c) {
+        return new \App\Middleware\AuthGuardMiddleware(
+            $c->get(\App\Security\AuthService::class),
+            $c->get(\App\Middleware\AuthMiddleware::class),
+            $c->get(\App\Middleware\TokenAuthMiddleware::class)
+        );
+    },
+
     \App\Controller\AuthController::class => function (ContainerInterface $c) {
         return new \App\Controller\AuthController(
             $c->get(\App\Security\AuthService::class),
@@ -363,6 +367,7 @@ return [
         return new \App\Controller\Msp\MspOutputController(
             $c->get(\App\Service\LogService::class),
             $c->get(TemplateRenderer::class),
+            $c->get(AuthService::class),
             $c->get(MspOutputRepository::class),
             $c->get(MspSensorRepository::class)
         );
@@ -396,6 +401,7 @@ return [
         return new \App\Controller\N3pp\N3ppOutputController(
             $c->get(\App\Service\LogService::class),
             $c->get(TemplateRenderer::class),
+            $c->get(AuthService::class),
             $c->get(N3ppOutputRepository::class),
             $c->get(N3ppSensorRepository::class)
         );

@@ -138,26 +138,6 @@ class OutputController
         return $this->handleToggle($request, $response);
     }
 
-    public function toggleOutputTest(Request $request, Response $response): Response
-    {
-        return $this->handleToggle($request, $response);
-    }
-
-    public function toggleOutputTest3(Request $request, Response $response): Response
-    {
-        return $this->handleToggle($request, $response);
-    }
-
-    public function toggleOutputS3(Request $request, Response $response): Response
-    {
-        return $this->handleToggle($request, $response);
-    }
-
-    public function toggleOutputS3Test(Request $request, Response $response): Response
-    {
-        return $this->handleToggle($request, $response);
-    }
-
     private function handleToggle(Request $request, Response $response): Response
     {
         $params = RequestHelper::extractParams($request);

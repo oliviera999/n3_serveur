@@ -29,6 +29,11 @@ class N3ppOutputRepository extends AbstractOutputRepository
         return 'gpio';
     }
 
+    protected function getParamGpioMap(): array
+    {
+        return self::PARAM_GPIO_MAP;
+    }
+
     /**
      * Met a jour l'etat d'un output par son GPIO.
      */
@@ -115,57 +120,4 @@ class N3ppOutputRepository extends AbstractOutputRepository
         107 => 'FreqWakeUp',
     ];
 
-    /**
-     * Retourne les parametres (GPIO 100-107) pour le formulaire « Changer les paramètres ».
-     *
-     * @return array<string, string>
-     */
-    public function getParametersForBoard(int $board): array
-    {
-        $sql = "SELECT gpio, state FROM `" . $this->getTable() . "` WHERE board = :board AND gpio IN (100, 101, 102, 103, 104, 105, 106, 107) ORDER BY gpio ASC";
-        $rows = $this->fetchAll($sql, [':board' => $board]);
-        $result = [];
-        foreach (self::PARAM_GPIO_MAP as $gpio => $name) {
-            $result[$name] = '';
-        }
-        foreach ($rows as $row) {
-            $gpio = (int) ($row['gpio'] ?? 0);
-            if (isset(self::PARAM_GPIO_MAP[$gpio])) {
-                $result[self::PARAM_GPIO_MAP[$gpio]] = (string) ($row['state'] ?? '');
-            }
-        }
-        return $result;
-    }
-
-    /**
-     * Met a jour en une fois les parametres (GPIO 100-107) depuis le formulaire output_create.
-     *
-     * @param array<string, string> $params Clés : mail, mailNotif, SeuilSec, SeuilPontDiv, HeureArrosage, tempsArrosage, WakeUp, FreqWakeUp
-     */
-    public function batchUpdateParameters(int $board, array $params): void
-    {
-        $reverseMap = array_flip(self::PARAM_GPIO_MAP);
-        foreach ($params as $name => $value) {
-            if (!isset($reverseMap[$name])) {
-                continue;
-            }
-            $gpio = $reverseMap[$name];
-            $state = is_scalar($value) ? (string) $value : '';
-            $this->updateByGpio($gpio, $state, $board);
-        }
-    }
-
-    /**
-     * Met a jour un seul parametre par son nom (pour API parameters temps reel).
-     * Retourne true si le nom est reconnu et la mise a jour effectuee.
-     */
-    public function updateParameterByName(int $board, string $paramName, string $value): bool
-    {
-        $reverseMap = array_flip(self::PARAM_GPIO_MAP);
-        if (!isset($reverseMap[$paramName])) {
-            return false;
-        }
-        $this->updateByGpio($reverseMap[$paramName], $value, $board);
-        return true;
-    }
 }

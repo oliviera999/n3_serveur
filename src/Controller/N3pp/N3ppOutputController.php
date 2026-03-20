@@ -9,9 +9,9 @@ use App\Config\TableConfig;
 use App\Config\Version;
 use App\Repository\N3ppOutputRepository;
 use App\Repository\N3ppSensorRepository;
+use App\Security\AuthService;
 use App\Service\LogService;
 use App\Service\TemplateRenderer;
-use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -21,10 +21,11 @@ class N3ppOutputController extends AbstractOutputController
     public function __construct(
         LogService $logger,
         TemplateRenderer $renderer,
+        AuthService $authService,
         private N3ppOutputRepository $outputRepo,
         private N3ppSensorRepository $sensorRepo,
     ) {
-        parent::__construct($logger, $renderer);
+        parent::__construct($logger, $renderer, $authService);
     }
 
     protected function defaultBoard(): int { return 3; }
@@ -79,19 +80,9 @@ class N3ppOutputController extends AbstractOutputController
         ];
     }
 
-    /** @return array<string, string> Paramètres par défaut quand la table outputs est indisponible */
-    private function getDefaultParams(): array
+    protected function getDefaultParamKeys(): array
     {
-        return [
-            'mail' => '',
-            'mailNotif' => '',
-            'SeuilSec' => '0',
-            'SeuilPontDiv' => '0',
-            'HeureArrosage' => '0',
-            'tempsArrosage' => '0',
-            'WakeUp' => '0',
-            'FreqWakeUp' => '0',
-        ];
+        return ['mail', 'mailNotif', 'SeuilSec', 'SeuilPontDiv', 'HeureArrosage', 'tempsArrosage', 'WakeUp', 'FreqWakeUp'];
     }
 
     protected function getStateData(int $board): array
@@ -127,87 +118,22 @@ class N3ppOutputController extends AbstractOutputController
         return ResponseHelper::json($response, ['error' => 'Action inconnue'], 400);
     }
 
-    /**
-     * POST legacy /n3pp/n3ppcontrol/n3pp-outputs-action.php
-     */
-    public function setOutput(Request $request, Response $response): Response
+    protected function doSetOutput(array $params, int $board): array
     {
-        $authError = $this->requireAuth($request, $response);
-        if ($authError !== null) {
-            return $authError;
-        }
-        $params = $request->getMethod() === 'POST' ? $request->getParsedBody() ?? [] : $request->getQueryParams();
-        $action = $params['action'] ?? '';
-        if ($action === 'output_create') {
-            return $this->handleOutputCreate($request, $response);
-        }
-        if ($action !== 'set') {
-            return ResponseHelper::json($response, ['error' => 'Action inconnue'], 400);
-        }
-
         $gpio = (int) ($params['gpio'] ?? 0);
         $state = trim((string) ($params['state'] ?? '0'));
-        $board = (int) ($params['board'] ?? $this->defaultBoard());
 
         if ($gpio <= 0) {
-            return ResponseHelper::json($response, ['error' => 'Paramètre gpio invalide'], 400);
+            return ['success' => false, 'error' => 'Paramètre gpio invalide', 'status' => 400];
         }
 
         $state = in_array($state, ['0', '1', '1.00'], true) ? '1' : '0';
-
-        try {
-            $this->outputRepo->updateByGpio($gpio, $state, $board);
-            $this->logger->info('N3ppOutputController: output mis a jour', ['gpio' => $gpio, 'state' => $state, 'board' => $board]);
-            return ResponseHelper::json($response, ['success' => true, 'gpio' => $gpio, 'state' => $state]);
-        } catch (\Throwable $e) {
-            $this->logger->error('N3ppOutputController: erreur mise a jour', ['error' => $e->getMessage()]);
-            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
-        }
+        $this->outputRepo->updateByGpio($gpio, $state, $board);
+        return ['success' => true, 'gpio' => $gpio, 'state' => $state];
     }
-
-    /**
-     * API: Met a jour un parametre.
-     */
-    public function updateParameters(Request $request, Response $response): Response
+    protected function updateParameterByName(int $board, string $paramName, string $value): bool
     {
-        $authError = $this->requireAuth($request, $response);
-        if ($authError !== null) {
-            return $authError;
-        }
-        $payload = RequestHelper::extractParams($request);
-        if (isset($payload['param'])) {
-            $payload = [$payload['param'] => $payload['value'] ?? null];
-        }
-        if (!is_array($payload) || $payload === []) {
-            return ResponseHelper::json($response, ['error' => 'Paramètre manquant'], 400);
-        }
-
-        $board = $this->defaultBoard();
-        $paramName = (string) array_key_first($payload);
-        $value = $payload[$paramName];
-        if ($value === null) {
-            $value = '';
-        }
-        $value = trim((string) $value);
-
-        if ($paramName === 'mailNotif') {
-            $value = in_array(strtolower($value), ['1', 'true', 'checked', 'on', 'oui'], true) ? 'checked' : 'false';
-        }
-        if ($paramName === 'WakeUp') {
-            $value = in_array($value, ['1', 'true', 'on'], true) ? '1' : '0';
-        }
-
-        try {
-            $ok = $this->outputRepo->updateParameterByName($board, $paramName, $value);
-            if (!$ok) {
-                return ResponseHelper::json($response, ['error' => 'Paramètre inconnu'], 400);
-            }
-            $this->logger->info('N3ppOutputController: parametre mis a jour', ['param' => $paramName]);
-            return ResponseHelper::json($response, ['success' => true, 'param' => $paramName]);
-        } catch (\Throwable $e) {
-            $this->logger->error('N3ppOutputController: erreur updateParameterByName', ['error' => $e->getMessage()]);
-            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
-        }
+        return $this->outputRepo->updateParameterByName($board, $paramName, $value);
     }
 
     private function handleOutputUpdate(Request $request, Response $response): Response
@@ -261,28 +187,8 @@ class N3ppOutputController extends AbstractOutputController
         }
     }
 
-    private function handleOutputCreate(Request $request, Response $response): Response
+    protected function batchUpdateParameters(int $board, array $params): void
     {
-        $body = $request->getParsedBody() ?? [];
-        $board = $this->defaultBoard();
-        $params = [
-            'mail' => isset($body['mail']) ? trim((string) $body['mail']) : '',
-            'mailNotif' => isset($body['mailNotif']) ? trim((string) $body['mailNotif']) : 'false',
-            'SeuilSec' => isset($body['SeuilSec']) ? trim((string) $body['SeuilSec']) : '0',
-            'SeuilPontDiv' => isset($body['SeuilPontDiv']) ? trim((string) $body['SeuilPontDiv']) : '0',
-            'HeureArrosage' => isset($body['HeureArrosage']) ? trim((string) $body['HeureArrosage']) : '0',
-            'tempsArrosage' => isset($body['tempsArrosage']) ? trim((string) $body['tempsArrosage']) : '0',
-            'WakeUp' => isset($body['WakeUp']) ? trim((string) $body['WakeUp']) : '0',
-            'FreqWakeUp' => isset($body['FreqWakeUp']) ? trim((string) $body['FreqWakeUp']) : '0',
-        ];
-
-        try {
-            $this->outputRepo->batchUpdateParameters($board, $params);
-            $this->logger->info('N3ppOutputController: parametres mis a jour (output_create)', ['board' => $board]);
-            return ResponseHelper::json($response, ['success' => true]);
-        } catch (\Throwable $e) {
-            $this->logger->error('N3ppOutputController: erreur batchUpdateParameters', ['error' => $e->getMessage()]);
-            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
-        }
+        $this->outputRepo->batchUpdateParameters($board, $params);
     }
 }

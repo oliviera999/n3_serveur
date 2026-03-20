@@ -29,19 +29,6 @@ class MspSensorRepository extends AbstractSensorRepository
         ];
     }
 
-    /**
-     * Récupère la version du firmware de la dernière mesure enregistrée.
-     *
-     * @return string Version du firmware (ex: "2.50") ou "N/A" si aucune donnée
-     */
-    public function getFirmwareVersion(): string
-    {
-        $table = $this->getTableName();
-        $sql = "SELECT version FROM `{$table}` ORDER BY reading_time DESC LIMIT 1";
-        $result = $this->fetchOne($sql);
-        return $result['version'] ?? 'N/A';
-    }
-
     public function insert(MspSensorData $data): void
     {
         $sql = "INSERT INTO `" . $this->getTableName() . "` (

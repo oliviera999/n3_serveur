@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Controller\Ffp3;
 
-use App\Config\Database;
 use App\Config\Paths;
 use App\Config\TableConfig;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
 use App\Util\ResponseHelper;
+use PDO;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -21,7 +21,8 @@ class HeartbeatController
 {
     public function __construct(
         private LogService $logger,
-        private ErrorAlertService $errorAlert
+        private ErrorAlertService $errorAlert,
+        private PDO $pdo,
     ) {
     }
 
@@ -89,8 +90,6 @@ class HeartbeatController
 
         // Insertion en base de données
         try {
-            $pdo = Database::getConnection();
-
             // Déterminer la table selon l'environnement (whitelist stricte)
             $table = TableConfig::getHeartbeatTable();
             $env = TableConfig::getEnvironment();
@@ -99,7 +98,7 @@ class HeartbeatController
                 throw new \RuntimeException("Table heartbeat invalide: {$table}");
             }
 
-            $stmt = $pdo->prepare("
+            $stmt = $this->pdo->prepare("
                 INSERT INTO {$table} (uptime, freeHeap, minHeap, reboots)
                 VALUES (:uptime, :free, :min, :reboots)
             ");

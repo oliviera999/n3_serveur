@@ -18,6 +18,23 @@ class OutputService
 {
     /** GPIOs affichés comme indicateurs booléens (0/1) sur la page de contrôle */
     private const BOOLEAN_GPIOS_FOR_INDICATOR = [2, 15, 16, 18, 101, 108, 109, 110, 115];
+    /** @var array<string, string> */
+    private const PROPERTY_TO_PARAM_NAME = [
+        'aqThreshold' => 'aqThr',
+        'tankThreshold' => 'taThr',
+        'chauffageThreshold' => 'chauff',
+        'bouffeMatin' => 'bouffeMatin',
+        'bouffeMidi' => 'bouffeMidi',
+        'bouffeSoir' => 'bouffeSoir',
+        'tempsGros' => 'tempsGros',
+        'tempsPetits' => 'tempsPetits',
+        'tempsRemplissageSec' => 'tempsRemplissageSec',
+        'limFlood' => 'limFlood',
+        'mail' => 'mail',
+        'mailNotif' => 'mailNotif',
+        'WakeUp' => 'WakeUp',
+        'FreqWakeUp' => 'FreqWakeUp',
+    ];
 
     public function __construct(
         private OutputRepository $outputRepository,
@@ -80,23 +97,7 @@ class OutputService
     {
         $outputs = $this->outputRepository->findAll();
         $parameters = [];
-
-        $parameterMap = [
-            100 => 'mail',
-            101 => 'mailNotif',
-            102 => 'aqThr',
-            103 => 'taThr',
-            104 => 'chauff',
-            105 => 'bouffeMatin',
-            106 => 'bouffeMidi',
-            107 => 'bouffeSoir',
-            111 => 'tempsGros',
-            112 => 'tempsPetits',
-            113 => 'tempsRemplissageSec',
-            114 => 'limFlood',
-            115 => 'WakeUp',
-            116 => 'FreqWakeUp',
-        ];
+        $parameterMap = $this->buildParameterMap();
 
         foreach ($outputs as $output) {
             $gpio = (int)($output['gpio'] ?? -1);
@@ -164,36 +165,13 @@ class OutputService
      */
     public function updateStateById(int $id, int $state, string $modifiedBy = 'web', bool $isTest = false): bool
     {
-        // Validation de l'état
         if ($state !== 0 && $state !== 1) {
             return false;
         }
-
-        $table = \App\Config\TableConfig::getOutputsTable();
-        $pdo = \App\Config\Database::getConnection();
-        
-        // Marquer la modification avec la source spécifiée
-        // Cela permet de gérer la priorité des modifications
-        $sql = "UPDATE `{$table}`
-                SET state = :state,
-                    requestTime = NOW(),
-                    lastModifiedBy = :modifiedBy
-                WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
-        
-        $result = $stmt->execute([
-            ':state' => $state, 
-            ':id' => $id,
-            ':modifiedBy' => $modifiedBy
-        ]);
-        
-        // Log pour debugging
+        $result = $this->outputRepository->updateStateById($id, $state, $modifiedBy);
         if ($result) {
-            error_log(sprintf('[%s] Output ID %s mis à jour par l\'interface web vers state=%s', date('Y-m-d H:i:s'), $id, $state));
-            // Invalider le cache après modification
             $this->outputCache->invalidateCache();
         }
-        
         return $result;
     }
 
@@ -205,70 +183,20 @@ class OutputService
      */
     public function updateMultipleParameters(array $params): int
     {
-        // Liste des GPIO spéciaux pour les paramètres
-        $parameterMap = [
-            'mail' => 100,
-            'mailNotif' => 101,
-            'aqThr' => 102,
-            'taThr' => 103,
-            'chauff' => 104,
-            'bouffeMatin' => 105,
-            'bouffeMidi' => 106,
-            'bouffeSoir' => 107,
-            'tempsGros' => 111,
-            'tempsPetits' => 112,
-            'tempsRemplissageSec' => 113,
-            'limFlood' => 114,
-            'WakeUp' => 115,
-            'FreqWakeUp' => 116,
-        ];
+        $updated = $this->outputRepository->updateMultipleParameters($params, 'web');
+        $this->outputCache->invalidateCache();
+        return $updated;
+    }
 
-        $table = \App\Config\TableConfig::getOutputsTable();
-        $pdo = \App\Config\Database::getConnection();
-        
-        // Transaction pour garantir la cohérence
-        $pdo->beginTransaction();
-        
-        try {
-            $updated = 0;
-            foreach ($parameterMap as $paramName => $gpio) {
-                if (array_key_exists($paramName, $params)) {
-                    $value = $params[$paramName];
-                    
-                    // Cas spéciaux
-                    if ($paramName === 'mail') {
-                        $value = (string)$value;
-                    } elseif ($paramName === 'mailNotif') {
-                        $value = (is_string($value) && in_array(strtolower($value), ['1', 'true', 'on', 'yes', 'checked'], true))
-                            || $value === 1
-                            || $value === true
-                            ? 1
-                            : 0;
-                    } else {
-                        $value = is_numeric($value) ? (int)$value : 0;
-                    }
-                    
-                    $sql = "UPDATE `{$table}`
-                            SET state = :state,
-                                requestTime = NOW(),
-                                lastModifiedBy = 'web'
-                            WHERE gpio = :gpio";
-                    $stmt = $pdo->prepare($sql);
-                    if ($stmt->execute([':state' => $value, ':gpio' => $gpio])) {
-                        $updated++;
-                    }
-                }
+    /** @return array<int, string> */
+    private function buildParameterMap(): array
+    {
+        $map = [];
+        foreach (OutputSyncService::getGpioMapping() as $gpio => $propertyName) {
+            if (isset(self::PROPERTY_TO_PARAM_NAME[$propertyName])) {
+                $map[$gpio] = self::PROPERTY_TO_PARAM_NAME[$propertyName];
             }
-            
-            $pdo->commit();
-            
-            // Invalider le cache après modification
-            $this->outputCache->invalidateCache();
-            
-            return $updated;
-        } catch (\Exception $e) {
-            $pdo->rollBack();
-            throw $e;
         }
+        return $map;
     }
 }

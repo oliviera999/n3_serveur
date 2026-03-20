@@ -19,6 +19,17 @@ abstract class AbstractSensorRepository extends AbstractRepository
     abstract public function getSensorColumns(): array;
 
     /**
+     * Récupère la version du firmware de la dernière mesure enregistrée.
+     */
+    public function getFirmwareVersion(): string
+    {
+        $table = $this->getTableName();
+        $sql = "SELECT version FROM `{$table}` ORDER BY reading_time DESC LIMIT 1";
+        $result = $this->fetchOne($sql);
+        return $result['version'] ?? 'N/A';
+    }
+
+    /**
      * Retourne la dernière mesure enregistrée.
      *
      * @return array<string, mixed>|null

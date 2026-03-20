@@ -29,10 +29,9 @@ use App\Controller\N3pp\N3ppOutputController;
 use App\Controller\N3pp\N3ppPostDataController;
 use App\Controller\N3pp\N3ppRealtimeApiController;
 use App\Controller\SupervisionController;
-use App\Middleware\AuthMiddleware;
+use App\Middleware\AuthGuardMiddleware;
 use App\Middleware\EnvironmentMiddleware;
 use App\Middleware\SecurityHeadersMiddleware;
-use App\Middleware\TokenAuthMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpNotFoundException;
@@ -153,122 +152,20 @@ $app->get('/logout', [AuthController::class, 'handleLogout']);
 // Déterminer la méthode d'authentification à utiliser
 Env::load();
 $authMethod = $_ENV['AUTH_METHOD'] ?? 'session'; // 'session', 'token', ou 'both'
+$authGuard = $container->get(AuthGuardMiddleware::class);
 
 // Fonction helper pour appliquer l'authentification selon la méthode configurée
-$applyAuth = function ($request, $handler) use ($container, $authMethod) {
-    if ($authMethod === 'none' || empty($authMethod)) {
-        // Pas d'authentification si désactivée
-        return $handler->handle($request);
-    }
-    
-    $authMiddleware = $container->get(AuthMiddleware::class);
-    $tokenAuthMiddleware = $container->get(TokenAuthMiddleware::class);
-    $authService = $container->get(\App\Security\AuthService::class);
-    
-    if ($authMethod === 'session') {
-        return $authMiddleware->process($request, $handler);
-    } elseif ($authMethod === 'token') {
-        return $tokenAuthMiddleware->process($request, $handler);
-    } elseif ($authMethod === 'both') {
-        // Les deux méthodes : vérifier session d'abord, puis token si session échoue
-        if ($authService->isAuthenticated()) {
-            return $handler->handle($request);
-        }
-        // Si pas de session, essayer le token
-        $queryParams = $request->getQueryParams();
-        if ($authService->isAuthenticatedByToken($queryParams)) {
-            return $handler->handle($request);
-        }
-        // Aucune authentification valide, rediriger vers login
-        return $authMiddleware->process($request, $handler);
-    }
-    // Par défaut, utiliser l'authentification par session
-    return $authMiddleware->process($request, $handler);
+$applyAuth = function ($request, $handler) use ($authGuard, $authMethod) {
+    return $authGuard->applyConfiguredAuth($request, $handler, $authMethod);
 };
 
 // ====================================================================
 // Middleware global pour protéger les routes protégées avant le routage
 // ====================================================================
 // Ce middleware intercepte les requêtes vers les chemins protégés même si la route n'est pas trouvée
-$app->add(function (Request $request, $handler) use ($container, $authMethod, $loadRoutesConfig) {
-    if ($authMethod === 'none' || empty($authMethod)) {
-        return $handler->handle($request);
-    }
-    
-    $uri = $request->getUri();
-    $path = $uri->getPath();
-
+$app->add(function (Request $request, $handler) use ($authGuard, $authMethod, $loadRoutesConfig) {
     $routesConfig = $loadRoutesConfig();
-    $publicPaths = $routesConfig['public_paths'];
-    $exactPublicPaths = $routesConfig['exact_public_paths'];
-    
-    // Vérifier si le chemin est public (GET /api/outputs*/state uniquement)
-    $isPublic = in_array($path, $exactPublicPaths, true);
-    if (!$isPublic) {
-        foreach ($publicPaths as $publicPath) {
-            if (strpos($path, $publicPath) === 0) {
-                $isPublic = true;
-                break;
-            }
-        }
-    }
-    
-    // Les endpoints GET /api/outputs*/state sont publics (utilisés par firmware ESP32)
-    if (!$isPublic && preg_match('#^/(ffp3/)?api/outputs(-test|3-test|3)?/state$#', $path)) {
-        $isPublic = true;
-    }
-    
-    // Si le chemin est public, ne pas vérifier l'authentification
-    if ($isPublic) {
-        return $handler->handle($request);
-    }
-    
-    $protectedPaths = $routesConfig['protected_paths'];
-    
-    // Vérifier si le chemin demandé est protégé
-    $isProtected = false;
-    foreach ($protectedPaths as $protectedPath) {
-        if (strpos($path, $protectedPath) === 0) {
-            $isProtected = true;
-            break;
-        }
-    }
-    
-    // Si le chemin est protégé, vérifier l'authentification
-    if ($isProtected) {
-        $authService = $container->get(\App\Security\AuthService::class);
-        $isAuthenticated = false;
-        
-        if ($authMethod === 'session' || $authMethod === 'both') {
-            $isAuthenticated = $authService->isAuthenticated();
-        }
-        
-        if (!$isAuthenticated && ($authMethod === 'token' || $authMethod === 'both')) {
-            $queryParams = $request->getQueryParams();
-            $isAuthenticated = $authService->isAuthenticatedByToken($queryParams);
-        }
-        
-        // Si non authentifié, rediriger vers login
-        if (!$isAuthenticated) {
-            $scriptName = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? '');
-            if (strpos($scriptName, '/public/index.php') !== false) {
-                $basePath = dirname(dirname($scriptName));
-            } else {
-                $basePath = dirname($scriptName);
-            }
-            $basePath = rtrim($basePath, '/');
-            
-            $loginPath = ($basePath !== '' ? $basePath : '') . '/login';
-            $redirectUrl = $loginPath . '?redirect=' . urlencode($path);
-            
-            $response = new \Slim\Psr7\Response();
-            return $response
-                ->withStatus(302)
-                ->withHeader('Location', $redirectUrl);
-        }
-    }
-    
-    return $handler->handle($request);
+    return $authGuard->processProtectedPaths($request, $handler, $authMethod, $routesConfig);
 });
 
 // ====================================================================

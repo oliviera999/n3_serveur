@@ -42,10 +42,10 @@ registerFirmwareRoutes($app, '/ffp3', 's3test', '/post-data-s3-test', '/api/outp
 
 // Contrôle aquaponie sous /ffp3 (toggle, parameters) — protégé par auth
 registerFfp3ControlRoutes($app, '/api/outputs', 'toggleOutput', 'prod', $applyAuth);
-registerFfp3ControlRoutes($app, '/api/outputs-test', 'toggleOutputTest', 'test', $applyAuth);
-registerFfp3ControlRoutes($app, '/api/outputs3-test', 'toggleOutputTest3', 'test3', $applyAuth);
-registerFfp3ControlRoutes($app, '/api/outputs3', 'toggleOutputS3', 's3', $applyAuth);
-registerFfp3ControlRoutes($app, '/api/outputs-s3-test', 'toggleOutputS3Test', 's3test', $applyAuth);
+registerFfp3ControlRoutes($app, '/api/outputs-test', 'toggleOutput', 'test', $applyAuth);
+registerFfp3ControlRoutes($app, '/api/outputs3-test', 'toggleOutput', 'test3', $applyAuth);
+registerFfp3ControlRoutes($app, '/api/outputs3', 'toggleOutput', 's3', $applyAuth);
+registerFfp3ControlRoutes($app, '/api/outputs-s3-test', 'toggleOutput', 's3test', $applyAuth);
 
 // Routes FFP3 protégées par environnement (dashboard, tide-stats, export, contrôle)
 $ffp3RoutesConfig = [
@@ -57,7 +57,6 @@ $ffp3RoutesConfig = [
         'tide_stats' => '/tide-stats',
         'control' => '/aquaponie-control',
         'toggle' => '/api/outputs/toggle',
-        'toggle_method' => 'toggleOutput',
         'parameters' => '/api/outputs/parameters',
         'trigger_ota' => '/api/outputs/trigger-ota-check',
         'board_status' => '/api/outputs/board/{board}/status',
@@ -71,7 +70,6 @@ $ffp3RoutesConfig = [
         'tide_stats' => '/tide-stats-test',
         'control' => '/aquaponie-control-test',
         'toggle' => '/api/outputs-test/toggle',
-        'toggle_method' => 'toggleOutputTest',
         'parameters' => '/api/outputs-test/parameters',
         'trigger_ota' => '/api/outputs-test/trigger-ota-check',
         'board_status' => '/api/outputs-test/board/{board}/status',
@@ -84,7 +82,6 @@ $ffp3RoutesConfig = [
         'tide_stats' => '/tide-stats3-test',
         'control' => '/aquamobile-control-test',
         'toggle' => '/api/outputs3-test/toggle',
-        'toggle_method' => 'toggleOutputTest3',
         'parameters' => '/api/outputs3-test/parameters',
         'trigger_ota' => '/api/outputs3-test/trigger-ota-check',
         'board_status' => '/api/outputs3-test/board/{board}/status',
@@ -97,7 +94,6 @@ $ffp3RoutesConfig = [
         'tide_stats' => '/tide-stats3',
         'control' => '/aquamobile-control',
         'toggle' => '/api/outputs3/toggle',
-        'toggle_method' => 'toggleOutputS3',
         'parameters' => '/api/outputs3/parameters',
         'trigger_ota' => '/api/outputs3/trigger-ota-check',
         'board_status' => '/api/outputs3/board/{board}/status',
@@ -110,7 +106,6 @@ $ffp3RoutesConfig = [
         'tide_stats' => '/tide-stats-s3-test',
         'control' => '/aquamobile-control-s3-test',
         'toggle' => '/api/outputs-s3-test/toggle',
-        'toggle_method' => 'toggleOutputS3Test',
         'parameters' => '/api/outputs-s3-test/parameters',
         'trigger_ota' => '/api/outputs-s3-test/trigger-ota-check',
         'board_status' => '/api/outputs-s3-test/board/{board}/status',
@@ -125,5 +120,5 @@ foreach ($ffp3RoutesConfig as $env => $routes) {
 
 // Route additionnelle prod : toggle-test (alias)
 $app->group('', function ($group) {
-    $group->get('/api/outputs/toggle-test', [OutputController::class, 'toggleOutputTest']);
+    $group->get('/api/outputs/toggle-test', [OutputController::class, 'toggleOutput']);
 })->add(new EnvironmentMiddleware('prod'))->add($applyAuth);

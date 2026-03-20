@@ -17,6 +17,24 @@ use PDO;
  */
 class OutputRepository extends AbstractRepository
 {
+    /** @var array<string, int> */
+    private const PARAMETER_GPIO_MAP = [
+        'mail' => 100,
+        'mailNotif' => 101,
+        'aqThr' => 102,
+        'taThr' => 103,
+        'chauff' => 104,
+        'bouffeMatin' => 105,
+        'bouffeMidi' => 106,
+        'bouffeSoir' => 107,
+        'tempsGros' => 111,
+        'tempsPetits' => 112,
+        'tempsRemplissageSec' => 113,
+        'limFlood' => 114,
+        'WakeUp' => 115,
+        'FreqWakeUp' => 116,
+    ];
+
     /**
      * Récupère tous les outputs avec leurs états actuels
      * 
@@ -86,6 +104,66 @@ class OutputRepository extends AbstractRepository
         $sql = "UPDATE `{$table}` SET state = :state WHERE gpio = :gpio";
         
         return $this->execute($sql, [':gpio' => $gpio, ':state' => $state]);
+    }
+
+    /**
+     * Met à jour l'état d'un output par son ID.
+     */
+    public function updateStateById(int $id, int $state, string $modifiedBy = 'web'): bool
+    {
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+        $sql = "UPDATE `{$table}`
+                SET state = :state,
+                    requestTime = NOW(),
+                    lastModifiedBy = :modifiedBy
+                WHERE id = :id";
+        return $this->execute($sql, [
+            ':state' => $state,
+            ':id' => $id,
+            ':modifiedBy' => $modifiedBy,
+        ]);
+    }
+
+    /**
+     * Met à jour plusieurs paramètres depuis un formulaire.
+     *
+     * @param array<string, mixed> $params
+     */
+    public function updateMultipleParameters(array $params, string $modifiedBy = 'web'): int
+    {
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+        return $this->executeInTransaction(function () use ($params, $table, $modifiedBy): int {
+            $updated = 0;
+            $sql = "UPDATE `{$table}`
+                    SET state = :state,
+                        requestTime = NOW(),
+                        lastModifiedBy = :modifiedBy
+                    WHERE gpio = :gpio";
+            $stmt = $this->pdo->prepare($sql);
+
+            foreach (self::PARAMETER_GPIO_MAP as $paramName => $gpio) {
+                if (!array_key_exists($paramName, $params)) {
+                    continue;
+                }
+                $value = $params[$paramName];
+                if ($paramName === 'mail') {
+                    $value = (string) $value;
+                } elseif ($paramName === 'mailNotif') {
+                    $value = (is_string($value) && in_array(strtolower($value), ['1', 'true', 'on', 'yes', 'checked'], true))
+                        || $value === 1
+                        || $value === true
+                        ? 1
+                        : 0;
+                } else {
+                    $value = is_numeric($value) ? (int) $value : 0;
+                }
+                if ($stmt->execute([':state' => $value, ':gpio' => $gpio, ':modifiedBy' => $modifiedBy])) {
+                    $updated++;
+                }
+            }
+
+            return $updated;
+        });
     }
 
     /**

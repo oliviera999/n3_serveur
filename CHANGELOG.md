@@ -1,5 +1,11 @@
 # Changelog FFP3 Datas
 
+## [5.0.200] - 2026-03-20
+
+### Modifié - simplification backend sans changement front-end : factorisation Output controllers/repositories, injection DI (AuthService/PDO), extraction AuthGuardMiddleware et suppression des duplications toggle FFP3
+- **Résumé** : mutualisation de la logique commune MSP1/N3PP (setOutput, updateParameters, output_create, params par défaut), centralisation du mapping paramètres dans OutputService/OutputRepository, heartbeat via PDO injecté, et externalisation du contrôle d'accès global dans AuthGuardMiddleware, sans modification Twig/CSS/JS.
+
+---
 Toutes les modifications notables de ce projet seront document�es dans ce fichier.
 
 Le format est bas� sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),

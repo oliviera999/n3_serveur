@@ -70,7 +70,7 @@ function registerFfp3ProtectedRoutes($app, array $routes, string $env, $applyAut
         }
         $group->map(['GET', 'POST'], $routes['tide_stats'], [TideStatsController::class, 'show']);
         $group->get($routes['control'], [OutputController::class, 'showInterface']);
-        $group->get($routes['toggle'], [OutputController::class, $routes['toggle_method']]);
+        $group->get($routes['toggle'], [OutputController::class, 'toggleOutput']);
         $group->post($routes['parameters'], [OutputController::class, 'updateParameters']);
         $group->post($routes['trigger_ota'], [OutputController::class, 'triggerOtaCheck']);
         $group->get($routes['board_status'], [OutputController::class, 'getBoardStatus']);
