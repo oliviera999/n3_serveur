@@ -3,7 +3,7 @@
 <head>
     <title>{% block title %}n³ iot datas{% endblock %}</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#008B74" />
     {% block meta_pwa %}
     <meta name="mobile-web-app-capable" content="yes" />
@@ -29,6 +29,7 @@
     {% block styles %}{% endblock %}
 </head>
 {% block body_tag %}<body class="is-preload">{% endblock %}
+    <a href="#main" class="skip-to-content">Aller au contenu</a>
     <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
     <div id="page-bg" aria-hidden="true"></div>
     {% block before_wrapper %}{% endblock %}

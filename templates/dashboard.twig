@@ -136,9 +136,10 @@
 {% if lastReading %}
     <div class="modern-table">
         <table>
+            <caption class="sr-only">Dernière lecture des capteurs</caption>
             <thead>
                 <tr>
-                    {% for k in lastReading|keys %}<th>{{ k }}</th>{% endfor %}
+                    {% for k in lastReading|keys %}<th scope="col">{{ k }}</th>{% endfor %}
                 </tr>
             </thead>
             <tbody>
@@ -206,9 +207,10 @@
 
     <div class="modern-table">
         <table>
+            <caption class="sr-only">Statistiques détaillées par capteur</caption>
             <thead>
                 <tr>
-                    <th>Capteur</th><th>Minimum</th><th>Maximum</th><th>Moyenne</th><th>Écart-type</th>
+                    <th scope="col">Capteur</th><th scope="col">Minimum</th><th scope="col">Maximum</th><th scope="col">Moyenne</th><th scope="col">Écart-type</th>
                 </tr>
             </thead>
             <tbody>

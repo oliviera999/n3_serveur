@@ -719,6 +719,13 @@
     background: var(--accent-primary-hover);
 }
 
+.gallery-link-trash {
+    color: #dc3545 !important;
+}
+[data-theme="dark"] .gallery-link-trash {
+    color: #fca5a5 !important;
+}
+
 @media (max-width: 768px) {
     .gallery-cards {
         grid-template-columns: 1fr;

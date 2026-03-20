@@ -67,9 +67,9 @@
                     />
                 </div>
 
-                <button type="submit" class="btn-login">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Se connecter
+                <button type="submit" class="btn-login" id="btn-login">
+                    <span class="btn-login-text"><i class="fas fa-sign-in-alt"></i> Se connecter</span>
+                    <span class="btn-login-loading" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Connexion...</span>
                 </button>
             </form>
 
@@ -77,6 +77,11 @@
                 <p>
                     <i class="fas fa-shield-alt"></i>
                     Connexion sécurisée
+                </p>
+                <p style="margin-top: 10px;">
+                    <a href="{{ base_path|default('') }}/" style="color: var(--accent-primary, #008B74); text-decoration: none;">
+                        <i class="fas fa-arrow-left"></i> Retour à l'accueil
+                    </a>
                 </p>
             </div>
         </div>
@@ -92,5 +97,15 @@
 {% endblock %}
 
 {% block scripts %}
-<script>window.addEventListener('load', function() { document.body.classList.remove('is-preload'); });</script>
+<script>
+window.addEventListener('load', function() { document.body.classList.remove('is-preload'); });
+document.querySelector('.login-form').addEventListener('submit', function() {
+    var btn = document.getElementById('btn-login');
+    if (btn) {
+        btn.disabled = true;
+        btn.querySelector('.btn-login-text').style.display = 'none';
+        btn.querySelector('.btn-login-loading').style.display = '';
+    }
+});
+</script>
 {% endblock %}

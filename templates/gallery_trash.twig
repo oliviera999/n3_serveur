@@ -180,7 +180,7 @@
         <div class="gallery-grid" data-aos="fade-up">
             {% for item in images %}
                 <div class="gallery-item" data-filename="{{ item.filename }}">
-                    <input type="checkbox" class="gallery-item-check" value="{{ item.filename }}" title="Sélectionner" />
+                    <input type="checkbox" class="gallery-item-check" value="{{ item.filename }}" aria-label="Sélectionner {{ item.filename }}" />
                     <a class="gallery-item-link" href="{{ base_path|default('') }}/admin/gallery/{{ gallery_slug }}/trash/files/{{ item.filename }}">
                         <img src="{{ base_path|default('') }}/admin/gallery/{{ gallery_slug }}/trash/files/{{ item.filename }}" alt="{{ item.filename }}" loading="lazy" />
                     </a>
@@ -234,6 +234,7 @@
 
 {% block scripts %}
 {{ parent() }}
+<script src="{{ base_path|default('') }}/assets/js/confirm-modal.js"></script>
 <script>
 (function() {
     var BASE = '{{ base_path|default("") }}';
@@ -286,16 +287,28 @@
         });
     }
 
+    function setButtonsBusy(busy) {
+        var btns = document.querySelectorAll('.trash-toolbar .btn');
+        btns.forEach(function(b) { b.disabled = busy; });
+    }
+
     var restoreBtn = document.getElementById('restoreSelectedBtn');
     if (restoreBtn) {
         restoreBtn.addEventListener('click', function() {
             var sel = getSelected();
             if (sel.length === 0) return;
-            if (!confirm('Restaurer ' + sel.length + ' photo(s) dans la galerie d\'origine ?')) return;
-            apiCall('/restore', { filenames: sel }).then(function(data) {
-                showToast(data.restored + ' photo(s) restaurée(s)', 'success');
-                setTimeout(function() { location.reload(); }, 1200);
-            }).catch(function() { showToast('Erreur lors de la restauration', 'error'); });
+            confirmModal({
+                title: 'Restaurer ' + sel.length + ' photo(s)',
+                message: 'Les photos sélectionnées seront remises dans la galerie d\'origine.',
+                confirmLabel: 'Restaurer',
+                onConfirm: function() {
+                    setButtonsBusy(true);
+                    apiCall('/restore', { filenames: sel }).then(function(data) {
+                        showToast(data.restored + ' photo(s) restaurée(s)', 'success');
+                        setTimeout(function() { location.reload(); }, 1200);
+                    }).catch(function() { showToast('Erreur lors de la restauration', 'error'); setButtonsBusy(false); });
+                }
+            });
         });
     }
 
@@ -304,22 +317,36 @@
         purgeBtn.addEventListener('click', function() {
             var sel = getSelected();
             if (sel.length === 0) return;
-            if (!confirm('Supprimer définitivement ' + sel.length + ' photo(s) ? Cette action est irréversible.')) return;
-            apiCall('/purge', { filenames: sel }).then(function(data) {
-                showToast(data.deleted + ' photo(s) supprimée(s)', 'success');
-                setTimeout(function() { location.reload(); }, 1200);
-            }).catch(function() { showToast('Erreur lors de la suppression', 'error'); });
+            confirmModal({
+                title: 'Supprimer définitivement ' + sel.length + ' photo(s)',
+                message: 'Cette action est irréversible. Les photos seront définitivement effacées.',
+                confirmLabel: 'Supprimer définitivement',
+                onConfirm: function() {
+                    setButtonsBusy(true);
+                    apiCall('/purge', { filenames: sel }).then(function(data) {
+                        showToast(data.deleted + ' photo(s) supprimée(s)', 'success');
+                        setTimeout(function() { location.reload(); }, 1200);
+                    }).catch(function() { showToast('Erreur lors de la suppression', 'error'); setButtonsBusy(false); });
+                }
+            });
         });
     }
 
     var purgeAllBtn = document.getElementById('purgeAllBtn');
     if (purgeAllBtn) {
         purgeAllBtn.addEventListener('click', function() {
-            if (!confirm('Vider TOUTE la corbeille {{ slug_labels[gallery_slug]|default(gallery_slug) }} ? Cette action est irréversible.')) return;
-            apiCall('/purge-all', {}).then(function(data) {
-                showToast(data.deleted + ' photo(s) supprimée(s)', 'success');
-                setTimeout(function() { location.reload(); }, 1200);
-            }).catch(function() { showToast('Erreur lors du vidage', 'error'); });
+            confirmModal({
+                title: 'Vider toute la corbeille',
+                message: 'Toutes les photos de la corbeille {{ slug_labels[gallery_slug]|default(gallery_slug) }} seront définitivement supprimées. Cette action est irréversible.',
+                confirmLabel: 'Vider la corbeille',
+                onConfirm: function() {
+                    setButtonsBusy(true);
+                    apiCall('/purge-all', {}).then(function(data) {
+                        showToast(data.deleted + ' photo(s) supprimée(s)', 'success');
+                        setTimeout(function() { location.reload(); }, 1200);
+                    }).catch(function() { showToast('Erreur lors du vidage', 'error'); setButtonsBusy(false); });
+                }
+            });
         });
     }
 
@@ -336,25 +363,46 @@
             lbImg.src = links[currentIndex].getAttribute('href');
             lbCaption.textContent = 'Photo ' + (currentIndex + 1) + ' / ' + links.length;
         }
-        function openLb(i) {
+        var lbTrigger = null;
+        var lbCloseBtn = lightbox.querySelector('.gallery-lightbox-close');
+        var lbPrevBtn = lightbox.querySelector('.gallery-lightbox-prev');
+        var lbNextBtn = lightbox.querySelector('.gallery-lightbox-next');
+
+        function trapLbFocus(e) {
+            if (e.key !== 'Tab') return;
+            var btns = lightbox.querySelectorAll('button');
+            var first = btns[0], last = btns[btns.length - 1];
+            if (e.shiftKey) {
+                if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+            } else {
+                if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+        }
+
+        function openLb(i, trigger) {
+            lbTrigger = trigger || null;
             updateLb(i);
             lightbox.classList.add('gallery-lightbox-open');
             lightbox.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+            lbCloseBtn.focus();
+            document.addEventListener('keydown', trapLbFocus);
         }
         function closeLb() {
             lightbox.classList.remove('gallery-lightbox-open');
             lightbox.setAttribute('aria-hidden', 'true');
             lbImg.removeAttribute('src');
             document.body.style.overflow = '';
+            document.removeEventListener('keydown', trapLbFocus);
+            if (lbTrigger) { lbTrigger.focus(); lbTrigger = null; }
         }
 
         links.forEach(function(link, i) {
-            link.addEventListener('click', function(e) { e.preventDefault(); openLb(i); });
+            link.addEventListener('click', function(e) { e.preventDefault(); openLb(i, link); });
         });
-        lightbox.querySelector('.gallery-lightbox-close').addEventListener('click', closeLb);
-        lightbox.querySelector('.gallery-lightbox-prev').addEventListener('click', function() { updateLb(currentIndex - 1); });
-        lightbox.querySelector('.gallery-lightbox-next').addEventListener('click', function() { updateLb(currentIndex + 1); });
+        lbCloseBtn.addEventListener('click', closeLb);
+        lbPrevBtn.addEventListener('click', function() { updateLb(currentIndex - 1); });
+        lbNextBtn.addEventListener('click', function() { updateLb(currentIndex + 1); });
         lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLb(); });
         document.addEventListener('keydown', function(e) {
             if (!lightbox.classList.contains('gallery-lightbox-open')) return;

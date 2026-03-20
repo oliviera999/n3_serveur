@@ -43,6 +43,11 @@
         Voir la galerie
       </a>
     </div>
+    {% else %}
+    <div class="gallery-empty">
+      <i class="fas fa-images"></i>
+      <p>Aucune galerie configurée pour le moment.</p>
+    </div>
     {% endfor %}
   </div>
 </div>

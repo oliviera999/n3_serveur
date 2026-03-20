@@ -62,6 +62,10 @@ class GalleryUploadController
 
     private function processUpload(Request $request, Response $response, string $uploadDir, string $gallery): Response
     {
+        if (!$this->isAuthorizedRequest($request, $gallery)) {
+            return ResponseHelper::text($response, 'Non autorise', 401);
+        }
+
         $uploadedFiles = $request->getUploadedFiles();
         $imageFile = $uploadedFiles['imageFile'] ?? null;
         $contentType = $request->getHeaderLine('Content-Type');
@@ -149,5 +153,27 @@ class GalleryUploadController
             UPLOAD_ERR_EXTENSION => 'Erreur serveur: extension PHP a bloque l upload',
             default => 'Erreur upload inconnue (code ' . $code . ')',
         };
+    }
+
+    private function isAuthorizedRequest(Request $request, string $gallery): bool
+    {
+        $serverApiKey = trim((string) ($_ENV['API_KEY'] ?? ''));
+        if ($serverApiKey === '') {
+            $this->logger->error("GalleryUpload [{$gallery}]: API_KEY serveur manquante");
+            return false;
+        }
+
+        $providedApiKey = trim($request->getHeaderLine('X-Api-Key'));
+        if ($providedApiKey === '') {
+            $this->logger->warning("GalleryUpload [{$gallery}]: X-Api-Key absente");
+            return false;
+        }
+
+        if (!hash_equals($serverApiKey, $providedApiKey)) {
+            $this->logger->warning("GalleryUpload [{$gallery}]: X-Api-Key invalide");
+            return false;
+        }
+
+        return true;
     }
 }

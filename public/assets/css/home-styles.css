@@ -358,3 +358,12 @@
 [data-theme="dark"] .home-links-section {
     background: var(--bg-secondary);
 }
+
+.project-link-spaced {
+    margin-top: 10px;
+}
+
+.home-hero-subtitle {
+    font-size: 1.2em;
+    line-height: 1.6;
+}

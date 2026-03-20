@@ -126,10 +126,10 @@
 	// Nav Panel.
 
 		// Toggle.
-			$navPanelToggle = $(
-				'<a href="#navPanel" id="navPanelToggle">Menu</a>'
-			)
-				.appendTo($wrapper);
+		$navPanelToggle = $(
+			'<button type="button" id="navPanelToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navPanel">Menu</button>'
+		)
+			.appendTo($wrapper);
 
 			// Change toggle styling once we've scrolled past the header.
 				$header.scrollex({
@@ -143,24 +143,34 @@
 				});
 
 		// Panel.
-			$navPanel = $(
-				'<div id="navPanel">' +
-					'<nav>' +
-					'</nav>' +
-					'<a href="#navPanel" class="close"></a>' +
-				'</div>'
-			)
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'right',
-					target: $body,
-					visibleClass: 'is-navPanel-visible'
-				});
+		$navPanel = $(
+			'<div id="navPanel" role="dialog" aria-label="Menu de navigation">' +
+				'<nav>' +
+				'</nav>' +
+				'<button type="button" class="close" aria-label="Fermer le menu"></button>' +
+			'</div>'
+		)
+			.appendTo($body)
+			.panel({
+				delay: 500,
+				hideOnClick: true,
+				hideOnSwipe: true,
+				resetScroll: true,
+				resetForms: true,
+				side: 'right',
+				target: $body,
+				visibleClass: 'is-navPanel-visible'
+			});
+
+		$body.on('click', '#navPanelToggle', function() {
+			$navPanelToggle.attr('aria-expanded',
+				$body.hasClass('is-navPanel-visible') ? 'false' : 'true'
+			);
+		});
+		$navPanel.find('.close').on('click', function() {
+			$navPanelToggle.attr('aria-expanded', 'false');
+			$navPanelToggle.focus();
+		});
 
 			// Get inner.
 				$navPanelInner = $navPanel.children('nav');

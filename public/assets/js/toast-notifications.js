@@ -14,6 +14,9 @@ class ToastManager {
             this.container = document.createElement('div');
             this.container.id = 'toast-container';
             this.container.className = 'toast-container';
+            this.container.setAttribute('role', 'status');
+            this.container.setAttribute('aria-live', 'polite');
+            this.container.setAttribute('aria-atomic', 'false');
             document.body.appendChild(this.container);
         } else {
             this.container = document.getElementById('toast-container');
@@ -35,8 +38,8 @@ class ToastManager {
         toast.innerHTML = `
             <div class="toast-icon">${icons[type] || icons.info}</div>
             <div class="toast-message">${message}</div>
-            <button class="toast-close" onclick="this.parentElement.remove()">
-                <i class="fas fa-times"></i>
+            <button class="toast-close" onclick="this.parentElement.remove()" aria-label="Fermer la notification">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
         `;
 

@@ -13,11 +13,32 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [5.0.211] - 2026-03-20
 
+## [5.0.212] - 2026-03-20
+
+### Corrige - authentification requise sur les uploads photo ESP32-CAM
+- **Resume** : durcissement de `GalleryUploadController` avec verification obligatoire du header `X-Api-Key` contre `API_KEY` serveur, en mode fail-closed. Les endpoints `/msp1gallery/upload.php`, `/n3ppgallery/upload.php` et `/ffp3/ffp3gallery/upload.php` retournent desormais `401` si la cle est absente/invalide.
+
+---
+
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
+## [5.0.211] - 2026-03-20
+
 ### Ajout - acces central corbeille + tri global des galeries
 - **Resume** : ajout d'une tuile "Galerie trash (toutes)" dans la supervision (route `/admin/gallery-trash`) et d'une action admin "Lancer le tri global" qui rejoue en un clic l'algorithme de tri qualite sur toutes les galeries (MSP1, N3PP, FFP3) via le nouvel endpoint `/admin/api/gallery/auto-sort-all`. Le tri reste actif a l'upload et peut maintenant aussi etre force manuellement sur l'existant.
 
 ---
 
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
 ## [5.0.210] - 2026-03-20
 
 ### Modifie - Factorisation et unification du code serveur
@@ -25,6 +46,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
 ## [5.0.209] - 2026-03-20
 
 ### Modifie - Audit complet du mode sombre
@@ -32,6 +59,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
 ## [5.0.208] - 2026-03-20
 
 ### Ajout - 4 especes chimiques supplementaires dans les parametres surveilles aquaponie
@@ -39,6 +72,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
 ## [5.0.207] - 2026-03-20
 
 ### Modifie - maintenance du changelog et garde-fous automatises
@@ -46,6 +85,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
 ## [5.0.206] - 2026-03-20
 
 ### Modifie - fermeture lightbox au clic sur l'image
@@ -53,6 +98,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
 ## [5.0.205] - 2026-03-20
 
 ### Ajout - corbeille photo admin avec tri automatique
@@ -60,6 +111,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
 ## [5.0.204] - 2026-03-20
 
 ### Modifie - micro-amelioration UX de la galerie classique
@@ -67,6 +124,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
 ## [5.0.203] - 2026-03-20
 
 ### Corrige - photos cliquables dans les galeries classiques
@@ -74,6 +137,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
 ## [5.0.202] - 2026-03-20
 
 ### Modifie - maintenance durable du changelog (rotation + garde-fous)
@@ -81,6 +150,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.213] - 2026-03-20
+
+### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
+- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+
+---
 ## [5.0.201] - 2026-03-20
 
 ### Modifie - harmonisation des hauts de page et titres (audit style global)

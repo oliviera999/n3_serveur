@@ -26,6 +26,24 @@ class ControlActions {
             state: isInverted ? (targetState === 1 ? 0 : 1) : targetState,
         };
 
+        const criticalGpios = [110, 115];
+        if (criticalGpios.includes(gpio) && typeof window.confirmModal === 'function') {
+            const label = gpio === 110 ? 'Reset ESP' : 'Forçage réveil';
+            element.checked = !element.checked;
+            window.confirmModal({
+                title: label,
+                message: gpio === 110
+                    ? 'Cette action va redémarrer le microcontrôleur. Vérifiez la présence sur site.'
+                    : 'Cette action force le réveil immédiat de l\'ESP32.',
+                confirmLabel: 'Confirmer ' + label.toLowerCase(),
+                onConfirm: () => {
+                    element.checked = !element.checked;
+                    this.enqueueAction(() => this.sendToggleRequest(payload, element));
+                }
+            });
+            return;
+        }
+
         this.enqueueAction(() => this.sendToggleRequest(payload, element));
     }
 

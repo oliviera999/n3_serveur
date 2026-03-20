@@ -12,7 +12,7 @@
 <div class="gallery-page">
     <div class="gallery-links" data-aos="fade-up">
         <a href="{{ base_path|default('') }}/gallery" class="gallery-back"><i class="fas fa-th-large"></i> Toutes les galeries</a>
-        <a href="{{ base_path|default('') }}{{ back_url }}" class="gallery-back"><i class="fas fa-arrow-left"></i> Retour aux donnees</a>
+        <a href="{{ base_path|default('') }}{{ back_url }}" class="gallery-back"><i class="fas fa-arrow-left"></i> Retour aux données</a>
         <a href="{{ base_path|default('') }}/gallery/{{ gallery_slug }}" class="gallery-back"><i class="fas fa-film"></i> Timelapse</a>
     </div>
 
@@ -22,7 +22,7 @@
         <a href="{{ base_path|default('') }}/admin/gallery/msp1">Potager (MSP1)</a>
         <a href="{{ base_path|default('') }}/admin/gallery/n3pp">Elevage (N3PP)</a>
         &nbsp;|&nbsp;
-        <a href="{{ base_path|default('') }}/admin/gallery/{{ gallery_slug }}/trash" style="color: #dc3545;"><i class="fas fa-trash-alt"></i> Corbeille</a>
+        <a href="{{ base_path|default('') }}/admin/gallery/{{ gallery_slug }}/trash" class="gallery-link-trash"><i class="fas fa-trash-alt"></i> Corbeille</a>
     </div>
 
     <div class="gallery-hero" data-aos="fade-up">
@@ -35,7 +35,7 @@
             {% for filename in images %}
                 <div class="gallery-item">
                     <a class="gallery-item-link" href="{{ base_path|default('') }}/gallery/{{ gallery_slug }}/files/{{ filename }}">
-                        <img src="{{ base_path|default('') }}/gallery/{{ gallery_slug }}/files/{{ filename }}" alt="Photo {{ loop.index }}" loading="lazy" />
+                        <img src="{{ base_path|default('') }}/gallery/{{ gallery_slug }}/files/{{ filename }}" alt="Photo {{ filename }}" loading="lazy" />
                     </a>
                 </div>
             {% endfor %}
@@ -43,7 +43,7 @@
 
         <div id="galleryLightbox" class="gallery-lightbox" aria-hidden="true">
             <button type="button" class="gallery-lightbox-close" aria-label="Fermer la photo">&times;</button>
-            <button type="button" class="gallery-lightbox-prev" aria-label="Photo precedente"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="gallery-lightbox-prev" aria-label="Photo précédente"><i class="fas fa-chevron-left"></i></button>
             <img class="gallery-lightbox-img" src="" alt="" />
             <button type="button" class="gallery-lightbox-next" aria-label="Photo suivante"><i class="fas fa-chevron-right"></i></button>
             <div class="gallery-lightbox-caption"></div>
@@ -52,7 +52,7 @@
         {% if max_page > 1 %}
             <nav class="gallery-pagination" aria-label="Pagination">
                 {% if current_page > 1 %}
-                    <a href="?page={{ current_page - 1 }}" class="gallery-nav-prevnext">&laquo; Precedent</a>
+                    <a href="?page={{ current_page - 1 }}" class="gallery-nav-prevnext">&laquo; Précédent</a>
                 {% endif %}
                 {% for item in pagination_items %}
                     {% if item.type == 'ellipsis' %}
@@ -104,11 +104,28 @@ document.addEventListener('DOMContentLoaded', function () {
         lightboxCaption.textContent = 'Photo ' + (currentIndex + 1) + ' / ' + links.length;
     }
 
-    function openLightbox(index) {
+    var triggerElement = null;
+
+    function trapFocusInLightbox(e) {
+        if (e.key !== 'Tab') return;
+        var focusable = lightbox.querySelectorAll('button');
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+            if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    }
+
+    function openLightbox(index, trigger) {
+        triggerElement = trigger || null;
         updateLightbox(index);
         lightbox.classList.add('gallery-lightbox-open');
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        closeButton.focus();
+        document.addEventListener('keydown', trapFocusInLightbox);
     }
 
     function closeLightbox() {
@@ -116,12 +133,14 @@ document.addEventListener('DOMContentLoaded', function () {
         lightbox.setAttribute('aria-hidden', 'true');
         lightboxImage.removeAttribute('src');
         document.body.style.overflow = '';
+        document.removeEventListener('keydown', trapFocusInLightbox);
+        if (triggerElement) { triggerElement.focus(); triggerElement = null; }
     }
 
     links.forEach(function (link, index) {
         link.addEventListener('click', function (event) {
             event.preventDefault();
-            openLightbox(index);
+            openLightbox(index, link);
         });
     });
 
