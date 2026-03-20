@@ -74,37 +74,68 @@
 
     var LIGHT_OPTIONS = {
         chart: {
-            backgroundColor: null,
-            plotBackgroundColor: null,
-            borderColor: null,
-            style: null
+            backgroundColor: 'transparent',
+            plotBackgroundColor: 'transparent',
+            borderColor: '#cccccc',
+            style: { color: '#333333' }
         },
-        title: { style: null },
-        subtitle: { style: null },
+        title: { style: { color: '#333333' } },
+        subtitle: { style: { color: '#666666' } },
         xAxis: {
-            gridLineColor: null,
-            tickColor: null,
-            labels: { style: null },
-            lineColor: null,
-            title: { style: null }
+            gridLineColor: '#e6e6e6',
+            tickColor: '#cccccc',
+            labels: { style: { color: '#666666' } },
+            lineColor: '#cccccc',
+            title: { style: { color: '#333333' } }
         },
         yAxis: {
-            gridLineColor: null,
-            tickColor: null,
-            labels: { style: null },
-            lineColor: null,
-            title: { style: null }
+            gridLineColor: '#e6e6e6',
+            tickColor: '#cccccc',
+            labels: { style: { color: '#666666' } },
+            lineColor: '#cccccc',
+            title: { style: { color: '#333333' } }
         },
         legend: {
-            itemStyle: null,
-            itemHoverStyle: null
+            itemStyle: { color: '#333333' },
+            itemHoverStyle: { color: '#000000' }
         },
-        rangeSelector: null,
-        navigator: null,
-        scrollbar: null,
-        tooltip: null,
-        credits: { style: null },
-        colors: null
+        rangeSelector: {
+            buttonTheme: {
+                fill: '#f2f2f2',
+                stroke: '#cccccc',
+                style: { color: '#333333' },
+                states: {
+                    hover: { fill: '#e6e6e6' },
+                    select: { fill: '#008B74', style: { color: '#ffffff' } }
+                }
+            },
+            inputStyle: { color: '#333333' },
+            labelStyle: { color: '#666666' }
+        },
+        navigator: {
+            series: { color: '#008B74' },
+            xAxis: {
+                gridLineColor: '#e6e6e6',
+                labels: { style: { color: '#666666' } }
+            }
+        },
+        scrollbar: {
+            barBackgroundColor: '#cccccc',
+            barBorderColor: '#cccccc',
+            buttonArrowColor: '#333333',
+            buttonBackgroundColor: '#e6e6e6',
+            buttonBorderColor: '#cccccc',
+            rifleColor: '#333333',
+            trackBackgroundColor: '#f2f2f2',
+            trackBorderColor: '#cccccc'
+        },
+        tooltip: {
+            backgroundColor: '#ffffff',
+            borderColor: '#cccccc',
+            style: { color: '#333333' }
+        },
+        credits: { style: { color: '#999999' } },
+        colors: ['#2caffe', '#544fc5', '#00e272', '#fe6a35', '#6b8abc', '#d568fb', '#2ee0ca', '#fa4b42']
     };
 
     function isDark() {

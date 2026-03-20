@@ -7,6 +7,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -32,6 +38,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -60,6 +72,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -87,6 +105,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -112,6 +136,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -138,6 +168,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -163,6 +199,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -188,6 +230,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -280,6 +328,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -535,6 +589,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -889,6 +949,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -1208,6 +1274,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -1529,6 +1601,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -1862,6 +1940,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -2240,6 +2324,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -2703,6 +2793,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -3128,6 +3224,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -3934,6 +4036,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -4728,6 +4836,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -5521,6 +5635,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -6314,6 +6434,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -7116,6 +7242,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -7911,6 +8043,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -8706,6 +8844,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -9502,6 +9646,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -10297,6 +10447,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -11094,6 +11250,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -11889,6 +12051,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -12684,6 +12852,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -13479,6 +13653,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -14275,6 +14455,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -15068,6 +15254,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -15866,6 +16058,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -16659,6 +16857,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -17455,6 +17659,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -18249,6 +18459,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -19045,6 +19261,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -19841,6 +20063,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -20636,6 +20864,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -21433,6 +21667,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -22227,6 +22467,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -23022,6 +23268,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -23818,6 +24070,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -24614,6 +24872,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -25408,6 +25672,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -26203,6 +26473,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -27000,6 +27276,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -27796,6 +28078,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -28591,6 +28879,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -29386,6 +29680,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -30181,6 +30481,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -30976,6 +31282,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -31770,6 +32082,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -32564,6 +32882,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -33358,6 +33682,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -34152,6 +34482,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -34947,6 +35283,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -35746,6 +36088,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -36545,6 +36893,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -37337,6 +37691,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -38129,6 +38489,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -38921,6 +39287,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -39713,6 +40085,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -40505,6 +40883,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -41297,6 +41681,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -42106,6 +42496,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -42905,6 +43301,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -43702,6 +44104,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -44500,6 +44908,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -45302,6 +45716,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -46116,6 +46536,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -46912,6 +47338,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -47710,6 +48142,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -48508,6 +48946,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -49303,6 +49747,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -50101,6 +50551,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -50896,6 +51352,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -51690,6 +52152,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -52485,6 +52953,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -53290,6 +53764,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -54092,6 +54572,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -54902,6 +55388,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -55716,6 +56208,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -56520,6 +57018,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -57316,6 +57820,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -58114,6 +58624,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -58911,6 +59427,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -59708,6 +60230,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -60503,6 +61031,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -61298,6 +61832,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -62095,6 +62635,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -62891,6 +63437,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -63689,6 +64241,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -64492,6 +65050,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -65299,6 +65863,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -66102,6 +66672,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -66907,6 +67483,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -67711,6 +68293,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -68510,6 +69098,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -69305,6 +69899,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -70104,6 +70704,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -70900,6 +71506,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -71695,6 +72307,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -72490,6 +73108,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -73287,6 +73911,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -74084,6 +74714,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -74880,6 +75516,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -75676,6 +76318,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -76471,6 +77119,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -77266,6 +77920,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -78061,6 +78721,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -78858,6 +79524,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -79655,6 +80327,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -80450,6 +81128,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -81245,6 +81929,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -82040,6 +82730,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -82836,6 +83532,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -83634,6 +84336,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -84439,6 +85147,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -85238,6 +85952,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -86044,6 +86764,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -86848,6 +87574,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -87643,6 +88375,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -88471,6 +89209,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -89270,6 +90014,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -90078,6 +90828,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -90896,6 +91652,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -91704,6 +92466,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -92502,6 +93270,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -93301,6 +94075,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -94106,6 +94886,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -95021,6 +95807,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -95820,6 +96612,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -96617,6 +97415,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -97415,6 +98219,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -98214,6 +99024,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -99012,6 +99828,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -99812,6 +100634,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -100611,6 +101439,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -101532,6 +102366,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -102330,6 +103170,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -103128,6 +103974,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -103974,6 +104826,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -104781,6 +105639,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -105588,6 +106452,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -106432,6 +107302,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -107287,6 +108163,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -108099,6 +108981,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -108912,6 +109800,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -109715,6 +110609,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -110524,6 +111424,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -111337,6 +112243,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -112148,6 +113060,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -112950,6 +113868,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -113764,6 +114688,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -114610,6 +115540,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -115411,6 +116347,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -116213,6 +117155,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -117014,6 +117962,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -117820,6 +118774,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -118632,6 +119592,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -119442,6 +120408,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -120250,6 +121222,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -121053,6 +122031,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -121857,6 +122841,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -122672,6 +123662,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -123486,6 +124482,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -124303,6 +125305,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -125136,6 +126144,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -125999,6 +127013,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -126803,6 +127823,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -127606,6 +128632,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -128419,6 +129451,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -129222,6 +130260,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -130029,6 +131073,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -130829,6 +131879,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -131631,6 +132687,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -132425,6 +133487,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -133259,6 +134327,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -134065,6 +135139,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -134893,6 +135973,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -135703,6 +136789,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -136509,6 +137601,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -137321,6 +138419,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -138155,6 +139259,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -138974,6 +140084,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -139847,6 +140963,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -140657,6 +141779,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -141469,6 +142597,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -142292,6 +143426,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -143108,6 +144248,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -143911,6 +145057,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -144714,6 +145866,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -145519,6 +146677,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -146395,6 +147559,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -147219,6 +148389,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -148057,6 +149233,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -148883,6 +150065,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -149713,6 +150901,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -150511,6 +151705,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -151361,6 +152561,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -152175,6 +153381,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -152976,6 +154188,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -153827,6 +155045,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -154657,6 +155881,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -155520,6 +156750,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -156321,6 +157557,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -157181,6 +158423,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -157979,6 +159227,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -158776,6 +160030,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -159577,6 +160837,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -160378,6 +161644,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -161224,6 +162496,12 @@ docs/
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -162093,6 +163371,12 @@ docs/
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -162896,6 +164180,12 @@ docs/
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -163733,6 +165023,12 @@ docs/
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -164535,6 +165831,12 @@ docs/
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -165359,6 +166661,12 @@ docs/
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -166159,6 +167467,12 @@ docs/
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -167148,6 +168462,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -167971,6 +169291,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -168821,6 +170147,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -169657,6 +170989,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -170479,6 +171817,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -171308,6 +172652,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -172129,6 +173479,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -172939,6 +174295,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -173741,6 +175103,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -174559,6 +175927,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -175361,6 +176735,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -176163,6 +177543,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -176967,6 +178353,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -177789,6 +179181,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
@@ -178585,6 +179983,12 @@ ance future
 
 ---
 
+## [5.0.196] - 2026-03-20
+
+### Correctif - legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie)
+- **Résumé** : legendes Highcharts : remplacement des valeurs null par couleurs explicites dans LIGHT_OPTIONS de highcharts-theme.js (corrige legendes invisibles sur potager, elevage, aquaponie).
+
+---
 ## [5.0.195] - 2026-03-20
 
 ### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
