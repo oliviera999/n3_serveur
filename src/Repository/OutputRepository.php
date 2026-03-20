@@ -130,12 +130,12 @@ class OutputRepository extends AbstractRepository
                     ORDER BY requestTime DESC 
                     LIMIT 1";
         } else {
-            // Fallback: utiliser la première GPIO trouvée avec l'heure actuelle
-            $sql = "SELECT id, board, gpio, name, state, 
-                           DATE_FORMAT(NOW(), '%d/%m/%Y %H:%i:%s') as last_modified_time
-                    FROM `{$table}` 
+            // Fallback: colonne requestTime absente (ancienne base), last_modified_time reste null
+            $sql = "SELECT id, board, gpio, name, state,
+                           NULL as last_modified_time
+                    FROM `{$table}`
                     WHERE board = :board AND name IS NOT NULL AND name != ''
-                    ORDER BY gpio ASC 
+                    ORDER BY gpio ASC
                     LIMIT 1";
         }
         
