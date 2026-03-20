@@ -75,6 +75,7 @@
 {% block content %}
 <div class="gallery-page">
     <div class="gallery-links" data-aos="fade-up">
+        <a href="{{ base_path|default('') }}/gallery" class="gallery-back"><i class="fas fa-th-large"></i> Toutes les galeries</a>
         <a href="{{ base_path|default('') }}{{ back_url }}" class="gallery-back"><i class="fas fa-arrow-left"></i> Retour aux données</a>
         <a href="{{ base_path|default('') }}/gallery/{{ gallery_slug }}" class="gallery-back"><i class="fas fa-film"></i> Timelapse</a>
     </div>

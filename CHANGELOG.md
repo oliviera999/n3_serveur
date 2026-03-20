@@ -1,22 +1,48 @@
 # Changelog FFP3 Datas
 
-Toutes les modifications notables de ce projet seront documentÈes dans ce fichier.
+Toutes les modifications notables de ce projet seront documentùes dans ce fichier.
 
-Le format est basÈ sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
+Le format est basù sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
 et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
+
+---
+
+## [5.0.192] - 2026-03-20
+
+### ModifiÈ - Navigation galeries
+- **gallery_timelapse.twig / gallery.twig** : ajout d'un bouton ´ Toutes les galeries ª pointant vers `/gallery` (page de prÈsentation) dans la barre de navigation des pages timelapse et galerie classique.
+
+---
+
+## [5.0.191] - 2026-03-20
+
+### Correctif - Lùgendes Highcharts aquaponie
+- **aquaponie.twig / aquaponie_alt.twig** : ajout `legend.accessibility: { enabled: false }` dans `Highcharts.setOptions()` et dans chaque graphique (bug connu accessibility.js qui empùche le rendu de la lùgende).
+- **aquaponie.twig** : ajout d'un bloc `legend` explicite au graphique ù Paramùtres physiques ù (chartTemp) qui n'en avait pas.
+- **aquaponie.twig** : suppression de `syncChartContainerHeights` qui fixait la hauteur des conteneurs et rognait la lùgende aprùs re-render du thùme.
+- **aquaponie.twig** : correction de `handleChartResize` qui rùfùrenùait des sùlecteurs `.alt-data-chart-row` inexistants et appelait `syncChartHeightsToStats()` (fonction non dùfinie ? erreur JS silencieuse ù chaque resize).
+
+---
+
+## [5.0.190] - 2026-03-20
+
+### Modifiù - Supervision : menu nav et grille Live
+- **supervision.twig** : tuile ù Vue principale (test) ù `/aquaponie-test` avec interrupteur menu ; grille Live enveloppùe en `live-card-wrap` avec les mùmes `data-page-key` que les tuiles liens.
+- **page-nav-toggles.js** : synchronisation de toutes les cases partageant une clù (Live + sections liens) ; `markWrapActive` supporte `live-card-wrap`.
+- **supervision-styles.css** : styles interrupteur et ùtat `nav-active` pour les tuiles Live.
 
 ---
 
 ## [5.0.189] - 2026-03-17
 
-### ModifiÈ - LibellÈs courts filtrage par pÈriode
-- **Templates** : champs date/heure du bloc filtrage affichent **debut** et **fin** (pages donnÈes gÈnÈriques, MSP1, N3PP, marÈes, aquaponie, timelapse).
+### Modifiù - Libellùs courts filtrage par pùriode
+- **Templates** : champs date/heure du bloc filtrage affichent **debut** et **fin** (pages donnùes gùnùriques, MSP1, N3PP, marùes, aquaponie, timelapse).
 
 ---
 
 ## [5.0.188] - 2026-03-18
 
-### ModifiÈ - OTA ffp5cs sur /ota/
+### Modifiù - OTA ffp5cs sur /ota/
 - **serveur/ota/metadata.json** : URLs `https://iot.olution.info/ota/...` (alignement firmware ffp5cs 13.12+).
 - **index.php** : commentaire alias legacy `/ffp3/ota/`.
 
@@ -24,23 +50,23 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [5.0.187] - 2026-03-18
 
-### ModifiÈ - timelapse : boutons plage / vitesse = style aquaponie
-- M?mes classes `quick-filter-btn` que filtrage 1h/3h aquaponie ; Ètat actif dans common-data.css.
+### Modifiù - timelapse : boutons plage / vitesse = style aquaponie
+- M?mes classes `quick-filter-btn` que filtrage 1h/3h aquaponie ; ùtat actif dans common-data.css.
 
 ---
 
 ## [5.0.186] - 2026-03-18
 
-### ModifiÈ - galeries (admin) : pagination compacte
-- **Galerie classique** : au lieu d'afficher tous les numÈros de page, affichage compact (dÈbut ... milieu ... fin) + libellÈ Page x sur y.
+### Modifiù - galeries (admin) : pagination compacte
+- **Galerie classique** : au lieu d'afficher tous les numùros de page, affichage compact (dùbut ... milieu ... fin) + libellù Page x sur y.
 
 ---
 
 ## [5.0.185] - 2026-03-18
 
-### ModifiÈ - timelapse : plage par dÈfaut ancrÈe sur la derni?re photo
+### Modifiù - timelapse : plage par dùfaut ancrùe sur la derni?re photo
 - **API** : GET /api/gallery/{slug}/latest (timestamp + filename, ou null si galerie vide).
-- **Timelapse** : plage par dÈfaut et boutons 6 h / 24 h / 48 h / 7 j : fin = horodatage de la derni?re photo (sinon maintenant).
+- **Timelapse** : plage par dùfaut et boutons 6 h / 24 h / 48 h / 7 j : fin = horodatage de la derni?re photo (sinon maintenant).
 
 ---
 ## [5.0.184] - 2026-03-18

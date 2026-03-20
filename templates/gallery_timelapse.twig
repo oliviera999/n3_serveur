@@ -577,6 +577,7 @@
 {% block content %}
 <div class="timelapse-page">
   <div class="timelapse-nav-links">
+    <a href="{{ base_path|default('') }}/gallery" class="gallery-back"><i class="fas fa-th-large"></i> Toutes les galeries</a>
     <a href="{{ back_url }}" class="gallery-back"><i class="fas fa-arrow-left"></i> Retour aux données</a>
     {% if is_admin|default(false) %}
     <a href="{{ gallery_admin_url }}" class="gallery-back"><i class="fas fa-images"></i> Galerie classique</a>
