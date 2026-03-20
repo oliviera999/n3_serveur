@@ -698,20 +698,23 @@
                         var reading_time = {{ reading_time|raw }};
 
                         // Association horodatage ➜ valeurs
-                        for (var i = 0, l = EauAquarium.length; i < l; i++) {
-                            EauAquarium[i] = [ reading_time[i], EauAquarium[i] ];
-                            EauReserve[i]  = [ reading_time[i], EauReserve[i]  ];
-                            EauPotager[i]  = [ reading_time[i], EauPotager[i]  ];
-                            etatPompeAqua[i] = [ reading_time[i], etatPompeAqua[i] ];
-                            etatPompeTank[i] = [ reading_time[i], etatPompeTank[i] ];
-                            etatHeat[i]      = [ reading_time[i], etatHeat[i]      ];
-                            TempEau[i]       = [ reading_time[i], TempEau[i]       ];
-                            TempAir[i]       = [ reading_time[i], TempAir[i]       ];
-                            Humidite[i]      = [ reading_time[i], Humidite[i]      ];
-                            Luminosite[i]    = [ reading_time[i], Luminosite[i]    ];
-                            etatUV[i]        = [ reading_time[i], etatUV[i]        ];
-                            bouffePetits[i]  = [ reading_time[i], bouffePetits[i]  ];
-                            bouffeGros[i]    = [ reading_time[i], bouffeGros[i]    ];
+                        // Itération sur reading_time.length (source de vérité) pour éviter
+                        // tout accès hors-borne si une série était plus courte que les autres.
+                        for (var i = 0, l = reading_time.length; i < l; i++) {
+                            var ts = reading_time[i];
+                            if (i < EauAquarium.length)  EauAquarium[i]  = [ ts, EauAquarium[i]  ];
+                            if (i < EauReserve.length)   EauReserve[i]   = [ ts, EauReserve[i]   ];
+                            if (i < EauPotager.length)   EauPotager[i]   = [ ts, EauPotager[i]   ];
+                            if (i < etatPompeAqua.length) etatPompeAqua[i] = [ ts, etatPompeAqua[i] ];
+                            if (i < etatPompeTank.length) etatPompeTank[i] = [ ts, etatPompeTank[i] ];
+                            if (i < etatHeat.length)     etatHeat[i]     = [ ts, etatHeat[i]     ];
+                            if (i < TempEau.length)      TempEau[i]      = [ ts, TempEau[i]      ];
+                            if (i < TempAir.length)      TempAir[i]      = [ ts, TempAir[i]      ];
+                            if (i < Humidite.length)     Humidite[i]     = [ ts, Humidite[i]     ];
+                            if (i < Luminosite.length)   Luminosite[i]   = [ ts, Luminosite[i]   ];
+                            if (i < etatUV.length)       etatUV[i]       = [ ts, etatUV[i]       ];
+                            if (i < bouffePetits.length) bouffePetits[i] = [ ts, bouffePetits[i] ];
+                            if (i < bouffeGros.length)   bouffeGros[i]   = [ ts, bouffeGros[i]   ];
                         }
 
                         // ==============================================
@@ -745,19 +748,12 @@
                         // ==============================================
                         // Configuration globale du timezone
                         // ==============================================
-                        
+
                         // Le serveur stocke en Europe/Paris, mais on affiche en Africa/Casablanca
                         // (heure locale réelle du projet physique au Maroc)
                         moment.tz.setDefault('Africa/Casablanca');
-                        
-                        // Configuration Highcharts pour utiliser le même timezone
-                        Highcharts.setOptions({
-                            time: {
-                                timezone: 'Africa/Casablanca',
-                                useUTC: false
-                            }
-                        });
-                        
+                        // Note : Highcharts timezone déjà configuré dans highcharts-defaults.js
+
                         // ==============================================
                         // Fonctions de calcul des lignes de tendance
                         // ==============================================
@@ -765,54 +761,53 @@
                         // Calcul de régression linéaire (y = ax + b)
                         function calculateLinearRegression(data) {
                             if (!data || data.length < 2) return null;
-                            
-                            let n = data.length;
-                            let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
-                            
-                            // Calcul des sommes
-                            for (let i = 0; i < n; i++) {
-                                let x = i; // index temporel
-                                let y = data[i][1]; // valeur
-                                sumX += x;
-                                sumY += y;
-                                sumXY += x * y;
-                                sumXX += x * x;
+
+                            // Filtrer les points null/NaN avant calcul
+                            var valid = [];
+                            for (var i = 0; i < data.length; i++) {
+                                var y = data[i][1];
+                                if (y !== null && y !== undefined && !isNaN(y)) {
+                                    valid.push({ idx: i, x: data[i][0], y: y });
+                                }
                             }
-                            
-                            // Calcul des coefficients
-                            let a = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
-                            let b = (sumY - a * sumX) / n;
-                            
-                            // Génération des points de la droite de tendance
-                            let trendData = [];
-                            for (let i = 0; i < n; i++) {
-                                let x = i;
-                                let y = a * x + b;
-                                trendData.push([data[i][0], y]); // [timestamp, valeur calculée]
+                            if (valid.length < 2) return null;
+
+                            var n = valid.length, sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+                            for (var k = 0; k < n; k++) {
+                                var xi = valid[k].idx, yi = valid[k].y;
+                                sumX += xi; sumY += yi; sumXY += xi * yi; sumXX += xi * xi;
                             }
-                            
-                            return {
-                                data: trendData,
-                                slope: a,
-                                intercept: b
-                            };
+                            var denom = n * sumXX - sumX * sumX;
+                            if (denom === 0) return null;
+                            var a = (n * sumXY - sumX * sumY) / denom;
+                            var b = (sumY - a * sumX) / n;
+
+                            // Générer les points sur tout le dataset (y compris les positions nulles)
+                            var trendData = [];
+                            for (var j = 0; j < data.length; j++) {
+                                trendData.push([data[j][0], a * j + b]);
+                            }
+                            return { data: trendData, slope: a, intercept: b };
                         }
                         
                         // Calcul de moyenne mobile
-                        function calculateMovingAverage(data, window = 20) {
+                        function calculateMovingAverage(data, window) {
+                            if (window === undefined) window = 20;
                             if (!data || data.length < window) return null;
-                            
-                            let movingAvgData = [];
-                            
-                            for (let i = window - 1; i < data.length; i++) {
-                                let sum = 0;
-                                for (let j = 0; j < window; j++) {
-                                    sum += data[i - j][1];
+
+                            var movingAvgData = [];
+                            for (var i = window - 1; i < data.length; i++) {
+                                var sum = 0, count = 0;
+                                for (var j = 0; j < window; j++) {
+                                    var v = data[i - j][1];
+                                    if (v !== null && v !== undefined && !isNaN(v)) {
+                                        sum += v;
+                                        count++;
+                                    }
                                 }
-                                let avg = sum / window;
-                                movingAvgData.push([data[i][0], avg]);
+                                // Si aucune valeur valide dans la fenêtre, on pousse null (gap dans le graphique)
+                                movingAvgData.push([data[i][0], count > 0 ? sum / count : null]);
                             }
-                            
                             return movingAvgData;
                         }
                         

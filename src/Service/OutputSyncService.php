@@ -4,26 +4,12 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use App\Domain\SensorData;
-use App\Repository\OutputRepository;
-
 /**
- * Service de synchronisation des états GPIO depuis les données capteurs.
- * 
- * Extrait la logique métier de synchronisation de OutputRepository
- * pour respecter le principe de responsabilité unique.
- * 
- * LOGIQUE DE PRIORITÉ : Les modifications faites via l'interface web ont 
- * priorité pendant 10 secondes. L'ESP32 ne peut écraser un état web que 
- * si la dernière modification web date de plus de 10 secondes.
+ * Service utilitaire pour les GPIO FFP3.
+ * Fournit le mapping GPIO ↔ propriétés SensorData utilisé par OutputService et OutputCacheService.
  */
 class OutputSyncService
 {
-    /**
-     * Durée de priorité des changements web (en secondes)
-     */
-    private const WEB_PRIORITY_SECONDS = 10;
-
     /**
      * Mapping des champs SensorData vers les GPIO
      */
@@ -57,31 +43,6 @@ class OutputSyncService
         115 => 'WakeUp',           // WakeUp forcé (v11.172: harmonisé avec firmware)
         116 => 'FreqWakeUp',       // Fréquence réveil (v11.172: harmonisé avec firmware)
     ];
-
-    public function __construct(
-        private OutputRepository $outputRepository,
-        private LogService $logger
-    ) {}
-
-    /**
-     * Extrait les valeurs à synchroniser depuis SensorData
-     * 
-     * @param SensorData $data Données capteurs
-     * @return array<int, string|int|null> [gpio => valeur]
-     */
-    public function extractGpioValues(SensorData $data): array
-    {
-        $values = [];
-        
-        foreach (self::GPIO_MAPPING as $gpio => $property) {
-            $value = $data->$property ?? null;
-            if ($value !== null) {
-                $values[$gpio] = $value;
-            }
-        }
-        
-        return $values;
-    }
 
     /**
      * Retourne le mapping GPIO pour référence

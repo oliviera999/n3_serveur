@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Config\TableConfig;
 use App\Util\StateNormalizer;
+use App\Util\TableValidator;
 use App\Service\OutputSyncService;
 
 /**
@@ -65,11 +66,8 @@ class OutputCacheService
             $params[$ph] = $gpio;
         }
         
-        // Valider le nom de table pour sécurité
-        $allowedTables = ['ffp3Outputs', 'ffp3Outputs2', 'ffp3Outputs3', 'ffp3OutputsS3', 'ffp3OutputsS3Test'];
-        if (!in_array($table, $allowedTables, true)) {
-            throw new \InvalidArgumentException("Table name not allowed: {$table}");
-        }
+        // Valider le nom de table via la whitelist centralisée
+        TableValidator::validateOutputsTable($table);
         
         $sql = "SELECT gpio, state FROM `{$table}` WHERE gpio IN (" . implode(',', $placeholders) . ")";
         $stmt = $pdo->prepare($sql);

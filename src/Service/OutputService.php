@@ -174,9 +174,9 @@ class OutputService
         
         // Marquer la modification avec la source spécifiée
         // Cela permet de gérer la priorité des modifications
-        $sql = "UPDATE {$table} 
-                SET state = :state, 
-                    requestTime = NOW(), 
+        $sql = "UPDATE `{$table}`
+                SET state = :state,
+                    requestTime = NOW(),
                     lastModifiedBy = :modifiedBy
                 WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -248,9 +248,9 @@ class OutputService
                         $value = is_numeric($value) ? (int)$value : 0;
                     }
                     
-                    $sql = "UPDATE {$table} 
-                            SET state = :state, 
-                                requestTime = NOW(), 
+                    $sql = "UPDATE `{$table}`
+                            SET state = :state,
+                                requestTime = NOW(),
                                 lastModifiedBy = 'web'
                             WHERE gpio = :gpio";
                     $stmt = $pdo->prepare($sql);
