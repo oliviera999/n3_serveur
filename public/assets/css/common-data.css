@@ -566,12 +566,14 @@
     margin: 1.5rem 0;
     box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.06));
 }
-/* Titre « Filtrage des données » : même style que .section-header (vert/orange selon page) */
-/* Note: le border-bottom est géré par realtime-styles.css sur .filter-header h3 pour cohérence avec "État du système" */
+/* Titre « Filtrage des données » : même style que .system-health-panel h3 (« État du système ») */
 .filter-header {
     display: flex;
     align-items: center;
     gap: 10px;
+    border-bottom: 2px solid #008B74;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 .filter-header i {
     color: #008B74;
@@ -587,6 +589,8 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 /* Style de .filter-section h3 géré par realtime-styles.css pour cohérence avec "État du système" */
 .filter-section h3 i { color: #008B74; }

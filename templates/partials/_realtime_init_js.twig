@@ -1,14 +1,106 @@
-{# Initialisation du polling temps réel (MSP1 / N3PP) #}
+{# Initialisation du polling temps réel + contrôles live (MSP1 / N3PP) #}
 <script>
 (function() {
     var apiBase = {{ realtime_api_base|json_encode|raw }};
-    var pollInterval = {{ poll_interval|default(15000) }};
+    var defaultPollInterval = {{ poll_interval|default(15000) }};
+    var newReadingsCount = 0;
+
+    function loadLivePreferences() {
+        return {
+            enabled: localStorage.getItem('liveMode.enabled') !== 'false',
+            autoScroll: localStorage.getItem('liveMode.autoScroll') !== 'false',
+            interval: parseInt(localStorage.getItem('liveMode.interval')) || defaultPollInterval,
+            maxPoints: parseInt(localStorage.getItem('liveMode.maxPoints')) || 10000
+        };
+    }
+
+    function saveLivePreferences(prefs) {
+        localStorage.setItem('liveMode.enabled', prefs.enabled);
+        localStorage.setItem('liveMode.autoScroll', prefs.autoScroll);
+        localStorage.setItem('liveMode.interval', prefs.interval);
+        localStorage.setItem('liveMode.maxPoints', prefs.maxPoints);
+    }
+
+    function updateReadingsCounter() {
+        var counter = document.getElementById('new-readings-count');
+        if (counter) counter.textContent = newReadingsCount;
+    }
+
+    var prefs = loadLivePreferences();
+
     if (typeof initRealtimeUpdater === 'function' && apiBase) {
         initRealtimeUpdater({
             apiBasePath: apiBase,
-            pollInterval: pollInterval,
-            enabled: true
+            pollInterval: prefs.interval,
+            enabled: prefs.enabled,
+            onNewData: function(readings) {
+                newReadingsCount += readings.length;
+                updateReadingsCounter();
+            }
         });
     }
+
+    var liveModeToggle = document.getElementById('live-mode-toggle');
+    var autoScrollToggle = document.getElementById('auto-scroll-toggle');
+    var intervalSelector = document.getElementById('update-interval-selector');
+    var forceRefreshBtn = document.getElementById('force-refresh-button');
+
+    if (liveModeToggle) {
+        liveModeToggle.checked = prefs.enabled;
+        liveModeToggle.addEventListener('change', function(e) {
+            if (e.target.checked) {
+                window.realtimeUpdater && window.realtimeUpdater.start();
+            } else {
+                window.realtimeUpdater && window.realtimeUpdater.stop();
+            }
+            prefs.enabled = e.target.checked;
+            saveLivePreferences(prefs);
+        });
+    }
+
+    if (autoScrollToggle) {
+        autoScrollToggle.checked = prefs.autoScroll;
+        autoScrollToggle.addEventListener('change', function(e) {
+            if (window.chartUpdater) {
+                if (typeof window.chartUpdater.enableAutoScroll === 'function') {
+                    window.chartUpdater.enableAutoScroll(e.target.checked);
+                } else {
+                    window.chartUpdater.autoScroll = e.target.checked;
+                }
+            }
+            prefs.autoScroll = e.target.checked;
+            saveLivePreferences(prefs);
+        });
+    }
+
+    if (intervalSelector) {
+        intervalSelector.value = prefs.interval;
+        intervalSelector.addEventListener('change', function(e) {
+            var newInterval = parseInt(e.target.value);
+            if (window.realtimeUpdater) {
+                window.realtimeUpdater.updatePollInterval(newInterval);
+            }
+            prefs.interval = newInterval;
+            saveLivePreferences(prefs);
+        });
+    }
+
+    if (forceRefreshBtn) {
+        forceRefreshBtn.addEventListener('click', function() {
+            if (window.realtimeUpdater) {
+                window.realtimeUpdater.poll();
+                var icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-spin');
+                    setTimeout(function() { icon.classList.remove('fa-spin'); }, 1000);
+                }
+            }
+        });
+    }
+
+    setInterval(function() {
+        newReadingsCount = 0;
+        updateReadingsCounter();
+    }, 3600000);
 })();
 </script>

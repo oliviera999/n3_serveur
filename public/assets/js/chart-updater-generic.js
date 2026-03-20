@@ -130,5 +130,9 @@
         }
     };
 
+    ChartUpdaterGeneric.prototype.enableAutoScroll = function (enabled) {
+        this.autoScroll = !!enabled;
+    };
+
     window.ChartUpdaterGeneric = ChartUpdaterGeneric;
 })();

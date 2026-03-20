@@ -7,6 +7,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -26,6 +32,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -48,6 +60,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -69,6 +87,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -88,6 +112,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -108,6 +138,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -127,6 +163,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -146,6 +188,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -232,6 +280,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -481,6 +535,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -829,6 +889,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -1142,6 +1208,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -1457,6 +1529,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -1784,6 +1862,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -2156,6 +2240,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -2613,6 +2703,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -3032,6 +3128,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -3832,6 +3934,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -4620,6 +4728,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -5407,6 +5521,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -6194,6 +6314,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -6990,6 +7116,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -7779,6 +7911,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -8568,6 +8706,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -9358,6 +9502,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -10147,6 +10297,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -10938,6 +11094,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -11727,6 +11889,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -12516,6 +12684,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -13305,6 +13479,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -14095,6 +14275,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -14882,6 +15068,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -15674,6 +15866,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -16461,6 +16659,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -17251,6 +17455,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -18039,6 +18249,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -18829,6 +19045,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -19619,6 +19841,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -20408,6 +20636,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -21199,6 +21433,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -21987,6 +22227,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -22776,6 +23022,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -23566,6 +23818,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -24356,6 +24614,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -25144,6 +25408,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -25933,6 +26203,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -26724,6 +27000,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -27514,6 +27796,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -28303,6 +28591,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -29092,6 +29386,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -29881,6 +30181,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -30670,6 +30976,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -31458,6 +31770,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -32246,6 +32564,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -33034,6 +33358,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -33822,6 +34152,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -34611,6 +34947,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -35404,6 +35746,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -36197,6 +36545,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -36983,6 +37337,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -37769,6 +38129,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -38555,6 +38921,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -39341,6 +39713,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -40127,6 +40505,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -40913,6 +41297,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -41716,6 +42106,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -42509,6 +42905,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -43300,6 +43702,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -44092,6 +44500,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -44888,6 +45302,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -45696,6 +46116,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -46486,6 +46912,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -47278,6 +47710,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -48070,6 +48508,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -48859,6 +49303,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -49651,6 +50101,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -50440,6 +50896,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -51228,6 +51690,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -52017,6 +52485,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -52816,6 +53290,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -53612,6 +54092,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -54416,6 +54902,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -55224,6 +55716,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -56022,6 +56520,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -56812,6 +57316,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -57604,6 +58114,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -58395,6 +58911,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -59186,6 +59708,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -59975,6 +60503,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -60764,6 +61298,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -61555,6 +62095,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -62345,6 +62891,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -63137,6 +63689,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -63934,6 +64492,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -64735,6 +65299,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -65532,6 +66102,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -66331,6 +66907,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -67129,6 +67711,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -67922,6 +68510,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -68711,6 +69305,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -69504,6 +70104,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -70294,6 +70900,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -71083,6 +71695,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -71872,6 +72490,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -72663,6 +73287,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -73454,6 +74084,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -74244,6 +74880,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -75034,6 +75676,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -75823,6 +76471,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -76612,6 +77266,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -77401,6 +78061,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -78192,6 +78858,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -78983,6 +79655,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -79772,6 +80450,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -80561,6 +81245,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -81350,6 +82040,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -82140,6 +82836,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -82932,6 +83634,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -83731,6 +84439,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -84524,6 +85238,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -85324,6 +86044,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -86122,6 +86848,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -86911,6 +87643,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -87733,6 +88471,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -88526,6 +89270,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -89328,6 +90078,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -90140,6 +90896,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -90942,6 +91704,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -91734,6 +92502,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -92527,6 +93301,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -93326,6 +94106,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -94235,6 +95021,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -95028,6 +95820,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -95819,6 +96617,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -96611,6 +97415,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -97404,6 +98214,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -98196,6 +99012,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -98990,6 +99812,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -99783,6 +100611,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -100698,6 +101532,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -101490,6 +102330,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -102282,6 +103128,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -103122,6 +103974,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -103923,6 +104781,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -104724,6 +105588,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -105562,6 +106432,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -106411,6 +107287,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -107217,6 +108099,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -108024,6 +108912,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -108821,6 +109715,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -109624,6 +110524,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -110431,6 +111337,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -111236,6 +112148,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -112032,6 +112950,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -112840,6 +113764,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -113680,6 +114610,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -114475,6 +115411,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -115271,6 +116213,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -116066,6 +117014,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -116866,6 +117820,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -117672,6 +118632,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -118476,6 +119442,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -119278,6 +120250,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -120075,6 +121053,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -120873,6 +121857,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -121682,6 +122672,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -122490,6 +123486,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -123301,6 +124303,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -124128,6 +125136,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -124985,6 +125999,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -125783,6 +126803,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -126580,6 +127606,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -127387,6 +128419,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -128184,6 +129222,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -128985,6 +130029,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -129779,6 +130829,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -130575,6 +131631,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -131363,6 +132425,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -132191,6 +133259,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -132991,6 +134065,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -133813,6 +134893,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -134617,6 +135703,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -135417,6 +136509,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -136223,6 +137321,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -137051,6 +138155,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -137864,6 +138974,12 @@ et ce projet adh?re ? [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -138731,6 +139847,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -139535,6 +140657,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -140341,6 +141469,12 @@ Consulter `migrations/README.md` pour la proc?dure d?taill?e.
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -141158,6 +142292,12 @@ Contr?leurs HTML (moins critiques) :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -141968,6 +143108,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -142765,6 +143911,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -143562,6 +144714,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -144361,6 +145519,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -145231,6 +146395,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -146049,6 +147219,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -146881,6 +148057,12 @@ Cette correction r?sout le probl?me identifi? lors de l'analyse des logs ESP32 o
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -147701,6 +148883,12 @@ statsUpdater.formatDateTime(Math.floor(Date.now() / 1000))  // Doit ?tre identiq
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -148525,6 +149713,12 @@ Si n?cessaire de revenir ? l'heure de Paris (serveur), il suffit de changer :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -149317,6 +150511,12 @@ Cette version a ?t? remplac?e par la v4.5.7 qui corrige le timezone vers Casabla
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -150161,6 +151361,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -150969,6 +152175,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -151764,6 +152976,12 @@ Les utilisateurs voient maintenant se mettre ? jour automatiquement :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -152609,6 +153827,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -153433,6 +154657,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -154290,6 +155520,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -155085,6 +156321,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -155939,6 +157181,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -156731,6 +157979,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -157522,6 +158776,12 @@ Les utilisateurs peuvent maintenant :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -158317,6 +159577,12 @@ Suite aux erreurs 404 persistantes malgr? la correction des chemins en v4.4.2, u
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -159112,6 +160378,12 @@ Le serveur web pointe d?j? vers le dossier `public/` comme document root, donc l
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -159952,6 +161224,12 @@ docs/
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -160815,6 +162093,12 @@ docs/
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -161612,6 +162896,12 @@ docs/
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -162443,6 +163733,12 @@ docs/
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -163239,6 +164535,12 @@ docs/
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -164057,6 +165359,12 @@ docs/
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -164851,6 +166159,12 @@ docs/
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -165834,6 +167148,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -166651,6 +167971,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -167495,6 +168821,12 @@ Pour migrer vers v4.0.0 :
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -168325,6 +169657,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -169141,6 +170479,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -169964,6 +171308,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -170779,6 +172129,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -171583,6 +172939,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -172379,6 +173741,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -173191,6 +174559,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -173987,6 +175361,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -174783,6 +176163,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -175581,6 +176967,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -176397,6 +177789,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
@@ -177187,6 +178585,12 @@ ance future
 
 ---
 
+## [5.0.195] - 2026-03-20
+
+### Ajout - ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric
+- **Résumé** : ajout controles mode live (Mode Live, Auto-scroll, Intervalle, Rafraichir, compteur nouvelles donnees) sur pages potager et elevage, identiques a aquaponie ; refactoring _realtime_init_js.twig pour gerer les preferences et evenements live ; ajout enableAutoScroll() a ChartUpdaterGeneric.
+
+---
 ## [5.0.194] - 2026-03-20
 
 ### Correctif - audit securite et coherence : correction bypass API_KEY vide, open redirect login, protection routes controle MSP1/N3PP, validation upload galerie (magic bytes JPEG), whitelist assets complete, JS gallery-lightbox, whitelist table heartbeat ; ajout 29 tests de regression
