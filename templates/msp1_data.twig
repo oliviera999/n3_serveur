@@ -243,13 +243,61 @@
     {% if measure_count > 0 %}
     <script>
     (function() {
+        function isMobileChartView() {
+            var width = window.innerWidth || document.documentElement.clientWidth || 1024;
+            return width <= 736;
+        }
+        function getChartHeight(type) {
+            var width = window.innerWidth || document.documentElement.clientWidth || 1024;
+            if (type === 'cycles') {
+                if (width <= 420) return 270;
+                if (width <= 736) return 300;
+                return 380;
+            }
+            if (width <= 420) return 300;
+            if (width <= 736) return 340;
+            return 420;
+        }
+        function getChartBaseOptions(type) {
+            var mobile = isMobileChartView();
+            return {
+                chart: {
+                    backgroundColor: 'transparent',
+                    height: getChartHeight(type),
+                    spacingTop: mobile ? 8 : 12,
+                    spacingRight: mobile ? 8 : 12,
+                    spacingBottom: mobile ? 8 : 14,
+                    spacingLeft: mobile ? 8 : 12
+                },
+                legend: {
+                    enabled: true,
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    itemStyle: {
+                        cursor: 'pointer',
+                        fontSize: mobile ? '10px' : '12px'
+                    },
+                    itemMarginTop: mobile ? 2 : 4,
+                    itemMarginBottom: mobile ? 2 : 4
+                },
+                navigator: {
+                    enabled: true,
+                    height: mobile ? 20 : 30,
+                    margin: mobile ? 4 : 8
+                },
+                scrollbar: {
+                    enabled: true,
+                    height: mobile ? 6 : 10
+                }
+            };
+        }
         var chartLoadExtremes = function() {
             var xAxis = this.xAxis && this.xAxis[0];
             if (xAxis && xAxis.dataMin != null && xAxis.dataMax != null) {
                 xAxis.setExtremes(xAxis.dataMin, xAxis.dataMax);
             }
         };
-    Highcharts.stockChart('chart-temperatures', {
+    var chartTemperatures = Highcharts.stockChart('chart-temperatures', {
         rangeSelector: { enabled: false },
         title: { text: '' },
         xAxis: { ordinal: false },
@@ -263,11 +311,13 @@
             { name: 'Humid. int.', data: zipSeries(reading_time, HumidAirInt), type: 'spline', color: '#3498db', yAxis: 1, tooltip: { valueSuffix: ' %' }},
             { name: 'Humid. ext.', data: zipSeries(reading_time, HumidAirExt), type: 'spline', color: '#2980b9', yAxis: 1, tooltip: { valueSuffix: ' %' }}
         ],
-        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', height: 420, events: { load: chartLoadExtremes } },
+        legend: getChartBaseOptions('main').legend,
+        chart: Object.assign({}, getChartBaseOptions('main').chart, { events: { load: chartLoadExtremes } }),
+        navigator: getChartBaseOptions('main').navigator,
+        scrollbar: getChartBaseOptions('main').scrollbar,
         credits: { enabled: false }
     });
-    Highcharts.stockChart('chart-lights', {
+    var chartLights = Highcharts.stockChart('chart-lights', {
         rangeSelector: { enabled: false },
         title: { text: '' },
         xAxis: { ordinal: false },
@@ -278,11 +328,13 @@
             { name: 'C', data: zipSeries(reading_time, LuminositeC), type: 'spline', color: '#f1c40f', dashStyle: 'Dash' },
             { name: 'D', data: zipSeries(reading_time, LuminositeD), type: 'spline', color: '#e74c3c', dashStyle: 'Dash' }
         ],
-        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', height: 420, events: { load: chartLoadExtremes } },
+        legend: getChartBaseOptions('main').legend,
+        chart: Object.assign({}, getChartBaseOptions('main').chart, { events: { load: chartLoadExtremes } }),
+        navigator: getChartBaseOptions('main').navigator,
+        scrollbar: getChartBaseOptions('main').scrollbar,
         credits: { enabled: false }
     });
-    Highcharts.stockChart('chart-niveauxeaux', {
+    var chartNiveauxEaux = Highcharts.stockChart('chart-niveauxeaux', {
         rangeSelector: { enabled: false },
         title: { text: '' },
         xAxis: { ordinal: false },
@@ -296,11 +348,13 @@
             { name: 'Temp. eau', data: zipSeries(reading_time, TempEau), type: 'spline', color: '#008B74', yAxis: 1, tooltip: { valueSuffix: ' °C' }},
             { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7', yAxis: 0 }
         ],
-        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', height: 420, events: { load: chartLoadExtremes } },
+        legend: getChartBaseOptions('main').legend,
+        chart: Object.assign({}, getChartBaseOptions('main').chart, { events: { load: chartLoadExtremes } }),
+        navigator: getChartBaseOptions('main').navigator,
+        scrollbar: getChartBaseOptions('main').scrollbar,
         credits: { enabled: false }
     });
-    Highcharts.stockChart('chart-cycles', {
+    var chartCycles = Highcharts.stockChart('chart-cycles', {
         rangeSelector: { enabled: false },
         title: { text: '' },
         xAxis: { ordinal: false },
@@ -314,9 +368,29 @@
             { name: 'ServoHB', data: zipSeries(reading_time, ServoHB), type: 'spline', color: '#3498db', yAxis: 0 },
             { name: 'ServoGD', data: zipSeries(reading_time, ServoGD), type: 'spline', color: '#f39c12', yAxis: 0 }
         ],
-        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', height: 380, events: { load: chartLoadExtremes } },
+        legend: getChartBaseOptions('cycles').legend,
+        chart: Object.assign({}, getChartBaseOptions('cycles').chart, { events: { load: chartLoadExtremes } }),
+        navigator: getChartBaseOptions('cycles').navigator,
+        scrollbar: getChartBaseOptions('cycles').scrollbar,
         credits: { enabled: false }
+    });
+
+    function applyChartMobileLayout() {
+        var mainHeight = getChartHeight('main');
+        var cyclesHeight = getChartHeight('cycles');
+        if (chartTemperatures) chartTemperatures.setSize(null, mainHeight, false);
+        if (chartLights) chartLights.setSize(null, mainHeight, false);
+        if (chartNiveauxEaux) chartNiveauxEaux.setSize(null, mainHeight, false);
+        if (chartCycles) chartCycles.setSize(null, cyclesHeight, false);
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(applyChartMobileLayout, 220);
+    });
+    window.addEventListener('orientationchange', function() {
+        setTimeout(applyChartMobileLayout, 350);
     });
     })();
     </script>

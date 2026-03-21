@@ -179,6 +179,54 @@
     {% if measure_count > 0 %}
     <script>
     (function() {
+        function isMobileChartView() {
+            var width = window.innerWidth || document.documentElement.clientWidth || 1024;
+            return width <= 736;
+        }
+        function getChartHeight(type) {
+            var width = window.innerWidth || document.documentElement.clientWidth || 1024;
+            if (type === 'cycles') {
+                if (width <= 420) return 270;
+                if (width <= 736) return 300;
+                return 380;
+            }
+            if (width <= 420) return 300;
+            if (width <= 736) return 340;
+            return 420;
+        }
+        function getChartBaseOptions(type) {
+            var mobile = isMobileChartView();
+            return {
+                chart: {
+                    backgroundColor: 'transparent',
+                    height: getChartHeight(type),
+                    spacingTop: mobile ? 8 : 12,
+                    spacingRight: mobile ? 8 : 12,
+                    spacingBottom: mobile ? 8 : 14,
+                    spacingLeft: mobile ? 8 : 12
+                },
+                legend: {
+                    enabled: true,
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    itemStyle: {
+                        cursor: 'pointer',
+                        fontSize: mobile ? '10px' : '12px'
+                    },
+                    itemMarginTop: mobile ? 2 : 4,
+                    itemMarginBottom: mobile ? 2 : 4
+                },
+                navigator: {
+                    enabled: true,
+                    height: mobile ? 20 : 30,
+                    margin: mobile ? 4 : 8
+                },
+                scrollbar: {
+                    enabled: true,
+                    height: mobile ? 6 : 10
+                }
+            };
+        }
         var chartLoadExtremes = function() {
             var xAxis = this.xAxis && this.xAxis[0];
             if (xAxis && xAxis.dataMin != null && xAxis.dataMax != null) {
@@ -210,7 +258,7 @@
         }
         var HumidMoyData = zipSeries(reading_time, HumidMoy);
         var HumidMoyTrendLine = (HumidMoyData && HumidMoyData.length >= 2) ? calculateLinearRegression(HumidMoyData) : null;
-    Highcharts.stockChart('chart-niveauxeaux', {
+    var chartNiveauxEaux = Highcharts.stockChart('chart-niveauxeaux', {
         rangeSelector: { enabled: false },
         title: { text: '' },
         xAxis: { ordinal: false },
@@ -225,11 +273,13 @@
             { name: 'État pompe', data: zipSeries(reading_time, etatPompe), type: 'column', color: '#008B74', opacity: 0.5 },
             { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7' }
         ],
-        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', height: 420, events: { load: chartLoadExtremes } },
+        legend: getChartBaseOptions('main').legend,
+        chart: Object.assign({}, getChartBaseOptions('main').chart, { events: { load: chartLoadExtremes } }),
+        navigator: getChartBaseOptions('main').navigator,
+        scrollbar: getChartBaseOptions('main').scrollbar,
         credits: { enabled: false }
     });
-    Highcharts.stockChart('chart-temperatures', {
+    var chartTemperatures = Highcharts.stockChart('chart-temperatures', {
         rangeSelector: { enabled: false },
         title: { text: '' },
         xAxis: { ordinal: false },
@@ -243,11 +293,13 @@
             { name: 'Humidité', data: zipSeries(reading_time, Humidite), type: 'spline', color: '#3498db', yAxis: 1, tooltip: { valueSuffix: ' %' }},
             { name: 'Luminosité', data: zipSeries(reading_time, Luminosite), type: 'spline', color: '#f39c12', yAxis: 2 }
         ],
-        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', height: 420, events: { load: chartLoadExtremes } },
+        legend: getChartBaseOptions('main').legend,
+        chart: Object.assign({}, getChartBaseOptions('main').chart, { events: { load: chartLoadExtremes } }),
+        navigator: getChartBaseOptions('main').navigator,
+        scrollbar: getChartBaseOptions('main').scrollbar,
         credits: { enabled: false }
     });
-    Highcharts.stockChart('chart-cycles', {
+    var chartCycles = Highcharts.stockChart('chart-cycles', {
         rangeSelector: { enabled: false },
         title: { text: '' },
         xAxis: { ordinal: false },
@@ -259,9 +311,28 @@
             { name: 'bootCount', data: zipSeries(reading_time, bootCount), type: 'spline', color: '#2c3e50', yAxis: 0 },
             { name: 'PontDiv', data: zipSeries(reading_time, PontDiv), type: 'spline', color: '#e74c3c', yAxis: 1 }
         ],
-        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { cursor: 'pointer' } },
-        chart: { backgroundColor: 'transparent', height: 380, events: { load: chartLoadExtremes } },
+        legend: getChartBaseOptions('cycles').legend,
+        chart: Object.assign({}, getChartBaseOptions('cycles').chart, { events: { load: chartLoadExtremes } }),
+        navigator: getChartBaseOptions('cycles').navigator,
+        scrollbar: getChartBaseOptions('cycles').scrollbar,
         credits: { enabled: false }
+    });
+
+    function applyChartMobileLayout() {
+        var mainHeight = getChartHeight('main');
+        var cyclesHeight = getChartHeight('cycles');
+        if (chartNiveauxEaux) chartNiveauxEaux.setSize(null, mainHeight, false);
+        if (chartTemperatures) chartTemperatures.setSize(null, mainHeight, false);
+        if (chartCycles) chartCycles.setSize(null, cyclesHeight, false);
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(applyChartMobileLayout, 220);
+    });
+    window.addEventListener('orientationchange', function() {
+        setTimeout(applyChartMobileLayout, 350);
     });
     })();
     </script>

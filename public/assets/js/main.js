@@ -127,7 +127,7 @@
 
 		// Toggle.
 		$navPanelToggle = $(
-			'<button type="button" id="navPanelToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navPanel">Menu</button>'
+			'<button type="button" id="navPanelToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navPanel"></button>'
 		)
 			.appendTo($wrapper);
 

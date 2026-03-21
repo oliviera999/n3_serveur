@@ -603,6 +603,8 @@
     padding: 20px;
     margin: 1.5rem 0;
     box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.06));
+    box-sizing: border-box;
+    overflow: hidden;
 }
 /* Titre « Filtrage des données » : même style que .system-health-panel h3 (« État du système ») */
 .filter-header {
@@ -626,9 +628,12 @@
     line-height: 1.2;
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
     border-bottom: none;
     padding-bottom: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 /* Style de .filter-section h3 géré par realtime-styles.css pour cohérence avec "État du système" */
 .filter-section h3 i { color: #008B74; }
@@ -652,6 +657,8 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 0.9em;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .filter-section input:focus {
     border-color: #008B74;
@@ -760,6 +767,8 @@ button.quick-filter-btn.active {
     gap: 12px 20px;
     margin-top: 8px;
     justify-content: flex-start;
+    min-width: 0;
+    max-width: 100%;
 }
 .period-stat-item {
     display: flex;
@@ -771,6 +780,8 @@ button.quick-filter-btn.active {
     font-weight: 700;
     font-size: 1.1em;
     color: #2c3e50;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 .period-stat-label {
     font-size: 0.8em;
@@ -800,6 +811,8 @@ button.quick-filter-btn.active {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
+    min-width: 0;
 }
 .filter-module-uptime {
     overflow-wrap: anywhere;
@@ -1061,6 +1074,15 @@ button.quick-filter-btn.active {
     .alt-data-chart-row .alt-stats-column .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .alt-data-chart-row .alt-stats-column .stats-grid .stat-card:last-child:nth-child(odd) {
         grid-column: 1 / -1; width: 100%; max-width: calc((100% - 10px) / 2); justify-self: center; margin-left: auto; margin-right: auto;
+    }
+    /* Highcharts (MSP1/N3PP) : limite les blancs verticaux en mobile */
+    #chart-lights,
+    #chart-niveauxeaux,
+    #chart-temperatures {
+        min-height: 300px !important;
+    }
+    #chart-cycles {
+        min-height: 270px !important;
     }
 }
 
