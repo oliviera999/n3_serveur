@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.236] - 2026-03-21
+
+### Correctif - icone menu sandwich identique smartphone / laptop zoome
+- **Resume** : harmonisation de la police d'icones du bouton menu replie (`#navPanelToggle`) et du bouton fermer (`#navPanel .close`) avec `Font Awesome 6 Free` (fallback `Font Awesome 5 Free`) dans `main.css`. Le glyphe burger (`\\f0c9`) reste identique quel que soit l'appareil.
+
+---
+
 ## [5.0.235] - 2026-03-21
 
 ### Modifie - menu sandwich unifie smartphone / laptop zoom (a11y + resize)
