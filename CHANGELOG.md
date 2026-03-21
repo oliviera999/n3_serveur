@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.232] - 2026-03-21
+
+### Modifie - alignement visuel global (fond, logo IOT, footer) sur accueil/login
+- **Resume** : `home.twig` et `login.twig` utilisent de nouveau les styles globaux (`realtime-styles.css`) afin d'aligner l'image de fond (`#page-bg`), le header/logo `IOT` et le footer avec les pages data (aquaponie, meteo, serre). Suppression d'une surcharge locale de `login-styles.css` sur `#header` qui decalait le logo par rapport au layout commun.
+
+---
+
 ## [5.0.231] - 2026-03-21
 
 ### Modifie - homogeneisation navigation (desktop, mobile, dark mode, a11y)

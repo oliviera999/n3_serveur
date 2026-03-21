@@ -13,13 +13,6 @@ body.login-page {
     flex-direction: column;
 }
 
-body.login-page #header {
-    height: auto;
-    padding: 1rem 2rem;
-    justify-content: center;
-    pointer-events: auto;
-}
-
 body.login-page .login-center {
     flex: 1;
     display: flex;
