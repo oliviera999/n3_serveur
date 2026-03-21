@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.238] - 2026-03-21
+
+### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.14)
+- **Resume** : publication OTA de la cible `msp1` du firmware `uploadphotosserver` en version `2.14` (mise a jour de `ota/cam/msp1/firmware.bin` et du `sha256` associe dans `ota/cam/metadata.json`).
+
+---
+
 ## [5.0.237] - 2026-03-21
 
 ### Correctif - agencement Highcharts aquaponie (timeline / légende)
