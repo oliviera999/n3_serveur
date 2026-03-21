@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.233] - 2026-03-21
+
+### Modifie - accueil : suppression du section-header duplique « Internet des objets »
+- **Resume** : retrait du bloc `.section-header` (icone Wi-Fi + h2) sous le hero sur `home.twig`, le titre etant deja porte par le h1 du hero.
+
+---
+
 ## [5.0.232] - 2026-03-21
 
 ### Modifie - alignement visuel global (fond, logo IOT, footer) sur accueil/login
