@@ -11,6 +11,20 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.221] - 2026-03-20
+
+### Correctif - suppression des debordements a droite sur mobile (filtrage + etat systeme)
+- **Resume** : durcissement responsive des blocs `filter-health-row`, `filter-section` et `system-health-panel` pour eviter les depassements horizontaux sur mobile. Le bloc "Periode analysee" est passe en structure verticale avec retours a la ligne (`period-info-*`), les controles live sont contraints (`min-width: 0`, `max-width: 100%`), et les boutons d'action (`Afficher les mesures`, `Telecharger CSV`) passent en pile sur petits ecrans (pages donnees + aquaponie) pour supprimer les sorties d'ecran a droite.
+
+---
+
+## [5.0.220] - 2026-03-20
+
+### Correctif - bouton menu mobile cliquable et style unifie
+- **Resume** : correction de l'ouverture/fermeture du panneau mobile via `#navPanelToggle` (gestion explicite du toggle avec blocage de propagation) pour supprimer les cas de bouton sandwich non cliquable. Unification du style du bouton hamburger dans `main.css` (zone tactile >= 44px, focus, variantes dark/light) et suppression des surcharges concurrentes dans `realtime-styles.css` afin d'obtenir le meme rendu sur toutes les pages.
+
+---
+
 ## [5.0.219] - 2026-03-20
 
 ### Correctif - coherence theme clair/sombre et fiabilisation menu mobile

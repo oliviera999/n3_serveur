@@ -578,7 +578,7 @@
 /* ----- FILTRAGE + ÉTAT DU SYSTÈME (2 colonnes MSP/N3PP) ----- */
 .filter-health-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1.5rem;
     margin: 1.5rem 0;
     align-items: start;
@@ -586,6 +586,8 @@
 .filter-health-row .filter-section,
 .filter-health-row .system-health-panel {
     margin: 0;
+    min-width: 0;
+    max-width: 100%;
 }
 @media (max-width: 736px) {
     .filter-health-row {
@@ -636,6 +638,7 @@
     flex-wrap: wrap;
     gap: 12px;
     align-items: flex-end;
+    min-width: 0;
 }
 .filter-section label {
     font-size: 0.85em;
@@ -727,10 +730,80 @@ button.quick-filter-btn.active {
 }
 .period-info {
     display: flex;
-    gap: 1.5rem;
+    flex-direction: column;
+    gap: 8px;
     margin-top: 10px;
     font-size: 0.88em;
     color: var(--text-secondary, #6b7280);
+    min-width: 0;
+}
+.period-info-title {
+    font-weight: 600;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.period-info-dates {
+    font-size: 0.9em;
+    color: var(--text-secondary, #6b7280);
+    overflow-wrap: anywhere;
+}
+.period-tz-hint {
+    font-size: 0.85em;
+    color: var(--text-muted, #6b7280);
+}
+.period-info-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 8px;
+    justify-content: flex-start;
+}
+.period-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+.period-stat-value {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #2c3e50;
+}
+.period-stat-label {
+    font-size: 0.8em;
+    color: var(--text-secondary, #6b7280);
+}
+.mode-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.mode-badge-historical { background: rgba(0, 139, 116, 0.12); color: #008B74; }
+.mode-badge-live { background: rgba(39, 189, 160, 0.2); color: #007E61; }
+.custom-filter {
+    margin-top: 1rem;
+    min-width: 0;
+}
+.custom-filter-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.filter-module-uptime {
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 .period-info i { color: #008B74; margin-right: 4px; }
 
@@ -981,6 +1054,9 @@ button.quick-filter-btn.active {
     .stat-card { padding: 14px; }
     .stat-card-value { font-size: 1.3em; }
     .filter-section form { flex-direction: column; }
+    .datetime-grid { grid-template-columns: 1fr; }
+    .datetime-field input { width: 100%; min-width: 0; }
+    .period-info-stats { gap: 10px; }
     .alt-data-chart-row { grid-template-columns: 1fr; }
     .alt-data-chart-row .alt-stats-column .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .alt-data-chart-row .alt-stats-column .stats-grid .stat-card:last-child:nth-child(odd) {
@@ -1145,3 +1221,9 @@ button.quick-filter-btn.active {
 [data-theme="dark"] .datetime-field label { color: var(--text-primary); }
 [data-theme="dark"] .datetime-field input { border-color: var(--border-color); background: var(--bg-input); }
 [data-theme="dark"] .datetime-field input:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 2px var(--accent-muted); }
+[data-theme="dark"] .period-info-title,
+[data-theme="dark"] .custom-filter-title { color: var(--text-primary); }
+[data-theme="dark"] .period-info-dates,
+[data-theme="dark"] .period-tz-hint,
+[data-theme="dark"] .period-stat-label { color: var(--text-secondary); }
+[data-theme="dark"] .period-stat-value { color: var(--text-primary); }

@@ -422,11 +422,13 @@ body.is-preload #wrapper.fade-in::before {
     align-items: center;
     gap: 12px;
     margin-top: 12px;
+    min-width: 0;
 }
 /* Même style que « En savoir plus » (balance-reveal-btn) sur toutes les pages */
 .action-buttons button {
     white-space: nowrap;
     flex-shrink: 0;
+    max-width: 100%;
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -482,6 +484,7 @@ body.is-preload #wrapper.fade-in::before {
     background: #f8f9fa;
     border-radius: 8px;
     border-left: 3px solid #008B74;
+    min-width: 0;
 }
 
 .health-item-label {
@@ -518,6 +521,7 @@ body.is-preload #wrapper.fade-in::before {
     font-size: 0.6em;
     color: rgba(44, 62, 80, 0.6);
     margin-left: 6px;
+    overflow-wrap: anywhere;
 }
 
 .health-item-value .reading-none {
@@ -868,6 +872,22 @@ body.is-preload #wrapper.fade-in::before {
         grid-template-columns: 1fr;
     }
     
+    .health-item-value {
+        font-size: 1.25em;
+        line-height: 1.25;
+    }
+    
+    .action-buttons {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .action-buttons button {
+        width: 100%;
+        justify-content: center;
+        white-space: normal;
+    }
+    
     .polling-controls {
         flex-direction: column;
         align-items: flex-start;
@@ -1066,6 +1086,8 @@ body.is-preload #wrapper.fade-in::before {
     background: #f8f9fa;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .live-control-item:last-child {
@@ -1203,12 +1225,15 @@ body.is-preload #wrapper.fade-in::before {
     .live-control-row {
         flex-direction: column;
         gap: 10px;
+        align-items: stretch;
+        justify-content: flex-start;
     }
     
     .live-control-item {
         width: 100%;
         justify-content: space-between;
         padding: 10px 12px;
+        min-width: 0;
     }
     
     .live-control-label {
@@ -1337,56 +1362,8 @@ body.is-preload #wrapper.fade-in::before {
     color: var(--header-nav-hover) !important;
 }
 
-/* Panneau de navigation mobile (navPanel) */
-[data-theme="dark"] #navPanel {
-    background: var(--header-nav-bg) !important;
-    color: var(--header-nav-text) !important;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3) !important;
-}
-
-[data-theme="dark"] #navPanel .links li {
-    border-top-color: var(--border-color) !important;
-}
-
-[data-theme="dark"] #navPanel .links li a {
-    color: var(--header-nav-text) !important;
-}
-
-[data-theme="dark"] #navPanel .links li a:hover {
-    color: var(--header-nav-hover) !important;
-}
-
-[data-theme="dark"] #navPanel .links li.active {
-    background-color: var(--header-nav-active-bg) !important;
-}
-
-[data-theme="dark"] #navPanel .links li.active a {
-    color: var(--header-nav-active-text) !important;
-}
-
-[data-theme="dark"] #navPanel .close {
-    color: var(--header-nav-text) !important;
-}
-
-[data-theme="dark"] #navPanel .close:hover {
-    color: var(--header-nav-hover) !important;
-}
-
-/* Bouton toggle panneau de navigation mobile (navPanelToggle) */
-[data-theme="dark"] #navPanelToggle {
-    color: var(--header-nav-text) !important;
-}
-
-[data-theme="dark"] #navPanelToggle.alt {
-    background-color: var(--header-nav-bg) !important;
-    color: var(--header-nav-text) !important;
-    box-shadow: 0 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.4) !important;
-}
-
-[data-theme="dark"] #navPanelToggle.alt:hover {
-    background-color: var(--bg-card) !important;
-    color: var(--header-nav-hover) !important;
-}
+/* Le style du navPanel et du bouton hamburger est centralisé dans main.css
+   pour garder un rendu identique sur toutes les pages. */
 
 [data-theme="dark"] #footer {
     color: var(--footer-color) !important;

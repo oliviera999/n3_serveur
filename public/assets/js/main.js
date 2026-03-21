@@ -163,10 +163,13 @@
 				visibleClass: 'is-navPanel-visible'
 			});
 
-		$body.on('click', '#navPanelToggle', function() {
-			$navPanelToggle.attr('aria-expanded',
-				$body.hasClass('is-navPanel-visible') ? 'false' : 'true'
-			);
+		$body.on('click touchend', '#navPanelToggle', function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+
+			var isVisible = $body.hasClass('is-navPanel-visible');
+			$body.toggleClass('is-navPanel-visible');
+			$navPanelToggle.attr('aria-expanded', isVisible ? 'false' : 'true');
 		});
 		$navPanel.find('.close').on('click', function() {
 			$navPanelToggle.attr('aria-expanded', 'false');
