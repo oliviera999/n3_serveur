@@ -11,6 +11,20 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.231] - 2026-03-21
+
+### Modifie - homogeneisation navigation (desktop, mobile, dark mode, a11y)
+- **Resume** : regroupement des surcharges dark mode header/`#nav` depuis `realtime-styles.css` vers `main.css` (tokens `theme-variables.css`). Bordures et zone theme du panneau mobile alignees sur les variables. Menu sandwich : `MutationObserver` pour synchroniser `aria-expanded` / `aria-label` sur toute fermeture (clic hors panneau, Échap, swipe, lien), focus sur le premier lien utile a l’ouverture ; `nav` mobile identifiable (`#navPanelNav`). `page-nav-toggles.js` cible aussi la liste deplacée dans le panneau (correctif mobile). Documentation : `README.md`.
+
+---
+
+## [5.0.230] - 2026-03-21
+
+### Correctif - icone en double (analyses manuelles eleves, aquaponie)
+- **Resume** : le bandeau d'information « Analyses manuelles realisees par les eleves » affichait deux icones (toque + groupe). Conservation de la seule icone du bandeau (`fa-graduation-cap`), suppression de `fa-users` dans le titre (`aquaponie.twig`, `aquaponie_alt.twig`).
+
+---
+
 ## [5.0.229] - 2026-03-21
 
 ### Modifie - taille des titres pages donnees alignee sur l'accueil

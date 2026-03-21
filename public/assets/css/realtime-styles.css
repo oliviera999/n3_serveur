@@ -1412,51 +1412,7 @@ body.is-preload #wrapper.fade-in::before {
     border-top-color: var(--border-color) !important;
 }
 
-[data-theme="dark"] #header,
-[data-theme="dark"] #nav {
-    color: var(--header-nav-text);
-}
-[data-theme="dark"] #header {
-    /* Transparent : photo visible via #page-bg, comme en mode clair */
-    background: transparent !important;
-    background-image: none !important;
-}
-[data-theme="dark"] #nav {
-    /* Barre opaque pour le menu uniquement */
-    background: var(--header-nav-bg) !important;
-    background-image: none !important;
-    border-bottom: 1px solid var(--accent-border);
-}
-
-[data-theme="dark"] #header a,
-[data-theme="dark"] #nav a {
-    color: var(--header-nav-text) !important;
-}
-
-[data-theme="dark"] #header a:hover,
-[data-theme="dark"] #nav a:hover {
-    color: var(--header-nav-hover) !important;
-}
-
-[data-theme="dark"] #nav ul.links li.active {
-    background-color: var(--header-nav-active-bg) !important;
-}
-
-[data-theme="dark"] #nav ul.links li.active a {
-    color: var(--header-nav-active-text) !important;
-}
-
-[data-theme="dark"] #header .logo {
-    border-color: var(--header-nav-text) !important;
-}
-
-[data-theme="dark"] #header .logo:hover {
-    border-color: var(--header-nav-hover) !important;
-    color: var(--header-nav-hover) !important;
-}
-
-/* Le style du navPanel et du bouton hamburger est centralisé dans main.css
-   pour garder un rendu identique sur toutes les pages. */
+/* Header, #nav et #navPanel (dark) : centralisés dans main.css (tokens theme-variables). */
 
 [data-theme="dark"] #footer {
     color: var(--footer-color) !important;

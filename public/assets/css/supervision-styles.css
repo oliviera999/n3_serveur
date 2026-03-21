@@ -317,7 +317,7 @@
 }
 
 /* ---- Éléments dynamiques dans la nav ---- */
-/* Les <li class="nav-dyn-item"> héritent des styles existants de #nav ul.links li */
+/* Les <li class="nav-dyn-item"> héritent des styles de #nav / #navPanel .links (voir main.css) */
 
 .supervision-back-link-wrap { margin-top: 10px; }
 

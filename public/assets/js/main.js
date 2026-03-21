@@ -145,7 +145,7 @@
 		// Panel.
 		$navPanel = $(
 			'<div id="navPanel" aria-label="Menu de navigation">' +
-				'<nav aria-label="Navigation mobile">' +
+				'<nav id="navPanelNav" aria-label="Navigation mobile">' +
 				'</nav>' +
 				'<button type="button" class="close" aria-label="Fermer le menu"></button>' +
 			'</div>'
@@ -163,24 +163,49 @@
 				visibleClass: 'is-navPanel-visible'
 			});
 
+			// Get inner.
+				$navPanelInner = $navPanel.children('nav');
+
+		// ARIA du bouton sandwich : synchro sur toute fermeture (overlay, Esc, swipe, lien).
+			function syncNavPanelToggleAria() {
+				var open = $body.hasClass('is-navPanel-visible');
+				$navPanelToggle.attr('aria-expanded', open ? 'true' : 'false');
+				$navPanelToggle.attr('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+			}
+
+			if (typeof MutationObserver !== 'undefined') {
+				new MutationObserver(syncNavPanelToggleAria).observe($body[0], {
+					attributes: true,
+					attributeFilter: ['class']
+				});
+			}
+			syncNavPanelToggleAria();
+
 		$body.on('click touchend', '#navPanelToggle', function(event) {
 			event.preventDefault();
 			event.stopPropagation();
 
-			var isVisible = $body.hasClass('is-navPanel-visible');
+			var wasOpen = $body.hasClass('is-navPanel-visible');
 			$body.toggleClass('is-navPanel-visible');
-			$navPanelToggle.attr('aria-expanded', isVisible ? 'false' : 'true');
+
+			if ($body.hasClass('is-navPanel-visible') && !wasOpen) {
+				window.requestAnimationFrame(function() {
+					var $first = $navPanelInner.find('ul.links > li:not(.nav-theme-toggle) > a').filter(function() {
+						var h = $(this).attr('href');
+						return h && h !== '#' && h.charAt(0) !== '#';
+					}).first();
+					if ($first.length) {
+						$first.trigger('focus');
+					}
+				});
+			}
 		});
 		$navPanel.find('.close').on('click touchend', function(event) {
 			event.preventDefault();
 			event.stopPropagation();
 			$body.removeClass('is-navPanel-visible');
-			$navPanelToggle.attr('aria-expanded', 'false');
-			$navPanelToggle.focus();
+			$navPanelToggle.trigger('focus');
 		});
-
-			// Get inner.
-				$navPanelInner = $navPanel.children('nav');
 
 			// Move nav content on breakpoint change.
 				var $navContent = $nav.children();

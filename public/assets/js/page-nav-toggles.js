@@ -24,10 +24,17 @@
     }
 
     /**
+     * Cible la liste de liens (desktop #nav ou mobile après déplacement dans #navPanelNav).
+     */
+    function getNavLinksUl() {
+        return document.querySelector('#nav ul.links') || document.querySelector('#navPanelNav ul.links');
+    }
+
+    /**
      * Injecte les <li> dynamiques dans la barre de nav, avant le bouton thème.
      */
     function renderNavItems() {
-        var nav = document.querySelector('#nav ul.links');
+        var nav = getNavLinksUl();
         if (!nav) return;
 
         // Supprimer les items dynamiques existants

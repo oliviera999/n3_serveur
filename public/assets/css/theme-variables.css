@@ -231,8 +231,8 @@
 #navPanel .nav-theme-toggle {
     margin: 0;
     padding: 0.75rem 0;
-    border-top: solid 2px #eeeeee;
-    background: #ffffff;
+    border-top: solid 2px var(--border-color, #eeeeee);
+    background: var(--bg-card, #ffffff);
 }
 @media (max-width: 736px) {
     #navPanel .nav-theme-toggle {
@@ -243,7 +243,7 @@
 #navPanel .theme-toggle-btn {
     background: transparent;
     border: none;
-    color: #212931;
+    color: var(--text-primary, #212931);
     font-family: "Raleway", Helvetica, sans-serif;
     font-size: 0.9rem;
     font-weight: 900;
@@ -257,7 +257,7 @@
 #navPanel .theme-toggle-btn:focus,
 #navPanel .theme-toggle-btn:active {
     background: rgba(0, 0, 0, 0.05);
-    color: #212931 !important;
+    color: var(--text-primary, #212931) !important;
     box-shadow: none;
 }
 
