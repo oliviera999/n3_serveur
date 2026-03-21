@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.227] - 2026-03-21
+
+### Modifie - orange titres et badges LIVE (reference supervision)
+- **Resume** : harmonisation sur l’orange supervision (`#FF6300` / `--accent-secondary` en clair, `fb923c` en sombre) pour les titres hero des pages donnees, le badge LIVE flottant (`#live-badge` en ligne), les pastilles mode LIVE (`mode-badge-live`) et les titres de section de la page supervision. Les titres de section supervision en clair utilisent explicitement la meme teinte que `header.major` au lieu du vert `#008B74`.
+
+---
+
 ## [5.0.226] - 2026-03-21
 
 ### Correctif - double filet sous la synthese des mesures (pages donnees)

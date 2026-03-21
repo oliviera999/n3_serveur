@@ -52,8 +52,8 @@
     padding-bottom: 10px;
     border-bottom: 3px solid #008B74;
 }
-.section-header h2 { margin: 0; color: #008B74; font-size: 2em; }
-.section-header i { font-size: 2em; color: #008B74; }
+.section-header h2 { margin: 0; color: #FF6300; font-size: 2em; }
+.section-header i { font-size: 2em; color: #FF6300; }
 
 .links-grid {
     display: grid;
@@ -176,7 +176,7 @@
 
 [data-theme="dark"] .section-header { border-bottom-color: var(--accent-primary); }
 [data-theme="dark"] .section-header h2,
-[data-theme="dark"] .section-header i { color: var(--accent-primary); }
+[data-theme="dark"] .section-header i { color: var(--accent-secondary, #fb923c); }
 
 [data-theme="dark"] .link-card {
     background: var(--bg-card);

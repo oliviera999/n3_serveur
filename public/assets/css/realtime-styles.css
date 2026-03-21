@@ -64,14 +64,14 @@ input[type="radio"] + label {
     font-family: 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
 }
 
-/* Mode clair : titres hero, principaux et sections restent orange (surcharge main.css h1..h6 #212931) */
+/* Mode clair : orange supervision (#FF6300 = --accent-secondary), surcharge main.css h1..h6 #212931 */
 html:not([data-theme="dark"]) body header.major h1,
 html:not([data-theme="dark"]) body header.major h2,
 html:not([data-theme="dark"]) body .section-header h2,
 html:not([data-theme="dark"]) body .section-header h3,
 html:not([data-theme="dark"]) body .filter-header h3,
 html:not([data-theme="dark"]) body .system-health-panel h3 {
-    color: #FF6300 !important;
+    color: var(--accent-secondary, #FF6300) !important;
 }
 
 /* Hero des pages données */
@@ -120,11 +120,11 @@ html:not([data-theme="dark"]) body .system-health-panel h3 {
 }
 
 html:not([data-theme="dark"]) body .hero-data .hero-data-title {
-    color: #f39c12 !important;
+    color: var(--accent-secondary, #FF6300) !important;
 }
 
 [data-theme="dark"] .hero-data .hero-data-title {
-    color: var(--accent-primary) !important;
+    color: var(--accent-secondary, #fb923c) !important;
 }
 
 /* =================================================================
@@ -388,6 +388,16 @@ body.is-preload #wrapper.fade-in::before {
 .badge-success {
     background: #27ae60;
     color: white;
+}
+
+/* Badge LIVE flottant : même orange que les titres supervision (pas le vert générique badge-success) */
+#live-badge.badge-success {
+    background: var(--accent-secondary, #FF6300);
+    color: #ffffff;
+}
+[data-theme="dark"] #live-badge.badge-success {
+    background: var(--accent-secondary, #fb923c);
+    color: var(--text-inverse, #0f172a);
 }
 
 .badge-warning {

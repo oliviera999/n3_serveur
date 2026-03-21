@@ -179,7 +179,7 @@
     letter-spacing: 0.04em;
 }
 .mode-badge-historical { background: rgba(0, 139, 116, 0.12); color: #008B74; }
-.mode-badge-live { background: rgba(39, 189, 160, 0.2); color: #007E61; }
+.mode-badge-live { background: rgba(255, 99, 0, 0.14); color: #FF6300; }
 
 /* Filtre personnalisé (formulaire) */
 .custom-filter { margin-top: 1rem; }
@@ -255,8 +255,8 @@
     color: var(--accent-primary);
 }
 [data-theme="dark"] .mode-badge-live {
-    background: rgba(94, 234, 212, 0.2);
-    color: #5eead4;
+    background: rgba(251, 146, 60, 0.22);
+    color: var(--accent-secondary, #fb923c);
 }
 
 [data-theme="dark"] .stat-card.aquarium { border-left-color: var(--accent-secondary); }
