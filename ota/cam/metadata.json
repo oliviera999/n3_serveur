@@ -1,9 +1,9 @@
 {
   "msp1": {
-    "version": "2.18",
+    "version": "2.19",
     "min_version": "2.10",
     "url": "https://iot.olution.info/ota/cam/msp1/firmware.bin",
-    "sha256": "61dc9b5cd46bf67ab17850c4bcde1dd123fa1746b30b86b867d79d186f471fdb"
+    "sha256": "9ad5b84b1e584acd8f000f3b966c68c639e7b4da581eaf9b9a4ae6714f98efdc"
   },
   "n3pp": {
     "version": "2.10",

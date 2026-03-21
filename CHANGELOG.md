@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.240] - 2026-03-21
+
+### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.19, verification a chaque boot)
+- **Resume** : publication OTA de la cible `msp1` du firmware `uploadphotosserver` en version `2.19` (cadence OTA firmware ajustee a chaque boot via `OTA_CHECK_EVERY_N_BOOTS=1`, binaire OTA regenere, metadata msp1 et `sha256` mis a jour).
+
+---
+
 ## [5.0.239] - 2026-03-21
 
 ### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.18)
