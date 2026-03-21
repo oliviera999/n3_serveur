@@ -171,7 +171,10 @@
 			$body.toggleClass('is-navPanel-visible');
 			$navPanelToggle.attr('aria-expanded', isVisible ? 'false' : 'true');
 		});
-		$navPanel.find('.close').on('click', function() {
+		$navPanel.find('.close').on('click touchend', function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			$body.removeClass('is-navPanel-visible');
 			$navPanelToggle.attr('aria-expanded', 'false');
 			$navPanelToggle.focus();
 		});

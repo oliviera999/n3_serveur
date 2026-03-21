@@ -4655,6 +4655,8 @@ background-color: rgba(255, 255, 255, 0.16);
  border: 0;
  color: #909498;
  cursor: pointer;
+ background: transparent !important;
+ box-shadow: none !important;
  display: block;
  height: 3.25rem;
  line-height: 3.25rem;
@@ -4665,6 +4667,9 @@ background-color: rgba(255, 255, 255, 0.16);
  top: 0;
  vertical-align: middle;
  width: 7rem;
+ border-radius: 0;
+ -webkit-appearance: none;
+ appearance: none;
  }
 
  #navPanel .close:before {
@@ -4687,6 +4692,8 @@ background-color: rgba(255, 255, 255, 0.16);
 
  #navPanel .close:hover {
  color: #212931;
+ background: transparent !important;
+ box-shadow: none !important;
  }
 
  @media screen and (max-width: 736px) {
