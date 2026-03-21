@@ -11,6 +11,41 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.226] - 2026-03-21
+
+### Correctif - double filet sous la synthese des mesures (pages donnees)
+- **Resume** : suppression du `<hr />` en fin de bloc hero (`_hero_data.twig`) qui doublonnait avec le filet de la premiere section (`.section-header`). Un seul separateur visuel reste sous la ligne de synthese.
+
+---
+
+## [5.0.225] - 2026-03-20
+
+### Correctif - affichage Highcharts mobile (graphiques tasses / blancs avant timeline)
+- **Resume** : adaptation responsive des graphiques Stock MSP1/N3PP avec hauteurs dynamiques selon la largeur ecran, reduction des espacements et du navigator/scrollbar en mobile, puis recalcul des tailles au `resize`/`orientationchange`. Ajout d'un filet CSS mobile pour limiter les `min-height` trop eleves des conteneurs, afin d'eviter les zones blanches excessives sous les courbes.
+
+---
+
+## [5.0.224] - 2026-03-20
+
+### Correctif - debordements residuels dans "Filtrage des donnees" et "Etat du systeme" (mobile)
+- **Resume** : durcissement final des blocs internes pour mobile avec `box-sizing: border-box`, retours a la ligne forces sur titres/valeurs/stats, et contraintes `max-width: 100%` sur controles live, selecteurs et boutons. Correction des cas ou certains elements depassaient encore visuellement de leur carte.
+
+---
+
+## [5.0.223] - 2026-03-20
+
+### Correctif - titres des pages donnees adaptes au mobile
+- **Resume** : ajustement du hero des pages donnees (`.hero-data-title`) avec une taille fluide (`clamp`) et des retours a la ligne controles pour eviter les titres trop gros/coupes sur mobile (cas observe sur aquaponie). Les icones du titre sont harmonisees et les textes de sous-titre/synthese sont proteges contre les debordements.
+
+---
+
+## [5.0.222] - 2026-03-20
+
+### Correctif - bouton hamburger mobile uniforme (icone blanche, sans texte, centree)
+- **Resume** : suppression du texte "Menu" dans `#navPanelToggle`, forçage de l'icone blanche en permanence (etat normal, `alt`, hover et mode sombre), et centrage vertical/horizontal strict de l'icone dans une zone tactile fixe 44x44 pour un rendu stable sur toutes les pages mobiles.
+
+---
+
 ## [5.0.221] - 2026-03-20
 
 ### Correctif - suppression des debordements a droite sur mobile (filtrage + etat systeme)
