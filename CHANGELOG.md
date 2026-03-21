@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.234] - 2026-03-21
+
+### Modifie - accueil : exposant n³ dans le titre hero
+- **Resume** : le h1 du hero utilise `n<sup>3</sup>` comme sur le reste du site (sous-titre, liens).
+
+---
+
 ## [5.0.233] - 2026-03-21
 
 ### Modifie - accueil : suppression du section-header duplique « Internet des objets »
