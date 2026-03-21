@@ -11,6 +11,20 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.229] - 2026-03-21
+
+### Modifie - taille des titres pages donnees alignee sur l'accueil
+- **Resume** : augmentation de la taille du titre hero des pages donnees (`.hero-data-title`) pour l'aligner visuellement avec la page d'accueil, tout en conservant une taille fluide responsive (`clamp`) et des retours a la ligne pour eviter tout debordement sur mobile.
+
+---
+
+## [5.0.228] - 2026-03-21
+
+### Modifie - titre accueil remplace et passe en orange
+- **Resume** : sur la page d'accueil, le titre principal `N3 IoT Datas` est remplace par `L'internet des objets a n3` et stylise en orange (`#FF6300`) pour correspondre a la charte visuelle demandee.
+
+---
+
 ## [5.0.227] - 2026-03-21
 
 ### Modifie - orange titres et badges LIVE (reference supervision)

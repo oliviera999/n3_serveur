@@ -114,6 +114,11 @@
 
 .home-hero-title {
     margin-bottom: 20px;
+    color: #ff6300;
+}
+
+.home-hero-title i {
+    color: #ff6300;
 }
 
 .home-intro-block {
