@@ -90,7 +90,10 @@
 					target: $this,
 
 				// Class to toggle.
-					visibleClass: 'visible'
+					visibleClass: 'visible',
+
+				// Callback après fermeture (overlay, Esc, swipe, lien, etc.).
+					onHide: null
 
 			}, userConfig);
 
@@ -117,6 +120,15 @@
 
 					// Hide.
 						config.target.removeClass(config.visibleClass);
+
+					// Callback post-fermeture (focus menu, analytics, etc.).
+						if (typeof config.onHide === 'function') {
+							window.setTimeout(function() {
+								try {
+									config.onHide.call($this);
+								} catch (err) {}
+							}, 0);
+						}
 
 					// Post-hide stuff.
 						window.setTimeout(function() {
@@ -260,7 +272,7 @@
 					event.preventDefault();
 					event.stopPropagation();
 
-					config.target.removeClass(config.visibleClass);
+					$this._hide(event);
 
 				});
 

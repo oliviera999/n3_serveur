@@ -159,9 +159,23 @@
         }
     }
 
+    var resizeTimer = null;
+
+    function scheduleRenderNavItems() {
+        if (resizeTimer !== null) {
+            window.clearTimeout(resizeTimer);
+        }
+        resizeTimer = window.setTimeout(function () {
+            resizeTimer = null;
+            renderNavItems();
+        }, 150);
+    }
+
     onReady(function () {
         blockToggleNavigation();
         renderNavItems();
         initToggles();
+        window.addEventListener('resize', scheduleRenderNavItems);
+        window.addEventListener('orientationchange', scheduleRenderNavItems);
     });
 })();

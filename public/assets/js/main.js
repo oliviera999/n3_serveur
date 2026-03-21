@@ -173,13 +173,63 @@
 				$navPanelToggle.attr('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
 			}
 
+			var navPanelWasOpen = $body.hasClass('is-navPanel-visible');
+
+			function onBodyClassForNavPanel() {
+				var open = $body.hasClass('is-navPanel-visible');
+				syncNavPanelToggleAria();
+				if (navPanelWasOpen && !open) {
+					window.requestAnimationFrame(function() {
+						$navPanelToggle.trigger('focus');
+					});
+				}
+				navPanelWasOpen = open;
+			}
+
 			if (typeof MutationObserver !== 'undefined') {
-				new MutationObserver(syncNavPanelToggleAria).observe($body[0], {
+				new MutationObserver(onBodyClassForNavPanel).observe($body[0], {
 					attributes: true,
 					attributeFilter: ['class']
 				});
 			}
 			syncNavPanelToggleAria();
+			navPanelWasOpen = $body.hasClass('is-navPanel-visible');
+
+		// Piège à focus Tab dans le panneau (même comportement smartphone / laptop zoomé).
+			$(document).on('keydown.n3NavPanelTrap', function(event) {
+				if (!$body.hasClass('is-navPanel-visible'))
+					return;
+
+				var key = event.key || '';
+				if (key !== 'Tab' && event.keyCode !== 9)
+					return;
+
+				var $items = $navPanel.find('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])')
+					.filter(':visible')
+					.filter(function() {
+						return !this.disabled;
+					});
+
+				if ($items.length === 0)
+					return;
+
+				var firstEl = $items.first()[0];
+				var lastEl = $items.last()[0];
+				var active = document.activeElement;
+				var inside = $navPanel.has(active).length > 0;
+
+				if (event.shiftKey) {
+					if (active === firstEl || !inside) {
+						event.preventDefault();
+						lastEl.focus();
+					}
+				} else {
+					if (active === lastEl || !inside) {
+						event.preventDefault();
+						firstEl.focus();
+					}
+				}
+			});
 
 		$body.on('click touchend', '#navPanelToggle', function(event) {
 			event.preventDefault();
@@ -204,13 +254,15 @@
 			event.preventDefault();
 			event.stopPropagation();
 			$body.removeClass('is-navPanel-visible');
-			$navPanelToggle.trigger('focus');
 		});
 
 			// Move nav content on breakpoint change.
 				var $navContent = $nav.children();
 
 				breakpoints.on('>medium', function() {
+
+					// Fermer le panneau mobile si on repasse en barre desktop (évite état incohérent).
+						$body.removeClass('is-navPanel-visible');
 
 					// NavPanel -> Nav.
 						$navContent.appendTo($nav);

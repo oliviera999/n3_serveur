@@ -378,7 +378,7 @@ body.is-preload #wrapper.fade-in::before {
 @media screen and (max-width: 980px) {
     #live-badge {
         top: 12px;
-        right: 100px;
+        right: var(--nav-sandwich-clearance, calc(0.75rem + 44px + 12px));
     }
 }
 
@@ -933,7 +933,7 @@ body.is-preload #wrapper.fade-in::before {
     
     #live-badge {
         top: 10px;
-        right: 95px; /* à gauche du bouton Menu */
+        right: var(--nav-sandwich-clearance, calc(0.75rem + 44px + 12px));
         font-size: 10px;
         padding: 6px 12px;
     }

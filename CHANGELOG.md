@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.235] - 2026-03-21
+
+### Modifie - menu sandwich unifie smartphone / laptop zoom (a11y + resize)
+- **Resume** : retour du focus sur le bouton menu apres toute fermeture (overlay, lien, Esc, swipe, bouton fermer) via suivi de `is-navPanel-visible` ; piège à focus Tab dans `#navPanel` ; fermeture automatique du panneau au passage en vue desktop ; `util.js` appelle `_hide` pour les liens `#navPanel` et expose un hook optionnel `onHide`. `page-nav-toggles.js` re-injecte les liens dynamiques après resize/orientation. Variable `--nav-sandwich-clearance` pour aligner le badge LIVE sur la zone du bouton menu.
+
+---
+
 ## [5.0.234] - 2026-03-21
 
 ### Modifie - accueil : exposant n³ dans le titre hero

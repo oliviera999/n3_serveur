@@ -31,6 +31,9 @@
     --header-nav-active-bg: #ffffff;
     --header-nav-active-text: #1e252d;
     --header-nav-hover: #00B794;
+
+    /* Décalage des éléments fixes (badge LIVE, etc.) pour ne pas chevaucher le bouton menu */
+    --nav-sandwich-clearance: calc(0.75rem + 44px + 12px);
     
     /* Bordures */
     --border-color: #e0e0e0;
