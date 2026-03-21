@@ -210,8 +210,8 @@
 
 /* ----- CHART STOCK WRAPPER ----- */
 .chart-stock-wrapper {
-    min-height: 350px;
-    margin-bottom: 1.5rem;
+    min-height: 280px;
+    margin-bottom: 1rem;
 }
 /* Vue alt : le chart remplit la colonne grâce à la hauteur calculée en JS, pas de min-height imposée */
 .alt-chart-column .chart-stock-wrapper {

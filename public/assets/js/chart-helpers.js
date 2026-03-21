@@ -1,5 +1,5 @@
 /**
- * Helpers pour les graphiques Highcharts (MSP1, N3PP).
+ * Helpers pour les graphiques Highcharts (MSP1, N3PP, aquaponie).
  * Fournit zipSeries pour associer timestamps et valeurs en séries [x, y].
  */
 (function () {

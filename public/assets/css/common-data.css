@@ -1084,6 +1084,11 @@ button.quick-filter-btn.active {
     #chart-cycles {
         min-height: 270px !important;
     }
+    /* Aquaponie (FFP3) : évite le vide vertical entre courbes et timeline */
+    #chart-stock-area-eau-D,
+    #chart-stock-area-temp-D {
+        min-height: 300px !important;
+    }
 }
 
 /* ----- DARK MODE ----- */

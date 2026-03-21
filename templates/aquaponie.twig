@@ -14,6 +14,9 @@
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
         <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
+        <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
+        <script src="{{ base_path }}/assets/js/aquaponie-chart-layout.js"></script>
 {% endblock %}
 
 {% block head_css %}
@@ -686,28 +689,12 @@
                         // Configuration globale Highcharts : utilise Africa/Casablanca
                         // Les timestamps PHP sont créés avec Europe/Paris mais l'heure RÉELLE est à Casablanca
                         // Afficher en Casablanca pour voir l'heure locale réelle du projet
-                        Highcharts.setOptions({
-                            time: {
-                                timezone: 'Africa/Casablanca'
-                            },
-                            xAxis: {
-                                ordinal: false
-                            },
-                            plotOptions: {
-                                series: {
-                                    dataGrouping: {
-                                        enabled: false
-                                    }
-                                }
-                            },
-                            legend: {
-                                enabled: true,
-                                floating: false,
-                                accessibility: { enabled: false },
-                                itemDistance: 12,
-                                margin: 8
-                            }
-                        });
+                        /* time / dataGrouping / légende : highcharts-defaults.js ; axe X non ordinal pour le stock */
+                        if (typeof Highcharts !== 'undefined') {
+                            Highcharts.setOptions({
+                                xAxis: { ordinal: false }
+                            });
+                        }
 
                         // Tableaux PHP ➜ Twig ➜ JavaScript (données Highcharts)
                         var EauAquarium = {{ EauAquarium|raw }};
@@ -784,7 +771,7 @@
                         // Le serveur stocke en Europe/Paris, mais on affiche en Africa/Casablanca
                         // (heure locale réelle du projet physique au Maroc)
                         moment.tz.setDefault('Africa/Casablanca');
-                        // Note : Highcharts timezone déjà configuré dans highcharts-defaults.js
+                        // Note : timezone / dataGrouping via highcharts-defaults.js (chargé dans head_scripts)
 
                         // ==============================================
                         // Fonctions de calcul des lignes de tendance
@@ -847,25 +834,10 @@
                         // Fonction de redimensionnement responsive
                         // ==============================================
                         
-                        // Fonction pour obtenir la hauteur appropriée selon la taille d'écran
-                        function getChartHeight(chartType) {
-                            var width = window.innerWidth || document.documentElement.clientWidth || 1024;
-                            if (chartType === 'eau') {
-                                if (width < 480) return 440;
-                                if (width < 768) return 520;
-                                if (width < 1024) return 580;
-                                return 680;
-                            } else { // temp
-                                if (width < 480) return 500;
-                                if (width < 768) return 620;
-                                if (width < 1024) return 680;
-                                return 780;
-                            }
-                        }
-                        
                         function handleChartResize() {
-                            if (window.chartEau) window.chartEau.setSize(null, getChartHeight('eau'), false);
-                            if (window.chartTemp) window.chartTemp.setSize(null, getChartHeight('temp'), false);
+                            if (typeof n3AquaponieCharts === 'undefined') return;
+                            if (window.chartEau) window.chartEau.setSize(null, n3AquaponieCharts.chartHeight('eau'), false);
+                            if (window.chartTemp) window.chartTemp.setSize(null, n3AquaponieCharts.chartHeight('temp'), false);
                         }
                         
                         // Écouter les changements de taille d'écran
@@ -903,8 +875,10 @@
                             // Sur mobile, forcer dimensions explicites sur les conteneurs
                             if (isMobile) {
                                 var fallbackWidth = Math.max(280, (window.innerWidth || document.documentElement.clientWidth || 360) - 40);
-                                containerEau.style.minHeight = '350px';
-                                containerTemp.style.minHeight = '400px';
+                                if (typeof n3AquaponieCharts !== 'undefined') {
+                                    containerEau.style.minHeight = n3AquaponieCharts.chartHeight('eau') + 'px';
+                                    containerTemp.style.minHeight = n3AquaponieCharts.chartHeight('temp') + 'px';
+                                }
                                 if (containerEau.offsetWidth < 100) {
                                     containerEau.style.width = fallbackWidth + 'px';
                                     containerTemp.style.width = fallbackWidth + 'px';
@@ -939,120 +913,14 @@
                             // - Tester sur différents appareils avant de déployer
                             // - Vérifier que les types de séries (areaspline, line) sont préservés
                             
+                            var aqEau = n3AquaponieCharts.baseOptions('eau');
+                            var aqTemp = n3AquaponieCharts.baseOptions('temp');
+
                             // 1. Stock Chart Niveaux d'eau avec aires
                             window.chartEau = Highcharts.stockChart('chart-stock-area-eau-D', {
-                                chart: { 
-                                    height: getChartHeight('eau'),
-                                    spacingTop: 20,
-                                    spacingRight: 20,
-                                    spacingBottom: 20,
-                                    spacingLeft: 20
-                                },
-                                responsive: {
-                                    rules: [{
-                                        condition: {
-                                            maxWidth: 480
-                                        },
-                                        chartOptions: {
-                                            chart: {
-                                                height: 400,
-                                                spacingTop: 10,
-                                                spacingRight: 10,
-                                                spacingBottom: 10,
-                                                spacingLeft: 10
-                                            },
-                                            rangeSelector: {
-                                                enabled: false
-                                            },
-                                            legend: {
-                                                enabled: true,
-                                                align: 'center',
-                                                verticalAlign: 'bottom',
-                                                layout: 'horizontal',
-                                                itemStyle: {
-                                                    fontSize: '10px'
-                                                },
-                                                symbolHeight: 8,
-                                                symbolWidth: 8,
-                                                symbolRadius: 2
-                                            },
-                                            navigator: {
-                                                enabled: true,
-                                                height: 22
-                                            },
-                                            scrollbar: {
-                                                enabled: true,
-                                                barBackgroundColor: '#ccc',
-                                                barBorderRadius: 7,
-                                                barBorderWidth: 0,
-                                                buttonBackgroundColor: '#ccc',
-                                                buttonBorderWidth: 0,
-                                                buttonBorderRadius: 7,
-                                                trackBackgroundColor: 'none',
-                                                trackBorderWidth: 1,
-                                                trackBorderRadius: 8,
-                                                trackBorderColor: '#CCC'
-                                            }
-                                        }
-                                    }, {
-                                        condition: {
-                                            minWidth: 481,
-                                            maxWidth: 768
-                                        },
-                                        chartOptions: {
-                                            chart: {
-                                                height: 520,
-                                                spacingTop: 15,
-                                                spacingRight: 15,
-                                                spacingBottom: 15,
-                                                spacingLeft: 15
-                                            },
-                                            rangeSelector: {
-                                                enabled: false
-                                            },
-                                            legend: {
-                                                enabled: true,
-                                                align: 'center',
-                                                verticalAlign: 'bottom',
-                                                layout: 'horizontal',
-                                                itemStyle: {
-                                                    fontSize: '11px'
-                                                },
-                                                symbolHeight: 10,
-                                                symbolWidth: 10,
-                                                symbolRadius: 3
-                                            },
-                                            navigator: {
-                                                enabled: true,
-                                                height: 30
-                                            }
-                                        }
-                                    }, {
-                                        condition: {
-                                            minWidth: 769,
-                                            maxWidth: 1024
-                                        },
-                                        chartOptions: {
-                                            chart: {
-                                                height: 580
-                                            },
-                                            rangeSelector: {
-                                                enabled: false
-                                            },
-                                            legend: {
-                                                itemStyle: {
-                                                    fontSize: '12px'
-                                                },
-                                                symbolHeight: 12,
-                                                symbolWidth: 12,
-                                                symbolRadius: 4
-                                            },
-                                            navigator: {
-                                                height: 35
-                                            }
-                                        }
-                                    }]
-                                },
+                                chart: Object.assign({}, aqEau.chart, {
+                                    height: n3AquaponieCharts.chartHeight('eau')
+                                }),
                                 rangeSelector: {
                                     enabled: false
                                 },
@@ -1135,21 +1003,7 @@
                                         dataGrouping: { enabled: false }  // Désactiver le regroupement pour les scatter (pompes, etc.)
                                     }
                                 },
-                                legend: {
-                                    enabled: true,
-                                    accessibility: { enabled: false },
-                                    align: 'center',
-                                    verticalAlign: 'bottom',
-                                    layout: 'horizontal',
-                                    itemStyle: {
-                                        fontSize: '11px'
-                                    },
-                                    maxHeight: 120,
-                                    navigation: {
-                                        activeColor: '#3E6F7A',
-                                        inactiveColor: '#CCC'
-                                    }
-                                },
+                                legend: aqEau.legend,
                                 series: [
                                     { 
                                         name: 'Eau réserve', 
@@ -1300,202 +1154,16 @@
                                         tooltip: { valueSuffix: ' cm' }
                                     }
                                 ],
-                                navigator: { 
-                                    enabled: true,
-                                    height: 35,
-                                    xAxis: {
-                                        ordinal: false  // Forcer l'espacement proportionnel dans le navigator aussi
-                                    }
-                                },
-                                scrollbar: { enabled: true },
+                                navigator: aqEau.navigator,
+                                scrollbar: aqEau.scrollbar,
                                 credits: { enabled: false }
                             });
                             
                             // 2. Stock Chart Paramètres physiques avec aires
                             window.chartTemp = Highcharts.stockChart('chart-stock-area-temp-D', {
-                                chart: { 
-                                    height: getChartHeight('temp'),
-                                    spacingTop: 20,
-                                    spacingRight: 20,
-                                    spacingBottom: 20,
-                                    spacingLeft: 20
-                                },
-                                responsive: {
-                                    rules: [{
-                                        condition: {
-                                            maxWidth: 480
-                                        },
-                                        chartOptions: {
-                                            chart: {
-                                                height: 500,
-                                                spacingTop: 10,
-                                                spacingRight: 10,
-                                                spacingBottom: 10,
-                                                spacingLeft: 10
-                                            },
-                                            rangeSelector: {
-                                                enabled: false
-                                            },
-                                            legend: {
-                                                enabled: true,
-                                                align: 'center',
-                                                verticalAlign: 'bottom',
-                                                layout: 'horizontal',
-                                                itemStyle: {
-                                                    fontSize: '10px'
-                                                },
-                                                symbolHeight: 8,
-                                                symbolWidth: 8,
-                                                symbolRadius: 2
-                                            },
-                                            navigator: {
-                                                enabled: true,
-                                                height: 22
-                                            },
-                                            scrollbar: {
-                                                enabled: true,
-                                                barBackgroundColor: '#ccc',
-                                                barBorderRadius: 7,
-                                                barBorderWidth: 0,
-                                                buttonBackgroundColor: '#ccc',
-                                                buttonBorderWidth: 0,
-                                                buttonBorderRadius: 7,
-                                                trackBackgroundColor: 'none',
-                                                trackBorderWidth: 1,
-                                                trackBorderRadius: 8,
-                                                trackBorderColor: '#CCC'
-                                            },
-                                            yAxis: [{
-                                                labels: { 
-                                                    format: '{value}°C',
-                                                    style: { fontSize: '10px' }
-                                                },
-                                                title: { 
-                                                    text: 'Températures (°C)',
-                                                    style: { fontSize: '11px' }
-                                                },
-                                                height: '25%',
-                                                lineWidth: 2,
-                                                min: null,
-                                                max: null
-                                            }, {
-                                                labels: { 
-                                                    format: '{value}%',
-                                                    style: { fontSize: '10px' }
-                                                },
-                                                title: { 
-                                                    text: 'Humidité (%)',
-                                                    style: { fontSize: '11px' }
-                                                },
-                                                top: '30%',
-                                                height: '25%',
-                                                offset: 0,
-                                                lineWidth: 2
-                                            }, {
-                                                labels: { 
-                                                    format: '{value} UA',
-                                                    style: { fontSize: '10px' }
-                                                },
-                                                title: { 
-                                                    text: 'Luminosité (UA)',
-                                                    style: { fontSize: '11px' }
-                                                },
-                                                top: '60%',
-                                                height: '25%',
-                                                offset: 0,
-                                                lineWidth: 2
-                                            }, {
-                                                labels: { enabled: false },
-                                                title: { text: '' },
-                                                top: '88%',
-                                                height: '10%',
-                                                offset: 0,
-                                                max: 1.5
-                                            }]
-                                        }
-                                    }, {
-                                        condition: {
-                                            minWidth: 481,
-                                            maxWidth: 768
-                                        },
-                                        chartOptions: {
-                                            chart: {
-                                                height: 620,
-                                                spacingTop: 15,
-                                                spacingRight: 15,
-                                                spacingBottom: 15,
-                                                spacingLeft: 15
-                                            },
-                                            rangeSelector: {
-                                                enabled: false
-                                            },
-                                            legend: {
-                                                enabled: true,
-                                                align: 'center',
-                                                verticalAlign: 'bottom',
-                                                layout: 'horizontal',
-                                                itemStyle: {
-                                                    fontSize: '11px'
-                                                },
-                                                symbolHeight: 10,
-                                                symbolWidth: 10,
-                                                symbolRadius: 3
-                                            },
-                                            navigator: {
-                                                enabled: true,
-                                                height: 30
-                                            },
-                                            yAxis: [{
-                                                labels: { 
-                                                    style: { fontSize: '11px' }
-                                                },
-                                                title: { 
-                                                    style: { fontSize: '12px' }
-                                                },
-                                                min: null,
-                                                max: null
-                                            }, {
-                                                labels: { 
-                                                    style: { fontSize: '11px' }
-                                                },
-                                                title: { 
-                                                    style: { fontSize: '12px' }
-                                                }
-                                            }, {
-                                                labels: { 
-                                                    style: { fontSize: '11px' }
-                                                },
-                                                title: { 
-                                                    style: { fontSize: '12px' }
-                                                }
-                                            }]
-                                        }
-                                    }, {
-                                        condition: {
-                                            minWidth: 769,
-                                            maxWidth: 1024
-                                        },
-                                        chartOptions: {
-                                            chart: {
-                                                height: 680
-                                            },
-                                            rangeSelector: {
-                                                enabled: false
-                                            },
-                                            legend: {
-                                                itemStyle: {
-                                                    fontSize: '12px'
-                                                },
-                                                symbolHeight: 12,
-                                                symbolWidth: 12,
-                                                symbolRadius: 4
-                                            },
-                                            navigator: {
-                                                height: 35
-                                            }
-                                        }
-                                    }]
-                                },
+                                chart: Object.assign({}, aqTemp.chart, {
+                                    height: n3AquaponieCharts.chartHeight('temp')
+                                }),
                                 rangeSelector: {
                                     enabled: false
                                 },
@@ -1563,16 +1231,7 @@
                                         dataGrouping: { enabled: false }  // Désactiver le regroupement pour les scatter
                                     }
                                 },
-                                legend: {
-                                    enabled: true,
-                                    accessibility: { enabled: false },
-                                    align: 'center',
-                                    verticalAlign: 'bottom',
-                                    layout: 'horizontal',
-                                    itemStyle: {
-                                        fontSize: '11px'
-                                    }
-                                },
+                                legend: aqTemp.legend,
                                 series: [
                                     { 
                                         name: 'Température eau', 
@@ -1651,14 +1310,8 @@
                                         showInNavigator: false
                                     }
                                 ],
-                                navigator: { 
-                                    enabled: true,
-                                    height: 35,
-                                    xAxis: {
-                                        ordinal: false  // Forcer l'espacement proportionnel dans le navigator aussi
-                                    }
-                                },
-                                scrollbar: { enabled: true },
+                                navigator: aqTemp.navigator,
+                                scrollbar: aqTemp.scrollbar,
                                 credits: { enabled: false }
                             });
                             

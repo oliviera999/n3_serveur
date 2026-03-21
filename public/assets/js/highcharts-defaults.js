@@ -1,5 +1,5 @@
 /**
- * Highcharts – configuration globale partagée (FFP3, MSP1, N3PP).
+ * Highcharts – configuration globale partagée (FFP3 / aquaponie, MSP1, N3PP).
  * Chargé avant la création des graphiques dans les templates.
  * Support dark mode : applique le thème selon data-theme sur html.
  */

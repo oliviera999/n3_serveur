@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.237] - 2026-03-21
+
+### Correctif - agencement Highcharts aquaponie (timeline / légende)
+- **Résumé** : harmonisation avec potager (N3PP) et élevage (MSP1) — hauteurs 300–440 px selon breakpoint, espacements réduits, légende compacte (`maxHeight`), navigator avec `margin` rapproché, suppression des `responsive.rules` qui imposaient des hauteurs contradictoires avec `setSize`. Nouveau module [`public/assets/js/aquaponie-chart-layout.js`](public/assets/js/aquaponie-chart-layout.js) ; chargement de `highcharts-defaults.js` + `chart-helpers.js` sur `aquaponie.twig` et `aquaponie_alt.twig`. CSS : `aquaponie.css` (wrapper) et `common-data.css` (min-height mobile sur `#chart-stock-area-*`).
+
+---
+
 ## [5.0.236] - 2026-03-21
 
 ### Correctif - icone menu sandwich identique smartphone / laptop zoome
