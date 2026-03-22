@@ -11,6 +11,17 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.241] - 2026-03-21
+
+### Correctif - Badge LIVE en vert (plus d’override orange)
+- **CSS** : suppression de la règle qui forçait `#live-badge.badge-success` en orange ; le badge LIVE reprend le vert standard `#27ae60` (`.badge-success`)
+- Fichier modifié : `public/assets/css/realtime-styles.css`
+
+### Modifié - Aquaponie et vues données communes
+- **Aquaponie** : grille `.datetime-grid` (colonnes `minmax`), libellés « Début » / « Fin » ; alignements mineurs sur `aquaponie_alt`, `tide_stats`, `common-data.css`.
+
+---
+
 ## [5.0.240] - 2026-03-21
 
 ### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.19, verification a chaque boot)

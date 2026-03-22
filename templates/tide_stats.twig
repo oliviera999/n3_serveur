@@ -205,11 +205,11 @@
                 {{ csrf_field|raw }}
                 <div class="datetime-grid">
                     <div class="datetime-field">
-                        <label for="tide_stats_start_datetime">debut</label>
+                        <label for="tide_stats_start_datetime">Début</label>
                         <input type="datetime-local" id="tide_stats_start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d') }}T{{ start_date|date('H:i') }}" required step="60">
                     </div>
                     <div class="datetime-field">
-                        <label for="tide_stats_end_datetime">fin</label>
+                        <label for="tide_stats_end_datetime">Fin</label>
                         <input type="datetime-local" id="tide_stats_end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d') }}T{{ end_date|date('H:i') }}" required step="60">
                     </div>
                 </div>

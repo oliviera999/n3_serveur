@@ -391,15 +391,7 @@ body.is-preload #wrapper.fade-in::before {
     color: white;
 }
 
-/* Badge LIVE flottant : même orange que les titres supervision (pas le vert générique badge-success) */
-#live-badge.badge-success {
-    background: var(--accent-secondary, #FF6300);
-    color: #ffffff;
-}
-[data-theme="dark"] #live-badge.badge-success {
-    background: var(--accent-secondary, #fb923c);
-    color: var(--text-inverse, #0f172a);
-}
+/* Badge LIVE : vert (badge-success), comme avant — pas d’override orange */
 
 .badge-warning {
     background: #f39c12;
