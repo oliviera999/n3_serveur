@@ -991,9 +991,24 @@ button.quick-filter-btn.active {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin-bottom: 20px;
+    justify-items: center;
+    align-items: start;
 }
-.datetime-field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.datetime-field label { font-weight: 600; color: #2c3e50; font-size: 0.95em; }
+.datetime-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    width: 100%;
+    max-width: 320px;
+    align-items: center;
+}
+.datetime-field label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.95em;
+    text-align: center;
+}
 .datetime-field input {
     padding: 12px 15px;
     border: 2px solid #e0e0e0;
@@ -1001,6 +1016,7 @@ button.quick-filter-btn.active {
     font-size: 1em;
     transition: all 0.3s;
     background: var(--bg-card);
+    width: 100%;
 }
 .datetime-field input:focus {
     outline: none;
@@ -1069,6 +1085,7 @@ button.quick-filter-btn.active {
     .filter-section form { flex-direction: column; }
     .datetime-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     .datetime-field input { width: 100%; min-width: 0; }
+    .datetime-field { max-width: 100%; }
     .period-info-stats { gap: 10px; }
     .alt-data-chart-row { grid-template-columns: 1fr; }
     .alt-data-chart-row .alt-stats-column .stats-grid { grid-template-columns: repeat(2, 1fr); }

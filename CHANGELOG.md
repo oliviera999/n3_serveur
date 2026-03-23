@@ -11,6 +11,22 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.243] - 2026-03-23
+
+### Modifie - harmonisation libelles periode personnalisee
+- **Resume** : uniformisation des libelles du partiel commun de filtrage avec la casse et les accents standards (`Début`, `Fin`) pour rester coherent avec les pages Aquaponie.
+- Fichier modifie : `templates/partials/_filter_health_row.twig`
+
+---
+
+## [5.0.242] - 2026-03-23
+
+### Correctif - centrage du bloc de filtrage (debut/fin + actions)
+- **Resume** : les champs `debut`/`fin` et les boutons `Afficher les mesures`/`Telecharger CSV` sont maintenant centres dans le bloc de filtrage, avec un comportement coherent sur desktop et mobile.
+- Fichiers modifies : `public/assets/css/common-data.css`, `public/assets/css/aquaponie.css`, `public/assets/css/realtime-styles.css`
+
+---
+
 ## [5.0.241] - 2026-03-21
 
 ### Correctif - Badge LIVE en vert (plus d’override orange)
