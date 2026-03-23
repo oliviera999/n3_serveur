@@ -11,6 +11,22 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.247] - 2026-03-23
+
+### Correctif - coherence complete en mode sombre pour controle camera
+- **Resume** : finition dark mode de `gallery/{slug}/control` avec contraste homogene des champs, placeholders, etats de sauvegarde (`saving/success/error`) et surbrillance des champs en cours d'enregistrement, pour un rendu visuel coherent avec les autres pages de controle.
+- Fichier modifie : `public/assets/css/control-styles.css`
+
+---
+
+## [5.0.246] - 2026-03-23
+
+### Modifie - harmonisation visuelle des blocs du controle camera
+- **Resume** : la page `gallery/{slug}/control` aligne maintenant ses blocs sur les autres pages de controle (cartes de section, panneaux de parametres, champs, hints et etats de sauvegarde), avec adaptations dediees en mode clair/sombre. Le markup des interrupteurs a aussi ete nettoye pour eviter les labels imbriques.
+- Fichiers modifies : `templates/gallery_control.twig`, `public/assets/css/control-styles.css`
+
+---
+
 ## [5.0.245] - 2026-03-23
 
 ### Modifie - tuiles supervision pour controle uploadphotosserver

@@ -1407,6 +1407,84 @@ small {
     background: #f5f5f5;
 }
 
+/* Harmonisation visuelle des blocs pour la page de controle camera */
+#params-gallery-container .controls-group {
+    background: #f9fbff;
+    border-color: rgba(15, 35, 95, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+#params-gallery-container .controls-group > header {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(15, 35, 95, 0.1);
+}
+
+#params-gallery-container .parameters-panel {
+    background: #ffffff;
+    border: 1px solid rgba(15, 35, 95, 0.08);
+    border-radius: 14px;
+    padding: 0.95rem;
+}
+
+#params-gallery-container .parameters-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+#params-gallery-container .parameter-item {
+    background: #f6f9fc;
+    border: 1px solid rgba(15, 35, 95, 0.12);
+    border-radius: 12px;
+    padding: 0.85rem;
+    min-height: 112px;
+    justify-content: flex-start;
+}
+
+#params-gallery-container .parameter-item input {
+    background: #ffffff;
+}
+
+#params-gallery-container .parameter-item-switch {
+    align-items: flex-start;
+}
+
+#params-gallery-container .parameter-item-switch .modern-switch {
+    margin-top: 2px;
+}
+
+#params-gallery-container .parameter-item-hint {
+    font-size: 0.82em;
+    color: var(--text-muted);
+}
+
+#params-gallery-container .save-indicator {
+    display: block;
+    min-height: 1.05rem;
+    font-size: 0.78em;
+    color: var(--text-muted);
+}
+
+#params-gallery-container [data-parameter-wrapper].is-saving {
+    border-color: rgba(0, 139, 116, 0.35);
+    box-shadow: 0 0 0 2px rgba(0, 139, 116, 0.12);
+}
+
+#params-gallery-container .save-indicator[data-state="saving"] {
+    color: #1d70b8;
+}
+
+#params-gallery-container .save-indicator[data-state="success"] {
+    color: #1d7a46;
+}
+
+#params-gallery-container .save-indicator[data-state="error"] {
+    color: #b42318;
+}
+
+#params-gallery-container .parameter-item input::placeholder {
+    color: #7b8a9a;
+}
+
 
 .modern-switch {
     position: relative;
@@ -1638,4 +1716,56 @@ small {
 }
 [data-theme="dark"] .parameter-item input:disabled {
     background: var(--bg-secondary);
+}
+
+[data-theme="dark"] #params-gallery-container .controls-group {
+    background: var(--panel-bg);
+    border-color: var(--border-color);
+    box-shadow: none;
+}
+
+[data-theme="dark"] #params-gallery-container .controls-group > header {
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] #params-gallery-container .parameters-panel {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] #params-gallery-container .parameter-item {
+    background: var(--panel-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] #params-gallery-container .parameter-item input {
+    background: var(--panel-bg);
+    border-color: var(--border-color);
+    color: var(--control-text, #f1f5f9);
+}
+
+[data-theme="dark"] #params-gallery-container .parameter-item input::placeholder {
+    color: #94a3b8;
+}
+
+[data-theme="dark"] #params-gallery-container .parameter-item-hint,
+[data-theme="dark"] #params-gallery-container .save-indicator {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] #params-gallery-container [data-parameter-wrapper].is-saving {
+    border-color: rgba(45, 212, 191, 0.45);
+    box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.16);
+}
+
+[data-theme="dark"] #params-gallery-container .save-indicator[data-state="saving"] {
+    color: #7dd3fc;
+}
+
+[data-theme="dark"] #params-gallery-container .save-indicator[data-state="success"] {
+    color: #86efac;
+}
+
+[data-theme="dark"] #params-gallery-container .save-indicator[data-state="error"] {
+    color: #fda4af;
 }
