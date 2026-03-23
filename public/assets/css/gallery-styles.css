@@ -7,7 +7,7 @@
 #wrapper.gallery-landing-wrapper #main,
 #wrapper.gallery-page-wrapper #main,
 #wrapper.gallery-timelapse-wrapper #main {
-    background-color: #ffffff !important;
+    background-color: var(--bg-main) !important;
 }
 
 #wrapper.gallery-landing-wrapper .section-header,

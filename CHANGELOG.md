@@ -11,6 +11,22 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.249] - 2026-03-23
+
+### Correctif - suppression des fonds blancs en mode sombre (galerie + controle)
+- **Resume** : harmonisation du fond principal `#main` pour les pages galeries et controle camera avec la variable de theme (`--bg-main`), afin d'eviter les fonds blancs residuels en mode sombre.
+- Fichiers modifies : `public/assets/css/gallery-styles.css`, `public/assets/css/control-styles.css`
+
+---
+
+## [5.0.248] - 2026-03-23
+
+### Modifie - pied de page standard sur les pages controle camera
+- **Resume** : les pages `gallery/{slug}/control` utilisent maintenant le pied de page standard (`partials/_footer.twig`) comme le reste du site, en retirant le footer specifique integre au contenu pour garder un affichage coherent.
+- Fichier modifie : `templates/gallery_control.twig`
+
+---
+
 ## [5.0.247] - 2026-03-23
 
 ### Correctif - coherence complete en mode sombre pour controle camera

@@ -77,6 +77,18 @@
     <a href="{{ base_path|default('') }}/" class="quick-action-card"><i class="fas fa-home"></i> Accueil</a>
 {% endblock %}
 
+{% block control_footer %}{% endblock %}
+
+{% block footer %}
+    {% include 'partials/_footer.twig' with {
+        environment: environment|default('prod'),
+        version: version|default(''),
+        firmware_version: firmware_version|default(''),
+        footer_text: 'Contrôle caméra ' ~ (gallery_label|default('uploadphotosserver')),
+        base_path: base_path|default('')
+    } %}
+{% endblock %}
+
 {% block control_scripts %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {

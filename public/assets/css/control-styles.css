@@ -913,6 +913,15 @@ small {
     border-left-color: #28a745;
 }
 
+/* Assure un fond principal coherent avec le theme sur pages controle */
+#wrapper.control-wrapper #main {
+    background-color: var(--bg-main) !important;
+}
+
+#wrapper.control-wrapper #main > * {
+    border-top-color: var(--border-color) !important;
+}
+
 .control-wrapper {
     padding: var(--control-spacing-3xl) var(--control-padding-xl) 60px;
     background: linear-gradient(180deg, var(--control-bg) 0%, #eef2f6 100%);
