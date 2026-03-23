@@ -29,6 +29,9 @@ Vérifications utiles :
 - Aquaponie classique : `http://127.0.0.1:8082/aquaponie-alt`
 - Données MSP1 (météo) : `http://127.0.0.1:8082/meteo`
 - Données N3PP (serre) : `http://127.0.0.1:8082/serre`
+- Contrôle galerie MSP1 : `http://127.0.0.1:8082/gallery/msp1/control`
+- Contrôle galerie N3PP : `http://127.0.0.1:8082/gallery/n3pp/control`
+- Contrôle galerie FFP3 : `http://127.0.0.1:8082/gallery/ffp3/control`
 
 Prérequis locaux :
 

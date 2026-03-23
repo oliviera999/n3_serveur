@@ -16,6 +16,33 @@ Ce document décrit les **endpoints du serveur distant** (ffp3 sur iot.olution.i
 
 ## 📍 Endpoints Utilisés par ESP32
 
+### Uploadphotosserver (ESP32-CAM, controle distant)
+
+Le firmware camera unifie (`uploadphotosserver`, envs `msp1`/`n3pp`/`ffp3`) recupere sa configuration a chaque reveil via GET, puis poste sa version firmware.
+
+- **REST unifie** :
+  - `GET /gallery/{slug}/api/outputs/state`
+  - `POST /gallery/{slug}/api/firmware/version`
+  - `GET /gallery/{slug}/control` (page web de pilotage)
+- **Aliases legacy `.php` (compatibilite firmware)** :
+  - `msp1` (board 6, table `UploadPhoto2Outputs`) :
+    - `GET /msp1gallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=6`
+    - `POST /msp1gallery/post-uploadphotoserver-version.php`
+  - `n3pp` (board 7, table `UploadPhoto3Outputs`) :
+    - `GET /n3ppgallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=7`
+    - `POST /n3ppgallery/post-uploadphotoserver-version.php`
+  - `ffp3` (board 5, table `UploadPhoto1Outputs`) :
+    - `GET /ffp3/ffp3gallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=5`
+    - `POST /ffp3/ffp3gallery/post-uploadphotoserver-version.php`
+
+Champs controle camera exposes (table outputs) :
+- `102` : adresse mail,
+- `103` : notifications mail,
+- `104` : `forceWakeUp` (one-shot firmware),
+- `105` : `sleepTime` (secondes),
+- `106` : `resetMode`,
+- `100` : version firmware (mise a jour par POST version).
+
 ### Environnement Actif: **TEST** (`wroom-test`)
 
 **Configuration**: `platformio.ini` ligne 90

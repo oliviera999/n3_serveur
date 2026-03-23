@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Config\Database;
 use App\Repository\BoardRepository;
+use App\Repository\GalleryControlRepository;
 use App\Repository\MspOutputRepository;
 use App\Repository\MspSensorRepository;
 use App\Repository\N3ppOutputRepository;
@@ -75,6 +76,10 @@ return [
 
     N3ppOutputRepository::class => function (ContainerInterface $c) {
         return new N3ppOutputRepository($c->get(PDO::class), $c->get(BoardRepository::class));
+    },
+
+    GalleryControlRepository::class => function (ContainerInterface $c) {
+        return new GalleryControlRepository($c->get(PDO::class), $c->get(BoardRepository::class));
     },
 
     // ====================================================================
@@ -440,6 +445,15 @@ return [
         return new \App\Controller\Gallery\GalleryUploadController(
             $c->get(\App\Service\LogService::class),
             $c->get(\App\Service\GalleryTrashService::class)
+        );
+    },
+
+    \App\Controller\Gallery\GalleryControlController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Gallery\GalleryControlController(
+            $c->get(GalleryControlRepository::class),
+            $c->get(TemplateRenderer::class),
+            $c->get(AuthService::class),
+            $c->get(LogService::class)
         );
     },
 

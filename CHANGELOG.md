@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.244] - 2026-03-23
+
+### Modifie - controle distant uploadphotosserver (msp1/n3pp/ffp3)
+- **Resume** : ajout d'une couche de controle distante pour les cameras ESP32-CAM avec pages de pilotage par galerie, endpoints REST + aliases legacy `.php`, et mapping BDD dedie (`UploadPhoto1/2/3Outputs`, boards 5/6/7). Le firmware recupere les champs distants au reveil (`mail`, `mailNotif`, `forceWakeUp`, `sleepTime`, `resetMode`) et poste sa version firmware.
+- Fichiers modifies : `config/routes_gallery.php`, `config/dependencies.php`, `config/routes_config.php`, `src/Controller/Gallery/GalleryControlController.php`, `src/Repository/GalleryControlRepository.php`, `templates/gallery_control.twig`
+
+---
+
 ## [5.0.243] - 2026-03-23
 
 ### Modifie - harmonisation libelles periode personnalisee

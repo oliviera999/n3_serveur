@@ -1,0 +1,165 @@
+{% extends 'partials/_control_base.twig' %}
+
+{% block outputs_section %}
+    <div id="params-gallery-container" data-aos="fade-up">
+    <section class="controls-section">
+        <div class="controls-group">
+            <header>
+                <h2><i class="fas fa-envelope"></i> Notifications</h2>
+            </header>
+            <div class="parameters-panel">
+                <div class="parameters-grid">
+                    <label class="parameter-item" data-parameter-wrapper>
+                        <span>Adresse mail</span>
+                        <input type="text" data-parameter="mail" data-parameter-gpio="102" id="mail" value="{{ params.mail|default('')|e('html_attr') }}" placeholder="email@exemple.com">
+                        <small class="save-indicator" data-save-indicator data-parameter="mail" data-state="idle"></small>
+                    </label>
+                    <label class="parameter-item parameter-item-switch">
+                        <span>Notifications mail</span>
+                        <label class="modern-switch" title="Activer/désactiver les notifications mail">
+                            <input type="checkbox" id="mailNotif" data-parameter-gpio="103" {{ params.mailNotif|default('false') == 'checked' ? 'checked' : '' }} role="switch" aria-label="Notifications mail" onchange="saveParamSwitch('mailNotif', this.checked, 'checked', 'false')">
+                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                        </label>
+                        <span class="parameter-item-hint" id="mailNotif-hint">{{ params.mailNotif|default('false') == 'checked' ? 'Activé' : 'Désactivé' }}</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-group">
+            <header>
+                <h2><i class="fas fa-bed"></i> Réveil et sommeil</h2>
+            </header>
+            <div class="parameters-panel">
+                <div class="parameters-grid">
+                    <label class="parameter-item parameter-item-switch" title="Forcer une prise photo au prochain réveil, même hors créneau">
+                        <span>Force wakeup (one-shot)</span>
+                        <label class="modern-switch" title="Forcer le réveil">
+                            <input type="checkbox" id="forceWakeUp" data-parameter-gpio="104" {{ params.forceWakeUp|default('0') == '1' ? 'checked' : '' }} role="switch" aria-label="Force wakeup" onchange="saveParamSwitch('forceWakeUp', this.checked, '1', '0')">
+                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                        </label>
+                        <span class="parameter-item-hint" id="forceWakeUp-hint">{{ params.forceWakeUp|default('0') == '1' ? 'Activé' : 'Désactivé' }}</span>
+                    </label>
+
+                    <label class="parameter-item" data-parameter-wrapper title="Durée du deep sleep (secondes)">
+                        <span>Temps de sommeil (s)</span>
+                        <input type="number" data-parameter="sleepTime" data-parameter-gpio="105" id="sleepTime" min="10" value="{{ params.sleepTime|default('600') }}">
+                        <small class="save-indicator" data-save-indicator data-parameter="sleepTime" data-state="idle"></small>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-group">
+            <header>
+                <h2><i class="fas fa-power-off"></i> Maintenance</h2>
+            </header>
+            <div class="parameters-panel">
+                <div class="parameters-grid">
+                    <label class="parameter-item parameter-item-switch" title="Déclenche un redémarrage firmware au prochain cycle">
+                        <span>Reset mode</span>
+                        <label class="modern-switch" title="Reset mode">
+                            <input type="checkbox" id="resetMode" data-parameter-gpio="106" {{ params.resetMode|default('0') == '1' ? 'checked' : '' }} role="switch" aria-label="Reset mode" onchange="saveParamSwitch('resetMode', this.checked, '1', '0')">
+                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                        </label>
+                        <span class="parameter-item-hint" id="resetMode-hint">{{ params.resetMode|default('0') == '1' ? 'Activé' : 'Désactivé' }}</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+{% endblock %}
+
+{% block quick_actions_links %}
+    <a href="{{ base_path|default('') }}/gallery/{{ gallery_slug }}" class="quick-action-card"><i class="fas fa-images"></i> Voir la galerie</a>
+    <a href="{{ base_path|default('') }}/gallery" class="quick-action-card"><i class="fas fa-camera"></i> Toutes les galeries</a>
+    <a href="{{ base_path|default('') }}/" class="quick-action-card"><i class="fas fa-home"></i> Accueil</a>
+{% endblock %}
+
+{% block control_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var controlApiBase = window.CONTROL_API_BASE;
+    var valuesUpdater = new ControlValuesUpdater();
+    valuesUpdater.init();
+
+    function asOnOff(value) {
+        return value === 1 || value === '1' || value === true || value === 'checked';
+    }
+
+    function updateHints(states) {
+        var mailHint = document.getElementById('mailNotif-hint');
+        if (mailHint && states['103'] !== undefined) {
+            mailHint.textContent = asOnOff(states['103']) ? 'Activé' : 'Désactivé';
+        }
+        var forceHint = document.getElementById('forceWakeUp-hint');
+        if (forceHint && states['104'] !== undefined) {
+            forceHint.textContent = asOnOff(states['104']) ? 'Activé' : 'Désactivé';
+        }
+        var resetHint = document.getElementById('resetMode-hint');
+        if (resetHint && states['106'] !== undefined) {
+            resetHint.textContent = asOnOff(states['106']) ? 'Activé' : 'Désactivé';
+        }
+    }
+
+    function syncSwitchByGpio(gpio, elementId, states) {
+        var el = document.getElementById(elementId);
+        if (!el || states[gpio] === undefined) return;
+        el.checked = asOnOff(states[gpio]);
+    }
+
+    var controlSync = new ControlSync({
+        apiBase: controlApiBase,
+        pollInterval: 10,
+        useFresh: true,
+        onStatesReceived: function(states) {
+            if (window.controlValuesUpdater && typeof window.controlValuesUpdater.updateParameters === 'function') {
+                window.controlValuesUpdater.updateParameters(states);
+            }
+            syncSwitchByGpio('103', 'mailNotif', states);
+            syncSwitchByGpio('104', 'forceWakeUp', states);
+            syncSwitchByGpio('106', 'resetMode', states);
+            updateHints(states);
+        }
+    });
+    controlSync.initializeFromDOM();
+    controlSync.start();
+
+    window.controlSync = controlSync;
+    window.controlValuesUpdater = valuesUpdater;
+
+    window.saveParamSwitch = function(paramName, checked, valOn, valOff) {
+        var value = checked ? valOn : valOff;
+        var hintEl = document.getElementById(paramName + '-hint');
+        if (hintEl) hintEl.textContent = checked ? 'Activé' : 'Désactivé';
+
+        fetch(controlApiBase + '/parameters', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ param: paramName, value: value }),
+            credentials: 'include'
+        })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    if (typeof toastManager !== 'undefined') toastManager.showSuccess('Paramètre enregistré', 2500);
+                    if (window.controlSync) window.controlSync.forceSync();
+                } else {
+                    if (typeof toastManager !== 'undefined') toastManager.showError(data.error || 'Erreur', 4000);
+                }
+            })
+            .catch(function() {
+                if (typeof toastManager !== 'undefined') toastManager.showError('Erreur réseau', 4000);
+            });
+    };
+
+    initRealtimeUpdater({
+        apiBasePath: '/gallery/{{ gallery_slug }}/api/outputs',
+        pollInterval: 15000,
+        enabled: false
+    });
+});
+</script>
+{% endblock %}
+
