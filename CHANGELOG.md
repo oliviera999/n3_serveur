@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.245] - 2026-03-23
+
+### Modifie - tuiles supervision pour controle uploadphotosserver
+- **Resume** : ajout de trois tuiles de navigation dans `supervision` vers les pages de controle camera (`/gallery/msp1/control`, `/gallery/n3pp/control`, `/gallery/ffp3/control`) afin d'acceder rapidement aux parametres uploadphotosserver depuis le panneau central.
+- Fichier modifie : `templates/supervision.twig`
+
+---
+
 ## [5.0.244] - 2026-03-23
 
 ### Modifie - controle distant uploadphotosserver (msp1/n3pp/ffp3)
