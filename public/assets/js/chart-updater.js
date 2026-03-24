@@ -238,9 +238,8 @@ class ChartUpdater {
                     // Mettre à jour le point existant
                     existingPoint.update(update.value, false);
                 } else {
-                    // Ajouter nouveau point
-                    const shift = series.data.length >= this.maxPoints;
-                    series.addPoint([update.timestamp, update.value], false, shift, false);
+                    // Conserver un ordre strictement croissant des X pour Highcharts Stock (#15).
+                    this.insertPointSorted(series, update.timestamp, update.value);
                 }
             });
         });
@@ -252,6 +251,67 @@ class ChartUpdater {
         if (this.autoScroll) {
             this.scrollToLatest(chart);
         }
+    }
+
+    /**
+     * Insère un point dans une série en conservant l'ordre croissant des timestamps.
+     * Évite Highcharts warning #15 lorsque des points arrivent hors ordre.
+     *
+     * @param {Object} series - Série Highcharts
+     * @param {number} timestamp - Timestamp Unix en millisecondes
+     * @param {number} value - Valeur associée
+     */
+    insertPointSorted(series, timestamp, value) {
+        if (!series || !Array.isArray(series.xData)) {
+            return;
+        }
+
+        const xData = series.xData;
+        const lastX = xData.length > 0 ? xData[xData.length - 1] : null;
+
+        // Cas nominal: nouveau point plus récent, append rapide.
+        if (lastX === null || timestamp > lastX) {
+            const shift = series.data.length >= this.maxPoints;
+            series.addPoint([timestamp, value], false, shift, false);
+            return;
+        }
+
+        // Cas particulier: même timestamp que le dernier point.
+        if (timestamp === lastX && series.data.length > 0) {
+            series.data[series.data.length - 1].update(value, false);
+            return;
+        }
+
+        // Point hors ordre: fusion + tri pour conserver la contrainte Highcharts.
+        const mergedData = [];
+        let inserted = false;
+        const len = xData.length;
+
+        for (let i = 0; i < len; i++) {
+            const x = xData[i];
+            const y = series.yData[i];
+
+            if (!inserted && timestamp < x) {
+                mergedData.push([timestamp, value]);
+                inserted = true;
+            } else if (!inserted && timestamp === x) {
+                mergedData.push([timestamp, value]);
+                inserted = true;
+                continue;
+            }
+
+            mergedData.push([x, y]);
+        }
+
+        if (!inserted) {
+            mergedData.push([timestamp, value]);
+        }
+
+        if (mergedData.length > this.maxPoints) {
+            mergedData.splice(0, mergedData.length - this.maxPoints);
+        }
+
+        series.setData(mergedData, false, false, false);
     }
     
     /**

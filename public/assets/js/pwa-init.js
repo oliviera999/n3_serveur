@@ -6,7 +6,9 @@
 // Enregistrer le service worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/ffp3/public/service-worker.js')
+        // Utiliser une URL relative évite les redirections legacy (/ffp3/public -> /ffp3/)
+        // qui sont refusées par le navigateur lors de l'enregistrement du Service Worker.
+        navigator.serviceWorker.register('service-worker.js', { scope: './' })
             .then(registration => {
                 console.log('[PWA] Service Worker registered:', registration.scope);
                 

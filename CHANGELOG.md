@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.259] - 2026-03-24
+
+### Correctif - corrige l enregistrement du service worker et supprime le warning highcharts #15
+- **Résumé** : corrige l enregistrement du service worker et supprime le warning highcharts #15.
+
+---
 ## [5.0.258] - 2026-03-24
 
 ### Correctif - tuiles statut et derniere reception restaurees sur MSP/N3PP
