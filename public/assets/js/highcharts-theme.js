@@ -6,137 +6,103 @@
 (function () {
     'use strict';
 
-    var DARK_OPTIONS = {
-        chart: {
-            backgroundColor: '#1e293b',
-            plotBackgroundColor: '#1e293b',
-            borderColor: '#475569',
-            style: { color: '#f1f5f9' }
-        },
-        title: { style: { color: '#f1f5f9' } },
-        subtitle: { style: { color: '#94a3b8' } },
-        xAxis: {
-            gridLineColor: '#475569',
-            tickColor: '#475569',
-            labels: { style: { color: '#94a3b8' } },
-            lineColor: '#475569',
-            title: { style: { color: '#94a3b8' } }
-        },
-        yAxis: {
-            gridLineColor: '#475569',
-            tickColor: '#475569',
-            labels: { style: { color: '#94a3b8' } },
-            lineColor: '#475569',
-            title: { style: { color: '#94a3b8' } }
-        },
-        legend: {
-            itemStyle: { color: '#94a3b8' },
-            itemHoverStyle: { color: '#f1f5f9' }
-        },
-        rangeSelector: {
-            buttonTheme: {
-                fill: '#334155',
-                stroke: '#475569',
-                style: { color: '#f1f5f9' },
-                states: {
-                    hover: { fill: '#475569' },
-                    select: { fill: '#2dd4bf', style: { color: '#0f172a' } }
-                }
-            },
-            inputStyle: { color: '#f1f5f9' },
-            labelStyle: { color: '#94a3b8' }
-        },
-        navigator: {
-            series: { color: '#2dd4bf' },
-            xAxis: {
-                gridLineColor: '#475569',
-                labels: { style: { color: '#94a3b8' } }
-            }
-        },
-        scrollbar: {
-            barBackgroundColor: '#334155',
-            barBorderColor: '#475569',
-            buttonArrowColor: '#f1f5f9',
-            buttonBackgroundColor: '#334155',
-            buttonBorderColor: '#475569',
-            rifleColor: '#f1f5f9',
-            trackBackgroundColor: '#1e293b',
-            trackBorderColor: '#475569'
-        },
-        tooltip: {
-            backgroundColor: '#334155',
-            borderColor: '#475569',
-            style: { color: '#f1f5f9' }
-        },
-        credits: { style: { color: '#64748b' } },
-        colors: ['#2dd4bf', '#fb923c', '#94a3b8', '#a78bfa', '#f472b6', '#22d3ee', '#fbbf24', '#4ade80']
-    };
+    function cssVar(name, fallbackValue) {
+        var root = document.documentElement;
+        if (!root || !window.getComputedStyle) return fallbackValue;
+        var value = window.getComputedStyle(root).getPropertyValue(name);
+        return value ? value.trim() : fallbackValue;
+    }
 
-    var LIGHT_OPTIONS = {
-        chart: {
-            backgroundColor: 'transparent',
-            plotBackgroundColor: 'transparent',
-            borderColor: '#cccccc',
-            style: { color: '#333333' }
-        },
-        title: { style: { color: '#333333' } },
-        subtitle: { style: { color: '#666666' } },
-        xAxis: {
-            gridLineColor: '#e6e6e6',
-            tickColor: '#cccccc',
-            labels: { style: { color: '#666666' } },
-            lineColor: '#cccccc',
-            title: { style: { color: '#333333' } }
-        },
-        yAxis: {
-            gridLineColor: '#e6e6e6',
-            tickColor: '#cccccc',
-            labels: { style: { color: '#666666' } },
-            lineColor: '#cccccc',
-            title: { style: { color: '#333333' } }
-        },
-        legend: {
-            itemStyle: { color: '#333333' },
-            itemHoverStyle: { color: '#000000' }
-        },
-        rangeSelector: {
-            buttonTheme: {
-                fill: '#f2f2f2',
-                stroke: '#cccccc',
-                style: { color: '#333333' },
-                states: {
-                    hover: { fill: '#e6e6e6' },
-                    select: { fill: '#008B74', style: { color: '#ffffff' } }
+    function buildThemeOptions() {
+        var dark = isDark();
+        var bgMain = cssVar('--bg-main', dark ? '#1e293b' : '#ffffff');
+        var bgSecondary = cssVar('--bg-secondary', dark ? '#334155' : '#f8f9fa');
+        var borderColor = cssVar('--border-color', dark ? '#475569' : '#cccccc');
+        var textPrimary = cssVar('--text-primary', dark ? '#f1f5f9' : '#333333');
+        var textSecondary = cssVar('--text-secondary', dark ? '#94a3b8' : '#666666');
+        var textMuted = cssVar('--text-muted', dark ? '#64748b' : '#999999');
+        var accentPrimary = cssVar('--accent-primary', dark ? '#2dd4bf' : '#008B74');
+        var accentPrimaryHover = cssVar('--accent-primary-hover', dark ? '#5eead4' : '#00A896');
+        var accentSecondary = cssVar('--accent-secondary', dark ? '#fb923c' : '#FF6300');
+        var textInverse = cssVar('--text-inverse', dark ? '#0f172a' : '#ffffff');
+
+        return {
+            chart: {
+                backgroundColor: dark ? bgMain : 'transparent',
+                plotBackgroundColor: dark ? bgMain : 'transparent',
+                borderColor: borderColor,
+                style: { color: textPrimary }
+            },
+            title: { style: { color: textPrimary } },
+            subtitle: { style: { color: textSecondary } },
+            xAxis: {
+                gridLineColor: borderColor,
+                tickColor: borderColor,
+                labels: { style: { color: textSecondary } },
+                lineColor: borderColor,
+                title: { style: { color: textSecondary } }
+            },
+            yAxis: {
+                gridLineColor: borderColor,
+                tickColor: borderColor,
+                labels: { style: { color: textSecondary } },
+                lineColor: borderColor,
+                title: { style: { color: textSecondary } }
+            },
+            legend: {
+                itemStyle: { color: textSecondary },
+                itemHoverStyle: { color: textPrimary }
+            },
+            rangeSelector: {
+                buttonTheme: {
+                    fill: bgSecondary,
+                    stroke: borderColor,
+                    style: { color: textPrimary },
+                    states: {
+                        hover: { fill: borderColor },
+                        select: { fill: accentPrimary, style: { color: textInverse } }
+                    }
+                },
+                inputStyle: { color: textPrimary },
+                labelStyle: { color: textSecondary }
+            },
+            navigator: {
+                series: { color: accentPrimary },
+                xAxis: {
+                    gridLineColor: borderColor,
+                    labels: { style: { color: textSecondary } }
                 }
             },
-            inputStyle: { color: '#333333' },
-            labelStyle: { color: '#666666' }
-        },
-        navigator: {
-            series: { color: '#008B74' },
-            xAxis: {
-                gridLineColor: '#e6e6e6',
-                labels: { style: { color: '#666666' } }
-            }
-        },
-        scrollbar: {
-            barBackgroundColor: '#cccccc',
-            barBorderColor: '#cccccc',
-            buttonArrowColor: '#333333',
-            buttonBackgroundColor: '#e6e6e6',
-            buttonBorderColor: '#cccccc',
-            rifleColor: '#333333',
-            trackBackgroundColor: '#f2f2f2',
-            trackBorderColor: '#cccccc'
-        },
-        tooltip: {
-            backgroundColor: '#ffffff',
-            borderColor: '#cccccc',
-            style: { color: '#333333' }
-        },
-        credits: { style: { color: '#999999' } },
-        colors: ['#2caffe', '#544fc5', '#00e272', '#fe6a35', '#6b8abc', '#d568fb', '#2ee0ca', '#fa4b42']
-    };
+            scrollbar: {
+                barBackgroundColor: bgSecondary,
+                barBorderColor: borderColor,
+                buttonArrowColor: textPrimary,
+                buttonBackgroundColor: bgSecondary,
+                buttonBorderColor: borderColor,
+                rifleColor: textPrimary,
+                trackBackgroundColor: bgMain,
+                trackBorderColor: borderColor
+            },
+            tooltip: {
+                backgroundColor: bgSecondary,
+                borderColor: borderColor,
+                style: { color: textPrimary }
+            },
+            credits: { style: { color: textMuted } },
+            colors: [
+                accentPrimary,
+                accentSecondary,
+                textSecondary,
+                accentPrimaryHover,
+                '#a78bfa',
+                '#22d3ee',
+                '#fbbf24',
+                '#4ade80'
+            ].map(function (color) {
+                return color || '#2caffe';
+            })
+        };
+    }
 
     function isDark() {
         return document.documentElement.getAttribute('data-theme') === 'dark';
@@ -152,7 +118,7 @@
     }
 
     function getThemeOptions() {
-        return isDark() ? DARK_OPTIONS : LIGHT_OPTIONS;
+        return buildThemeOptions();
     }
 
     function n3HighchartsApplyTheme() {

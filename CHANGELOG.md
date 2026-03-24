@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.263] - 2026-03-24
+
+### Modifié - refacto dark mode datas-control et convergence theme Highcharts
+- **Résumé** : refacto dark mode datas-control et convergence theme Highcharts.
+
+---
+## [5.0.262] - 2026-03-24
+
+### Modifié - refacto dark mode datas/control avec référence datas
+- **Résumé** : simplification de la cascade dark mode en limitant les surcharges globales de `realtime-styles.css` sur les pages de contrôle, déduplication et harmonisation visuelle des composants partagés (`context badges`, `quick actions`, `warnings`, titres) dans `control-styles.css`, et convergence du thème Highcharts sur les tokens CSS (`theme-variables.css`) pour un rendu light/dark plus cohérent.
+- Fichiers modifies : `public/assets/css/realtime-styles.css`, `public/assets/css/control-styles.css`, `public/assets/js/highcharts-theme.js`, `VERSION`
+
+---
 ## [5.0.261] - 2026-03-24
 
 ### Modifié - unification footer_config pages de controle

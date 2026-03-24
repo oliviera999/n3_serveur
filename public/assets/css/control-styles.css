@@ -123,7 +123,7 @@ body {
     font-family: var(--control-font-family);
     font-size: var(--control-font-size-base);
     line-height: var(--control-line-height-normal);
-    color: #1b2a4b;
+    color: var(--text-primary);
 }
 
 /* Système de typographie - Titres */
@@ -131,7 +131,7 @@ h1 {
     font-size: var(--control-font-size-2xl);
     font-weight: var(--control-font-weight-bold);
     line-height: var(--control-line-height-tight);
-    color: #1b2a4b;
+    color: var(--text-primary);
     margin: 0 0 0.5em 0;
 }
 
@@ -139,7 +139,7 @@ h2 {
     font-size: var(--control-font-size-xl);
     font-weight: var(--control-font-weight-bold);
     line-height: var(--control-line-height-tight);
-    color: #1b2a4b;
+    color: var(--text-primary);
     margin: 0 0 0.75em 0;
 }
 
@@ -147,7 +147,7 @@ h3 {
     font-size: var(--control-font-size-lg);
     font-weight: var(--control-font-weight-semibold);
     line-height: var(--control-line-height-normal);
-    color: #1b2a4b;
+    color: var(--text-primary);
     margin: 0 0 0.5em 0;
 }
 
@@ -155,7 +155,7 @@ h4 {
     font-size: var(--control-font-size-md);
     font-weight: var(--control-font-weight-semibold);
     line-height: var(--control-line-height-normal);
-    color: #1b2a4b;
+    color: var(--text-primary);
     margin: 0 0 0.5em 0;
 }
 
@@ -967,7 +967,7 @@ small {
 .control-main-header h1 {
     margin: 0;
     font-size: 2.2em;
-    color: #1b2a4b;
+    color: var(--text-primary);
 }
 
 .control-main-header p {
@@ -1193,7 +1193,7 @@ small {
 .status-value {
     font-size: 1.5em;
     font-weight: 700;
-    color: #1b2a4b;
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1368,7 +1368,7 @@ small {
 .parameters-panel h3 {
     margin: 0 0 12px 0;
     font-size: 1.1em;
-    color: #1b2a4b;
+    color: var(--text-primary);
 }
 
 .parameters-grid {
@@ -1386,7 +1386,7 @@ small {
 
 .parameter-item span {
     font-weight: 600;
-    color: #1b2a4b;
+    color: var(--text-primary);
 }
 
 .parameter-item input {
