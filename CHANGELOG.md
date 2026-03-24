@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.257] - 2026-03-24
+
+### Correctif - coherence mode sombre pages de controle serveur
+- **Résumé** : coherence mode sombre pages de controle serveur.
+
+---
+## [5.0.256] - 2026-03-24
+
+### Correctif - coherence mode sombre sur les pages de controle serveur
+- **Resume** : harmonisation des surfaces et bordures des cartes de controle via les variables de theme (`control-styles.css`), correction du fond `control-wrapper` avec le token `--wrapper-control-bg`, et ajout des variantes `[data-theme="dark"]` manquantes pour les journaux de polling (`realtime-styles.css`) afin d'eviter les fonds clairs residuels en mode sombre.
+- Fichiers modifies : `public/assets/css/control-styles.css`, `public/assets/css/realtime-styles.css`, `VERSION`
+
 ## [5.0.255] - 2026-03-24
 
 ### Correctif - nettoie les doublons du changelog et fiabilise la publication

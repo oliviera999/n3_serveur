@@ -1468,6 +1468,36 @@ body.is-preload #wrapper.fade-in::before {
     border-top-color: var(--border-color);
 }
 
+[data-theme="dark"] .logs-counter {
+    background: var(--accent-muted, rgba(45, 212, 191, 0.2));
+    color: var(--accent-primary);
+}
+
+[data-theme="dark"] .log-entry {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .log-entry .log-icon {
+    color: var(--accent-primary);
+}
+
+[data-theme="dark"] .log-entry .log-label {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .log-entry .log-message {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .log-entry.log-error {
+    background: rgba(239, 68, 68, 0.16);
+}
+
+[data-theme="dark"] .log-entry.log-warning {
+    background: rgba(251, 191, 36, 0.16);
+}
+
 [data-theme="dark"] .live-control-item {
     background: var(--bg-secondary);
     border-color: var(--border-color);
