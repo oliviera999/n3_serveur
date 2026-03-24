@@ -120,5 +120,5 @@ foreach ($ffp3RoutesConfig as $env => $routes) {
 
 // Route additionnelle prod : toggle-test (alias)
 $app->group('', function ($group) {
-    $group->get('/api/outputs/toggle-test', [OutputController::class, 'toggleOutput']);
+    $group->post('/api/outputs/toggle-test', [OutputController::class, 'toggleOutput']);
 })->add(new EnvironmentMiddleware('prod'))->add($applyAuth);

@@ -17,6 +17,9 @@ use PDO;
  */
 class OutputRepository extends AbstractRepository
 {
+    private const RESET_COMMAND_GPIO = 110;
+    private const RESET_COMMAND_WEB_PRIORITY_SECONDS = 20;
+
     /** @var array<string, int> */
     private const PARAMETER_GPIO_MAP = [
         'mail' => 100,
@@ -299,16 +302,28 @@ class OutputRepository extends AbstractRepository
     public function syncStatesFromSensorData(SensorData $data): void
     {
         // Actionneurs physiques — toujours synchronisés (états réels des relais)
+        // NOTE: GPIO 110 (reset) est traité à part avec une fenêtre de priorité web
+        // pour éviter d'écraser trop vite une commande reset envoyée depuis l'UI.
         $physicalGpios = [
             2 => $data->etatHeat,
             15 => $data->etatUV,
             16 => $data->etatPompeAqua,
             18 => $data->etatPompeTank,
-            110 => $data->resetMode,
         ];
         $physicalFiltered = array_filter($physicalGpios, fn($v) => $v !== null);
         if ($physicalFiltered !== []) {
             $this->batchUpdateStatesSingleQuery($physicalFiltered, 'esp32', 0);
+        }
+
+        // GPIO 110 (reset) : synchronisation avec priorité web temporaire.
+        // Cela laisse à l'ESP32 le temps de lire la commande "1" avant qu'un POST
+        // périodique "resetMode=0" ne la réécrase.
+        if ($data->resetMode !== null) {
+            $this->batchUpdateStatesSingleQuery(
+                [self::RESET_COMMAND_GPIO => $data->resetMode],
+                'esp32',
+                self::RESET_COMMAND_WEB_PRIORITY_SECONDS
+            );
         }
 
         // 108/109 (acks nourrissage) : toujours forcer 0 ; priorité 20 s pour éviter

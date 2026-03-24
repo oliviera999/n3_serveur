@@ -70,7 +70,7 @@ function registerFfp3ProtectedRoutes($app, array $routes, string $env, $applyAut
         }
         $group->map(['GET', 'POST'], $routes['tide_stats'], [TideStatsController::class, 'show']);
         $group->get($routes['control'], [OutputController::class, 'showInterface']);
-        $group->get($routes['toggle'], [OutputController::class, 'toggleOutput']);
+        $group->post($routes['toggle'], [OutputController::class, 'toggleOutput']);
         $group->post($routes['parameters'], [OutputController::class, 'updateParameters']);
         $group->post($routes['trigger_ota'], [OutputController::class, 'triggerOtaCheck']);
         $group->get($routes['board_status'], [OutputController::class, 'getBoardStatus']);
@@ -172,7 +172,7 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
 function registerFfp3ControlRoutes($app, string $outputsPrefix, string $toggleMethod, string $env, $applyAuth): void
 {
     $app->group('/ffp3', function ($group) use ($outputsPrefix, $toggleMethod) {
-        $group->get($outputsPrefix . '/toggle', [OutputController::class, $toggleMethod]);
+        $group->post($outputsPrefix . '/toggle', [OutputController::class, $toggleMethod]);
         $group->post($outputsPrefix . '/parameters', [OutputController::class, 'updateParameters']);
         $group->post($outputsPrefix . '/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
         $group->get($outputsPrefix . '/board/{board}/status', [OutputController::class, 'getBoardStatus']);

@@ -77,19 +77,19 @@ class ControlActions {
         element.closest('.action-card')?.classList.add('is-updating');
 
         try {
-            const query = new URLSearchParams({
-                id: String(payload.id),
-                gpio: String(payload.gpio),
-                state: String(payload.state),
-            });
-
-            const response = await fetch(`${endpoint}?${query.toString()}`, {
-                method: 'GET',
+            const response = await fetch(endpoint, {
+                method: 'POST',
                 headers: {
                     'Accept': 'application/json',
+                    'Content-Type': 'application/json',
                     'X-Requested-With': 'fetch',
                 },
                 credentials: 'include',
+                body: JSON.stringify({
+                    id: payload.id,
+                    gpio: payload.gpio,
+                    state: payload.state,
+                }),
             });
 
             if (!response.ok) {

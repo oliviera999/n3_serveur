@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.250] - 2026-03-24
+
+### Correctif - reset mode fiabilise + toggle outputs en POST
+- **Resume** : fiabilisation du reset distant ESP32 (GPIO 110) en evitant l'ecrasement immediat par les POST firmware grace a une fenetre de priorite web de 20s cote serveur, et durcissement du controle web en migrant l'action `toggle` de `GET` vers `POST` (routes Slim + front `control-actions.js`).
+- Fichiers modifies : `src/Repository/OutputRepository.php`, `config/routes_helpers.php`, `config/routes_ffp3.php`, `src/Controller/AbstractOutputController.php`, `public/assets/js/control-actions.js`, `VERSION`
+
 ## [5.0.249] - 2026-03-23
 
 ### Correctif - suppression des fonds blancs en mode sombre (galerie + controle)

@@ -166,7 +166,7 @@ abstract class AbstractOutputController
         if ($authError !== null) {
             return $authError;
         }
-        $params = array_merge($request->getQueryParams(), $request->getParsedBody() ?? []);
+        $params = RequestHelper::extractParams($request);
         $board = (int) ($params['board'] ?? $this->defaultBoard());
 
         try {
