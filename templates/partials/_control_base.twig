@@ -97,19 +97,12 @@
             </section>
         </section>
 
-        {% block control_footer %}
-        {% include 'partials/_footer.twig' with {
-            footer_text: control_config.footer_text|default('N3 IoT Datas Platform | Projets pedagogiques connectes'),
-            environment: environment|default('prod'),
-            version: version|default(''),
-            firmware_version: firmware_version|default(''),
-            base_path: base_path|default('')
-        } %}
-        {% endblock %}
     </div>
 {% endblock %}
 
-{% block footer %}{% endblock %}
+{% block footer %}
+    {% include 'partials/_footer.twig' %}
+{% endblock %}
 
 {% block scripts %}
     <script>

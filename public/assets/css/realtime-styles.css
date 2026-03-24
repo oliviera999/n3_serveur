@@ -67,10 +67,10 @@ input[type="radio"] + label {
 /* Mode clair : orange supervision (#FF6300 = --accent-secondary), surcharge main.css h1..h6 #212931 */
 html:not([data-theme="dark"]) body header.major h1,
 html:not([data-theme="dark"]) body header.major h2,
-html:not([data-theme="dark"]) body .section-header h2,
-html:not([data-theme="dark"]) body .section-header h3,
-html:not([data-theme="dark"]) body .filter-header h3,
-html:not([data-theme="dark"]) body .system-health-panel h3 {
+html:not([data-theme="dark"]) body #wrapper:not(.control-wrapper) .section-header h2,
+html:not([data-theme="dark"]) body #wrapper:not(.control-wrapper) .section-header h3,
+html:not([data-theme="dark"]) body #wrapper:not(.control-wrapper) .filter-header h3,
+html:not([data-theme="dark"]) body #wrapper:not(.control-wrapper) .system-health-panel h3 {
     color: var(--accent-secondary, #FF6300) !important;
 }
 
@@ -1351,49 +1351,49 @@ body.is-preload #wrapper.fade-in::before {
     color: var(--text-primary);
 }
 
-[data-theme="dark"] body a {
+[data-theme="dark"] #wrapper:not(.control-wrapper) a {
     color: var(--accent-primary) !important;
     border-bottom-color: var(--accent-border);
 }
 
-[data-theme="dark"] body a:hover {
+[data-theme="dark"] #wrapper:not(.control-wrapper) a:hover {
     color: var(--accent-primary-hover) !important;
 }
 
-[data-theme="dark"] body strong,
-[data-theme="dark"] body b {
+[data-theme="dark"] #wrapper:not(.control-wrapper) strong,
+[data-theme="dark"] #wrapper:not(.control-wrapper) b {
     color: var(--text-primary);
 }
 
-[data-theme="dark"] body h1,
-[data-theme="dark"] body h2 {
+[data-theme="dark"] #wrapper:not(.control-wrapper) h1,
+[data-theme="dark"] #wrapper:not(.control-wrapper) h2 {
     color: var(--accent-secondary) !important;
 }
 
-[data-theme="dark"] body h3,
-[data-theme="dark"] body h4,
-[data-theme="dark"] body h5,
-[data-theme="dark"] body h6 {
+[data-theme="dark"] #wrapper:not(.control-wrapper) h3,
+[data-theme="dark"] #wrapper:not(.control-wrapper) h4,
+[data-theme="dark"] #wrapper:not(.control-wrapper) h5,
+[data-theme="dark"] #wrapper:not(.control-wrapper) h6 {
     color: var(--accent-primary) !important;
 }
 
-[data-theme="dark"] body input,
-[data-theme="dark"] body select,
-[data-theme="dark"] body textarea {
+[data-theme="dark"] #wrapper:not(.control-wrapper) input,
+[data-theme="dark"] #wrapper:not(.control-wrapper) select,
+[data-theme="dark"] #wrapper:not(.control-wrapper) textarea {
     color: var(--text-primary) !important;
 }
 
-[data-theme="dark"] body blockquote {
+[data-theme="dark"] #wrapper:not(.control-wrapper) blockquote {
     border-left-color: var(--border-color) !important;
 }
 
-[data-theme="dark"] body code {
+[data-theme="dark"] #wrapper:not(.control-wrapper) code {
     background: var(--bg-secondary) !important;
     border-color: var(--border-color) !important;
     color: var(--text-primary) !important;
 }
 
-[data-theme="dark"] body hr {
+[data-theme="dark"] #wrapper:not(.control-wrapper) hr {
     border-bottom-color: var(--border-color) !important;
 }
 

@@ -2,28 +2,39 @@
   Pied de page unifié — modèle pages de datas
   Variables optionnelles : environment, data_config, data_table, version, firmware_version, footer_text, base_path
 #}
+{% set fc = footer_config|default({}) %}
+{% set footer_environment = fc.environment|default(environment|default('')) %}
+{% set footer_table_label = fc.table_label|default('') %}
+{% set footer_version = fc.version|default(version|default('')) %}
+{% set footer_firmware_version = fc.firmware_version|default(firmware_version|default('')) %}
+{% set footer_text_resolved = fc.footer_text|default('') %}
+{% set footer_base_path = fc.base_path|default(base_path|default('')) %}
 <footer id="footer" class="app-footer app-footer--elevated">
     <div class="context-badges">
-        {% if environment is defined and environment %}
-        <span class="context-badge {{ (environment == 'test' or environment == 'test3') ? 'context-badge-test' : 'context-badge-prod' }}">
+        {% if footer_environment %}
+        <span class="context-badge {{ (footer_environment == 'test' or footer_environment == 'test3') ? 'context-badge-test' : 'context-badge-prod' }}">
             <i class="fas fa-globe"></i>
-            {{ environment == 'test' ? 'Environnement test' : (environment == 'test3' ? 'Environnement test3' : (environment == 's3' ? 'Environnement S3' : 'Environnement production')) }}
+            {{ footer_environment == 'test' ? 'Environnement test' : (footer_environment == 'test3' ? 'Environnement test3' : (footer_environment == 's3' ? 'Environnement S3' : 'Environnement production')) }}
         </span>
         {% endif %}
-        {% if data_config is defined and data_config.table_label is defined %}
+        {% if footer_table_label %}
+        <span class="context-badge"><i class="fas fa-database"></i> {{ footer_table_label }}</span>
+        {% elseif data_config is defined and data_config.table_label is defined %}
         <span class="context-badge"><i class="fas fa-database"></i> {{ data_config.table_label }}</span>
         {% elseif data_table is defined and data_table %}
         <span class="context-badge"><i class="fas fa-database"></i> Table {{ data_table }}</span>
         {% endif %}
-        {% if version is defined and version %}
-        <span class="context-badge"><i class="fas fa-code-branch"></i> {{ version }}</span>
+        {% if footer_version %}
+        <span class="context-badge"><i class="fas fa-code-branch"></i> {{ footer_version }}</span>
         {% endif %}
-        {% if firmware_version is defined and firmware_version %}
-        <span class="context-badge"><i class="fas fa-microchip"></i> Firmware v{{ firmware_version }}</span>
+        {% if footer_firmware_version %}
+        <span class="context-badge"><i class="fas fa-microchip"></i> Firmware v{{ footer_firmware_version }}</span>
         {% endif %}
     </div>
     <p class="footer-copyright">
-        {%- if data_config is defined and data_config.footer_text is defined -%}
+        {%- if footer_text_resolved -%}
+            {{- footer_text_resolved -}}
+        {%- elseif data_config is defined and data_config.footer_text is defined -%}
             {{- data_config.footer_text -}}
         {%- elseif footer_text is defined and footer_text -%}
             {{- footer_text -}}
@@ -33,8 +44,8 @@
         &nbsp;| &copy; {{ "now"|date("Y") }} olution
     </p>
     <p class="footer-nav-links">
-        <a href="{{ base_path|default('') }}/" class="footer-nav-link"><i class="fas fa-home"></i> Accueil</a>
+        <a href="{{ footer_base_path }}/" class="footer-nav-link"><i class="fas fa-home"></i> Accueil</a>
         <span class="footer-nav-sep">&nbsp;|&nbsp;</span>
-        <a href="{{ base_path|default('') }}/supervision" class="footer-nav-link"><i class="fas fa-cog"></i> Administration</a>
+        <a href="{{ footer_base_path }}/supervision" class="footer-nav-link"><i class="fas fa-cog"></i> Administration</a>
     </p>
 </footer>
