@@ -174,7 +174,7 @@ class RealtimeUpdater {
     }
 
     /**
-     * Met à jour le badge de statut (optionnel : absent sur pages n3pp/msp1).
+     * Met à jour le badge de statut (élément optionnel selon la page).
      */
     updateBadge(status) {
         const badge = document.getElementById('live-badge');
@@ -196,7 +196,7 @@ class RealtimeUpdater {
     }
 
     /**
-     * Met à jour les informations système dans l'UI (bloc optionnel : absent sur n3pp/msp1).
+     * Met à jour les informations système dans l'UI (bloc optionnel selon la page).
      */
     updateSystemStatus(health) {
         // Dernière réception

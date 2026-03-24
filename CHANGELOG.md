@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.258] - 2026-03-24
+
+### Correctif - tuiles statut et derniere reception restaurees sur MSP/N3PP
+- **Resume** : le bloc commun `Etat du systeme` des pages de donnees MSP1/N3PP affiche de nouveau les tuiles `Statut` et `Derniere reception` (avec les memes identifiants et le meme markup que les autres pages), ce qui re-synchronise l'UI avec les mises a jour live de `realtime-updater.js`.
+- Fichiers modifies : `templates/partials/_filter_health_row.twig`, `public/assets/js/realtime-updater.js`, `VERSION`
+
+---
+
 ## [5.0.257] - 2026-03-24
 
 ### Correctif - coherence mode sombre pages de controle serveur
