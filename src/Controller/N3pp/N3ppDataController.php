@@ -131,12 +131,12 @@ class N3ppDataController extends AbstractDataController
     {
         return '{
             "HumidMoy":{"chartId":"chart-niveauxeaux","seriesIndex":0},
-            "Humid1":{"chartId":"chart-niveauxeaux","seriesIndex":1},
-            "Humid2":{"chartId":"chart-niveauxeaux","seriesIndex":2},
-            "Humid3":{"chartId":"chart-niveauxeaux","seriesIndex":3},
-            "Humid4":{"chartId":"chart-niveauxeaux","seriesIndex":4},
-            "etatPompe":{"chartId":"chart-niveauxeaux","seriesIndex":5},
-            "resetMode":{"chartId":"chart-niveauxeaux","seriesIndex":6},
+            "Humid1":{"chartId":"chart-niveauxeaux","seriesIndex":2},
+            "Humid2":{"chartId":"chart-niveauxeaux","seriesIndex":3},
+            "Humid3":{"chartId":"chart-niveauxeaux","seriesIndex":4},
+            "Humid4":{"chartId":"chart-niveauxeaux","seriesIndex":5},
+            "etatPompe":{"chartId":"chart-niveauxeaux","seriesIndex":6},
+            "resetMode":{"chartId":"chart-niveauxeaux","seriesIndex":7},
             "TempAir":{"chartId":"chart-temperatures","seriesIndex":0},
             "Humidite":{"chartId":"chart-temperatures","seriesIndex":1},
             "Luminosite":{"chartId":"chart-temperatures","seriesIndex":2},
