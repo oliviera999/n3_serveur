@@ -114,6 +114,11 @@ class ControlValuesUpdater {
         const inputElement = this.parameterElements.get(gpio);
 
         if (inputElement) {
+            if (document.activeElement === inputElement && inputElement.type !== 'checkbox') {
+                this.log(`Skip update for GPIO ${gpio}: input focused`);
+                return;
+            }
+
             const currentValue = inputElement.type === 'checkbox'
                 ? (inputElement.checked ? 1 : 0)
                 : inputElement.value;
@@ -122,7 +127,8 @@ class ControlValuesUpdater {
             const hasChanged = normalizedNew !== normalizedCurrent;
 
             if (inputElement.type === 'checkbox') {
-                inputElement.checked = value == 1;
+                const checked = value === 1 || value === '1' || value === true || value === 'true' || value === 'checked';
+                inputElement.checked = checked;
             } else {
                 inputElement.value = value;
             }

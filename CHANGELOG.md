@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.254] - 2026-03-24
+
+### Modifie - mode servo auto/manuel MSP (serveur + page controle)
+- **Resume** : ajout d'un parametre persistant `ServoModeAuto` (GPIO virtuel `111`) pour la station MSP, avec switch Auto/Manuel sur la page de controle, validation serveur des angles servos (`ServoGD` 1-179, `ServoHB` 40-145), et normalisation stricte des valeurs booleennes (`WakeUp`, `ServoModeAuto`).
+- Fichiers modifies : `src/Repository/MspOutputRepository.php`, `src/Controller/Msp/MspOutputController.php`, `src/Controller/AbstractOutputController.php`, `templates/msp1_control.twig`, `templates/partials/_control_init_js.twig`, `public/assets/js/control-values-updater.js`, `VERSION`
+
 ## [5.0.252] - 2026-03-24
 
 ### Correctif - reset MSP/N3PP en one-shot (anti-boucle)

@@ -74,7 +74,15 @@ class MspOutputController extends AbstractOutputController
 
     protected function getDefaultParamKeys(): array
     {
-        return ['mail', 'mailNotif', 'SeuilSec', 'SeuilPontDiv', 'ServoHB', 'ServoGD', 'WakeUp', 'FreqWakeUp'];
+        return ['mail', 'mailNotif', 'SeuilSec', 'SeuilPontDiv', 'ServoHB', 'ServoGD', 'WakeUp', 'FreqWakeUp', 'ServoModeAuto'];
+    }
+
+    /** @return array<string, string> */
+    protected function getDefaultParams(): array
+    {
+        $params = parent::getDefaultParams();
+        $params['ServoModeAuto'] = '1';
+        return $params;
     }
 
     protected function getStateData(int $board): array

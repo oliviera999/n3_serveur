@@ -215,12 +215,11 @@ abstract class AbstractOutputController
         $paramName = (string) array_key_first($payload);
         $value = trim((string) ($payload[$paramName] ?? ''));
 
-        if ($paramName === 'mailNotif') {
-            $value = in_array(strtolower($value), ['1', 'true', 'checked', 'on', 'oui'], true) ? 'checked' : 'false';
+        $normalized = $this->normalizeAndValidateParameterValue($paramName, $value);
+        if (($normalized['ok'] ?? false) !== true) {
+            return ResponseHelper::json($response, ['error' => $normalized['error'] ?? 'Valeur invalide'], 400);
         }
-        if ($paramName === 'WakeUp') {
-            $value = in_array($value, ['1', 'true', 'on'], true) ? '1' : '0';
-        }
+        $value = (string) ($normalized['value'] ?? $value);
 
         try {
             $ok = $this->updateParameterByName($board, $paramName, $value);
@@ -277,7 +276,12 @@ abstract class AbstractOutputController
         $params = $this->getDefaultParams();
         foreach ($this->getDefaultParamKeys() as $key) {
             if (isset($body[$key])) {
-                $params[$key] = trim((string) $body[$key]);
+                $rawValue = trim((string) $body[$key]);
+                $normalized = $this->normalizeAndValidateParameterValue($key, $rawValue);
+                if (($normalized['ok'] ?? false) !== true) {
+                    return ResponseHelper::json($response, ['error' => $normalized['error'] ?? 'Valeur invalide'], 400);
+                }
+                $params[$key] = (string) ($normalized['value'] ?? $rawValue);
             }
         }
 
@@ -289,5 +293,43 @@ abstract class AbstractOutputController
             $this->logger->error("{$this->componentName()}: erreur batchUpdateParameters", ['error' => $e->getMessage()]);
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
+    }
+
+    /**
+     * @return array{ok: bool, value?: string, error?: string}
+     */
+    private function normalizeAndValidateParameterValue(string $paramName, string $value): array
+    {
+        if ($paramName === 'mailNotif') {
+            return ['ok' => true, 'value' => in_array(strtolower($value), ['1', 'true', 'checked', 'on', 'oui'], true) ? 'checked' : 'false'];
+        }
+
+        if ($paramName === 'WakeUp' || $paramName === 'ServoModeAuto') {
+            return ['ok' => true, 'value' => in_array(strtolower($value), ['1', 'true', 'on', 'oui'], true) ? '1' : '0'];
+        }
+
+        if ($paramName === 'ServoGD') {
+            if (!is_numeric($value)) {
+                return ['ok' => false, 'error' => 'ServoGD doit être un nombre entre 1 et 179'];
+            }
+            $servoGd = (int) round((float) $value);
+            if ($servoGd < 1 || $servoGd > 179) {
+                return ['ok' => false, 'error' => 'ServoGD hors limites (1-179)'];
+            }
+            return ['ok' => true, 'value' => (string) $servoGd];
+        }
+
+        if ($paramName === 'ServoHB') {
+            if (!is_numeric($value)) {
+                return ['ok' => false, 'error' => 'ServoHB doit être un nombre entre 40 et 145'];
+            }
+            $servoHb = (int) round((float) $value);
+            if ($servoHb < 40 || $servoHb > 145) {
+                return ['ok' => false, 'error' => 'ServoHB hors limites (40-145)'];
+            }
+            return ['ok' => true, 'value' => (string) $servoHb];
+        }
+
+        return ['ok' => true, 'value' => $value];
     }
 }

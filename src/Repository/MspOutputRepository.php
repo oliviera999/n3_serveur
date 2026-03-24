@@ -43,7 +43,7 @@ class MspOutputRepository extends AbstractOutputRepository
         $this->execute($sql, [':state' => $state, ':name' => $name, ':board' => $board]);
     }
 
-    /** Mapping GPIO 100-107 vers les noms de parametres (site initial MSP1). */
+    /** Mapping GPIO virtuels vers les noms de parametres (site initial MSP1 + extensions). */
     private const PARAM_GPIO_MAP = [
         100 => 'mail',
         101 => 'mailNotif',
@@ -53,6 +53,7 @@ class MspOutputRepository extends AbstractOutputRepository
         105 => 'ServoGD',
         106 => 'WakeUp',
         107 => 'FreqWakeUp',
+        111 => 'ServoModeAuto',
     ];
 
 }

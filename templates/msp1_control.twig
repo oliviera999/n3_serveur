@@ -30,7 +30,7 @@
 
         <div class="controls-group">
             <header>
-                <h2><i class="fas fa-arrows-up-down"></i> Capteurs et servos</h2>
+                <h2><i class="fas fa-seedling"></i> Capteurs</h2>
             </header>
             <div class="parameters-panel">
                 <div class="parameters-grid">
@@ -39,14 +39,32 @@
                         <input type="number" data-parameter="SeuilSec" data-parameter-gpio="102" id="SeuilSec" min="0" value="{{ params.SeuilSec|default('0') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="SeuilSec" data-state="idle"></small>
                     </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-group">
+            <header>
+                <h2><i class="fas fa-arrows-up-down"></i> Contrôle servomoteur</h2>
+            </header>
+            <div class="parameters-panel">
+                <div class="parameters-grid">
+                    <label class="parameter-item parameter-item-switch" title="Mode Auto : suivi de luminosité. Mode Manuel : angles fixés par la BDD.">
+                        <span>Mode servo</span>
+                        <label class="modern-switch" title="Basculer Auto/Manuel">
+                            <input type="checkbox" data-parameter-gpio="111" id="ServoModeAuto" {{ params.ServoModeAuto|default('1') == '1' ? 'checked' : '' }} role="switch" aria-label="Mode servo auto/manuel" onchange="saveParamSwitch('ServoModeAuto', this.checked, '1', '0')">
+                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                        </label>
+                        <span class="parameter-item-hint" id="ServoModeAuto-hint">{{ params.ServoModeAuto|default('1') == '1' ? 'Auto' : 'Manuel' }}</span>
+                    </label>
                     <label class="parameter-item" data-parameter-wrapper title="Angle du servo contrôle vertical (haut-bas)">
                         <span>Angle servo haut-bas</span>
-                        <input type="number" data-parameter="ServoHB" data-parameter-gpio="104" id="ServoHB" min="0" value="{{ params.ServoHB|default('0') }}">
+                        <input type="number" data-parameter="ServoHB" data-parameter-gpio="104" id="ServoHB" min="40" max="145" step="1" value="{{ params.ServoHB|default('40') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="ServoHB" data-state="idle"></small>
                     </label>
                     <label class="parameter-item" data-parameter-wrapper title="Angle du servo contrôle horizontal (gauche-droite)">
                         <span>Angle servo gauche-droite</span>
-                        <input type="number" data-parameter="ServoGD" data-parameter-gpio="105" id="ServoGD" min="0" value="{{ params.ServoGD|default('0') }}">
+                        <input type="number" data-parameter="ServoGD" data-parameter-gpio="105" id="ServoGD" min="1" max="179" step="1" value="{{ params.ServoGD|default('90') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="ServoGD" data-state="idle"></small>
                     </label>
                 </div>
