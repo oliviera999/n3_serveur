@@ -1,20 +1,23 @@
 {
-    "msp1":  {
-                 "version":  "2.21",
-                 "min_version":  "2.21",
-                 "url":  "https://iot.olution.info/ota/cam/msp1/firmware.bin",
-                 "sha256":  "0b43f612b848fac6e83ee11b907d1ce9d4b90f8ca5cc5cbd9c64594ae70c97fc"
-             },
-    "n3pp":  {
-                 "version":  "2.10",
-                 "min_version":  "2.10",
-                 "url":  "https://iot.olution.info/ota/cam/n3pp/firmware.bin",
-                 "sha256":  "04060562157709e9a459c7e0989e2a78357d6ea3834b2fcc50255a90036240bd"
-             },
-    "ffp3":  {
-                 "version":  "2.10",
-                 "min_version":  "2.10",
-                 "url":  "https://iot.olution.info/ota/cam/ffp3/firmware.bin",
-                 "sha256":  "7b361cd36bd9094c217c5cd73ae641ed6bd9fef6ca6ceb8cee0e8c4e3e2ad384"
-             }
+  "msp1": {
+    "version": "2.25",
+    "min_version": "2.25",
+    "url": "https://iot.olution.info/ota/cam/msp1/firmware.bin",
+    "sha256": "b6ea8731617a106b9f822527618f05b66f6b62f96090db3d59692b3375ee3abc",
+    "signature": "MIGHAkIA3CrO7K8TwodA6Xc5US3Q7pnVOp1uSGKJHaE9zs7fcdFWQEDR/bqHKUZAwoTYZA1ywdxrD2/iYw/BORGI7xgON2gCQTgb6QLV3X1y3XZJTMWAATwfz5Of7lB6EcZ8U9FawsDEAXf5SjIfLSAsRdccTPYFDxYhsIp436X2zs0+UR6kvzmQ"
+  },
+  "n3pp": {
+    "version": "2.25",
+    "min_version": "2.25",
+    "url": "https://iot.olution.info/ota/cam/n3pp/firmware.bin",
+    "sha256": "5fb030e13190f3998d80035dd603fa0000b48e13cae5aee0dd7a0f9c3a13ca1b",
+    "signature": "MIGHAkFAzH8h5KS9Ciu/sHT1dQttKclucU8Z9556RalQYk68RAMj/Ojh/OcVR4esnUe87odYdaCgSloh6i5+UsF14TZPAgJCAN24Uf3MCID8iSSCBXFCp0dFic8R8zyPeUhIwkjaB3dHeFruUPa84eP+er1GTSVZZfYkq22OVIzxLgOwzxb07E1I"
+  },
+  "ffp3": {
+    "version": "2.25",
+    "min_version": "2.25",
+    "url": "https://iot.olution.info/ota/cam/ffp3/firmware.bin",
+    "sha256": "b590343e4c7c494e20be7b26fbbae11d41e87bf26c7cc7a45f482919b659eb70",
+    "signature": "MIGIAkIA+v+UylK+ffd339e5BzEbVdXU+KpkBFUvzYGgKg9eCxCVI2IvyoRnxmn8GHHfsLh4lp7mwH8HMQfrTCPWPJO7PtACQgEuf2yvR3s2ngZqQFQ9nq+o8RuLuXnxOiNWa8vzhnDTdY1thtlUi+0/EWIKqrYWiMfwcM5WhHysjiBSWZzKcyO+vg=="
+  }
 }
