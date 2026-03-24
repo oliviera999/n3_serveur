@@ -98,14 +98,13 @@
         </section>
 
         {% block control_footer %}
-        <footer id="footer" class="app-footer app-footer--elevated">
-            <div class="footer-badges">
-                <span class="footer-badge"><i class="fas fa-globe"></i> {{ environment }}</span>
-                <span class="footer-badge"><i class="fas fa-code-branch"></i> {{ version }}</span>
-                {% if firmware_version %}<span class="footer-badge"><i class="fas fa-microchip"></i> FW {{ firmware_version }}</span>{% endif %}
-            </div>
-            <p style="margin:0;">{{ control_config.sidebar_title }} | N3 IoT Datas | &copy; {{ "now"|date("Y") }} olution</p>
-        </footer>
+        {% include 'partials/_footer.twig' with {
+            footer_text: control_config.footer_text|default('N3 IoT Datas Platform | Projets pedagogiques connectes'),
+            environment: environment|default('prod'),
+            version: version|default(''),
+            firmware_version: firmware_version|default(''),
+            base_path: base_path|default('')
+        } %}
         {% endblock %}
     </div>
 {% endblock %}

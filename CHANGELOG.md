@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.252] - 2026-03-24
+
+### Correctif - reset MSP/N3PP en one-shot (anti-boucle)
+- **Resume** : acquittement automatique des commandes one-shot (`GPIO 108/109/110`) lors de la lecture firmware (`outputs_state`) pour les flux legacy MSP1/N3PP. Le firmware recoit la commande active puis la valeur est remise a `0` cote serveur afin d'eviter un redemarrage/redeclenchement en boucle au cycle suivant.
+- Fichiers modifies : `src/Repository/AbstractOutputRepository.php`, `VERSION`
+
+## [5.0.251] - 2026-03-24
+
+### Modifie - footer unifie sur les pages de controle
+- **Resume** : le template de base des pages de controle MSP1/N3PP reutilise maintenant le partial standard `partials/_footer.twig`, ce qui aligne le pied de page avec la page d'accueil et les autres pages du site.
+- Fichiers modifies : `templates/partials/_control_base.twig`, `VERSION`
+
 ## [5.0.250] - 2026-03-24
 
 ### Correctif - reset mode fiabilise + toggle outputs en POST

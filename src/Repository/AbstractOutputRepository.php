@@ -13,6 +13,9 @@ use PDO;
  */
 abstract class AbstractOutputRepository extends AbstractRepository
 {
+    /** @var int[] GPIO de commande one-shot (envoyés puis acquittés à 0) */
+    private const ONE_SHOT_GPIOS = [108, 109, 110];
+
     public function __construct(
         PDO $pdo,
         protected BoardRepository $boardRepo,
@@ -46,15 +49,35 @@ abstract class AbstractOutputRepository extends AbstractRepository
         $rows = $this->fetchAll($sql, [':board' => $board]);
 
         $result = [];
+        $gpioToAck = [];
         foreach ($rows as $row) {
             $gpio = (string) ($row['gpio'] ?? '');
-            $result[$gpio] = (string) ($row['state'] ?? '');
+            $state = (string) ($row['state'] ?? '');
+            $result[$gpio] = $state;
+
+            $gpioInt = (int) $gpio;
+            if (in_array($gpioInt, self::ONE_SHOT_GPIOS, true) && $this->isActiveState($state)) {
+                $gpioToAck[] = $gpioInt;
+            }
+        }
+
+        // Acquittement one-shot (108/109/110) :
+        // le firmware reçoit la commande "1" puis le serveur repasse immédiatement à 0
+        // pour éviter les boucles de déclenchement au prochain cycle.
+        foreach (array_values(array_unique($gpioToAck)) as $gpioInt) {
+            $this->updateByGpio($gpioInt, '0', $board);
         }
 
         // Mettre à jour last_request dans Boards (comportement legacy)
         $this->boardRepo->updateLastRequest((string) $board);
 
         return $result;
+    }
+
+    private function isActiveState(string $state): bool
+    {
+        $normalized = strtolower(trim($state));
+        return in_array($normalized, ['1', 'true', 'on', 'checked', 'yes'], true);
     }
 
     /**
