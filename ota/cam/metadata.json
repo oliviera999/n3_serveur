@@ -1,23 +1,23 @@
 {
   "msp1": {
-    "version": "2.25",
-    "min_version": "2.25",
+    "version": "2.27",
+    "min_version": "2.27",
     "url": "http://iot.olution.info/ota/cam/msp1/firmware.bin",
-    "sha256": "b6ea8731617a106b9f822527618f05b66f6b62f96090db3d59692b3375ee3abc",
-    "signature": "MIGHAkIB4K8dLakV/xJn+LwOBJEicWSzC5uLA4JEjmvica92vPWxSKN2br0nJ6jy4oUTwo7oXJ3V+h+s30/ZhYpxSmdqm3wCQW3tqYsohF81YWITzGc4r57BWbm/zaRrRCcsZKFFvPQXCoRP08ZiCPXqTv2z5283gqu+RnMrhqR9pKo/2djxXIF/"
+    "sha256": "141a23444e5c40f1d4a67df9a13d1b1c33ecf99a6f52e02ca3d0dfe44ae93f22",
+    "signature": "MIGIAkIBp28nl6pOQucOkt14tPRU3zWvw0G0CNp//ZdGPPf5hzcDlLqlm9kUsa/e9KAFCB2Z9bBUv8qLWdo+hKHmxNXUgbQCQgCrPIbBzKQoNE4wZqcyPEh4hba2EKpeDuDrKCE0kr1dovXqFIaPqqFbcx+mQGfFIxMvW7rh5hzIBJI5aNaMdc58rg=="
   },
   "n3pp": {
-    "version": "2.25",
-    "min_version": "2.25",
+    "version": "2.27",
+    "min_version": "2.27",
     "url": "http://iot.olution.info/ota/cam/n3pp/firmware.bin",
-    "sha256": "5fb030e13190f3998d80035dd603fa0000b48e13cae5aee0dd7a0f9c3a13ca1b",
-    "signature": "MIGIAkIA4yDaTfiYhvrkdo9kZ0WW8kIGRKW7SbIqhBOkHU2dgK9721zeyTNzYQBawCECo1QZ/Xlpa8t+bTVVJ5M3GKyUu1QCQgGEGQJ5qD4s6xCljXRZOW4SshLFUHFUBr6WOpN6ZEP/bclDK5imOuMplk1NmGKhs5xESQY9UjiVmyDM+d+G7sQeOg=="
+    "sha256": "ac7f8efc42d960352480dda8ef73ef1f03a3fdfc7e52c629fbae8e180f7dcd4c",
+    "signature": "MIGIAkIBFCeSJrNR/bZe34ZsSAl9l/3vshSIEpqjSu0mR2PWaWAAqaVGyLjgfNv4PzRtk1hWS9/yxB1ZYohWXCEKLEHjwCMCQgH81sseC5PalHtiadzFpxA7W8RPeU8vuApyuTQGZBRk8kLHqahqR4VVMfFFa3VwM4wAU+LkbEBFcsejbheoZ7VOlA=="
   },
   "ffp3": {
-    "version": "2.25",
-    "min_version": "2.25",
+    "version": "2.27",
+    "min_version": "2.27",
     "url": "http://iot.olution.info/ota/cam/ffp3/firmware.bin",
-    "sha256": "b590343e4c7c494e20be7b26fbbae11d41e87bf26c7cc7a45f482919b659eb70",
-    "signature": "MIGHAkIBCYUEIJwiRWtVCJ27iNZxSdZoFjFEHnBIIwd/qllFqepKvHinh/oY+l4XT8ezzMXUzUJ2UiwVitH10apxkV48m8ACQSeyJa51ZxMkbNEAQv4BnWI5zuFcO1HAksPahKIAjTMQIKic1hCkD+HI8NzyBGzGnv9uSUoA8a+zdgGTiBTcZ2Jw"
+    "sha256": "70f8dd7325bb2a2f97a79b71a1ddeffc3f9f8174bba1be122a8c47b7a3122168",
+    "signature": "MIGIAkIBzXJR+8uME+ZgnvgUVTqI3SGm0MSLYXUqj+MMN+CstPiNwzU0cepRc/3X/tw93BjqADja9jq19RYhlASZlg7vIhsCQgDYLACDK+rwoS5R6CMoAHSUAWTBUdxztIkKTOOOokYLBO6Y9TYnHpylViXvBOxyZOulPsPmnrf3lVD8MN2qQmIJxQ=="
   }
 }
