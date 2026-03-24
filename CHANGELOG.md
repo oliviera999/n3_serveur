@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.255] - 2026-03-24
+
+### Correctif - nettoie les doublons du changelog et fiabilise la publication
+- **Résumé** : nettoie les doublons du changelog et fiabilise la publication.
+
+---
 ## [5.0.254] - 2026-03-24
 
 ### Modifie - mode servo auto/manuel MSP (serveur + page controle)
@@ -57,12 +63,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.247] - 2026-03-23
 
 ### Correctif - coherence complete en mode sombre pour controle camera
@@ -71,12 +71,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.246] - 2026-03-23
 
 ### Modifie - harmonisation visuelle des blocs du controle camera
@@ -85,12 +79,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.245] - 2026-03-23
 
 ### Modifie - tuiles supervision pour controle uploadphotosserver
@@ -99,12 +87,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.244] - 2026-03-23
 
 ### Modifie - controle distant uploadphotosserver (msp1/n3pp/ffp3)
@@ -113,12 +95,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.243] - 2026-03-23
 
 ### Modifie - harmonisation libelles periode personnalisee
@@ -127,12 +103,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.242] - 2026-03-23
 
 ### Correctif - centrage du bloc de filtrage (debut/fin + actions)
@@ -141,12 +111,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.241] - 2026-03-21
 
 ### Correctif - Badge LIVE en vert (plus d’override orange)
@@ -158,12 +122,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.240] - 2026-03-21
 
 ### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.19, verification a chaque boot)
@@ -171,12 +129,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.239] - 2026-03-21
 
 ### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.18)
@@ -184,12 +136,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.238] - 2026-03-21
 
 ### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.14)
@@ -197,12 +143,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.237] - 2026-03-21
 
 ### Correctif - agencement Highcharts aquaponie (timeline / légende)
@@ -210,12 +150,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.236] - 2026-03-21
 
 ### Correctif - icone menu sandwich identique smartphone / laptop zoome
@@ -223,12 +157,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.235] - 2026-03-21
 
 ### Modifie - menu sandwich unifie smartphone / laptop zoom (a11y + resize)
@@ -236,12 +164,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.234] - 2026-03-21
 
 ### Modifie - accueil : exposant n³ dans le titre hero
@@ -249,12 +171,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.233] - 2026-03-21
 
 ### Modifie - accueil : suppression du section-header duplique « Internet des objets »
@@ -262,12 +178,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.232] - 2026-03-21
 
 ### Modifie - alignement visuel global (fond, logo IOT, footer) sur accueil/login
@@ -275,12 +185,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.231] - 2026-03-21
 
 ### Modifie - homogeneisation navigation (desktop, mobile, dark mode, a11y)
@@ -288,12 +192,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.230] - 2026-03-21
 
 ### Correctif - icone en double (analyses manuelles eleves, aquaponie)
@@ -301,12 +199,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.229] - 2026-03-21
 
 ### Modifie - taille des titres pages donnees alignee sur l'accueil
@@ -314,12 +206,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.228] - 2026-03-21
 
 ### Modifie - titre accueil remplace et passe en orange
@@ -327,12 +213,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.227] - 2026-03-21
 
 ### Modifie - orange titres et badges LIVE (reference supervision)
@@ -340,12 +220,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.226] - 2026-03-21
 
 ### Correctif - double filet sous la synthese des mesures (pages donnees)
@@ -353,12 +227,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.225] - 2026-03-20
 
 ### Correctif - affichage Highcharts mobile (graphiques tasses / blancs avant timeline)
@@ -366,12 +234,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.224] - 2026-03-20
 
 ### Correctif - debordements residuels dans "Filtrage des donnees" et "Etat du systeme" (mobile)
@@ -379,12 +241,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.223] - 2026-03-20
 
 ### Correctif - titres des pages donnees adaptes au mobile
@@ -392,12 +248,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.222] - 2026-03-20
 
 ### Correctif - bouton hamburger mobile uniforme (icone blanche, sans texte, centree)
@@ -405,12 +255,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.221] - 2026-03-20
 
 ### Correctif - suppression des debordements a droite sur mobile (filtrage + etat systeme)
@@ -418,12 +262,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.220] - 2026-03-20
 
 ### Correctif - bouton menu mobile cliquable et style unifie
@@ -431,12 +269,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.219] - 2026-03-20
 
 ### Correctif - coherence theme clair/sombre et fiabilisation menu mobile
@@ -444,12 +276,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.218] - 2026-03-20
 
 ### Correctif - chargement conditionnel des assets sur pages d'entree
@@ -457,12 +283,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.217] - 2026-03-20
 
 ### Correctif - responsive mobile/laptop sur layouts, tableaux et timelapse
@@ -470,12 +290,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.215] - 2026-03-20
 
 ### Correctif - application des priorites audit UI accueil/login/navigation
@@ -483,12 +297,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -502,18 +310,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
 ## [5.0.211] - 2026-03-20
 
 ## [5.0.212] - 2026-03-20
@@ -523,43 +319,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
-## [5.0.213] - 2026-03-20
-
-### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
-
----
-## [5.0.211] - 2026-03-20
-
-### Ajout - acces central corbeille + tri global des galeries
-- **Resume** : ajout d'une tuile "Galerie trash (toutes)" dans la supervision (route `/admin/gallery-trash`) et d'une action admin "Lancer le tri global" qui rejoue en un clic l'algorithme de tri qualite sur toutes les galeries (MSP1, N3PP, FFP3) via le nouvel endpoint `/admin/api/gallery/auto-sort-all`. Le tri reste actif a l'upload et peut maintenant aussi etre force manuellement sur l'existant.
-
----
-
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
@@ -573,24 +332,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
-## [5.0.213] - 2026-03-20
-
-### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
-
----
 ## [5.0.209] - 2026-03-20
 
 ### Modifie - Audit complet du mode sombre
@@ -598,24 +339,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
-## [5.0.213] - 2026-03-20
-
-### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
-
----
 ## [5.0.208] - 2026-03-20
 
 ### Ajout - 4 especes chimiques supplementaires dans les parametres surveilles aquaponie
@@ -623,24 +346,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
-## [5.0.213] - 2026-03-20
-
-### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
-
----
 ## [5.0.207] - 2026-03-20
 
 ### Modifie - maintenance du changelog et garde-fous automatises
@@ -648,24 +353,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
-## [5.0.213] - 2026-03-20
-
-### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
-
----
 ## [5.0.206] - 2026-03-20
 
 ### Modifie - fermeture lightbox au clic sur l'image
@@ -673,24 +360,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
-## [5.0.213] - 2026-03-20
-
-### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
-
----
 ## [5.0.205] - 2026-03-20
 
 ### Ajout - corbeille photo admin avec tri automatique
@@ -698,24 +367,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
-## [5.0.213] - 2026-03-20
-
-### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
-
----
 ## [5.0.204] - 2026-03-20
 
 ### Modifie - micro-amelioration UX de la galerie classique
@@ -723,24 +374,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
-## [5.0.213] - 2026-03-20
-
-### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
-
----
 ## [5.0.203] - 2026-03-20
 
 ### Corrige - photos cliquables dans les galeries classiques
@@ -748,24 +381,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
-## [5.0.213] - 2026-03-20
-
-### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
-
----
 ## [5.0.202] - 2026-03-20
 
 ### Modifie - maintenance durable du changelog (rotation + garde-fous)
@@ -773,24 +388,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [5.0.253] - 2026-03-24
-
-### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
-
----
-## [5.0.216] - 2026-03-20
-
-### Correctif - application priorites audit UI accueil login navigation
-- **Résumé** : application priorites audit UI accueil login navigation.
-
----
-## [5.0.213] - 2026-03-20
-
-### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Résumé** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
-
----
 ## [5.0.201] - 2026-03-20
 
 ### Modifie - harmonisation des hauts de page et titres (audit style global)
