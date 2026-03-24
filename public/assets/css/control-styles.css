@@ -1727,6 +1727,26 @@ small {
     background: var(--bg-secondary);
 }
 
+[data-theme="dark"] .parameter-item input {
+    background: var(--bg-input, var(--bg-secondary));
+    border-color: var(--border-color);
+    color: var(--control-text, #f1f5f9);
+}
+
+[data-theme="dark"] .parameter-item input::placeholder {
+    color: #94a3b8;
+}
+
+/* Evite les champs "blancs" quand le navigateur applique l'autofill */
+[data-theme="dark"] .parameter-item input:-webkit-autofill,
+[data-theme="dark"] .parameter-item input:-webkit-autofill:hover,
+[data-theme="dark"] .parameter-item input:-webkit-autofill:focus,
+[data-theme="dark"] .parameter-item input:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--control-text, #f1f5f9);
+    -webkit-box-shadow: 0 0 0 1000px var(--bg-input, var(--bg-secondary)) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
 [data-theme="dark"] #params-gallery-container .controls-group {
     background: var(--panel-bg);
     border-color: var(--border-color);

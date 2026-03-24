@@ -37,6 +37,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.248] - 2026-03-23
 
 ### Modifie - pied de page standard sur les pages controle camera
@@ -45,6 +51,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.247] - 2026-03-23
 
 ### Correctif - coherence complete en mode sombre pour controle camera
@@ -53,6 +65,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.246] - 2026-03-23
 
 ### Modifie - harmonisation visuelle des blocs du controle camera
@@ -61,6 +79,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.245] - 2026-03-23
 
 ### Modifie - tuiles supervision pour controle uploadphotosserver
@@ -69,6 +93,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.244] - 2026-03-23
 
 ### Modifie - controle distant uploadphotosserver (msp1/n3pp/ffp3)
@@ -77,6 +107,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.243] - 2026-03-23
 
 ### Modifie - harmonisation libelles periode personnalisee
@@ -85,6 +121,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.242] - 2026-03-23
 
 ### Correctif - centrage du bloc de filtrage (debut/fin + actions)
@@ -93,6 +135,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.241] - 2026-03-21
 
 ### Correctif - Badge LIVE en vert (plus d’override orange)
@@ -104,6 +152,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.240] - 2026-03-21
 
 ### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.19, verification a chaque boot)
@@ -111,6 +165,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.239] - 2026-03-21
 
 ### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.18)
@@ -118,6 +178,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.238] - 2026-03-21
 
 ### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.14)
@@ -125,6 +191,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.237] - 2026-03-21
 
 ### Correctif - agencement Highcharts aquaponie (timeline / légende)
@@ -132,6 +204,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.236] - 2026-03-21
 
 ### Correctif - icone menu sandwich identique smartphone / laptop zoome
@@ -139,6 +217,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.235] - 2026-03-21
 
 ### Modifie - menu sandwich unifie smartphone / laptop zoom (a11y + resize)
@@ -146,6 +230,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.234] - 2026-03-21
 
 ### Modifie - accueil : exposant n³ dans le titre hero
@@ -153,6 +243,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.233] - 2026-03-21
 
 ### Modifie - accueil : suppression du section-header duplique « Internet des objets »
@@ -160,6 +256,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.232] - 2026-03-21
 
 ### Modifie - alignement visuel global (fond, logo IOT, footer) sur accueil/login
@@ -167,6 +269,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.231] - 2026-03-21
 
 ### Modifie - homogeneisation navigation (desktop, mobile, dark mode, a11y)
@@ -174,6 +282,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.230] - 2026-03-21
 
 ### Correctif - icone en double (analyses manuelles eleves, aquaponie)
@@ -181,6 +295,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.229] - 2026-03-21
 
 ### Modifie - taille des titres pages donnees alignee sur l'accueil
@@ -188,6 +308,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.228] - 2026-03-21
 
 ### Modifie - titre accueil remplace et passe en orange
@@ -195,6 +321,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.227] - 2026-03-21
 
 ### Modifie - orange titres et badges LIVE (reference supervision)
@@ -202,6 +334,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.226] - 2026-03-21
 
 ### Correctif - double filet sous la synthese des mesures (pages donnees)
@@ -209,6 +347,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.225] - 2026-03-20
 
 ### Correctif - affichage Highcharts mobile (graphiques tasses / blancs avant timeline)
@@ -216,6 +360,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.224] - 2026-03-20
 
 ### Correctif - debordements residuels dans "Filtrage des donnees" et "Etat du systeme" (mobile)
@@ -223,6 +373,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.223] - 2026-03-20
 
 ### Correctif - titres des pages donnees adaptes au mobile
@@ -230,6 +386,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.222] - 2026-03-20
 
 ### Correctif - bouton hamburger mobile uniforme (icone blanche, sans texte, centree)
@@ -237,6 +399,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.221] - 2026-03-20
 
 ### Correctif - suppression des debordements a droite sur mobile (filtrage + etat systeme)
@@ -244,6 +412,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.220] - 2026-03-20
 
 ### Correctif - bouton menu mobile cliquable et style unifie
@@ -251,6 +425,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.219] - 2026-03-20
 
 ### Correctif - coherence theme clair/sombre et fiabilisation menu mobile
@@ -258,6 +438,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.218] - 2026-03-20
 
 ### Correctif - chargement conditionnel des assets sur pages d'entree
@@ -265,6 +451,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.217] - 2026-03-20
 
 ### Correctif - responsive mobile/laptop sur layouts, tableaux et timelapse
@@ -272,6 +464,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.215] - 2026-03-20
 
 ### Correctif - application des priorites audit UI accueil/login/navigation
@@ -279,6 +477,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -292,6 +496,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -307,6 +517,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -326,6 +542,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -345,6 +567,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -364,6 +592,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -383,6 +617,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -402,6 +642,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -421,6 +667,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -440,6 +692,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -459,6 +717,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -478,6 +742,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
@@ -497,6 +767,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
+## [5.0.253] - 2026-03-24
+
+### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
+- **Résumé** : corrige les fonds blancs en mode sombre sur les pages de controle.
+
+---
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
