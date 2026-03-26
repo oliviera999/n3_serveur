@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.264] - 2026-03-26
+
+### Correctif - highcharts locaux + correctifs aquaponie et audit navigateur
+- **Résumé** : highcharts locaux + correctifs aquaponie et audit navigateur.
+
+---
 ## [5.0.263] - 2026-03-24
 
 ### Modifié - refacto dark mode datas-control et convergence theme Highcharts
