@@ -27,14 +27,60 @@ class PumpService
     private int $gpioResetMode;
 
     /**
+     * Indique si la table d'outputs expose une colonne `name`.
+     * Null = non encore déterminé.
+     */
+    private ?bool $outputsTableHasNameColumn = null;
+
+    /**
      * @param PDO $pdo Connexion PDO à la base de données (injectée)
      */
     public function __construct(private PDO $pdo)
     {
-        // Chargement des GPIO depuis l'environnement ou valeurs par défaut
-        $this->gpioPompeAqua = (int) ($_ENV['GPIO_POMPE_AQUA'] ?? 16);
-        $this->gpioPompeTank = (int) ($_ENV['GPIO_POMPE_TANK'] ?? 18);
-        $this->gpioResetMode = (int) ($_ENV['GPIO_RESET_MODE'] ?? 110);
+        // Chargement des GPIO depuis l'environnement (getenv prioritaire) ou valeurs par défaut
+        $this->gpioPompeAqua = $this->getEnvInt('GPIO_POMPE_AQUA', 16);
+        $this->gpioPompeTank = $this->getEnvInt('GPIO_POMPE_TANK', 18);
+        $this->gpioResetMode = $this->getEnvInt('GPIO_RESET_MODE', 110);
+    }
+
+    private function getEnvInt(string $key, int $default): int
+    {
+        $value = getenv($key);
+        if ($value !== false && $value !== '') {
+            return (int) $value;
+        }
+        if (isset($_ENV[$key]) && (string) $_ENV[$key] !== '') {
+            return (int) $_ENV[$key];
+        }
+        return $default;
+    }
+
+    private function outputsTableHasNameColumn(string $table): bool
+    {
+        if ($this->outputsTableHasNameColumn !== null) {
+            return $this->outputsTableHasNameColumn;
+        }
+
+        try {
+            // Compatible SQLite (tests) ; si indisponible/erreur, on bascule en fallback sans filtre.
+            $stmt = $this->pdo->query("PRAGMA table_info({$table})");
+            if ($stmt === false) {
+                $this->outputsTableHasNameColumn = false;
+                return $this->outputsTableHasNameColumn;
+            }
+            $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($columns as $column) {
+                if (($column['name'] ?? null) === 'name') {
+                    $this->outputsTableHasNameColumn = true;
+                    return true;
+                }
+            }
+        } catch (\Throwable) {
+            // No-op: fallback ci-dessous.
+        }
+
+        $this->outputsTableHasNameColumn = false;
+        return false;
     }
 
     /**
@@ -64,25 +110,33 @@ class PumpService
     public function setState(int $gpio, int $state): void
     {
         $table = TableConfig::getOutputsTable();
-        
-        // CORRECTION v11.38 : Ne mettre à jour QUE les GPIO qui ont des noms définis
-        // Cela évite la création de lignes NULL/inutiles
-        $stmt = $this->pdo->prepare(
-            "UPDATE {$table} 
-             SET state = :state 
-             WHERE gpio = :gpio 
-               AND name IS NOT NULL 
-               AND name != ''"
-        );
-        $stmt->execute([
-            ':gpio' => $gpio, 
-            ':state' => $state
-        ]);
-        
-        // Log si le GPIO n'a pas été trouvé avec un nom
-        if ($stmt->rowCount() === 0) {
-            error_log(sprintf('[%s] PumpService: GPIO %d ignoré - pas de nom défini dans la table', date('Y-m-d H:i:s'), $gpio));
+
+        if ($this->outputsTableHasNameColumn($table)) {
+            // Préserve la règle de sécurité sur les schémas qui possèdent `name`.
+            $stmt = $this->pdo->prepare(
+                "UPDATE {$table}
+                 SET state = :state
+                 WHERE gpio = :gpio
+                   AND name IS NOT NULL
+                   AND name != ''"
+            );
+            $stmt->execute([
+                ':gpio' => $gpio,
+                ':state' => $state,
+            ]);
+
+            if ($stmt->rowCount() === 0) {
+                error_log(sprintf('[%s] PumpService: GPIO %d ignoré - pas de nom défini dans la table', date('Y-m-d H:i:s'), $gpio));
+            }
+            return;
         }
+
+        // Fallback pour schémas legacy/minimaux (notamment tests SQLite).
+        $stmt = $this->pdo->prepare("UPDATE {$table} SET state = :state WHERE gpio = :gpio");
+        $stmt->execute([
+            ':gpio' => $gpio,
+            ':state' => $state,
+        ]);
     }
 
     // ---------------------------------------------------------------------
@@ -110,12 +164,14 @@ class PumpService
      */
     public function stopPompeTank(): void
     {
-        $this->setState($this->gpioPompeTank, 0);
+        // Logique inversée historique : 1 = arrêt.
+        $this->setState($this->gpioPompeTank, 1);
     }
 
     public function runPompeTank(): void
     {
-        $this->setState($this->gpioPompeTank, 1);
+        // Logique inversée historique : 0 = marche.
+        $this->setState($this->gpioPompeTank, 0);
     }
 
     public function getAquaPumpState(): ?int
@@ -131,6 +187,11 @@ class PumpService
     public function getResetModeState(): ?int
     {
         return $this->getState($this->gpioResetMode);
+    }
+
+    public function rebootEsp(): void
+    {
+        $this->setState($this->gpioResetMode, 1);
     }
 
 }

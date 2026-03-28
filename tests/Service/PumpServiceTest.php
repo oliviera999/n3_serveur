@@ -2,6 +2,7 @@
 
 namespace Tests\Service;
 
+use App\Config\TableConfig;
 use App\Service\PumpService;
 use PDO;
 use PHPUnit\Framework\TestCase;
@@ -16,6 +17,8 @@ class PumpServiceTest extends TestCase
         if (!in_array('sqlite', PDO::getAvailableDrivers(), true)) {
             $this->markTestSkipped('PDO sqlite driver not available');
         }
+
+        TableConfig::setEnvironment('prod');
 
         // Configure GPIO via env
         putenv('GPIO_POMPE_AQUA=1');

@@ -150,6 +150,7 @@ return [
         'back-to-top.js', 'balance-reveal.js', 'breakpoints.min.js', 'browser.min.js',
         'chart-helpers.js', 'chart-updater-generic.js', 'chart-updater.js', 'chartjs-theme.js',
         'control-actions.js', 'control-auto-save.js', 'control-sync.js', 'control-values-updater.js', 'gallery-lightbox.js',
+        'confirm-modal.js',
         'highstock.js', 'exporting.js', 'export-data.js', 'accessibility.js',
         'highcharts-defaults.js', 'highcharts-theme.js', 'aquaponie-chart-layout.js', 'jquery.min.js', 'jquery.scrollex.min.js',
         'jquery.scrolly.min.js', 'main.js', 'page-nav-toggles.js', 'pwa-init.js',
@@ -159,12 +160,12 @@ return [
     'asset_css' => [
         'aquaponie.css', 'aquaponie-description-styles.css', 'common-data.css', 'control-styles.css',
         'gallery-styles.css', 'home-styles.css', 'login-styles.css', 'main.css',
-        'msp1-sheet-styles.css', 'noscript.css', 'realtime-styles.css', 'supervision-styles.css',
+        'module-description-styles.css', 'msp1-sheet-styles.css', 'noscript.css', 'realtime-styles.css', 'supervision-styles.css',
         'theme-variables.css', 'timelapse-styles.css',
     ],
     'asset_icons' => [
         'icon-72.png', 'icon-96.png', 'icon-128.png', 'icon-144.png', 'icon-152.png',
-        'icon-192.png', 'icon-384.png', 'icon-512.png',
+        'icon-192.png', 'icon-384.png', 'icon-512.png', 'favicon-n3-orange.png',
     ],
 
     // Redirections 301 : [ancienne_url, nouvelle_url, méthodes]

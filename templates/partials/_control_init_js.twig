@@ -6,6 +6,21 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var controlApiBase = window.CONTROL_API_BASE;
+    function withCurrentToken(endpoint) {
+        try {
+            var currentUrl = new URL(window.location.href);
+            var token = currentUrl.searchParams.get('token');
+            if (!token) return endpoint;
+
+            var targetUrl = new URL(endpoint, window.location.origin);
+            if (!targetUrl.searchParams.has('token')) {
+                targetUrl.searchParams.set('token', token);
+            }
+            return targetUrl.pathname + targetUrl.search;
+        } catch (e) {
+            return endpoint;
+        }
+    }
 
     var valuesUpdater = new ControlValuesUpdater();
     valuesUpdater.init();
@@ -79,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
             syncServoModeFields({ '111': checked ? 1 : 0 });
         }
 
-        fetch(controlApiBase + '/parameters', {
+        fetch(withCurrentToken(controlApiBase + '/parameters'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({ param: paramName, value: value }),

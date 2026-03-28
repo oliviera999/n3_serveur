@@ -72,7 +72,7 @@ class ControlActions {
     }
 
     async sendToggleRequest(payload, element) {
-        const endpoint = `${this.apiBase}/toggle`;
+        const endpoint = this.withCurrentToken(`${this.apiBase}/toggle`);
         element.disabled = true;
         element.closest('.action-card')?.classList.add('is-updating');
 
@@ -149,6 +149,25 @@ class ControlActions {
 
         card.classList.add('state-changed');
         setTimeout(() => card.classList.remove('state-changed'), 800);
+    }
+
+    withCurrentToken(endpoint) {
+        try {
+            const currentUrl = new URL(window.location.href);
+            const token = currentUrl.searchParams.get('token');
+            if (!token) {
+                return endpoint;
+            }
+
+            const targetUrl = new URL(endpoint, window.location.origin);
+            if (!targetUrl.searchParams.has('token')) {
+                targetUrl.searchParams.set('token', token);
+            }
+            return `${targetUrl.pathname}${targetUrl.search}`;
+        } catch (error) {
+            console.warn('[ControlActions] Impossible d\'ajouter le token', error);
+            return endpoint;
+        }
     }
 }
 

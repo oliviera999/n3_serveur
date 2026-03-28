@@ -9,7 +9,68 @@ Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collect
 - **Point d’entrée** : `public/index.php` (front controller unique).
 - **Documentation détaillée** : voir [archives/ffp3/README.md](archives/ffp3/README.md) pour l’architecture FFP3, ou [analyse-ffp3/README.md](analyse-ffp3/README.md) pour l’extrait à analyser.
 
-## Test local rapide
+## Test local complet (Docker)
+
+Pour tester le site completement en local (pages, controle, APIs, upload photo, BDD), utiliser la stack Docker fournie:
+
+- `app` (PHP 8.2 + Slim, port `8082`)
+- `db` (MySQL 8, port `3307` cote hote)
+- `phpmyadmin` (port `8083`)
+
+### Fichiers ajoutes pour le local
+
+- `docker-compose.local.yml`
+- `docker/php/Dockerfile`
+- `docker/mysql/init/00-schema.sql`
+- `docker/mysql/init/10-seed.sql`
+- `.env.docker.example`
+- `tools/local-docker.ps1`
+- `tools/local-smoke-test.ps1`
+
+### Demarrage rapide
+
+Depuis `serveur/`:
+
+```powershell
+# 1) Démarrer la stack locale
+powershell -ExecutionPolicy Bypass -File .\tools\local-docker.ps1 -Action up
+
+# 2) Vérifier les conteneurs
+powershell -ExecutionPolicy Bypass -File .\tools\local-docker.ps1 -Action ps
+
+# 3) Lancer le smoke test HTTP/API/upload
+powershell -ExecutionPolicy Bypass -File .\tools\local-docker.ps1 -Action smoke
+
+# 4) Lancer PHPUnit dans le conteneur app
+powershell -ExecutionPolicy Bypass -File .\tools\local-docker.ps1 -Action test
+```
+
+URLs locales:
+
+- App: `http://127.0.0.1:8082/`
+- phpMyAdmin: `http://127.0.0.1:8083/`
+- MySQL hote: `127.0.0.1:3307` (db `iot_n3_local`, user `iot_n3_user`)
+
+Notes:
+
+- Au premier lancement, le script copie `.env.docker.example` vers `.env` si absent.
+- Le schema BDD est initialise automatiquement via `docker/mysql/init/`.
+- Les donnees de seed evitent les erreurs de pages de controle (tables/rows minimales presentes).
+
+### Arret / logs / shell
+
+```powershell
+# Arrêt
+powershell -ExecutionPolicy Bypass -File .\tools\local-docker.ps1 -Action down
+
+# Logs
+powershell -ExecutionPolicy Bypass -File .\tools\local-docker.ps1 -Action logs
+
+# Shell dans le conteneur app
+powershell -ExecutionPolicy Bypass -File .\tools\local-docker.ps1 -Action shell
+```
+
+## Test local rapide (serveur PHP intégré)
 
 Pour tester rapidement le routage Slim, les templates et les assets sans Apache, utiliser le serveur intégré PHP avec le dossier `public/` comme document root :
 

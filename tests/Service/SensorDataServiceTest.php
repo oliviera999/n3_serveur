@@ -2,6 +2,7 @@
 
 namespace Tests\Service;
 
+use App\Config\TableConfig;
 use App\Service\LogService;
 use App\Service\SensorDataService;
 use PDO;
@@ -17,6 +18,8 @@ class SensorDataServiceTest extends TestCase
         if (!in_array('sqlite', PDO::getAvailableDrivers(), true)) {
             $this->markTestSkipped('PDO sqlite driver not available');
         }
+
+        TableConfig::setEnvironment('prod');
 
         // Rediriger les logs vers un flux mémoire pour les tests
         putenv('LOG_FILE_PATH=php://memory');

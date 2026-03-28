@@ -2,6 +2,7 @@
 
 namespace Tests\Repository;
 
+use App\Config\TableConfig;
 use App\Repository\SensorReadRepository;
 use PDO;
 use PHPUnit\Framework\TestCase;
@@ -16,6 +17,8 @@ class SensorReadRepositoryTest extends TestCase
         if (!in_array('sqlite', PDO::getAvailableDrivers(), true)) {
             $this->markTestSkipped('PDO sqlite driver not available');
         }
+
+        TableConfig::setEnvironment('prod');
 
         $this->pdo = new PDO('sqlite::memory:');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

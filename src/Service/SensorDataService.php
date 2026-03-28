@@ -37,6 +37,18 @@ class SensorDataService
      */
     private array $cleaningRules = [];
 
+    private function getEnvFloat(string $key, float $default): float
+    {
+        $value = getenv($key);
+        if ($value !== false && $value !== '') {
+            return (float) $value;
+        }
+        if (isset($_ENV[$key]) && (string) $_ENV[$key] !== '') {
+            return (float) $_ENV[$key];
+        }
+        return $default;
+    }
+
     /**
      * Constructeur : injection de la connexion PDO et du logger, et chargement des règles de nettoyage.
      */
@@ -47,22 +59,22 @@ class SensorDataService
         // Chargement des seuils depuis l'environnement ou valeurs par défaut
         $this->cleaningRules = [
             'TempEau' => [
-                'min' => (float) ($_ENV['CLEAN_MIN_TEMP_EAU'] ?? 3.0),
-                'max' => (float) ($_ENV['CLEAN_MAX_TEMP_EAU'] ?? 50.0),
+                'min' => $this->getEnvFloat('CLEAN_MIN_TEMP_EAU', 3.0),
+                'max' => $this->getEnvFloat('CLEAN_MAX_TEMP_EAU', 50.0),
             ],
             'TempAir' => [
-                'min' => (float) ($_ENV['CLEAN_MIN_TEMP_AIR'] ?? 3.0),
+                'min' => $this->getEnvFloat('CLEAN_MIN_TEMP_AIR', 3.0),
             ],
             'Humidite' => [
-                'min' => (float) ($_ENV['CLEAN_MIN_HUMIDITE'] ?? 3.0),
+                'min' => $this->getEnvFloat('CLEAN_MIN_HUMIDITE', 3.0),
             ],
             'EauAquarium' => [
-                'min' => (float) ($_ENV['CLEAN_MIN_EAU_AQUARIUM'] ?? 4.0),
-                'max' => (float) ($_ENV['CLEAN_MAX_EAU_AQUARIUM'] ?? 70.0),
+                'min' => $this->getEnvFloat('CLEAN_MIN_EAU_AQUARIUM', 4.0),
+                'max' => $this->getEnvFloat('CLEAN_MAX_EAU_AQUARIUM', 70.0),
             ],
             'EauReserve' => [
-                'min' => (float) ($_ENV['CLEAN_MIN_EAU_RESERVE'] ?? 10.0),
-                'max' => (float) ($_ENV['CLEAN_MAX_EAU_RESERVE'] ?? 90.0),
+                'min' => $this->getEnvFloat('CLEAN_MIN_EAU_RESERVE', 10.0),
+                'max' => $this->getEnvFloat('CLEAN_MAX_EAU_RESERVE', 90.0),
             ],
         ];
     }

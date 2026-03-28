@@ -11,6 +11,34 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.268] - 2026-03-28
+
+### Modifié - Ajout stack Docker locale et fiabilisation smoke/PHPUnit
+- **Résumé** : Ajout stack Docker locale et fiabilisation smoke/PHPUnit.
+
+---
+## [5.0.267] - 2026-03-28
+
+### Ajout - deploiement local complet Docker (app + MySQL + phpMyAdmin)
+- **Resume** : ajout d'une stack locale 100% Docker pour tester le serveur de bout en bout (pages publiques, controle/auth, endpoints API, upload galerie), avec bootstrap BDD from-scratch + seed minimal et scripts PowerShell de pilotage/smoke test (`local-docker.ps1`, `local-smoke-test.ps1`).
+- Fichiers modifies : `docker-compose.local.yml`, `docker/php/Dockerfile`, `docker/php/start.sh`, `docker/php/php.ini`, `docker/mysql/init/00-schema.sql`, `docker/mysql/init/10-seed.sql`, `.env.docker.example`, `tools/local-docker.ps1`, `tools/local-smoke-test.ps1`, `README.md`, `VERSION`
+
+---
+
+## [5.0.266] - 2026-03-26
+
+### Correctif - enregistrement fiable des paramètres meteo-control avec authentification token
+- **Résumé** : propagation automatique du paramètre `token` de l'URL vers les requêtes AJAX de contrôle (`toggle` et `parameters`) pour éviter les erreurs d'authentification lors de la sauvegarde des champs modifiables sur `meteo-control`.
+- Fichiers modifies : `public/assets/js/control-auto-save.js`, `public/assets/js/control-actions.js`, `templates/partials/_control_init_js.twig`, `VERSION`
+
+---
+## [5.0.265] - 2026-03-26
+
+### Modifié - favicon n3 orange harmonisé avec le thème
+- **Résumé** : ajout d'un favicon `n3` orange (`#FF6300`) dérivé du logo et raccordé aux layouts principaux pour appliquer l'icône sur l'ensemble du site.
+- Fichiers modifies : `public/assets/icons/favicon-n3-orange.png`, `templates/layout.twig`, `templates/layout_base.twig`, `config/routes_config.php`, `VERSION`
+
+---
 ## [5.0.264] - 2026-03-26
 
 ### Correctif - highcharts locaux + correctifs aquaponie et audit navigateur

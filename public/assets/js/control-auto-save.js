@@ -8,6 +8,25 @@
         })();
     const PARAM_ENDPOINT = `${API_BASE}/parameters`;
 
+    function withCurrentToken(endpoint) {
+        try {
+            const currentUrl = new URL(window.location.href);
+            const token = currentUrl.searchParams.get('token');
+            if (!token) {
+                return endpoint;
+            }
+
+            const targetUrl = new URL(endpoint, window.location.origin);
+            if (!targetUrl.searchParams.has('token')) {
+                targetUrl.searchParams.set('token', token);
+            }
+            return `${targetUrl.pathname}${targetUrl.search}`;
+        } catch (error) {
+            console.warn('[ControlAutoSave] Impossible d\'ajouter le token', error);
+            return endpoint;
+        }
+    }
+
     const saveState = {
         isSaving: false,
         lastSaveTime: null,
@@ -63,7 +82,7 @@
         showSaveIndicator(parameterName);
         saveState.isSaving = true;
 
-        fetch(PARAM_ENDPOINT, {
+        fetch(withCurrentToken(PARAM_ENDPOINT), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
