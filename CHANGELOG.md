@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.275] - 2026-03-30
+
+### Correctif - smoke test local et diagnostic environnements sous Docker
+- **Résumé** : délai HTTP du smoke test paramétrable (`-TimeoutSec`, défaut 60 s) pour limiter les timeouts sur pages lourdes ; `verify_environments.php` utilise `Database::getConnection()` et le `.env` (`DB_HOST=db` en stack Docker) au lieu d’identifiants MySQL codés en dur.
+- Fichiers modifiés : `tools/local-smoke-test.ps1`, `tools/verify_environments.php`, `README.md`, `VERSION`
+
+---
 ## [5.0.274] - 2026-03-30
 
 ### Modifié - unification du layout Highcharts et robustesse thème système

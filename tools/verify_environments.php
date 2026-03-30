@@ -2,15 +2,21 @@
 /**
  * Script de vérification des environnements PROD et TEST
  * Date: 2025-10-15
- * 
+ *
  * Vérifie que les deux environnements fonctionnent correctement
- * et utilisent les bonnes tables
+ * et utilisent les bonnes tables.
+ *
+ * Connexion MySQL : utilise les variables DB_* du fichier .env (comme l’application).
+ * Sous Docker local, définir DB_HOST=db (voir .env.docker.example).
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use App\Config\TableConfig;
+use App\Config\Database;
 use App\Config\Env;
+use App\Config\TableConfig;
+
+Env::load();
 
 echo "========================================\n";
 echo "VÉRIFICATION ENVIRONNEMENTS PROD/TEST\n";
@@ -21,7 +27,6 @@ echo "========================================\n\n";
 echo "1. TEST ENVIRONNEMENT PROD\n";
 echo "===========================\n";
 TableConfig::setEnvironment('prod');
-Env::load();
 
 echo "✅ Environnement forcé à PROD\n";
 echo "TableConfig::getEnvironment(): " . TableConfig::getEnvironment() . "\n";
@@ -97,12 +102,7 @@ echo "4. TEST CONNEXION BASE DE DONNÉES\n";
 echo "===================================\n";
 
 try {
-    $pdo = new PDO(
-        "mysql:host=localhost;dbname=oliviera_iot;charset=utf8mb4",
-        "oliviera_iot",
-        "**************"
-    );
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = Database::getConnection();
     
     echo "✅ Connexion DB réussie\n";
     

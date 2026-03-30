@@ -1,5 +1,6 @@
 param(
-    [string]$BaseUrl = "http://127.0.0.1:8082"
+    [string]$BaseUrl = "http://127.0.0.1:8082",
+    [int]$TimeoutSec = 60
 )
 
 $ErrorActionPreference = "Stop"
@@ -19,7 +20,7 @@ function Assert-Status {
             Method = $Method
             Headers = $Headers
             MaximumRedirection = 0
-            TimeoutSec = 20
+            TimeoutSec = $TimeoutSec
             UseBasicParsing = $true
             ErrorAction = "Stop"
         }
