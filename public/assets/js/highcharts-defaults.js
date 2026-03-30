@@ -50,4 +50,10 @@
             margin: 8
         }
     });
+
+    /* Intègre le thème dark/light via setOptions() avant la création des graphiques.
+     * Évite le chart.update() post-animation qui causait un saut visuel à ~1s. */
+    if (typeof window.n3HighchartsBuildThemeOptions === 'function') {
+        Highcharts.setOptions(window.n3HighchartsBuildThemeOptions());
+    }
 })();
