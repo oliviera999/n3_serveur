@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.274] - 2026-03-30
+
+### Modifié - unification du layout Highcharts et robustesse thème système
+- **Résumé** : reconstruction de `theme-toggle.js` et `aquaponie-chart-layout.js` après corruption locale, ajout d'un module partagé `n3-stock-chart-layout.js` (hauteurs/options/load/resize) réutilisé par MSP1/N3PP et composé côté aquaponie, avec mise à jour du thème Highcharts lors d'un changement de préférence système sans thème stocké.
+- Fichiers modifiés : `public/assets/js/theme-toggle.js`, `public/assets/js/aquaponie-chart-layout.js`, `public/assets/js/n3-stock-chart-layout.js`, `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `templates/aquaponie.twig`, `templates/aquaponie_alt.twig`, `config/routes_config.php`, `public/assets/css/common-data.css`, `VERSION`
+
 ## [5.0.273] - 2026-03-30
 
 ### Correctif - cohérence VERSION et CHANGELOG après régression

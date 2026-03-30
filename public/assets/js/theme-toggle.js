@@ -88,6 +88,12 @@
         var handleSystemThemeChange = function () {
             if (!getStoredTheme()) {
                 applyTheme(prefersDark() ? 'dark' : 'light');
+                if (typeof window.n3HighchartsApplyTheme === 'function') {
+                    window.n3HighchartsApplyTheme();
+                }
+                if (typeof window.n3ChartJsApplyTheme === 'function') {
+                    window.n3ChartJsApplyTheme();
+                }
             }
         };
         if (typeof mediaQuery.addEventListener === 'function') {

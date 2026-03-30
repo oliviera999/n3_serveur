@@ -1096,7 +1096,7 @@ button.quick-filter-btn.active {
 
 /* ============================================================
    Hauteurs des conteneurs Highcharts — MSP1 et N3PP
-   Breakpoints alignés sur getChartHeight() dans les templates JS.
+   Breakpoints alignés sur n3-stock-chart-layout.js (heightForType).
    ============================================================ */
 .n3-chart-main {
     min-height: 420px;

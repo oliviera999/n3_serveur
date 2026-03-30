@@ -17,6 +17,7 @@
     <script src="{{ base_path }}/assets/js/accessibility.js"></script>
     <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
     <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-stock-chart-layout.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -243,11 +244,12 @@
     {% if measure_count > 0 %}
     <script>
     (function() {
-        function isMobileChartView() {
-            var width = window.innerWidth || document.documentElement.clientWidth || 1024;
-            return width <= 736;
-        }
+        var stockLayout = window.n3StockChartLayout || null;
+
         function getChartHeight(type) {
+            if (stockLayout && typeof stockLayout.heightForType === 'function') {
+                return stockLayout.heightForType(type);
+            }
             var width = window.innerWidth || document.documentElement.clientWidth || 1024;
             if (type === 'cycles') {
                 if (width <= 420) return 270;
@@ -258,40 +260,17 @@
             if (width <= 736) return 340;
             return 420;
         }
+
         function getChartBaseOptions(type) {
-            var mobile = isMobileChartView();
-            return {
-                chart: {
-                    backgroundColor: 'transparent',
-                    height: getChartHeight(type),
-                    spacingTop: mobile ? 8 : 12,
-                    spacingRight: mobile ? 8 : 12,
-                    spacingBottom: mobile ? 8 : 14,
-                    spacingLeft: mobile ? 8 : 12
-                },
-                legend: {
-                    enabled: true,
-                    align: 'center',
-                    verticalAlign: 'bottom',
-                    itemStyle: {
-                        cursor: 'pointer',
-                        fontSize: mobile ? '10px' : '12px'
-                    },
-                    itemMarginTop: mobile ? 2 : 4,
-                    itemMarginBottom: mobile ? 2 : 4
-                },
-                navigator: {
-                    enabled: true,
-                    height: mobile ? 20 : 30,
-                    margin: mobile ? 4 : 8
-                },
-                scrollbar: {
-                    enabled: true,
-                    height: mobile ? 6 : 10
-                }
-            };
+            if (stockLayout && typeof stockLayout.baseOptions === 'function') {
+                return stockLayout.baseOptions(type);
+            }
+            return { chart: { backgroundColor: 'transparent', height: getChartHeight(type) } };
         }
-        var chartLoadExtremes = function() {
+
+        var chartLoadExtremes = stockLayout && typeof stockLayout.chartLoadExtremes === 'function'
+            ? stockLayout.chartLoadExtremes
+            : function() {
             var xAxis = this.xAxis && this.xAxis[0];
             if (xAxis && xAxis.dataMin != null && xAxis.dataMax != null) {
                 xAxis.setExtremes(xAxis.dataMin, xAxis.dataMax);
@@ -384,14 +363,23 @@
         if (chartCycles) chartCycles.setSize(null, cyclesHeight, false);
     }
 
-    var resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(applyChartMobileLayout, 220);
-    });
-    window.addEventListener('orientationchange', function() {
-        setTimeout(applyChartMobileLayout, 350);
-    });
+    if (stockLayout && typeof stockLayout.bindResize === 'function') {
+        stockLayout.bindResize([
+            { chart: chartTemperatures, type: 'main' },
+            { chart: chartLights, type: 'main' },
+            { chart: chartNiveauxEaux, type: 'main' },
+            { chart: chartCycles, type: 'cycles' }
+        ], 220, 350);
+    } else {
+        var resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(applyChartMobileLayout, 220);
+        });
+        window.addEventListener('orientationchange', function() {
+            setTimeout(applyChartMobileLayout, 350);
+        });
+    }
     })();
     </script>
     {% endif %}

@@ -1,88 +1,6 @@
 /**
- * Layout helper shared by aquaponie pages.
- * Exposes window.n3AquaponieCharts used by aquaponie.twig and aquaponie_alt.twig.
- */
-(function () {
-    'use strict';
-
-    function viewportWidth() {
-        return window.innerWidth || document.documentElement.clientWidth || 1024;
-    }
-
-    function isMobile() {
-        return viewportWidth() <= 736;
-    }
-
-    function chartHeight(type) {
-        var width = viewportWidth();
-        if (type === 'temp') {
-            if (width <= 420) return 320;
-            if (width <= 736) return 360;
-            if (width <= 1024) return 400;
-            return 430;
-        }
-        if (width <= 420) return 300;
-        if (width <= 736) return 340;
-        if (width <= 1024) return 390;
-        return 420;
-    }
-
-    /**
-     * Variant used by aquaponie_alt page where chart rows are mixed with stats.
-     * cardIndex is kept for compatibility with existing template calls.
-     */
-    function statsHeight(cardIndex, type) {
-        var base = chartHeight(type);
-        if (cardIndex === 1 && type === 'temp' && viewportWidth() > 736) {
-            return base + 10;
-        }
-        return base;
-    }
-
-    function baseOptions(type) {
-        var mobile = isMobile();
-        return {
-            chart: {
-                backgroundColor: 'transparent',
-                spacingTop: mobile ? 8 : 12,
-                spacingRight: mobile ? 8 : 12,
-                spacingBottom: mobile ? 8 : 14,
-                spacingLeft: mobile ? 8 : 12
-            },
-            legend: {
-                enabled: true,
-                align: 'center',
-                verticalAlign: 'bottom',
-                itemStyle: {
-                    cursor: 'pointer',
-                    fontSize: mobile ? '10px' : '12px'
-                },
-                itemMarginTop: mobile ? 2 : 4,
-                itemMarginBottom: mobile ? 2 : 4
-            },
-            navigator: {
-                enabled: true,
-                height: mobile ? 20 : 30,
-                margin: mobile ? 4 : 8
-            },
-            scrollbar: {
-                enabled: true,
-                height: mobile ? 6 : 10
-            },
-            type: type || 'eau'
-        };
-    }
-
-    window.n3AquaponieCharts = {
-        isMobile: isMobile,
-        chartHeight: chartHeight,
-        statsHeight: statsHeight,
-        baseOptions: baseOptions
-    };
-})();
-/**
  * Mise en page Highcharts — pages aquaponie (vue paysage + alt).
- * Aligné sur MSP1/N3PP : hauteurs, espacements, légende compacte, navigator rapproché.
+ * Compose une base commune n3StockChartLayout puis applique les spécificités aquaponie.
  */
 (function () {
     'use strict';
@@ -117,14 +35,18 @@
      */
     function baseOptions(kind) {
         var m = isMobileLayout();
+        var sharedLayout = window.n3StockChartLayout;
+        var shared = sharedLayout && typeof sharedLayout.baseOptionsMain === 'function'
+            ? sharedLayout.baseOptionsMain()
+            : null;
         var maxLeg = kind === 'eau' ? (m ? 80 : 96) : (m ? 52 : 60);
         return {
             chart: {
                 backgroundColor: 'transparent',
-                spacingTop: m ? 8 : 12,
-                spacingRight: m ? 8 : 12,
-                spacingBottom: m ? 8 : 14,
-                spacingLeft: m ? 8 : 12
+                spacingTop: shared && shared.chart ? shared.chart.spacingTop : (m ? 8 : 12),
+                spacingRight: shared && shared.chart ? shared.chart.spacingRight : (m ? 8 : 12),
+                spacingBottom: shared && shared.chart ? shared.chart.spacingBottom : (m ? 8 : 14),
+                spacingLeft: shared && shared.chart ? shared.chart.spacingLeft : (m ? 8 : 12)
             },
             legend: {
                 enabled: true,
@@ -143,12 +65,12 @@
             navigator: {
                 enabled: true,
                 height: m ? 20 : 28,
-                margin: m ? 4 : 8,
+                margin: shared && shared.navigator ? shared.navigator.margin : (m ? 4 : 8),
                 xAxis: { ordinal: false }
             },
             scrollbar: {
                 enabled: true,
-                height: m ? 6 : 10
+                height: shared && shared.scrollbar ? shared.scrollbar.height : (m ? 6 : 10)
             }
         };
     }
