@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.270] - 2026-03-30
+
+### Correctif - favicon n3 orange versionné et cache PHPUnit ignoré
+- **Résumé** : ajout du fichier `public/assets/icons/favicon-n3-orange.png` référencé par les layouts et `routes_config.php` ; ajout de `.phpunit.cache/` au `.gitignore` (PHPUnit 10).
+- Fichiers modifiés : `.gitignore`, `public/assets/icons/favicon-n3-orange.png`, `VERSION`
+
+---
 ## [5.0.269] - 2026-03-30
 
 ### Correctif - graphique aquaponie : corde droite sur les niveaux d'eau

@@ -27,8 +27,9 @@ desktop.ini
 # Archives (exclues du depot — conservees localement)
 /archives/
 
-# PHP
+# PHP / PHPUnit
 .phpunit.result.cache
+.phpunit.cache/
 
 # Photos uploadees (garder la structure via .gitkeep)
 /uploads/msp1/*
