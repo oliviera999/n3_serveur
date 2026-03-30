@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.276] - 2026-03-30
+
+### Correctif - courbes Highcharts invisibles (aquaponie, séries temps réel)
+- **Résumé** : le `gapSize` global avec `gapUnit: 'relative'` fragmentait les séries dès qu’existait une paire de timestamps très rapprochés ; les segments disparaissaient (marqueurs désactivés) tout en restant actifs au survol. Passage à `gapUnit: 'value'` avec un seuil de 1 h (3600000 ms) sur l’axe datetime pour ne couper la courbe qu’après une vraie coupure de relevés.
+- Fichiers modifiés : `public/assets/js/highcharts-defaults.js`, `VERSION`
+
+---
 ## [5.0.275] - 2026-03-30
 
 ### Correctif - smoke test local et diagnostic environnements sous Docker

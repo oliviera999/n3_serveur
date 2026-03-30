@@ -14,11 +14,14 @@
             series: {
                 visible: true,
                 dataGrouping: { enabled: false },
-                /* Briser la courbe quand l'écart entre deux points dépasse 2× l'intervalle
-                 * médian de la série (capteur hors-ligne). Évite la ligne de connexion
-                 * entre le dernier relevé avant interruption et le premier après. */
-                gapSize: 2,
-                gapUnit: 'relative'
+                /* Rupture de courbe après une absence de données (axe datetime = ms).
+                 * Ne PAS utiliser gapUnit "relative" : Highcharts compare à l'écart entre
+                 * les deux points les plus proches du jeu, pas à la médiane. Deux relevés
+                 * rapprochés (rafale, doublon) rendent le seuil quasi nul → la série se
+                 * fragmente en points isolés ; sans marqueurs, la courbe paraît vide
+                 * alors que le survol (tooltip) fonctionne encore. */
+                gapUnit: 'value',
+                gapSize: 3600000
             }
         },
         lang: {
