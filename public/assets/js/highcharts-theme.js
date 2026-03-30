@@ -133,16 +133,8 @@
     }
 
     window.n3HighchartsApplyTheme = n3HighchartsApplyTheme;
-
-    function initApply() {
-        n3HighchartsApplyTheme();
-        setTimeout(n3HighchartsApplyTheme, 1200);
-        setTimeout(n3HighchartsApplyTheme, 2500);
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initApply);
-    } else {
-        initApply();
-    }
+    /* Exposé pour highcharts-defaults.js : permet d'intégrer le thème via
+     * Highcharts.setOptions() avant la création des graphiques, évitant
+     * tout chart.update() post-animation. */
+    window.n3HighchartsBuildThemeOptions = buildThemeOptions;
 })();

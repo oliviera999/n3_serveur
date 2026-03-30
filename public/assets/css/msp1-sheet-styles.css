@@ -7,33 +7,5 @@
    déjà définie dans common-data.css. Ce fichier permet des surcharges
    spécifiques à la page météo si besoin. */
 
-/* ============================================================
-   Hauteurs des conteneurs Highcharts — MSP1
-   Remplace les min-height inline sur les divs de graphiques.
-   Les breakpoints correspondent aux valeurs de getChartHeight() en JS.
-   ============================================================ */
-.msp1-chart-main {
-    min-height: 420px;
-}
-
-.msp1-chart-cycles {
-    min-height: 380px;
-}
-
-@media (max-width: 736px) {
-    .msp1-chart-main {
-        min-height: 340px;
-    }
-    .msp1-chart-cycles {
-        min-height: 300px;
-    }
-}
-
-@media (max-width: 420px) {
-    .msp1-chart-main {
-        min-height: 300px;
-    }
-    .msp1-chart-cycles {
-        min-height: 270px;
-    }
-}
+/* Les hauteurs des conteneurs Highcharts (.n3-chart-main, .n3-chart-cycles)
+   sont définies dans common-data.css et partagées avec N3PP. */
