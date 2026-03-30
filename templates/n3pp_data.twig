@@ -217,12 +217,12 @@
                 var chartNiveauxEaux = bootstrap.createStockChart('chart-niveauxeaux', 'main', {
                     yAxis: [{ title: { text: 'Humidité sol (UA)' }, opposite: false }],
                     series: [
-                        { name: 'Humid. moy.', data: zipSeries(reading_time, HumidMoy), type: 'spline', color: '#27ae60', lineWidth: 3, tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Humid. moy.', data: zipSeries(reading_time, HumidMoy), type: 'areaspline', color: '#27ae60', fillColor: n3AreaGradientFill(39, 174, 96), lineWidth: 3, tooltip: { valueSuffix: ' UA' }},
                         { name: 'Tendance humid. moy.', data: HumidMoyTrendLine ? HumidMoyTrendLine.data : [], type: 'line', color: '#1e8449', lineWidth: 2, dashStyle: 'Dot', tooltip: { valueSuffix: ' UA' }},
-                        { name: 'Humid. 1', data: zipSeries(reading_time, Humid1), type: 'spline', color: '#3498db', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
-                        { name: 'Humid. 2', data: zipSeries(reading_time, Humid2), type: 'spline', color: '#2980b9', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
-                        { name: 'Humid. 3', data: zipSeries(reading_time, Humid3), type: 'spline', color: '#1abc9c', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
-                        { name: 'Humid. 4', data: zipSeries(reading_time, Humid4), type: 'spline', color: '#16a085', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Humid. 1', data: zipSeries(reading_time, Humid1), type: 'areaspline', color: '#3498db', fillColor: n3AreaGradientFill(52, 152, 219, 0.16, 0.04), dashStyle: 'Dash', lineWidth: 2, visible: false, tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Humid. 2', data: zipSeries(reading_time, Humid2), type: 'areaspline', color: '#2980b9', fillColor: n3AreaGradientFill(41, 128, 185, 0.16, 0.04), dashStyle: 'Dash', lineWidth: 2, visible: false, tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Humid. 3', data: zipSeries(reading_time, Humid3), type: 'areaspline', color: '#1abc9c', fillColor: n3AreaGradientFill(26, 188, 156, 0.16, 0.04), dashStyle: 'Dash', lineWidth: 2, visible: false, tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Humid. 4', data: zipSeries(reading_time, Humid4), type: 'areaspline', color: '#16a085', fillColor: n3AreaGradientFill(22, 160, 133, 0.16, 0.04), dashStyle: 'Dash', lineWidth: 2, visible: false, tooltip: { valueSuffix: ' UA' }},
                         { name: 'État pompe', data: zipSeries(reading_time, etatPompe), type: 'column', color: '#008B74', opacity: 0.5 },
                         { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7' }
                     ]
@@ -234,9 +234,9 @@
                         { title: { text: 'Luminosité (UA)' }, opposite: true, offset: 60 }
                     ],
                     series: [
-                        { name: 'Temp. air', data: zipSeries(reading_time, TempAir), type: 'spline', color: '#e74c3c', yAxis: 0, tooltip: { valueSuffix: ' °C' }},
-                        { name: 'Humidité', data: zipSeries(reading_time, Humidite), type: 'spline', color: '#3498db', yAxis: 1, tooltip: { valueSuffix: ' %' }},
-                        { name: 'Luminosité', data: zipSeries(reading_time, Luminosite), type: 'spline', color: '#f39c12', yAxis: 2 }
+                        { name: 'Temp. air', data: zipSeries(reading_time, TempAir), type: 'areaspline', color: '#e74c3c', fillColor: n3AreaGradientFill(231, 76, 60), lineWidth: 2, yAxis: 0, tooltip: { valueSuffix: ' °C' }},
+                        { name: 'Humidité', data: zipSeries(reading_time, Humidite), type: 'areaspline', color: '#3498db', fillColor: n3AreaGradientFill(52, 152, 219), lineWidth: 2, yAxis: 1, tooltip: { valueSuffix: ' %' }},
+                        { name: 'Luminosité', data: zipSeries(reading_time, Luminosite), type: 'areaspline', color: '#f39c12', fillColor: n3AreaGradientFill(243, 156, 18), lineWidth: 2, yAxis: 2 }
                     ]
                 });
                 var chartCycles = bootstrap.createStockChart('chart-cycles', 'cycles', {
@@ -245,8 +245,8 @@
                         { title: { text: 'Batterie' }, opposite: true }
                     ],
                     series: [
-                        { name: 'bootCount', data: zipSeries(reading_time, bootCount), type: 'spline', color: '#2c3e50', yAxis: 0 },
-                        { name: 'PontDiv', data: zipSeries(reading_time, PontDiv), type: 'spline', color: '#e74c3c', yAxis: 1 }
+                        { name: 'bootCount', data: zipSeries(reading_time, bootCount), type: 'areaspline', color: '#2c3e50', fillColor: n3AreaGradientFill(44, 62, 80, 0.12, 0.03), lineWidth: 2, yAxis: 0 },
+                        { name: 'PontDiv', data: zipSeries(reading_time, PontDiv), type: 'areaspline', color: '#e74c3c', fillColor: n3AreaGradientFill(231, 76, 60, 0.12, 0.03), lineWidth: 2, yAxis: 1 }
                     ]
                 });
 

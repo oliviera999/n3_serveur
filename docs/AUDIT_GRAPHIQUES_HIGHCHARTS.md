@@ -26,7 +26,7 @@
 | Fichier | Rôle | Pages |
 |---------|------|--------|
 | `highcharts-defaults.js` | Config globale (timezone Africa/Casablanca, thème clair/sombre, lang FR) | FFP3, MSP1, N3PP |
-| `chart-helpers.js` | `zipSeries(timeArray, valueArray)` pour séries Highcharts | MSP1, N3PP |
+| `chart-helpers.js` | `zipSeries`, `n3AreaGradientFill(r,g,b)` — dégradé sous courbe (aligné aquaponie) | MSP1, N3PP |
 | `chart-updater.js` | Mise à jour temps réel des graphiques FFP3 | FFP3 |
 | `chart-updater-generic.js` | Mise à jour temps réel MSP1/N3PP (chartIds + sensorMap, insertion triée, dédoublonnage timestamp) | MSP1, N3PP |
 | `n3-stock-chart-layout.js` | Options/hauteurs Stock partagées + resize/orientation | FFP3, MSP1, N3PP |

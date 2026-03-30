@@ -129,6 +129,14 @@
             },
             config || {}
         );
+        options.plotOptions = options.plotOptions || {};
+        options.plotOptions.areaspline = Object.assign(
+            {
+                connectNulls: false,
+                marker: { enabled: false, radius: 2 }
+            },
+            options.plotOptions.areaspline || {}
+        );
         return Highcharts.stockChart(containerId, options);
     }
 

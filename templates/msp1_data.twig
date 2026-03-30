@@ -259,19 +259,19 @@
                         { title: { text: 'Humidité (%)' }, opposite: true }
                     ],
                     series: [
-                        { name: 'Temp. int.', data: zipSeries(reading_time, TempAirInt), type: 'spline', color: '#e74c3c', yAxis: 0, tooltip: { valueSuffix: ' °C' }},
-                        { name: 'Temp. ext.', data: zipSeries(reading_time, TempAirExt), type: 'spline', color: '#c0392b', yAxis: 0, tooltip: { valueSuffix: ' °C' }},
-                        { name: 'Humid. int.', data: zipSeries(reading_time, HumidAirInt), type: 'spline', color: '#3498db', yAxis: 1, tooltip: { valueSuffix: ' %' }},
-                        { name: 'Humid. ext.', data: zipSeries(reading_time, HumidAirExt), type: 'spline', color: '#2980b9', yAxis: 1, tooltip: { valueSuffix: ' %' }}
+                        { name: 'Temp. int.', data: zipSeries(reading_time, TempAirInt), type: 'areaspline', color: '#e74c3c', fillColor: n3AreaGradientFill(231, 76, 60), lineWidth: 2, yAxis: 0, tooltip: { valueSuffix: ' °C' }},
+                        { name: 'Temp. ext.', data: zipSeries(reading_time, TempAirExt), type: 'areaspline', color: '#c0392b', fillColor: n3AreaGradientFill(192, 57, 43), lineWidth: 2, yAxis: 0, tooltip: { valueSuffix: ' °C' }},
+                        { name: 'Humid. int.', data: zipSeries(reading_time, HumidAirInt), type: 'areaspline', color: '#3498db', fillColor: n3AreaGradientFill(52, 152, 219), lineWidth: 2, yAxis: 1, tooltip: { valueSuffix: ' %' }},
+                        { name: 'Humid. ext.', data: zipSeries(reading_time, HumidAirExt), type: 'areaspline', color: '#2980b9', fillColor: n3AreaGradientFill(41, 128, 185), lineWidth: 2, yAxis: 1, tooltip: { valueSuffix: ' %' }}
                     ]
                 });
                 var chartLights = bootstrap.createStockChart('chart-lights', 'main', {
                     series: [
-                        { name: 'Moy.', data: zipSeries(reading_time, LuminositeMoy), type: 'spline', color: '#f39c12', lineWidth: 3 },
-                        { name: 'A', data: zipSeries(reading_time, LuminositeA), type: 'spline', color: '#e67e22', dashStyle: 'Dash' },
-                        { name: 'B', data: zipSeries(reading_time, LuminositeB), type: 'spline', color: '#d35400', dashStyle: 'Dash' },
-                        { name: 'C', data: zipSeries(reading_time, LuminositeC), type: 'spline', color: '#f1c40f', dashStyle: 'Dash' },
-                        { name: 'D', data: zipSeries(reading_time, LuminositeD), type: 'spline', color: '#e74c3c', dashStyle: 'Dash' }
+                        { name: 'Moy.', data: zipSeries(reading_time, LuminositeMoy), type: 'areaspline', color: '#f39c12', fillColor: n3AreaGradientFill(243, 156, 18, 0.22, 0.05), lineWidth: 3 },
+                        { name: 'A', data: zipSeries(reading_time, LuminositeA), type: 'areaspline', color: '#e67e22', fillColor: n3AreaGradientFill(230, 126, 34, 0.14, 0.04), dashStyle: 'Dash', lineWidth: 2 },
+                        { name: 'B', data: zipSeries(reading_time, LuminositeB), type: 'areaspline', color: '#d35400', fillColor: n3AreaGradientFill(211, 84, 0, 0.14, 0.04), dashStyle: 'Dash', lineWidth: 2 },
+                        { name: 'C', data: zipSeries(reading_time, LuminositeC), type: 'areaspline', color: '#f1c40f', fillColor: n3AreaGradientFill(241, 196, 15, 0.14, 0.04), dashStyle: 'Dash', lineWidth: 2 },
+                        { name: 'D', data: zipSeries(reading_time, LuminositeD), type: 'areaspline', color: '#e74c3c', fillColor: n3AreaGradientFill(231, 76, 60, 0.14, 0.04), dashStyle: 'Dash', lineWidth: 2 }
                     ]
                 });
                 var chartNiveauxEaux = bootstrap.createStockChart('chart-niveauxeaux', 'main', {
@@ -280,9 +280,9 @@
                         { title: { text: 'Temp. eau (°C)' }, opposite: true }
                     ],
                     series: [
-                        { name: 'Humid. sol', data: zipSeries(reading_time, HumidSol), type: 'areaspline', color: '#27ae60', fillOpacity: 0.15, yAxis: 0 },
+                        { name: 'Humid. sol', data: zipSeries(reading_time, HumidSol), type: 'areaspline', color: '#27ae60', fillColor: n3AreaGradientFill(39, 174, 96), lineWidth: 2, yAxis: 0 },
                         { name: 'Pluie', data: zipSeries(reading_time, Pluie), type: 'column', color: '#9b59b6', yAxis: 0 },
-                        { name: 'Temp. eau', data: zipSeries(reading_time, TempEau), type: 'spline', color: '#008B74', yAxis: 1, tooltip: { valueSuffix: ' °C' }},
+                        { name: 'Temp. eau', data: zipSeries(reading_time, TempEau), type: 'areaspline', color: '#008B74', fillColor: n3AreaGradientFill(0, 139, 116), lineWidth: 2, yAxis: 1, tooltip: { valueSuffix: ' °C' }},
                         { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7', yAxis: 0 }
                     ]
                 });
@@ -292,10 +292,10 @@
                         { title: { text: 'Batterie' }, opposite: true }
                     ],
                     series: [
-                        { name: 'bootCount', data: zipSeries(reading_time, bootCount), type: 'spline', color: '#2c3e50', yAxis: 0 },
-                        { name: 'PontDiv', data: zipSeries(reading_time, PontDiv), type: 'spline', color: '#e74c3c', yAxis: 1 },
-                        { name: 'ServoHB', data: zipSeries(reading_time, ServoHB), type: 'spline', color: '#3498db', yAxis: 0 },
-                        { name: 'ServoGD', data: zipSeries(reading_time, ServoGD), type: 'spline', color: '#f39c12', yAxis: 0 }
+                        { name: 'bootCount', data: zipSeries(reading_time, bootCount), type: 'areaspline', color: '#2c3e50', fillColor: n3AreaGradientFill(44, 62, 80, 0.12, 0.03), lineWidth: 2, yAxis: 0 },
+                        { name: 'PontDiv', data: zipSeries(reading_time, PontDiv), type: 'areaspline', color: '#e74c3c', fillColor: n3AreaGradientFill(231, 76, 60, 0.12, 0.03), lineWidth: 2, yAxis: 1 },
+                        { name: 'ServoHB', data: zipSeries(reading_time, ServoHB), type: 'areaspline', color: '#3498db', fillColor: n3AreaGradientFill(52, 152, 219, 0.12, 0.03), lineWidth: 2, yAxis: 0 },
+                        { name: 'ServoGD', data: zipSeries(reading_time, ServoGD), type: 'areaspline', color: '#f39c12', fillColor: n3AreaGradientFill(243, 156, 18, 0.12, 0.03), lineWidth: 2, yAxis: 0 }
                     ]
                 });
 

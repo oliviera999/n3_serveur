@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.279] - 2026-03-30
+
+### Modifié - remplissage sous courbe (areaspline) MSP1/N3PP aligné aquaponie
+- **Résumé** : ajout de `n3AreaGradientFill` dans `chart-helpers.js` ; séries continues en `areaspline` avec dégradé vertical sur météo et serre (températures, humidités, luminosité, humidité sol, cycles avec opacité plus légère) ; `plotOptions.areaspline` par défaut dans `n3-stock-chart-bootstrap.js` (`connectNulls: false`, marqueurs désactivés). Les séries en colonnes et la tendance linéaire N3PP restent inchangées.
+- Fichiers modifiés : `public/assets/js/chart-helpers.js`, `public/assets/js/n3-stock-chart-bootstrap.js`, `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `docs/AUDIT_GRAPHIQUES_HIGHCHARTS.md`, `VERSION`
+
+---
+
 ## [5.0.278] - 2026-03-30
 
 ### Modifié - unification affichage Highcharts MSP1/N3PP sur modèle aquaponie
