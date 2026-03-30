@@ -11,6 +11,20 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.272] - 2026-03-30
+
+### Correctif - ordre de chargement Highcharts theme/defaults (MSP1/N3PP)
+- **Résumé** : dans `layout.twig`, `highcharts-theme.js` est désormais chargé avant `{% block head_scripts %}` afin que `n3HighchartsBuildThemeOptions()` soit disponible lorsque `highcharts-defaults.js` appelle `Highcharts.setOptions()`. Cela aligne l’initialisation du thème au premier rendu et corrige les incohérences visuelles observées sur le graphique « Paramètres physiques » du potager.
+- Fichiers modifiés : `templates/layout.twig`, `VERSION`
+
+---
+## [5.0.271] - 2026-03-30
+
+### Modifié - alignement chargement Highcharts MSP1/N3PP sur Aquaponie
+- **Résumé** : déplacement de `highcharts-defaults.js` et `chart-helpers.js` de `{% block scripts %}` vers `{% block head_scripts %}` dans les vues MSP1 et N3PP, pour harmoniser l’ordre de chargement avec Aquaponie et réduire le risque de régression lié à l’ordre des scripts inline.
+- Fichiers modifiés : `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `VERSION`
+
+---
 ## [5.0.270] - 2026-03-30
 
 ### Correctif - favicon n3 orange versionné et cache PHPUnit ignoré
@@ -491,4 +505,5 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ### Modifie - harmonisation des hauts de page et titres (audit style global)
 - **Resume** : correction de la hierarchie des titres principaux (`h1`) sur dashboard/tide-stats et pages description, suppression des styles inline des titres/headers, externalisation des styles des pages galerie/timelapse/description vers les fichiers CSS, ajout des styles manquants du hero galerie en mode clair, et nettoyage des classes CSS orphelines liees aux en-tetes.
+
 

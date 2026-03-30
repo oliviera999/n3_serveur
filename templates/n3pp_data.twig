@@ -20,6 +20,8 @@
     <script src="{{ base_path }}/assets/js/exporting.js"></script>
     <script src="{{ base_path }}/assets/js/export-data.js"></script>
     <script src="{{ base_path }}/assets/js/accessibility.js"></script>
+    <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -166,8 +168,6 @@
 
 {% block scripts %}
     {% include 'partials/_live_badge.twig' %}
-    <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
-    <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
     {% include 'partials/_set_period_js.twig' with { form_id: 'n3ppFilterForm' } %}
     <script>
     var reading_time = {{ reading_time|json_encode|raw }};
