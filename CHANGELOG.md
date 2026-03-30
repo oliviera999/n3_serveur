@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.277] - 2026-03-30
+
+### Modifié - seuil de rupture Highcharts (gap) porté à 6 h
+- **Résumé** : `gapSize` global (`gapUnit: 'value'`) passé de 1 h à **6 h** (21600000 ms) pour ne couper les courbes qu’après une absence de relevés plus longue.
+- Fichiers modifiés : `public/assets/js/highcharts-defaults.js`, `VERSION`
+
+---
 ## [5.0.276] - 2026-03-30
 
 ### Correctif - courbes Highcharts invisibles (aquaponie, séries temps réel)

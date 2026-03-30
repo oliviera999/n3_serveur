@@ -62,7 +62,7 @@
 | **templates/partials/** | Créés : `_hero_data.twig`, `_live_badge.twig`, `_chart_init_js.twig`, `_realtime_init_js.twig` |
 | **chart-helpers.js** | Créé avec `zipSeries(timeArray, valueArray)` |
 | **chart-updater-generic.js** | Créé (ChartUpdaterGeneric : chartIds, sensorMap, addNewReadings) |
-| **highcharts-defaults.js** | Ajout `timezone: 'Africa/Casablanca'` dans `time` ; ruptures de série : `gapUnit: 'value'`, `gapSize: 3600000` (1 h) — éviter `gapUnit: 'relative'` (seuil basé sur la paire de points la plus proche, courbes fragmentées / invisibles sans marqueurs). |
+| **highcharts-defaults.js** | Ajout `timezone: 'Africa/Casablanca'` dans `time` ; ruptures de série : `gapUnit: 'value'`, `gapSize: 21600000` (6 h) — éviter `gapUnit: 'relative'` (seuil basé sur la paire de points la plus proche, courbes fragmentées / invisibles sans marqueurs). |
 
 ---
 

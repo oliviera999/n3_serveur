@@ -21,7 +21,7 @@
                  * fragmente en points isolés ; sans marqueurs, la courbe paraît vide
                  * alors que le survol (tooltip) fonctionne encore. */
                 gapUnit: 'value',
-                gapSize: 3600000
+                gapSize: 21600000
             }
         },
         lang: {
