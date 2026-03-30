@@ -1092,11 +1092,28 @@ button.quick-filter-btn.active {
     .alt-data-chart-row .alt-stats-column .stats-grid .stat-card:last-child:nth-child(odd) {
         grid-column: 1 / -1; width: 100%; max-width: calc((100% - 10px) / 2); justify-self: center; margin-left: auto; margin-right: auto;
     }
-    /* Aquaponie (FFP3) : évite le vide vertical entre courbes et timeline */
-    #chart-stock-area-eau-D,
-    #chart-stock-area-temp-D {
-        min-height: 300px !important;
-    }
+}
+
+/* ============================================================
+   Hauteurs des conteneurs Highcharts — MSP1 et N3PP
+   Breakpoints alignés sur getChartHeight() dans les templates JS.
+   ============================================================ */
+.n3-chart-main {
+    min-height: 420px;
+}
+
+.n3-chart-cycles {
+    min-height: 380px;
+}
+
+@media (max-width: 736px) {
+    .n3-chart-main   { min-height: 340px; }
+    .n3-chart-cycles { min-height: 300px; }
+}
+
+@media (max-width: 420px) {
+    .n3-chart-main   { min-height: 300px; }
+    .n3-chart-cycles { min-height: 270px; }
 }
 
 /* ----- DARK MODE ----- */

@@ -235,9 +235,17 @@
 }
 
 /* ----- CHART STOCK WRAPPER ----- */
+/* Hauteurs alignées sur aquaponie-chart-layout.js chartHeight('eau').
+   La vue alt (.alt-chart-column) réinitialise à 0 car le JS gère la hauteur. */
 .chart-stock-wrapper {
-    min-height: 280px;
+    min-height: 420px;
     margin-bottom: 1rem;
+}
+@media (max-width: 736px) {
+    .chart-stock-wrapper { min-height: 340px; }
+}
+@media (max-width: 420px) {
+    .chart-stock-wrapper { min-height: 300px; }
 }
 /* Vue alt : le chart remplit la colonne grâce à la hauteur calculée en JS, pas de min-height imposée */
 .alt-chart-column .chart-stock-wrapper {

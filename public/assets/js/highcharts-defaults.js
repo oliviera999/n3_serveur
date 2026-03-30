@@ -13,7 +13,12 @@
         plotOptions: {
             series: {
                 visible: true,
-                dataGrouping: { enabled: false }
+                dataGrouping: { enabled: false },
+                /* Briser la courbe quand l'écart entre deux points dépasse 2× l'intervalle
+                 * médian de la série (capteur hors-ligne). Évite la ligne de connexion
+                 * entre le dernier relevé avant interruption et le premier après. */
+                gapSize: 2,
+                gapUnit: 'relative'
             }
         },
         lang: {
