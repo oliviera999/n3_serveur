@@ -1,6 +1,6 @@
 # Audit des graphiques Highcharts – Serveur n3 IoT
 
-**Date :** 2026-03-16  
+**Date :** 2026-03-30  
 **Périmètre :** Pages FFP3 (aquaponie), MSP1 (météo), N3PP (serre) et composants associés.
 
 ---
@@ -28,7 +28,9 @@
 | `highcharts-defaults.js` | Config globale (timezone Africa/Casablanca, thème clair/sombre, lang FR) | FFP3, MSP1, N3PP |
 | `chart-helpers.js` | `zipSeries(timeArray, valueArray)` pour séries Highcharts | MSP1, N3PP |
 | `chart-updater.js` | Mise à jour temps réel des graphiques FFP3 | FFP3 |
-| `chart-updater-generic.js` | Mise à jour temps réel des graphiques MSP1/N3PP (chartIds + sensorMap) | MSP1, N3PP |
+| `chart-updater-generic.js` | Mise à jour temps réel MSP1/N3PP (chartIds + sensorMap, insertion triée, dédoublonnage timestamp) | MSP1, N3PP |
+| `n3-stock-chart-layout.js` | Options/hauteurs Stock partagées + resize/orientation | FFP3, MSP1, N3PP |
+| `n3-stock-chart-bootstrap.js` | Initialisation robuste (retry dimensions), création stockChart standardisée, reflow AOS | MSP1, N3PP |
 | `realtime-updater.js` | Polling API temps réel ; appelle `window.chartUpdater.addNewReadings` | FFP3, MSP1, N3PP |
 
 ### Templates partiels (templates/partials/)
@@ -40,9 +42,9 @@
 | `_chart_init_js.twig` | Init ChartUpdaterGeneric (chart_ids_json, sensor_map_json) | msp1_data, n3pp_data (si measure_count > 0) |
 | `_realtime_init_js.twig` | Init RealtimeUpdater (realtime_api_base, poll_interval) | msp1_data, n3pp_data |
 
-### CDN Highcharts
+### Chargement Highcharts
 
-- **Chargés sur toutes les pages concernées :** `highstock.js`, `exporting.js`, `export-data.js`, `accessibility.js` (code.highcharts.com).
+- **Chargés en local (`public/assets/js`) sur les pages concernées :** `highstock.js`, `exporting.js`, `export-data.js`, `accessibility.js`.
 - **FFP3 :** module Boost non chargé (problèmes de rendu mobile / courbes en colonnes).
 
 ---
@@ -79,3 +81,12 @@
 - `docs/TIMEZONE_MANAGEMENT.md` – Gestion des fuseaux (Europe/Paris, Africa/Casablanca).
 - `docs/archive/rapport_verification_graphiques_highcharts_2026-03-09.md` – Vérification technique précédente.
 - `src/Service/ChartDataService.php` – Préparation des séries et timestamps pour Highcharts.
+
+---
+
+## 7. Mise à jour architecture (2026-03-30)
+
+- MSP1 et N3PP n’instancient plus directement tous les `Highcharts.stockChart` dans les templates : la création passe par `n3StockChartBootstrap.createStockChart(...)`.
+- L’initialisation attend désormais des conteneurs réellement dimensionnés (`ensureContainersReady`) avant création des graphiques, avec retries bornés (notamment utile avec AOS/mobile).
+- Le `ChartUpdaterGeneric` applique la même robustesse que l’aquaponie pour le live : mise à jour d’un timestamp existant, insertion triée pour points hors ordre, et redraw sans animation (`chart.redraw(false)`).
+- `n3-stock-chart-layout.js` aligne le navigateur sur aquaponie avec `navigator.xAxis.ordinal = false` et améliore la gestion de légende dense (maxHeight + navigation).

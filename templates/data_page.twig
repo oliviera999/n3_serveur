@@ -8,10 +8,14 @@
 
 {% block head_scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://code.highcharts.com/stock/highstock.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="{{ base_path }}/assets/js/highstock.js"></script>
+    <script src="{{ base_path }}/assets/js/exporting.js"></script>
+    <script src="{{ base_path }}/assets/js/export-data.js"></script>
+    <script src="{{ base_path }}/assets/js/accessibility.js"></script>
+    <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-stock-chart-layout.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-stock-chart-bootstrap.js"></script>
 {% endblock %}
 
 {% block styles %}
@@ -158,8 +162,6 @@
 
 {% block scripts %}
     {% include 'partials/_live_badge.twig' %}
-    <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
-    <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
     <script>
     var reading_time = {{ reading_time|json_encode|raw }};
     {% for col in chart_columns %}

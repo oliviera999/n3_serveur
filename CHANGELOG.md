@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.278] - 2026-03-30
+
+### Modifié - unification affichage Highcharts MSP1/N3PP sur modèle aquaponie
+- **Résumé** : ajout d’un bootstrap partagé (`n3-stock-chart-bootstrap.js`) pour créer les graphiques uniquement quand les conteneurs sont réellement dimensionnés (retry borné + reflow AOS), factorisation de l’initialisation des charts MSP1/N3PP, alignement du layout Stock (`navigator.xAxis.ordinal = false`, légende dense), et fiabilisation du live update via `ChartUpdaterGeneric` (dédoublonnage timestamp, insertion triée hors ordre, `redraw(false)`).
+- Fichiers modifiés : `public/assets/js/chart-updater-generic.js`, `public/assets/js/n3-stock-chart-layout.js`, `public/assets/js/n3-stock-chart-bootstrap.js`, `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `templates/data_page.twig`, `docs/AUDIT_GRAPHIQUES_HIGHCHARTS.md`, `VERSION`
+
+---
+
 ## [5.0.277] - 2026-03-30
 
 ### Modifié - seuil de rupture Highcharts (gap) porté à 6 h

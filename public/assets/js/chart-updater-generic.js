@@ -102,14 +102,66 @@
             byChart[chartId].forEach(function (u) {
                 var series = chart.series[u.seriesIndex];
                 if (!series || !series.data) return;
-                var shift = series.data.length >= self.maxPoints;
-                series.addPoint([u.timestamp, u.value], false, shift, false);
+                var existingPoint = null;
+                if (Array.isArray(series.data)) {
+                    for (var i = 0; i < series.data.length; i++) {
+                        var p = series.data[i];
+                        if (p && p.x === u.timestamp) {
+                            existingPoint = p;
+                            break;
+                        }
+                    }
+                }
+                if (existingPoint) {
+                    existingPoint.update(u.value, false);
+                } else {
+                    self.insertPointSorted(series, u.timestamp, u.value);
+                }
             });
-            chart.redraw();
+            chart.redraw(false);
             if (self.autoScroll) {
                 self.scrollToLatest(chart);
             }
         });
+    };
+
+    ChartUpdaterGeneric.prototype.insertPointSorted = function (series, timestamp, value) {
+        if (!series || !Array.isArray(series.xData)) return;
+
+        var xData = series.xData;
+        var lastX = xData.length > 0 ? xData[xData.length - 1] : null;
+        if (lastX === null || timestamp > lastX) {
+            var shift = series.data.length >= this.maxPoints;
+            series.addPoint([timestamp, value], false, shift, false);
+            return;
+        }
+        if (timestamp === lastX && series.data.length > 0) {
+            series.data[series.data.length - 1].update(value, false);
+            return;
+        }
+
+        var mergedData = [];
+        var inserted = false;
+        for (var i = 0; i < xData.length; i++) {
+            var x = xData[i];
+            var y = series.yData[i];
+            if (!inserted && timestamp < x) {
+                mergedData.push([timestamp, value]);
+                inserted = true;
+            } else if (!inserted && timestamp === x) {
+                mergedData.push([timestamp, value]);
+                inserted = true;
+                continue;
+            }
+            mergedData.push([x, y]);
+        }
+        if (!inserted) {
+            mergedData.push([timestamp, value]);
+        }
+        if (mergedData.length > this.maxPoints) {
+            mergedData.splice(0, mergedData.length - this.maxPoints);
+        }
+        series.setData(mergedData, false, false, false);
     };
 
     ChartUpdaterGeneric.prototype.scrollToLatest = function (chart) {

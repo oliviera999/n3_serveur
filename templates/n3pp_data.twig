@@ -23,6 +23,7 @@
     <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
     <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
     <script src="{{ base_path }}/assets/js/n3-stock-chart-layout.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-stock-chart-bootstrap.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -180,38 +181,11 @@
     {% if measure_count > 0 %}
     <script>
     (function() {
-        var stockLayout = window.n3StockChartLayout || null;
-
-        function getChartHeight(type) {
-            if (stockLayout && typeof stockLayout.heightForType === 'function') {
-                return stockLayout.heightForType(type);
-            }
-            var width = window.innerWidth || document.documentElement.clientWidth || 1024;
-            if (type === 'cycles') {
-                if (width <= 420) return 270;
-                if (width <= 736) return 300;
-                return 380;
-            }
-            if (width <= 420) return 300;
-            if (width <= 736) return 340;
-            return 420;
+        var bootstrap = window.n3StockChartBootstrap;
+        if (!bootstrap) {
+            console.warn('[n3pp] n3StockChartBootstrap indisponible');
+            return;
         }
-
-        function getChartBaseOptions(type) {
-            if (stockLayout && typeof stockLayout.baseOptions === 'function') {
-                return stockLayout.baseOptions(type);
-            }
-            return { chart: { backgroundColor: 'transparent', height: getChartHeight(type) } };
-        }
-
-        var chartLoadExtremes = stockLayout && typeof stockLayout.chartLoadExtremes === 'function'
-            ? stockLayout.chartLoadExtremes
-            : function() {
-            var xAxis = this.xAxis && this.xAxis[0];
-            if (xAxis && xAxis.dataMin != null && xAxis.dataMax != null) {
-                xAxis.setExtremes(xAxis.dataMin, xAxis.dataMax);
-            }
-        };
         function calculateLinearRegression(data) {
             if (!data || data.length < 2) return null;
             var valid = [];
@@ -237,90 +211,53 @@
         }
         var HumidMoyData = zipSeries(reading_time, HumidMoy);
         var HumidMoyTrendLine = (HumidMoyData && HumidMoyData.length >= 2) ? calculateLinearRegression(HumidMoyData) : null;
-    var chartNiveauxEaux = Highcharts.stockChart('chart-niveauxeaux', {
-        rangeSelector: { enabled: false },
-        title: { text: '' },
-        xAxis: { ordinal: false },
-        yAxis: [{ title: { text: 'Humidité sol (UA)' }, opposite: false }],
-        series: [
-            { name: 'Humid. moy.', data: zipSeries(reading_time, HumidMoy), type: 'spline', color: '#27ae60', lineWidth: 3, tooltip: { valueSuffix: ' UA' }},
-            { name: 'Tendance humid. moy.', data: HumidMoyTrendLine ? HumidMoyTrendLine.data : [], type: 'line', color: '#1e8449', lineWidth: 2, dashStyle: 'Dot', tooltip: { valueSuffix: ' UA' }},
-            { name: 'Humid. 1', data: zipSeries(reading_time, Humid1), type: 'spline', color: '#3498db', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
-            { name: 'Humid. 2', data: zipSeries(reading_time, Humid2), type: 'spline', color: '#2980b9', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
-            { name: 'Humid. 3', data: zipSeries(reading_time, Humid3), type: 'spline', color: '#1abc9c', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
-            { name: 'Humid. 4', data: zipSeries(reading_time, Humid4), type: 'spline', color: '#16a085', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
-            { name: 'État pompe', data: zipSeries(reading_time, etatPompe), type: 'column', color: '#008B74', opacity: 0.5 },
-            { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7' }
-        ],
-        legend: getChartBaseOptions('main').legend,
-        chart: Object.assign({}, getChartBaseOptions('main').chart, { events: { load: chartLoadExtremes } }),
-        navigator: getChartBaseOptions('main').navigator,
-        scrollbar: getChartBaseOptions('main').scrollbar,
-        credits: { enabled: false }
-    });
-    var chartTemperatures = Highcharts.stockChart('chart-temperatures', {
-        rangeSelector: { enabled: false },
-        title: { text: '' },
-        xAxis: { ordinal: false },
-        yAxis: [
-            { title: { text: 'Température (°C)' }, opposite: false },
-            { title: { text: 'Humidité (%)' }, opposite: true },
-            { title: { text: 'Luminosité (UA)' }, opposite: true, offset: 60 }
-        ],
-        series: [
-            { name: 'Temp. air', data: zipSeries(reading_time, TempAir), type: 'spline', color: '#e74c3c', yAxis: 0, tooltip: { valueSuffix: ' °C' }},
-            { name: 'Humidité', data: zipSeries(reading_time, Humidite), type: 'spline', color: '#3498db', yAxis: 1, tooltip: { valueSuffix: ' %' }},
-            { name: 'Luminosité', data: zipSeries(reading_time, Luminosite), type: 'spline', color: '#f39c12', yAxis: 2 }
-        ],
-        legend: getChartBaseOptions('main').legend,
-        chart: Object.assign({}, getChartBaseOptions('main').chart, { events: { load: chartLoadExtremes } }),
-        navigator: getChartBaseOptions('main').navigator,
-        scrollbar: getChartBaseOptions('main').scrollbar,
-        credits: { enabled: false }
-    });
-    var chartCycles = Highcharts.stockChart('chart-cycles', {
-        rangeSelector: { enabled: false },
-        title: { text: '' },
-        xAxis: { ordinal: false },
-        yAxis: [
-            { title: { text: 'Cycles' }, opposite: false },
-            { title: { text: 'Batterie' }, opposite: true }
-        ],
-        series: [
-            { name: 'bootCount', data: zipSeries(reading_time, bootCount), type: 'spline', color: '#2c3e50', yAxis: 0 },
-            { name: 'PontDiv', data: zipSeries(reading_time, PontDiv), type: 'spline', color: '#e74c3c', yAxis: 1 }
-        ],
-        legend: getChartBaseOptions('cycles').legend,
-        chart: Object.assign({}, getChartBaseOptions('cycles').chart, { events: { load: chartLoadExtremes } }),
-        navigator: getChartBaseOptions('cycles').navigator,
-        scrollbar: getChartBaseOptions('cycles').scrollbar,
-        credits: { enabled: false }
-    });
+        bootstrap.ensureContainersReady(
+            ['chart-niveauxeaux', 'chart-temperatures', 'chart-cycles'],
+            function () {
+                var chartNiveauxEaux = bootstrap.createStockChart('chart-niveauxeaux', 'main', {
+                    yAxis: [{ title: { text: 'Humidité sol (UA)' }, opposite: false }],
+                    series: [
+                        { name: 'Humid. moy.', data: zipSeries(reading_time, HumidMoy), type: 'spline', color: '#27ae60', lineWidth: 3, tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Tendance humid. moy.', data: HumidMoyTrendLine ? HumidMoyTrendLine.data : [], type: 'line', color: '#1e8449', lineWidth: 2, dashStyle: 'Dot', tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Humid. 1', data: zipSeries(reading_time, Humid1), type: 'spline', color: '#3498db', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Humid. 2', data: zipSeries(reading_time, Humid2), type: 'spline', color: '#2980b9', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Humid. 3', data: zipSeries(reading_time, Humid3), type: 'spline', color: '#1abc9c', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Humid. 4', data: zipSeries(reading_time, Humid4), type: 'spline', color: '#16a085', dashStyle: 'Dash', visible: false, tooltip: { valueSuffix: ' UA' }},
+                        { name: 'État pompe', data: zipSeries(reading_time, etatPompe), type: 'column', color: '#008B74', opacity: 0.5 },
+                        { name: 'Reset', data: zipSeries(reading_time, resetMode), type: 'column', color: '#bdc3c7' }
+                    ]
+                });
+                var chartTemperatures = bootstrap.createStockChart('chart-temperatures', 'main', {
+                    yAxis: [
+                        { title: { text: 'Température (°C)' }, opposite: false },
+                        { title: { text: 'Humidité (%)' }, opposite: true },
+                        { title: { text: 'Luminosité (UA)' }, opposite: true, offset: 60 }
+                    ],
+                    series: [
+                        { name: 'Temp. air', data: zipSeries(reading_time, TempAir), type: 'spline', color: '#e74c3c', yAxis: 0, tooltip: { valueSuffix: ' °C' }},
+                        { name: 'Humidité', data: zipSeries(reading_time, Humidite), type: 'spline', color: '#3498db', yAxis: 1, tooltip: { valueSuffix: ' %' }},
+                        { name: 'Luminosité', data: zipSeries(reading_time, Luminosite), type: 'spline', color: '#f39c12', yAxis: 2 }
+                    ]
+                });
+                var chartCycles = bootstrap.createStockChart('chart-cycles', 'cycles', {
+                    yAxis: [
+                        { title: { text: 'Cycles' }, opposite: false },
+                        { title: { text: 'Batterie' }, opposite: true }
+                    ],
+                    series: [
+                        { name: 'bootCount', data: zipSeries(reading_time, bootCount), type: 'spline', color: '#2c3e50', yAxis: 0 },
+                        { name: 'PontDiv', data: zipSeries(reading_time, PontDiv), type: 'spline', color: '#e74c3c', yAxis: 1 }
+                    ]
+                });
 
-    function applyChartMobileLayout() {
-        var mainHeight = getChartHeight('main');
-        var cyclesHeight = getChartHeight('cycles');
-        if (chartNiveauxEaux) chartNiveauxEaux.setSize(null, mainHeight, false);
-        if (chartTemperatures) chartTemperatures.setSize(null, mainHeight, false);
-        if (chartCycles) chartCycles.setSize(null, cyclesHeight, false);
-    }
-
-    if (stockLayout && typeof stockLayout.bindResize === 'function') {
-        stockLayout.bindResize([
-            { chart: chartNiveauxEaux, type: 'main' },
-            { chart: chartTemperatures, type: 'main' },
-            { chart: chartCycles, type: 'cycles' }
-        ], 220, 350);
-    } else {
-        var resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(applyChartMobileLayout, 220);
-        });
-        window.addEventListener('orientationchange', function() {
-            setTimeout(applyChartMobileLayout, 350);
-        });
-    }
+                bootstrap.bindResize([
+                    { chart: chartNiveauxEaux, type: 'main' },
+                    { chart: chartTemperatures, type: 'main' },
+                    { chart: chartCycles, type: 'cycles' }
+                ]);
+                bootstrap.bindAosReflow([chartNiveauxEaux, chartTemperatures, chartCycles]);
+            }
+        );
     })();
     </script>
     {% endif %}

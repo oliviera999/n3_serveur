@@ -41,17 +41,21 @@
                 enabled: true,
                 align: 'center',
                 verticalAlign: 'bottom',
+                maxHeight: mobile ? 56 : 72,
                 itemStyle: {
                     cursor: 'pointer',
                     fontSize: mobile ? '10px' : '12px'
                 },
                 itemMarginTop: mobile ? 2 : 4,
-                itemMarginBottom: mobile ? 2 : 4
+                itemMarginBottom: mobile ? 2 : 4,
+                accessibility: { enabled: false },
+                navigation: { activeColor: '#3E6F7A', inactiveColor: '#CCC' }
             },
             navigator: {
                 enabled: true,
                 height: mobile ? 20 : 30,
-                margin: mobile ? 4 : 8
+                margin: mobile ? 4 : 8,
+                xAxis: { ordinal: false }
             },
             scrollbar: {
                 enabled: true,
