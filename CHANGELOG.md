@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.269] - 2026-03-30
+
+### Correctif - graphique aquaponie : corde droite sur les niveaux d'eau
+- **Résumé** : `afterSetExtremes` était invoqué au premier redraw Highcharts avec `e.trigger` non défini ; le `setData` des tendances utilisait des indices de séries fixes (vue alt sans contrôle du nom), ce qui pouvait écraser les séries `areaspline` avec les points de régression linéaire — ligne droite du premier au dernier point. Ignorer ces appels sans `trigger`, ne mettre à jour que les séries `type: 'line'` identifiées par le libellé, `setData` sans animation, et `connectNulls: false` sur les aires.
+- Fichiers modifiés : `templates/aquaponie.twig`, `templates/aquaponie_alt.twig`, `VERSION`
+
+---
 ## [5.0.268] - 2026-03-28
 
 ### Modifié - Ajout stack Docker locale et fiabilisation smoke/PHPUnit

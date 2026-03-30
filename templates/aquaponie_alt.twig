@@ -942,46 +942,43 @@
                                     ordinal: false,  // Espacement proportionnel au temps réel entre les mesures
                                     events: {
                                         afterSetExtremes: function(e) {
-                                            // Recalculer les tendances pour la fenêtre visible
-                                            if (e.min && e.max) {
-                                                var visibleData = {
-                                                    EauAquarium: EauAquarium.filter(point => point[0] >= e.min && point[0] <= e.max),
-                                                    EauReserve: EauReserve.filter(point => point[0] >= e.min && point[0] <= e.max),
-                                                    EauPotager: EauPotager.filter(point => point[0] >= e.min && point[0] <= e.max)
-                                                };
-                                                
-                                                // Recalculer les tendances pour les données visibles
-                                                var newTrends = {};
-                                                Object.keys(visibleData).forEach(key => {
-                                                    if (visibleData[key].length >= 2) {
-                                                        newTrends[key + 'TrendLine'] = calculateLinearRegression(visibleData[key]);
-                                                        newTrends[key + 'MovingAvg'] = calculateMovingAverage(visibleData[key], 20);
-                                                    }
-                                                });
-                                                
-                                                // Mettre à jour les séries de tendance
-                                                var chart = this.chart;
-                                                var series = chart.series;
-                                                
-                                                // Mettre à jour les séries de régression linéaire (index 6, 7, 8)
-                                                var trendKeys = ['EauAquarium', 'EauReserve', 'EauPotager'];
-                                                for (var i = 6; i <= 8; i++) {
-                                                    if (series[i] && newTrends[trendKeys[i - 6] + 'TrendLine']) {
-                                                        series[i].setData(newTrends[trendKeys[i - 6] + 'TrendLine'].data);
-                                                    }
-                                                }
-                                                
-                                                // Mettre à jour les séries de moyenne mobile (index 9, 10, 11)
-                                                for (var i = 9; i <= 11; i++) {
-                                                    if (series[i] && series[i].name.includes('moy. mobile')) {
-                                                        var dataKey = series[i].name.includes('aquarium') ? 'EauAquarium' : 
-                                                                     series[i].name.includes('réserve') ? 'EauReserve' : 'EauPotager';
-                                                        if (newTrends[dataKey + 'MovingAvg']) {
-                                                            series[i].setData(newTrends[dataKey + 'MovingAvg']);
-                                                        }
-                                                    }
-                                                }
+                                            // Même garde que aquaponie.twig : sans e.trigger (1er redraw HC), ne pas setData —
+                                            // les indices 6–8 n'étaient pas vérifiés par le nom : risque d'écraser les areaspline.
+                                            if (!e || e.trigger === undefined || e.trigger === null) {
+                                                return;
                                             }
+                                            if (!(e.min && e.max)) {
+                                                return;
+                                            }
+                                            var visibleData = {
+                                                EauAquarium: EauAquarium.filter(function (point) { return point[0] >= e.min && point[0] <= e.max; }),
+                                                EauReserve: EauReserve.filter(function (point) { return point[0] >= e.min && point[0] <= e.max; }),
+                                                EauPotager: EauPotager.filter(function (point) { return point[0] >= e.min && point[0] <= e.max; })
+                                            };
+                                            var newTrends = {};
+                                            Object.keys(visibleData).forEach(function (key) {
+                                                if (visibleData[key].length >= 2) {
+                                                    newTrends[key + 'TrendLine'] = calculateLinearRegression(visibleData[key]);
+                                                    newTrends[key + 'MovingAvg'] = calculateMovingAverage(visibleData[key], 20);
+                                                }
+                                            });
+                                            var chart = this.chart;
+                                            chart.series.forEach(function (s) {
+                                                if (!s || s.type !== 'line' || !s.name) {
+                                                    return;
+                                                }
+                                                var dk = s.name.indexOf('aquarium') !== -1 ? 'EauAquarium'
+                                                    : (s.name.indexOf('réserve') !== -1 ? 'EauReserve'
+                                                        : (s.name.indexOf('potager') !== -1 ? 'EauPotager' : null));
+                                                if (!dk) {
+                                                    return;
+                                                }
+                                                if (s.name.indexOf('linéaire') !== -1 && newTrends[dk + 'TrendLine']) {
+                                                    s.setData(newTrends[dk + 'TrendLine'].data, false, false, false);
+                                                } else if (s.name.indexOf('moy. mobile') !== -1 && newTrends[dk + 'MovingAvg']) {
+                                                    s.setData(newTrends[dk + 'MovingAvg'], false, false, false);
+                                                }
+                                            });
                                         }
                                     }
                                 },
@@ -997,6 +994,7 @@
                                 },
                                 plotOptions: {
                                     areaspline: {
+                                        connectNulls: false,
                                         fillOpacity: 0.3,
                                         marker: { enabled: false, radius: 2 },
                                         dataGrouping: { enabled: false }  // Désactiver le regroupement pour espacement proportionnel
@@ -1393,6 +1391,7 @@
                                 },
                                 plotOptions: {
                                     areaspline: {
+                                        connectNulls: false,
                                         fillOpacity: 0.3,
                                         marker: { enabled: false, radius: 2 },
                                         dataGrouping: { enabled: false }  // Désactiver le regroupement pour espacement proportionnel
