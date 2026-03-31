@@ -26,6 +26,8 @@ Pour tester le site completement en local (pages, controle, APIs, upload photo, 
 - `.env.docker.example`
 - `tools/local-docker.ps1`
 - `tools/local-smoke-test.ps1`
+- `tools/import-mysql-dump-to-local-docker.ps1` (optionnel : snapshot production vers `iot_n3_local`)
+- `docker/mysql/sync-import-staging-to-local.sql` (synchro staging vers local, appele par le script ci-dessus)
 
 ### Demarrage rapide
 
@@ -45,6 +47,12 @@ powershell -ExecutionPolicy Bypass -File .\tools\local-docker.ps1 -Action smoke
 powershell -ExecutionPolicy Bypass -File .\tools\local-docker.ps1 -Action test
 ```
 
+Suites Composer (depuis `serveur/`, hors ou dans le conteneur) :
+
+- `composer test` : **Unit** + **Integration** (comportement par défaut, identique à `phpunit` sans filtre).
+- `composer test:unit` : uniquement les tests hors `tests/Integration` (rapide, utile sans snapshot MySQL).
+- `composer test:integration` : uniquement `tests/Integration` (BDD joignable ; assertions snapshot si import production effectué).
+
 URLs locales:
 
 - App: `http://127.0.0.1:8082/`
@@ -58,6 +66,29 @@ Notes:
 - Au premier lancement, le script copie `.env.docker.example` vers `.env` si absent.
 - Le schema BDD est initialise automatiquement via `docker/mysql/init/`.
 - Les donnees de seed evitent les erreurs de pages de controle (tables/rows minimales presentes).
+
+### Importer un export MySQL de production (tests etendus)
+
+Pour charger les memes donnees que la production dans `iot_n3_local` **sans creer de tables hors schéma local** : le dump brut est importe dans une base tampon `iot_n3_import_staging`, puis recopie vers les tables de `iot_n3_local` avec mappage des colonnes (ex. `Boards` en cle `board` varchar, `ffp3Heartbeat.timestamp` -> `reading_time`, `ffp3Data` sans `bootCount`/`mailSent`, `post_id` a NULL si absent).
+
+**Confidentialite** : ne pas versionner le fichier `.sql` (e-mails, chemins serveur possibles).
+
+```powershell
+# Docker Desktop demarre ; stack up
+powershell -ExecutionPolicy Bypass -File .\tools\local-docker.ps1 -Action up
+
+# Chemin absolu vers l'export phpMyAdmin (ex.)
+powershell -ExecutionPolicy Bypass -File .\tools\import-mysql-dump-to-local-docker.ps1 -DumpPath "C:\Users\olivi\Downloads\oliviera_iot.sql"
+
+# Rejouer uniquement la synchro si la staging est deja chargee :
+# powershell -ExecutionPolicy Bypass -File .\tools\import-mysql-dump-to-local-docker.ps1 -SyncOnly
+```
+
+Les tables presentes en production mais absentes du schéma local (`ffp3Data4`, `ffp3DataDel`, etc.) ne sont pas creees ; elles restent uniquement dans la staging jusqu'a suppression du conteneur ou `DROP DATABASE iot_n3_import_staging`.
+
+Les tests PHPUnit sous `tests/Integration/` (classe de base `IntegrationDbTestCase`, volumétrie, repositories FFP3/MSP/N3PP/Boards) s'activent lorsque `ffp3Data` depasse un seuil (snapshot charge) ; `composer test` dans le conteneur `app` les execute avec les variables `DB_*` injectees par Docker.
+
+Apres une synchro reussie, vous pouvez liberer l'espace disque du conteneur MySQL en supprimant la base tampon : `docker exec -e MYSQL_PWD=root_local_iot_n3 n3_iot_db_local mysql -uroot -e "DROP DATABASE IF EXISTS iot_n3_import_staging;"` (le script d'import la recreera au prochain import complet).
 
 ### Arret / logs / shell
 

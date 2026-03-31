@@ -29,6 +29,8 @@
     "license": "MIT",
     "scripts": {
         "test": "php tools/run-phpunit.php",
+        "test:unit": "php tools/run-phpunit.php --testsuite Unit",
+        "test:integration": "php tools/run-phpunit.php --testsuite Integration",
         "changelog:check": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/changelog-maintenance.ps1 -CheckOnly",
         "changelog:rotate": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/changelog-maintenance.ps1 -Rotate"
     }

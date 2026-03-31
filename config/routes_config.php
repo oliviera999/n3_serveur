@@ -152,7 +152,7 @@ return [
         'control-actions.js', 'control-auto-save.js', 'control-sync.js', 'control-values-updater.js', 'gallery-lightbox.js',
         'confirm-modal.js',
         'highstock.js', 'exporting.js', 'export-data.js', 'accessibility.js',
-        'highcharts-defaults.js', 'highcharts-theme.js', 'n3-stock-chart-layout.js', 'aquaponie-chart-layout.js', 'jquery.min.js', 'jquery.scrollex.min.js',
+        'highcharts-defaults.js', 'highcharts-theme.js', 'n3-stock-chart-layout.js', 'n3-stock-chart-bootstrap.js', 'aquaponie-chart-layout.js', 'jquery.min.js', 'jquery.scrollex.min.js',
         'jquery.scrolly.min.js', 'main.js', 'page-nav-toggles.js', 'pwa-init.js',
         'realtime-updater.js', 'scroll-progress.js', 'scroll-reveal.js', 'stats-updater.js',
         'theme-toggle.js', 'toast-notifications.js', 'util.js',

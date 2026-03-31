@@ -11,6 +11,33 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.282] - 2026-03-31
+
+### Ajouté - tests d'intégration repositories + suites PHPUnit Unit / Integration
+- **Résumé** : `IntegrationDbTestCase` (`#[BackupGlobals(false)]`, PDO, seuil snapshot, `TableConfig` prod) ; `SensorRepositoriesSnapshotIntegrationTest` (SensorReadRepository, MspSensorRepository, N3ppSensorRepository, BoardRepository, fenêtres 10 min ; comparaisons dates en `strcmp` format SQL). `phpunit.xml` : suites **Unit** et **Integration** ; scripts Composer `test:unit`, `test:integration`. Documentation `README.md` et skill PHPUnit.
+
+### Correctif - `SensorReadRepository::getLastReadings` (ORDER BY + LIMIT sous MySQL)
+- **Résumé** : le `LIMIT` lié (`:limit`) pouvait retourner des lignes dans un ordre incorrect selon le driver PDO MySQL ; passage à une limite entière dans la requête après validation de la table (`TableValidator`) et plafond 10 000.
+- Fichiers : `src/Repository/SensorReadRepository.php`, `tests/Integration/`, `phpunit.xml`, `composer.json`, `README.md`, `.cursor/skills/tests-phpunit-serveur/SKILL.md`, `VERSION`
+
+---
+
+## [5.0.281] - 2026-03-31
+
+### Modifié - footer galeries : version firmware uploadphotosserver
+- **Résumé** : les pages timelapse et grille admin (`/gallery/{slug}`, `/admin/gallery/{slug}`) passent la même version que la page contrôle caméra (GPIO 100, POST `post-uploadphotoserver-version.php`) au pied de page unifié (`_footer.twig`). Page d’index des galeries : pas de badge firmware unique (trois appareils). `GalleryControlController` normalise `firmware_version` en chaîne vide si absente pour le `footer_config` Twig.
+- Fichiers : `src/Controller/Gallery/GalleryViewController.php`, `GalleryControlController.php`, `config/dependencies.php`, `VERSION`
+
+---
+
+## [5.0.280] - 2026-03-31
+
+### Ajouté - import dump production vers BDD Docker locale (tests etendus)
+- **Résumé** : script `tools/import-mysql-dump-to-local-docker.ps1` (import dans `iot_n3_import_staging` puis synchro vers `iot_n3_local`) ; SQL `docker/mysql/sync-import-staging-to-local.sql` avec mappage des colonnes (Boards, ffp3Data/post_id, Heartbeat timestamp → reading_time, sorties board en varchar, etc.). Tests `tests/Integration/RealDatasetDockerDbTest.php` ; documentation `README.md`, regle Cursor `serveur-validation-locale-docker.mdc`, skill PHPUnit. Correctif whitelist JS : `n3-stock-chart-bootstrap.js` dans `config/routes_config.php`.
+- Fichiers : outils et SQL ci-dessus, `tests/Integration/`, `config/routes_config.php`, `README.md`, `VERSION`
+
+---
+
 ## [5.0.279] - 2026-03-30
 
 ### Modifié - remplissage sous courbe (areaspline) MSP1/N3PP aligné aquaponie

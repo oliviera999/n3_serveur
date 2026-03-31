@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Gallery;
 
 use App\Config\Paths;
+use App\Repository\GalleryControlRepository;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -23,8 +24,21 @@ class GalleryViewController
 
     public function __construct(
         private TemplateRenderer $renderer,
+        private GalleryControlRepository $galleryControlRepository,
     ) {
         $this->baseDir = Paths::getProjectRoot();
+    }
+
+    /**
+     * Version firmware uploadphotosserver (GPIO 100) — alignée page contrôle galerie et POST version.
+     */
+    private function firmwareVersionForSlug(string $slug): string
+    {
+        try {
+            return $this->galleryControlRepository->getFirmwareVersion($slug) ?? '';
+        } catch (\Throwable) {
+            return '';
+        }
     }
 
     private function getUploadDir(string $slug): string
@@ -151,6 +165,8 @@ class GalleryViewController
             'nav_active' => 'gallery',
             'galleries' => $galleries,
             'base_path' => $basePath !== '' ? '/' . $basePath : '',
+            'environment' => $_ENV['ENV'] ?? 'prod',
+            'firmware_version' => '',
         ]);
         $response->getBody()->write($html);
         return $response;
@@ -220,6 +236,8 @@ class GalleryViewController
             'api_latest_url' => $apiLatestUrl,
             'nav_active' => $meta[$slug]['nav_active'],
             'active_page' => 'gallery',
+            'environment' => $_ENV['ENV'] ?? 'prod',
+            'firmware_version' => $this->firmwareVersionForSlug($slug),
         ]);
         $response->getBody()->write($html);
         return $response;
@@ -253,6 +271,8 @@ class GalleryViewController
                 'back_url' => $backUrl,
                 'nav_label' => $navLabel,
                 'nav_active' => $navActive,
+                'environment' => $_ENV['ENV'] ?? 'prod',
+                'firmware_version' => $this->firmwareVersionForSlug($slug),
             ]);
 
             $response->getBody()->write($html);

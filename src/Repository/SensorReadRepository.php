@@ -114,13 +114,23 @@ class SensorReadRepository extends AbstractRepository
      */
     public function getLastReadings(int $limit = 1): array
     {
-        $table = TableConfig::getDataTable();
-        $sql = "SELECT * FROM {$table} ORDER BY reading_time DESC LIMIT :limit";
-
-        $stmt = $this->pdo->prepare($sql);
-        // PARAM_INT garantit l'utilisation d'un entier (pas d'injection SQL possible)
-        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
-        $stmt->execute();
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
+        if ($limit < 1) {
+            $limit = 1;
+        }
+        if ($limit > 10_000) {
+            $limit = 10_000;
+        }
+        // Limite en SQL entier : avec MySQL, LIMIT lié (:limit) peut produire un ordre incohérent selon le driver PDO.
+        $sql = sprintf(
+            'SELECT * FROM `%s` ORDER BY reading_time DESC LIMIT %d',
+            $table,
+            $limit
+        );
+        $stmt = $this->pdo->query($sql);
+        if ($stmt === false) {
+            return [];
+        }
 
         if ($limit === 1) {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);

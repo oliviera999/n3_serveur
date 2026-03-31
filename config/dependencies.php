@@ -459,7 +459,8 @@ return [
 
     \App\Controller\Gallery\GalleryViewController::class => function (ContainerInterface $c) {
         return new \App\Controller\Gallery\GalleryViewController(
-            $c->get(TemplateRenderer::class)
+            $c->get(TemplateRenderer::class),
+            $c->get(GalleryControlRepository::class)
         );
     },
 

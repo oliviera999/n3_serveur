@@ -50,7 +50,7 @@ class GalleryControlController
                 'outputs' => $outputs,
                 'params' => $params,
                 'last_board_request' => $this->repository->getLastBoardRequest($slug),
-                'firmware_version' => $this->repository->getFirmwareVersion($slug),
+                'firmware_version' => $this->repository->getFirmwareVersion($slug) ?? '',
                 'version' => Version::getWithPrefix(),
                 'environment' => $_ENV['ENV'] ?? 'prod',
                 'nav_active' => 'gallery_control',
