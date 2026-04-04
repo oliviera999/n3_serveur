@@ -1360,6 +1360,26 @@ body.is-preload #wrapper.fade-in::before {
     color: var(--accent-primary-hover) !important;
 }
 
+/* Liens « bouton plein » : la règle ci-dessus impose l’accent sur tout <a> du wrapper ;
+   sur fond déjà en accent (hero, accueil, cartes projet), le texte devenait de la même teinte → illisible. */
+[data-theme="dark"] #wrapper:not(.control-wrapper) a.button.primary,
+[data-theme="dark"] #wrapper:not(.control-wrapper) a.button.primary:hover,
+[data-theme="dark"] #wrapper:not(.control-wrapper) a.button.primary:focus {
+    color: var(--text-inverse) !important;
+}
+
+[data-theme="dark"] #wrapper:not(.control-wrapper) a.home-link-btn,
+[data-theme="dark"] #wrapper:not(.control-wrapper) a.home-link-btn:hover,
+[data-theme="dark"] #wrapper:not(.control-wrapper) a.home-link-btn:focus {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] #wrapper:not(.control-wrapper) a.project-link,
+[data-theme="dark"] #wrapper:not(.control-wrapper) a.project-link:hover,
+[data-theme="dark"] #wrapper:not(.control-wrapper) a.project-link:focus {
+    color: #ffffff !important;
+}
+
 [data-theme="dark"] #wrapper:not(.control-wrapper) strong,
 [data-theme="dark"] #wrapper:not(.control-wrapper) b {
     color: var(--text-primary);
