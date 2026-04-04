@@ -191,7 +191,12 @@ class StatsUpdater {
         
         // Mettre à jour l'affichage de la valeur
         if (elements.display) {
-            const formattedValue = value.toFixed(config.decimals);
+            const formattedValue = config.frDecimal
+                ? Number(value).toLocaleString('fr-FR', {
+                    minimumFractionDigits: config.decimals,
+                    maximumFractionDigits: config.decimals,
+                })
+                : value.toFixed(config.decimals);
             elements.display.innerHTML = `${formattedValue} <span class="stat-card-unit">${config.unit}</span>`;
             
             // Animation flash pour indiquer le changement
@@ -225,9 +230,9 @@ class StatsUpdater {
             return this.sensorConfigs[sensorName];
         }
         var defaultConfigs = {
-            'EauAquarium': { unit: 'cm', decimals: 0, max: 100 },
-            'EauReserve': { unit: 'cm', decimals: 0, max: 100 },
-            'EauPotager': { unit: 'cm', decimals: 0, max: 100 },
+            'EauAquarium': { unit: 'cm', decimals: 1, max: 100, frDecimal: true },
+            'EauReserve': { unit: 'cm', decimals: 1, max: 100, frDecimal: true },
+            'EauPotager': { unit: 'cm', decimals: 1, max: 100, frDecimal: true },
             'TempEau': { unit: '°C', decimals: 1, max: 40 },
             'TempAir': { unit: '°C', decimals: 1, max: 40 },
             'Humidite': { unit: '%', decimals: 1, max: 100 },
@@ -249,27 +254,35 @@ class StatsUpdater {
         const config = this.getSensorConfig(sensorName);
         
         // Mettre à jour min
+        const fmt = (v, d) =>
+            config.frDecimal
+                ? Number(v).toLocaleString('fr-FR', {
+                    minimumFractionDigits: d,
+                    maximumFractionDigits: d,
+                })
+                : v.toFixed(d);
+
         const minEl = document.getElementById(`${sensorKey}-min`);
         if (minEl) {
-            minEl.textContent = stat.min.toFixed(config.decimals);
+            minEl.textContent = fmt(stat.min, config.decimals);
         }
         
         // Mettre à jour max
         const maxEl = document.getElementById(`${sensorKey}-max`);
         if (maxEl) {
-            maxEl.textContent = stat.max.toFixed(config.decimals);
+            maxEl.textContent = fmt(stat.max, config.decimals);
         }
         
         // Mettre à jour moyenne
         const avgEl = document.getElementById(`${sensorKey}-avg`);
         if (avgEl) {
-            avgEl.textContent = stat.avg.toFixed(config.decimals);
+            avgEl.textContent = fmt(stat.avg, config.decimals);
         }
         
         // Mettre à jour écart-type
         const stddevEl = document.getElementById(`${sensorKey}-stddev`);
         if (stddevEl && stat.stddev !== undefined) {
-            stddevEl.textContent = stat.stddev.toFixed(2);
+            stddevEl.textContent = fmt(stat.stddev, 2);
         }
     }
     

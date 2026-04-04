@@ -12,6 +12,7 @@ use App\Service\DateRangeExtractor;
 use App\Service\SensorStatisticsService;
 use App\Service\TemplateRenderer;
 use App\Util\DurationFormatter;
+use App\Util\Ffp3WaterLevelUnit;
 use App\Util\RealtimeUrlHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -48,7 +49,7 @@ class DashboardController
         $readingsCount = count($readings);
         $lastReading = $readings[0] ?? null;
 
-        $stats = [
+        $stats = Ffp3WaterLevelUnit::scaleDashboardWaterStatsFromMmToCm([
             'TempAir' => $this->calculateStats('TempAir', $startDate, $endDate),
             'TempEau' => $this->calculateStats('TempEau', $startDate, $endDate),
             'Humidite' => $this->calculateStats('Humidite', $startDate, $endDate),
@@ -56,7 +57,11 @@ class DashboardController
             'EauAquarium' => $this->calculateStats('EauAquarium', $startDate, $endDate),
             'EauReserve' => $this->calculateStats('EauReserve', $startDate, $endDate),
             'EauPotager' => $this->calculateStats('EauPotager', $startDate, $endDate),
-        ];
+        ]);
+
+        if ($lastReading !== null) {
+            $lastReading = Ffp3WaterLevelUnit::scaleSensorRowFromMmToCm($lastReading);
+        }
 
         $firmwareVersion = $this->sensorReadRepo->getFirmwareVersion();
         $environment = TableConfig::getEnvironment();

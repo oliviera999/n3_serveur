@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Repository\SensorReadRepository;
+use App\Util\Ffp3WaterLevelUnit;
 use App\Util\MathUtils;
 use DateTimeInterface;
 
@@ -40,6 +41,7 @@ class WaterBalanceService
 
         // fetchBetween renvoie DESC → inverser pour ASC (chronologique)
         $rows = array_reverse($rows);
+        $rows = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm($rows);
 
         // ------------------------------------------------------------
         // RÉSERVE : Consommation et Ravitaillement

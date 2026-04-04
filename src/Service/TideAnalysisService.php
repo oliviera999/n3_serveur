@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Repository\SensorReadRepository;
+use App\Util\Ffp3WaterLevelUnit;
 use App\Util\MathUtils;
 use DateTimeInterface;
 
@@ -40,6 +41,7 @@ class TideAnalysisService
 
         // fetchBetween renvoie DESC → inverser pour ASC
         $rows = array_reverse($rows);
+        $rows = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm($rows);
 
         $levels = array_column($rows, 'EauAquarium');
         $times  = array_column($rows, 'reading_time');

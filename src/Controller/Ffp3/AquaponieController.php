@@ -15,6 +15,7 @@ use App\Service\StatisticsAggregatorService;
 use App\Service\TemplateRenderer;
 use App\Service\WaterBalanceService;
 use App\Util\DurationFormatter;
+use App\Util\Ffp3WaterLevelUnit;
 use App\Util\RealtimeUrlHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -104,17 +105,23 @@ class AquaponieController
 
         [$startDate, $endDate] = $this->dateRangeExtractor->extract($request, $defaultStartDate, $defaultEndDate);
 
-        $readings = $this->sensorReadRepo->fetchBetween($startDate, $endDate);
+        $readings = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm(
+            $this->sensorReadRepo->fetchBetween($startDate, $endDate)
+        );
         $measure_count = count($readings);
 
         $chartSeries = $this->chartDataService->prepareSeriesData($readings);
         $reading_time = $this->chartDataService->prepareTimestamps($readings);
 
         $lastReading = $this->sensorReadRepo->getLastReadings();
-        $lastReadingExtracted = $this->chartDataService->extractLastReadings($lastReading);
+        $lastReadingExtracted = $this->chartDataService->extractLastReadings(
+            Ffp3WaterLevelUnit::scaleSensorRowFromMmToCm($lastReading)
+        );
 
         $allStats = $this->statsAggregator->aggregateAllStats($startDate, $endDate);
-        $statsFlattened = $this->statsAggregator->flattenForLegacy($allStats);
+        $statsFlattened = Ffp3WaterLevelUnit::scaleAquaponieFlattenedStatsFromMmToCm(
+            $this->statsAggregator->flattenForLegacy($allStats)
+        );
 
         $body = $request->getParsedBody() ?? [];
         if (isset($body['export_csv'])) {

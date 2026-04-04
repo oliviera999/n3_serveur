@@ -7,6 +7,7 @@ namespace App\Service\Realtime;
 use App\Config\TableConfig;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
+use App\Util\Ffp3WaterLevelUnit;
 
 /**
  * Fournisseur de données temps réel pour FFP3 (aquaponie).
@@ -144,9 +145,10 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
 
     private function extractSensors(array $row): array
     {
+        $scaled = Ffp3WaterLevelUnit::scaleSensorRowFromMmToCm($row) ?? $row;
         $sensors = [];
         foreach (self::FFP3_SENSOR_KEYS as $key) {
-            $sensors[$key] = $row[$key] ?? null;
+            $sensors[$key] = $scaled[$key] ?? null;
         }
         return $sensors;
     }

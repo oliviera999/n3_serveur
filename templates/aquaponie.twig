@@ -51,13 +51,13 @@
                         <div class="stat-card aquarium" data-aos="fade-up" data-aos-delay="0">
                             <i class="fas fa-fish stat-card-icon"></i>
                             <div class="stat-card-label">Aquarium</div>
-                            <div class="stat-card-value" id="eauaqua-display">{{ last_reading_eauaqua|default(0)|round(0) }} <span class="stat-card-unit">cm</span></div>
+                            <div class="stat-card-value" id="eauaqua-display">{{ last_reading_eauaqua|default(0)|number_format(1, ',', ' ') }} <span class="stat-card-unit">cm</span></div>
                             <div class="progress-bar-container">
                                 <div class="progress-bar" id="eauaqua-progress" style="width: {{ (last_reading_eauaqua|default(0) / 100 * 100)|round(0) }}%"></div>
                             </div>
                             <div class="stat-card-details">
-                                <div>Moy: <span id="eauaqua-avg">{{ avg_eauaqua|default(0)|round(1) }}</span> cm | Écart-type: <span id="eauaqua-stddev">{{ stddev_eauaqua|default(0)|round(2) }}</span></div>
-                                <div>Min: <span id="eauaqua-min">{{ min_eauaqua|default(0) }}</span> cm | Max: <span id="eauaqua-max">{{ max_eauaqua|default(0) }}</span> cm</div>
+                                <div>Moy: <span id="eauaqua-avg">{{ avg_eauaqua|default(0)|number_format(1, ',', ' ') }}</span> cm | Écart-type: <span id="eauaqua-stddev">{{ stddev_eauaqua|default(0)|number_format(2, ',', ' ') }}</span></div>
+                                <div>Min: <span id="eauaqua-min">{{ min_eauaqua|default(0)|number_format(1, ',', ' ') }}</span> cm | Max: <span id="eauaqua-max">{{ max_eauaqua|default(0)|number_format(1, ',', ' ') }}</span> cm</div>
                             </div>
                         </div>
                         
@@ -65,13 +65,13 @@
                         <div class="stat-card reserve" data-aos="fade-up" data-aos-delay="50">
                             <i class="fas fa-droplet stat-card-icon"></i>
                             <div class="stat-card-label">Réserve</div>
-                            <div class="stat-card-value" id="eaureserve-display">{{ last_reading_eaureserve|default(0)|round(0) }} <span class="stat-card-unit">cm</span></div>
+                            <div class="stat-card-value" id="eaureserve-display">{{ last_reading_eaureserve|default(0)|number_format(1, ',', ' ') }} <span class="stat-card-unit">cm</span></div>
                             <div class="progress-bar-container">
                                 <div class="progress-bar" id="eaureserve-progress" style="width: {{ (last_reading_eaureserve|default(0) / 100 * 100)|round(0) }}%;"></div>
                             </div>
                             <div class="stat-card-details">
-                                <div>Moy: <span id="eaureserve-avg">{{ avg_eaureserve|default(0)|round(1) }}</span> cm | Écart-type: <span id="eaureserve-stddev">{{ stddev_eaureserve|default(0)|round(2) }}</span></div>
-                                <div>Min: <span id="eaureserve-min">{{ min_eaureserve|default(0) }}</span> cm | Max: <span id="eaureserve-max">{{ max_eaureserve|default(0) }}</span> cm</div>
+                                <div>Moy: <span id="eaureserve-avg">{{ avg_eaureserve|default(0)|number_format(1, ',', ' ') }}</span> cm | Écart-type: <span id="eaureserve-stddev">{{ stddev_eaureserve|default(0)|number_format(2, ',', ' ') }}</span></div>
+                                <div>Min: <span id="eaureserve-min">{{ min_eaureserve|default(0)|number_format(1, ',', ' ') }}</span> cm | Max: <span id="eaureserve-max">{{ max_eaureserve|default(0)|number_format(1, ',', ' ') }}</span> cm</div>
                             </div>
                         </div>
                         
@@ -79,13 +79,13 @@
                         <div class="stat-card potager" data-aos="fade-up" data-aos-delay="100">
                             <i class="fas fa-seedling stat-card-icon"></i>
                             <div class="stat-card-label">Potager</div>
-                            <div class="stat-card-value" id="eaupota-display">{{ last_reading_eaupota|default(0)|round(0) }} <span class="stat-card-unit">cm</span></div>
+                            <div class="stat-card-value" id="eaupota-display">{{ last_reading_eaupota|default(0)|number_format(1, ',', ' ') }} <span class="stat-card-unit">cm</span></div>
                             <div class="progress-bar-container">
                                 <div class="progress-bar" id="eaupota-progress" style="width: {{ (last_reading_eaupota|default(0) / 100 * 100)|round(0) }}%;"></div>
                             </div>
                             <div class="stat-card-details">
-                                <div>Moy: <span id="eaupota-avg">{{ avg_eaupota|default(0)|round(1) }}</span> cm | Écart-type: <span id="eaupota-stddev">{{ stddev_eaupota|default(0)|round(2) }}</span></div>
-                                <div>Min: <span id="eaupota-min">{{ min_eaupota|default(0) }}</span> cm | Max: <span id="eaupota-max">{{ max_eaupota|default(0) }}</span> cm</div>
+                                <div>Moy: <span id="eaupota-avg">{{ avg_eaupota|default(0)|number_format(1, ',', ' ') }}</span> cm | Écart-type: <span id="eaupota-stddev">{{ stddev_eaupota|default(0)|number_format(2, ',', ' ') }}</span></div>
+                                <div>Min: <span id="eaupota-min">{{ min_eaupota|default(0)|number_format(1, ',', ' ') }}</span> cm | Max: <span id="eaupota-max">{{ max_eaupota|default(0)|number_format(1, ',', ' ') }}</span> cm</div>
                             </div>
                         </div>
                     </div>
@@ -179,7 +179,7 @@
                                     Consommation totale
                                 </span>
                                 <span class="balance-stat-value negative">
-                                    {{ reserve_consumption|default(0)|round(1) }}
+                                    {{ reserve_consumption|default(0)|number_format(1, ',', ' ') }}
                                     <span class="balance-stat-unit">cm</span>
                                 </span>
                             </div>
@@ -190,7 +190,7 @@
                                     Ravitaillement total
                                 </span>
                                 <span class="balance-stat-value positive">
-                                    {{ reserve_refill|default(0)|round(1) }}
+                                    {{ reserve_refill|default(0)|number_format(1, ',', ' ') }}
                                     <span class="balance-stat-unit">cm</span>
                                 </span>
                             </div>
@@ -201,7 +201,7 @@
                                     Bilan net
                                 </span>
                                 <span class="balance-stat-value {% if reserve_balance|default(0) > 0 %}positive{% elseif reserve_balance|default(0) < 0 %}negative{% else %}neutral{% endif %}">
-                                    {% if reserve_balance|default(0) > 0 %}+{% endif %}{{ reserve_balance|default(0)|round(1) }}
+                                    {% if reserve_balance|default(0) > 0 %}+{% endif %}{{ reserve_balance|default(0)|number_format(1, ',', ' ') }}
                                     <span class="balance-stat-unit">cm</span>
                                 </span>
                             </div>
@@ -225,11 +225,11 @@
                                     Marnage moyen
                                 </span>
                                 <span class="balance-stat-value neutral">
-                                    {{ tide_marnage|default(0)|round(2) }}
+                                    {{ tide_marnage|default(0)|number_format(2, ',', ' ') }}
                                     <span class="balance-stat-unit">cm</span>
                                     {% if tide_marnage_stddev is not null %}
                                         <span class="balance-stat-stddev">
-                                            ± {{ tide_marnage_stddev|round(2) }}
+                                            ± {{ tide_marnage_stddev|number_format(2, ',', ' ') }}
                                         </span>
                                     {% endif %}
                                 </span>
@@ -241,11 +241,11 @@
                                     Fréquence des marées
                                 </span>
                                 <span class="balance-stat-value neutral">
-                                    {{ tide_frequency|default(0)|round(2) }}
+                                    {{ tide_frequency|default(0)|number_format(2, ',', ' ') }}
                                     <span class="balance-stat-unit">/heure</span>
                                     {% if tide_frequency_stddev is not null %}
                                         <span class="balance-stat-stddev">
-                                            ± {{ tide_frequency_stddev|round(2) }}
+                                            ± {{ tide_frequency_stddev|number_format(2, ',', ' ') }}
                                         </span>
                                     {% endif %}
                                 </span>
@@ -267,7 +267,7 @@
                                     Consommation moyenne
                                 </span>
                                 <span class="balance-stat-value neutral">
-                                    {{ aquarium_consumption|default(0)|round(2) }}
+                                    {{ aquarium_consumption|default(0)|number_format(2, ',', ' ') }}
                                     <span class="balance-stat-unit">cm</span>
                                 </span>
                             </div>
@@ -1449,6 +1449,9 @@
                         setEauPotager(EauPotagerLast);
 
                         // ---------- Fonctions helper jauges ----------
+                        function formatFrCm(value) {
+                            return Number(value).toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+                        }
                         function scaleValue(value, from, to) {
                             var scale = (to[1] - to[0]) / (from[1] - from[0]);
                             var capped = Math.min(from[1], Math.max(from[0], value)) - from[0];
@@ -1489,22 +1492,31 @@
                             }
                         }
                         function setEauAquarium(curVal){
-                            updateStatCard('eauaqua-display', null, curVal, 'cm', null);
-                            var progressEl = document.getElementById('eauaqua-display').parentElement.querySelector('.progress-bar');
+                            var displayEl = document.getElementById('eauaqua-display');
+                            var progressEl = displayEl && displayEl.parentElement.querySelector('.progress-bar');
+                            if (displayEl) {
+                                displayEl.innerHTML = formatFrCm(curVal) + ' <span class="stat-card-unit">cm</span>';
+                            }
                             if (progressEl) {
                                 progressEl.style.width = Math.min(100, Math.max(0, curVal)) + '%';
                             }
                         }
                         function setEauReserve(curVal){
-                            updateStatCard('eaureserve-display', null, curVal, 'cm', null);
-                            var progressEl = document.getElementById('eaureserve-display').parentElement.querySelector('.progress-bar');
+                            var displayEl = document.getElementById('eaureserve-display');
+                            var progressEl = displayEl && displayEl.parentElement.querySelector('.progress-bar');
+                            if (displayEl) {
+                                displayEl.innerHTML = formatFrCm(curVal) + ' <span class="stat-card-unit">cm</span>';
+                            }
                             if (progressEl) {
                                 progressEl.style.width = Math.min(100, Math.max(0, curVal)) + '%';
                             }
                         }
                         function setEauPotager(curVal){
-                            updateStatCard('eaupota-display', null, curVal, 'cm', null);
-                            var progressEl = document.getElementById('eaupota-display').parentElement.querySelector('.progress-bar');
+                            var displayEl = document.getElementById('eaupota-display');
+                            var progressEl = displayEl && displayEl.parentElement.querySelector('.progress-bar');
+                            if (displayEl) {
+                                displayEl.innerHTML = formatFrCm(curVal) + ' <span class="stat-card-unit">cm</span>';
+                            }
                             if (progressEl) {
                                 progressEl.style.width = Math.min(100, Math.max(0, curVal)) + '%';
                             }

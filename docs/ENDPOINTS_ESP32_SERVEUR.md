@@ -246,7 +246,11 @@ api_key=<valeur .env>
 &FreqWakeUp=6
 &bouffePetits=0
 &bouffeGros=0
+```
 
+**Unités (niveaux d’eau)** : les champs `EauPotager`, `EauAquarium` et `EauReserve` sont enregistrés en base en **millimètres**. L’interface web (pages aquaponie, dashboard FFP3, API temps réel capteurs) les expose en **centimètres** (conversion ÷10 côté serveur, affichage décimal avec virgule).
+
+```
 Actions serveur:
 1. INSERT INTO ffp3Data2 (sans tempsGros/tempsPetits/tempsRemplissageSec/limFlood/WakeUp/FreqWakeUp)
 2. UPDATE ffp3Outputs2 (17 GPIO) ← CRITIQUE pour chauffage

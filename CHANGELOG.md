@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.283] - 2026-04-04
+
+### Correctif - aquaponie : niveaux d’eau mm → cm et format décimal français
+- **Résumé** : les colonnes `EauAquarium`, `EauReserve`, `EauPotager` sont stockées en **millimètres** ; la page aquaponie (et le bilan hydrique) les affichaient comme des cm sans conversion. Conversion ÷10 côté serveur (`Ffp3WaterLevelUnit`), même logique pour dashboard FFP3, API temps réel capteurs, `WaterBalanceService`, `TideAnalysisService`. Affichage avec **virgule** décimale (Twig `number_format`, JS `toLocaleString('fr-FR')`, `stats-updater.js`). Documentation `docs/ENDPOINTS_ESP32_SERVEUR.md`, tests `tests/Util/Ffp3WaterLevelUnitTest.php`.
+
+---
+
 ## [5.0.282] - 2026-03-31
 
 ### Ajouté - tests d'intégration repositories + suites PHPUnit Unit / Integration
