@@ -206,12 +206,15 @@ class OutputController
             2, 15, 16, 18, // actionneurs physiques: chauffage, lumière, pompe aqua, pompe tank
             100, 101, 102, 103, 104, 105, 106, 107, // email + params
             108, 109, 110, // commandes nourrissage + reset
-            111, 112, 113, 114, 115, 116 // durées / limites / wake
+            111, 112, 113, 114, 115, 116, // durées / limites / wake
+            117, // forçage serveur pompe aquarium (page contrôle + sync JSON)
         ];
 
         // Page de contrôle : ?fresh=1 pour ignorer le cache et afficher les vraies valeurs BDD
         $queryParams = $request->getQueryParams();
         $skipCache = isset($queryParams['fresh']) && (string) $queryParams['fresh'] === '1';
+
+        $this->outputService->ensureAquariumPumpForceOutputRow();
 
         $pdo = Database::getConnection();
         $result = $this->outputCache->getOutputsState($pdo, $gpioList, $skipCache);

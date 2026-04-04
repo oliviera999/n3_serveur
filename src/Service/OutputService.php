@@ -98,6 +98,14 @@ class OutputService
         return $this->outputRepository->getAquariumPumpForceState();
     }
 
+    /**
+     * Crée / répare la ligne GPIO 117 avant lecture état (GET state) ou affichage.
+     */
+    public function ensureAquariumPumpForceOutputRow(): void
+    {
+        $this->outputRepository->ensureAquariumPumpForceRowExists();
+    }
+
     public function getParametersMap(): array
     {
         $outputs = $this->outputRepository->findAll();

@@ -406,16 +406,13 @@ class OutputRepository extends AbstractRepository
         return (int) ($row['state'] ?? 0) === 1;
     }
 
-    private function ensureAquariumPumpForceRowExists(): void
+    /**
+     * Garantit une ligne GPIO 117 utilisable (nom non vide) pour le switch « forçage pompe aquarium ».
+     * Appelée au chargement contrôle, au GET état outputs et au POST données — pas seulement la page web.
+     */
+    public function ensureAquariumPumpForceRowExists(): void
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
-        $existing = $this->fetchOne(
-            "SELECT id FROM `{$table}` WHERE gpio = :gpio LIMIT 1",
-            [':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO]
-        );
-        if ($existing !== null) {
-            return;
-        }
 
         $boardRow = $this->fetchOne(
             "SELECT board FROM `{$table}` WHERE gpio = :gpio LIMIT 1",
@@ -425,13 +422,44 @@ class OutputRepository extends AbstractRepository
             ? (string) $boardRow['board']
             : '1';
 
+        $forceName = 'Forcage pompe aquarium ON';
+
+        $existing = $this->fetchOne(
+            "SELECT id, name FROM `{$table}` WHERE gpio = :gpio LIMIT 1",
+            [':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO]
+        );
+
+        // Ligne fantôme (gpio 117 mais name vide) : exclue par findAll → le switch n'apparaît pas
+        if ($existing !== null) {
+            $name = isset($existing['name']) ? trim((string) $existing['name']) : '';
+            if ($name === '') {
+                $sql = "UPDATE `{$table}` SET board = :board, name = :name WHERE gpio = :gpio";
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt->execute([
+                    ':board' => $board,
+                    ':name' => $forceName,
+                    ':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO,
+                ])) {
+                    error_log('[OutputRepository] ensureAquariumPumpForceRowExists UPDATE (name vide) failed: '
+                        . json_encode($stmt->errorInfo(), JSON_UNESCAPED_UNICODE));
+                }
+            }
+
+            return;
+        }
+
         $sql = "INSERT INTO `{$table}` (board, gpio, name, state)
                 VALUES (:board, :gpio, :name, :state)";
-        $this->execute($sql, [
+        $stmt = $this->pdo->prepare($sql);
+        $ok = $stmt->execute([
             ':board' => $board,
             ':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO,
-            ':name' => 'Forcage pompe aquarium ON',
+            ':name' => $forceName,
             ':state' => '0',
         ]);
+        if (!$ok) {
+            error_log('[OutputRepository] ensureAquariumPumpForceRowExists INSERT failed: '
+                . json_encode($stmt->errorInfo(), JSON_UNESCAPED_UNICODE));
+        }
     }
 }

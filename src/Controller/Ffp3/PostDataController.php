@@ -166,6 +166,7 @@ class PostDataController extends AbstractPostDataController
         $this->sensorRepo->insert($data);
         $t1 = microtime(true);
 
+        $this->outputRepo->ensureAquariumPumpForceRowExists();
         $this->outputRepo->syncStatesFromSensorData($data);
         $t2 = microtime(true);
 

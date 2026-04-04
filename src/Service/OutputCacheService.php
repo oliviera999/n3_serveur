@@ -30,6 +30,7 @@ class OutputCacheService
         105 => 8, 106 => 12, 107 => 19,             // heures nourrissage
         108 => 0, 109 => 0, 110 => 0,              // commandes nourrissage + reset
         111 => 3, 112 => 2, 113 => 120, 114 => 8, 115 => 0, 116 => 600, // durées / limites / wake
+        117 => 0, // forçage pompe aquarium (serveur uniquement, défaut désactivé)
     ];
 
     /**
