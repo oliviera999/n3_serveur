@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.291] - 2026-04-04
+
+### Correctif - contrôle FFP3 : mapping paramètres, logs et doc d'audit
+- **Résumé** : `parameter_gpio_map` pour la page `/control` provient de `OutputRepository::getParameterGpioMap()` (source unique avec la persistance BDD). Journalisation des exceptions dans `OutputController::updateParameters` (référence `[n3 500]`). Mise à jour de `docs/AUDIT_PAGE_CONTROL_DISTANT.md` (constats 500 / variable Twig obsolètes).
+
+---
+
 ## [5.0.290] - 2026-04-04
 
 ### Correctif - aquaponie : min / moy / max cohérents avec la période affichée

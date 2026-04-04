@@ -3,17 +3,25 @@
 **Date**: 2025-01-27  
 **Version analysée**: v4.6.3+  
 **Page analysée**: `/control` et `/control-test`  
-**Statut actuel**: ❌ **ERREUR 500 en production**
+**Statut actuel**: 📎 **Document d’archive** — lire la mise à jour ci-dessous avant toute action.
+
+---
+
+## Mise à jour (2026-04-04)
+
+Les constats **« erreur 500 systématique »** et **« variable `parameter_gpio_map` manquante »** décrits dans la suite de ce fichier correspondaient à l’état au moment de l’audit initial. **Le code actuel** passe bien `parameter_gpio_map` au template depuis `OutputController::showInterface` (clé Twig `parameter_gpio_map`), alignée sur le mapping canonique en base (`OutputRepository`). Une **500 actuelle** sur `/control` ou les API indique une autre cause (BDD, configuration, exception métier) : utiliser les logs applicatifs (`error_log`, cronlog) et les références d’erreur renvoyées au client.
+
+Le corps du document ci-dessous est conservé comme **référence historique** (architecture, recommandations sécurité/UX, checklist). Les tableaux marqués « ❌ 500 » ne reflètent pas forcément l’état de production après correctifs ultérieurs.
 
 ---
 
 ## 📊 Résumé Exécutif
 
 ### État Actuel
-- **Page principale**: ❌ Erreur HTTP 500 (production et test)
-- **API endpoints**: ❌ Toutes les API de contrôle retournent 500
-- **Impact**: Interface de contrôle complètement inaccessible
-- **Priorité**: 🔴 **CRITIQUE**
+- **Page principale**: ❌ Erreur HTTP 500 (production et test) — *contexte audit 2025-01 ; voir encadré « Mise à jour »*
+- **API endpoints**: ❌ Toutes les API de contrôle retournent 500 — *idem*
+- **Impact**: Interface de contrôle complètement inaccessible — *historique*
+- **Priorité**: 🔴 **CRITIQUE** — *à réévaluer selon les symptômes actuels*
 
 ### Points Positifs
 - ✅ Architecture bien structurée (MVC avec Slim 4)
@@ -104,7 +112,7 @@ $boards = $this->outputService->getActiveBoardsForCurrentEnvironment();
 
 **Problèmes potentiels**:
 - Variable `outputs` peut être null ou non définie
-- Variable `parameter_gpio_map` peut être manquante (non passée au template)
+- ~~Variable `parameter_gpio_map` peut être manquante (non passée au template)~~ — **Corrigé** : passée par `OutputController::showInterface` (voir mise à jour 2026-04-04).
 - Variable `boards` peut être null
 
 #### c) Problème de configuration
@@ -558,7 +566,7 @@ echo \$response->getBody();"
    - `outputs` (array)
    - `boards` (array)
    - `params` (array)
-   - `parameter_gpio_map` (array) ⚠️ **MANQUANTE**
+   - `parameter_gpio_map` (array) — fournie par le contrôleur (mapping paramètre → GPIO)
    - `environment` (string)
    - `version` (string)
    - `firmware_version` (string|null)
@@ -586,18 +594,18 @@ echo \$response->getBody();"
 
 ## 📝 Notes Finales
 
-L'interface de contrôle distant est bien conçue architecturalement mais souffre actuellement d'une erreur 500 critique qui la rend complètement inaccessible. La priorité absolue est de corriger cette erreur en ajoutant un logging détaillé et en vérifiant que toutes les variables nécessaires sont passées au template.
+L'interface de contrôle distant est bien conçue architecturalement. **Depuis 2026-04** : la variable `parameter_gpio_map` est fournie au template ; en cas de 500, privilégier diagnostic BDD/config et traces serveur plutôt que l’hypothèse « variable Twig manquante ».
 
-Une fois l'erreur corrigée, les améliorations de sécurité et de performance devront être implémentées pour garantir un système robuste et sécurisé.
+Les améliorations de sécurité et de performance listées plus haut restent pertinentes sur le moyen terme.
 
 ---
 
-**Prochaines étapes recommandées**:
-1. Corriger l'erreur 500 (variable `parameter_gpio_map` manquante)
-2. Ajouter logging détaillé
-3. Tester en local puis déployer
-4. Implémenter authentification
-5. Améliorer gestion d'erreurs
+**Prochaines étapes recommandées** (révisées) :
+1. En cas de 500 : consulter les logs (`error_log`, référence client) et valider BDD / `.env`.
+2. Poursuivre le logging structuré sur les actions API (ex. mise à jour paramètres).
+3. Tester en local (Docker/smoke) puis déployer selon le cycle du projet.
+4. Implémenter ou renforcer l’authentification sur les routes de contrôle si besoin.
+5. Améliorer la gestion d’erreurs côté client (timeouts, messages).
 
 ---
 

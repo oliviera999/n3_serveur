@@ -42,6 +42,16 @@ class OutputRepository extends AbstractRepository
     ];
 
     /**
+     * Mapping canonique nom de paramètre (UI / API) → GPIO pour la table outputs.
+     *
+     * @return array<string, int>
+     */
+    public static function getParameterGpioMap(): array
+    {
+        return self::PARAMETER_GPIO_MAP;
+    }
+
+    /**
      * Récupère tous les outputs avec leurs états actuels
      * 
      * @return array<int, array<string, mixed>>

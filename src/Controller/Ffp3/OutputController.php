@@ -12,6 +12,7 @@ use App\Service\OutputCacheService;
 use App\Util\RealtimeUrlHelper;
 use App\Service\OutputService;
 use App\Service\TemplateRenderer;
+use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
@@ -58,21 +59,7 @@ class OutputController
             $environment = TableConfig::getEnvironment();
             $firmwareVersion = $this->sensorReadRepo->getFirmwareVersion();
 
-            // Mapping des paramètres vers leurs GPIOs (utilisé dans le template)
-            $parameterGpioMap = [
-                'aqThr' => 102,
-                'taThr' => 103,
-                'tempsRemplissageSec' => 113,
-                'limFlood' => 114,
-                'bouffeMatin' => 105,
-                'bouffeMidi' => 106,
-                'bouffeSoir' => 107,
-                'tempsGros' => 111,
-                'tempsPetits' => 112,
-                'chauff' => 104,
-                'mail' => 100,
-                'FreqWakeUp' => 116,
-            ];
+            $parameterGpioMap = OutputRepository::getParameterGpioMap();
 
             $lastData = $this->outputService->getLastDataStates();
 
@@ -190,6 +177,19 @@ class OutputController
 
             return ResponseHelper::success($response, ['updated' => $updated]);
         } catch (\Throwable $e) {
+            $errorId = substr(bin2hex(random_bytes(8)), 0, 12);
+            $this->logger->error(
+                '[n3 500] [{error_id}] POST (aquaponie-control) OutputController::updateParameters — {class}: {msg} in {file}:{line}',
+                [
+                    'error_id' => $errorId,
+                    'class' => $e::class,
+                    'msg' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => (string) $e->getLine(),
+                ]
+            );
+            $this->logger->error('Trace: ' . $e->getTraceAsString());
+
             return ResponseHelper::error($response, 'Failed to persist parameters', 500);
         }
     }
