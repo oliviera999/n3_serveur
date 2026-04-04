@@ -8,6 +8,8 @@ use App\Config\TableConfig;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
 use App\Util\Ffp3WaterLevelUnit;
+use DateTimeImmutable;
+use DateTimeZone;
 
 /**
  * Fournisseur de données temps réel pour FFP3 (aquaponie).
@@ -50,7 +52,7 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         }
 
         return [
-            'timestamp' => strtotime($lastReadings['reading_time']),
+            'timestamp' => $this->readingTimeToUnixTimestamp((string) $lastReadings['reading_time']),
             'reading_time' => $lastReadings['reading_time'],
             'sensors' => $this->extractSensors($lastReadings),
         ];
@@ -64,7 +66,7 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         $result = [];
         foreach ($readings as $reading) {
             $result[] = [
-                'timestamp' => strtotime($reading['reading_time']),
+                'timestamp' => $this->readingTimeToUnixTimestamp((string) $reading['reading_time']),
                 'reading_time' => $reading['reading_time'],
                 'sensors' => $this->extractSensors($reading),
             ];
@@ -151,6 +153,22 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
             $sensors[$key] = $scaled[$key] ?? null;
         }
         return $sensors;
+    }
+
+    /**
+     * Même interprétation que {@see \App\Service\ChartDataService::prepareTimestamps} :
+     * la chaîne SQL `reading_time` est lue en Europe/Paris pour que l’epoch Unix
+     * corresponde aux abscisses des graphiques aquaponie (évite le warning Highcharts #15).
+     */
+    private function readingTimeToUnixTimestamp(string $readingTime): int
+    {
+        $dt = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $readingTime, new DateTimeZone('Europe/Paris'));
+        if ($dt !== false) {
+            return $dt->getTimestamp();
+        }
+
+        $fallback = strtotime($readingTime);
+        return $fallback !== false ? $fallback : time();
     }
 
     private function readDeviceIpFile(): ?string

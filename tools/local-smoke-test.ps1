@@ -100,7 +100,7 @@ function Assert-TokenAuth {
     if ([string]::IsNullOrWhiteSpace($AdminToken)) {
         throw "AdminToken est requis pour les tests token."
     }
-    Assert-Status -Url "$BaseUrl$protectedPath?token=$AdminToken" -AllowedStatus @(200) -Label "token valid"
+    Assert-Status -Url "${BaseUrl}${protectedPath}?token=$AdminToken" -AllowedStatus @(200) -Label "token valid"
 }
 
 function Assert-SessionAuth {
@@ -124,7 +124,7 @@ function Assert-NegativeAuthChecks {
     Assert-Status -Url "$BaseUrl$protectedPath" -AllowedStatus @(301, 302) -Label "protected without auth"
 
     # Token invalide
-    Assert-Status -Url "$BaseUrl$protectedPath?token=invalid-token" -AllowedStatus @(301, 302) -Label "token invalid"
+    Assert-Status -Url "${BaseUrl}${protectedPath}?token=invalid-token" -AllowedStatus @(301, 302) -Label "token invalid"
 
     # Login invalide
     $negSession = New-Object Microsoft.PowerShell.Commands.WebRequestSession

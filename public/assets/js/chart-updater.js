@@ -4,7 +4,7 @@
  * Gère l'ajout de nouveaux points aux graphiques sans recharger la page.
  * Supporte l'auto-scroll, la limitation du nombre de points, et les mises à jour batch.
  * 
- * @version 1.0.0
+ * @version 1.0.1
  * @date 2025-10-12
  */
 
@@ -217,6 +217,7 @@ class ChartUpdater {
         });
         
         // Appliquer les points série par série
+        const touchedSeriesIndices = new Set();
         updatesBySeries.forEach((seriesUpdates, seriesIndex) => {
             const series = chart.series[seriesIndex];
             if (!series || !series.data) {
@@ -224,6 +225,7 @@ class ChartUpdater {
                 return;
             }
             
+            touchedSeriesIndices.add(seriesIndex);
             seriesUpdates.forEach(update => {
                 // Vérifier les données de mise à jour
                 if (!update || update.timestamp === undefined || update.value === undefined) {
@@ -242,6 +244,14 @@ class ChartUpdater {
                     this.insertPointSorted(series, update.timestamp, update.value);
                 }
             });
+        });
+
+        // Filet de sécurité : si xData interne n'est plus strictement croissant, retrier (#15).
+        touchedSeriesIndices.forEach((seriesIndex) => {
+            const s = chart.series[seriesIndex];
+            if (s) {
+                this.normalizeSeriesXOrder(s);
+            }
         });
         
         // Redraw une seule fois
@@ -262,7 +272,12 @@ class ChartUpdater {
      * @param {number} value - Valeur associée
      */
     insertPointSorted(series, timestamp, value) {
-        if (!series || !Array.isArray(series.xData)) {
+        if (!series) {
+            return;
+        }
+        if (!Array.isArray(series.xData)) {
+            const shift = series.data && series.data.length >= this.maxPoints;
+            series.addPoint([timestamp, value], false, shift, false);
             return;
         }
 
@@ -312,6 +327,45 @@ class ChartUpdater {
         }
 
         series.setData(mergedData, false, false, false);
+    }
+
+    /**
+     * Garantit des abscisses non décroissantes (requis Highcharts Stock, warning #15).
+     * @param {Object} series - Série Highcharts
+     */
+    normalizeSeriesXOrder(series) {
+        if (!series || !Array.isArray(series.xData) || series.xData.length < 2) {
+            return;
+        }
+        const xData = series.xData;
+        const yData = series.yData;
+        if (!Array.isArray(yData) || yData.length !== xData.length) {
+            return;
+        }
+        for (let i = 1; i < xData.length; i++) {
+            if (xData[i] < xData[i - 1]) {
+                const pairs = [];
+                for (let j = 0; j < xData.length; j++) {
+                    pairs.push([xData[j], yData[j]]);
+                }
+                pairs.sort((a, b) => a[0] - b[0]);
+                const deduped = [];
+                for (let k = 0; k < pairs.length; k++) {
+                    const px = pairs[k][0];
+                    const py = pairs[k][1];
+                    if (deduped.length > 0 && deduped[deduped.length - 1][0] === px) {
+                        deduped[deduped.length - 1][1] = py;
+                    } else {
+                        deduped.push([px, py]);
+                    }
+                }
+                if (deduped.length > this.maxPoints) {
+                    deduped.splice(0, deduped.length - this.maxPoints);
+                }
+                series.setData(deduped, false, false, false);
+                return;
+            }
+        }
     }
     
     /**
