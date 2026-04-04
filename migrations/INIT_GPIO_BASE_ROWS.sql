@@ -119,6 +119,11 @@ INSERT INTO ffp3Outputs (gpio, name, board, state, description)
 VALUES (116, 'Freq WakeUp', 'CONFIG', 300, 'Fréquence réveil ESP32 (secondes)')
 ON DUPLICATE KEY UPDATE name='Freq WakeUp', board='CONFIG', description='Fréquence réveil ESP32 (secondes)';
 
+-- GPIO 117: Forçage pompe aquarium ON
+INSERT INTO ffp3Outputs (gpio, name, board, state, description)
+VALUES (117, 'Force Pompe Aquarium ON', 'CONFIG', 0, 'Maintient l etat BDD de la pompe aquarium a 1, meme si l ESP32 envoie 0')
+ON DUPLICATE KEY UPDATE name='Force Pompe Aquarium ON', board='CONFIG', description='Maintient l etat BDD de la pompe aquarium a 1, meme si l ESP32 envoie 0';
+
 -- ============================================================================
 -- Vérification finale
 -- ============================================================================

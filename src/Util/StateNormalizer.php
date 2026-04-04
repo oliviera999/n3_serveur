@@ -18,8 +18,9 @@ class StateNormalizer
      * - 101 : Notifications (checkbox)
      * - 108, 109, 110 : Commandes nourrissage
      * - 115 : Forçage réveil (checkbox)
+     * - 117 : Forçage pompe aquarium ON (checkbox)
      */
-    private const BOOLEAN_GPIOS = [101, 108, 109, 110, 115];
+    private const BOOLEAN_GPIOS = [101, 108, 109, 110, 115, 117];
 
     /**
      * Vérifie si un GPIO doit être traité comme un booléen

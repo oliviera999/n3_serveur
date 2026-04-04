@@ -18,7 +18,10 @@ use PDO;
 class OutputRepository extends AbstractRepository
 {
     private const RESET_COMMAND_GPIO = 110;
+    private const AQUARIUM_PUMP_GPIO = 16;
+    private const AQUARIUM_PUMP_FORCE_GPIO = 117;
     private const RESET_COMMAND_WEB_PRIORITY_SECONDS = 20;
+    private const PHYSICAL_COMMAND_WEB_PRIORITY_SECONDS = 12;
 
     /** @var array<string, int> */
     private const PARAMETER_GPIO_MAP = [
@@ -45,6 +48,8 @@ class OutputRepository extends AbstractRepository
      */
     public function findAll(): array
     {
+        $this->ensureAquariumPumpForceRowExists();
+
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
         // Filtrer : name NOT NULL et name != '' pour éviter les doublons vides
         // Ordre personnalisé : pompe aquarium, pompe réserve, radiateurs, lumière, nourrissage, reset
@@ -54,14 +59,15 @@ class OutputRepository extends AbstractRepository
                 ORDER BY 
                     CASE 
                         WHEN name LIKE '%Pompe aquarium%' OR name LIKE '%pompe aquarium%' THEN 1
-                        WHEN name LIKE '%Pompe r%serve%' OR name LIKE '%pompe r%serve%' THEN 2
-                        WHEN name LIKE '%Radiateur%' OR name LIKE '%radiateur%' THEN 3
-                        WHEN name LIKE '%Lumi%re%' OR name LIKE '%lumi%re%' THEN 4
-                        WHEN gpio = 101 THEN 5  -- Notifications (switch)
-                        WHEN gpio = 115 THEN 6  -- Forçage réveil (switch)
-                        WHEN name LIKE '%petits poissons%' THEN 7
-                        WHEN name LIKE '%gros poissons%' THEN 8
-                        WHEN name LIKE '%reset%' OR name LIKE '%Reset%' THEN 9
+                        WHEN gpio = 117 THEN 2 -- Forçage pompe aquarium ON
+                        WHEN name LIKE '%Pompe r%serve%' OR name LIKE '%pompe r%serve%' THEN 3
+                        WHEN name LIKE '%Radiateur%' OR name LIKE '%radiateur%' THEN 4
+                        WHEN name LIKE '%Lumi%re%' OR name LIKE '%lumi%re%' THEN 5
+                        WHEN gpio = 101 THEN 6  -- Notifications (switch)
+                        WHEN gpio = 115 THEN 7  -- Forçage réveil (switch)
+                        WHEN name LIKE '%petits poissons%' THEN 8
+                        WHEN name LIKE '%gros poissons%' THEN 9
+                        WHEN name LIKE '%reset%' OR name LIKE '%Reset%' THEN 10
                         ELSE 99
                     END,
                     gpio ASC";
@@ -301,18 +307,35 @@ class OutputRepository extends AbstractRepository
      */
     public function syncStatesFromSensorData(SensorData $data): void
     {
+        $forceAquariumPumpOn = $this->getAquariumPumpForceState();
+
         // Actionneurs physiques — toujours synchronisés (états réels des relais)
         // NOTE: GPIO 110 (reset) est traité à part avec une fenêtre de priorité web
         // pour éviter d'écraser trop vite une commande reset envoyée depuis l'UI.
         $physicalGpios = [
             2 => $data->etatHeat,
             15 => $data->etatUV,
-            16 => $data->etatPompeAqua,
+            self::AQUARIUM_PUMP_GPIO => $forceAquariumPumpOn ? 1 : $data->etatPompeAqua,
             18 => $data->etatPompeTank,
         ];
         $physicalFiltered = array_filter($physicalGpios, fn($v) => $v !== null);
         if ($physicalFiltered !== []) {
-            $this->batchUpdateStatesSingleQuery($physicalFiltered, 'esp32', 0);
+            // Protège brièvement les commandes web (toggle UI) contre un POST firmware
+            // qui peut encore contenir l'ancien état juste après le clic.
+            $this->batchUpdateStatesSingleQuery(
+                $physicalFiltered,
+                'esp32',
+                self::PHYSICAL_COMMAND_WEB_PRIORITY_SECONDS
+            );
+        }
+
+        // Sécurité de cohérence : si le forçage est actif, maintenir explicitement GPIO 16 à 1.
+        if ($forceAquariumPumpOn) {
+            $this->batchUpdateStatesSingleQuery(
+                [self::AQUARIUM_PUMP_GPIO => 1],
+                'server-force',
+                0
+            );
         }
 
         // GPIO 110 (reset) : synchronisation avec priorité web temporaire.
@@ -369,5 +392,46 @@ class OutputRepository extends AbstractRepository
 
         $execParams = $prioritySeconds > 0 ? $params : array_diff_key($params, [':priority' => 1]);
         $this->execute($sql, $execParams);
+    }
+
+    public function getAquariumPumpForceState(): bool
+    {
+        $this->ensureAquariumPumpForceRowExists();
+
+        $row = $this->findByGpio(self::AQUARIUM_PUMP_FORCE_GPIO);
+        if ($row === null) {
+            return false;
+        }
+
+        return (int) ($row['state'] ?? 0) === 1;
+    }
+
+    private function ensureAquariumPumpForceRowExists(): void
+    {
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+        $existing = $this->fetchOne(
+            "SELECT id FROM `{$table}` WHERE gpio = :gpio LIMIT 1",
+            [':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO]
+        );
+        if ($existing !== null) {
+            return;
+        }
+
+        $boardRow = $this->fetchOne(
+            "SELECT board FROM `{$table}` WHERE gpio = :gpio LIMIT 1",
+            [':gpio' => self::AQUARIUM_PUMP_GPIO]
+        );
+        $board = isset($boardRow['board']) && trim((string) $boardRow['board']) !== ''
+            ? (string) $boardRow['board']
+            : '1';
+
+        $sql = "INSERT INTO `{$table}` (board, gpio, name, state)
+                VALUES (:board, :gpio, :name, :state)";
+        $this->execute($sql, [
+            ':board' => $board,
+            ':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO,
+            ':name' => 'Forcage pompe aquarium ON',
+            ':state' => '0',
+        ]);
     }
 }

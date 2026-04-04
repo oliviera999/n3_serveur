@@ -29,7 +29,8 @@ INSERT INTO `ffp3Outputs` (`board`, `gpio`, `name`, `state`, `description`, `req
 ('1', 113, 'tempsRemplissageSec', '5', 'Temps remplissage', NOW(), 'web'),
 ('1', 114, 'limFlood', '8', 'Limite anti-flood', NOW(), 'web'),
 ('1', 115, 'WakeUp', '0', 'Commande one-shot wake-up', NOW(), 'web'),
-('1', 116, 'FreqWakeUp', '6', 'Frequence wake-up (h)', NOW(), 'web')
+('1', 116, 'FreqWakeUp', '6', 'Frequence wake-up (h)', NOW(), 'web'),
+('1', 117, 'ForcePompeAquarium', '0', 'Force la BDD pompe aquarium a 1 (ignore etat switch ESP32)', NOW(), 'web')
 ON DUPLICATE KEY UPDATE
 `name` = VALUES(`name`),
 `state` = VALUES(`state`),

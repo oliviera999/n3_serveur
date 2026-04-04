@@ -25,6 +25,9 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 class OutputController
 {
+    private const AQUARIUM_PUMP_GPIO = 16;
+    private const AQUARIUM_PUMP_FORCE_GPIO = 117;
+
     public function __construct(
         private OutputService $outputService,
         private TemplateRenderer $renderer,
@@ -144,14 +147,22 @@ class OutputController
 
         $id = RequestHelper::getInt($params, 'id', 0);
         $state = RequestHelper::getInt($params, 'state', -1);
+        $gpio = RequestHelper::getInt($params, 'gpio', 0);
 
         if ($id === 0 || ($state !== 0 && $state !== 1)) {
             return ResponseHelper::error($response, 'Invalid parameters', 400);
         }
 
+        if ($gpio === self::AQUARIUM_PUMP_GPIO && $state === 0 && $this->outputService->isAquariumPumpForceEnabled()) {
+            $state = 1;
+        }
+
         $success = $this->outputService->updateStateById($id, $state, 'web');
 
         if ($success) {
+            if ($gpio === self::AQUARIUM_PUMP_FORCE_GPIO && $state === 1) {
+                $this->outputService->updateStateByGpio(self::AQUARIUM_PUMP_GPIO, 1);
+            }
             return ResponseHelper::success($response, ['id' => $id, 'state' => $state]);
         }
 

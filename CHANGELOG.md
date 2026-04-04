@@ -11,6 +11,26 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.286] - 2026-04-04
+
+### Ajout - for�age pompe aquarium ON persistant c�t� contr�le aquaponie
+- **Résumé** : for�age pompe aquarium ON persistant c�t� contr�le aquaponie.
+
+---
+## [5.0.285] - 2026-04-04
+
+### Ajout - contrôle aquaponie : forçage persistant pompe aquarium ON
+- **Résumé** : ajout d'un switch de contrôle serveur `Forcer pompe aquarium ON` (GPIO virtuel `117`) sur la page de contrôle aquaponie. Quand l'option est active, la synchronisation POST firmware ignore l'état `etatPompeAqua` renvoyé par l'ESP32 et maintient la BDD à `1` pour `GPIO 16` (pompe aquarium). Le mode est persistant en BDD (seed Docker + scripts d'initialisation GPIO mis à jour).
+
+---
+
+## [5.0.284] - 2026-04-04
+
+### Correctif - contrôle aquaponie : anti-écrasement des commandes web sur actionneurs physiques
+- **Résumé** : ajout d'une fenêtre de priorité web de 12 secondes sur la synchronisation des GPIO physiques (`2`, `15`, `16`, `18`) lors des POST firmware, pour éviter qu'un état ancien renvoyé juste après un clic UI ne réécrase la commande en base (`ON` affiché mais BDD revenue à `0`). Le comportement reste inchangé pour les autres règles déjà en place (`reset` 20 s, nourrissage one-shot).
+
+---
+
 ## [5.0.283] - 2026-04-04
 
 ### Correctif - aquaponie : niveaux d’eau mm → cm et format décimal français

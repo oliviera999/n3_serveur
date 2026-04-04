@@ -93,6 +93,11 @@ class OutputService
         return $this->outputRepository->findAll();
     }
 
+    public function isAquariumPumpForceEnabled(): bool
+    {
+        return $this->outputRepository->getAquariumPumpForceState();
+    }
+
     public function getParametersMap(): array
     {
         $outputs = $this->outputRepository->findAll();
@@ -169,6 +174,18 @@ class OutputService
             return false;
         }
         $result = $this->outputRepository->updateStateById($id, $state, $modifiedBy);
+        if ($result) {
+            $this->outputCache->invalidateCache();
+        }
+        return $result;
+    }
+
+    public function updateStateByGpio(int $gpio, int $state): bool
+    {
+        if ($state !== 0 && $state !== 1) {
+            return false;
+        }
+        $result = $this->outputRepository->updateState($gpio, $state);
         if ($result) {
             $this->outputCache->invalidateCache();
         }
