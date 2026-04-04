@@ -104,14 +104,8 @@
     --control-easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
     --control-easing-sharp: cubic-bezier(0.4, 0, 0.6, 1);
     
-    /* Variables de layout */
-    --control-bg: #f6f9fc;
-    --panel-bg: #ffffff;
+    /* Ombre des panneaux — surfaces (--panel-bg, --control-bg, bordures, texte) : theme-variables.css */
     --panel-shadow: 0 18px 40px rgba(15, 35, 95, 0.08);
-    --border-color: #e3e8ee;
-    --accent: #008B74;
-    --accent-muted: rgba(0, 139, 116, 0.12);
-    --text-muted: #6b7a8a;
 }
 
 /* Reset et base */
@@ -1042,7 +1036,7 @@ small {
     display: block;
     font-size: 0.75em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-primary);
     letter-spacing: 0.06em;
 }
 
@@ -1286,7 +1280,7 @@ small {
     height: 42px;
     border-radius: 12px;
     background: var(--accent-muted);
-    color: var(--accent);
+    color: var(--accent-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1692,7 +1686,7 @@ small {
     background: var(--bg-secondary);
     border-color: var(--border-color);
 }
-[data-theme="dark"] .param-box h4 { color: var(--accent); }
+[data-theme="dark"] .param-box h4 { color: var(--accent-primary); }
 [data-theme="dark"] .actions-section {
     background: var(--panel-bg);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -1707,9 +1701,9 @@ small {
 }
 [data-theme="dark"] .esp32-sync-info {
     background: var(--bg-secondary);
-    border-left-color: var(--accent);
+    border-left-color: var(--accent-primary);
 }
-[data-theme="dark"] .esp32-sync-info .sync-timestamp { color: var(--accent); }
+[data-theme="dark"] .esp32-sync-info .sync-timestamp { color: var(--accent-primary); }
 [data-theme="dark"] .context-stat .stat-value {
     color: var(--control-text, #f1f5f9);
 }
