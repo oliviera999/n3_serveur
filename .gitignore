@@ -24,6 +24,9 @@ desktop.ini
 # Cache
 /var/cache/
 
+# Fichier de test / outil local (ne pas versionner)
+/var/last_device_ip_test.txt
+
 # Archives (exclues du depot — conservees localement)
 /archives/
 

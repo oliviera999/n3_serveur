@@ -62,6 +62,7 @@ URLs locales:
 Notes:
 
 - Smoke test : délai HTTP par défaut **60 s** par requête (`tools/local-smoke-test.ps1`, paramètre `-TimeoutSec`). Exemple : `powershell -ExecutionPolicy Bypass -File .\tools\local-smoke-test.ps1 -TimeoutSec 90`
+- Smoke test : modes d’authentification **`AuthMode`** `token` / `session` / `both` (jeton admin, login session, ou les deux) ; option **`-RunNegativeAuthChecks`** pour vérifier les refus d’accès. Paramètres : `-AdminToken`, `-AdminUsername`, `-AdminPassword`, `-ApiKey`.
 - Script `tools/verify_environments.php` : la section « connexion BDD » lit `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS` depuis `.env` (Docker local : `DB_HOST=db`).
 - Au premier lancement, le script copie `.env.docker.example` vers `.env` si absent.
 - Le schema BDD est initialise automatiquement via `docker/mysql/init/`.

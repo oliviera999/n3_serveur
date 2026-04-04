@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.288] - 2026-04-04
+
+### Ajout - smoke local : auth par token, session ou les deux
+- **Résumé** : `tools/local-smoke-test.ps1` accepte `AuthMode` (token / session / both), identifiants admin et clé API paramétrables, session HTTP pour les pages protégées, et option `-RunNegativeAuthChecks` pour valider les refus d’accès. Aligné avec les tests d’intégration firmware `wroom-beta-local`.
+
+---
+
 ## [5.0.287] - 2026-04-04
 
 ### Correctif - pages de contrôle : conteneurs en mode sombre
