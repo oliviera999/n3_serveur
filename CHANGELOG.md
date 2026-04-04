@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.290] - 2026-04-04
+
+### Correctif - aquaponie : min / moy / max cohérents avec la période affichée
+- **Résumé** : le polling temps réel appelait `StatsUpdater.updateAllStats()`, qui recalculait min, moyenne, max et écart-type uniquement sur les lectures reçues en live (souvent une seule au premier poll), écrasant les agrégats SQL corrects du serveur pour la fenêtre choisie. Option `updateDetailStats: false` sur les pages aquaponie : le live met à jour la valeur courante et les graphiques, les lignes Min/Moy/Max restent celles du rendu serveur jusqu?au prochain rechargement ou changement de période.
+
+---
+
 ## [5.0.289] - 2026-04-04
 
 ### Correctif - GPIO 117 forÃ§age pompe : crÃ©ation fiable et exposition API

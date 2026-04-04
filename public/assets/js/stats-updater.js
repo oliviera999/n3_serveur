@@ -48,6 +48,12 @@ class StatsUpdater {
         this.slidingWindowEnabled = options.slidingWindow !== false; // true par défaut
         this.slidingWindowDuration = options.windowDuration || (6 * 3600); // 6h en secondes par défaut
         this.isLiveMode = false; // Indique si on est en mode live (reçoit de nouvelles données)
+        /**
+         * Si false : on met à jour seulement la valeur courante (carte + barre), pas min/max/moy/σ.
+         * Utile sur aquaponie : ces agrégats viennent du serveur pour toute la période sélectionnée ;
+         * le live ne doit pas les remplacer par un calcul sur 1–N polls.
+         */
+        this.updateDetailStats = options.updateDetailStats !== false;
         
         this.log('StatsUpdater initialized');
     }
@@ -154,24 +160,27 @@ class StatsUpdater {
         const stat = this.stats.get(sensorName);
         if (stat) {
             stat.last = value;
-            stat.min = Math.min(stat.min, value);
-            stat.max = Math.max(stat.max, value);
-            stat.sum += value;
-            stat.count++;
-            stat.avg = stat.sum / stat.count;
-            
-            // Calcul de l'écart-type (approximation simplifiée)
-            if (!stat.squareSum) stat.squareSum = 0;
-            stat.squareSum += value * value;
-            const variance = (stat.squareSum / stat.count) - (stat.avg * stat.avg);
-            stat.stddev = Math.sqrt(Math.max(0, variance));
+            if (this.updateDetailStats) {
+                stat.min = Math.min(stat.min, value);
+                stat.max = Math.max(stat.max, value);
+                stat.sum += value;
+                stat.count++;
+                stat.avg = stat.sum / stat.count;
+                
+                // Calcul de l'écart-type (approximation simplifiée)
+                if (!stat.squareSum) stat.squareSum = 0;
+                stat.squareSum += value * value;
+                const variance = (stat.squareSum / stat.count) - (stat.avg * stat.avg);
+                stat.stddev = Math.sqrt(Math.max(0, variance));
+            }
         }
         
         // Mettre à jour l'affichage principal
         this.updateStatCard(sensorName, value);
         
-        // Mettre à jour les statistiques détaillées (min, max, avg, stddev)
-        this.updateStatDetails(sensorName);
+        if (this.updateDetailStats) {
+            this.updateStatDetails(sensorName);
+        }
     }
     
     /**

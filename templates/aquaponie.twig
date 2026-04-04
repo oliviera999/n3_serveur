@@ -1578,7 +1578,8 @@
                 autoScroll: prefs.autoScroll
             });
             statsUpdater = new StatsUpdater({
-                sensors: ['EauAquarium', 'EauReserve', 'EauPotager', 'TempEau', 'TempAir', 'Humidite', 'Luminosite']
+                sensors: ['EauAquarium', 'EauReserve', 'EauPotager', 'TempEau', 'TempAir', 'Humidite', 'Luminosite'],
+                updateDetailStats: false
             });
             
             // Délai 800ms : laisser le temps aux graphiques Highcharts d'être créés (createVersionD : 100ms desktop, 600ms mobile)
