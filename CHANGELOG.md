@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.299] - 2026-04-06
+
+### Documentation - FFP3 : outputs vs mesures capteurs (GPIO 16 / etatPompeAqua)
+- **Résumé** : dans `docs/ENDPOINTS_ESP32_SERVEUR.md`, précision sur la distinction entre la table **outputs** (état lu par le GET du firmware) et la colonne **etatPompeAqua** des insertions capteurs (dernier POST), pour le diagnostic pompe aquarium / poll.
+
+---
+
 ## [5.0.298] - 2026-04-06
 
 ### Correctif - smoke local : HttpWebRequest pour GET et POST form

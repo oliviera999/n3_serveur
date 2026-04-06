@@ -162,6 +162,8 @@ Le serveur doit répondre au POST dans le délai client (18 s) pour éviter time
 
 Si l’URL de poll et la page de contrôle sont sur le même environnement (test↔test ou prod↔prod), le serveur renvoie bien les dernières valeurs écrites par la page. Si l’effet n’apparaît pas sur l’ESP32, la cause est alors côté firmware (poll, parsing ou application des états).
 
+**Deux sources en BDD (pompe aquarium, GPIO 16)** : la colonne **etatPompeAqua** dans les **lignes de mesures capteurs** (POST `post-data*`) reflète le dernier état rapporté par le firmware. Le **GET** utilisé par l’ESP32 pour appliquer les commandes est construit à partir de la table **outputs** (`ffp3Outputs*`, ligne **gpio = 16**), mise à jour par la synchro POST (`OutputRepository::syncStatesFromSensorData`) et par les actions web. Pour un diagnostic du type « la BDD indique ON mais le module reste OFF », comparer explicitement **gpio 16 dans outputs** avec **etatPompeAqua** dans la dernière insertion capteurs : ce ne sont pas la même ligne ni le même usage (commande poll vs dernier relevé).
+
 ---
 
 ## 🔍 Diagnostic Erreur HTTP 500
