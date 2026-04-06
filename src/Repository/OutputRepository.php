@@ -117,12 +117,20 @@ class OutputRepository extends AbstractRepository
      * @param int $state Nouvel état (0 ou 1)
      * @return bool Succès de l'opération
      */
-    public function updateState(int $gpio, int $state): bool
+    public function updateState(int $gpio, int $state, string $modifiedBy = 'web'): bool
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
-        $sql = "UPDATE `{$table}` SET state = :state WHERE gpio = :gpio";
-        
-        return $this->execute($sql, [':gpio' => $gpio, ':state' => $state]);
+        $sql = "UPDATE `{$table}`
+                SET state = :state,
+                    requestTime = NOW(),
+                    lastModifiedBy = :modifiedBy
+                WHERE gpio = :gpio";
+
+        return $this->execute($sql, [
+            ':gpio' => $gpio,
+            ':state' => $state,
+            ':modifiedBy' => $modifiedBy,
+        ]);
     }
 
     /**
@@ -408,12 +416,14 @@ class OutputRepository extends AbstractRepository
     {
         $this->ensureAquariumPumpForceRowExists();
 
-        $row = $this->findByGpio(self::AQUARIUM_PUMP_FORCE_GPIO);
-        if ($row === null) {
-            return false;
-        }
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+        // Toute ligne GPIO 117 exploitable avec state=1 active le forçage (évite un faux 0 si doublons sans ORDER BY).
+        $sql = "SELECT 1 AS ok FROM `{$table}`
+                WHERE gpio = :gpio AND state = 1
+                  AND name IS NOT NULL AND name != ''
+                LIMIT 1";
 
-        return (int) ($row['state'] ?? 0) === 1;
+        return $this->fetchOne($sql, [':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO]) !== null;
     }
 
     /**

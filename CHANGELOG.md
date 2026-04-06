@@ -11,10 +11,31 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.297] - 2026-04-06
+
+### Correctif - for√ßage pompe aquarium : persistance GPIO 16 en BDD
+- **R√©sum√©** : apr√®s activation du switch ¬´ Forcer pompe aquarium ON ¬ª (GPIO 117), la mise √† jour miroir de la pompe (GPIO 16) passait par `updateState` sans `requestTime` / `lastModifiedBy = web`, donc le POST firmware pouvait imm√©diatement r√©√©crire l‚Äô√©tat physique avec `etatPompeAqua = 0`. D√©sormais la m√™me s√©mantique que `updateStateById` (horodatage + source web). D√©tection du for√ßage : toute ligne GPIO 117 valide √† `state = 1` compte (√©vite un faux ¬´ d√©sactiv√© ¬ª si plusieurs lignes sans ordre d√©terministe).
+
+---
+
+## [5.0.296] - 2026-04-04
+
+### Correctif - smoke local : login session (cookie jar)
+- **Resume** : le POST login nominal dans `Assert-SessionAuth` repasse par `Invoke-WebRequest` avec redirections suivies (`-MaximumRedirection 10`) pour que le `WebRequestSession` recoive les cookies ; le POST form via `HttpWebRequest` seul laissait le GET page protegee en 302.
+
+---
+
+## [5.0.295] - 2026-04-04
+
+### Correctif - smoke local : HttpWebRequest (GET / POST form sans redirection)
+- **Resume** : `Invoke-WebRequest` avec `-MaximumRedirection 0` provoquait des erreurs sur les reponses 302 (pages protegees, checks negatifs, POST login). Les GET simples et les POST `application/x-www-form-urlencoded` sans fichier utilisent `HttpWebRequest` (`AllowAutoRedirect = false`), avec lecture du corps pour les cookies de session ; upload multipart reste sur `Invoke-WebRequest`.
+
+---
+
 ## [5.0.294] - 2026-04-04
 
-### Correctif - aquaponie : mise en úuvre Highcharts #15 (timestamps + sÈries)
-- **RÈsumÈ** : alignement `Ffp3RealtimeDataProvider` sur le parsing `Europe/Paris` (comme `ChartDataService`) ; `chart-updater.js` : normalisation des X avant redraw, repli `addPoint` ; `local-smoke-test.ps1` : interpolation explicite des URLs token.
+### Correctif - aquaponie : mise en ÔøΩuvre Highcharts #15 (timestamps + sÔøΩries)
+- **RÔøΩsumÔøΩ** : alignement `Ffp3RealtimeDataProvider` sur le parsing `Europe/Paris` (comme `ChartDataService`) ; `chart-updater.js` : normalisation des X avant redraw, repli `addPoint` ; `local-smoke-test.ps1` : interpolation explicite des URLs token.
 
 ---
 
@@ -27,182 +48,182 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [5.0.292] - 2026-04-04
 
-### Correctif - aquaponie : Highcharts warning #15 (donnùes X non triùes)
-- **Rùsumù** : alignement des timestamps de l'API temps rùel FFP3 sur le mùme parsing `Europe/Paris` que `ChartDataService` (ùvite des abscisses incohùrentes avec les sùries initiales). Cùtù client, normalisation des sùries touchùes avant `redraw` et repli `addPoint` si `xData` est absent.
+### Correctif - aquaponie : Highcharts warning #15 (donnÔøΩes X non triÔøΩes)
+- **RÔøΩsumÔøΩ** : alignement des timestamps de l'API temps rÔøΩel FFP3 sur le mÔøΩme parsing `Europe/Paris` que `ChartDataService` (ÔøΩvite des abscisses incohÔøΩrentes avec les sÔøΩries initiales). CÔøΩtÔøΩ client, normalisation des sÔøΩries touchÔøΩes avant `redraw` et repli `addPoint` si `xData` est absent.
 
 ---
 
 ## [5.0.291] - 2026-04-04
 
-### Correctif - contrùle FFP3 : mapping paramùtres, logs et doc d'audit
-- **Rùsumù** : `parameter_gpio_map` pour la page `/control` provient de `OutputRepository::getParameterGpioMap()` (source unique avec la persistance BDD). Journalisation des exceptions dans `OutputController::updateParameters` (rùfùrence `[n3 500]`). Mise ù jour de `docs/AUDIT_PAGE_CONTROL_DISTANT.md` (constats 500 / variable Twig obsolùtes).
+### Correctif - contrÔøΩle FFP3 : mapping paramÔøΩtres, logs et doc d'audit
+- **RÔøΩsumÔøΩ** : `parameter_gpio_map` pour la page `/control` provient de `OutputRepository::getParameterGpioMap()` (source unique avec la persistance BDD). Journalisation des exceptions dans `OutputController::updateParameters` (rÔøΩfÔøΩrence `[n3 500]`). Mise ÔøΩ jour de `docs/AUDIT_PAGE_CONTROL_DISTANT.md` (constats 500 / variable Twig obsolÔøΩtes).
 
 ---
 
 ## [5.0.290] - 2026-04-04
 
-### Correctif - aquaponie : min / moy / max cohùrents avec la pùriode affichùe
-- **Rùsumù** : le polling temps rùel appelait `StatsUpdater.updateAllStats()`, qui recalculait min, moyenne, max et ùcart-type uniquement sur les lectures reùues en live (souvent une seule au premier poll), ùcrasant les agrùgats SQL corrects du serveur pour la fenùtre choisie. Option `updateDetailStats: false` sur les pages aquaponie : le live met ù jour la valeur courante et les graphiques, les lignes Min/Moy/Max restent celles du rendu serveur jusqu?au prochain rechargement ou changement de pùriode.
+### Correctif - aquaponie : min / moy / max cohÔøΩrents avec la pÔøΩriode affichÔøΩe
+- **RÔøΩsumÔøΩ** : le polling temps rÔøΩel appelait `StatsUpdater.updateAllStats()`, qui recalculait min, moyenne, max et ÔøΩcart-type uniquement sur les lectures reÔøΩues en live (souvent une seule au premier poll), ÔøΩcrasant les agrÔøΩgats SQL corrects du serveur pour la fenÔøΩtre choisie. Option `updateDetailStats: false` sur les pages aquaponie : le live met ÔøΩ jour la valeur courante et les graphiques, les lignes Min/Moy/Max restent celles du rendu serveur jusqu?au prochain rechargement ou changement de pÔøΩriode.
 
 ---
 
 ## [5.0.289] - 2026-04-04
 
-### Correctif - GPIO 117 forùage pompe : crùation fiable et exposition API
-- **Rùsumù** : appel `ensureAquariumPumpForceRowExists` aussi au POST donnùes et avant le GET ùtat outputs ; ajout du GPIO `117` dans la liste renvoyùe par `getOutputsState` (sinon la page contrùle / le polling ne voyaient pas l'ùtat) ; dùfaut `OutputCacheService` pour `117` ; rùparation des lignes `gpio=117` avec `name` vide (invisibles dans `findAll`) ; journalisation `error_log` si INSERT/UPDATE ùchoue (PDO ne lùve souvent pas d'exception).
+### Correctif - GPIO 117 forÔøΩage pompe : crÔøΩation fiable et exposition API
+- **RÔøΩsumÔøΩ** : appel `ensureAquariumPumpForceRowExists` aussi au POST donnÔøΩes et avant le GET ÔøΩtat outputs ; ajout du GPIO `117` dans la liste renvoyÔøΩe par `getOutputsState` (sinon la page contrÔøΩle / le polling ne voyaient pas l'ÔøΩtat) ; dÔøΩfaut `OutputCacheService` pour `117` ; rÔøΩparation des lignes `gpio=117` avec `name` vide (invisibles dans `findAll`) ; journalisation `error_log` si INSERT/UPDATE ÔøΩchoue (PDO ne lÔøΩve souvent pas d'exception).
 
 ---
 
 ## [5.0.288] - 2026-04-04
 
 ### Ajout - smoke local : auth par token, session ou les deux
-- **Rùsumù** : `tools/local-smoke-test.ps1` accepte `AuthMode` (token / session / both), identifiants admin et clù API paramùtrables, session HTTP pour les pages protùgùes, et option `-RunNegativeAuthChecks` pour valider les refus d?accùs. Alignù avec les tests d?intùgration firmware `wroom-beta-local`.
+- **RÔøΩsumÔøΩ** : `tools/local-smoke-test.ps1` accepte `AuthMode` (token / session / both), identifiants admin et clÔøΩ API paramÔøΩtrables, session HTTP pour les pages protÔøΩgÔøΩes, et option `-RunNegativeAuthChecks` pour valider les refus d?accÔøΩs. AlignÔøΩ avec les tests d?intÔøΩgration firmware `wroom-beta-local`.
 
 ---
 
 ## [5.0.287] - 2026-04-04
 
-### Correctif - pages de contrùle : conteneurs en mode sombre
-- **Rùsumù** : `control-styles.css` redùfinissait dans `:root` les variables `--panel-bg`, `--control-bg`, `--border-color` et `--text-muted` aprùs `theme-variables.css`, ce qui ùcrasait le thùme sombre (panneaux restant blancs). Suppression de ces doublons ; les couleurs suivent ù nouveau les jetons du thùme. Remplacement de `var(--accent)` par `var(--accent-primary)`.
+### Correctif - pages de contrÔøΩle : conteneurs en mode sombre
+- **RÔøΩsumÔøΩ** : `control-styles.css` redÔøΩfinissait dans `:root` les variables `--panel-bg`, `--control-bg`, `--border-color` et `--text-muted` aprÔøΩs `theme-variables.css`, ce qui ÔøΩcrasait le thÔøΩme sombre (panneaux restant blancs). Suppression de ces doublons ; les couleurs suivent ÔøΩ nouveau les jetons du thÔøΩme. Remplacement de `var(--accent)` par `var(--accent-primary)`.
 
 ---
 
 ## [5.0.286] - 2026-04-04
 
-### Ajout - forùage pompe aquarium ON persistant cùtù contrùle aquaponie
-- **Rùsumù** : forùage pompe aquarium ON persistant cùtù contrùle aquaponie.
+### Ajout - forÔøΩage pompe aquarium ON persistant cÔøΩtÔøΩ contrÔøΩle aquaponie
+- **RÔøΩsumÔøΩ** : forÔøΩage pompe aquarium ON persistant cÔøΩtÔøΩ contrÔøΩle aquaponie.
 
 ---
 ## [5.0.285] - 2026-04-04
 
-### Ajout - contrùle aquaponie : forùage persistant pompe aquarium ON
-- **Rùsumù** : ajout d'un switch de contrùle serveur `Forcer pompe aquarium ON` (GPIO virtuel `117`) sur la page de contrùle aquaponie. Quand l'option est active, la synchronisation POST firmware ignore l'ùtat `etatPompeAqua` renvoyù par l'ESP32 et maintient la BDD ù `1` pour `GPIO 16` (pompe aquarium). Le mode est persistant en BDD (seed Docker + scripts d'initialisation GPIO mis ù jour).
+### Ajout - contrÔøΩle aquaponie : forÔøΩage persistant pompe aquarium ON
+- **RÔøΩsumÔøΩ** : ajout d'un switch de contrÔøΩle serveur `Forcer pompe aquarium ON` (GPIO virtuel `117`) sur la page de contrÔøΩle aquaponie. Quand l'option est active, la synchronisation POST firmware ignore l'ÔøΩtat `etatPompeAqua` renvoyÔøΩ par l'ESP32 et maintient la BDD ÔøΩ `1` pour `GPIO 16` (pompe aquarium). Le mode est persistant en BDD (seed Docker + scripts d'initialisation GPIO mis ÔøΩ jour).
 
 ---
 
 ## [5.0.284] - 2026-04-04
 
-### Correctif - contrùle aquaponie : anti-ùcrasement des commandes web sur actionneurs physiques
-- **Rùsumù** : ajout d'une fenùtre de prioritù web de 12 secondes sur la synchronisation des GPIO physiques (`2`, `15`, `16`, `18`) lors des POST firmware, pour ùviter qu'un ùtat ancien renvoyù juste aprùs un clic UI ne rùùcrase la commande en base (`ON` affichù mais BDD revenue ù `0`). Le comportement reste inchangù pour les autres rùgles dùjù en place (`reset` 20 s, nourrissage one-shot).
+### Correctif - contrÔøΩle aquaponie : anti-ÔøΩcrasement des commandes web sur actionneurs physiques
+- **RÔøΩsumÔøΩ** : ajout d'une fenÔøΩtre de prioritÔøΩ web de 12 secondes sur la synchronisation des GPIO physiques (`2`, `15`, `16`, `18`) lors des POST firmware, pour ÔøΩviter qu'un ÔøΩtat ancien renvoyÔøΩ juste aprÔøΩs un clic UI ne rÔøΩÔøΩcrase la commande en base (`ON` affichÔøΩ mais BDD revenue ÔøΩ `0`). Le comportement reste inchangÔøΩ pour les autres rÔøΩgles dÔøΩjÔøΩ en place (`reset` 20 s, nourrissage one-shot).
 
 ---
 
 ## [5.0.283] - 2026-04-04
 
-### Correctif - aquaponie : niveaux dù??eau mm ù?? cm et format dùcimal franùais
-- **Rùsumù** : les colonnes `EauAquarium`, `EauReserve`, `EauPotager` sont stockùes en **millimùtres** ; la page aquaponie (et le bilan hydrique) les affichaient comme des cm sans conversion. Conversion ù10 cùtù serveur (`Ffp3WaterLevelUnit`), mùme logique pour dashboard FFP3, API temps rùel capteurs, `WaterBalanceService`, `TideAnalysisService`. Affichage avec **virgule** dùcimale (Twig `number_format`, JS `toLocaleString('fr-FR')`, `stats-updater.js`). Documentation `docs/ENDPOINTS_ESP32_SERVEUR.md`, tests `tests/Util/Ffp3WaterLevelUnitTest.php`.
+### Correctif - aquaponie : niveaux dÔøΩ??eau mm ÔøΩ?? cm et format dÔøΩcimal franÔøΩais
+- **RÔøΩsumÔøΩ** : les colonnes `EauAquarium`, `EauReserve`, `EauPotager` sont stockÔøΩes en **millimÔøΩtres** ; la page aquaponie (et le bilan hydrique) les affichaient comme des cm sans conversion. Conversion ÔøΩ10 cÔøΩtÔøΩ serveur (`Ffp3WaterLevelUnit`), mÔøΩme logique pour dashboard FFP3, API temps rÔøΩel capteurs, `WaterBalanceService`, `TideAnalysisService`. Affichage avec **virgule** dÔøΩcimale (Twig `number_format`, JS `toLocaleString('fr-FR')`, `stats-updater.js`). Documentation `docs/ENDPOINTS_ESP32_SERVEUR.md`, tests `tests/Util/Ffp3WaterLevelUnitTest.php`.
 
 ---
 
 ## [5.0.282] - 2026-03-31
 
-### Ajoutù - tests d'intùgration repositories + suites PHPUnit Unit / Integration
-- **Rùsumù** : `IntegrationDbTestCase` (`#[BackupGlobals(false)]`, PDO, seuil snapshot, `TableConfig` prod) ; `SensorRepositoriesSnapshotIntegrationTest` (SensorReadRepository, MspSensorRepository, N3ppSensorRepository, BoardRepository, fenùtres 10 min ; comparaisons dates en `strcmp` format SQL). `phpunit.xml` : suites **Unit** et **Integration** ; scripts Composer `test:unit`, `test:integration`. Documentation `README.md` et skill PHPUnit.
+### AjoutÔøΩ - tests d'intÔøΩgration repositories + suites PHPUnit Unit / Integration
+- **RÔøΩsumÔøΩ** : `IntegrationDbTestCase` (`#[BackupGlobals(false)]`, PDO, seuil snapshot, `TableConfig` prod) ; `SensorRepositoriesSnapshotIntegrationTest` (SensorReadRepository, MspSensorRepository, N3ppSensorRepository, BoardRepository, fenÔøΩtres 10 min ; comparaisons dates en `strcmp` format SQL). `phpunit.xml` : suites **Unit** et **Integration** ; scripts Composer `test:unit`, `test:integration`. Documentation `README.md` et skill PHPUnit.
 
 ### Correctif - `SensorReadRepository::getLastReadings` (ORDER BY + LIMIT sous MySQL)
-- **Rùsumù** : le `LIMIT` liù (`:limit`) pouvait retourner des lignes dans un ordre incorrect selon le driver PDO MySQL ; passage ù une limite entiùre dans la requùte aprùs validation de la table (`TableValidator`) et plafond 10 000.
+- **RÔøΩsumÔøΩ** : le `LIMIT` liÔøΩ (`:limit`) pouvait retourner des lignes dans un ordre incorrect selon le driver PDO MySQL ; passage ÔøΩ une limite entiÔøΩre dans la requÔøΩte aprÔøΩs validation de la table (`TableValidator`) et plafond 10 000.
 - Fichiers : `src/Repository/SensorReadRepository.php`, `tests/Integration/`, `phpunit.xml`, `composer.json`, `README.md`, `.cursor/skills/tests-phpunit-serveur/SKILL.md`, `VERSION`
 
 ---
 
 ## [5.0.281] - 2026-03-31
 
-### Modifiù - footer galeries : version firmware uploadphotosserver
-- **Rùsumù** : les pages timelapse et grille admin (`/gallery/{slug}`, `/admin/gallery/{slug}`) passent la mùme version que la page contrùle camùra (GPIO 100, POST `post-uploadphotoserver-version.php`) au pied de page unifiù (`_footer.twig`). Page dù??index des galeries : pas de badge firmware unique (trois appareils). `GalleryControlController` normalise `firmware_version` en chaùne vide si absente pour le `footer_config` Twig.
+### ModifiÔøΩ - footer galeries : version firmware uploadphotosserver
+- **RÔøΩsumÔøΩ** : les pages timelapse et grille admin (`/gallery/{slug}`, `/admin/gallery/{slug}`) passent la mÔøΩme version que la page contrÔøΩle camÔøΩra (GPIO 100, POST `post-uploadphotoserver-version.php`) au pied de page unifiÔøΩ (`_footer.twig`). Page dÔøΩ??index des galeries : pas de badge firmware unique (trois appareils). `GalleryControlController` normalise `firmware_version` en chaÔøΩne vide si absente pour le `footer_config` Twig.
 - Fichiers : `src/Controller/Gallery/GalleryViewController.php`, `GalleryControlController.php`, `config/dependencies.php`, `VERSION`
 
 ---
 
 ## [5.0.280] - 2026-03-31
 
-### Ajoutù - import dump production vers BDD Docker locale (tests etendus)
-- **Rùsumù** : script `tools/import-mysql-dump-to-local-docker.ps1` (import dans `iot_n3_import_staging` puis synchro vers `iot_n3_local`) ; SQL `docker/mysql/sync-import-staging-to-local.sql` avec mappage des colonnes (Boards, ffp3Data/post_id, Heartbeat timestamp ù?? reading_time, sorties board en varchar, etc.). Tests `tests/Integration/RealDatasetDockerDbTest.php` ; documentation `README.md`, regle Cursor `serveur-validation-locale-docker.mdc`, skill PHPUnit. Correctif whitelist JS : `n3-stock-chart-bootstrap.js` dans `config/routes_config.php`.
+### AjoutÔøΩ - import dump production vers BDD Docker locale (tests etendus)
+- **RÔøΩsumÔøΩ** : script `tools/import-mysql-dump-to-local-docker.ps1` (import dans `iot_n3_import_staging` puis synchro vers `iot_n3_local`) ; SQL `docker/mysql/sync-import-staging-to-local.sql` avec mappage des colonnes (Boards, ffp3Data/post_id, Heartbeat timestamp ÔøΩ?? reading_time, sorties board en varchar, etc.). Tests `tests/Integration/RealDatasetDockerDbTest.php` ; documentation `README.md`, regle Cursor `serveur-validation-locale-docker.mdc`, skill PHPUnit. Correctif whitelist JS : `n3-stock-chart-bootstrap.js` dans `config/routes_config.php`.
 - Fichiers : outils et SQL ci-dessus, `tests/Integration/`, `config/routes_config.php`, `README.md`, `VERSION`
 
 ---
 
 ## [5.0.279] - 2026-03-30
 
-### Modifiù - remplissage sous courbe (areaspline) MSP1/N3PP alignù aquaponie
-- **Rùsumù** : ajout de `n3AreaGradientFill` dans `chart-helpers.js` ; sùries continues en `areaspline` avec dùgradù vertical sur mùtùo et serre (tempùratures, humiditùs, luminositù, humiditù sol, cycles avec opacitù plus lùgùre) ; `plotOptions.areaspline` par dùfaut dans `n3-stock-chart-bootstrap.js` (`connectNulls: false`, marqueurs dùsactivùs). Les sùries en colonnes et la tendance linùaire N3PP restent inchangùes.
-- Fichiers modifiùs : `public/assets/js/chart-helpers.js`, `public/assets/js/n3-stock-chart-bootstrap.js`, `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `docs/AUDIT_GRAPHIQUES_HIGHCHARTS.md`, `VERSION`
+### ModifiÔøΩ - remplissage sous courbe (areaspline) MSP1/N3PP alignÔøΩ aquaponie
+- **RÔøΩsumÔøΩ** : ajout de `n3AreaGradientFill` dans `chart-helpers.js` ; sÔøΩries continues en `areaspline` avec dÔøΩgradÔøΩ vertical sur mÔøΩtÔøΩo et serre (tempÔøΩratures, humiditÔøΩs, luminositÔøΩ, humiditÔøΩ sol, cycles avec opacitÔøΩ plus lÔøΩgÔøΩre) ; `plotOptions.areaspline` par dÔøΩfaut dans `n3-stock-chart-bootstrap.js` (`connectNulls: false`, marqueurs dÔøΩsactivÔøΩs). Les sÔøΩries en colonnes et la tendance linÔøΩaire N3PP restent inchangÔøΩes.
+- Fichiers modifiÔøΩs : `public/assets/js/chart-helpers.js`, `public/assets/js/n3-stock-chart-bootstrap.js`, `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `docs/AUDIT_GRAPHIQUES_HIGHCHARTS.md`, `VERSION`
 
 ---
 
 ## [5.0.278] - 2026-03-30
 
-### Modifiù - unification affichage Highcharts MSP1/N3PP sur modùle aquaponie
-- **Rùsumù** : ajout dù??un bootstrap partagù (`n3-stock-chart-bootstrap.js`) pour crùer les graphiques uniquement quand les conteneurs sont rùellement dimensionnùs (retry bornù + reflow AOS), factorisation de lù??initialisation des charts MSP1/N3PP, alignement du layout Stock (`navigator.xAxis.ordinal = false`, lùgende dense), et fiabilisation du live update via `ChartUpdaterGeneric` (dùdoublonnage timestamp, insertion triùe hors ordre, `redraw(false)`).
-- Fichiers modifiùs : `public/assets/js/chart-updater-generic.js`, `public/assets/js/n3-stock-chart-layout.js`, `public/assets/js/n3-stock-chart-bootstrap.js`, `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `templates/data_page.twig`, `docs/AUDIT_GRAPHIQUES_HIGHCHARTS.md`, `VERSION`
+### ModifiÔøΩ - unification affichage Highcharts MSP1/N3PP sur modÔøΩle aquaponie
+- **RÔøΩsumÔøΩ** : ajout dÔøΩ??un bootstrap partagÔøΩ (`n3-stock-chart-bootstrap.js`) pour crÔøΩer les graphiques uniquement quand les conteneurs sont rÔøΩellement dimensionnÔøΩs (retry bornÔøΩ + reflow AOS), factorisation de lÔøΩ??initialisation des charts MSP1/N3PP, alignement du layout Stock (`navigator.xAxis.ordinal = false`, lÔøΩgende dense), et fiabilisation du live update via `ChartUpdaterGeneric` (dÔøΩdoublonnage timestamp, insertion triÔøΩe hors ordre, `redraw(false)`).
+- Fichiers modifiÔøΩs : `public/assets/js/chart-updater-generic.js`, `public/assets/js/n3-stock-chart-layout.js`, `public/assets/js/n3-stock-chart-bootstrap.js`, `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `templates/data_page.twig`, `docs/AUDIT_GRAPHIQUES_HIGHCHARTS.md`, `VERSION`
 
 ---
 
 ## [5.0.277] - 2026-03-30
 
-### Modifiù - seuil de rupture Highcharts (gap) portù ù 6 h
-- **Rùsumù** : `gapSize` global (`gapUnit: 'value'`) passù de 1 h ù **6 h** (21600000 ms) pour ne couper les courbes quù??aprùs une absence de relevùs plus longue.
-- Fichiers modifiùs : `public/assets/js/highcharts-defaults.js`, `VERSION`
+### ModifiÔøΩ - seuil de rupture Highcharts (gap) portÔøΩ ÔøΩ 6 h
+- **RÔøΩsumÔøΩ** : `gapSize` global (`gapUnit: 'value'`) passÔøΩ de 1 h ÔøΩ **6 h** (21600000 ms) pour ne couper les courbes quÔøΩ??aprÔøΩs une absence de relevÔøΩs plus longue.
+- Fichiers modifiÔøΩs : `public/assets/js/highcharts-defaults.js`, `VERSION`
 
 ---
 ## [5.0.276] - 2026-03-30
 
-### Correctif - courbes Highcharts invisibles (aquaponie, sùries temps rùel)
-- **Rùsumù** : le `gapSize` global avec `gapUnit: 'relative'` fragmentait les sùries dùs quù??existait une paire de timestamps trùs rapprochùs ; les segments disparaissaient (marqueurs dùsactivùs) tout en restant actifs au survol. Passage ù `gapUnit: 'value'` avec un seuil de 1 h (3600000 ms) sur lù??axe datetime pour ne couper la courbe quù??aprùs une vraie coupure de relevùs.
-- Fichiers modifiùs : `public/assets/js/highcharts-defaults.js`, `VERSION`
+### Correctif - courbes Highcharts invisibles (aquaponie, sÔøΩries temps rÔøΩel)
+- **RÔøΩsumÔøΩ** : le `gapSize` global avec `gapUnit: 'relative'` fragmentait les sÔøΩries dÔøΩs quÔøΩ??existait une paire de timestamps trÔøΩs rapprochÔøΩs ; les segments disparaissaient (marqueurs dÔøΩsactivÔøΩs) tout en restant actifs au survol. Passage ÔøΩ `gapUnit: 'value'` avec un seuil de 1 h (3600000 ms) sur lÔøΩ??axe datetime pour ne couper la courbe quÔøΩ??aprÔøΩs une vraie coupure de relevÔøΩs.
+- Fichiers modifiÔøΩs : `public/assets/js/highcharts-defaults.js`, `VERSION`
 
 ---
 ## [5.0.275] - 2026-03-30
 
 ### Correctif - smoke test local et diagnostic environnements sous Docker
-- **Rùsumù** : dùlai HTTP du smoke test paramùtrable (`-TimeoutSec`, dùfaut 60 s) pour limiter les timeouts sur pages lourdes ; `verify_environments.php` utilise `Database::getConnection()` et le `.env` (`DB_HOST=db` en stack Docker) au lieu dù??identifiants MySQL codùs en dur.
-- Fichiers modifiùs : `tools/local-smoke-test.ps1`, `tools/verify_environments.php`, `README.md`, `VERSION`
+- **RÔøΩsumÔøΩ** : dÔøΩlai HTTP du smoke test paramÔøΩtrable (`-TimeoutSec`, dÔøΩfaut 60 s) pour limiter les timeouts sur pages lourdes ; `verify_environments.php` utilise `Database::getConnection()` et le `.env` (`DB_HOST=db` en stack Docker) au lieu dÔøΩ??identifiants MySQL codÔøΩs en dur.
+- Fichiers modifiÔøΩs : `tools/local-smoke-test.ps1`, `tools/verify_environments.php`, `README.md`, `VERSION`
 
 ---
 ## [5.0.274] - 2026-03-30
 
-### Modifiù - unification du layout Highcharts et robustesse thùme systùme
-- **Rùsumù** : reconstruction de `theme-toggle.js` et `aquaponie-chart-layout.js` aprùs corruption locale, ajout d'un module partagù `n3-stock-chart-layout.js` (hauteurs/options/load/resize) rùutilisù par MSP1/N3PP et composù cùtù aquaponie, avec mise ù jour du thùme Highcharts lors d'un changement de prùfùrence systùme sans thùme stockù.
-- Fichiers modifiùs : `public/assets/js/theme-toggle.js`, `public/assets/js/aquaponie-chart-layout.js`, `public/assets/js/n3-stock-chart-layout.js`, `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `templates/aquaponie.twig`, `templates/aquaponie_alt.twig`, `config/routes_config.php`, `public/assets/css/common-data.css`, `VERSION`
+### ModifiÔøΩ - unification du layout Highcharts et robustesse thÔøΩme systÔøΩme
+- **RÔøΩsumÔøΩ** : reconstruction de `theme-toggle.js` et `aquaponie-chart-layout.js` aprÔøΩs corruption locale, ajout d'un module partagÔøΩ `n3-stock-chart-layout.js` (hauteurs/options/load/resize) rÔøΩutilisÔøΩ par MSP1/N3PP et composÔøΩ cÔøΩtÔøΩ aquaponie, avec mise ÔøΩ jour du thÔøΩme Highcharts lors d'un changement de prÔøΩfÔøΩrence systÔøΩme sans thÔøΩme stockÔøΩ.
+- Fichiers modifiÔøΩs : `public/assets/js/theme-toggle.js`, `public/assets/js/aquaponie-chart-layout.js`, `public/assets/js/n3-stock-chart-layout.js`, `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `templates/aquaponie.twig`, `templates/aquaponie_alt.twig`, `config/routes_config.php`, `public/assets/css/common-data.css`, `VERSION`
 
 ## [5.0.273] - 2026-03-30
 
-### Correctif - cohùrence VERSION et CHANGELOG aprùs rùgression
-- **Rùsumù** : rùintùgration de lù??entrùe **[5.0.272]** (ordre `highcharts-theme.js` / `head_scripts` dans `layout.twig`) supprimùe par erreur lors dù??un commit ultùrieur ; incrùment **5.0.273** pour reprendre la suite sùmantique sans rùùcrire lù??historique Git.
-- Fichiers modifiùs : `CHANGELOG.md`, `VERSION`
+### Correctif - cohÔøΩrence VERSION et CHANGELOG aprÔøΩs rÔøΩgression
+- **RÔøΩsumÔøΩ** : rÔøΩintÔøΩgration de lÔøΩ??entrÔøΩe **[5.0.272]** (ordre `highcharts-theme.js` / `head_scripts` dans `layout.twig`) supprimÔøΩe par erreur lors dÔøΩ??un commit ultÔøΩrieur ; incrÔøΩment **5.0.273** pour reprendre la suite sÔøΩmantique sans rÔøΩÔøΩcrire lÔøΩ??historique Git.
+- Fichiers modifiÔøΩs : `CHANGELOG.md`, `VERSION`
 
 ---
 ## [5.0.272] - 2026-03-30
 
 ### Correctif - ordre de chargement Highcharts theme/defaults (MSP1/N3PP)
-- **Rùsumù** : dans `layout.twig`, `highcharts-theme.js` est chargù avant `{% block head_scripts %}` afin que `n3HighchartsBuildThemeOptions()` soit disponible lorsque `highcharts-defaults.js` appelle `Highcharts.setOptions()`. Cela aligne lù??initialisation du thùme au premier rendu et corrige les incohùrences visuelles observùes sur le graphique ù Paramùtres physiques ù du potager.
-- Fichiers modifiùs : `templates/layout.twig`, `VERSION`
+- **RÔøΩsumÔøΩ** : dans `layout.twig`, `highcharts-theme.js` est chargÔøΩ avant `{% block head_scripts %}` afin que `n3HighchartsBuildThemeOptions()` soit disponible lorsque `highcharts-defaults.js` appelle `Highcharts.setOptions()`. Cela aligne lÔøΩ??initialisation du thÔøΩme au premier rendu et corrige les incohÔøΩrences visuelles observÔøΩes sur le graphique ÔøΩ ParamÔøΩtres physiques ÔøΩ du potager.
+- Fichiers modifiÔøΩs : `templates/layout.twig`, `VERSION`
 
 ---
 ## [5.0.271] - 2026-03-30
 
-### Modifiù - alignement chargement Highcharts MSP1/N3PP sur Aquaponie
-- **Rùsumù** : dùplacement de `highcharts-defaults.js` et `chart-helpers.js` de `{% block scripts %}` vers `{% block head_scripts %}` dans les vues MSP1 et N3PP, pour harmoniser lù??ordre de chargement avec Aquaponie et rùduire le risque de rùgression liù ù lù??ordre des scripts inline.
-- Fichiers modifiùs : `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `VERSION`
+### ModifiÔøΩ - alignement chargement Highcharts MSP1/N3PP sur Aquaponie
+- **RÔøΩsumÔøΩ** : dÔøΩplacement de `highcharts-defaults.js` et `chart-helpers.js` de `{% block scripts %}` vers `{% block head_scripts %}` dans les vues MSP1 et N3PP, pour harmoniser lÔøΩ??ordre de chargement avec Aquaponie et rÔøΩduire le risque de rÔøΩgression liÔøΩ ÔøΩ lÔøΩ??ordre des scripts inline.
+- Fichiers modifiÔøΩs : `templates/msp1_data.twig`, `templates/n3pp_data.twig`, `VERSION`
 
 ---
 ## [5.0.270] - 2026-03-30
 
-### Correctif - favicon n3 orange versionnù et cache PHPUnit ignorù
-- **Rùsumù** : ajout du fichier `public/assets/icons/favicon-n3-orange.png` rùfùrencù par les layouts et `routes_config.php` ; ajout de `.phpunit.cache/` au `.gitignore` (PHPUnit 10).
-- Fichiers modifiùs : `.gitignore`, `public/assets/icons/favicon-n3-orange.png`, `VERSION`
+### Correctif - favicon n3 orange versionnÔøΩ et cache PHPUnit ignorÔøΩ
+- **RÔøΩsumÔøΩ** : ajout du fichier `public/assets/icons/favicon-n3-orange.png` rÔøΩfÔøΩrencÔøΩ par les layouts et `routes_config.php` ; ajout de `.phpunit.cache/` au `.gitignore` (PHPUnit 10).
+- Fichiers modifiÔøΩs : `.gitignore`, `public/assets/icons/favicon-n3-orange.png`, `VERSION`
 
 ---
 ## [5.0.269] - 2026-03-30
 
 ### Correctif - graphique aquaponie : corde droite sur les niveaux d'eau
-- **Rùsumù** : `afterSetExtremes` ùtait invoquù au premier redraw Highcharts avec `e.trigger` non dùfini ; le `setData` des tendances utilisait des indices de sùries fixes (vue alt sans contrùle du nom), ce qui pouvait ùcraser les sùries `areaspline` avec les points de rùgression linùaire ù?? ligne droite du premier au dernier point. Ignorer ces appels sans `trigger`, ne mettre ù jour que les sùries `type: 'line'` identifiùes par le libellù, `setData` sans animation, et `connectNulls: false` sur les aires.
-- Fichiers modifiùs : `templates/aquaponie.twig`, `templates/aquaponie_alt.twig`, `VERSION`
+- **RÔøΩsumÔøΩ** : `afterSetExtremes` ÔøΩtait invoquÔøΩ au premier redraw Highcharts avec `e.trigger` non dÔøΩfini ; le `setData` des tendances utilisait des indices de sÔøΩries fixes (vue alt sans contrÔøΩle du nom), ce qui pouvait ÔøΩcraser les sÔøΩries `areaspline` avec les points de rÔøΩgression linÔøΩaire ÔøΩ?? ligne droite du premier au dernier point. Ignorer ces appels sans `trigger`, ne mettre ÔøΩ jour que les sÔøΩries `type: 'line'` identifiÔøΩes par le libellÔøΩ, `setData` sans animation, et `connectNulls: false` sur les aires.
+- Fichiers modifiÔøΩs : `templates/aquaponie.twig`, `templates/aquaponie_alt.twig`, `VERSION`
 
 ---
 ## [5.0.268] - 2026-03-28
 
-### Modifiù - Ajout stack Docker locale et fiabilisation smoke/PHPUnit
-- **Rùsumù** : Ajout stack Docker locale et fiabilisation smoke/PHPUnit.
+### ModifiÔøΩ - Ajout stack Docker locale et fiabilisation smoke/PHPUnit
+- **RÔøΩsumÔøΩ** : Ajout stack Docker locale et fiabilisation smoke/PHPUnit.
 
 ---
 ## [5.0.267] - 2026-03-28
@@ -215,53 +236,53 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [5.0.266] - 2026-03-26
 
-### Correctif - enregistrement fiable des paramùtres meteo-control avec authentification token
-- **Rùsumù** : propagation automatique du paramùtre `token` de l'URL vers les requùtes AJAX de contrùle (`toggle` et `parameters`) pour ùviter les erreurs d'authentification lors de la sauvegarde des champs modifiables sur `meteo-control`.
+### Correctif - enregistrement fiable des paramÔøΩtres meteo-control avec authentification token
+- **RÔøΩsumÔøΩ** : propagation automatique du paramÔøΩtre `token` de l'URL vers les requÔøΩtes AJAX de contrÔøΩle (`toggle` et `parameters`) pour ÔøΩviter les erreurs d'authentification lors de la sauvegarde des champs modifiables sur `meteo-control`.
 - Fichiers modifies : `public/assets/js/control-auto-save.js`, `public/assets/js/control-actions.js`, `templates/partials/_control_init_js.twig`, `VERSION`
 
 ---
 ## [5.0.265] - 2026-03-26
 
-### Modifiù - favicon n3 orange harmonisù avec le thùme
-- **Rùsumù** : ajout d'un favicon `n3` orange (`#FF6300`) dùrivù du logo et raccordù aux layouts principaux pour appliquer l'icùne sur l'ensemble du site.
+### ModifiÔøΩ - favicon n3 orange harmonisÔøΩ avec le thÔøΩme
+- **RÔøΩsumÔøΩ** : ajout d'un favicon `n3` orange (`#FF6300`) dÔøΩrivÔøΩ du logo et raccordÔøΩ aux layouts principaux pour appliquer l'icÔøΩne sur l'ensemble du site.
 - Fichiers modifies : `public/assets/icons/favicon-n3-orange.png`, `templates/layout.twig`, `templates/layout_base.twig`, `config/routes_config.php`, `VERSION`
 
 ---
 ## [5.0.264] - 2026-03-26
 
 ### Correctif - highcharts locaux + correctifs aquaponie et audit navigateur
-- **Rùsumù** : highcharts locaux + correctifs aquaponie et audit navigateur.
+- **RÔøΩsumÔøΩ** : highcharts locaux + correctifs aquaponie et audit navigateur.
 
 ---
 ## [5.0.263] - 2026-03-24
 
-### Modifiù - refacto dark mode datas-control et convergence theme Highcharts
-- **Rùsumù** : refacto dark mode datas-control et convergence theme Highcharts.
+### ModifiÔøΩ - refacto dark mode datas-control et convergence theme Highcharts
+- **RÔøΩsumÔøΩ** : refacto dark mode datas-control et convergence theme Highcharts.
 
 ---
 ## [5.0.262] - 2026-03-24
 
-### Modifiù - refacto dark mode datas/control avec rùfùrence datas
-- **Rùsumù** : simplification de la cascade dark mode en limitant les surcharges globales de `realtime-styles.css` sur les pages de contrùle, dùduplication et harmonisation visuelle des composants partagùs (`context badges`, `quick actions`, `warnings`, titres) dans `control-styles.css`, et convergence du thùme Highcharts sur les tokens CSS (`theme-variables.css`) pour un rendu light/dark plus cohùrent.
+### ModifiÔøΩ - refacto dark mode datas/control avec rÔøΩfÔøΩrence datas
+- **RÔøΩsumÔøΩ** : simplification de la cascade dark mode en limitant les surcharges globales de `realtime-styles.css` sur les pages de contrÔøΩle, dÔøΩduplication et harmonisation visuelle des composants partagÔøΩs (`context badges`, `quick actions`, `warnings`, titres) dans `control-styles.css`, et convergence du thÔøΩme Highcharts sur les tokens CSS (`theme-variables.css`) pour un rendu light/dark plus cohÔøΩrent.
 - Fichiers modifies : `public/assets/css/realtime-styles.css`, `public/assets/css/control-styles.css`, `public/assets/js/highcharts-theme.js`, `VERSION`
 
 ---
 ## [5.0.261] - 2026-03-24
 
-### Modifiù - unification footer_config pages de controle
-- **Rùsumù** : unification footer_config pages de controle.
+### ModifiÔøΩ - unification footer_config pages de controle
+- **RÔøΩsumÔøΩ** : unification footer_config pages de controle.
 
 ---
 ## [5.0.260] - 2026-03-24
 
 ### Correctif - correctif Highcharts N3PP: alignement des series live avec la tendance
-- **Rùsumù** : correctif Highcharts N3PP: alignement des series live avec la tendance.
+- **RÔøΩsumÔøΩ** : correctif Highcharts N3PP: alignement des series live avec la tendance.
 
 ---
 ## [5.0.259] - 2026-03-24
 
 ### Correctif - corrige l enregistrement du service worker et supprime le warning highcharts #15
-- **Rùsumù** : corrige l enregistrement du service worker et supprime le warning highcharts #15.
+- **RÔøΩsumÔøΩ** : corrige l enregistrement du service worker et supprime le warning highcharts #15.
 
 ---
 ## [5.0.258] - 2026-03-24
@@ -275,7 +296,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.257] - 2026-03-24
 
 ### Correctif - coherence mode sombre pages de controle serveur
-- **Rùsumù** : coherence mode sombre pages de controle serveur.
+- **RÔøΩsumÔøΩ** : coherence mode sombre pages de controle serveur.
 
 ---
 ## [5.0.256] - 2026-03-24
@@ -287,7 +308,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.255] - 2026-03-24
 
 ### Correctif - nettoie les doublons du changelog et fiabilise la publication
-- **Rùsumù** : nettoie les doublons du changelog et fiabilise la publication.
+- **RÔøΩsumÔøΩ** : nettoie les doublons du changelog et fiabilise la publication.
 
 ---
 ## [5.0.254] - 2026-03-24
@@ -325,7 +346,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.253] - 2026-03-24
 
 ### Correctif - corrige les fonds blancs en mode sombre sur les pages de controle
-- **Rùsumù** : corrige les fonds blancs en mode sombre sur les pages de controle.
+- **RÔøΩsumÔøΩ** : corrige les fonds blancs en mode sombre sur les pages de controle.
 
 ---
 ## [5.0.248] - 2026-03-23
@@ -371,7 +392,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.243] - 2026-03-23
 
 ### Modifie - harmonisation libelles periode personnalisee
-- **Resume** : uniformisation des libelles du partiel commun de filtrage avec la casse et les accents standards (`Dùbut`, `Fin`) pour rester coherent avec les pages Aquaponie.
+- **Resume** : uniformisation des libelles du partiel commun de filtrage avec la casse et les accents standards (`DÔøΩbut`, `Fin`) pour rester coherent avec les pages Aquaponie.
 - Fichier modifie : `templates/partials/_filter_health_row.twig`
 
 ---
@@ -386,12 +407,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [5.0.241] - 2026-03-21
 
-### Correctif - Badge LIVE en vert (plus dù??override orange)
-- **CSS** : suppression de la rùgle qui forùait `#live-badge.badge-success` en orange ; le badge LIVE reprend le vert standard `#27ae60` (`.badge-success`)
-- Fichier modifiù : `public/assets/css/realtime-styles.css`
+### Correctif - Badge LIVE en vert (plus dÔøΩ??override orange)
+- **CSS** : suppression de la rÔøΩgle qui forÔøΩait `#live-badge.badge-success` en orange ; le badge LIVE reprend le vert standard `#27ae60` (`.badge-success`)
+- Fichier modifiÔøΩ : `public/assets/css/realtime-styles.css`
 
-### Modifiù - Aquaponie et vues donnùes communes
-- **Aquaponie** : grille `.datetime-grid` (colonnes `minmax`), libellùs ù Dùbut ù / ù Fin ù ; alignements mineurs sur `aquaponie_alt`, `tide_stats`, `common-data.css`.
+### ModifiÔøΩ - Aquaponie et vues donnÔøΩes communes
+- **Aquaponie** : grille `.datetime-grid` (colonnes `minmax`), libellÔøΩs ÔøΩ DÔøΩbut ÔøΩ / ÔøΩ Fin ÔøΩ ; alignements mineurs sur `aquaponie_alt`, `tide_stats`, `common-data.css`.
 
 ---
 
@@ -405,7 +426,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.239] - 2026-03-21
 
 ### Modifie - deploiement OTA ESP32-CAM MSP1 (uploadphotosserver 2.18)
-- **Resume** : publication OTA de la cible `msp1` du firmware `uploadphotosserver` en version `2.18` (binaire `ota/cam/msp1/firmware.bin` regùnùrù, `sha256` et `version` msp1 mis ù jour dans `ota/cam/metadata.json`).
+- **Resume** : publication OTA de la cible `msp1` du firmware `uploadphotosserver` en version `2.18` (binaire `ota/cam/msp1/firmware.bin` regÔøΩnÔøΩrÔøΩ, `sha256` et `version` msp1 mis ÔøΩ jour dans `ota/cam/metadata.json`).
 
 ---
 
@@ -418,8 +439,8 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [5.0.237] - 2026-03-21
 
-### Correctif - agencement Highcharts aquaponie (timeline / lùgende)
-- **Rùsumù** : harmonisation avec potager (N3PP) et ùlevage (MSP1) ù?? hauteurs 300ù??440 px selon breakpoint, espacements rùduits, lùgende compacte (`maxHeight`), navigator avec `margin` rapprochù, suppression des `responsive.rules` qui imposaient des hauteurs contradictoires avec `setSize`. Nouveau module [`public/assets/js/aquaponie-chart-layout.js`](public/assets/js/aquaponie-chart-layout.js) ; chargement de `highcharts-defaults.js` + `chart-helpers.js` sur `aquaponie.twig` et `aquaponie_alt.twig`. CSS : `aquaponie.css` (wrapper) et `common-data.css` (min-height mobile sur `#chart-stock-area-*`).
+### Correctif - agencement Highcharts aquaponie (timeline / lÔøΩgende)
+- **RÔøΩsumÔøΩ** : harmonisation avec potager (N3PP) et ÔøΩlevage (MSP1) ÔøΩ?? hauteurs 300ÔøΩ??440 px selon breakpoint, espacements rÔøΩduits, lÔøΩgende compacte (`maxHeight`), navigator avec `margin` rapprochÔøΩ, suppression des `responsive.rules` qui imposaient des hauteurs contradictoires avec `setSize`. Nouveau module [`public/assets/js/aquaponie-chart-layout.js`](public/assets/js/aquaponie-chart-layout.js) ; chargement de `highcharts-defaults.js` + `chart-helpers.js` sur `aquaponie.twig` et `aquaponie_alt.twig`. CSS : `aquaponie.css` (wrapper) et `common-data.css` (min-height mobile sur `#chart-stock-area-*`).
 
 ---
 
@@ -433,20 +454,20 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.235] - 2026-03-21
 
 ### Modifie - menu sandwich unifie smartphone / laptop zoom (a11y + resize)
-- **Resume** : retour du focus sur le bouton menu apres toute fermeture (overlay, lien, Esc, swipe, bouton fermer) via suivi de `is-navPanel-visible` ; piùge ù focus Tab dans `#navPanel` ; fermeture automatique du panneau au passage en vue desktop ; `util.js` appelle `_hide` pour les liens `#navPanel` et expose un hook optionnel `onHide`. `page-nav-toggles.js` re-injecte les liens dynamiques aprùs resize/orientation. Variable `--nav-sandwich-clearance` pour aligner le badge LIVE sur la zone du bouton menu.
+- **Resume** : retour du focus sur le bouton menu apres toute fermeture (overlay, lien, Esc, swipe, bouton fermer) via suivi de `is-navPanel-visible` ; piÔøΩge ÔøΩ focus Tab dans `#navPanel` ; fermeture automatique du panneau au passage en vue desktop ; `util.js` appelle `_hide` pour les liens `#navPanel` et expose un hook optionnel `onHide`. `page-nav-toggles.js` re-injecte les liens dynamiques aprÔøΩs resize/orientation. Variable `--nav-sandwich-clearance` pour aligner le badge LIVE sur la zone du bouton menu.
 
 ---
 
 ## [5.0.234] - 2026-03-21
 
-### Modifie - accueil : exposant nù dans le titre hero
+### Modifie - accueil : exposant nÔøΩ dans le titre hero
 - **Resume** : le h1 du hero utilise `n<sup>3</sup>` comme sur le reste du site (sous-titre, liens).
 
 ---
 
 ## [5.0.233] - 2026-03-21
 
-### Modifie - accueil : suppression du section-header duplique ù Internet des objets ù
+### Modifie - accueil : suppression du section-header duplique ÔøΩ Internet des objets ÔøΩ
 - **Resume** : retrait du bloc `.section-header` (icone Wi-Fi + h2) sous le hero sur `home.twig`, le titre etant deja porte par le h1 du hero.
 
 ---
@@ -461,14 +482,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.231] - 2026-03-21
 
 ### Modifie - homogeneisation navigation (desktop, mobile, dark mode, a11y)
-- **Resume** : regroupement des surcharges dark mode header/`#nav` depuis `realtime-styles.css` vers `main.css` (tokens `theme-variables.css`). Bordures et zone theme du panneau mobile alignees sur les variables. Menu sandwich : `MutationObserver` pour synchroniser `aria-expanded` / `aria-label` sur toute fermeture (clic hors panneau, ù?chap, swipe, lien), focus sur le premier lien utile a lù??ouverture ; `nav` mobile identifiable (`#navPanelNav`). `page-nav-toggles.js` cible aussi la liste deplacùe dans le panneau (correctif mobile). Documentation : `README.md`.
+- **Resume** : regroupement des surcharges dark mode header/`#nav` depuis `realtime-styles.css` vers `main.css` (tokens `theme-variables.css`). Bordures et zone theme du panneau mobile alignees sur les variables. Menu sandwich : `MutationObserver` pour synchroniser `aria-expanded` / `aria-label` sur toute fermeture (clic hors panneau, ÔøΩ?chap, swipe, lien), focus sur le premier lien utile a lÔøΩ??ouverture ; `nav` mobile identifiable (`#navPanelNav`). `page-nav-toggles.js` cible aussi la liste deplacÔøΩe dans le panneau (correctif mobile). Documentation : `README.md`.
 
 ---
 
 ## [5.0.230] - 2026-03-21
 
 ### Correctif - icone en double (analyses manuelles eleves, aquaponie)
-- **Resume** : le bandeau d'information ù Analyses manuelles realisees par les eleves ù affichait deux icones (toque + groupe). Conservation de la seule icone du bandeau (`fa-graduation-cap`), suppression de `fa-users` dans le titre (`aquaponie.twig`, `aquaponie_alt.twig`).
+- **Resume** : le bandeau d'information ÔøΩ Analyses manuelles realisees par les eleves ÔøΩ affichait deux icones (toque + groupe). Conservation de la seule icone du bandeau (`fa-graduation-cap`), suppression de `fa-users` dans le titre (`aquaponie.twig`, `aquaponie_alt.twig`).
 
 ---
 
@@ -489,7 +510,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.227] - 2026-03-21
 
 ### Modifie - orange titres et badges LIVE (reference supervision)
-- **Resume** : harmonisation sur lù??orange supervision (`#FF6300` / `--accent-secondary` en clair, `fb923c` en sombre) pour les titres hero des pages donnees, le badge LIVE flottant (`#live-badge` en ligne), les pastilles mode LIVE (`mode-badge-live`) et les titres de section de la page supervision. Les titres de section supervision en clair utilisent explicitement la meme teinte que `header.major` au lieu du vert `#008B74`.
+- **Resume** : harmonisation sur lÔøΩ??orange supervision (`#FF6300` / `--accent-secondary` en clair, `fb923c` en sombre) pour les titres hero des pages donnees, le badge LIVE flottant (`#live-badge` en ligne), les pastilles mode LIVE (`mode-badge-live`) et les titres de section de la page supervision. Les titres de section supervision en clair utilisent explicitement la meme teinte que `header.major` au lieu du vert `#008B74`.
 
 ---
 
@@ -524,7 +545,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.222] - 2026-03-20
 
 ### Correctif - bouton hamburger mobile uniforme (icone blanche, sans texte, centree)
-- **Resume** : suppression du texte "Menu" dans `#navPanelToggle`, forùage de l'icone blanche en permanence (etat normal, `alt`, hover et mode sombre), et centrage vertical/horizontal strict de l'icone dans une zone tactile fixe 44x44 pour un rendu stable sur toutes les pages mobiles.
+- **Resume** : suppression du texte "Menu" dans `#navPanelToggle`, forÔøΩage de l'icone blanche en permanence (etat normal, `alt`, hover et mode sombre), et centrage vertical/horizontal strict de l'icone dans une zone tactile fixe 44x44 pour un rendu stable sur toutes les pages mobiles.
 
 ---
 
@@ -573,7 +594,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.216] - 2026-03-20
 
 ### Correctif - application priorites audit UI accueil login navigation
-- **Rùsumù** : application priorites audit UI accueil login navigation.
+- **RÔøΩsumÔøΩ** : application priorites audit UI accueil login navigation.
 
 ---
 ## [5.0.214] - 2026-03-20
@@ -595,7 +616,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.213] - 2026-03-20
 
 ### Correctif - Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos
-- **Rùsumù** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
+- **RÔøΩsumÔøΩ** : Audit UX approfondi : corrections P0/P1/P2 accessibilite, ARIA, contrastes, modale confirmation, focus trap, skip link, copyright dynamique, typos.
 
 ---
 ## [5.0.210] - 2026-03-20
@@ -615,7 +636,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ## [5.0.208] - 2026-03-20
 
 ### Ajout - 4 especes chimiques supplementaires dans les parametres surveilles aquaponie
-- **Resume** : ajout de l'oxygene dissous (O2), des phosphates (PO4), du potassium (K+) et du fer (Fe2+/Fe3+) dans la section ù Parametres surveilles ù des pages aquaponie (templates aquaponie.twig et aquaponie_alt.twig), avec styles CSS dedies (mode clair et sombre).
+- **Resume** : ajout de l'oxygene dissous (O2), des phosphates (PO4), du potassium (K+) et du fer (Fe2+/Fe3+) dans la section ÔøΩ Parametres surveilles ÔøΩ des pages aquaponie (templates aquaponie.twig et aquaponie_alt.twig), avec styles CSS dedies (mode clair et sombre).
 
 ---
 
