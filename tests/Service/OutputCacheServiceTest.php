@@ -33,7 +33,12 @@ class OutputCacheServiceTest extends TestCase
         $this->pdo->exec('INSERT INTO ffp3Outputs (gpio, state) VALUES (18, 0)');
         $this->pdo->exec('INSERT INTO ffp3Outputs (gpio, state) VALUES (110, 1)');
 
-        $this->service = new OutputCacheService();
+        $this->pdo->exec('CREATE TABLE ffp3OtaTrigger (
+            env TEXT PRIMARY KEY,
+            pending INTEGER NOT NULL DEFAULT 0
+        )');
+
+        $this->service = new OutputCacheService($this->pdo);
     }
 
     protected function tearDown(): void
@@ -87,5 +92,15 @@ class OutputCacheServiceTest extends TestCase
         $stats = $this->service->getCacheStats();
         $this->assertFalse($stats['valid']);
         $this->assertSame(0, $stats['cached_items']);
+    }
+
+    public function testTriggerOtaCheckPersistedThenConsumedOnce(): void
+    {
+        $this->service->setTriggerOtaCheckRequested();
+        $first = $this->service->getOutputsState($this->pdo, [16]);
+        $this->assertTrue($first['triggerOtaCheck'] ?? false);
+
+        $second = $this->service->getOutputsState($this->pdo, [16]);
+        $this->assertArrayNotHasKey('triggerOtaCheck', $second);
     }
 }

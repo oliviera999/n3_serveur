@@ -161,7 +161,7 @@ return [
     },
 
     OutputCacheService::class => function (ContainerInterface $c) {
-        return new OutputCacheService();
+        return new OutputCacheService($c->get(PDO::class));
     },
 
     SystemHealthService::class => function (ContainerInterface $c) {

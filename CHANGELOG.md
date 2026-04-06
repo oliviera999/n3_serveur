@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.300] - 2026-04-06
+
+### Correctif - FFP3 : déclenchement OTA distant fiable (PHP-FPM multi-workers)
+- **Résumé** : le flag `triggerOtaCheck` n’était plus stocké dans le cache outputs (v5.x) mais dans un **tableau statique PHP** : le POST « Vérifier OTA » et le GET `/api/outputs(-*)/state` pouvaient être traités par **des workers FPM différents**, donc l’ESP32 ne recevait jamais `triggerOtaCheck`. Désormais persistance dans la table **`ffp3OtaTrigger`** (une ligne par environnement) : consommation atomique au premier GET qui matche. Migration : `migrations/CREATE_FFP3_OTA_TRIGGER_TABLE.sql`.
+
+---
+
 ## [5.0.299] - 2026-04-06
 
 ### Documentation - FFP3 : outputs vs mesures capteurs (GPIO 16 / etatPompeAqua)

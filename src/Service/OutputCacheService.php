@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
 use App\Config\TableConfig;
 use App\Util\StateNormalizer;
 use App\Util\TableValidator;
 use App\Service\OutputSyncService;
+use PDO;
+use PDOException;
 
 /**
  * Service pour les états outputs (anciennement avec cache, désormais lecture BDD directe)
@@ -17,9 +21,13 @@ use App\Service\OutputSyncService;
  * v5.x: Cache supprimé - en PHP-FPM l'invalidation ne s'appliquait qu'au worker courant,
  * créant des données obsolètes (jusqu'à 5s) pour l'ESP32 quand un autre worker servait le GET.
  * Une requête SELECT par poll (60s prod, 6s test) est négligeable.
+ *
+ * v5.0.300: triggerOtaCheck persisté en table ffp3OtaTrigger (plus de static PHP-FPM multi-workers).
  */
 class OutputCacheService
 {
+    private const OTA_TRIGGER_TABLE = 'ffp3OtaTrigger';
+
     /**
      * Valeurs par défaut pour chaque GPIO attendu par l'ESP32
      * Alignées avec include/gpio_mapping.h (GPIODefaults) et migrations/INIT_GPIO_BASE_ROWS.sql
@@ -33,11 +41,10 @@ class OutputCacheService
         117 => 0, // forçage pompe aquarium (serveur uniquement, défaut désactivé)
     ];
 
-    /**
-     * Demande de vérification OTA par environnement (page contrôle).
-     * Une seule réponse GET state contiendra triggerOtaCheck: true puis le flag est effacé.
-     */
-    private static array $triggerOtaRequested = [];
+    public function __construct(
+        private PDO $pdo
+    ) {
+    }
 
     /**
      * Récupère les états outputs depuis la base de données
@@ -100,14 +107,48 @@ class OutputCacheService
                 $result[$gpioToSymbol[$gpio]] = $state;
             }
         }
-        
-        // Demande OTA depuis la page contrôle : une seule réponse contient triggerOtaCheck puis le flag est effacé
-        if (isset(self::$triggerOtaRequested[$env]) && self::$triggerOtaRequested[$env]) {
-            $result['triggerOtaCheck'] = true;
-            unset(self::$triggerOtaRequested[$env]);
-        }
-        
+
+        $this->maybeAttachAndConsumeOtaTrigger($pdo, $env, $result);
+
         return $result;
+    }
+
+    /**
+     * @param array<string, mixed> $result
+     */
+    private function maybeAttachAndConsumeOtaTrigger(PDO $pdo, string $env, array &$result): void
+    {
+        try {
+            $sql = sprintf(
+                'UPDATE `%s` SET `pending` = 0 WHERE `env` = :env AND `pending` = 1',
+                self::OTA_TRIGGER_TABLE
+            );
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([':env' => $env]);
+            if ($stmt->rowCount() > 0) {
+                $result['triggerOtaCheck'] = true;
+            }
+        } catch (PDOException $e) {
+            if ($this->isMissingTableException($e)) {
+                return;
+            }
+            throw $e;
+        }
+    }
+
+    private function isMissingTableException(PDOException $e): bool
+    {
+        $state = $e->errorInfo[0] ?? '';
+        $code = $e->errorInfo[1] ?? null;
+        $msg = strtolower($e->getMessage());
+        if ($state === '42S02' || ($code === 1146 && str_contains($msg, "doesn't exist"))) {
+            return true;
+        }
+        if (str_contains($msg, 'no such table')) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -117,7 +158,30 @@ class OutputCacheService
     public function setTriggerOtaCheckRequested(): void
     {
         $env = TableConfig::getEnvironment();
-        self::$triggerOtaRequested[$env] = true;
+        try {
+            $driver = $this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+            if ($driver === 'mysql') {
+                $sql = sprintf(
+                    'INSERT INTO `%s` (`env`, `pending`) VALUES (:env, 1) ON DUPLICATE KEY UPDATE `pending` = 1',
+                    self::OTA_TRIGGER_TABLE
+                );
+            } else {
+                // SQLite (tests PHPUnit)
+                $sql = sprintf(
+                    'INSERT INTO `%s` (`env`, `pending`) VALUES (:env, 1) ON CONFLICT(`env`) DO UPDATE SET `pending` = 1',
+                    self::OTA_TRIGGER_TABLE
+                );
+            }
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([':env' => $env]);
+        } catch (PDOException $e) {
+            if ($this->isMissingTableException($e)) {
+                error_log('[OutputCacheService] ffp3OtaTrigger absente — exécuter migrations/CREATE_FFP3_OTA_TRIGGER_TABLE.sql');
+
+                return;
+            }
+            throw $e;
+        }
     }
     
     /**
