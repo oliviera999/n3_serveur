@@ -15,6 +15,23 @@ $ErrorActionPreference = "Stop"
 $protectedPath = "/aquaponie-control"
 $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
 
+function Read-HttpWebResponseBody {
+    param([System.Net.WebResponse]$R)
+    if ($null -eq $R) { return $null }
+    try {
+        $s = $R.GetResponseStream()
+        if ($null -eq $s) { return $null }
+        $sr = New-Object System.IO.StreamReader($s)
+        try {
+            return $sr.ReadToEnd()
+        } finally {
+            $sr.Close()
+        }
+    } catch {
+        return $null
+    }
+}
+
 function Invoke-RequestStatus {
     param(
         [string]$Url,
@@ -23,6 +40,102 @@ function Invoke-RequestStatus {
         [object]$Body = $null,
         [Microsoft.PowerShell.Commands.WebRequestSession]$WebSession = $null
     )
+
+    # GET simple : HttpWebRequest evite les bugs Invoke-WebRequest (MaximumRedirection 0 / 302).
+    if ($Method -eq "GET" -and $null -eq $Body -and $Headers.Count -eq 0) {
+        $wr = [System.Net.HttpWebRequest]::Create($Url)
+        $wr.AllowAutoRedirect = $false
+        $wr.Method = "GET"
+        $wr.Timeout = [math]::Max(1, $TimeoutSec) * 1000
+        if ($null -ne $WebSession -and $null -ne $WebSession.Cookies) {
+            $wr.CookieContainer = $WebSession.Cookies
+        }
+        try {
+            $r = $wr.GetResponse()
+            try {
+                $code = [int]$r.StatusCode
+                $raw = Read-HttpWebResponseBody -R $r
+                $html = if ($code -eq 200) { $raw } else { $null }
+                $respObj = if ($null -ne $html) { [pscustomobject]@{ Content = $html } } else { $null }
+                return @{ StatusCode = $code; Response = $respObj }
+            } finally {
+                $r.Close()
+            }
+        } catch [System.Net.WebException] {
+            $resp = $_.Exception.Response
+            if ($null -eq $resp) { throw $_ }
+            try {
+                $code = [int]$resp.StatusCode
+                $raw = Read-HttpWebResponseBody -R $resp
+                $html = if ($code -eq 200) { $raw } else { $null }
+                $respObj = if ($null -ne $html) { [pscustomobject]@{ Content = $html } } else { $null }
+                return @{ StatusCode = $code; Response = $respObj }
+            } finally {
+                $resp.Close()
+            }
+        }
+    }
+
+    # POST application/x-www-form-urlencoded (sans fichier) : evite IWR / redirections sur 302 login.
+    if ($Method -eq "POST" -and $Body -is [hashtable] -and $Headers.Count -eq 0) {
+        $hasFile = $false
+        foreach ($k in @($Body.Keys)) {
+            $v = $Body[$k]
+            if ($null -ne $v -and $v -is [System.IO.FileInfo]) {
+                $hasFile = $true
+                break
+            }
+        }
+        if (-not $hasFile) {
+            $pairs = @()
+            foreach ($k in @($Body.Keys)) {
+                $ek = [System.Uri]::EscapeDataString([string]$k)
+                $ev = [System.Uri]::EscapeDataString([string]$Body[$k])
+                $pairs += "${ek}=${ev}"
+            }
+            $encodedBody = $pairs -join "&"
+            $bytes = [System.Text.Encoding]::UTF8.GetBytes($encodedBody)
+            $wr = [System.Net.HttpWebRequest]::Create($Url)
+            $wr.AllowAutoRedirect = $false
+            $wr.Method = "POST"
+            $wr.ContentType = "application/x-www-form-urlencoded; charset=UTF-8"
+            $wr.ContentLength = $bytes.Length
+            $wr.Timeout = [math]::Max(1, $TimeoutSec) * 1000
+            if ($null -ne $WebSession -and $null -ne $WebSession.Cookies) {
+                $wr.CookieContainer = $WebSession.Cookies
+            }
+            $reqStream = $wr.GetRequestStream()
+            try {
+                $reqStream.Write($bytes, 0, $bytes.Length)
+            } finally {
+                $reqStream.Close()
+            }
+            try {
+                $r = $wr.GetResponse()
+                try {
+                    $code = [int]$r.StatusCode
+                    $raw = Read-HttpWebResponseBody -R $r
+                    $html = if ($code -eq 200) { $raw } else { $null }
+                    $respObj = if ($null -ne $html) { [pscustomobject]@{ Content = $html } } else { $null }
+                    return @{ StatusCode = $code; Response = $respObj }
+                } finally {
+                    $r.Close()
+                }
+            } catch [System.Net.WebException] {
+                $resp = $_.Exception.Response
+                if ($null -eq $resp) { throw $_ }
+                try {
+                    $code = [int]$resp.StatusCode
+                    $raw = Read-HttpWebResponseBody -R $resp
+                    $html = if ($code -eq 200) { $raw } else { $null }
+                    $respObj = if ($null -ne $html) { [pscustomobject]@{ Content = $html } } else { $null }
+                    return @{ StatusCode = $code; Response = $respObj }
+                } finally {
+                    $resp.Close()
+                }
+            }
+        }
+    }
 
     try {
         $params = @{
@@ -51,6 +164,16 @@ function Invoke-RequestStatus {
                 StatusCode = [int]$_.Exception.Response.StatusCode
                 Response = $null
             }
+        }
+        $ex = $_.Exception
+        while ($null -ne $ex) {
+            if ($ex.Response) {
+                return @{
+                    StatusCode = [int]$ex.Response.StatusCode
+                    Response = $null
+                }
+            }
+            $ex = $ex.InnerException
         }
         throw $_
     }
@@ -115,8 +238,11 @@ function Assert-SessionAuth {
         redirect = $protectedPath
         _csrf_token = $csrfToken
     }
-    Assert-Status -Url "$BaseUrl/login" -Method "POST" -Body $loginPayload -AllowedStatus @(301, 302) -WebSession $session -Label "POST /login session"
-    Assert-Status -Url "$BaseUrl$protectedPath" -AllowedStatus @(200) -WebSession $session -Label "session protected access"
+    # Login nominal : Invoke-WebRequest suit les redirections et remplit correctement le cookie jar (HttpWebRequest POST seul ne suffit pas pour Slim/PHP en pratique).
+    Invoke-WebRequest -Uri "$BaseUrl/login" -Method "POST" -Body $loginPayload -WebSession $session `
+        -MaximumRedirection 10 -TimeoutSec $TimeoutSec -UseBasicParsing -ErrorAction Stop | Out-Null
+    Write-Host "OK POST /login session (redirections suivies)" -ForegroundColor Green
+    Assert-Status -Url "${BaseUrl}${protectedPath}" -AllowedStatus @(200) -WebSession $session -Label "session protected access"
 }
 
 function Assert-NegativeAuthChecks {
