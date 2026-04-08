@@ -125,11 +125,23 @@
 
 	// Nav Panel.
 
+		// Barre fixe mobile : bascule thème + menu (la #nav est masquée en CSS ≤980px).
+		var $navMobileBar = $(
+			'<div class="nav-mobile-bar" role="toolbar" aria-label="Actions rapides"></div>'
+		).appendTo($wrapper);
+
 		// Toggle.
 		$navPanelToggle = $(
 			'<button type="button" id="navPanelToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navPanel"></button>'
 		)
-			.appendTo($wrapper);
+			.appendTo($navMobileBar);
+
+		$(
+			'<button type="button" class="theme-toggle-btn theme-toggle-btn--mobile-bar" aria-label="Basculer le mode sombre" title="Mode sombre / clair">' +
+				'<i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>' +
+				'<i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>' +
+			'</button>'
+		).prependTo($navMobileBar);
 
 			// Change toggle styling once we've scrolled past the header.
 				$header.scrollex({

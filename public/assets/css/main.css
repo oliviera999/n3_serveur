@@ -4490,6 +4490,29 @@ background-color: rgba(255, 255, 255, 0.16);
 
 /* Nav Panel */
 
+ /* Conteneur fixe : thème + hamburger (≤980px). Le bouton thème reste ainsi visible sans ouvrir le tiroir. */
+ .nav-mobile-bar {
+ display: none;
+ position: fixed;
+ top: 0.75rem;
+ right: 0.75rem;
+ z-index: 10001;
+ -moz-flex-direction: row;
+ -webkit-flex-direction: row;
+ -ms-flex-direction: row;
+ flex-direction: row;
+ -moz-align-items: center;
+ -webkit-align-items: center;
+ -ms-align-items: center;
+ align-items: center;
+ gap: 0.5rem;
+ pointer-events: none;
+ }
+
+ .nav-mobile-bar > * {
+ pointer-events: auto;
+ }
+
  #navPanelToggle {
  text-decoration: none;
  -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -4575,11 +4598,21 @@ background-color: rgba(255, 255, 255, 0.16);
 
  @media screen and (max-width: 980px) {
 
+ .nav-mobile-bar {
+ display: -moz-flex;
+ display: -webkit-flex;
+ display: -ms-flex;
+ display: flex;
+ }
+
  #navPanelToggle {
  display: -moz-flex;
  display: -webkit-flex;
  display: -ms-flex;
  display: flex;
+ position: static;
+ top: auto;
+ right: auto;
  }
 
  }

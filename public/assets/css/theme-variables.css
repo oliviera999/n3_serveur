@@ -32,8 +32,8 @@
     --header-nav-active-text: #1e252d;
     --header-nav-hover: #00B794;
 
-    /* Décalage des éléments fixes (badge LIVE, etc.) pour ne pas chevaucher le bouton menu */
-    --nav-sandwich-clearance: calc(0.75rem + 44px + 12px);
+    /* Décalage des éléments fixes (badge LIVE, etc.) : barre mobile = thème + menu (2×44px + gap) */
+    --nav-sandwich-clearance: calc(0.75rem + 44px + 0.5rem + 44px + 12px);
     
     /* Bordures */
     --border-color: #e0e0e0;
@@ -262,6 +262,64 @@
     background: rgba(0, 0, 0, 0.05);
     color: var(--text-primary, #212931) !important;
     box-shadow: none;
+}
+
+/* ≤980px : toggle thème déjà dans la barre fixe (.nav-mobile-bar) — évite doublon en bas du tiroir */
+@media screen and (max-width: 980px) {
+    #navPanel .nav-theme-toggle {
+        display: none !important;
+    }
+}
+
+/* Bouton thème dans la barre fixe (à côté du hamburger), même gabarit que #navPanelToggle */
+.theme-toggle-btn.theme-toggle-btn--mobile-bar {
+    display: none;
+}
+
+@media screen and (max-width: 980px) {
+    .theme-toggle-btn.theme-toggle-btn--mobile-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0.5rem;
+        background-color: rgba(30, 37, 45, 0.88);
+        box-shadow: 0 0.125rem 0.75rem 0 rgba(30, 37, 45, 0.25);
+        color: #ffffff !important;
+        font-size: 1rem;
+        line-height: 1;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        touch-action: manipulation;
+    }
+
+    .theme-toggle-btn.theme-toggle-btn--mobile-bar:hover,
+    .theme-toggle-btn.theme-toggle-btn--mobile-bar:focus,
+    .theme-toggle-btn.theme-toggle-btn--mobile-bar:active {
+        background-color: #2a343e;
+        color: #ffffff !important;
+    }
+
+    .theme-toggle-btn.theme-toggle-btn--mobile-bar:focus-visible {
+        outline: 2px solid var(--header-nav-hover, #00B794);
+        outline-offset: 2px;
+    }
+}
+
+[data-theme="dark"] .theme-toggle-btn.theme-toggle-btn--mobile-bar {
+    background-color: rgba(15, 23, 42, 0.92);
+    box-shadow: 0 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.35);
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .theme-toggle-btn.theme-toggle-btn--mobile-bar:hover,
+[data-theme="dark"] .theme-toggle-btn.theme-toggle-btn--mobile-bar:focus,
+[data-theme="dark"] .theme-toggle-btn.theme-toggle-btn--mobile-bar:active {
+    background-color: rgba(30, 41, 59, 0.95);
+    color: #ffffff !important;
 }
 
 /* -----------------------------------------------------------------

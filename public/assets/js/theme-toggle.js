@@ -113,7 +113,10 @@
 
     function isThemeButton(el) {
         if (!el) return false;
-        return el.id === 'theme-toggle-btn' || (el.closest && el.closest('#theme-toggle-btn'));
+        if (el.classList && el.classList.contains('theme-toggle-btn')) {
+            return true;
+        }
+        return el.closest && el.closest('.theme-toggle-btn');
     }
 
     function handleThemeClick(e) {

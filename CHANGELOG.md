@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.301] - 2026-04-07
+
+### Correctif - UI : bascule thème visible sur mobile
+- **Résumé** : en vue ≤980px la barre `#nav` est masquée et le bouton thème ne se voyait qu’en bas du menu latéral (souvent hors champ ou peu évident). Ajout d’un bouton thème dans la barre fixe à côté du hamburger ; le doublon dans le tiroir est masqué. `theme-toggle.js` reconnaît tout `.theme-toggle-btn` (y compris les clics sur les icônes).
+
+---
+
 ## [5.0.300] - 2026-04-06
 
 ### Correctif - FFP3 : déclenchement OTA distant fiable (PHP-FPM multi-workers)
