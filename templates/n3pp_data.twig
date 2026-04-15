@@ -186,7 +186,8 @@
             console.warn('[n3pp] n3StockChartBootstrap indisponible');
             return;
         }
-        function calculateLinearRegression(data) {
+        function calculateLinearRegression(data, opts) {
+            opts = opts || {};
             if (!data || data.length < 2) return null;
             var valid = [];
             for (var i = 0; i < data.length; i++) {
@@ -205,12 +206,16 @@
             var b = (sumY - a * sumX) / n;
             var trendData = [];
             for (var j = 0; j < data.length; j++) {
-                trendData.push([data[j][0], a * j + b]);
+                var yTrend = a * j + b;
+                if (opts.roundYToInt) {
+                    yTrend = Math.round(yTrend);
+                }
+                trendData.push([data[j][0], yTrend]);
             }
             return { data: trendData };
         }
         var HumidMoyData = zipSeries(reading_time, HumidMoy);
-        var HumidMoyTrendLine = (HumidMoyData && HumidMoyData.length >= 2) ? calculateLinearRegression(HumidMoyData) : null;
+        var HumidMoyTrendLine = (HumidMoyData && HumidMoyData.length >= 2) ? calculateLinearRegression(HumidMoyData, { roundYToInt: true }) : null;
         bootstrap.ensureContainersReady(
             ['chart-niveauxeaux', 'chart-temperatures', 'chart-cycles'],
             function () {
@@ -218,7 +223,7 @@
                     yAxis: [{ title: { text: 'Humidité sol (UA)' }, opposite: false }],
                     series: [
                         { name: 'Humid. moy.', data: zipSeries(reading_time, HumidMoy), type: 'areaspline', color: '#27ae60', fillColor: n3AreaGradientFill(39, 174, 96), lineWidth: 3, tooltip: { valueSuffix: ' UA' }},
-                        { name: 'Tendance humid. moy.', data: HumidMoyTrendLine ? HumidMoyTrendLine.data : [], type: 'line', color: '#1e8449', lineWidth: 2, dashStyle: 'Dot', tooltip: { valueSuffix: ' UA' }},
+                        { name: 'Tendance humid. moy.', data: HumidMoyTrendLine ? HumidMoyTrendLine.data : [], type: 'line', color: '#1e8449', lineWidth: 2, dashStyle: 'Dot', tooltip: { valueDecimals: 0, valueSuffix: ' UA' }},
                         { name: 'Humid. 1', data: zipSeries(reading_time, Humid1), type: 'areaspline', color: '#3498db', fillColor: n3AreaGradientFill(52, 152, 219, 0.16, 0.04), dashStyle: 'Dash', lineWidth: 2, visible: false, tooltip: { valueSuffix: ' UA' }},
                         { name: 'Humid. 2', data: zipSeries(reading_time, Humid2), type: 'areaspline', color: '#2980b9', fillColor: n3AreaGradientFill(41, 128, 185, 0.16, 0.04), dashStyle: 'Dash', lineWidth: 2, visible: false, tooltip: { valueSuffix: ' UA' }},
                         { name: 'Humid. 3', data: zipSeries(reading_time, Humid3), type: 'areaspline', color: '#1abc9c', fillColor: n3AreaGradientFill(26, 188, 156, 0.16, 0.04), dashStyle: 'Dash', lineWidth: 2, visible: false, tooltip: { valueSuffix: ' UA' }},

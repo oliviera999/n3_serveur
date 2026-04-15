@@ -11,6 +11,20 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.303] - 2026-04-14
+
+### Correctif - N3PP (serre) : tendance humidité sol en entiers
+- **Résumé** : la série « Tendance humid. moy. » (régression linéaire sur l’humidité du sol) arrondit désormais les valeurs à l’entier le plus proche (UA), avec tooltip sans décimales, aligné sur les cartes statistiques.
+
+---
+
+## [5.0.302] - 2026-04-14
+
+### Modifié - accueil IoT : texte intro aéré et liens olution
+- **Résumé** : sur `home.twig`, le texte d'introduction reprend le contenu pédagogique (salle n³, projets FFP3/MSP1/N3PP, plateforme olution, contacts) avec des paragraphes plus courts ; liens explicites vers `https://olution.info` pour la marque olution ; correction « Pour toute question ».
+
+---
+
 ## [5.0.301] - 2026-04-07
 
 ### Correctif - UI : bascule thème visible sur mobile
