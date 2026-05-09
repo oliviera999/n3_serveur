@@ -213,11 +213,13 @@ class OutputController
         // Page de contrôle : ?fresh=1 pour ignorer le cache et afficher les vraies valeurs BDD
         $queryParams = $request->getQueryParams();
         $skipCache = isset($queryParams['fresh']) && (string) $queryParams['fresh'] === '1';
+        // Les polls de l'interface ne doivent pas consommer le one-shot OTA destiné au firmware.
+        $consumeOtaTrigger = !$skipCache;
 
         $this->outputService->ensureAquariumPumpForceOutputRow();
 
         $pdo = Database::getConnection();
-        $result = $this->outputCache->getOutputsState($pdo, $gpioList, $skipCache);
+        $result = $this->outputCache->getOutputsState($pdo, $gpioList, $skipCache, $consumeOtaTrigger);
 
         // Témoins "dernier état Data" pour la page de contrôle (ESP32 ignore ces clés)
         $lastData = $this->outputService->getLastDataStates();
@@ -274,7 +276,7 @@ class OutputController
 
     /**
      * POST: Demande de vérification OTA pour l'environnement courant.
-     * Le prochain GET state renverra triggerOtaCheck: true à l'ESP32 une fois.
+     * Le prochain GET state firmware renverra triggerOtaCheck: true à l'ESP32 une fois.
      */
     public function triggerOtaCheck(Request $request, Response $response): Response
     {
