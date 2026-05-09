@@ -52,9 +52,10 @@ class OutputCacheService
      * @param \PDO $pdo Connexion PDO
      * @param array $gpioList Liste des GPIOs à récupérer
      * @param bool $skipCache Ignoré (conservé pour compatibilité API)
+     * @param bool $consumeOtaTrigger Consomme triggerOtaCheck uniquement pour les lectures firmware
      * @return array Tableau associatif [gpio => state]
      */
-    public function getOutputsState(\PDO $pdo, array $gpioList, bool $skipCache = false): array
+    public function getOutputsState(\PDO $pdo, array $gpioList, bool $skipCache = false, bool $consumeOtaTrigger = true): array
     {
         $env = TableConfig::getEnvironment();
 
@@ -108,7 +109,9 @@ class OutputCacheService
             }
         }
 
-        $this->maybeAttachAndConsumeOtaTrigger($pdo, $env, $result);
+        if ($consumeOtaTrigger) {
+            $this->maybeAttachAndConsumeOtaTrigger($pdo, $env, $result);
+        }
 
         return $result;
     }
@@ -153,7 +156,7 @@ class OutputCacheService
 
     /**
      * Enregistre une demande de vérification OTA pour l'environnement courant.
-     * Le prochain GET state (ESP32 ou page) recevra triggerOtaCheck: true une fois.
+     * Le prochain GET state firmware recevra triggerOtaCheck: true une fois.
      */
     public function setTriggerOtaCheckRequested(): void
     {

@@ -1,8 +1,8 @@
 # 🌐 Endpoints ESP32 ↔ Serveur - Configuration Complète
 
 **Version ESP32**: 11.205  
-**Version Serveur**: 5.0.74  
-**Date**: 9 Mars 2026  
+**Version Serveur**: 5.0.304
+**Date**: 9 Mai 2026
 
 ---
 
@@ -84,6 +84,8 @@ http://iot.olution.info/ffp3/api/outputs-test/state
 public/index.php (front controller Slim 4)  ← Route Slim Framework
   └─> OutputController::getOutputsState()
 ```
+
+**Declenchement OTA distant** : quand la page de controle envoie une demande "Verifier OTA", le serveur ajoute `triggerOtaCheck: true` une seule fois dans la reponse du GET firmware. Les polls web de l'interface utilisent `?fresh=1` et restent en lecture seule pour ce flag, afin de ne pas consommer la commande avant le prochain poll de l'ESP32.
 
 ---
 
