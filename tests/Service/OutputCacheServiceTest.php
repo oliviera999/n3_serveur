@@ -103,4 +103,18 @@ class OutputCacheServiceTest extends TestCase
         $second = $this->service->getOutputsState($this->pdo, [16]);
         $this->assertArrayNotHasKey('triggerOtaCheck', $second);
     }
+
+    public function testReadOnlyStateDoesNotConsumeOtaTrigger(): void
+    {
+        $this->service->setTriggerOtaCheckRequested();
+
+        $readOnly = $this->service->getOutputsState($this->pdo, [16], true, false);
+        $this->assertArrayNotHasKey('triggerOtaCheck', $readOnly);
+
+        $firmwarePoll = $this->service->getOutputsState($this->pdo, [16]);
+        $this->assertTrue($firmwarePoll['triggerOtaCheck'] ?? false);
+
+        $afterConsume = $this->service->getOutputsState($this->pdo, [16]);
+        $this->assertArrayNotHasKey('triggerOtaCheck', $afterConsume);
+    }
 }
