@@ -268,7 +268,7 @@ Fichier: /path/to/ffp3/public/index.php
 Route: Slim Framework → OutputController::getOutputsState()
 Méthode: GET
 
-Réponse JSON : clés numériques (GPIO) + clés symboliques (alignées `gpio_mapping.h` / VARIABLE_NAMING.md). L’ESP32 accepte les deux formats. Champs additionnels pour la page de contrôle : `dataStates`, `dataStatesReadingTime`, `triggerOtaCheck` (une fois) — l’ESP32 n’utilise que les clés GPIO et `triggerOtaCheck`. Depuis **serveur 5.0.300**, `triggerOtaCheck` est posé puis consommé via la table **`ffp3OtaTrigger`** (fiable sous PHP-FPM multi-workers) ; voir `migrations/CREATE_FFP3_OTA_TRIGGER_TABLE.sql`.
+Réponse JSON : clés numériques (GPIO) + clés symboliques (alignées `gpio_mapping.h` / VARIABLE_NAMING.md). L’ESP32 accepte les deux formats. Champs additionnels pour la page de contrôle : `dataStates`, `dataStatesReadingTime`, `triggerOtaCheck` (une fois) — l’ESP32 n’utilise que les clés GPIO et `triggerOtaCheck`. Depuis **serveur 5.0.300**, `triggerOtaCheck` est posé puis consommé via la table **`ffp3OtaTrigger`** (fiable sous PHP-FPM multi-workers) ; depuis **serveur 5.0.304**, les lectures web `?fresh=1` ne consomment pas ce trigger pour le réserver au poll firmware ; voir `migrations/CREATE_FFP3_OTA_TRIGGER_TABLE.sql`.
 
 Exemple (extrait) :
 ```json

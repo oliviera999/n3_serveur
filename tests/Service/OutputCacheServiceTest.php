@@ -103,4 +103,24 @@ class OutputCacheServiceTest extends TestCase
         $second = $this->service->getOutputsState($this->pdo, [16]);
         $this->assertArrayNotHasKey('triggerOtaCheck', $second);
     }
+
+    public function testNonConsumingReadKeepsOtaTriggerForFirmware(): void
+    {
+        $this->service->setTriggerOtaCheckRequested();
+
+        $controlPageRead = $this->service->getOutputsState($this->pdo, [16], true, false);
+        $this->assertArrayNotHasKey('triggerOtaCheck', $controlPageRead);
+
+        $firmwareRead = $this->service->getOutputsState($this->pdo, [16]);
+        $this->assertTrue($firmwareRead['triggerOtaCheck'] ?? false);
+    }
+
+    public function testTriggerOtaCheckFailsWhenPersistenceTableIsMissing(): void
+    {
+        $pdo = new PDO('sqlite::memory:');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $service = new OutputCacheService($pdo);
+
+        $this->assertFalse($service->setTriggerOtaCheckRequested());
+    }
 }

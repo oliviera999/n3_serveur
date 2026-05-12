@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.304] - 2026-05-12
+
+### Correctif - FFP3 : trigger OTA réservé au poll firmware
+- **Résumé** : les lectures `GET /api/outputs(-*)/state?fresh=1` de la page de contrôle n'attachent plus et ne consomment plus `triggerOtaCheck`, évitant qu'un polling navigateur vide la demande avant l'ESP32. Le POST « Vérifier OTA » renvoie maintenant une erreur explicite si la table `ffp3OtaTrigger` manque, et le schéma Docker local crée cette table.
+
+---
+
 ## [5.0.303] - 2026-04-14
 
 ### Correctif - N3PP (serre) : tendance humidité sol en entiers

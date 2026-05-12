@@ -210,14 +210,14 @@ class OutputController
             117, // forçage serveur pompe aquarium (page contrôle + sync JSON)
         ];
 
-        // Page de contrôle : ?fresh=1 pour ignorer le cache et afficher les vraies valeurs BDD
+        // Page de contrôle : ?fresh=1 pour afficher les vraies valeurs BDD sans consommer le trigger OTA firmware
         $queryParams = $request->getQueryParams();
         $skipCache = isset($queryParams['fresh']) && (string) $queryParams['fresh'] === '1';
 
         $this->outputService->ensureAquariumPumpForceOutputRow();
 
         $pdo = Database::getConnection();
-        $result = $this->outputCache->getOutputsState($pdo, $gpioList, $skipCache);
+        $result = $this->outputCache->getOutputsState($pdo, $gpioList, $skipCache, !$skipCache);
 
         // Témoins "dernier état Data" pour la page de contrôle (ESP32 ignore ces clés)
         $lastData = $this->outputService->getLastDataStates();
@@ -278,7 +278,14 @@ class OutputController
      */
     public function triggerOtaCheck(Request $request, Response $response): Response
     {
-        $this->outputCache->setTriggerOtaCheckRequested();
+        if (!$this->outputCache->setTriggerOtaCheckRequested()) {
+            return ResponseHelper::error(
+                $response,
+                'Configuration OTA serveur incomplète: table ffp3OtaTrigger absente',
+                500
+            );
+        }
+
         return ResponseHelper::json($response, [
             'ok' => true,
             'message' => "Demande envoyée. L'ESP32 vérifiera la mise à jour au prochain cycle.",
