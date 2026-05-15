@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.305] - 2026-05-15
+
+### Correctif - FFP3 : création automatique de la table trigger OTA
+- **Résumé** : si la table `ffp3OtaTrigger` n'a pas encore été créée après un déploiement automatique, le bouton « Vérifier OTA » crée désormais la table puis persiste la demande avant de répondre. Cela évite un succès apparent sans signal OTA transmis à l'ESP32.
+
+---
+
 ## [5.0.304] - 2026-05-09
 
 ### Correctif - FFP3 : declencheur OTA non consommé par le polling web
