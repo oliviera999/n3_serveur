@@ -16,7 +16,6 @@ use App\Security\SignatureValidator;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Throwable;
 
 /**
  * Reception des donnees POST du firmware ffp5cs (aquaponie).
@@ -24,6 +23,9 @@ use Throwable;
  */
 class PostDataController extends AbstractPostDataController
 {
+    /** POST minimal ack_command (firmware) — pas d'INSERT ligne capteur. */
+    private bool $ackOnlyPost = false;
+
     public function __construct(
         LogService $logger,
         private ErrorAlertService $errorAlert,
@@ -85,10 +87,11 @@ class PostDataController extends AbstractPostDataController
     }
 
     /**
-     * Override handle pour conserver le diagnostic latence et la déduplication.
+     * Override handle pour conserver le diagnostic latence (dédup post_id après auth : afterValidatedParams).
      */
     public function handle(Request $request, Response $response): Response
     {
+        $this->ackOnlyPost = false;
         set_time_limit(30);  // Marge vs timeout client 18 s — évite kill PHP si traitement BDD lent
         $tReceived = microtime(true);
         $sec = (int) $tReceived;
@@ -98,18 +101,20 @@ class PostDataController extends AbstractPostDataController
             ['at' => date('Y-m-d H:i:s', $sec) . '.' . sprintf('%06d', $us), 'ts' => round($tReceived, 3)]
         );
 
-        // Déduplication par post_id avant le flux commun
-        $params = $request->getParsedBody();
-        if (is_array($params)) {
-            $postId = isset($params['post_id']) && is_scalar($params['post_id'])
-                ? substr(trim((string) $params['post_id']), 0, 64) : null;
-            if ($postId !== null && $postId !== '' && $this->sensorRepo->existsByPostId($postId)) {
-                $this->logger->info('PostData duplicate skipped post_id={pid}', ['pid' => $postId]);
-                return ResponseHelper::textClose($response, 'Donnees deja enregistrees', 200);
-            }
+        return parent::handle($request, $response);
+    }
+
+    protected function afterValidatedParams(Request $request, Response $response, array $params): ?Response
+    {
+        $postId = isset($params['post_id']) && is_scalar($params['post_id'])
+            ? substr(trim((string) $params['post_id']), 0, 64) : null;
+        if ($postId !== null && $postId !== '' && $this->sensorRepo->existsByPostId($postId)) {
+            $this->logger->info('PostData duplicate skipped post_id={pid}', ['pid' => $postId]);
+
+            return ResponseHelper::textClose($response, 'Donnees deja enregistrees', 200);
         }
 
-        return parent::handle($request, $response);
+        return null;
     }
 
     protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object
@@ -122,6 +127,9 @@ class PostDataController extends AbstractPostDataController
 
         $postId = $sanitize('post_id');
         $postId = $postId !== null ? substr($postId, 0, 64) : null;
+
+        $this->ackOnlyPost = isset($params['ack_command']) && is_scalar($params['ack_command'])
+            && trim((string) $params['ack_command']) !== '';
 
         return new SensorData(
             sensor: substr($sanitize('sensor') ?? '', 0, 30),
@@ -156,12 +164,20 @@ class PostDataController extends AbstractPostDataController
             wakeUp: $toInt('WakeUp'),
             freqWakeUp: $toInt('FreqWakeUp'),
             configSynced: $toInt('configSynced'),
+            pression: $toFloat('Pression'),
             postId: $postId
         );
     }
 
     protected function insertData(object $data): void
     {
+        if ($this->ackOnlyPost) {
+            $this->boardRepo->updateLastRequest(TableConfig::getPostDataBoardId());
+            $this->logger->info('PostData: ACK-only enregistre (pas INSERT capteur)');
+
+            return;
+        }
+
         $t0 = microtime(true);
         $this->sensorRepo->insert($data);
         $t1 = microtime(true);

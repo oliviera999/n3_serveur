@@ -47,6 +47,7 @@ class SensorData
      * @param ?int    $configSynced     v11.168: Flag indiquant si l'ESP a synchronisé sa config (1=oui, 0=non)
      *                                  Si 0, le serveur doit IGNORER les variables de config (GPIO 100-116)
      *                                  pour éviter l'écrasement par des valeurs par défaut
+     * @param ?float  $pression        Pression atmosphérique (hPa) si envoyée par le firmware
      */
     public function __construct(
         public ?string $sensor,
@@ -81,6 +82,7 @@ class SensorData
         public ?int    $wakeUp = null,
         public ?int    $freqWakeUp = null,
         public ?int    $configSynced = null,
+        public ?float $pression = null,
         public ?string $postId = null
     ) {
     }

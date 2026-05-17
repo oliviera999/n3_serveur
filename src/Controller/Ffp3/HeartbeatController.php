@@ -116,7 +116,7 @@ class HeartbeatController
                 'reboots' => $reboots
             ]);
 
-            return ResponseHelper::text($response, 'OK', 200);
+            return ResponseHelper::textClose($response, 'OK', 200);
 
         } catch (\Throwable $e) {
             $errorMessage = 'Heartbeat: Erreur insertion';

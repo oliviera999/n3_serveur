@@ -11,6 +11,17 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.305] - 2026-05-17
+
+### FFP3 post-data (ffp5cs) — cohérence contrat & persistance
+- **INSERT** : écriture des champs optionnels (durées, `WakeUp`, `Pression`, `configSynced`, etc.) si la colonne existe en base.
+- **ACK** : requêtes `ack_command` sans INSERT ligne capteur (mise à jour `Boards` uniquement).
+- **Déduplication** `post_id` : exécutée après authentification.
+- **Heartbeat** : réponse succès via `textClose` (comme post-data).
+- **Schéma Docker** : colonnes alignées sur le contrat firmware (voir `docker/mysql/init/00-schema.sql`).
+
+---
+
 ## [5.0.304] - 2026-05-09
 
 ### Correctif - FFP3 : declencheur OTA non consommé par le polling web

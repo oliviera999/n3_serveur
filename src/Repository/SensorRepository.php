@@ -37,13 +37,6 @@ class SensorRepository extends AbstractRepository
             :bouffeMatin, :bouffeMidi, :bouffePetits, :bouffeGros,
             :aqThreshold, :tankThreshold, :chauffageThreshold, :mail, :mailNotif, :resetMode, :bouffeSoir';
 
-        if ($hasPostId) {
-            $columns .= ', post_id';
-            $placeholders .= ', :postId';
-        }
-
-        $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})";
-
         $params = [
             ':sensor' => $data->sensor,
             ':version' => $data->version,
@@ -72,9 +65,34 @@ class SensorRepository extends AbstractRepository
             ':bouffeSoir' => $data->bouffeSoir,
         ];
 
+        /** @var array<string, array{0: string, 1: mixed}> Colonne SQL => [placeholder PDO, valeur] */
+        $optionalCols = [
+            'tempsGros' => [':tempsGros', $data->tempsGros],
+            'tempsPetits' => [':tempsPetits', $data->tempsPetits],
+            'tempsRemplissageSec' => [':tempsRemplissageSec', $data->tempsRemplissageSec],
+            'limFlood' => [':limFlood', $data->limFlood],
+            'WakeUp' => [':wakeUp', $data->wakeUp],
+            'FreqWakeUp' => [':freqWakeUp', $data->freqWakeUp],
+            'configSynced' => [':configSynced', $data->configSynced],
+            'Pression' => [':pression', $data->pression],
+        ];
+
+        foreach ($optionalCols as $colName => [$ph, $value]) {
+            if (!$this->columnExists($table, $colName)) {
+                continue;
+            }
+            $columns .= ', ' . $colName;
+            $placeholders .= ', ' . $ph;
+            $params[$ph] = $value;
+        }
+
         if ($hasPostId) {
+            $columns .= ', post_id';
+            $placeholders .= ', :postId';
             $params[':postId'] = $data->postId;
         }
+
+        $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})";
 
         $this->execute($sql, $params);
     }

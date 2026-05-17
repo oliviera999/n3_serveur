@@ -38,6 +38,14 @@ abstract class AbstractPostDataController
     abstract protected function insertData(object $data): void;
 
     /**
+     * Hook après validation corps + auth + champs obligatoires (ex. dédup post_id côté FFP3).
+     */
+    protected function afterValidatedParams(Request $request, Response $response, array $params): ?Response
+    {
+        return null;
+    }
+
+    /**
      * Validation d'authentification. Par défaut : clé API legacy.
      * FFP3 surcharge avec HMAC + fallback.
      *
@@ -105,6 +113,11 @@ abstract class AbstractPostDataController
                 'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
             ]);
             return ResponseHelper::text($response, 'Champs sensor et version requis', 400);
+        }
+
+        $hookResp = $this->afterValidatedParams($request, $response, $params);
+        if ($hookResp !== null) {
+            return $hookResp;
         }
 
         $sanitize = fn(string $key): ?string =>

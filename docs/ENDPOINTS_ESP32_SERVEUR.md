@@ -256,9 +256,9 @@ api_key=<valeur .env>
 
 ```
 Actions serveur:
-1. INSERT INTO ffp3Data2 (sans tempsGros/tempsPetits/tempsRemplissageSec/limFlood/WakeUp/FreqWakeUp)
-2. UPDATE ffp3Outputs2 (17 GPIO) ← CRITIQUE pour chauffage
-Note: les durées/limites/wake-up sont stockées uniquement dans ffp3Outputs2.
+1. INSERT INTO `ffp3Data*` — colonnes de durées/config/WakeUp/`Pression`/`configSynced` si la colonne existe en BDD (sinon ignorées).
+2. UPDATE `ffp3Outputs*` (GPIO) ← synchro état / seuils (dont durées si `configSynced`).
+3. POST **ACK-only** (`ack_command` / `ack_status`) : pas d’INSERT mesure ; heartbeat board uniquement.
 ```
 
 ### Serveur → ESP32 (GET)
