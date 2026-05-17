@@ -8,6 +8,7 @@ use App\Config\Paths;
 use App\Config\TableConfig;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
+use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use PDO;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -41,10 +42,7 @@ class HeartbeatController
             return ResponseHelper::text($response, 'Méthode non autorisée', 405);
         }
 
-        $params = $request->getParsedBody();
-        if (!is_array($params)) {
-            $params = [];
-        }
+        $params = RequestHelper::extractParams($request);
 
         // Valeur scalar ou chaîne vide (évite erreur si POST malformé avec tableaux)
         $get = static fn(string $k): string => isset($params[$k]) && is_scalar($params[$k])

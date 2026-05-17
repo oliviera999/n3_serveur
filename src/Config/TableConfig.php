@@ -15,16 +15,19 @@ class TableConfig
 {
     private const ENVIRONMENTS = ['prod', 'test', 'test3', 's3', 's3test', 'n3pp_test', 'msp_test'];
 
+    /** Environnement issu du .env (valeur par défaut, non mutée par les routes). */
+    private static ?string $defaultEnvironment = null;
+
+    /** Surcharge par requête (EnvironmentMiddleware), réinitialisée à chaque requête HTTP. */
+    private static ?string $requestEnvironment = null;
+
     /**
      * Détermine si on est en environnement de test (test, test3 ou s3test)
      * s3 est du prod, donc isTest() retourne false pour s3
      */
     public static function isTest(): bool
     {
-        if (!isset($_ENV['ENV'])) {
-            Env::load();
-        }
-        $env = $_ENV['ENV'] ?? 'prod';
+        $env = self::getEnvironment();
         return in_array($env, ['test', 'test3', 's3test', 'n3pp_test', 'msp_test'], true);
     }
 
@@ -33,10 +36,30 @@ class TableConfig
      */
     public static function getEnvironment(): string
     {
-        if (!isset($_ENV['ENV'])) {
-            Env::load();
+        if (self::$requestEnvironment !== null) {
+            return self::$requestEnvironment;
         }
-        return $_ENV['ENV'] ?? 'prod';
+        return self::getDefaultEnvironment();
+    }
+
+    /**
+     * Environnement par défaut lu une fois depuis .env (sans mutation $_ENV entre requêtes).
+     */
+    public static function getDefaultEnvironment(): string
+    {
+        if (self::$defaultEnvironment === null) {
+            Env::load();
+            self::$defaultEnvironment = $_ENV['ENV'] ?? 'prod';
+        }
+        return self::$defaultEnvironment;
+    }
+
+    /**
+     * Réinitialise la surcharge de requête (début de chaque requête HTTP).
+     */
+    public static function resetRequestEnvironment(): void
+    {
+        self::$requestEnvironment = null;
     }
 
     /**
@@ -139,7 +162,8 @@ class TableConfig
     }
 
     /**
-     * Force un environnement spécifique (utile pour les routes)
+     * Force un environnement pour la requête en cours (routes multi-env).
+     * Ne modifie plus $_ENV pour éviter les fuites entre requêtes PHP-FPM.
      */
     public static function setEnvironment(string $env): void
     {
@@ -148,6 +172,6 @@ class TableConfig
                 "Environment must be one of: " . implode(', ', self::ENVIRONMENTS) . ", got: {$env}"
             );
         }
-        $_ENV['ENV'] = $env;
+        self::$requestEnvironment = $env;
     }
 }

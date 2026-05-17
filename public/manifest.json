@@ -1,13 +1,13 @@
 {
-  "name": "FFP3 Aquaponie IoT - Supervision Système",
-  "short_name": "FFP3 Aqua",
-  "description": "Supervision en temps réel du système d'aquaponie FFP3 avec ESP32",
-  "start_url": "/ffp3/",
+  "name": "n3 IoT Datas - Supervision",
+  "short_name": "n3 IoT",
+  "description": "Supervision en temps réel des projets IoT n3 (aquaponie, potager, serre)",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#008B74",
   "theme_color": "#008B74",
   "orientation": "any",
-  "scope": "/ffp3/",
+  "scope": "/",
   "icons": [
     {
       "src": "assets/icons/icon-72.png",
@@ -64,26 +64,25 @@
   "prefer_related_applications": false,
   "shortcuts": [
     {
-      "name": "Dashboard",
-      "short_name": "Dashboard",
-      "description": "Accès rapide au tableau de bord",
-      "url": "/ffp3/dashboard",
+      "name": "Accueil",
+      "short_name": "Accueil",
+      "description": "Portail n3 IoT Datas",
+      "url": "/",
       "icons": [{ "src": "assets/icons/icon-96.png", "sizes": "96x96" }]
     },
     {
       "name": "Aquaponie",
       "short_name": "Aquaponie",
-      "description": "Graphiques détaillés aquaponie",
-      "url": "/ffp3/aquaponie",
+      "description": "Données aquaponie",
+      "url": "/aquaponie",
       "icons": [{ "src": "assets/icons/icon-96.png", "sizes": "96x96" }]
     },
     {
-      "name": "Contrôle",
-      "short_name": "Contrôle",
-      "description": "Contrôle des équipements",
-      "url": "/ffp3/aquaponie-control",
+      "name": "Potager",
+      "short_name": "Potager",
+      "description": "Station météo",
+      "url": "/meteo",
       "icons": [{ "src": "assets/icons/icon-96.png", "sizes": "96x96" }]
     }
   ]
 }
-

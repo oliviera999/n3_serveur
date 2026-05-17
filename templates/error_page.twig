@@ -1,0 +1,19 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ page_title|default('Erreur') }}{% endblock %}
+
+{% block content %}
+<article class="post featured">
+    <header class="major">
+        <h2>{{ heading|default('Une erreur est survenue') }}</h2>
+        <p>{{ message|default('Veuillez réessayer plus tard ou revenir à l\'accueil.') }}</p>
+    </header>
+    {% if reference is defined and reference %}
+    <p class="error-reference"><strong>Référence :</strong> {{ reference }}</p>
+    {% endif %}
+    <p><a href="{{ base_path|default('') }}/" class="button primary">Retour à l'accueil</a></p>
+</article>
+{% endblock %}
+
+{% block scripts_vendor %}{% endblock %}
+{% block scripts %}{% endblock %}

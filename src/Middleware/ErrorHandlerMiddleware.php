@@ -6,6 +6,7 @@ namespace App\Middleware;
 
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
+use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
@@ -23,7 +24,8 @@ class ErrorHandlerMiddleware implements MiddlewareInterface
 {
     public function __construct(
         private LogService $logger,
-        private ErrorAlertService $errorAlert
+        private ErrorAlertService $errorAlert,
+        private ?TemplateRenderer $renderer = null,
     ) {
     }
 
@@ -38,9 +40,7 @@ class ErrorHandlerMiddleware implements MiddlewareInterface
             error_log($line);
             $this->logger->info($line);
 
-            $response = new \Slim\Psr7\Response();
-            $response->getBody()->write('Not found.');
-            return $response->withStatus(404)->withHeader('Content-Type', 'text/plain; charset=utf-8');
+            return $this->renderErrorPage(404, 'Page introuvable', 'La page demandée n\'existe pas ou a été déplacée.');
         } catch (Throwable $e) {
             $errorId = substr(bin2hex(random_bytes(8)), 0, 12);
             $uri = (string) $request->getUri();
@@ -84,15 +84,46 @@ class ErrorHandlerMiddleware implements MiddlewareInterface
             ));
             error_log(sprintf('[%s] [n3 500] [%s] Trace: %s', $ts, $errorId, $e->getTraceAsString()));
 
-            // Créer une réponse d'erreur (avec ID pour corrélation dans les logs)
-            $response = new \Slim\Psr7\Response();
-            $body = "Une erreur serveur est survenue. Veuillez réessayer ultérieurement.\n\n";
-            $body .= "Référence : " . $errorId . " (à indiquer en cas de signalement.)";
-            $response->getBody()->write($body);
-
-            return $response->withStatus(500)
-                           ->withHeader('Content-Type', 'text/plain; charset=utf-8');
+            return $this->renderErrorPage(
+                500,
+                'Erreur serveur',
+                'Une erreur serveur est survenue. Veuillez réessayer ultérieurement.',
+                $errorId
+            );
         }
+    }
+
+    private function renderErrorPage(int $status, string $heading, string $message, ?string $reference = null): Response
+    {
+        if ($this->renderer !== null) {
+            try {
+                $html = $this->renderer->render('error_page.twig', [
+                    'page_title' => $heading . ' - n3 iot',
+                    'heading' => $heading,
+                    'message' => $message,
+                    'reference' => $reference,
+                    'nav_active' => 'home',
+                    'environment' => \App\Config\TableConfig::getDefaultEnvironment(),
+                    'load_enhancement_scripts' => false,
+                    'load_realtime_styles' => false,
+                ]);
+                $response = new \Slim\Psr7\Response();
+                $response->getBody()->write($html);
+
+                return $response->withStatus($status)->withHeader('Content-Type', 'text/html; charset=utf-8');
+            } catch (\Throwable) {
+                // Fallback texte si le template échoue
+            }
+        }
+
+        $response = new \Slim\Psr7\Response();
+        $body = $heading . "\n\n" . $message;
+        if ($reference !== null) {
+            $body .= "\n\nRéférence : " . $reference;
+        }
+        $response->getBody()->write($body);
+
+        return $response->withStatus($status)->withHeader('Content-Type', 'text/plain; charset=utf-8');
     }
 }
 

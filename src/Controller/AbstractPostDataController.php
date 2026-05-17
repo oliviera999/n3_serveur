@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Service\LogService;
+use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -16,6 +17,9 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 abstract class AbstractPostDataController
 {
+    /** True si l'authentification HMAC FFP3 a réussi (évite le double contrôle api_key). */
+    protected bool $authenticatedByHmac = false;
+
     public function __construct(
         protected LogService $logger
     ) {}
@@ -57,10 +61,19 @@ abstract class AbstractPostDataController
     }
 
     /**
+     * Si false après validateAuth, la clé API legacy n'est pas exigée (ex. HMAC FFP3 valide).
+     */
+    protected function requiresApiKey(): bool
+    {
+        return !$this->authenticatedByHmac;
+    }
+
+    /**
      * Flux principal : validation, sanitisation, construction DTO, insertion.
      */
     public function handle(Request $request, Response $response): Response
     {
+        $this->authenticatedByHmac = false;
         $component = $this->componentName();
 
         if ($request->getMethod() !== 'POST') {
@@ -71,8 +84,8 @@ abstract class AbstractPostDataController
             return ResponseHelper::text($response, 'POST requis', 405);
         }
 
-        $params = $request->getParsedBody();
-        if (!is_array($params) || $params === []) {
+        $params = RequestHelper::extractParams($request);
+        if ($params === []) {
             $this->logger->warning("{$component}: rejet corps vide code=400", [
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
             ]);
@@ -85,22 +98,24 @@ abstract class AbstractPostDataController
             return $authError;
         }
 
-        $apiKey = isset($params['api_key']) ? trim((string) $params['api_key']) : '';
-        $expectedKey = $_ENV['API_KEY'] ?? '';
-        if ($expectedKey === '') {
-            $this->logger->error("{$component}: rejet auth API_KEY non configuree code=500", [
-                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
-            ]);
-            return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
-        }
-        if ($apiKey !== $expectedKey) {
-            $this->logger->warning("{$component}: rejet auth api_key code=401", [
-                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
-                'sensor' => trim((string) ($params['sensor'] ?? '')),
-                'version' => trim((string) ($params['version'] ?? '')),
-                'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
-            ]);
-            return ResponseHelper::text($response, 'Cle API invalide', 401);
+        if ($this->requiresApiKey()) {
+            $apiKey = isset($params['api_key']) ? trim((string) $params['api_key']) : '';
+            $expectedKey = $_ENV['API_KEY'] ?? '';
+            if ($expectedKey === '') {
+                $this->logger->error("{$component}: rejet auth API_KEY non configuree code=500", [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                ]);
+                return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
+            }
+            if (!hash_equals($expectedKey, $apiKey)) {
+                $this->logger->warning("{$component}: rejet auth api_key code=401", [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                    'sensor' => trim((string) ($params['sensor'] ?? '')),
+                    'version' => trim((string) ($params['version'] ?? '')),
+                    'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
+                ]);
+                return ResponseHelper::text($response, 'Cle API invalide', 401);
+            }
         }
 
         $sensor = trim((string) ($params['sensor'] ?? ''));

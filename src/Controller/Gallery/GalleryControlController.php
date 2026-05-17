@@ -7,6 +7,7 @@ namespace App\Controller\Gallery;
 use App\Config\Version;
 use App\Repository\GalleryControlRepository;
 use App\Security\AuthService;
+use App\Security\DeviceApiKeyValidator;
 use App\Service\LogService;
 use App\Service\TemplateRenderer;
 use App\Util\RequestHelper;
@@ -127,6 +128,11 @@ class GalleryControlController
             return ResponseHelper::json($response, ['error' => 'Galerie inconnue'], 404);
         }
 
+        $deviceAuthError = $this->requireDeviceApiKey($request, $response);
+        if ($deviceAuthError !== null) {
+            return $deviceAuthError;
+        }
+
         $queryParams = $request->getQueryParams();
         $action = (string) ($queryParams['action'] ?? '');
         if ($action !== '' && $action !== 'outputs_state') {
@@ -214,6 +220,11 @@ class GalleryControlController
             return ResponseHelper::json($response, ['error' => 'Galerie inconnue'], 404);
         }
 
+        $deviceAuthError = $this->requireDeviceApiKey($request, $response);
+        if ($deviceAuthError !== null) {
+            return $deviceAuthError;
+        }
+
         $params = RequestHelper::extractParams($request);
         $version = trim((string) ($params['version'] ?? ($params['firmware_version'] ?? '')));
         if ($version === '') {
@@ -246,6 +257,24 @@ class GalleryControlController
         }
 
         return ResponseHelper::json($response, ['error' => 'Authentification requise'], 401);
+    }
+
+    /**
+     * Auth firmware (poll état / version) : X-Api-Key ou api_key en query/body.
+     */
+    private function requireDeviceApiKey(Request $request, Response $response): ?Response
+    {
+        $params = array_merge($request->getQueryParams(), RequestHelper::extractParams($request));
+        if (DeviceApiKeyValidator::isValidRequest($request, $params)) {
+            return null;
+        }
+
+        $this->logger->warning('GalleryControl: rejet auth device api_key', [
+            'path' => $request->getUri()->getPath(),
+            'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+        ]);
+
+        return ResponseHelper::json($response, ['error' => 'Cle API invalide'], 401);
     }
 
     /**

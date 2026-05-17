@@ -33,10 +33,11 @@
     {% if load_highcharts_theme %}
     <script src="{{ base_path|default('') }}/assets/js/highcharts-theme.js"></script>
     {% endif %}
+    <script src="{{ base_path|default('') }}/assets/js/jquery.min.js"></script>
     {% block head_scripts %}{% endblock %}
     {% block styles %}{% endblock %}
 </head>
-{% block body_tag %}<body class="is-preload">{% endblock %}
+{% block body_tag %}<body class="is-preload" data-base-path="{{ base_path|default('') }}">{% endblock %}
     <a href="#main" class="skip-to-content">Aller au contenu</a>
     {% if load_enhancement_scripts %}
     <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
@@ -57,7 +58,6 @@
     </div>
 
     {% block scripts_vendor %}
-    <script src="{{ base_path|default('') }}/assets/js/jquery.min.js"></script>
     <script src="{{ base_path|default('') }}/assets/js/jquery.scrollex.min.js"></script>
     <script src="{{ base_path|default('') }}/assets/js/jquery.scrolly.min.js"></script>
     <script src="{{ base_path|default('') }}/assets/js/browser.min.js"></script>

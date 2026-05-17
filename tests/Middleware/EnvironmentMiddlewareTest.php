@@ -36,31 +36,35 @@ class EnvironmentMiddlewareTest extends TestCase
         new EnvironmentMiddleware('invalid');
     }
 
+    protected function tearDown(): void
+    {
+        TableConfig::resetRequestEnvironment();
+        parent::tearDown();
+    }
+
     public function testProcessSetsEnvironment(): void
     {
-        // Reset l'environnement à prod
-        TableConfig::setEnvironment('prod');
-        $this->assertEquals('prod', TableConfig::getEnvironment());
+        TableConfig::resetRequestEnvironment();
+        $default = TableConfig::getDefaultEnvironment();
 
-        // Créer le middleware pour TEST
         $middleware = new EnvironmentMiddleware('test');
 
-        // Créer des mocks
         $request = $this->createMock(ServerRequestInterface::class);
         $response = $this->createMock(ResponseInterface::class);
         $handler = $this->createMock(RequestHandlerInterface::class);
-        
+
         $handler->expects($this->once())
             ->method('handle')
             ->with($request)
             ->willReturn($response);
 
-        // Exécuter le middleware
         $result = $middleware->process($request, $handler);
 
-        // Vérifier que l'environnement a été changé
         $this->assertEquals('test', TableConfig::getEnvironment());
         $this->assertSame($response, $result);
+
+        TableConfig::resetRequestEnvironment();
+        $this->assertEquals($default, TableConfig::getEnvironment());
     }
 }
 

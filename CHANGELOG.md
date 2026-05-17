@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.0.306] - 2026-05-17
+
+### Audit serveur API + UI — sécurité, cohérence, robustesse
+- **ENV par requête** : `TableConfig` n’écrit plus `$_ENV['ENV']` ; surcharge scoped + `RequestEnvironmentMiddleware` (fin des fuites inter-requêtes PHP-FPM).
+- **Auth device** : `DeviceApiKeyValidator` unifié (header `X-Api-Key` ou `api_key`) pour galeries upload, état outputs et version firmware.
+- **FFP3 post-data** : HMAC valide = plus d’`api_key` obligatoire ; extraction JSON/form via `RequestHelper`.
+- **Admin** : cookie `admin_token` HttpOnly/Secure/SameSite ; token URL non persisté en cookie.
+- **UI** : manifest/PWA racine `/`, jQuery unique (local), pages d’erreur HTML, OTA en streaming.
+- **Tests** : `TableConfigEnvironmentTest`, `DeviceApiKeyValidatorTest`, `AbstractPostDataAuthTest`.
+
+---
+
 ## [5.0.305] - 2026-05-17
 
 ### FFP3 post-data (ffp5cs) — cohérence contrat & persistance

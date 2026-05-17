@@ -79,9 +79,12 @@ class PostDataController extends AbstractPostDataController
                 ]);
                 return ResponseHelper::text($response, 'Signature incorrecte', 401);
             }
-        } else {
-            $this->logger->info('Aucune signature fournie – fallback API_KEY');
+            $this->authenticatedByHmac = true;
+
+            return null;
         }
+
+        $this->logger->info('Aucune signature fournie – authentification api_key requise');
 
         return null;
     }

@@ -326,7 +326,8 @@ return [
     \App\Middleware\ErrorHandlerMiddleware::class => function (ContainerInterface $c) {
         return new \App\Middleware\ErrorHandlerMiddleware(
             $c->get(\App\Service\LogService::class),
-            $c->get(\App\Service\ErrorAlertService::class)
+            $c->get(\App\Service\ErrorAlertService::class),
+            $c->get(\App\Service\TemplateRenderer::class)
         );
     },
 

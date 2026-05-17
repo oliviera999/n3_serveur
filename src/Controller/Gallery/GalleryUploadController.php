@@ -6,6 +6,7 @@ namespace App\Controller\Gallery;
 
 use App\Config\GalleryConfig;
 use App\Config\Paths;
+use App\Security\DeviceApiKeyValidator;
 use App\Service\GalleryTrashService;
 use App\Service\LogService;
 use App\Util\ResponseHelper;
@@ -157,23 +158,11 @@ class GalleryUploadController
 
     private function isAuthorizedRequest(Request $request, string $gallery): bool
     {
-        $serverApiKey = trim((string) ($_ENV['API_KEY'] ?? ''));
-        if ($serverApiKey === '') {
-            $this->logger->error("GalleryUpload [{$gallery}]: API_KEY serveur manquante");
-            return false;
+        if (DeviceApiKeyValidator::isValidRequest($request)) {
+            return true;
         }
 
-        $providedApiKey = trim($request->getHeaderLine('X-Api-Key'));
-        if ($providedApiKey === '') {
-            $this->logger->warning("GalleryUpload [{$gallery}]: X-Api-Key absente");
-            return false;
-        }
-
-        if (!hash_equals($serverApiKey, $providedApiKey)) {
-            $this->logger->warning("GalleryUpload [{$gallery}]: X-Api-Key invalide");
-            return false;
-        }
-
-        return true;
+        $this->logger->warning("GalleryUpload [{$gallery}]: cle API device absente ou invalide");
+        return false;
     }
 }

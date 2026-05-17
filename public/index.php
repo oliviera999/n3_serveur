@@ -31,6 +31,7 @@ use App\Controller\N3pp\N3ppRealtimeApiController;
 use App\Controller\SupervisionController;
 use App\Middleware\AuthGuardMiddleware;
 use App\Middleware\EnvironmentMiddleware;
+use App\Middleware\RequestEnvironmentMiddleware;
 use App\Middleware\SecurityHeadersMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -111,6 +112,9 @@ $app->add($container->get(\App\Middleware\ErrorHandlerMiddleware::class));
 // Middleware headers de sécurité (X-Content-Type-Options, X-Frame-Options, etc.)
 // ====================================================================
 $app->add(new SecurityHeadersMiddleware());
+
+// Réinitialise l'environnement BDD au défaut .env en début de requête (évite fuites inter-requêtes)
+$app->add(new RequestEnvironmentMiddleware());
 
 // ====================================================================
 // Redirections 301 : anciens liens iot.olution.info/ffp3/* vers les nouvelles pages /*
@@ -223,7 +227,7 @@ $app->get('/aquaponie-description', [AquaponieDescriptionController::class, 'sho
 $app->get('/meteo-description', [MspDescriptionController::class, 'show']);
 $app->get('/serre-description', [N3ppDescriptionController::class, 'show']);
 
-// Handler OTA : sert les fichiers depuis serveur/ota/
+// Handler OTA : sert les fichiers depuis serveur/ota/ (streaming, sans charger tout en mémoire)
 $otaHandler = function (Request $request, Response $response, array $args): Response {
     $path = $args['path'] ?? '';
     if (strpos($path, '..') !== false || $path === '') {
@@ -234,17 +238,31 @@ $otaHandler = function (Request $request, Response $response, array $args): Resp
     if (!is_file($file)) {
         return $response->withStatus(404);
     }
-    $body = (string) file_get_contents($file);
-    $bodyLen = strlen($body);
-    $response->getBody()->write($body);
+    $fileSize = filesize($file);
+    if ($fileSize === false) {
+        return $response->withStatus(500);
+    }
     $ext = pathinfo($file, PATHINFO_EXTENSION);
-    $response = $response->withHeader('Content-Length', (string) $bodyLen);
+    $response = $response->withHeader('Content-Length', (string) $fileSize);
     if ($ext === 'json') {
-        return $response->withHeader('Content-Type', 'application/json');
+        $response = $response->withHeader('Content-Type', 'application/json');
+    } elseif ($ext === 'bin') {
+        $response = $response->withHeader('Content-Type', 'application/octet-stream');
     }
-    if ($ext === 'bin') {
-        return $response->withHeader('Content-Type', 'application/octet-stream');
+    $stream = fopen($file, 'rb');
+    if ($stream === false) {
+        return $response->withStatus(500);
     }
+    $body = $response->getBody();
+    while (!feof($stream)) {
+        $chunk = fread($stream, 65536);
+        if ($chunk === false) {
+            break;
+        }
+        $body->write($chunk);
+    }
+    fclose($stream);
+
     return $response;
 };
 

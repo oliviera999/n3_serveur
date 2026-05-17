@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Config\TableConfig;
 use App\Config\Version;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -26,6 +27,7 @@ class HomeController
             'nav_active' => 'home',
             'active_page' => 'home',
             'version' => Version::getWithPrefix(),
+            'environment' => TableConfig::getDefaultEnvironment(),
         ]);
 
         $response->getBody()->write($html);

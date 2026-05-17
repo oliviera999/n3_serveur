@@ -1,8 +1,8 @@
 # 🌐 Endpoints ESP32 ↔ Serveur - Configuration Complète
 
 **Version ESP32**: 11.205  
-**Version Serveur**: 5.0.304
-**Date**: 9 Mai 2026
+**Version Serveur**: 5.0.306
+**Date**: 17 Mai 2026
 
 ---
 
@@ -21,9 +21,9 @@ Ce document décrit les **endpoints du serveur distant** (ffp3 sur iot.olution.i
 Le firmware camera unifie (`uploadphotosserver`, envs `msp1`/`n3pp`/`ffp3`) recupere sa configuration a chaque reveil via GET, puis poste sa version firmware.
 
 - **REST unifie** :
-  - `GET /gallery/{slug}/api/outputs/state`
-  - `POST /gallery/{slug}/api/firmware/version`
-  - `GET /gallery/{slug}/control` (page web de pilotage)
+  - `GET /gallery/{slug}/api/outputs/state` — **auth device** : header `X-Api-Key` ou paramètre `api_key` (même clé que `API_KEY` serveur)
+  - `POST /gallery/{slug}/api/firmware/version` — **auth device** identique
+  - `GET /gallery/{slug}/control` (page web de pilotage, auth admin session/token)
 - **Aliases legacy `.php` (compatibilite firmware)** :
   - `msp1` (board 6, table `UploadPhoto2Outputs`) :
     - `GET /msp1gallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=6`

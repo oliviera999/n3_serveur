@@ -183,17 +183,33 @@ class AuthService
             }
         }
         
-        // Vérifier le token dans les paramètres URL
+        // Vérifier le token dans les paramètres URL (évite de le persister en cookie : fuite Referer/logs)
         if (isset($queryParams['token'])) {
-            $token = $queryParams['token'];
-            if ($this->validateToken($token)) {
-                // Définir le cookie pour les prochaines requêtes
-                setcookie(self::COOKIE_TOKEN_NAME, $token, time() + (86400 * 30), '/'); // 30 jours
+            $token = is_scalar($queryParams['token']) ? (string) $queryParams['token'] : '';
+            if ($token !== '' && $this->validateToken($token)) {
                 return true;
             }
         }
         
         return false;
+    }
+
+    /**
+     * Pose le cookie admin_token après login explicite (session établie).
+     */
+    public function setAdminTokenCookie(string $token): void
+    {
+        if (!$this->validateToken($token)) {
+            return;
+        }
+        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        setcookie(self::COOKIE_TOKEN_NAME, $token, [
+            'expires' => time() + (86400 * 30),
+            'path' => '/',
+            'secure' => $secure,
+            'httponly' => true,
+            'samesite' => 'Lax',
+        ]);
     }
 
     /**
