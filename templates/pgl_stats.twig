@@ -1,0 +1,59 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Poissonglouton - Statistiques cachées{% endblock %}
+
+{% block content %}
+<article class="post featured">
+    <header class="major">
+        <h1><i class="fas fa-fish"></i> Poissonglouton</h1>
+        <p>Statistiques d'absorption des bouteilles (page non indexée)</p>
+    </header>
+
+    <div class="context-badges">
+        <span class="context-badge"><i class="fas fa-recycle"></i> Total: <strong>{{ total_count }}</strong></span>
+        <span class="context-badge"><i class="fas fa-globe"></i> Env: <strong>{{ environment }}</strong></span>
+    </div>
+
+    <section>
+        <h3>Dernières 72h (agrégation horaire)</h3>
+        <div class="modern-table">
+            <table>
+                <thead>
+                    <tr><th>Heure</th><th>Compteur</th></tr>
+                </thead>
+                <tbody>
+                {% for row in hourly_stats %}
+                    <tr>
+                        <td>{{ row.bucket }}</td>
+                        <td>{{ row.total }}</td>
+                    </tr>
+                {% else %}
+                    <tr><td colspan="2">Aucune donnée</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h3>60 derniers jours</h3>
+        <div class="modern-table">
+            <table>
+                <thead>
+                    <tr><th>Jour</th><th>Compteur</th></tr>
+                </thead>
+                <tbody>
+                {% for row in daily_stats %}
+                    <tr>
+                        <td>{{ row.bucket }}</td>
+                        <td>{{ row.total }}</td>
+                    </tr>
+                {% else %}
+                    <tr><td colspan="2">Aucune donnée</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</article>
+{% endblock %}

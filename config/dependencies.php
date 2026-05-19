@@ -10,6 +10,7 @@ use App\Repository\MspSensorRepository;
 use App\Repository\N3ppOutputRepository;
 use App\Repository\N3ppSensorRepository;
 use App\Repository\OutputRepository;
+use App\Repository\PglRepository;
 use App\Repository\SensorReadRepository;
 use App\Repository\SensorRepository;
 use App\Service\ChartDataService;
@@ -22,7 +23,6 @@ use App\Service\PumpService;
 use App\Service\Realtime\Ffp3RealtimeDataProvider;
 use App\Service\Realtime\MspRealtimeDataProvider;
 use App\Service\Realtime\N3ppRealtimeDataProvider;
-use App\Service\RealtimeDataService;
 use App\Service\SensorDataService;
 use App\Service\SensorStatisticsService;
 use App\Service\StatisticsAggregatorService;
@@ -76,6 +76,10 @@ return [
 
     N3ppOutputRepository::class => function (ContainerInterface $c) {
         return new N3ppOutputRepository($c->get(PDO::class), $c->get(BoardRepository::class));
+    },
+
+    PglRepository::class => function (ContainerInterface $c) {
+        return new PglRepository($c->get(PDO::class));
     },
 
     GalleryControlRepository::class => function (ContainerInterface $c) {
@@ -198,11 +202,6 @@ return [
         );
     },
 
-    // Alias pour compatibilité avec l'ancien nom
-    RealtimeDataService::class => function (ContainerInterface $c) {
-        return $c->get(Ffp3RealtimeDataProvider::class);
-    },
-
     MspRealtimeDataProvider::class => function (ContainerInterface $c) {
         return new MspRealtimeDataProvider(
             $c->get(MspSensorRepository::class),
@@ -240,11 +239,15 @@ return [
         );
     },
 
+    \App\Repository\HeartbeatRepository::class => function (ContainerInterface $c) {
+        return new \App\Repository\HeartbeatRepository($c->get(PDO::class));
+    },
+
     \App\Controller\Ffp3\HeartbeatController::class => function (ContainerInterface $c) {
         return new \App\Controller\Ffp3\HeartbeatController(
             $c->get(\App\Service\LogService::class),
             $c->get(\App\Service\ErrorAlertService::class),
-            $c->get(PDO::class)
+            $c->get(\App\Repository\HeartbeatRepository::class)
         );
     },
 
@@ -313,7 +316,8 @@ return [
 
     \App\Controller\Ffp3\CacheController::class => function (ContainerInterface $c) {
         return new \App\Controller\Ffp3\CacheController(
-            $c->get(\App\Service\OutputCacheService::class)
+            $c->get(\App\Service\OutputCacheService::class),
+            $c->get(\App\Service\TemplateRenderer::class)
         );
     },
 
@@ -462,6 +466,20 @@ return [
         return new \App\Controller\Gallery\GalleryViewController(
             $c->get(TemplateRenderer::class),
             $c->get(GalleryControlRepository::class)
+        );
+    },
+
+    \App\Controller\Pgl\PglPostDataController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Pgl\PglPostDataController(
+            $c->get(LogService::class),
+            $c->get(PglRepository::class)
+        );
+    },
+
+    \App\Controller\Pgl\PglStatsController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Pgl\PglStatsController(
+            $c->get(TemplateRenderer::class),
+            $c->get(PglRepository::class)
         );
     },
 

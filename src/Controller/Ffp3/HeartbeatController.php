@@ -6,24 +6,26 @@ namespace App\Controller\Ffp3;
 
 use App\Config\Paths;
 use App\Config\TableConfig;
+use App\Repository\HeartbeatRepository;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
-use PDO;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Contrôleur pour le heartbeat ESP32 FFP3 (aquaponie)
- * Réception des battements de coeur (uptime, mémoire, reboot count)
+ * Réception des battements de coeur (uptime, mémoire, reboot count).
+ *
+ * L'écriture est déléguée à HeartbeatRepository (whitelist de tables par environnement).
  */
 class HeartbeatController
 {
     public function __construct(
         private LogService $logger,
         private ErrorAlertService $errorAlert,
-        private PDO $pdo,
+        private HeartbeatRepository $heartbeatRepo,
     ) {
     }
 
@@ -86,41 +88,21 @@ class HeartbeatController
             @file_put_contents($ipFile, $deviceIp);
         }
 
-        // Insertion en base de données
+        // Insertion en base de données via repository (whitelist tables par env)
         try {
-            // Déterminer la table selon l'environnement (whitelist stricte)
-            $table = TableConfig::getHeartbeatTable();
-            $env = TableConfig::getEnvironment();
-            $allowedTables = ['ffp3Heartbeat', 'ffp3Heartbeat2', 'ffp3Heartbeat3', 'ffp3HeartbeatS3', 'ffp3HeartbeatS3Test'];
-            if (!in_array($table, $allowedTables, true)) {
-                throw new \RuntimeException("Table heartbeat invalide: {$table}");
-            }
-
-            $stmt = $this->pdo->prepare("
-                INSERT INTO {$table} (uptime, freeHeap, minHeap, reboots)
-                VALUES (:uptime, :free, :min, :reboots)
-            ");
-
-            $stmt->execute([
-                ':uptime' => (int)$uptime,
-                ':free' => (int)$free,
-                ':min' => (int)$min,
-                ':reboots' => (int)$reboots,
-            ]);
+            $this->heartbeatRepo->insert((int) $uptime, (int) $free, (int) $min, (int) $reboots);
 
             $this->logger->info('Heartbeat reçu', [
-                'env' => $env,
+                'env' => TableConfig::getEnvironment(),
                 'uptime' => $uptime,
-                'reboots' => $reboots
+                'reboots' => $reboots,
             ]);
 
             return ResponseHelper::textClose($response, 'OK', 200);
-
         } catch (\Throwable $e) {
             $errorMessage = 'Heartbeat: Erreur insertion';
             $this->logger->error($errorMessage, ['error' => $e->getMessage()]);
 
-            // Enregistrer l'erreur pour détection répétée
             $this->errorAlert->recordError($errorMessage, [
                 'error' => $e->getMessage(),
                 'file' => $e->getFile(),

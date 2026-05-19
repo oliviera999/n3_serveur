@@ -12,12 +12,16 @@ class LogServiceTest extends TestCase
     protected function setUp(): void
     {
         $this->logFile = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'logservice_test.log';
-        // Nettoie si fichier existe déjà
         if (file_exists($this->logFile)) {
             unlink($this->logFile);
         }
         putenv('LOG_FILE_PATH=' . $this->logFile);
         $_ENV['LOG_FILE_PATH'] = $this->logFile;
+        // Desactive RotatingFileHandler pour ce test (sinon le fichier reel est
+        // suffixe par la date : logservice_test-YYYY-MM-DD.log, et le test ne le trouve pas).
+        $_ENV['LOG_ROTATE_DAYS'] = '0';
+        // Desactive masquage IP (pas pertinent pour ces tests de format brut)
+        $_ENV['LOG_MASK_IP'] = 'false';
     }
 
     protected function tearDown(): void
@@ -25,7 +29,7 @@ class LogServiceTest extends TestCase
         if (file_exists($this->logFile)) {
             unlink($this->logFile);
         }
-        unset($_ENV['LOG_FILE_PATH']);
+        unset($_ENV['LOG_FILE_PATH'], $_ENV['LOG_ROTATE_DAYS'], $_ENV['LOG_MASK_IP']);
     }
 
     public function testInfoWritesFormattedLine(): void

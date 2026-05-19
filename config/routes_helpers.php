@@ -132,13 +132,16 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
     $outputController = $config['output_controller'];
     $realtimeController = $config['realtime_controller'];
     $postDataController = $config['post_data_controller'];
+    $heartbeatController = $config['heartbeat_controller'] ?? null;
     $hasParameters = $config['has_parameters'] ?? false;
     $skipDataRoute = $config['skip_data_route'] ?? false;
     $skipControlRoutes = $config['skip_control_routes'] ?? false;
     $skipPostDataShortPath = $config['skip_post_data_short_path'] ?? false;
 
-    $callback = function ($group) use ($pathPrefix, $module, $dataController, $dataMethod, $outputController, $realtimeController, $postDataController, $hasParameters, $skipDataRoute, $skipControlRoutes, $skipPostDataShortPath) {
+    $callback = function ($group) use ($pathPrefix, $module, $dataController, $dataMethod, $outputController, $realtimeController, $postDataController, $heartbeatController, $hasParameters, $skipDataRoute, $skipControlRoutes, $skipPostDataShortPath) {
         $group->post("/{$pathPrefix}/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
+        // Alias moderne (Phase 4 audit 2026-05) : URL compacte, contrat identique (HMAC ou api_key).
+        $group->post("/{$pathPrefix}/post-data", [$postDataController, 'handle']);
         if (!$skipPostDataShortPath) {
             $group->post("/{$module}datas/post-{$module}-data.php", [$postDataController, 'handle']);
         }
@@ -160,6 +163,10 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
         $group->map(['GET', 'POST'], "/{$pathPrefix}/api/outputs/toggle", [$outputController, 'toggleOutput']);
         if ($hasParameters) {
             $group->post("/{$pathPrefix}/api/outputs/parameters", [$outputController, 'updateParameters']);
+        }
+        // Heartbeat moderne (auth HMAC ou api_key) — table dediee msp1Heartbeat / n3ppHeartbeat.
+        if ($heartbeatController !== null) {
+            $group->post("/{$pathPrefix}/heartbeat", [$heartbeatController, 'handle']);
         }
     };
 

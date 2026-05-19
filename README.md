@@ -9,6 +9,15 @@ Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collect
 - **Point d’entrée** : `public/index.php` (front controller unique).
 - **Documentation détaillée** : voir [archives/ffp3/README.md](archives/ffp3/README.md) pour l’architecture FFP3, ou [analyse-ffp3/README.md](analyse-ffp3/README.md) pour l’extrait à analyser.
 
+## Module Poissonglouton (recyclage)
+
+Le serveur expose un nouveau flux firmware pour le compteur de bouteilles :
+
+- `POST /pgl/post-data` : ingestion batch des événements (firmware `firmwires/poissonglouton/`).
+- `GET /pgl/{secret}` : page statistiques cachée (non listée dans la navigation).
+
+Voir le contrat complet dans `docs/ENDPOINTS_ESP32_SERVEUR.md`.
+
 ## Test local complet (Docker)
 
 Pour tester le site completement en local (pages, controle, APIs, upload photo, BDD), utiliser la stack Docker fournie:
@@ -185,4 +194,24 @@ Pour eviter des 404 sur les URLs du type `https://iot.olution.info/ffp3/`, `/ffp
 ## Diagnostic / Logs
 
 - **Cronlog production** : [https://iot.olution.info/public/cronlog.txt](https://iot.olution.info/public/cronlog.txt) — log applicatif (Monolog) des erreurs et exceptions. À consulter pour retrouver une **référence d’erreur** (ex. `bb3262da436c`) affichée à l’utilisateur en cas d’erreur 500.
+- **Rotation et PII** (v5.1.0) : `RotatingFileHandler` actif (14 jours configurables via `LOG_ROTATE_DAYS`), masquage IP par défaut (`LOG_MASK_IP=true` — IPv4 `.0`, IPv6 `::/80`). Désactivable via `.env` pour les diagnostics fins.
 - **Processus de debug** : voir [docs/DEBUG_ERREURS_SERVEUR.md](docs/DEBUG_ERREURS_SERVEUR.md) pour le diagnostic à partir d’une référence et le lien avec `ErrorHandlerMiddleware` / `ErrorAlertService`.
+
+## Sécurité (v5.1.0)
+
+- **HMAC** : firmwares FFP3/MSP/N3PP peuvent envoyer `timestamp + signature` (HMAC-SHA256). Modes :
+  - défaut : fallback `API_KEY` si HMAC absent ;
+  - `HMAC_STRICT_MODE=true` : refuse l'absence de HMAC ;
+  - `HMAC_NONCE_REQUIRED=true` : exige `post_id` (nonce) — message canonique `<timestamp>|<post_id>`.
+- **OTA** : `OTA_REQUIRE_AUTH=true` (`.env`) protège `/ota/*` et `/ffp3/ota/*` (header `X-Api-Key` / `X-OTA-Key` ou `?api_key=`). Désactivé par défaut (compat firmwares).
+- **CSP / HSTS** : `SecurityHeadersMiddleware` injecte Content-Security-Policy, Permissions-Policy, HSTS (auto sur `X-Forwarded-Proto: https` ou `SECURITY_FORCE_HSTS=true`).
+- **Galeries** : rate-limit upload `GALLERY_UPLOAD_RATE_LIMIT_SECONDS` (défaut 10 s/IP), code `HTTP 429` si dépassé.
+- **Sessions** : `cookie_samesite=Lax`, `cookie_secure` si HTTPS détecté (direct ou via reverse-proxy `X-Forwarded-Proto`).
+- **Rotation API key** : voir [docs/SECURITE_ROTATION_API_KEY.md](docs/SECURITE_ROTATION_API_KEY.md).
+
+## Qualité du code (v5.1.0)
+
+- **PHPStan** : `composer analyse` (niveau 5, config `phpstan.neon`).
+- **PHP-CS-Fixer** : `composer cs:check` / `composer cs:fix` (PSR-12 + règles modérées, config `.php-cs-fixer.php`).
+- **Audit dépendances** : `composer audit` (+ `roave/security-advisories` en require-dev).
+- **Tests PHPUnit** : `composer test` (Unit + Integration), `composer test:unit`, `composer test:integration`.

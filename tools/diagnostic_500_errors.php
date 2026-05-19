@@ -44,13 +44,13 @@ try {
         echo "❌ OutputService: " . $e->getMessage() . "\n";
     }
     
-    // Test RealtimeDataService
+    // Test Ffp3RealtimeDataProvider (RealtimeDataService était un alias déprécié, supprimé en v5.1.0)
     try {
-        $realtimeService = $container->get(\App\Service\RealtimeDataService::class);
+        $realtimeService = $container->get(\App\Service\Realtime\Ffp3RealtimeDataProvider::class);
         $data = $realtimeService->getLatestReadings();
-        echo "✅ RealtimeDataService: OK\n";
+        echo "✅ Ffp3RealtimeDataProvider: OK\n";
     } catch (\Throwable $e) {
-        echo "❌ RealtimeDataService: " . $e->getMessage() . "\n";
+        echo "❌ Ffp3RealtimeDataProvider: " . $e->getMessage() . "\n";
     }
     
     // Test TemplateRenderer

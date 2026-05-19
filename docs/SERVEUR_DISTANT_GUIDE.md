@@ -265,7 +265,7 @@ bool AutomatismSync::sendCommandAck(const char* command, const char* status) {
 
 | Champ | Description | Exemple |
 |-------|-------------|---------|
-| `api_key` | Clé API | `fdGTMoptd5CD2ert3` |
+| `api_key` | Clé API (lue depuis `.env`, jamais en clair dans la doc) | `<API_KEY .env>` |
 | `sensor` | Identifiant ESP32 | `esp32-wroom` |
 | `version` | Version firmware (requis par POST data) | `11.172` |
 | `ack_command` | Commande exécutée | `bouffePetits` |

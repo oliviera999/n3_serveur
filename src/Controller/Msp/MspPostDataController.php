@@ -5,17 +5,23 @@ declare(strict_types=1);
 namespace App\Controller\Msp;
 
 use App\Controller\AbstractPostDataController;
+use App\Controller\Concerns\HmacAuthTrait;
 use App\Domain\MspSensorData;
 use App\Repository\MspSensorRepository;
 use App\Service\LogService;
 use Psr\Http\Message\ResponseInterface as Response;
 
 /**
- * Reception des donnees POST du firmware msp (station meteo).
+ * Reception des donnees POST du firmware msp (station meteo, board=2).
  * Herite du flux commun AbstractPostDataController.
+ *
+ * Authentification : HMAC-SHA256 si timestamp+signature presents, sinon clé API
+ * legacy (compatibilite ascendante avec firmwares <= 2.42).
  */
 class MspPostDataController extends AbstractPostDataController
 {
+    use HmacAuthTrait;
+
     public function __construct(
         LogService $logger,
         private MspSensorRepository $sensorRepo,
@@ -26,6 +32,15 @@ class MspPostDataController extends AbstractPostDataController
     protected function componentName(): string
     {
         return 'MspPostData';
+    }
+
+    /**
+     * Auth HMAC optionnelle (timestamp+signature) avec fallback api_key.
+     * Alignement contrat FFP3 (cf. App\Controller\Ffp3\PostDataController).
+     */
+    protected function validateAuth(array $params, Response $response): ?Response
+    {
+        return $this->validateHmacOrFallback($params, $response);
     }
 
     protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object

@@ -298,7 +298,19 @@ if ($RunNegativeAuthChecks) {
 Assert-Status -Url "$BaseUrl/api/outputs/state" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/msp1/api/outputs/state" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/n3pp/api/outputs/state" -AllowedStatus @(200)
-Assert-Status -Url "$BaseUrl/gallery/ffp3/api/outputs/state" -AllowedStatus @(200)
+Assert-Status -Url "$BaseUrl/gallery/ffp3/api/outputs/state" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
+Assert-Status -Url "$BaseUrl/pgl/a1b2c3d4e5f6a7b8" -AllowedStatus @(200, 404)
+Assert-Status -Url "$BaseUrl/msp1gallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=6" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
+Assert-Status -Url "$BaseUrl/n3ppgallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=7" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
+Assert-Status -Url "$BaseUrl/ffp3/ffp3gallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=5" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
+
+$cameraVersionPayload = @{
+    api_key = $ApiKey
+    version = "2.38-smoke"
+    board = "5"
+    sensor = "ffp3"
+}
+Assert-Status -Url "$BaseUrl/ffp3/ffp3gallery/post-uploadphotoserver-version.php" -Method "POST" -Body $cameraVersionPayload -AllowedStatus @(200)
 
 $heartbeatPayload = @{
     uptime = "1200"
@@ -347,13 +359,115 @@ $postData = @{
 }
 Assert-Status -Url "$BaseUrl/post-data" -Method "POST" -Body $postData -AllowedStatus @(200)
 
+# POST data Poissonglouton
+$pglPostData = @{
+    api_key = $ApiKey
+    sensor = "poissonglouton"
+    version = "0.1.0-smoke"
+    total_count = "12"
+    today_count = "3"
+    batch_count = "2"
+    events = "1716123000:1:3:1:4020:-60,1716123010:1:1:0:4010:-61"
+}
+Assert-Status -Url "$BaseUrl/pgl/post-data" -Method "POST" -Body $pglPostData -AllowedStatus @(200)
+
+$pglBadAuth = $pglPostData.Clone()
+$pglBadAuth.api_key = "wrong-key"
+Assert-Status -Url "$BaseUrl/pgl/post-data" -Method "POST" -Body $pglBadAuth -AllowedStatus @(401)
+
+# --- POST données msp (Phase 4 audit 2026-05) ---
+$mspPostData = @{
+    api_key       = $ApiKey
+    sensor        = "msp1"
+    version       = "smoke"
+    TempAirInt    = "21.0"
+    TempAirExt    = "19.0"
+    HumidAirInt   = "55"
+    HumidAirExt   = "60"
+    LuminositeA   = "100"
+    LuminositeB   = "110"
+    LuminositeC   = "120"
+    LuminositeD   = "130"
+    LuminositeMoy = "115"
+    ServoHB       = "90"
+    ServoGD       = "90"
+    HumidSol      = "500"
+    Pluie         = "1000"
+    TempEau       = "18.5"
+    PontDiv       = "2050"
+    WakeUp        = "0"
+    FreqWakeUp    = "300"
+    SeuilSec      = "5000"
+    SeuilPontDiv  = "1700"
+    mail          = "smoke@local.test"
+    mailNotif     = "checked"
+    resetMode     = "0"
+    bootCount     = "1"
+}
+Assert-Status -Url "$BaseUrl/msp1/msp1datas/post-msp1-data.php" -Method "POST" -Body $mspPostData -AllowedStatus @(200)
+Assert-Status -Url "$BaseUrl/msp1/post-data" -Method "POST" -Body $mspPostData -AllowedStatus @(200)
+
+# Cas négatif msp : api_key invalide
+$mspBadAuth = $mspPostData.Clone()
+$mspBadAuth.api_key = "wrong"
+Assert-Status -Url "$BaseUrl/msp1/post-data" -Method "POST" -Body $mspBadAuth -AllowedStatus @(401)
+
+# --- POST données n3pp ---
+$n3ppPostData = @{
+    api_key       = $ApiKey
+    sensor        = "n3pp"
+    version       = "smoke"
+    TempAir       = "22.5"
+    Humidite      = "55"
+    Luminosite    = "800"
+    Humid1        = "1500"
+    Humid2        = "1600"
+    Humid3        = "1700"
+    Humid4        = "1800"
+    HumidMoy      = "1650"
+    PontDiv       = "2050"
+    WakeUp        = "0"
+    ArrosageManu  = "0"
+    SeuilSec      = "5000"
+    FreqWakeUp    = "300"
+    SeuilPontDiv  = "1700"
+    mail          = "smoke@local.test"
+    mailNotif     = "checked"
+    HeureArrosage = "6"
+    resetMode     = "0"
+    etatPompe     = "0"
+    tempsArrosage = "4"
+    bootCount     = "1"
+}
+Assert-Status -Url "$BaseUrl/n3pp/n3ppdatas/post-n3pp-data.php" -Method "POST" -Body $n3ppPostData -AllowedStatus @(200)
+Assert-Status -Url "$BaseUrl/n3pp/post-data" -Method "POST" -Body $n3ppPostData -AllowedStatus @(200)
+
+# GET outputs_state legacy n3pp/msp1
+Assert-Status -Url "$BaseUrl/msp1/msp1control/msp1-outputs-action.php?action=outputs_state&board=2" -AllowedStatus @(200)
+Assert-Status -Url "$BaseUrl/n3pp/n3ppcontrol/n3pp-outputs-action.php?action=outputs_state&board=3" -AllowedStatus @(200)
+
+# Heartbeats msp1 et n3pp (Phase 4 audit 2026-05)
+$legacyHeartbeat = @{
+    api_key = $ApiKey
+    sensor  = "smoke"
+    version = "smoke"
+    uptime  = "1200"
+    free    = "100000"
+    min     = "90000"
+    reboots = "1"
+    rssi    = "-65"
+}
+Assert-Status -Url "$BaseUrl/msp1/heartbeat" -Method "POST" -Body $legacyHeartbeat -AllowedStatus @(200,500)
+Assert-Status -Url "$BaseUrl/n3pp/heartbeat" -Method "POST" -Body $legacyHeartbeat -AllowedStatus @(200,500)
+
 # Upload photo galerie (JPEG existant du projet)
 $uploadFile = Join-Path (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)) "public/assets/images/aquaponie-description/introduction.jpg"
 if (Test-Path $uploadFile) {
     $form = @{
         imageFile = Get-Item $uploadFile
     }
-    Assert-Status -Url "$BaseUrl/gallery/ffp3/upload" -Method "POST" -Headers @{ "X-Api-Key" = $ApiKey } -Body $form -AllowedStatus @(200)
+    Assert-Status -Url "$BaseUrl/gallery/ffp3/upload" -Method "POST" -Headers @{ "X-Api-Key" = $ApiKey } -Body $form -AllowedStatus @(200,202)
+    Assert-Status -Url "$BaseUrl/ffp3/ffp3gallery/upload.php" -Method "POST" -Headers @{ "X-Api-Key" = $ApiKey } -Body $form -AllowedStatus @(200,202)
 } else {
     Write-Warning "Upload JPEG saute: fichier introuvable ($uploadFile)"
 }

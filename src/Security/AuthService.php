@@ -25,9 +25,17 @@ class AuthService
         if (session_status() === PHP_SESSION_NONE) {
             // Configuration sécurisée de la session
             ini_set('session.cookie_httponly', '1');
-            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+            // SameSite=Lax : protege contre CSRF cross-site tout en gardant la navigation classique.
+            ini_set('session.cookie_samesite', 'Lax');
+            // Detection HTTPS : direct (Apache) ou derriere reverse proxy (X-Forwarded-Proto).
+            $isHttps = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+                || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string) $_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
+                || (isset($_SERVER['SERVER_PORT']) && (int) $_SERVER['SERVER_PORT'] === 443);
+            if ($isHttps) {
                 ini_set('session.cookie_secure', '1');
             }
+            // Duree d'inactivite : aligne sur self::SESSION_TIMEOUT (2h)
+            ini_set('session.gc_maxlifetime', (string) self::SESSION_TIMEOUT);
             session_start();
         }
     }
@@ -202,7 +210,9 @@ class AuthService
         if (!$this->validateToken($token)) {
             return;
         }
-        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        $secure = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+            || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string) $_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
+            || (isset($_SERVER['SERVER_PORT']) && (int) $_SERVER['SERVER_PORT'] === 443);
         setcookie(self::COOKIE_TOKEN_NAME, $token, [
             'expires' => time() + (86400 * 30),
             'path' => '/',

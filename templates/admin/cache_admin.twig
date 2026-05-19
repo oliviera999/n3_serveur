@@ -1,0 +1,133 @@
+{% extends 'layout_base.twig' %}
+
+{% block page_title %}n3 IoT — Vider le cache{% endblock %}
+
+{% block content %}
+<style>
+    .cache-container {
+        background: var(--card-bg, #fff);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: var(--card-shadow, 0 2px 10px rgba(0,0,0,.1));
+        max-width: 820px;
+        margin: 24px auto;
+    }
+    .cache-container h1 {
+        color: var(--accent-color, #008B74);
+        border-bottom: 3px solid var(--accent-color, #008B74);
+        padding-bottom: 10px;
+        margin-top: 0;
+    }
+    .cache-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .cache-actions .btn {
+        display: inline-block;
+        padding: 10px 22px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        font-size: 15px;
+    }
+    .cache-actions .btn-primary {
+        background: linear-gradient(135deg, #008B74 0%, #00B794 100%);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(0,139,116,.3);
+    }
+    .cache-actions .btn-secondary { background: #6c757d; color: #fff; }
+    .cache-actions .btn:disabled { opacity: .6; cursor: not-allowed; }
+    .cache-result {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border-radius: 8px;
+        display: none;
+        line-height: 1.5;
+    }
+    .cache-result.success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+    .cache-result.error   { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+    .cache-loading { display: none; text-align: center; margin: 18px 0; }
+    .cache-loading .spinner {
+        width: 36px; height: 36px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid var(--accent-color, #008B74);
+        border-radius: 50%;
+        margin: 0 auto;
+        animation: cache-spin 1s linear infinite;
+    }
+    @keyframes cache-spin { to { transform: rotate(360deg); } }
+    .cache-details {
+        margin-top: 12px;
+        padding: 10px 12px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 13px;
+    }
+</style>
+
+<div class="cache-container">
+    <h1>Vider le cache serveur</h1>
+    <p>Supprime les caches <strong>Twig</strong>, <strong>DI Container</strong>, <strong>cache outputs</strong> (tous environnements) et l'<strong>OPcache PHP</strong>.</p>
+
+    <div class="cache-actions">
+        <button id="cacheClearBtn" type="button" class="btn btn-primary">Vider le cache</button>
+        <a href="/supervision" class="btn btn-secondary">Retour supervision</a>
+        <a href="/" class="btn btn-secondary">Accueil</a>
+    </div>
+
+    <div id="cacheLoading" class="cache-loading" aria-live="polite">
+        <div class="spinner" role="status"></div>
+        <p>Vidage en cours…</p>
+    </div>
+
+    <div id="cacheResult" class="cache-result" role="status" aria-live="polite"></div>
+</div>
+
+<script>
+(function () {
+    var btn = document.getElementById('cacheClearBtn');
+    var loading = document.getElementById('cacheLoading');
+    var result = document.getElementById('cacheResult');
+    if (!btn) { return; }
+    btn.addEventListener('click', function () {
+        btn.disabled = true;
+        loading.style.display = 'block';
+        result.style.display = 'none';
+        result.innerHTML = '';
+        fetch(window.location.origin + '/admin/clear-cache', { credentials: 'same-origin' })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                loading.style.display = 'none';
+                result.style.display = 'block';
+                if (data && data.success) {
+                    result.className = 'cache-result success';
+                    var details = Object.keys(data.results || {}).map(function (dir) {
+                        var info = data.results[dir];
+                        return dir + ': ' + info.message;
+                    }).join('<br>');
+                    if (data.opcache) {
+                        details += '<br><br><strong>OPcache PHP :</strong><br>';
+                        details += data.opcache.available
+                            ? (data.opcache.success ? 'OK — ' : 'WARN — ') + data.opcache.message
+                            : 'INFO — ' + data.opcache.message;
+                    }
+                    result.innerHTML = '<h3>' + (data.message || 'Cache vidé.') + '</h3>'
+                        + '<div class="cache-details"><strong>Détails :</strong><br>' + details + '</div>';
+                } else {
+                    result.className = 'cache-result error';
+                    var errs = (data && data.errors) ? data.errors.join('<br>') : '';
+                    result.innerHTML = '<h3>' + (data && data.message ? data.message : 'Erreur') + '</h3>'
+                        + (errs ? '<div class="cache-details">' + errs + '</div>' : '');
+                }
+            })
+            .catch(function (err) {
+                loading.style.display = 'none';
+                result.style.display = 'block';
+                result.className = 'cache-result error';
+                result.innerHTML = '<h3>Erreur</h3><p>' + (err && err.message ? err.message : err) + '</p>';
+            })
+            .then(function () { btn.disabled = false; });
+    });
+})();
+</script>
+{% endblock %}

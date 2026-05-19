@@ -6,6 +6,7 @@ namespace App\Controller\Ffp3;
 
 use App\Config\Paths;
 use App\Service\OutputCacheService;
+use App\Service\TemplateRenderer;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -13,7 +14,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class CacheController
 {
     public function __construct(
-        private ?OutputCacheService $outputCacheService = null
+        private ?OutputCacheService $outputCacheService = null,
+        private ?TemplateRenderer $renderer = null,
     ) {
     }
 
@@ -111,48 +113,34 @@ class CacheController
     {
         $projectRoot = Paths::getProjectRoot();
         $scriptPath = $projectRoot . '/ffp3/DEPLOY_NOW.sh';
+        $missing = !is_file($scriptPath);
+        $content = $missing ? '' : (string) file_get_contents($scriptPath);
 
-        if (!is_file($scriptPath)) {
-            $body = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Script de déploiement</title></head><body>';
-            $body .= '<h1>Script de déploiement</h1><p>Fichier DEPLOY_NOW.sh introuvable (ffp3/DEPLOY_NOW.sh).</p>';
-            $body .= '<p><a href="/supervision">Retour à la supervision</a></p></body></html>';
-            $response->getBody()->write($body);
-            return $response->withStatus(404)->withHeader('Content-Type', 'text/html; charset=utf-8');
-        }
-
-        $content = file_get_contents($scriptPath);
-        $content = htmlspecialchars($content, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-
-        $html = <<<HTML
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Script de déploiement – n3 IoT</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; max-width: 900px; margin: 30px auto; padding: 20px; background: #f5f5f5; }
-        .container { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-        h1 { color: #008B74; border-bottom: 3px solid #008B74; padding-bottom: 10px; }
-        .hint { color: #6c757d; margin: 12px 0; font-size: 0.95em; }
-        pre { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.4; }
-        .btn { display: inline-block; padding: 10px 20px; background: #008B74; color: white; border-radius: 8px; text-decoration: none; margin-top: 16px; font-weight: 600; }
-        .btn:hover { opacity: 0.9; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Script de déploiement (DEPLOY_NOW.sh)</h1>
-        <p class="hint">À exécuter sur le serveur via SSH (ex. <code>cd /home4/oliviera/iot.olution.info/ffp3 && bash DEPLOY_NOW.sh</code>). Ne pas exécuter depuis le navigateur.</p>
-        <pre>{$content}</pre>
-        <a href="/supervision" class="btn">Retour à la supervision</a>
-    </div>
-</body>
-</html>
-HTML;
+        $html = $this->renderTemplate('admin/deploy_script.twig', [
+            'missing' => $missing,
+            'expected_path' => 'ffp3/DEPLOY_NOW.sh',
+            'script_content' => $content,
+            'nav_active' => 'supervision',
+        ], function () use ($missing, $content) {
+            // Fallback minimal si TemplateRenderer indisponible (cas DI non re-cache)
+            if ($missing) {
+                return '<!DOCTYPE html><html lang="fr"><meta charset="UTF-8">'
+                    . '<title>Script de déploiement</title><body>'
+                    . '<h1>Script de déploiement</h1>'
+                    . '<p>Fichier DEPLOY_NOW.sh introuvable.</p>'
+                    . '<p><a href="/supervision">Retour à la supervision</a></p></body></html>';
+            }
+            $safe = htmlspecialchars($content, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            return '<!DOCTYPE html><html lang="fr"><meta charset="UTF-8">'
+                . '<title>Script de déploiement</title><body>'
+                . '<h1>Script de déploiement (DEPLOY_NOW.sh)</h1><pre>' . $safe . '</pre>'
+                . '<p><a href="/supervision">Retour à la supervision</a></p></body></html>';
+        });
 
         $response->getBody()->write($html);
-        return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
+        return $response
+            ->withStatus($missing ? 404 : 200)
+            ->withHeader('Content-Type', 'text/html; charset=utf-8');
     }
 
     /**
@@ -162,6 +150,36 @@ HTML;
      * Protection par middleware d'authentification ($applyAuth)
      */
     public function clearCachePage(Request $request, Response $response): Response
+    {
+        $html = $this->renderTemplate('admin/cache_admin.twig', [
+            'nav_active' => 'supervision',
+        ], static function (): string {
+            return self::clearCacheFallbackHtml();
+        });
+
+        $response->getBody()->write($html);
+        return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
+    }
+
+    /**
+     * Rend un template Twig ou retombe sur un HTML minimal si TemplateRenderer absent.
+     */
+    private function renderTemplate(string $template, array $context, callable $fallback): string
+    {
+        if ($this->renderer !== null) {
+            try {
+                return $this->renderer->render($template, $context);
+            } catch (\Throwable $e) {
+                error_log('[CacheController] template render failed (' . $template . '): ' . $e->getMessage());
+            }
+        }
+        return $fallback();
+    }
+
+    /**
+     * Fallback HTML brut (volontairement court) si le template Twig n'est pas disponible.
+     */
+    private static function clearCacheFallbackHtml(): string
     {
         $html = <<<'HTML'
 <!DOCTYPE html>
@@ -338,8 +356,7 @@ HTML;
 </html>
 HTML;
 
-        $response->getBody()->write($html);
-        return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
+        return $html;
     }
 
     /**

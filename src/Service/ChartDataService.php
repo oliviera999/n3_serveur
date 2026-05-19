@@ -23,9 +23,15 @@ class ChartDataService
      */
     public function prepareSeriesData(array $readings): array
     {
-        // Utilitaires internes
+        // Utilitaires internes (JSON injecte dans bloc <script> Twig via |raw : on durcit
+        // l'echappement avec JSON_HEX_TAG/HEX_AMP/HEX_QUOT/HEX_APOS pour eviter toute
+        // rupture du contexte JS si une valeur (cas peu probable, mais defense en profondeur)
+        // contenait un caractere actif).
         $col = static fn(array $rows, string $key): array => array_column($rows, $key);
-        $encode = static fn(array $values): string => json_encode(array_reverse($values), JSON_NUMERIC_CHECK);
+        $encode = static fn(array $values): string => json_encode(
+            array_reverse($values),
+            JSON_NUMERIC_CHECK | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_HEX_APOS
+        );
 
         // Séries pour Highcharts (ordre chronologique inversé comme legacy)
         return [
@@ -61,7 +67,10 @@ class ChartDataService
             return $dt !== false ? $dt->getTimestamp() * 1000 : null;
         }, $col(array_reverse($readings), 'reading_time'));
         
-        return json_encode($reading_time_ts, JSON_NUMERIC_CHECK);
+        return json_encode(
+            $reading_time_ts,
+            JSON_NUMERIC_CHECK | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_HEX_APOS
+        );
     }
 
     /**

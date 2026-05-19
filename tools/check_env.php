@@ -99,7 +99,8 @@ if (!isset($_ENV['ENV'])) {
 }
 
 if (!isset($_ENV['API_KEY'])) {
-    echo "⚠️  Ajouter API_KEY=fdGTMoptd5CD2ert3 dans le fichier .env\n";
+    echo "⚠️  Ajouter API_KEY=<votre_cle_secrete> dans le fichier .env\n";
+    echo "   (la cle reelle ne doit jamais figurer en clair dans le depot)\n";
 }
 
 if (!isset($_ENV['DB_HOST']) || !isset($_ENV['DB_NAME']) || !isset($_ENV['DB_USER']) || !isset($_ENV['DB_PASS'])) {

@@ -40,7 +40,7 @@ $controllers = [
     'RealtimeApiController' => [
         'endpoints' => ['/api/realtime/sensors/latest', '/api/realtime-test/sensors/latest'],
         'constructor' => [
-            'App\Service\RealtimeDataService'
+            'App\Service\Realtime\Ffp3RealtimeDataProvider'
         ]
     ],
     'DashboardController' => [

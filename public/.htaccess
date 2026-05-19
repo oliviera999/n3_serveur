@@ -24,4 +24,16 @@
 # (placé après mod_rewrite pour éviter les conflits)
 <IfModule mod_autoindex.c>
     Options -Indexes
-</IfModule> 
+</IfModule>
+
+# Bloquer l'execution de PHP / scripts dans les sous-dossiers assets et uploads.
+# Toute requete *.php sous public/assets/ ou public/uploads/ retourne 403.
+<IfModule mod_alias.c>
+    RedirectMatch 403 ^/assets/.*\.(php|phtml|phar|py|sh|bat|ps1|pl)$
+    RedirectMatch 403 ^/uploads/.*\.(php|phtml|phar|py|sh|bat|ps1|pl)$
+</IfModule>
+
+# Bloquer les fichiers sensibles (env, git, composer, etc.) meme si DocumentRoot pointe ailleurs.
+<FilesMatch "^(\.env|\.env\..*|\.gitignore|\.gitmodules|composer\.json|composer\.lock|README\.md|CHANGELOG\.md|VERSION)$">
+    Require all denied
+</FilesMatch>

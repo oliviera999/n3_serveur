@@ -138,6 +138,11 @@ class GalleryControlController
         if ($action !== '' && $action !== 'outputs_state') {
             return ResponseHelper::json($response, ['error' => 'Action inconnue'], 400);
         }
+        $module = $this->repository->getModule($slug);
+        $boardValidationError = $this->validateBoardForSlug($response, $module['board'], $queryParams);
+        if ($boardValidationError !== null) {
+            return $boardValidationError;
+        }
 
         try {
             $state = $this->repository->getStateForFirmware($slug);
@@ -234,6 +239,16 @@ class GalleryControlController
             $version = substr($version, 0, 64);
         }
 
+        $module = $this->repository->getModule($slug);
+        $boardValidationError = $this->validateBoardForSlug($response, $module['board'], $params);
+        if ($boardValidationError !== null) {
+            return $boardValidationError;
+        }
+        $sensorValidationError = $this->validateSensorForSlug($response, $slug, $params);
+        if ($sensorValidationError !== null) {
+            return $sensorValidationError;
+        }
+
         try {
             $this->repository->updateFirmwareVersion($slug, $version);
             return ResponseHelper::json($response, ['success' => true, 'version' => $version]);
@@ -246,6 +261,44 @@ class GalleryControlController
     private function isAllowedSlug(string $slug): bool
     {
         return in_array($slug, ['msp1', 'n3pp', 'ffp3'], true);
+    }
+
+    /**
+     * @param array<string, mixed> $params
+     */
+    private function validateBoardForSlug(Response $response, int $expectedBoard, array $params): ?Response
+    {
+        if (!array_key_exists('board', $params)) {
+            return null;
+        }
+        $boardRaw = $params['board'];
+        if (!is_scalar($boardRaw) || !is_numeric((string) $boardRaw)) {
+            return ResponseHelper::json($response, ['error' => 'Parametre board invalide'], 400);
+        }
+        $board = (int) $boardRaw;
+        if ($board !== $expectedBoard) {
+            return ResponseHelper::json($response, ['error' => 'Board incompatible avec la galerie cible'], 400);
+        }
+        return null;
+    }
+
+    /**
+     * @param array<string, mixed> $params
+     */
+    private function validateSensorForSlug(Response $response, string $slug, array $params): ?Response
+    {
+        if (!array_key_exists('sensor', $params)) {
+            return null;
+        }
+        $sensorRaw = $params['sensor'];
+        if (!is_scalar($sensorRaw)) {
+            return ResponseHelper::json($response, ['error' => 'Parametre sensor invalide'], 400);
+        }
+        $sensor = strtolower(trim((string) $sensorRaw));
+        if ($sensor === '' || $sensor === 'cam' || $sensor === $slug) {
+            return null;
+        }
+        return ResponseHelper::json($response, ['error' => 'Sensor incompatible avec la galerie cible'], 400);
     }
 
     private function requireAuth(Request $request, Response $response): ?Response

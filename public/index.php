@@ -28,6 +28,8 @@ use App\Controller\N3pp\N3ppDescriptionController;
 use App\Controller\N3pp\N3ppOutputController;
 use App\Controller\N3pp\N3ppPostDataController;
 use App\Controller\N3pp\N3ppRealtimeApiController;
+use App\Controller\Pgl\PglPostDataController;
+use App\Controller\Pgl\PglStatsController;
 use App\Controller\SupervisionController;
 use App\Middleware\AuthGuardMiddleware;
 use App\Middleware\EnvironmentMiddleware;
@@ -227,12 +229,39 @@ $app->get('/aquaponie-description', [AquaponieDescriptionController::class, 'sho
 $app->get('/meteo-description', [MspDescriptionController::class, 'show']);
 $app->get('/serre-description', [N3ppDescriptionController::class, 'show']);
 
-// Handler OTA : sert les fichiers depuis serveur/ota/ (streaming, sans charger tout en mémoire)
+// Handler OTA : sert les fichiers depuis serveur/ota/ (streaming, sans charger tout en mémoire).
+// Auth opt-in via OTA_REQUIRE_AUTH=true (.env) : exige X-Api-Key / X-OTA-Key / ?api_key= sinon 401.
+// Par défaut (compat firmwares déployés) : lecture publique des binaires ; l'intégrité est
+// validée côté firmware par MD5 (cf. firmwires/ffp5cs/include/ota_config.h).
 $otaHandler = function (Request $request, Response $response, array $args): Response {
     $path = $args['path'] ?? '';
     if (strpos($path, '..') !== false || $path === '') {
         return $response->withStatus(400);
     }
+
+    $requireAuth = filter_var($_ENV['OTA_REQUIRE_AUTH'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
+    if ($requireAuth) {
+        $expectedKey = trim((string) ($_ENV['API_KEY'] ?? ''));
+        if ($expectedKey === '') {
+            error_log('[OTA] OTA_REQUIRE_AUTH=true mais API_KEY non configuree');
+            return $response->withStatus(500);
+        }
+        $providedKey = trim($request->getHeaderLine('X-Api-Key'));
+        if ($providedKey === '') {
+            $providedKey = trim($request->getHeaderLine('X-OTA-Key'));
+        }
+        if ($providedKey === '') {
+            $params = $request->getQueryParams();
+            if (isset($params['api_key']) && is_scalar($params['api_key'])) {
+                $providedKey = trim((string) $params['api_key']);
+            }
+        }
+        if ($providedKey === '' || !hash_equals($expectedKey, $providedKey)) {
+            error_log(sprintf('[OTA] rejet auth path=%s ip=%s', $path, $_SERVER['REMOTE_ADDR'] ?? 'n/a'));
+            return $response->withStatus(401);
+        }
+    }
+
     $otaDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ota' . DIRECTORY_SEPARATOR;
     $file = $otaDir . str_replace('/', DIRECTORY_SEPARATOR, $path);
     if (!is_file($file)) {
@@ -281,6 +310,10 @@ $app->map(['GET', 'POST'], '/ping', function (Request $request, Response $respon
         ->withHeader('Connection', 'close')
         ->withStatus(200);
 });
+
+// Poissonglouton (compteur recyclage plastique)
+$app->post('/pgl/post-data', [PglPostDataController::class, 'handle']);
+$app->get('/pgl/{secret}', [PglStatsController::class, 'showBySecret']);
 
 // ====================================================================
 // Routes FFP3 (aquaponie) — config/routes_ffp3.php
@@ -344,10 +377,18 @@ $app->get('/manifest.json', function (Request $request, Response $response) {
     return $response->withStatus(404);
 });
 
-// robots.txt — évite 404 pour les crawlers et réduit le bruit en logs
+// robots.txt — évite 404 pour les crawlers et réduit le bruit en logs.
+// Patterns généralisés (ne révèle pas les routes API précises).
 $app->get('/robots.txt', function (Request $request, Response $response) use ($app) {
     $basePath = $app->getBasePath() ?: '';
-    $body = "User-agent: *\nAllow: /\nDisallow: " . $basePath . "/admin/\nDisallow: " . $basePath . "/api/outputs/toggle\n";
+    $body = "User-agent: *\n"
+        . "Allow: /\n"
+        . "Disallow: " . $basePath . "/admin\n"
+        . "Disallow: " . $basePath . "/api\n"
+        . "Disallow: " . $basePath . "/dashboard\n"
+        . "Disallow: " . $basePath . "/supervision\n"
+        . "Disallow: " . $basePath . "/export-data\n"
+        . "Disallow: " . $basePath . "/pgl/\n";
     $response->getBody()->write($body);
     return $response
         ->withHeader('Content-Type', 'text/plain; charset=utf-8')
@@ -422,7 +463,10 @@ require __DIR__ . '/../config/routes_gallery.php';
 // Middleware Slim (routing et erreurs)
 // ====================================================================
 $app->addRoutingMiddleware();
-$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+// displayErrorDetails = true uniquement hors prod (dev/test/local). En prod le
+// ErrorHandlerMiddleware custom traite les exceptions sans exposer la stack PHP.
+$isProd = (($_ENV['ENV'] ?? 'prod') === 'prod') && PHP_SAPI !== 'cli-server';
+$errorMiddleware = $app->addErrorMiddleware(!$isProd, true, true);
 
 // Gestionnaire 404 personnalisé : log l'URL pour faciliter le diagnostic (error.log serveur)
 $errorMiddleware->setErrorHandler(

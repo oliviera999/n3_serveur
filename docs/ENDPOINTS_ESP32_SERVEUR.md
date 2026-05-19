@@ -1,8 +1,12 @@
 # 🌐 Endpoints ESP32 ↔ Serveur - Configuration Complète
 
-**Version ESP32**: 11.205  
-**Version Serveur**: 5.0.306
-**Date**: 17 Mai 2026
+**Version FFP5CS (ESP32)** : 13.51 (compat ESP32 et ESP32-S3)
+**Version Serveur** : 5.1.0
+**Dernière mise à jour** : 19 Mai 2026
+
+> Audit complet 2026-05 : durcissement sécurité (CSP, HSTS, OTA opt-in, masquage IP),
+> trait HMAC partagé FFP3/MSP/N3PP, validation board/sensor galeries, JSON Twig durci
+> (JSON_HEX_TAG), HMAC nonce (`isValidWithNonce`) prêt côté serveur.
 
 ---
 
@@ -24,6 +28,9 @@ Le firmware camera unifie (`uploadphotosserver`, envs `msp1`/`n3pp`/`ffp3`) recu
   - `GET /gallery/{slug}/api/outputs/state` — **auth device** : header `X-Api-Key` ou paramètre `api_key` (même clé que `API_KEY` serveur)
   - `POST /gallery/{slug}/api/firmware/version` — **auth device** identique
   - `GET /gallery/{slug}/control` (page web de pilotage, auth admin session/token)
+- **Validation board/sensor (serveur >= 5.0.307)** :
+  - `GET ...outputs/state` : si `board` est fourni, il doit correspondre au module (`msp1=6`, `n3pp=7`, `ffp3=5`), sinon `HTTP 400`.
+  - `POST ...firmware/version` : `board` (si fourni) doit matcher le slug ; `sensor` (si fourni) doit etre `cam` ou le slug cible.
 - **Aliases legacy `.php` (compatibilite firmware)** :
   - `msp1` (board 6, table `UploadPhoto2Outputs`) :
     - `GET /msp1gallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=6`
@@ -42,6 +49,37 @@ Champs controle camera exposes (table outputs) :
 - `105` : `sleepTime` (secondes),
 - `106` : `resetMode`,
 - `100` : version firmware (mise a jour par POST version).
+
+Codes de reponse upload galerie :
+- `HTTP 200` : photo acceptee dans la galerie.
+- `HTTP 202` : photo recue mais deplacee en corbeille auto (qualite insuffisante).
+- `HTTP 400` : aucun fichier reçu (champ `imageFile` attendu) ou `board`/`sensor` invalide.
+- `HTTP 401` : cle API absente ou invalide.
+- `HTTP 413` : fichier trop volumineux (`MAX_FILE_SIZE = 5 Mo`).
+- `HTTP 415` : type non autorise (attendu `image/jpeg`) ou magic bytes non-JPEG.
+- `HTTP 429` : rate-limit dépassé (`GALLERY_UPLOAD_RATE_LIMIT_SECONDS`, défaut 10 s/IP).
+- `HTTP 500` : erreur serveur (filesystem, permission, etc.).
+
+### Poissonglouton (ESP32-S3 recyclage)
+
+Firmware `firmwires/poissonglouton/` (mode ecran tactile ou headless).
+
+- `POST /pgl/post-data` — **auth device**: `api_key` dans le body, validee cote serveur (`PGL_API_KEY`, fallback `API_KEY`).
+- `GET /pgl/{secret}` — page statistiques **cachee** (non menu, non indexee) pour administrateur connaissant l'URL secrete.
+
+Payload `POST /pgl/post-data` (form-urlencoded):
+
+- `sensor` (ex. `poissonglouton`)
+- `version` (ex. `0.1.0`)
+- `events` (lot compact) : `epoch:count:mode:tandem:batteryMv:rssi,...`
+  - `mode`: `1=ir`, `2=us`, `3=tandem`
+  - `tandem`: `0` ou `1`
+
+Codes de reponse:
+
+- `HTTP 200` : lot accepte (`{"status":"ok","inserted":N}`)
+- `HTTP 400` : payload invalide (events manquant / vide)
+- `HTTP 401` : cle API invalide
 
 ### Environnement Actif: **TEST** (`wroom-test`)
 
@@ -132,9 +170,33 @@ Le serveur doit répondre au POST dans le délai client (18 s) pour éviter time
 - **mail**, **mailNotif** : tronqués à 255 caractères avant insertion (évite erreur SQL si colonnes VARCHAR(255)).  
   Fichier : `src/Controller/Ffp3/PostDataController.php` (relatif à la racine du dépôt serveur).
 
-### Timestamp et signature HMAC (optionnel)
+### Timestamp et signature HMAC
 
-- Si le client envoie **timestamp** et **signature** : le serveur valide la signature HMAC. La fenêtre de validité est définie par la variable d'environnement **SIG_VALID_WINDOW** (secondes, défaut 300). Le RTC de l'ESP32 doit rester synchronisé (NTP + correction de dérive) à ± cette fenêtre pour que la signature soit acceptée. Actuellement le firmware n'envoie pas ces champs dans le POST post-data principal ; l'API reste en mode compatibilité (validation par API_KEY).
+#### Mode actuel (compat firmware) — défaut
+
+- Si le client envoie **timestamp** et **signature** : le serveur valide la signature HMAC.
+- Si ces champs sont absents : fallback automatique sur la validation `api_key` (la clé API doit alors être valide).
+- Fenêtre temporelle : **SIG_VALID_WINDOW** (secondes, défaut 300). Le RTC ESP32 doit être synchronisé NTP à ± cette fenêtre.
+- Format du message HMAC : `HMAC-SHA256(timestamp_string, API_SIG_SECRET)`. Hash en hex minuscules.
+
+#### Mode strict (à activer après migration de TOUS les firmwares)
+
+- `HMAC_STRICT_MODE=true` dans `.env` : refuse l'absence de HMAC, retourne **401**.
+- À activer une fois que FFP5CS, MSP1 et N3PP envoient systématiquement `timestamp + signature`.
+
+#### Mode avec nonce (anti-replay strict)
+
+- `HMAC_NONCE_REQUIRED=true` dans `.env` : exige aussi `post_id` (servant de nonce).
+- Format du message HMAC : `HMAC-SHA256("<timestamp>|<post_id>", API_SIG_SECRET)`.
+- Le firmware DOIT signer avec ce format. La déduplication `post_id` (UNIQUE BDD) bloque tout replay strict.
+
+#### Implémentation côté serveur
+
+- Validator : `src/Security/SignatureValidator.php`
+  - `isValid($timestamp, $signature, $secret, $window)` — sans nonce
+  - `isValidWithNonce($timestamp, $nonce, $signature, $secret, $window)` — avec nonce
+- Controllers : `src/Controller/Ffp3/PostDataController.php` (FFP3), `src/Controller/Concerns/HmacAuthTrait.php` (MSP / N3PP).
+
 - Champ optionnel **device_time** : non utilisé aujourd'hui ; peut être ajouté à l'avenir (epoch ou ISO) pour corrélation logs ESP32 / serveur et diagnostic. Non obligatoire pour le contrat actuel.
 
 ---

@@ -161,6 +161,18 @@ class TableConfig
         return self::getEnvironment() === 'msp_test' ? 'msp1OutputsTest' : 'msp1Outputs';
     }
 
+    // ── Tables Heartbeat legacy (msp1, n3pp) ─────────────────────────
+
+    public static function getMspHeartbeatTable(): string
+    {
+        return self::getEnvironment() === 'msp_test' ? 'msp1HeartbeatTest' : 'msp1Heartbeat';
+    }
+
+    public static function getN3ppHeartbeatTable(): string
+    {
+        return self::getEnvironment() === 'n3pp_test' ? 'n3ppHeartbeatTest' : 'n3ppHeartbeat';
+    }
+
     /**
      * Force un environnement pour la requête en cours (routes multi-env).
      * Ne modifie plus $_ENV pour éviter les fuites entre requêtes PHP-FPM.

@@ -1,0 +1,27 @@
+# Configuration PHPStan — serveur n3 IoT (Slim 4 / PHP 8.1+)
+# Niveau 5 : compromis raisonnable pour un codebase existant.
+# Augmenter progressivement (6 -> 8) au fil du nettoyage.
+
+parameters:
+    level: 5
+    paths:
+        - src
+        - public/index.php
+        - config
+    excludePaths:
+        - vendor/*
+        - archives/*
+        - analyse-ffp3/*
+        - ameliorations-visuelles-iot-serveur/*
+        - var/*
+        - tests/Fixtures/*
+        - tools/icons/*
+    bootstrapFiles:
+        - vendor/autoload.php
+    # Ignorer les erreurs liées à l'API Monolog 2.x vs 3.x (passerelle helpers).
+    ignoreErrors:
+        - identifier: missingType.iterableValue
+        - '#PHPDoc tag @param has invalid value#'
+        # Constants opcache: extension non chargée en CLI
+        - '#Function opcache_(get_status|get_configuration|reset) not found#'
+    treatPhpDocTypesAsCertain: false

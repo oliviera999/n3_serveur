@@ -68,12 +68,12 @@
 **Détails du POST:**
 ```
 [HTTP] → http://iot.olution.info/ffp3/public/post-data-test (487 bytes)
-[HTTP] payload: api_key=fdGTMoptd5CD2ert3&sensor=esp32-wroom&version=11.03&TempAir=26.7&Humidite=63.0&TempEau=28.2&EauPotager=209&EauAquarium=209&EauReserve=208&diffMaree=0&Luminosite=1204&etatPompeAqua=1&etatPompeTank=0&etatHeat=0&etatUV=1&bouffeMatin=8&bouffeMidi=12&bouffeSoir=19&tempsGros=10&tempsPetits=10&aqThr ... (truncated)
+[HTTP] payload: api_key=<API_KEY .env>&sensor=esp32-wroom&version=11.03&TempAir=26.7&Humidite=63.0&TempEau=28.2&EauPotager=209&EauAquarium=209&EauReserve=208&diffMaree=0&Luminosite=1204&etatPompeAqua=1&etatPompeTank=0&etatHeat=0&etatUV=1&bouffeMatin=8&bouffeMidi=12&bouffeSoir=19&tempsGros=10&tempsPetits=10&aqThr ... (truncated)
 [HTTP] ← code 200, 4079 bytes
 ```
 
 **Données envoyées au serveur:**
-- `api_key`: fdGTMoptd5CD2ert3
+- `api_key`: `<API_KEY .env>` (jamais en clair dans la doc)
 - `sensor`: esp32-wroom
 - `version`: 11.03
 - `TempAir`: 26.7°C

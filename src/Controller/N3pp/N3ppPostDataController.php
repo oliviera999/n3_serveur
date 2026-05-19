@@ -5,16 +5,23 @@ declare(strict_types=1);
 namespace App\Controller\N3pp;
 
 use App\Controller\AbstractPostDataController;
+use App\Controller\Concerns\HmacAuthTrait;
 use App\Domain\N3ppSensorData;
 use App\Repository\N3ppSensorRepository;
 use App\Service\LogService;
+use Psr\Http\Message\ResponseInterface as Response;
 
 /**
- * Reception des donnees POST du firmware n3pp (serre).
+ * Reception des donnees POST du firmware n3pp (serre/aquaponie, board=3).
  * Herite du flux commun AbstractPostDataController.
+ *
+ * Authentification : HMAC-SHA256 si timestamp+signature presents, sinon clé API
+ * legacy (compatibilite ascendante avec firmwares <= 4.38).
  */
 class N3ppPostDataController extends AbstractPostDataController
 {
+    use HmacAuthTrait;
+
     public function __construct(
         LogService $logger,
         private N3ppSensorRepository $sensorRepo,
@@ -25,6 +32,15 @@ class N3ppPostDataController extends AbstractPostDataController
     protected function componentName(): string
     {
         return 'N3ppPostData';
+    }
+
+    /**
+     * Auth HMAC optionnelle (timestamp+signature) avec fallback api_key.
+     * Alignement contrat FFP3 (cf. App\Controller\Ffp3\PostDataController).
+     */
+    protected function validateAuth(array $params, Response $response): ?Response
+    {
+        return $this->validateHmacOrFallback($params, $response);
     }
 
     protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object

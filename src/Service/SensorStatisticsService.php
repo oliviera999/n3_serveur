@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
 use App\Config\TableConfig;
@@ -93,6 +95,68 @@ class SensorStatisticsService
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $row['val'] !== null ? (float)$row['val'] : null;
+    }
+
+    /**
+     * Calcule MIN/MAX/AVG/STDDEV de plusieurs colonnes en **une seule requête**.
+     *
+     * Remplace 4N requêtes par 1 (cf. `aggregateAllStats()` qui passait par
+     * 4 appels × 7 colonnes = 28 requêtes pour la page Aquaponie).
+     *
+     * @param string[] $columns Colonnes à agréger (filtrées par NUMERIC_COLUMNS).
+     * @param DateTimeInterface|string $start
+     * @param DateTimeInterface|string $end
+     * @return array<string, array{min: float|null, max: float|null, avg: float|null, stddev: float|null}>
+     */
+    public function aggregateMany(array $columns, DateTimeInterface|string $start, DateTimeInterface|string $end): array
+    {
+        $columns = array_values(array_filter(
+            $columns,
+            static fn($c): bool => in_array($c, self::NUMERIC_COLUMNS, true)
+        ));
+        if ($columns === []) {
+            return [];
+        }
+
+        if ($start instanceof DateTimeInterface) {
+            $start = $start->format('Y-m-d H:i:s');
+        }
+        if ($end instanceof DateTimeInterface) {
+            $end = $end->format('Y-m-d H:i:s');
+        }
+
+        // Construction d'un SELECT unique avec MIN/MAX/AVG/STDDEV par colonne.
+        // Les noms de colonnes proviennent d'une whitelist (NUMERIC_COLUMNS) — pas d'injection possible.
+        $selects = [];
+        foreach ($columns as $col) {
+            $selects[] = sprintf('MIN(%1$s) AS min_%1$s', $col);
+            $selects[] = sprintf('MAX(%1$s) AS max_%1$s', $col);
+            $selects[] = sprintf('AVG(%1$s) AS avg_%1$s', $col);
+            $selects[] = sprintf('STDDEV(%1$s) AS stddev_%1$s', $col);
+        }
+        $table = TableConfig::getDataTable();
+        $sql = 'SELECT ' . implode(', ', $selects)
+            . sprintf(' FROM %s WHERE reading_time BETWEEN :start AND :end', $table);
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':start' => $start, ':end' => $end]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
+
+        $result = [];
+        foreach ($columns as $col) {
+            $result[$col] = [
+                'min'    => isset($row["min_{$col}"])    ? (float) $row["min_{$col}"]    : null,
+                'max'    => isset($row["max_{$col}"])    ? (float) $row["max_{$col}"]    : null,
+                'avg'    => isset($row["avg_{$col}"])    ? (float) $row["avg_{$col}"]    : null,
+                'stddev' => isset($row["stddev_{$col}"]) ? (float) $row["stddev_{$col}"] : null,
+            ];
+            // Conserver null si la BDD a retourné NULL (pas de donnees)
+            if ($row["min_{$col}"] === null)    $result[$col]['min']    = null;
+            if ($row["max_{$col}"] === null)    $result[$col]['max']    = null;
+            if ($row["avg_{$col}"] === null)    $result[$col]['avg']    = null;
+            if ($row["stddev_{$col}"] === null) $result[$col]['stddev'] = null;
+        }
+        return $result;
     }
 
     /**

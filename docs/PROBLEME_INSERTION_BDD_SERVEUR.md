@@ -40,7 +40,7 @@ Method: POST
 Content-Type: application/x-www-form-urlencoded
 Payload size: 487 bytes
 
-api_key=fdGTMoptd5CD2ert3&
+api_key=<API_KEY .env>&
 sensor=esp32-wroom&
 version=11.04&
 TempAir=26.4&
@@ -204,7 +204,7 @@ cat post-data-test  # ou post-data-test.php
 ```bash
 curl -X POST http://iot.olution.info/ffp3/public/post-data-test \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "api_key=fdGTMoptd5CD2ert3&sensor=test&version=11.04&TempAir=25.0" \
+  -d "api_key=$API_KEY&sensor=test&version=11.04&TempAir=25.0" \
   -v
 ```
 
@@ -310,7 +310,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $data = $_POST;
 
 // Vérifier l'API key
-if (!isset($data['api_key']) || $data['api_key'] !== 'fdGTMoptd5CD2ert3') {
+if (!isset($data['api_key']) || !hash_equals($_ENV['API_KEY'] ?? '', (string) $data['api_key'])) {
     http_response_code(401);
     echo json_encode(['status' => 'error', 'message' => 'Invalid API key']);
     exit;
@@ -442,7 +442,7 @@ if (code > 0) {
    ```bash
    curl -X POST http://iot.olution.info/ffp3/public/post-data-test \
      -H "Content-Type: application/x-www-form-urlencoded" \
-     -d "api_key=fdGTMoptd5CD2ert3&sensor=test&version=11.04&TempAir=25.0" \
+     -d "api_key=$API_KEY&sensor=test&version=11.04&TempAir=25.0" \
      -i
    ```
 

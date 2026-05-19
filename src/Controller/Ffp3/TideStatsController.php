@@ -41,7 +41,12 @@ class TideStatsController
 
         $sixMonthsAgo = date('Y-m-d H:i:s', strtotime('-6 months', strtotime($endDate)));
         $weeklyStats  = $this->tideService->computeWeeklySeries($sixMonthsAgo, $endDate);
-        $weeklyStatsJson = json_encode($weeklyStats, JSON_THROW_ON_ERROR);
+        // JSON_HEX_TAG/HEX_AMP/HEX_QUOT/HEX_APOS : echappe </script>, &, ', " si une valeur
+        // (label, environnement) en contenait, evitant une rupture du contexte JS dans le Twig |raw.
+        $weeklyStatsJson = json_encode(
+            $weeklyStats,
+            JSON_THROW_ON_ERROR | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_HEX_APOS
+        );
 
         $environment = TableConfig::getEnvironment();
         $realtime_api_base = RealtimeUrlHelper::getRealtimeApiBase($environment);

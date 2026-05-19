@@ -18,7 +18,10 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.0"
+        "phpunit/phpunit": "^10.0",
+        "phpstan/phpstan": "^1.10",
+        "friendsofphp/php-cs-fixer": "^3.50",
+        "roave/security-advisories": "dev-latest"
     },
     "autoload-dev": {
         "psr-4": {
@@ -31,6 +34,10 @@
         "test": "php tools/run-phpunit.php",
         "test:unit": "php tools/run-phpunit.php --testsuite Unit",
         "test:integration": "php tools/run-phpunit.php --testsuite Integration",
+        "analyse": "phpstan analyse --memory-limit=512M",
+        "cs:check": "php-cs-fixer fix --dry-run --diff",
+        "cs:fix": "php-cs-fixer fix",
+        "audit": "composer audit",
         "changelog:check": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/changelog-maintenance.ps1 -CheckOnly",
         "changelog:rotate": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/changelog-maintenance.ps1 -Rotate"
     }

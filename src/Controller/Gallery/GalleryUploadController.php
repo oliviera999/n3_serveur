@@ -67,6 +67,13 @@ class GalleryUploadController
             return ResponseHelper::text($response, 'Non autorise', 401);
         }
 
+        // Rate limiting souple (par IP) — protege contre les rafales (firmware boucle, attaque DoS legere).
+        // Defaut : 10 s entre 2 uploads. 0 ou absent = desactive.
+        $rateLimit = (int) ($_ENV['GALLERY_UPLOAD_RATE_LIMIT_SECONDS'] ?? 10);
+        if ($rateLimit > 0 && !$this->checkRateLimit($request, $gallery, $rateLimit)) {
+            return ResponseHelper::text($response, 'Trop de requetes — veuillez patienter', 429);
+        }
+
         $uploadedFiles = $request->getUploadedFiles();
         $imageFile = $uploadedFiles['imageFile'] ?? null;
         $contentType = $request->getHeaderLine('Content-Type');
@@ -123,7 +130,7 @@ class GalleryUploadController
             if ($analysis['quality'] !== 'ok') {
                 $this->trashService->moveToTrash($gallery, $filename, $analysis['quality']);
                 $this->logger->info("GalleryUpload [{$gallery}]: photo {$filename} envoyée en corbeille ({$analysis['reason']})");
-                return ResponseHelper::textClose($response, 'Photo enregistree (corbeille auto: ' . $analysis['reason'] . '): ' . $filename, 200);
+                return ResponseHelper::textClose($response, 'Photo enregistree (corbeille auto: ' . $analysis['reason'] . '): ' . $filename, 202);
             }
 
             $this->logger->info("GalleryUpload [{$gallery}]: photo enregistree {$filename}");
@@ -164,5 +171,47 @@ class GalleryUploadController
 
         $this->logger->warning("GalleryUpload [{$gallery}]: cle API device absente ou invalide");
         return false;
+    }
+
+    /**
+     * Verifie que le client (IP) n'a pas upload moins de $minIntervalSeconds avant.
+     * Stockage local fichier `var/cache/ratelimit/gallery-<slug>-<ipHash>.touch` (mtime).
+     * Atomique-enough pour cet usage (1 upload/10 s : pas de race condition critique).
+     *
+     * @return bool true si autorise, false si trop tot (rate-limit declenche).
+     */
+    private function checkRateLimit(Request $request, string $gallery, int $minIntervalSeconds): bool
+    {
+        $ip = $request->getServerParams()['REMOTE_ADDR'] ?? ($_SERVER['REMOTE_ADDR'] ?? null);
+        $fwd = $request->getHeaderLine('X-Forwarded-For');
+        if ($fwd !== '') {
+            // Premier element = client originel (best effort, le reverse proxy doit etre fiable).
+            $first = trim(explode(',', $fwd)[0]);
+            if ($first !== '') {
+                $ip = $first;
+            }
+        }
+        if (!is_string($ip) || $ip === '') {
+            return true; // pas d'IP exploitable : on laisse passer (mode degrade).
+        }
+
+        $cacheDir = Paths::getProjectRoot() . '/var/cache/ratelimit';
+        if (!is_dir($cacheDir) && !@mkdir($cacheDir, 0775, true) && !is_dir($cacheDir)) {
+            return true; // FS lecture seule : on n'echoue pas l'upload pour autant.
+        }
+        $touchFile = $cacheDir . '/gallery-' . $gallery . '-' . sha1($ip) . '.touch';
+        $now = time();
+        if (is_file($touchFile)) {
+            $last = (int) @filemtime($touchFile);
+            if ($last > 0 && ($now - $last) < $minIntervalSeconds) {
+                $this->logger->warning("GalleryUpload [{$gallery}]: rate-limit hit code=429", [
+                    'wait_s' => $minIntervalSeconds - ($now - $last),
+                    'ip_hash' => substr(sha1($ip), 0, 8),
+                ]);
+                return false;
+            }
+        }
+        @touch($touchFile);
+        return true;
     }
 }

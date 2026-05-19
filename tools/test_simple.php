@@ -1,8 +1,18 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Script de test simple pour vérifier /post-data-test
- * 
- * Usage: php test_simple.php
+ *
+ * Lit API_KEY depuis l'environnement (.env via App\Config\Env::load() si disponible,
+ * sinon variable d'environnement classique). Aucun secret ne doit jamais figurer
+ * en clair dans ce script (cf. .cursor/rules/securite-et-secrets.mdc).
+ *
+ * Usage:
+ *   php test_simple.php                      # url par defaut + API_KEY env
+ *   API_KEY=xxxx php test_simple.php         # override cle
+ *   POST_URL=http://... php test_simple.php  # override URL
  */
 
 echo "========================================\n";
@@ -10,9 +20,23 @@ echo "TEST SIMPLE POST-DATA-TEST\n";
 echo "Date: " . date('Y-m-d H:i:s') . "\n";
 echo "========================================\n\n";
 
-// Configuration
-$url = "http://localhost/ffp3/post-data-test";
-$apiKey = "fdGTMoptd5CD2ert3";
+// Chargement .env si disponible (autoload Composer presents)
+$autoload = __DIR__ . '/../vendor/autoload.php';
+if (is_file($autoload)) {
+    require_once $autoload;
+    if (class_exists(\App\Config\Env::class)) {
+        \App\Config\Env::load();
+    }
+}
+
+// Configuration (URL + cle API lues depuis l'environnement, jamais en dur)
+$url = getenv('POST_URL') ?: ($_ENV['POST_URL'] ?? 'http://localhost/post-data-test');
+$apiKey = getenv('API_KEY') ?: ($_ENV['API_KEY'] ?? '');
+if ($apiKey === '') {
+    fwrite(STDERR, "❌ API_KEY introuvable (variable d'env ou .env requis).\n");
+    fwrite(STDERR, "   Exemple : \$env:API_KEY = '...'; php tools/test_simple.php\n");
+    exit(2);
+}
 
 // Données de test minimales
 $data = [

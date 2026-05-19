@@ -42,12 +42,21 @@ class PostDataController extends AbstractPostDataController
     }
 
     /**
-     * HMAC validation spécifique à FFP3 (avant la clé API legacy).
+     * Validation HMAC spécifique à FFP3 (avant la clé API legacy).
+     *
+     * - Si `HMAC_STRICT_MODE=true` : exige timestamp+signature, refuse le fallback api_key.
+     * - Si `HMAC_NONCE_REQUIRED=true` : exige aussi `post_id` et utilise
+     *   `isValidWithNonce()` (message HMAC = `<timestamp>|<post_id>`).
+     *   Le firmware FFP5CS doit alors construire la signature de la même manière.
+     * - Sinon (compat) : variante historique HMAC(timestamp, secret).
      */
     protected function validateAuth(array $params, Response $response): ?Response
     {
         $timestamp = $params['timestamp'] ?? null;
         $signature = $params['signature'] ?? null;
+
+        $strict = filter_var($_ENV['HMAC_STRICT_MODE'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
+        $nonceRequired = filter_var($_ENV['HMAC_NONCE_REQUIRED'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
 
         if ($timestamp !== null || $signature !== null) {
             if ($timestamp === null || $signature === null) {
@@ -61,7 +70,7 @@ class PostDataController extends AbstractPostDataController
             }
 
             $sigSecret = $_ENV['API_SIG_SECRET'] ?? null;
-            if ($sigSecret === null) {
+            if ($sigSecret === null || $sigSecret === '') {
                 $errorMessage = 'Variable API_SIG_SECRET manquante dans .env';
                 $this->logger->error('PostData: rejet config API_SIG_SECRET manquante code=500');
                 $this->errorAlert->recordError($errorMessage);
@@ -69,19 +78,61 @@ class PostDataController extends AbstractPostDataController
             }
 
             $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+            if ($sigWindow <= 0) {
+                $sigWindow = 300;
+            }
 
-            if (!SignatureValidator::isValid((string) $timestamp, (string) $signature, $sigSecret, $sigWindow)) {
+            $postId = isset($params['post_id']) && is_scalar($params['post_id'])
+                ? substr(trim((string) $params['post_id']), 0, 64) : '';
+
+            if ($nonceRequired) {
+                if ($postId === '') {
+                    $this->logger->warning('PostData: rejet auth HMAC sans post_id (nonce requis) code=401', [
+                        'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                        'sensor' => trim((string) ($params['sensor'] ?? '')),
+                        'version' => trim((string) ($params['version'] ?? '')),
+                    ]);
+                    return ResponseHelper::text($response, 'post_id requis (nonce HMAC)', 401);
+                }
+                $valid = SignatureValidator::isValidWithNonce(
+                    (string) $timestamp,
+                    $postId,
+                    (string) $signature,
+                    $sigSecret,
+                    $sigWindow
+                );
+            } else {
+                $valid = SignatureValidator::isValid(
+                    (string) $timestamp,
+                    (string) $signature,
+                    $sigSecret,
+                    $sigWindow
+                );
+            }
+
+            if (!$valid) {
                 $this->logger->warning('PostData: rejet auth HMAC invalide code=401', [
                     'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
                     'sensor' => trim((string) ($params['sensor'] ?? '')),
                     'version' => trim((string) ($params['version'] ?? '')),
-                    'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
+                    'post_id' => $postId !== '' ? $postId : null,
+                    'nonce_required' => $nonceRequired,
                 ]);
                 return ResponseHelper::text($response, 'Signature incorrecte', 401);
             }
             $this->authenticatedByHmac = true;
 
             return null;
+        }
+
+        // Aucun HMAC fourni : selon HMAC_STRICT_MODE, on refuse ou on tombe sur api_key (compat).
+        if ($strict) {
+            $this->logger->warning('PostData: rejet auth HMAC absent (strict) code=401', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+            ]);
+            return ResponseHelper::text($response, 'Signature HMAC requise (strict mode)', 401);
         }
 
         $this->logger->info('Aucune signature fournie – authentification api_key requise');

@@ -35,25 +35,17 @@ class StatisticsAggregatorService
 
     /**
      * Agrège toutes les statistiques (min, max, avg, stddev) pour tous les capteurs
-     * 
+     * en **une seule requête SQL** (cf. SensorStatisticsService::aggregateMany).
+     *
+     * Performance : passe de 28 requêtes (4 × 7 colonnes) à 1 requête unique.
+     *
      * @param DateTimeInterface|string $start Date/heure de début
      * @param DateTimeInterface|string $end   Date/heure de fin
      * @return array Tableau structuré : ['TempAir' => ['min' => X, 'max' => Y, ...], ...]
      */
     public function aggregateAllStats(DateTimeInterface|string $start, DateTimeInterface|string $end): array
     {
-        $results = [];
-
-        foreach (self::SENSOR_COLUMNS as $column) {
-            $results[$column] = [
-                'min'    => $this->statsService->min($column, $start, $end),
-                'max'    => $this->statsService->max($column, $start, $end),
-                'avg'    => $this->statsService->avg($column, $start, $end),
-                'stddev' => $this->statsService->stddev($column, $start, $end),
-            ];
-        }
-
-        return $results;
+        return $this->statsService->aggregateMany(self::SENSOR_COLUMNS, $start, $end);
     }
 
     /**

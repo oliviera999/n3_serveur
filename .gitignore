@@ -27,12 +27,18 @@ desktop.ini
 # Fichier de test / outil local (ne pas versionner)
 /var/last_device_ip_test.txt
 
-# Archives (exclues du depot — conservees localement)
+# Archives (exclues du depot — conservees localement, lecture seule)
 /archives/
+# Extrait FFP3 pour analyse (lecture seule, contient des references historiques de la cle API)
+/analyse-ffp3/
+# Patch / explorations frontend (non versionne)
+/ameliorations-visuelles-iot-serveur/
 
-# PHP / PHPUnit
+# PHP / PHPUnit / PHPStan / PHP-CS-Fixer
 .phpunit.result.cache
 .phpunit.cache/
+.php-cs-fixer.cache
+.phpstan.cache/
 
 # Photos uploadees (garder la structure via .gitkeep)
 /uploads/msp1/*
@@ -42,4 +48,9 @@ desktop.ini
 /uploads/ffp3/*
 !/uploads/ffp3/.gitkeep
 /uploads/trash/
+# Dossiers de test ad-hoc (photos locales smoke test, etc.)
+/uploads/test-*/
+
+# Rate limiting cache (genere par GalleryUploadController)
+/var/cache/ratelimit/
 

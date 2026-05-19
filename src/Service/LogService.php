@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
+use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Monolog\Formatter\LineFormatter;
@@ -9,42 +12,81 @@ use Monolog\Formatter\LineFormatter;
 /**
  * Service centralisé de gestion des logs applicatifs.
  * Utilise Monolog pour écrire des événements, tâches et erreurs dans un fichier texte.
- * Permet de tracer l'activité du système pour le debug, l'audit ou la supervision.
+ *
+ * Variables d'environnement :
+ *   - LOG_FILE_PATH      : chemin (défaut `cronlog.txt`)
+ *   - LOG_LEVEL          : DEBUG|INFO|WARNING|ERROR|CRITICAL (défaut DEBUG)
+ *   - LOG_ROTATE_DAYS    : rotation quotidienne (défaut 14 ; 0 = pas de rotation)
+ *   - LOG_MASK_IP        : true (défaut) — masque le dernier octet IPv4 / 80 bits IPv6
+ *                          pour limiter le risque RGPD si le cronlog est exposé publiquement.
  */
 class LogService
 {
-    /**
-     * Nom du fichier de log par défaut (modifiable via .env)
-     */
     private const DEFAULT_LOG_FILE = 'cronlog.txt';
 
-    /**
-     * Chemin du fichier de log utilisé
-     */
     private string $logFile;
 
-    /**
-     * Instance Monolog configurée
-     */
     private Logger $logger;
 
-    /**
-     * Initialise le logger avec le format souhaité et le fichier cible.
-     * Le format est : [date] [LEVEL] message
-     */
+    private bool $maskIp;
+
     public function __construct()
     {
-        $this->logFile = $_ENV['LOG_FILE_PATH'] ?? self::DEFAULT_LOG_FILE;
+        $this->logFile = (string) ($_ENV['LOG_FILE_PATH'] ?? self::DEFAULT_LOG_FILE);
+        $this->maskIp = filter_var($_ENV['LOG_MASK_IP'] ?? 'true', FILTER_VALIDATE_BOOLEAN);
 
-        $this->logger = new Logger('ffp3');
+        $this->logger = new Logger('n3-iot');
 
-        // Format de sortie proche de l'ancien : [date] [LEVEL] message
-        $lineFormatter = new LineFormatter("[%datetime%] [%level_name%] %message%\n", 'Y-m-d H:i:s', true, true);
+        // Format : `[YYYY-MM-DD HH:MM:SS] [LEVEL] message` puis context JSON uniquement
+        // s'il est non vide (extraction conditionnelle dans log()). LineFormatter
+        // n'affiche `%context%` que si non vide grace au mode "ignore empty context".
+        $lineFormatter = new LineFormatter("[%datetime%] [%level_name%] %message%%context%\n", 'Y-m-d H:i:s', true, true);
+        $lineFormatter->ignoreEmptyContextAndExtra(true);
 
-        $streamHandler = new StreamHandler($this->logFile, Logger::DEBUG);
-        $streamHandler->setFormatter($lineFormatter);
+        $logLevel = $this->parseLevel((string) ($_ENV['LOG_LEVEL'] ?? 'DEBUG'));
+        $rotateDays = (int) ($_ENV['LOG_ROTATE_DAYS'] ?? 14);
 
-        $this->logger->pushHandler($streamHandler);
+        $handler = $rotateDays > 0
+            ? new RotatingFileHandler($this->logFile, $rotateDays, $logLevel)
+            : new StreamHandler($this->logFile, $logLevel);
+        $handler->setFormatter($lineFormatter);
+
+        $this->logger->pushHandler($handler);
+    }
+
+    private function parseLevel(string $level): int
+    {
+        return match (strtoupper($level)) {
+            'DEBUG' => Logger::DEBUG,
+            'INFO' => Logger::INFO,
+            'WARNING', 'WARN' => Logger::WARNING,
+            'ERROR' => Logger::ERROR,
+            'CRITICAL', 'FATAL' => Logger::CRITICAL,
+            default => Logger::DEBUG,
+        };
+    }
+
+    /**
+     * Masque l'IP pour eviter de loguer des PII complets (rgpd cronlog public).
+     * IPv4 a.b.c.d -> a.b.c.0   |   IPv6 abcd:ef01:... -> abcd:ef01:::/80
+     */
+    private function maskIp(string $ip): string
+    {
+        $ip = trim($ip);
+        if ($ip === '' || $ip === 'n/a') {
+            return 'n/a';
+        }
+        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+            $parts = explode('.', $ip);
+            $parts[3] = '0';
+            return implode('.', $parts);
+        }
+        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+            $segments = explode(':', $ip);
+            $kept = array_slice($segments, 0, 3);
+            return implode(':', $kept) . '::/80';
+        }
+        return 'invalid';
     }
 
     /**
@@ -56,9 +98,20 @@ class LogService
      */
     private function log(int|string $level, string $message, array $context = []): void
     {
+        // Masquer les IP du contexte si LOG_MASK_IP est actif
+        if ($this->maskIp) {
+            foreach (['ip', 'client_ip', 'remote_addr'] as $key) {
+                if (isset($context[$key]) && is_string($context[$key])) {
+                    $context[$key] = $this->maskIp($context[$key]);
+                }
+            }
+        }
+
         // Remplacement manuel des placeholders {key} par leur valeur
         foreach ($context as $key => $value) {
-            $message = str_replace('{' . $key . '}', (string)$value, $message);
+            if (is_scalar($value) || $value === null) {
+                $message = str_replace('{' . $key . '}', (string) $value, $message);
+            }
         }
 
         $this->logger->log($level, $message, $context);
