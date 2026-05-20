@@ -1,8 +1,8 @@
 # 🌐 Endpoints ESP32 ↔ Serveur - Configuration Complète
 
 **Version FFP5CS (ESP32)** : 13.81 (compat ESP32 et ESP32-S3)
-**Version Serveur** : 5.1.2
-**Dernière mise à jour** : 25 Mai 2026
+**Version Serveur** : 5.1.3
+**Dernière mise à jour** : 30 Mai 2026
 
 > Audit complet 2026-05 : durcissement sécurité (CSP, HSTS, OTA opt-in, masquage IP),
 > trait HMAC partagé FFP3/MSP/N3PP, validation board/sensor galeries, JSON Twig durci

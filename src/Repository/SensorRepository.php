@@ -15,6 +15,19 @@ use PDO;
 class SensorRepository extends AbstractRepository
 {
     /**
+     * Insère une mesure et ses effets de bord dans une transaction unique.
+     *
+     * @param callable(SensorData): void $afterInsert
+     */
+    public function insertAtomically(SensorData $data, callable $afterInsert): void
+    {
+        $this->executeInTransaction(function () use ($data, $afterInsert): void {
+            $this->insert($data);
+            $afterInsert($data);
+        });
+    }
+
+    /**
      * Insère une nouvelle mesure complète dans la table ffp3Data.
      *
      * @param SensorData $data Objet contenant toutes les valeurs à insérer

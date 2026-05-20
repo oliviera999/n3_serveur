@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.3] - 2026-05-30
+
+### Correctifs critiques FFP3 (PR #12 / #15)
+
+- **`/post-data` FFP3** : insertion capteur, sync GPIO et `Boards.last_request` dans une transaction unique (rollback `post_id` si sync outputs echoue).
+- **Tests** : verification que les effets de bord FFP3 passent par l'insertion atomique.
+
 ## [5.1.2] - 2026-05-25
 
 ### Migration BDD — persistance colonnes marée `tide*`

@@ -245,15 +245,22 @@ class PostDataController extends AbstractPostDataController
         }
 
         $t0 = microtime(true);
-        $this->sensorRepo->insert($data);
-        $t1 = microtime(true);
+        $t1 = $t2 = $t3 = null;
 
-        $this->outputRepo->ensureAquariumPumpForceRowExists();
-        $this->outputRepo->syncStatesFromSensorData($data);
-        $t2 = microtime(true);
+        $this->sensorRepo->insertAtomically($data, function (SensorData $insertedData) use (&$t1, &$t2, &$t3): void {
+            $t1 = microtime(true);
 
-        $this->boardRepo->updateLastRequest(TableConfig::getPostDataBoardId());
-        $t3 = microtime(true);
+            $this->outputRepo->ensureAquariumPumpForceRowExists();
+            $this->outputRepo->syncStatesFromSensorData($insertedData);
+            $t2 = microtime(true);
+
+            $this->boardRepo->updateLastRequest(TableConfig::getPostDataBoardId());
+            $t3 = microtime(true);
+        });
+
+        $t1 ??= $t0;
+        $t2 ??= $t1;
+        $t3 ??= $t2;
 
         $this->logger->info(
             'PostData timing_ms: insert={insertMs} sync={syncMs} board={boardMs} total={totalMs}',
