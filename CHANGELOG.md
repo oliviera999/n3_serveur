@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.1] - 2026-05-20
+
+### Correctif critique — POST FFP3 atomique
+- **`/post-data` FFP3** : l'insertion capteur, la synchronisation des GPIO et la mise a jour `Boards.last_request` sont maintenant executees dans une transaction unique. Si la sync outputs echoue apres l'INSERT, le `post_id` est rollback aussi ; le firmware peut donc retenter sans etre bloque par la deduplication.
+- **Tests** : ajout d'un test controller verifiant que les effets de bord FFP3 passent par l'insertion atomique.
+
 ## [5.1.0] - 2026-05-19
 
 ### Audit serveur exhaustif — Sécurité, qualité, tests, docs

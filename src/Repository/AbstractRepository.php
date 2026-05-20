@@ -95,7 +95,7 @@ abstract class AbstractRepository
      *
      * @param callable $callback Fonction à exécuter dans la transaction
      * @return mixed Valeur de retour du callback
-     * @throws \Exception En cas d'erreur, la transaction est annulée et l'exception est relancée
+     * @throws \Throwable En cas d'erreur, la transaction est annulée et l'exception est relancée
      */
     protected function executeInTransaction(callable $callback): mixed
     {
@@ -104,7 +104,7 @@ abstract class AbstractRepository
             $result = $callback();
             $this->pdo->commit();
             return $result;
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             $this->pdo->rollBack();
             throw $e;
         }
