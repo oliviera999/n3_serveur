@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.1] - 2026-05-21
+
+### Correctif critique - contrat HMAC FFP5CS v13.80
+- **FFP3 post-data** : `PostDataController` accepte maintenant les en-têtes firmware
+  `X-Sig-Timestamp`, `X-Sig-Nonce`, `X-Sig-Hmac` et valide le format réellement émis par
+  FFP5CS v13.80 : `HMAC-SHA256("<timestamp>\n<nonce>\n<body>", API_SIG_SECRET)`.
+- **Impact corrigé** : en `HMAC_STRICT_MODE=true`, les firmwares FFP5CS v13.80 signés étaient
+  rejetés en 401 car le serveur ne lisait que les champs POST legacy `timestamp/signature`.
+- **Tests** : ajout de tests unitaires pour la signature body et pour le chemin controller
+  `X-Sig-*` (acceptation stricte sans `api_key`, rejet d'un body modifié).
+
+---
+
 ## [5.1.0] - 2026-05-19
 
 ### Audit serveur exhaustif — Sécurité, qualité, tests, docs

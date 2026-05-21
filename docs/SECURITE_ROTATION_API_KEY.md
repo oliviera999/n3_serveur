@@ -48,7 +48,8 @@ Comme tous les firmwares ne peuvent pas etre reflashes en meme temps, deux strat
 
 **B. Transition douce via HMAC (recommande hors urgence)**
 
-1. Activer le HMAC sur les firmwares (`timestamp` + `signature`, cf. `SignatureValidator`).
+1. Activer le HMAC sur les firmwares (`X-Sig-Timestamp` + `X-Sig-Nonce` + `X-Sig-Hmac`
+   pour FFP5CS v13.80+, cf. `SignatureValidator::isValidForBody()`).
 2. Une fois tous les firmwares migres : retirer la `API_KEY` legacy, ne garder que HMAC.
 
 ### 4. Verifications post-rotation

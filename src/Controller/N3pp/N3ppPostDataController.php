@@ -10,6 +10,7 @@ use App\Domain\N3ppSensorData;
 use App\Repository\N3ppSensorRepository;
 use App\Service\LogService;
 use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Reception des donnees POST du firmware n3pp (serre/aquaponie, board=3).
@@ -38,7 +39,7 @@ class N3ppPostDataController extends AbstractPostDataController
      * Auth HMAC optionnelle (timestamp+signature) avec fallback api_key.
      * Alignement contrat FFP3 (cf. App\Controller\Ffp3\PostDataController).
      */
-    protected function validateAuth(array $params, Response $response): ?Response
+    protected function validateAuth(Request $request, array $params, Response $response): ?Response
     {
         return $this->validateHmacOrFallback($params, $response);
     }

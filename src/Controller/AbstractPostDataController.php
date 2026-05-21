@@ -55,7 +55,7 @@ abstract class AbstractPostDataController
      *
      * @return Response|null null = OK, Response = rejet
      */
-    protected function validateAuth(array $params, Response $response): ?Response
+    protected function validateAuth(Request $request, array $params, Response $response): ?Response
     {
         return null;
     }
@@ -93,7 +93,7 @@ abstract class AbstractPostDataController
         }
 
         // Authentification (HMAC ou API_KEY selon le module)
-        $authError = $this->validateAuth($params, $response);
+        $authError = $this->validateAuth($request, $params, $response);
         if ($authError !== null) {
             return $authError;
         }

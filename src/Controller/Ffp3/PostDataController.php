@@ -44,14 +44,21 @@ class PostDataController extends AbstractPostDataController
     /**
      * Validation HMAC spécifique à FFP3 (avant la clé API legacy).
      *
-     * - Si `HMAC_STRICT_MODE=true` : exige timestamp+signature, refuse le fallback api_key.
+     * - Si les en-têtes `X-Sig-*` FFP5CS v13.80 sont présents : valide
+     *   HMAC-SHA256(`<timestamp>\n<nonce>\n<body>`).
+     * - Si `HMAC_STRICT_MODE=true` : exige une signature HMAC, refuse le fallback api_key.
      * - Si `HMAC_NONCE_REQUIRED=true` : exige aussi `post_id` et utilise
      *   `isValidWithNonce()` (message HMAC = `<timestamp>|<post_id>`).
      *   Le firmware FFP5CS doit alors construire la signature de la même manière.
      * - Sinon (compat) : variante historique HMAC(timestamp, secret).
      */
-    protected function validateAuth(array $params, Response $response): ?Response
+    protected function validateAuth(Request $request, array $params, Response $response): ?Response
     {
+        $headerAuth = $this->validateHeaderHmac($request, $params, $response);
+        if ($headerAuth !== false) {
+            return $headerAuth;
+        }
+
         $timestamp = $params['timestamp'] ?? null;
         $signature = $params['signature'] ?? null;
 
@@ -138,6 +145,78 @@ class PostDataController extends AbstractPostDataController
         $this->logger->info('Aucune signature fournie – authentification api_key requise');
 
         return null;
+    }
+
+    /**
+     * @return Response|null|false Response/null si les en-têtes X-Sig-* étaient présents,
+     *                             false si le flux legacy doit continuer.
+     */
+    private function validateHeaderHmac(Request $request, array $params, Response $response): Response|null|false
+    {
+        $timestamp = trim($request->getHeaderLine('X-Sig-Timestamp'));
+        $nonce = trim($request->getHeaderLine('X-Sig-Nonce'));
+        $signature = trim($request->getHeaderLine('X-Sig-Hmac'));
+
+        if ($timestamp === '' && $nonce === '' && $signature === '') {
+            return false;
+        }
+
+        if ($timestamp === '' || $nonce === '' || $signature === '') {
+            $this->logger->warning('PostData: rejet auth X-Sig incomplete code=401', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'has_timestamp' => $timestamp !== '',
+                'has_nonce' => $nonce !== '',
+                'has_signature' => $signature !== '',
+            ]);
+            return ResponseHelper::text($response, 'Signature incomplete', 401);
+        }
+
+        $sigSecret = $_ENV['API_SIG_SECRET'] ?? null;
+        if ($sigSecret === null || $sigSecret === '') {
+            $errorMessage = 'Variable API_SIG_SECRET manquante dans .env';
+            $this->logger->error('PostData: rejet config API_SIG_SECRET manquante code=500');
+            $this->errorAlert->recordError($errorMessage);
+            return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
+        }
+
+        $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+        if ($sigWindow <= 0) {
+            $sigWindow = 300;
+        }
+
+        $rawBody = $this->rawRequestBody($request);
+        $valid = SignatureValidator::isValidForBody(
+            $timestamp,
+            $nonce,
+            $rawBody,
+            $signature,
+            $sigSecret,
+            $sigWindow
+        );
+
+        if (!$valid) {
+            $this->logger->warning('PostData: rejet auth X-Sig invalide code=401', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+            ]);
+            return ResponseHelper::text($response, 'Signature incorrecte', 401);
+        }
+
+        $this->authenticatedByHmac = true;
+        return null;
+    }
+
+    private function rawRequestBody(Request $request): string
+    {
+        $body = $request->getBody();
+        if ($body->isSeekable()) {
+            $body->rewind();
+        }
+
+        return (string) $body;
     }
 
     /**

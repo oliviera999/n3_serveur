@@ -116,4 +116,40 @@ class SignatureValidatorTest extends TestCase
             300
         ));
     }
+
+    public function testValidSignatureForBodyHeaders(): void
+    {
+        $secret = 'mysecret';
+        $timestamp = time();
+        $nonce = 'abc123nonce';
+        $body = 'api_key=legacy&sensor=ffp3&version=13.80';
+        $sig = SignatureValidator::createSignatureForBody($timestamp, $nonce, $body, $secret);
+
+        $this->assertTrue(SignatureValidator::isValidForBody(
+            (string) $timestamp,
+            $nonce,
+            $body,
+            $sig,
+            $secret,
+            300
+        ));
+    }
+
+    public function testTamperedBodySignatureRejected(): void
+    {
+        $secret = 'mysecret';
+        $timestamp = time();
+        $nonce = 'abc123nonce';
+        $body = 'api_key=legacy&sensor=ffp3&version=13.80';
+        $sig = SignatureValidator::createSignatureForBody($timestamp, $nonce, $body, $secret);
+
+        $this->assertFalse(SignatureValidator::isValidForBody(
+            (string) $timestamp,
+            $nonce,
+            'api_key=legacy&sensor=ffp3&version=13.80&TempAir=99',
+            $sig,
+            $secret,
+            300
+        ));
+    }
 }

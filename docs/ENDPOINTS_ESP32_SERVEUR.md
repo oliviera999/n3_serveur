@@ -1,12 +1,13 @@
 # 🌐 Endpoints ESP32 ↔ Serveur - Configuration Complète
 
-**Version FFP5CS (ESP32)** : 13.51 (compat ESP32 et ESP32-S3)
-**Version Serveur** : 5.1.0
-**Dernière mise à jour** : 19 Mai 2026
+**Version FFP5CS (ESP32)** : 13.80+ (compat ESP32 et ESP32-S3)
+**Version Serveur** : 5.1.1
+**Dernière mise à jour** : 21 Mai 2026
 
 > Audit complet 2026-05 : durcissement sécurité (CSP, HSTS, OTA opt-in, masquage IP),
 > trait HMAC partagé FFP3/MSP/N3PP, validation board/sensor galeries, JSON Twig durci
-> (JSON_HEX_TAG), HMAC nonce (`isValidWithNonce`) prêt côté serveur.
+> (JSON_HEX_TAG), HMAC nonce (`isValidWithNonce`) et en-têtes FFP5CS `X-Sig-*`
+> validés côté serveur.
 
 ---
 
@@ -174,10 +175,15 @@ Le serveur doit répondre au POST dans le délai client (18 s) pour éviter time
 
 #### Mode actuel (compat firmware) — défaut
 
-- Si le client envoie **timestamp** et **signature** : le serveur valide la signature HMAC.
+- Si le client FFP5CS v13.80+ envoie les en-têtes **X-Sig-Timestamp**, **X-Sig-Nonce** et
+  **X-Sig-Hmac** : le serveur valide la signature HMAC du body exact.
+- Si un client legacy envoie **timestamp** et **signature** dans le POST : le serveur valide
+  la signature HMAC legacy.
 - Si ces champs sont absents : fallback automatique sur la validation `api_key` (la clé API doit alors être valide).
 - Fenêtre temporelle : **SIG_VALID_WINDOW** (secondes, défaut 300). Le RTC ESP32 doit être synchronisé NTP à ± cette fenêtre.
-- Format du message HMAC : `HMAC-SHA256(timestamp_string, API_SIG_SECRET)`. Hash en hex minuscules.
+- Format FFP5CS v13.80+ : `HMAC-SHA256("<timestamp>\n<nonce>\n<body>", API_SIG_SECRET)`.
+  Hash en hex minuscules ; le body signé est le payload brut `application/x-www-form-urlencoded`.
+- Format legacy : `HMAC-SHA256(timestamp_string, API_SIG_SECRET)`.
 
 #### Mode strict (à activer après migration de TOUS les firmwares)
 

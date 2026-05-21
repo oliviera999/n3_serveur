@@ -13,6 +13,8 @@ namespace App\Security;
  *   - Avec nonce (recommandé, FFP5CS futur) : HMAC-SHA256(timestamp . "|" . nonce, secret).
  *     Le serveur peut en plus déduplicquer le nonce (ex. post_id) côté repository
  *     pour empêcher le replay strict dans la fenêtre.
+ *   - En-têtes FFP5CS v13.80 : HMAC-SHA256(timestamp . "\n" . nonce . "\n" . body, secret).
+ *     Ce format signe le payload exact pour empêcher une modification silencieuse du body.
  *
  * Le client (firmware) et le serveur DOIVENT utiliser la même convention. La fonction
  * `createSignatureWithNonce()` documente le format canonique (`<timestamp>|<nonce>`).
@@ -33,6 +35,18 @@ class SignatureValidator
     public static function createSignatureWithNonce(int $timestamp, string $nonce, string $secret): string
     {
         return hash_hmac('sha256', $timestamp . '|' . $nonce, $secret);
+    }
+
+    /**
+     * Génère la signature HMAC FFP5CS v13.80 : `<timestamp>\n<nonce>\n<body>`.
+     */
+    public static function createSignatureForBody(
+        int $timestamp,
+        string $nonce,
+        string $body,
+        string $secret
+    ): string {
+        return hash_hmac('sha256', $timestamp . "\n" . $nonce . "\n" . $body, $secret);
     }
 
     /**
@@ -84,6 +98,28 @@ class SignatureValidator
             return false;
         }
         $expected = self::createSignatureWithNonce($ts, $nonce, $secret);
+        return hash_equals($expected, $signature);
+    }
+
+    /**
+     * Valide le format envoyé par FFP5CS v13.80 dans les en-têtes `X-Sig-*`.
+     */
+    public static function isValidForBody(
+        string $timestamp,
+        string $nonce,
+        string $body,
+        string $signature,
+        string $secret,
+        int $window = 300
+    ): bool {
+        if (!ctype_digit($timestamp) || $nonce === '') {
+            return false;
+        }
+        $ts = (int) $timestamp;
+        if (abs(time() - $ts) > $window) {
+            return false;
+        }
+        $expected = self::createSignatureForBody($ts, $nonce, $body, $secret);
         return hash_equals($expected, $signature);
     }
 }
