@@ -123,7 +123,7 @@ public/index.php (front controller Slim 4)  ← Route Slim Framework
   └─> OutputController::getOutputsState()
 ```
 
-**Declenchement OTA distant** : quand la page de controle envoie une demande "Verifier OTA", le serveur ajoute `triggerOtaCheck: true` une seule fois dans la reponse du GET firmware. Les polls web de l'interface utilisent `?fresh=1` et restent en lecture seule pour ce flag, afin de ne pas consommer la commande avant le prochain poll de l'ESP32.
+**Declenchement OTA distant** : quand la page de controle envoie une demande "Verifier OTA", le serveur ajoute `triggerOtaCheck: true` une seule fois dans la reponse du GET firmware. Les polls web de l'interface utilisent `?fresh=1` et restent en lecture seule pour ce flag, afin de ne pas consommer la commande avant le prochain poll de l'ESP32. Depuis **serveur 5.1.1**, la table de persistance `ffp3OtaTrigger` est créée automatiquement au premier enregistrement si la migration n'a pas encore été exécutée.
 
 ---
 
@@ -332,7 +332,7 @@ Fichier: /path/to/ffp3/public/index.php
 Route: Slim Framework → OutputController::getOutputsState()
 Méthode: GET
 
-Réponse JSON : clés numériques (GPIO) + clés symboliques (alignées `gpio_mapping.h` / VARIABLE_NAMING.md). L’ESP32 accepte les deux formats. Champs additionnels pour la page de contrôle : `dataStates`, `dataStatesReadingTime`, `triggerOtaCheck` (une fois) — l’ESP32 n’utilise que les clés GPIO et `triggerOtaCheck`. Depuis **serveur 5.0.300**, `triggerOtaCheck` est posé puis consommé via la table **`ffp3OtaTrigger`** (fiable sous PHP-FPM multi-workers) ; voir `migrations/CREATE_FFP3_OTA_TRIGGER_TABLE.sql`.
+Réponse JSON : clés numériques (GPIO) + clés symboliques (alignées `gpio_mapping.h` / VARIABLE_NAMING.md). L’ESP32 accepte les deux formats. Champs additionnels pour la page de contrôle : `dataStates`, `dataStatesReadingTime`, `triggerOtaCheck` (une fois) — l’ESP32 n’utilise que les clés GPIO et `triggerOtaCheck`. Depuis **serveur 5.0.300**, `triggerOtaCheck` est posé puis consommé via la table **`ffp3OtaTrigger`** (fiable sous PHP-FPM multi-workers). Depuis **serveur 5.1.1**, cette table est créée de façon idempotente au premier usage si elle manque encore ; la migration `migrations/CREATE_FFP3_OTA_TRIGGER_TABLE.sql` reste disponible pour une création manuelle explicite.
 
 Exemple (extrait) :
 ```json

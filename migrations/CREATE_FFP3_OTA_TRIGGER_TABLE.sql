@@ -1,6 +1,7 @@
 -- Demande OTA distante (bouton « Vérifier OTA ») : persistance inter-workers PHP-FPM.
 -- Une ligne par environnement FFP3 (prod, test, test3, s3, s3test).
--- À exécuter une fois sur la base MySQL de production (et sur les stacks locales qui utilisent ce flux).
+-- Depuis serveur 5.1.1, OutputCacheService crée aussi cette table automatiquement au premier usage.
+-- Ce fichier reste utile pour une création manuelle explicite ou un contrôle de schéma.
 
 CREATE TABLE IF NOT EXISTS `ffp3OtaTrigger` (
     `env` VARCHAR(32) NOT NULL,

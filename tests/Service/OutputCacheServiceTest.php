@@ -104,6 +104,21 @@ class OutputCacheServiceTest extends TestCase
         $this->assertArrayNotHasKey('triggerOtaCheck', $second);
     }
 
+    public function testTriggerOtaCheckCreatesMissingPersistenceTable(): void
+    {
+        $this->pdo->exec('DROP TABLE ffp3OtaTrigger');
+
+        $this->service->setTriggerOtaCheckRequested();
+
+        $tableExists = $this->pdo
+            ->query("SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'ffp3OtaTrigger'")
+            ->fetchColumn();
+        $this->assertSame('ffp3OtaTrigger', $tableExists);
+
+        $firmwarePoll = $this->service->getOutputsState($this->pdo, [16]);
+        $this->assertTrue($firmwarePoll['triggerOtaCheck'] ?? false);
+    }
+
     public function testReadOnlyStateDoesNotConsumeOtaTrigger(): void
     {
         $this->service->setTriggerOtaCheckRequested();

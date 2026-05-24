@@ -133,10 +133,43 @@ class OutputCacheService
             }
         } catch (PDOException $e) {
             if ($this->isMissingTableException($e)) {
+                try {
+                    $this->createOtaTriggerTableIfMissing($pdo);
+                } catch (PDOException $createError) {
+                    error_log('[OutputCacheService] creation ffp3OtaTrigger impossible: ' . $createError->getMessage());
+                }
+
                 return;
             }
             throw $e;
         }
+    }
+
+    private function createOtaTriggerTableIfMissing(PDO $pdo): void
+    {
+        $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        if ($driver === 'mysql') {
+            $sql = sprintf(
+                'CREATE TABLE IF NOT EXISTS `%s` (
+                    `env` VARCHAR(32) NOT NULL,
+                    `pending` TINYINT(1) NOT NULL DEFAULT 0,
+                    `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                    PRIMARY KEY (`env`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci',
+                self::OTA_TRIGGER_TABLE
+            );
+        } else {
+            $sql = sprintf(
+                'CREATE TABLE IF NOT EXISTS `%s` (
+                    `env` TEXT PRIMARY KEY,
+                    `pending` INTEGER NOT NULL DEFAULT 0,
+                    `updated_at` TEXT DEFAULT CURRENT_TIMESTAMP
+                )',
+                self::OTA_TRIGGER_TABLE
+            );
+        }
+
+        $pdo->exec($sql);
     }
 
     private function isMissingTableException(PDOException $e): bool
@@ -162,29 +195,35 @@ class OutputCacheService
     {
         $env = TableConfig::getEnvironment();
         try {
-            $driver = $this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
-            if ($driver === 'mysql') {
-                $sql = sprintf(
-                    'INSERT INTO `%s` (`env`, `pending`) VALUES (:env, 1) ON DUPLICATE KEY UPDATE `pending` = 1',
-                    self::OTA_TRIGGER_TABLE
-                );
-            } else {
-                // SQLite (tests PHPUnit)
-                $sql = sprintf(
-                    'INSERT INTO `%s` (`env`, `pending`) VALUES (:env, 1) ON CONFLICT(`env`) DO UPDATE SET `pending` = 1',
-                    self::OTA_TRIGGER_TABLE
-                );
-            }
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([':env' => $env]);
+            $this->upsertOtaTrigger($this->pdo, $env);
         } catch (PDOException $e) {
             if ($this->isMissingTableException($e)) {
-                error_log('[OutputCacheService] ffp3OtaTrigger absente — exécuter migrations/CREATE_FFP3_OTA_TRIGGER_TABLE.sql');
+                $this->createOtaTriggerTableIfMissing($this->pdo);
+                $this->upsertOtaTrigger($this->pdo, $env);
 
                 return;
             }
             throw $e;
         }
+    }
+
+    private function upsertOtaTrigger(PDO $pdo, string $env): void
+    {
+        $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        if ($driver === 'mysql') {
+            $sql = sprintf(
+                'INSERT INTO `%s` (`env`, `pending`) VALUES (:env, 1) ON DUPLICATE KEY UPDATE `pending` = 1',
+                self::OTA_TRIGGER_TABLE
+            );
+        } else {
+            // SQLite (tests PHPUnit)
+            $sql = sprintf(
+                'INSERT INTO `%s` (`env`, `pending`) VALUES (:env, 1) ON CONFLICT(`env`) DO UPDATE SET `pending` = 1',
+                self::OTA_TRIGGER_TABLE
+            );
+        }
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':env' => $env]);
     }
     
     /**

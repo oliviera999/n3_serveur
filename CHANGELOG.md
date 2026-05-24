@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.1] - 2026-05-24
+
+### Correctif critique - FFP3 : déclencheur OTA persistant sans migration manuelle
+
+- **Résumé** : le bouton "Vérifier OTA" ne perd plus silencieusement la commande si la table `ffp3OtaTrigger` n'a pas encore été créée en production. `OutputCacheService` crée désormais la table de façon idempotente au premier enregistrement du flag, puis réessaie l'upsert avant de répondre succès.
+- **Validation** : ajout d'un test PHPUnit couvrant l'absence initiale de `ffp3OtaTrigger`, et ajout de la table au schéma Docker local (`docker/mysql/init/00-schema.sql`).
+
 ## [5.1.0] - 2026-05-19
 
 ### Audit serveur exhaustif — Sécurité, qualité, tests, docs
