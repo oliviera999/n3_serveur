@@ -15,6 +15,14 @@ use PDO;
 class SensorRepository extends AbstractRepository
 {
     /**
+     * Exécute une opération atomique sur la même connexion PDO que les autres repositories FFP3.
+     */
+    public function runInTransaction(callable $callback): mixed
+    {
+        return $this->executeInTransaction($callback);
+    }
+
+    /**
      * Insère une nouvelle mesure complète dans la table ffp3Data.
      *
      * @param SensorData $data Objet contenant toutes les valeurs à insérer

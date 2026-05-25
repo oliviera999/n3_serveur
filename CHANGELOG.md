@@ -11,6 +11,16 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.1] - 2026-05-25
+
+### Correctif critique — contrat FFP5CS/FFP3 et persistance
+- **HMAC FFP5CS v13.80** : le serveur accepte maintenant les en-têtes `X-Sig-Timestamp`, `X-Sig-Nonce`, `X-Sig-Hmac` signés sur le corps brut (`timestamp + "\n" + nonce + "\n" + body`). Le mode strict peut donc authentifier les POST du firmware sans exiger `api_key`.
+- **Trigger OTA distant** : `ffp3OtaTrigger` est auto-créée au premier usage si la migration SQL n'a pas encore été exécutée ; le bouton « Vérifier OTA » ne répond plus OK sans persistance effective.
+- **Ingestion FFP3** : insertion capteur, synchronisation outputs et mise à jour board sont atomiques ; un retry avec le même `post_id` ne peut plus masquer une synchronisation outputs échouée après insertion partielle.
+
+### Tests
+- Tests PHPUnit ajoutés pour le HMAC par en-têtes, la signature du corps brut et l'auto-création de `ffp3OtaTrigger`.
+
 ## [5.1.0] - 2026-05-19
 
 ### Audit serveur exhaustif — Sécurité, qualité, tests, docs

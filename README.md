@@ -199,7 +199,7 @@ Pour eviter des 404 sur les URLs du type `https://iot.olution.info/ffp3/`, `/ffp
 
 ## Sécurité (v5.1.0)
 
-- **HMAC** : firmwares FFP3/MSP/N3PP peuvent envoyer `timestamp + signature` (HMAC-SHA256). Modes :
+- **HMAC** : firmwares FFP3/MSP/N3PP peuvent envoyer `timestamp + signature` (HMAC-SHA256). FFP5CS v13.80+ peut aussi envoyer `X-Sig-Timestamp`, `X-Sig-Nonce`, `X-Sig-Hmac` avec message canonique `<timestamp>\n<nonce>\n<body_brut>`. Modes :
   - défaut : fallback `API_KEY` si HMAC absent ;
   - `HMAC_STRICT_MODE=true` : refuse l'absence de HMAC ;
   - `HMAC_NONCE_REQUIRED=true` : exige `post_id` (nonce) — message canonique `<timestamp>|<post_id>`.

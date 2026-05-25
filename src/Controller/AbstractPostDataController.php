@@ -50,6 +50,18 @@ abstract class AbstractPostDataController
     }
 
     /**
+     * Permet à un module d'ajouter du contexte d'auth dépendant de la requête brute
+     * avant validateAuth() (ex. signature HMAC portée par des en-têtes).
+     *
+     * @param array<string, mixed> $params
+     * @return array<string, mixed>
+     */
+    protected function prepareParamsForAuth(Request $request, array $params): array
+    {
+        return $params;
+    }
+
+    /**
      * Validation d'authentification. Par défaut : clé API legacy.
      * FFP3 surcharge avec HMAC + fallback.
      *
@@ -91,6 +103,7 @@ abstract class AbstractPostDataController
             ]);
             return ResponseHelper::text($response, 'Donnees manquantes', 400);
         }
+        $params = $this->prepareParamsForAuth($request, $params);
 
         // Authentification (HMAC ou API_KEY selon le module)
         $authError = $this->validateAuth($params, $response);
