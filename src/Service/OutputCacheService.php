@@ -133,6 +133,7 @@ class OutputCacheService
             }
         } catch (PDOException $e) {
             if ($this->isMissingTableException($e)) {
+                $this->ensureOtaTriggerTableExists($pdo);
                 return;
             }
             throw $e;
@@ -161,6 +162,11 @@ class OutputCacheService
     public function setTriggerOtaCheckRequested(): void
     {
         $env = TableConfig::getEnvironment();
+        $this->upsertOtaTriggerRequested($env);
+    }
+
+    private function upsertOtaTriggerRequested(string $env, bool $retried = false): void
+    {
         try {
             $driver = $this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
             if ($driver === 'mysql') {
@@ -178,13 +184,39 @@ class OutputCacheService
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([':env' => $env]);
         } catch (PDOException $e) {
-            if ($this->isMissingTableException($e)) {
-                error_log('[OutputCacheService] ffp3OtaTrigger absente — exécuter migrations/CREATE_FFP3_OTA_TRIGGER_TABLE.sql');
-
+            if ($this->isMissingTableException($e) && !$retried) {
+                $this->ensureOtaTriggerTableExists($this->pdo);
+                $this->upsertOtaTriggerRequested($env, true);
                 return;
             }
             throw $e;
         }
+    }
+
+    private function ensureOtaTriggerTableExists(PDO $pdo): void
+    {
+        $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        if ($driver === 'mysql') {
+            $sql = sprintf(
+                'CREATE TABLE IF NOT EXISTS `%s` (
+                    `env` VARCHAR(32) NOT NULL,
+                    `pending` TINYINT(1) NOT NULL DEFAULT 0,
+                    `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                    PRIMARY KEY (`env`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci',
+                self::OTA_TRIGGER_TABLE
+            );
+        } else {
+            $sql = sprintf(
+                'CREATE TABLE IF NOT EXISTS `%s` (
+                    `env` TEXT PRIMARY KEY,
+                    `pending` INTEGER NOT NULL DEFAULT 0,
+                    `updated_at` TEXT DEFAULT CURRENT_TIMESTAMP
+                )',
+                self::OTA_TRIGGER_TABLE
+            );
+        }
+        $pdo->exec($sql);
     }
     
     /**

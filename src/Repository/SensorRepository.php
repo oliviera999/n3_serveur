@@ -15,6 +15,14 @@ use PDO;
 class SensorRepository extends AbstractRepository
 {
     /**
+     * Exécute une opération atomique sur la même connexion PDO que les autres repositories FFP3.
+     */
+    public function runInTransaction(callable $callback): mixed
+    {
+        return $this->executeInTransaction($callback);
+    }
+
+    /**
      * Insère une mesure et ses effets de bord dans une transaction unique.
      *
      * @param callable(SensorData): void $afterInsert

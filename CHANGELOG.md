@@ -15,8 +15,10 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ### Correctifs critiques FFP3 (PR #12 / #15)
 
+- **HMAC FFP5CS v13.80+** : en-têtes `X-Sig-Timestamp`, `X-Sig-Nonce`, `X-Sig-Hmac` sur le corps brut (`timestamp + "\n" + nonce + "\n" + body`). Mode strict compatible sans `api_key` obligatoire.
+- **Trigger OTA distant** : `ffp3OtaTrigger` auto-créée au premier usage si la table manque ; le bouton « Vérifier OTA » ne répond plus OK sans persistance.
 - **`/post-data` FFP3** : insertion capteur, sync GPIO et `Boards.last_request` dans une transaction unique (rollback `post_id` si sync outputs echoue).
-- **Tests** : verification que les effets de bord FFP3 passent par l'insertion atomique.
+- **Tests** : HMAC en-têtes, corps brut, auto-création OTA, insertion atomique FFP3.
 
 ## [5.1.2] - 2026-05-25
 

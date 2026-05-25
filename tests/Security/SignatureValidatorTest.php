@@ -116,4 +116,39 @@ class SignatureValidatorTest extends TestCase
             300
         ));
     }
+
+    public function testValidBodySignature(): void
+    {
+        $secret = 'mysecret';
+        $timestamp = time();
+        $nonce = 'nonce-ffp5cs-v13-80';
+        $body = 'sensor=ffp5cs&version=13.80&TempAir=22.5';
+        $sig = SignatureValidator::createSignatureForBody($timestamp, $nonce, $body, $secret);
+
+        $this->assertTrue(SignatureValidator::isValidForBody(
+            (string) $timestamp,
+            $nonce,
+            $body,
+            $sig,
+            $secret,
+            300
+        ));
+    }
+
+    public function testBodyTamperingRejected(): void
+    {
+        $secret = 'mysecret';
+        $timestamp = time();
+        $nonce = 'nonce-ffp5cs-v13-80';
+        $sig = SignatureValidator::createSignatureForBody($timestamp, $nonce, 'sensor=ffp5cs&TempAir=22.5', $secret);
+
+        $this->assertFalse(SignatureValidator::isValidForBody(
+            (string) $timestamp,
+            $nonce,
+            'sensor=ffp5cs&TempAir=99.9',
+            $sig,
+            $secret,
+            300
+        ));
+    }
 }

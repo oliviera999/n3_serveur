@@ -105,7 +105,9 @@ abstract class AbstractRepository
             $this->pdo->commit();
             return $result;
         } catch (\Throwable $e) {
-            $this->pdo->rollBack();
+            if ($this->pdo->inTransaction()) {
+                $this->pdo->rollBack();
+            }
             throw $e;
         }
     }

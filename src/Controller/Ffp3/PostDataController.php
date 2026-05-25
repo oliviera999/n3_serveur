@@ -26,6 +26,9 @@ class PostDataController extends AbstractPostDataController
     /** POST minimal ack_command (firmware) — pas d'INSERT ligne capteur. */
     private bool $ackOnlyPost = false;
 
+    /** @var array{timestamp: string, nonce: string, signature: string, body: string}|null */
+    private ?array $hmacHeaderAuth = null;
+
     public function __construct(
         LogService $logger,
         private ErrorAlertService $errorAlert,
@@ -44,7 +47,9 @@ class PostDataController extends AbstractPostDataController
     /**
      * Validation HMAC spécifique à FFP3 (avant la clé API legacy).
      *
-     * - Si `HMAC_STRICT_MODE=true` : exige timestamp+signature, refuse le fallback api_key.
+     * - Accepte d'abord les en-têtes FFP5CS v13.80+ `X-Sig-*`, signés sur
+     *   `timestamp + "\n" + nonce + "\n" + body` (format firmware actuel).
+     * - Si `HMAC_STRICT_MODE=true` : exige une signature HMAC, refuse le fallback api_key.
      * - Si `HMAC_NONCE_REQUIRED=true` : exige aussi `post_id` et utilise
      *   `isValidWithNonce()` (message HMAC = `<timestamp>|<post_id>`).
      *   Le firmware FFP5CS doit alors construire la signature de la même manière.
@@ -52,6 +57,10 @@ class PostDataController extends AbstractPostDataController
      */
     protected function validateAuth(array $params, Response $response): ?Response
     {
+        if ($this->hmacHeaderAuth !== null) {
+            return $this->validateHeaderHmac($params, $response);
+        }
+
         $timestamp = $params['timestamp'] ?? null;
         $signature = $params['signature'] ?? null;
 
@@ -141,11 +150,96 @@ class PostDataController extends AbstractPostDataController
     }
 
     /**
+     * Capture le corps brut et les en-têtes HMAC avant validation.
+     *
+     * @param array<string, mixed> $params
+     * @return array<string, mixed>
+     */
+    protected function prepareParamsForAuth(Request $request, array $params): array
+    {
+        $timestamp = trim($request->getHeaderLine('X-Sig-Timestamp'));
+        $nonce = trim($request->getHeaderLine('X-Sig-Nonce'));
+        $signature = trim($request->getHeaderLine('X-Sig-Hmac'));
+        if ($timestamp === '' && $nonce === '' && $signature === '') {
+            $this->hmacHeaderAuth = null;
+            return $params;
+        }
+
+        $this->hmacHeaderAuth = [
+            'timestamp' => $timestamp,
+            'nonce' => $nonce,
+            'signature' => $signature,
+            'body' => (string) $request->getBody(),
+        ];
+
+        return $params;
+    }
+
+    private function validateHeaderHmac(array $params, Response $response): ?Response
+    {
+        $headerAuth = $this->hmacHeaderAuth;
+        if ($headerAuth === null) {
+            return null;
+        }
+
+        if ($headerAuth['timestamp'] === '' || $headerAuth['nonce'] === '' || $headerAuth['signature'] === '') {
+            $this->logger->warning('PostData: rejet auth X-Sig incomplete code=401', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'has_timestamp' => $headerAuth['timestamp'] !== '',
+                'has_nonce' => $headerAuth['nonce'] !== '',
+                'has_signature' => $headerAuth['signature'] !== '',
+            ]);
+            return ResponseHelper::text($response, 'Signature incomplete', 401);
+        }
+
+        $sigSecret = $_ENV['API_SIG_SECRET'] ?? null;
+        if ($sigSecret === null || $sigSecret === '') {
+            $errorMessage = 'Variable API_SIG_SECRET manquante dans .env';
+            $this->logger->error('PostData: rejet config API_SIG_SECRET manquante code=500');
+            $this->errorAlert->recordError($errorMessage);
+            return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
+        }
+
+        $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+        if ($sigWindow <= 0) {
+            $sigWindow = 300;
+        }
+
+        $valid = SignatureValidator::isValidForBody(
+            $headerAuth['timestamp'],
+            $headerAuth['nonce'],
+            $headerAuth['body'],
+            $headerAuth['signature'],
+            $sigSecret,
+            $sigWindow
+        );
+
+        if (!$valid) {
+            $this->logger->warning('PostData: rejet auth X-Sig invalide code=401', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'ts_received' => $headerAuth['timestamp'],
+                'nonce_len' => strlen($headerAuth['nonce']),
+                'window_s' => $sigWindow,
+            ]);
+            return ResponseHelper::text($response, 'Signature incorrecte', 401);
+        }
+
+        $this->authenticatedByHmac = true;
+
+        return null;
+    }
+
+    /**
      * Override handle pour conserver le diagnostic latence (dédup post_id après auth : afterValidatedParams).
      */
     public function handle(Request $request, Response $response): Response
     {
         $this->ackOnlyPost = false;
+        $this->hmacHeaderAuth = null;
         set_time_limit(30);  // Marge vs timeout client 18 s — évite kill PHP si traitement BDD lent
         $tReceived = microtime(true);
         $sec = (int) $tReceived;

@@ -174,6 +174,9 @@ Le serveur doit répondre au POST dans le délai client (18 s) pour éviter time
 
 #### Mode actuel (compat firmware) — défaut
 
+- FFP5CS v13.80+ peut envoyer les en-têtes **X-Sig-Timestamp**, **X-Sig-Nonce** et **X-Sig-Hmac**.
+- Format du message HMAC signé par ces en-têtes : `HMAC-SHA256("<timestamp>\n<nonce>\n<body_brut>", API_SIG_SECRET)`.
+- Si ces en-têtes sont valides, la requête est authentifiée sans exiger `api_key` (mode dual de migration).
 - Si le client envoie **timestamp** et **signature** : le serveur valide la signature HMAC.
 - Si ces champs sont absents : fallback automatique sur la validation `api_key` (la clé API doit alors être valide).
 - Fenêtre temporelle : **SIG_VALID_WINDOW** (secondes, défaut 300). Le RTC ESP32 doit être synchronisé NTP à ± cette fenêtre.
@@ -193,6 +196,7 @@ Le serveur doit répondre au POST dans le délai client (18 s) pour éviter time
 #### Implémentation côté serveur
 
 - Validator : `src/Security/SignatureValidator.php`
+  - `isValidForBody($timestamp, $nonce, $body, $signature, $secret, $window)` — en-têtes FFP5CS v13.80+
   - `isValid($timestamp, $signature, $secret, $window)` — sans nonce
   - `isValidWithNonce($timestamp, $nonce, $signature, $secret, $window)` — avec nonce
 - Controllers : `src/Controller/Ffp3/PostDataController.php` (FFP3), `src/Controller/Concerns/HmacAuthTrait.php` (MSP / N3PP).

@@ -10,9 +10,11 @@ namespace App\Security;
  * Contrats supportés :
  *   - Legacy (FFP5CS actuel) : HMAC-SHA256(timestamp, secret) — pas de nonce.
  *     Le replay est borné par la fenêtre temporelle (par défaut 300 s).
- *   - Avec nonce (recommandé, FFP5CS futur) : HMAC-SHA256(timestamp . "|" . nonce, secret).
+ *   - Avec nonce legacy : HMAC-SHA256(timestamp . "|" . nonce, secret).
  *     Le serveur peut en plus déduplicquer le nonce (ex. post_id) côté repository
  *     pour empêcher le replay strict dans la fenêtre.
+ *   - En-têtes FFP5CS v13.80+ : HMAC-SHA256(timestamp . "\n" . nonce . "\n" . body, secret)
+ *     avec X-Sig-Timestamp, X-Sig-Nonce et X-Sig-Hmac.
  *
  * Le client (firmware) et le serveur DOIVENT utiliser la même convention. La fonction
  * `createSignatureWithNonce()` documente le format canonique (`<timestamp>|<nonce>`).
@@ -33,6 +35,14 @@ class SignatureValidator
     public static function createSignatureWithNonce(int $timestamp, string $nonce, string $secret): string
     {
         return hash_hmac('sha256', $timestamp . '|' . $nonce, $secret);
+    }
+
+    /**
+     * Génère la signature HMAC utilisée par le firmware FFP5CS v13.80+.
+     */
+    public static function createSignatureForBody(int $timestamp, string $nonce, string $body, string $secret): string
+    {
+        return hash_hmac('sha256', $timestamp . "\n" . $nonce . "\n" . $body, $secret);
     }
 
     /**
@@ -84,6 +94,28 @@ class SignatureValidator
             return false;
         }
         $expected = self::createSignatureWithNonce($ts, $nonce, $secret);
+        return hash_equals($expected, $signature);
+    }
+
+    /**
+     * Valide les en-têtes X-Sig-* du firmware FFP5CS v13.80+.
+     */
+    public static function isValidForBody(
+        string $timestamp,
+        string $nonce,
+        string $body,
+        string $signature,
+        string $secret,
+        int $window = 300
+    ): bool {
+        if (!ctype_digit($timestamp) || $nonce === '') {
+            return false;
+        }
+        $ts = (int) $timestamp;
+        if (abs(time() - $ts) > $window) {
+            return false;
+        }
+        $expected = self::createSignatureForBody($ts, $nonce, $body, $secret);
         return hash_equals($expected, $signature);
     }
 }
