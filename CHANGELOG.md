@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.1] - 2026-05-26
+
+### Correctif critique - OTA FFP3
+- **`triggerOtaCheck`** : la table `ffp3OtaTrigger` est désormais créée automatiquement au premier POST/GET critique si la migration manuelle n'a pas encore été exécutée. Le bouton « Vérifier OTA » ne peut plus retourner un succès tout en perdant silencieusement la demande avant le prochain poll ESP32.
+
 ## [5.1.0] - 2026-05-19
 
 ### Audit serveur exhaustif — Sécurité, qualité, tests, docs
