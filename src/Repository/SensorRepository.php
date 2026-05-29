@@ -75,6 +75,11 @@ class SensorRepository extends AbstractRepository
             'FreqWakeUp' => [':freqWakeUp', $data->freqWakeUp],
             'configSynced' => [':configSynced', $data->configSynced],
             'Pression' => [':pression', $data->pression],
+            'tideEvent' => [':tideEvent', $data->tideEvent],
+            'tideTrend' => [':tideTrend', $data->tideTrend],
+            'tideNoiseMm' => [':tideNoiseMm', $data->tideNoiseMm],
+            'tideWindowMs' => [':tideWindowMs', $data->tideWindowMs],
+            'tideExtremeMm' => [':tideExtremeMm', $data->tideExtremeMm],
         ];
 
         foreach ($optionalCols as $colName => [$ph, $value]) {

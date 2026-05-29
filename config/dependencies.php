@@ -257,6 +257,7 @@ return [
             $c->get(\App\Service\StatisticsAggregatorService::class),
             $c->get(\App\Service\ChartDataService::class),
             $c->get(\App\Service\WaterBalanceService::class),
+            $c->get(\App\Service\TideCycleDetector::class),
             $c->get(\App\Service\TemplateRenderer::class),
             $c->get(\App\Service\LogService::class),
             $c->get(\App\Service\DateRangeExtractor::class),

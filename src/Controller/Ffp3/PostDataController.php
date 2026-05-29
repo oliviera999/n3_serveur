@@ -181,6 +181,13 @@ class PostDataController extends AbstractPostDataController
 
         $postId = $sanitize('post_id');
         $postId = $postId !== null ? substr($postId, 0, 64) : null;
+        $tideEvent = $sanitize('tideEvent');
+        if ($tideEvent !== null) {
+            $tideEvent = strtolower(substr(trim($tideEvent), 0, 16));
+            if (!in_array($tideEvent, ['none', 'peak', 'trough'], true)) {
+                $tideEvent = null;
+            }
+        }
 
         $this->ackOnlyPost = isset($params['ack_command']) && is_scalar($params['ack_command'])
             && trim((string) $params['ack_command']) !== '';
@@ -219,7 +226,12 @@ class PostDataController extends AbstractPostDataController
             freqWakeUp: $toInt('FreqWakeUp'),
             configSynced: $toInt('configSynced'),
             pression: $toFloat('Pression'),
-            postId: $postId
+            postId: $postId,
+            tideEvent: $tideEvent,
+            tideTrend: $toInt('tideTrend'),
+            tideNoiseMm: $toInt('tideNoiseMm'),
+            tideWindowMs: $toInt('tideWindowMs'),
+            tideExtremeMm: $toInt('tideExtremeMm')
         );
     }
 

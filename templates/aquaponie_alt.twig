@@ -42,6 +42,7 @@
     <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
     <script src="{{ base_path }}/assets/js/n3-stock-chart-layout.js"></script>
     <script src="{{ base_path }}/assets/js/aquaponie-chart-layout.js"></script>
+    <script src="{{ base_path }}/assets/js/aquaponie-tide-markers.js"></script>
 {% endblock %}
 
 {% block styles %}{% endblock %}
@@ -730,6 +731,8 @@
                         var bouffeGros   = {{ bouffeGros|raw }};
 
                         var reading_time = {{ reading_time|raw }};
+                        var tidePeaks = {{ tide_peaks|default('[]')|raw }};
+                        var tideTroughs = {{ tide_troughs|default('[]')|raw }};
 
                         // Association horodatage ➜ valeurs
                         for (var i = 0, l = EauAquarium.length; i < l; i++) {
@@ -1049,6 +1052,24 @@
                                         },
                                         lineWidth: 2,
                                         tooltip: { valueSuffix: ' cm' } 
+                                    },
+                                    {
+                                        name: 'Pics marée (distance)',
+                                        type: 'scatter',
+                                        data: window.n3TideMarkers ? window.n3TideMarkers.normalizePoints(tidePeaks) : tidePeaks,
+                                        color: '#8E24AA',
+                                        marker: { symbol: 'triangle', radius: 5 },
+                                        showInNavigator: false,
+                                        tooltip: { valueSuffix: ' cm' }
+                                    },
+                                    {
+                                        name: 'Creux marée (distance)',
+                                        type: 'scatter',
+                                        data: window.n3TideMarkers ? window.n3TideMarkers.normalizePoints(tideTroughs) : tideTroughs,
+                                        color: '#1565C0',
+                                        marker: { symbol: 'triangle-down', radius: 5 },
+                                        showInNavigator: false,
+                                        tooltip: { valueSuffix: ' cm' }
                                     },
                                     { 
                                         name: 'Pompe aquarium ON', 

@@ -17,6 +17,7 @@
         <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
         <script src="{{ base_path }}/assets/js/n3-stock-chart-layout.js"></script>
         <script src="{{ base_path }}/assets/js/aquaponie-chart-layout.js"></script>
+        <script src="{{ base_path }}/assets/js/aquaponie-tide-markers.js"></script>
 {% endblock %}
 
 {% block head_css %}
@@ -715,6 +716,8 @@
                         var bouffeGros   = {{ bouffeGros|raw }};
 
                         var reading_time = {{ reading_time|raw }};
+                        var tidePeaks = {{ tide_peaks|default('[]')|raw }};
+                        var tideTroughs = {{ tide_troughs|default('[]')|raw }};
 
                         // Association horodatage ➜ valeurs
                         // Itération sur reading_time.length (source de vérité) pour éviter
@@ -915,92 +918,10 @@
                             
                             var aqEau = n3AquaponieCharts.baseOptions('eau');
                             var aqTemp = n3AquaponieCharts.baseOptions('temp');
-
-                            // 1. Stock Chart Niveaux d'eau avec aires
-                            window.chartEau = Highcharts.stockChart('chart-stock-area-eau-D', {
-                                chart: Object.assign({}, aqEau.chart, {
-                                    height: n3AquaponieCharts.chartHeight('eau')
-                                }),
-                                rangeSelector: {
-                                    enabled: false
-                                },
-                                title: { text: null },
-                                xAxis: {
-                                    type: 'datetime',
-                                    ordinal: false,  // Espacement proportionnel au temps réel entre les mesures
-                                    events: {
-                                        afterSetExtremes: function(e) {
-                                            // Au 1er redraw, Highcharts peut appeler afterSetExtremes avec e.trigger === undefined
-                                            // (issues #6149, #17055). setData sur les mauvaises séries (indices fixes vs Stock)
-                                            // remplace les areaspline par les points de régression → corde droite 1er→dernier point.
-                                            if (!e || e.trigger === undefined || e.trigger === null) {
-                                                return;
-                                            }
-                                            if (!(e.min && e.max)) {
-                                                return;
-                                            }
-                                            var visibleData = {
-                                                EauAquarium: EauAquarium.filter(function (point) { return point[0] >= e.min && point[0] <= e.max; }),
-                                                EauReserve: EauReserve.filter(function (point) { return point[0] >= e.min && point[0] <= e.max; }),
-                                                EauPotager: EauPotager.filter(function (point) { return point[0] >= e.min && point[0] <= e.max; })
-                                            };
-                                            var newTrends = {};
-                                            Object.keys(visibleData).forEach(function (key) {
-                                                if (visibleData[key].length >= 2) {
-                                                    newTrends[key + 'TrendLine'] = calculateLinearRegression(visibleData[key]);
-                                                    newTrends[key + 'MovingAvg'] = calculateMovingAverage(visibleData[key], 20);
-                                                }
-                                            });
-                                            var chart = this.chart;
-                                            chart.series.forEach(function (s) {
-                                                if (!s || s.type !== 'line' || !s.name) {
-                                                    return;
-                                                }
-                                                var dk = s.name.indexOf('aquarium') !== -1 ? 'EauAquarium'
-                                                    : (s.name.indexOf('réserve') !== -1 ? 'EauReserve'
-                                                        : (s.name.indexOf('potager') !== -1 ? 'EauPotager' : null));
-                                                if (!dk) {
-                                                    return;
-                                                }
-                                                if (s.name.indexOf('linéaire') !== -1 && newTrends[dk + 'TrendLine']) {
-                                                    s.setData(newTrends[dk + 'TrendLine'].data, false, false, false);
-                                                } else if (s.name.indexOf('moy. mobile') !== -1 && newTrends[dk + 'MovingAvg']) {
-                                                    s.setData(newTrends[dk + 'MovingAvg'], false, false, false);
-                                                }
-                                            });
-                                        }
-                                    }
-                                },
-                                yAxis: { 
-                                    labels: { format: '{value} cm' },
-                                    title: { text: 'Niveaux eau (cm)' },
-                                    lineWidth: 2
-                                },
-                                tooltip: { 
-                                    shared: true,
-                                    split: false,
-                                    valueDecimals: 1
-                                },
-                                plotOptions: {
-                                    areaspline: {
-                                        connectNulls: false,
-                                        fillOpacity: 0.3,
-                                        marker: { enabled: false, radius: 2 },
-                                        dataGrouping: { enabled: false }  // Désactiver le regroupement pour espacement proportionnel
-                                    },
-                                    series: {
-                                        showInNavigator: true,
-                                        dataGrouping: { enabled: false }  // Désactiver le regroupement pour toutes les séries
-                                    },
-                                    line: {
-                                        dataGrouping: { enabled: false }  // Désactiver le regroupement pour les lignes (tendances)
-                                    },
-                                    scatter: {
-                                        dataGrouping: { enabled: false }  // Désactiver le regroupement pour les scatter (pompes, etc.)
-                                    }
-                                },
-                                legend: aqEau.legend,
-                                series: [
+                            var tideMarkerSeries = (window.n3TideMarkers && window.n3TideMarkers.buildSeries)
+                                ? window.n3TideMarkers.buildSeries(tidePeaks, tideTroughs)
+                                : [];
+                            var eauSeries = [
                                     { 
                                         name: 'Eau réserve', 
                                         type: 'areaspline',
@@ -1038,7 +959,12 @@
                                         },
                                         lineWidth: 2,
                                         tooltip: { valueSuffix: ' cm' } 
-                                    },
+                                    }
+                                ];
+                            if (tideMarkerSeries.length > 0) {
+                                Array.prototype.push.apply(eauSeries, tideMarkerSeries);
+                            }
+                            Array.prototype.push.apply(eauSeries, [
                                     { 
                                         name: 'Pompe aquarium ON', 
                                         type: 'scatter', 
@@ -1149,7 +1075,93 @@
                                         showInNavigator: false,
                                         tooltip: { valueSuffix: ' cm' }
                                     }
-                                ],
+                            ]);
+
+                            // 1. Stock Chart Niveaux d'eau avec aires
+                            window.chartEau = Highcharts.stockChart('chart-stock-area-eau-D', {
+                                chart: Object.assign({}, aqEau.chart, {
+                                    height: n3AquaponieCharts.chartHeight('eau')
+                                }),
+                                rangeSelector: {
+                                    enabled: false
+                                },
+                                title: { text: null },
+                                xAxis: {
+                                    type: 'datetime',
+                                    ordinal: false,  // Espacement proportionnel au temps réel entre les mesures
+                                    events: {
+                                        afterSetExtremes: function(e) {
+                                            // Au 1er redraw, Highcharts peut appeler afterSetExtremes avec e.trigger === undefined
+                                            // (issues #6149, #17055). setData sur les mauvaises séries (indices fixes vs Stock)
+                                            // remplace les areaspline par les points de régression → corde droite 1er→dernier point.
+                                            if (!e || e.trigger === undefined || e.trigger === null) {
+                                                return;
+                                            }
+                                            if (!(e.min && e.max)) {
+                                                return;
+                                            }
+                                            var visibleData = {
+                                                EauAquarium: EauAquarium.filter(function (point) { return point[0] >= e.min && point[0] <= e.max; }),
+                                                EauReserve: EauReserve.filter(function (point) { return point[0] >= e.min && point[0] <= e.max; }),
+                                                EauPotager: EauPotager.filter(function (point) { return point[0] >= e.min && point[0] <= e.max; })
+                                            };
+                                            var newTrends = {};
+                                            Object.keys(visibleData).forEach(function (key) {
+                                                if (visibleData[key].length >= 2) {
+                                                    newTrends[key + 'TrendLine'] = calculateLinearRegression(visibleData[key]);
+                                                    newTrends[key + 'MovingAvg'] = calculateMovingAverage(visibleData[key], 20);
+                                                }
+                                            });
+                                            var chart = this.chart;
+                                            chart.series.forEach(function (s) {
+                                                if (!s || s.type !== 'line' || !s.name) {
+                                                    return;
+                                                }
+                                                var dk = s.name.indexOf('aquarium') !== -1 ? 'EauAquarium'
+                                                    : (s.name.indexOf('réserve') !== -1 ? 'EauReserve'
+                                                        : (s.name.indexOf('potager') !== -1 ? 'EauPotager' : null));
+                                                if (!dk) {
+                                                    return;
+                                                }
+                                                if (s.name.indexOf('linéaire') !== -1 && newTrends[dk + 'TrendLine']) {
+                                                    s.setData(newTrends[dk + 'TrendLine'].data, false, false, false);
+                                                } else if (s.name.indexOf('moy. mobile') !== -1 && newTrends[dk + 'MovingAvg']) {
+                                                    s.setData(newTrends[dk + 'MovingAvg'], false, false, false);
+                                                }
+                                            });
+                                        }
+                                    }
+                                },
+                                yAxis: { 
+                                    labels: { format: '{value} cm' },
+                                    title: { text: 'Niveaux eau (cm)' },
+                                    lineWidth: 2
+                                },
+                                tooltip: { 
+                                    shared: true,
+                                    split: false,
+                                    valueDecimals: 1
+                                },
+                                plotOptions: {
+                                    areaspline: {
+                                        connectNulls: false,
+                                        fillOpacity: 0.3,
+                                        marker: { enabled: false, radius: 2 },
+                                        dataGrouping: { enabled: false }  // Désactiver le regroupement pour espacement proportionnel
+                                    },
+                                    series: {
+                                        showInNavigator: true,
+                                        dataGrouping: { enabled: false }  // Désactiver le regroupement pour toutes les séries
+                                    },
+                                    line: {
+                                        dataGrouping: { enabled: false }  // Désactiver le regroupement pour les lignes (tendances)
+                                    },
+                                    scatter: {
+                                        dataGrouping: { enabled: false }  // Désactiver le regroupement pour les scatter (pompes, etc.)
+                                    }
+                                },
+                                legend: aqEau.legend,
+                                series: eauSeries,
                                 navigator: aqEau.navigator,
                                 scrollbar: aqEau.scrollbar,
                                 credits: { enabled: false }

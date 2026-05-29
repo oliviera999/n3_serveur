@@ -50,6 +50,11 @@ class SensorData
      *                                  Si 0, le serveur doit IGNORER les variables de config (GPIO 100-116)
      *                                  pour éviter l'écrasement par des valeurs par défaut
      * @param ?float  $pression        Pression atmosphérique (hPa) si envoyée par le firmware
+     * @param ?string $tideEvent       Evénement de marée firmware (none|peak|trough), distance uniquement
+     * @param ?int    $tideTrend       Tendance firmware instantanée (-1/0/1) basée sur wlAqua
+     * @param ?int    $tideNoiseMm     Hystérésis firmware utilisée pour détecter les inversions (mm)
+     * @param ?int    $tideWindowMs    Fenêtre temporelle firmware utilisée pour diffMaree (ms)
+     * @param ?int    $tideExtremeMm   Dernier extrême confirmé côté firmware (distance capteur-surface, mm)
      */
     public function __construct(
         public ?string $sensor,
@@ -85,7 +90,12 @@ class SensorData
         public ?int    $freqWakeUp = null,
         public ?int    $configSynced = null,
         public ?float $pression = null,
-        public ?string $postId = null
+        public ?string $postId = null,
+        public ?string $tideEvent = null,
+        public ?int    $tideTrend = null,
+        public ?int    $tideNoiseMm = null,
+        public ?int    $tideWindowMs = null,
+        public ?int    $tideExtremeMm = null
     ) {
     }
 }

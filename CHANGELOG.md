@@ -11,6 +11,33 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.2] - 2026-05-25
+
+### Migration BDD — persistance colonnes marée `tide*`
+
+- Nouveau script `migrations/002_add_tide_event_columns.sql` : ajoute `tideEvent`, `tideTrend`, `tideNoiseMm`, `tideWindowMs`, `tideExtremeMm` sur les tables `ffp3Data`, `ffp3Data2`, `ffp3Data3`, `ffp3Data4`, `ffp3DataS3`, `ffp3DataS3Test`.
+- Documentation procédure dans `migrations/README.md`.
+- Test unitaire `TideCycleDetectorTest` pour valider la détection d'extrema horodatés (`peaks`/`troughs`).
+
+## [5.1.1] - 2026-05-25
+
+### Marées min/max (distance) - contrat firmware, extrema horodatés, rendu courbe
+
+#### Ingestion FFP3 (retrocompatible)
+- `PostDataController` accepte les nouveaux champs optionnels envoyes par FFP5CS : `tideEvent`, `tideTrend`, `tideNoiseMm`, `tideWindowMs`, `tideExtremeMm`.
+- `SensorData` et `SensorRepository` etendus pour persister ces champs **uniquement si la colonne existe** (meme strategie que `Pression`/`configSynced`) afin de ne pas casser les environnements non migres.
+
+#### Detection extrema
+- `TideCycleDetector` expose `detectExtremaSeries()` qui retourne des points horodates `peaks`/`troughs` a partir de `EauAquarium` (distance, en cm cote serveur apres conversion).
+- `AquaponieController` injecte ces series dans le view-model (`tide_peaks`, `tide_troughs`) pour les pages `/aquaponie` et `/aquaponie-alt`.
+
+#### UI
+- Ajout de deux series scatter sur la courbe `EauAquarium` :
+  - `Pics marée (distance)`
+  - `Creux marée (distance)`
+- Factorisation dans `public/assets/js/aquaponie-tide-markers.js` pour eviter la divergence entre templates.
+- La courbe brute est conservee (pas de sur-lissage). Les lignes de tendance restent secondaires.
+
 ## [5.1.0] - 2026-05-19
 
 ### Audit serveur exhaustif — Sécurité, qualité, tests, docs

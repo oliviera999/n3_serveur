@@ -14,6 +14,7 @@ class TideCycleDetector
 {
     /** Variation minimale (cm) pour être considérée comme significative */
     private const VARIATION_THRESHOLD = 2.0;
+    private const EXTREMA_MIN_INTERVAL_SECONDS = 10;
 
     /**
      * Détecte les cycles de marée dans une série de niveaux d'eau
@@ -206,5 +207,112 @@ class TideCycleDetector
             'negative' => $negative,
             'global' => $global,
         ];
+    }
+
+    /**
+     * Détecte les extrema (pics/creux) horodatés sur une série EauAquarium.
+     *
+     * Les points retournés gardent la sémantique actuelle "distance capteur -> surface"
+     * (cm côté serveur après conversion), sans sur-lissage.
+     *
+     * @param array<float|int|null> $levels Niveaux en ordre chronologique ASC
+     * @param array<string> $times Horodatages correspondants
+     * @param float $threshold Seuil minimum de retournement (cm)
+     * @param int $minIntervalSeconds Intervalle min entre 2 événements (anti-doublons)
+     * @return array{
+     *   peaks: array<array{0:int,1:float}>,
+     *   troughs: array<array{0:int,1:float}>
+     * }
+     */
+    public function detectExtremaSeries(
+        array $levels,
+        array $times,
+        float $threshold = self::VARIATION_THRESHOLD,
+        int $minIntervalSeconds = self::EXTREMA_MIN_INTERVAL_SECONDS
+    ): array {
+        $points = [];
+        $count = min(count($levels), count($times));
+        for ($i = 0; $i < $count; $i++) {
+            $level = $levels[$i];
+            if ($level === null || !is_numeric($level)) {
+                continue;
+            }
+            $tsMs = $this->toTimestampMs((string) $times[$i]);
+            if ($tsMs === null) {
+                continue;
+            }
+            $points[] = ['ts' => $tsMs, 'v' => (float) $level];
+        }
+
+        if (count($points) < 3) {
+            return ['peaks' => [], 'troughs' => []];
+        }
+
+        $trend = 0; // 1 montée, -1 descente
+        $extremeIdx = 0;
+        $lastEventTs = null;
+        $minIntervalMs = max(0, $minIntervalSeconds) * 1000;
+
+        $peaks = [];
+        $troughs = [];
+        $n = count($points);
+
+        for ($i = 1; $i < $n; $i++) {
+            $delta = $points[$i]['v'] - $points[$i - 1]['v'];
+            if (abs($delta) < $threshold) {
+                continue;
+            }
+            $dir = $delta > 0 ? 1 : -1;
+
+            if ($trend === 0) {
+                $trend = $dir;
+                $extremeIdx = $i;
+                continue;
+            }
+
+            if ($trend === 1) {
+                if ($points[$i]['v'] >= $points[$extremeIdx]['v']) {
+                    $extremeIdx = $i;
+                    continue;
+                }
+                $drop = $points[$extremeIdx]['v'] - $points[$i]['v'];
+                if ($drop >= $threshold) {
+                    $eventTs = $points[$extremeIdx]['ts'];
+                    if ($lastEventTs === null || ($eventTs - $lastEventTs) >= $minIntervalMs) {
+                        $peaks[] = [$eventTs, $points[$extremeIdx]['v']];
+                        $lastEventTs = $eventTs;
+                    }
+                    $trend = -1;
+                    $extremeIdx = $i;
+                }
+                continue;
+            }
+
+            if ($points[$i]['v'] <= $points[$extremeIdx]['v']) {
+                $extremeIdx = $i;
+                continue;
+            }
+            $rise = $points[$i]['v'] - $points[$extremeIdx]['v'];
+            if ($rise >= $threshold) {
+                $eventTs = $points[$extremeIdx]['ts'];
+                if ($lastEventTs === null || ($eventTs - $lastEventTs) >= $minIntervalMs) {
+                    $troughs[] = [$eventTs, $points[$extremeIdx]['v']];
+                    $lastEventTs = $eventTs;
+                }
+                $trend = 1;
+                $extremeIdx = $i;
+            }
+        }
+
+        return ['peaks' => $peaks, 'troughs' => $troughs];
+    }
+
+    private function toTimestampMs(string $time): ?int
+    {
+        $ts = strtotime($time);
+        if ($ts === false) {
+            return null;
+        }
+        return $ts * 1000;
     }
 }

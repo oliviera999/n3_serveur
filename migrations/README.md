@@ -125,8 +125,42 @@ Après avoir testé sur l'environnement de test :
 3. Vérifier l'interface de contrôle (`/ffp3control/securecontrol/`)
 4. Supprimer manuellement les éventuelles lignes vides restantes
 
+## Marées min/max — colonnes `tide*` (2026-05-25)
+
+### Contexte
+
+Le firmware FFP5CS v13.81+ envoie des métadonnées d'inflexion marée dans le POST `post-data*` :
+`tideEvent`, `tideTrend`, `tideNoiseMm`, `tideWindowMs`, `tideExtremeMm`.
+
+Le serveur PHP (v5.1.1+) accepte et persiste ces champs **si les colonnes existent** (`SensorRepository::columnExists`).
+Sans migration, l'ingestion reste rétrocompatible mais les valeurs ne sont pas stockées en BDD.
+
+### Application
+
+```bash
+mysql -u oliviera_iot -p oliviera_iot < migrations/002_add_tide_event_columns.sql
+```
+
+Tables concernées : `ffp3Data`, `ffp3Data2`, `ffp3Data3`, `ffp3Data4`, `ffp3DataS3`, `ffp3DataS3Test`.
+
+### Vérification
+
+```sql
+SHOW COLUMNS FROM ffp3Data LIKE 'tide%';
+SELECT tideEvent, tideTrend, tideExtremeMm, reading_time
+FROM ffp3Data2
+WHERE tideEvent IN ('peak', 'trough')
+ORDER BY reading_time DESC
+LIMIT 10;
+```
+
+Si une table n'existe pas sur l'hébergement (ex. `ffp3DataS3Test`), commenter ou supprimer le bloc `ALTER` correspondant avant exécution.
+
+---
+
 ## 📝 Changelog
 
+- **2026-05-25** : `002_add_tide_event_columns.sql` — colonnes marée/inflexion sur tables `ffp3Data*`
 - **2025-10-13** : Création des migrations pour correction doublons GPIO
   - `FIX_DUPLICATE_GPIO_ROWS.sql` : Nettoyage + contrainte UNIQUE
   - `INIT_GPIO_BASE_ROWS.sql` : Initialisation des GPIO de base

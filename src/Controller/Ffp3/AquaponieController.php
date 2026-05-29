@@ -13,6 +13,7 @@ use App\Service\CsvExportService;
 use App\Service\DateRangeExtractor;
 use App\Service\StatisticsAggregatorService;
 use App\Service\TemplateRenderer;
+use App\Service\TideCycleDetector;
 use App\Service\WaterBalanceService;
 use App\Util\DurationFormatter;
 use App\Util\Ffp3WaterLevelUnit;
@@ -27,6 +28,7 @@ class AquaponieController
         private StatisticsAggregatorService $statsAggregator,
         private ChartDataService $chartDataService,
         private WaterBalanceService $waterBalanceService,
+        private TideCycleDetector $tideCycleDetector,
         private TemplateRenderer $renderer,
         private LogService $logger,
         private DateRangeExtractor $dateRangeExtractor,
@@ -112,6 +114,11 @@ class AquaponieController
 
         $chartSeries = $this->chartDataService->prepareSeriesData($readings);
         $reading_time = $this->chartDataService->prepareTimestamps($readings);
+        $rowsAsc = array_reverse($readings);
+        $extrema = $this->tideCycleDetector->detectExtremaSeries(
+            array_column($rowsAsc, 'EauAquarium'),
+            array_column($rowsAsc, 'reading_time')
+        );
 
         $lastReading = $this->sensorReadRepo->getLastReadings();
         $lastReadingExtracted = $this->chartDataService->extractLastReadings(
@@ -145,6 +152,8 @@ class AquaponieController
             'start_date' => $startDate,
             'end_date'   => $endDate,
             'reading_time' => $reading_time,
+            'tide_peaks' => json_encode($extrema['peaks'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+            'tide_troughs' => json_encode($extrema['troughs'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
             'measure_count' => $measure_count,
             'duration_str' => DurationFormatter::short($startDate, $endDate),
             'version' => Version::getWithPrefix(),

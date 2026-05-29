@@ -1,8 +1,8 @@
 # 🌐 Endpoints ESP32 ↔ Serveur - Configuration Complète
 
-**Version FFP5CS (ESP32)** : 13.51 (compat ESP32 et ESP32-S3)
-**Version Serveur** : 5.1.0
-**Dernière mise à jour** : 19 Mai 2026
+**Version FFP5CS (ESP32)** : 13.81 (compat ESP32 et ESP32-S3)
+**Version Serveur** : 5.1.2
+**Dernière mise à jour** : 25 Mai 2026
 
 > Audit complet 2026-05 : durcissement sécurité (CSP, HSTS, OTA opt-in, masquage IP),
 > trait HMAC partagé FFP3/MSP/N3PP, validation board/sensor galeries, JSON Twig durci
@@ -312,9 +312,20 @@ api_key=<valeur .env>
 &FreqWakeUp=6
 &bouffePetits=0
 &bouffeGros=0
+&tideEvent=none
+&tideTrend=1
+&tideNoiseMm=20
+&tideWindowMs=15000
+&tideExtremeMm=214
 ```
 
 **Unités (niveaux d’eau)** : les champs `EauPotager`, `EauAquarium` et `EauReserve` sont enregistrés en base en **millimètres**. L’interface web (pages aquaponie, dashboard FFP3, API temps réel capteurs) les expose en **centimètres** (conversion ÷10 côté serveur, affichage décimal avec virgule).
+
+**Sémantique marée (distance uniquement)** :
+- `EauAquarium` reste une **distance capteur -> surface** (pas une hauteur d'eau).
+- `diffMaree` côté firmware = `(distance passée sur fenêtre - distance actuelle)` ; valeur positive = surface qui remonte vers le capteur.
+- Les champs `tideEvent/tideTrend/tideNoiseMm/tideWindowMs/tideExtremeMm` sont optionnels et utilisés pour l'observabilité min/max.
+- **Migration BDD** : exécuter `migrations/002_add_tide_event_columns.sql` sur prod et test pour persister ces champs (sinon ignorés silencieusement par le repository).
 
 ```
 Actions serveur:
