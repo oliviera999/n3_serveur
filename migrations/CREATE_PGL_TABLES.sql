@@ -25,5 +25,7 @@ CREATE TABLE IF NOT EXISTS pglEvents (
     INDEX idx_pgl_board (board)
 );
 
+-- Token placeholder : remplacer en production apres migration.
+-- UPDATE pglBoards SET secret_url_token = '<token_fort_64_chars>' WHERE board_id = 'poissonglouton';
 INSERT IGNORE INTO pglBoards (board_id, label, location, secret_url_token)
 VALUES ('poissonglouton', 'Poissonglouton principal', 'Salle aeree n3', 'a1b2c3d4e5f6a7b8');

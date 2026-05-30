@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.4] - 2026-05-30
+
+### Migrations BDD — audit production oliviera_iot3
+
+- **Bundle prod** : `migrations/APPLY_PROD_AUDIT_2026.sql` (post_id, config FFP3, heartbeats msp/n3pp, Poissonglouton, ffp3OtaTrigger).
+- **Scripts** : `001b_add_post_id_s3.sql`, `ADD_MISSING_COLUMNS_v11.36.sql` consolidé, `00_diagnostic_prod.sql`, `99_validate_prod.sql`.
+- **Docker local** : init `85-legacy-heartbeats.sql`, `95-ffp3-ota-trigger.sql` ; colonnes `tide*` dans `00-schema.sql`.
+- **Doc** : `migrations/README.md` — checklist audit prod et procédure phpMyAdmin.
+
 ## [5.1.3] - 2026-05-30
 
 ### Correctifs critiques FFP3 (PR #12 / #15)
