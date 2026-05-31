@@ -64,4 +64,35 @@ class SensorDataServiceTest extends TestCase
         $this->assertSame(1, $stats['TempEau_low']);
         $this->assertSame(1, $stats['TempEau_high']);
     }
+
+    public function testCleanEauReserveMmThresholds(): void
+    {
+        putenv('CLEAN_MIN_EAU_RESERVE=15');
+        putenv('CLEAN_MAX_EAU_RESERVE=1000');
+
+        $this->pdo->exec("INSERT INTO ffp3Data (EauReserve) VALUES (10.0)");
+        $this->pdo->exec("INSERT INTO ffp3Data (EauReserve) VALUES (87.0)");
+        $this->pdo->exec("INSERT INTO ffp3Data (EauReserve) VALUES (1500.0)");
+
+        $stats = $this->service->cleanAllSensorData();
+
+        $this->assertNull($this->fetchEauReserveById(4));
+        $this->assertSame(87.0, (float) $this->fetchEauReserveById(5));
+        $this->assertNull($this->fetchEauReserveById(6));
+
+        $this->assertSame(1, $stats['EauReserve_low']);
+        $this->assertSame(1, $stats['EauReserve_high']);
+    }
+
+    private function fetchEauReserveById(int $id): ?float
+    {
+        $stmt = $this->pdo->prepare('SELECT EauReserve FROM ffp3Data WHERE id = :id');
+        $stmt->execute([':id' => $id]);
+        $val = $stmt->fetchColumn();
+        if ($val === false || $val === null) {
+            return null;
+        }
+
+        return (float) $val;
+    }
 }

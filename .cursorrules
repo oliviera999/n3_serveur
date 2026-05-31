@@ -100,10 +100,13 @@ php -S localhost:8080 -t public
 
 ## 🤖 Tâches CRON
 
-- `CleanDataCommand`: Nettoyage des anciennes données (toutes les 5 min recommandé)
-- `ProcessTasksCommand`: Traitement des tâches périodiques (toutes les heures)
-- Verrouillage par `flock` pour éviter les chevauchements
-- Scripts wrapper dans `bin/` (si existants)
+- **Point d'entrée unique** : `run-cron.php` (CLI) → `CronOrchestrator`
+- **Fréquence crontab** : toutes les 5 min (`*/5 * * * * php run-cron.php`)
+- **Cadences internes** : tâches fréquentes à chaque run ; tâches horaires (online, réservoir) selon `CRON_HOURLY_INTERVAL_SECONDS` (défaut 3600 s)
+- **Sous-commande** : `RestartPumpCommand` (redémarrage pompe aqua différé 5 min)
+- Verrouillage global par `flock` (`cron_orchestrator.lock`)
+- Doc : `docs/deployment/CRON.md`
+- Déploiement séparé : cron `git pull` + hook `post-merge` (voir règle git-et-versionnement)
 
 ## 📊 Services métier importants
 

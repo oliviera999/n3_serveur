@@ -11,6 +11,24 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.6] - 2026-05-31
+
+### Modifié — consolidation crons FFP3 (orchestrateur unique)
+
+- **CronOrchestrator** : fusion de `CleanDataCommand` et `ProcessTasksCommand` en un seul orchestrateur (`run-cron.php`).
+- **RestartPumpCommand** : branchée en première phase (redémarrage pompe aqua après marée figée).
+- **Alerte niveau eau** : message unifié (niveau bas, arrêt pompe réserve) via `sendCustomAlert`.
+- **UI** : retrait lien `cronpompe.php` ; note cron automatique dans `control.twig`.
+- **Tests** : `CronOrchestratorTest`, `RestartPumpCommandTest`.
+- **Doc** : `docs/deployment/CRON.md`.
+
+## [5.1.5] - 2026-05-30
+
+### Correctif — seuils nettoyage EauReserve (mm)
+
+- **SensorDataService** : defaults `CLEAN_MIN_EAU_RESERVE=15`, `CLEAN_MAX_EAU_RESERVE=1000` (alignés firmware v13.84, valeurs en mm en BDD).
+- **`.env.example`** : commentaire unité mm pour les niveaux d'eau.
+
 ## [5.1.4] - 2026-05-30
 
 ### Migrations BDD — audit production oliviera_iot3

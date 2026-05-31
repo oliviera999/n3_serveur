@@ -430,15 +430,14 @@
                         <i class="fas fa-chart-line"></i>
                         <span>Retour aux données</span>
                     </a>
-                    <a href="/cronpompe.php" class="quick-action-card">
-                        <i class="fas fa-rotate"></i>
-                        <span>Exécuter cron</span>
-                    </a>
-                    <a href="/cronlog.txt" class="quick-action-card">
+                    <a href="/public/cronlog.txt" class="quick-action-card">
                         <i class="fas fa-file-lines"></i>
                         <span>Logs cron</span>
                     </a>
                 </div>
+                <p class="quick-actions-note" style="margin-top: 0.75rem; font-size: 0.9rem; opacity: 0.85;">
+                    Tâches CRON automatiques toutes les 5&nbsp;min (<code>run-cron.php</code>). Exécution manuelle&nbsp;: <code>php run-cron.php</code> (SSH).
+                </p>
             </section>
         </div>
 {% endblock %}

@@ -142,12 +142,17 @@ Les tables FFP3 (ffp3Data, ffp3Outputs, etc.) restent inchangées.
 
 ---
 
-## 8. Cron (si utilisé)
+## 8. Cron applicatif FFP3
 
-Si des tâches cron appelaient les anciens scripts (ex. `cronmsp1.php`, `cronn3pp.php`, `triphotos.php`) :
+Documentation complète : **[docs/deployment/CRON.md](CRON.md)**
 
-- Adapter les chemins vers les nouveaux scripts ou commandes (ex. `run-cron.php` à la racine, ou commandes dans `bin/`).
-- Pour `triphotos.php` : fonctionnalité à réimplémenter ou à protéger par token (voir RECOMMANDATIONS_IOT.md).
+Crontab recommandée (en plus du `git pull` minute, §0) :
+
+```cron
+*/5 * * * * cd /home4/oliviera/iot.olution.info && /usr/bin/php run-cron.php >> /dev/null 2>&1
+```
+
+**Migration** : supprimer `cronpompe.php`, anciennes entrées multiples ou scripts legacy (`cronmsp1.php`, `cronn3pp.php`). Pour `triphotos.php` (galeries) : voir `RECOMMANDATIONS_IOT.md`.
 
 ---
 

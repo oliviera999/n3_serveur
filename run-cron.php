@@ -1,12 +1,11 @@
 <?php
 
-// run-cron.php
+declare(strict_types=1);
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use App\Command\ProcessTasksCommand;
+use App\Command\CronOrchestrator;
 
-// Pour s'assurer que le script est bien exécuté depuis la ligne de commande
 $ts = date('Y-m-d H:i:s');
 error_log(sprintf('[%s] [run-cron] SAPI: %s', $ts, php_sapi_name()));
 if (php_sapi_name() !== 'cli' && strpos(php_sapi_name(), 'cgi') === false) {
@@ -14,9 +13,9 @@ if (php_sapi_name() !== 'cli' && strpos(php_sapi_name(), 'cgi') === false) {
 }
 
 try {
-    $command = new ProcessTasksCommand();
-    $command->execute();
-    exit(0); // Succès
+    $orchestrator = new CronOrchestrator();
+    $orchestrator->execute();
+    exit(0);
 } catch (\Throwable $e) {
     $ts = date('Y-m-d H:i:s');
     error_log(sprintf(
@@ -27,5 +26,5 @@ try {
         $e->getLine()
     ));
     error_log(sprintf('[%s] [run-cron] Trace: %s', $ts, $e->getTraceAsString()));
-    exit(1); // Échec
-} 
+    exit(1);
+}

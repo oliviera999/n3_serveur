@@ -75,8 +75,8 @@ class SensorDataService
                 'max' => $this->getEnvFloat('CLEAN_MAX_EAU_AQUARIUM', 70.0),
             ],
             'EauReserve' => [
-                'min' => $this->getEnvFloat('CLEAN_MIN_EAU_RESERVE', 10.0),
-                'max' => $this->getEnvFloat('CLEAN_MAX_EAU_RESERVE', 90.0),
+                'min' => $this->getEnvFloat('CLEAN_MIN_EAU_RESERVE', 15.0),
+                'max' => $this->getEnvFloat('CLEAN_MAX_EAU_RESERVE', 1000.0),
             ],
         ];
     }

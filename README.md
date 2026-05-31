@@ -197,6 +197,15 @@ Pour eviter des 404 sur les URLs du type `https://iot.olution.info/ffp3/`, `/ffp
 - **Rotation et PII** (v5.1.0) : `RotatingFileHandler` actif (14 jours configurables via `LOG_ROTATE_DAYS`), masquage IP par défaut (`LOG_MASK_IP=true` — IPv4 `.0`, IPv6 `::/80`). Désactivable via `.env` pour les diagnostics fins.
 - **Processus de debug** : voir [docs/DEBUG_ERREURS_SERVEUR.md](docs/DEBUG_ERREURS_SERVEUR.md) pour le diagnostic à partir d’une référence et le lien avec `ErrorHandlerMiddleware` / `ErrorAlertService`.
 
+## Tâches CRON
+
+Deux crons sur le serveur de production :
+
+1. **Déploiement** (toutes les minutes) : `git pull origin master` + hook `post-merge` (vidage caches).
+2. **Applicatif FFP3** (toutes les 5 minutes) : `php run-cron.php` → `CronOrchestrator`.
+
+Référence complète (crontab, variables `.env`, dépannage) : [docs/deployment/CRON.md](docs/deployment/CRON.md).
+
 ## Sécurité (v5.1.0)
 
 - **HMAC** : firmwares FFP3/MSP/N3PP peuvent envoyer `timestamp + signature` (HMAC-SHA256). FFP5CS v13.80+ peut aussi envoyer `X-Sig-Timestamp`, `X-Sig-Nonce`, `X-Sig-Hmac` avec message canonique `<timestamp>\n<nonce>\n<body_brut>`. Modes :
