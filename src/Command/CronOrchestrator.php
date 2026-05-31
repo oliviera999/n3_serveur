@@ -19,6 +19,9 @@ use App\Service\SystemHealthService;
  */
 class CronOrchestrator
 {
+    /** Distance capteur→surface (mm) au-delà de laquelle l'eau est considérée basse (aligné aqThreshold firmware, 18 cm). */
+    private const DEFAULT_AQUA_LOW_LEVEL_THRESHOLD_MM = 180.0;
+
     private const LOCK_FILENAME = 'cron_orchestrator.lock';
     private const HOURLY_STATE_FILENAME = 'cron_last_hourly.timestamp';
     private const PUMP_RESTART_FLAG_FILENAME = 'pump_restart_scheduled.flag';
@@ -76,7 +79,9 @@ class CronOrchestrator
             $this->logger
         );
 
-        $this->aquaLowThreshold = (float) ($_ENV['AQUA_LOW_LEVEL_THRESHOLD'] ?? 7.0);
+        $this->aquaLowThreshold = (float) (
+            $_ENV['AQUA_LOW_LEVEL_THRESHOLD'] ?? self::DEFAULT_AQUA_LOW_LEVEL_THRESHOLD_MM
+        );
         $this->stddevThreshold = (float) ($_ENV['TIDE_STDDEV_THRESHOLD'] ?? 1.0);
         $this->hourlyIntervalSeconds = (int) ($_ENV['CRON_HOURLY_INTERVAL_SECONDS'] ?? 3600);
 
@@ -223,18 +228,19 @@ class CronOrchestrator
         $this->logger->addName("Dernier niveau d'eau aquarium: ");
         $this->logger->addTask((string) $lastWaterLevel);
 
-        if ($lastWaterLevel === null || $lastWaterLevel >= $this->aquaLowThreshold) {
+        // EauAquarium = distance capteur→surface en mm : valeur élevée = eau basse (comme côté firmware).
+        if ($lastWaterLevel === null || $lastWaterLevel <= $this->aquaLowThreshold) {
             return;
         }
 
         $this->pumpService->stopPompeTank();
         $this->logger->addEvent(
-            "ALERTE: Niveau d'eau aquarium trop bas ($lastWaterLevel) - Arrêt pompe réservoir"
+            "ALERTE: Niveau d'eau aquarium trop bas (distance {$lastWaterLevel} mm) - Arrêt pompe réservoir"
         );
 
         $message = sprintf(
-            "Le niveau d'eau de l'aquarium est descendu à %.2f (seuil %.2f).\n"
-            . 'La pompe réservoir a été arrêtée automatiquement pour éviter une panne sèche.',
+            "La distance capteur→surface de l'aquarium a atteint %.0f mm (seuil %.0f mm).\n"
+            . "L'eau est considérée trop basse. La pompe réservoir a été arrêtée automatiquement pour éviter une panne sèche.",
             $lastWaterLevel,
             $this->aquaLowThreshold
         );

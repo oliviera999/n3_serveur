@@ -84,6 +84,38 @@ class SensorDataServiceTest extends TestCase
         $this->assertSame(1, $stats['EauReserve_high']);
     }
 
+    public function testCleanEauAquariumMmThresholds(): void
+    {
+        putenv('CLEAN_MIN_EAU_AQUARIUM=40');
+        putenv('CLEAN_MAX_EAU_AQUARIUM=700');
+
+        $this->pdo->exec("INSERT INTO ffp3Data (EauAquarium) VALUES (30.0)");
+        $this->pdo->exec("INSERT INTO ffp3Data (EauAquarium) VALUES (209.0)");
+        $this->pdo->exec("INSERT INTO ffp3Data (EauAquarium) VALUES (800.0)");
+
+        $service = new SensorDataService($this->pdo, new LogService());
+        $stats = $service->cleanAllSensorData();
+
+        $this->assertNull($this->fetchColumnById('EauAquarium', 4));
+        $this->assertSame(209.0, (float) $this->fetchColumnById('EauAquarium', 5));
+        $this->assertNull($this->fetchColumnById('EauAquarium', 6));
+
+        $this->assertSame(1, $stats['EauAquarium_low']);
+        $this->assertSame(1, $stats['EauAquarium_high']);
+    }
+
+    private function fetchColumnById(string $column, int $id): ?float
+    {
+        $stmt = $this->pdo->prepare("SELECT {$column} FROM ffp3Data WHERE id = :id");
+        $stmt->execute([':id' => $id]);
+        $val = $stmt->fetchColumn();
+        if ($val === false || $val === null) {
+            return null;
+        }
+
+        return (float) $val;
+    }
+
     private function fetchEauReserveById(int $id): ?float
     {
         $stmt = $this->pdo->prepare('SELECT EauReserve FROM ffp3Data WHERE id = :id');

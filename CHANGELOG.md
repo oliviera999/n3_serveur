@@ -11,6 +11,16 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.7] - 2026-05-31
+
+### Correctif — seuils aquarium mm (nettoyage CRON + alerte eau basse)
+
+- **SensorDataService** : defaults `CLEAN_MIN_EAU_AQUARIUM=40`, `CLEAN_MAX_EAU_AQUARIUM=700` (mm en BDD, équivalent 4-70 cm).
+- **CronOrchestrator** : alerte eau basse quand `EauAquarium > seuil` (distance élevée = eau basse, aligné firmware) ; défaut `AQUA_LOW_LEVEL_THRESHOLD=180` mm (18 cm, `aqThreshold`).
+- **`.env.example`**, **`.env.docker.example`** : seuils aquarium et réserve corrigés en mm.
+- **Tests** : `CronOrchestratorTest` (cas normal vs bas), `SensorDataServiceTest` (aquarium mm).
+- **Doc** : `docs/deployment/CRON.md`, `firmwires/ffp5cs/docs/technical/SEUILS_SERVEUR_ESP32.md`.
+
 ## [5.1.6] - 2026-05-31
 
 ### Modifié — consolidation crons FFP3 (orchestrateur unique)

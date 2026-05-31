@@ -24,7 +24,7 @@ class CronOrchestratorTest extends TestCase
         $this->tempDir = sys_get_temp_dir() . '/cron_orch_test_' . uniqid('', true);
         mkdir($this->tempDir, 0755, true);
         putenv('LOG_FILE_PATH=php://memory');
-        $_ENV['AQUA_LOW_LEVEL_THRESHOLD'] = '7';
+        $_ENV['AQUA_LOW_LEVEL_THRESHOLD'] = '180';
         $_ENV['TIDE_STDDEV_THRESHOLD'] = '1';
         $_ENV['CRON_HOURLY_INTERVAL_SECONDS'] = '3600';
     }
@@ -66,7 +66,7 @@ class CronOrchestratorTest extends TestCase
         $stats->method('stddev')->willReturn(1.5);
 
         $repo = $this->createMock(SensorReadRepository::class);
-        $repo->method('getLastReadings')->willReturn(['EauAquarium' => 20.0]);
+        $repo->method('getLastReadings')->willReturn(['EauAquarium' => 150.0]);
 
         $health = $this->createMock(SystemHealthService::class);
         $health->expects($this->never())->method('checkOnlineStatus');
@@ -130,10 +130,34 @@ class CronOrchestratorTest extends TestCase
         $pump->method('getResetModeState')->willReturn(0);
 
         $repo = $this->createMock(SensorReadRepository::class);
-        $repo->method('getLastReadings')->willReturn(['EauAquarium' => 5.0]);
+        $repo->method('getLastReadings')->willReturn(['EauAquarium' => 210.0]);
 
         $notifier = $this->createMock(NotificationService::class);
         $notifier->expects($this->once())->method('sendCustomAlert');
+
+        $orchestrator = $this->buildOrchestrator(
+            pumpService: $pump,
+            sensorReadRepo: $repo,
+            notifier: $notifier,
+            statsService: $this->defaultStatsMock(),
+        );
+
+        $orchestrator->execute();
+    }
+
+    public function testNormalWaterLevelDoesNotStopTankPump(): void
+    {
+        $pump = $this->createMock(PumpService::class);
+        $pump->expects($this->never())->method('stopPompeTank');
+        $pump->method('getAquaPumpState')->willReturn(0);
+        $pump->method('getTankPumpState')->willReturn(1);
+        $pump->method('getResetModeState')->willReturn(0);
+
+        $repo = $this->createMock(SensorReadRepository::class);
+        $repo->method('getLastReadings')->willReturn(['EauAquarium' => 150.0]);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendCustomAlert');
 
         $orchestrator = $this->buildOrchestrator(
             pumpService: $pump,
@@ -209,7 +233,7 @@ class CronOrchestratorTest extends TestCase
     private function defaultRepoMock(): SensorReadRepository
     {
         $repo = $this->createMock(SensorReadRepository::class);
-        $repo->method('getLastReadings')->willReturn(['EauAquarium' => 20.0]);
+        $repo->method('getLastReadings')->willReturn(['EauAquarium' => 150.0]);
 
         return $repo;
     }

@@ -66,7 +66,7 @@ Fichier d'état : `var/cache/cron_last_hourly.timestamp`
 | Variable | Défaut | Description |
 |----------|--------|-------------|
 | `CRON_HOURLY_INTERVAL_SECONDS` | `3600` | Délai minimum entre deux passes horaires |
-| `AQUA_LOW_LEVEL_THRESHOLD` | `7` | Seuil niveau eau aquarium (mm) — arrêt pompe réserve |
+| `AQUA_LOW_LEVEL_THRESHOLD` | `180` | Distance capteur→surface aquarium (mm) au-delà de laquelle l'eau est basse — arrêt pompe réserve (aligné `aqThreshold` firmware, 18 cm) |
 | `TIDE_STDDEV_THRESHOLD` | `1` | Seuil écart-type marée |
 | `CLEAN_MIN_*` / `CLEAN_MAX_*` | voir `.env.example` | Seuils nettoyage capteurs |
 | `LOG_FILE_PATH` | `cronlog.txt` | Journal Monolog |
