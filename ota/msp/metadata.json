@@ -1,6 +1,6 @@
 {
-    "version":  "2.41",
-    "min_version":  "2.41",
-    "url":  "http://iot.olution.info/ota/msp/firmware.bin",
-    "sha256":  "17be48420502aacf215ff61ff5ce97ff41f2f8aef1988393f2ec0ea02d1c1933"
+  "version": "2.43",
+  "min_version": "2.43",
+  "url": "http://iot.olution.info/ota/msp/firmware.bin",
+  "sha256": "a2fdf4120537ed773bc1a6c6dcf45a0febd5100ff08eb8927dc6c2cd6163b7e4"
 }
