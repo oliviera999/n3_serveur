@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.8] - 2026-05-31
+
+### Correctif — affichage aquaponie (graphiques, icônes, assets locaux)
+
+- **Graphiques** : initialisation fiabilisée (`scheduleInit`, `prepareContainers`, fallback CSS min-height vue alt, retry layout, `window.load` + `ResizeObserver`).
+- **Font Awesome 6.5.1** : auto-hébergé (`/assets/css/fontawesome.min.css`, `/assets/webfonts/`) ; override `.fas` dans `realtime-styles.css`.
+- **Moment.js** : auto-hébergé (`moment.min.js`, `moment-timezone-with-data.min.js`) pour aquaponie, MSP1 et N3PP.
+- **Service Worker** : chemins `/assets/` à jour, cache `n3-iot-v5.1.8`, suppression des références legacy `/ffp3/` et CDN.
+
 ## [5.1.7] - 2026-05-31
 
 ### Correctif — seuils aquarium mm (nettoyage CRON + alerte eau basse)

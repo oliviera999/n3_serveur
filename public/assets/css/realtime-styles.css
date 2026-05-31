@@ -64,6 +64,21 @@ input[type="radio"] + label {
     font-family: 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
 }
 
+/* Font Awesome local — priorité sur l'héritage Cabin/Raleway (body, titres) */
+.fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+.far, .fa-regular {
+    font-weight: 400 !important;
+}
+.fab, .fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 400 !important;
+}
+.fas, .fa-solid {
+    font-weight: 900 !important;
+}
+
 /* Mode clair : orange supervision (#FF6300 = --accent-secondary), surcharge main.css h1..h6 #212931 */
 html:not([data-theme="dark"]) body header.major h1,
 html:not([data-theme="dark"]) body header.major h2,

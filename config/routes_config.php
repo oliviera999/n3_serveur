@@ -156,9 +156,11 @@ return [
         'jquery.scrolly.min.js', 'main.js', 'page-nav-toggles.js', 'pwa-init.js',
         'realtime-updater.js', 'scroll-progress.js', 'scroll-reveal.js', 'stats-updater.js',
         'theme-toggle.js', 'toast-notifications.js', 'util.js',
+        'moment.min.js', 'moment-timezone-with-data.min.js',
     ],
     'asset_css' => [
         'aquaponie.css', 'aquaponie-description-styles.css', 'common-data.css', 'control-styles.css',
+        'fontawesome.min.css',
         'gallery-styles.css', 'home-styles.css', 'login-styles.css', 'main.css',
         'module-description-styles.css', 'msp1-sheet-styles.css', 'noscript.css', 'realtime-styles.css', 'supervision-styles.css',
         'theme-variables.css', 'timelapse-styles.css',
@@ -166,6 +168,9 @@ return [
     'asset_icons' => [
         'icon-72.png', 'icon-96.png', 'icon-128.png', 'icon-144.png', 'icon-152.png',
         'icon-192.png', 'icon-384.png', 'icon-512.png', 'favicon-n3-orange.png',
+    ],
+    'asset_webfonts' => [
+        'fa-solid-900.woff2', 'fa-regular-400.woff2', 'fa-brands-400.woff2',
     ],
 
     // Redirections 301 : [ancienne_url, nouvelle_url, méthodes]

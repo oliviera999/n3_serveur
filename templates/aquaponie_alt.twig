@@ -31,8 +31,8 @@
 {% endblock %}
 
 {% block head_scripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"></script>
+    <script src="{{ base_path }}/assets/js/moment.min.js"></script>
+    <script src="{{ base_path }}/assets/js/moment-timezone-with-data.min.js"></script>
     <script src="{{ base_path }}/assets/js/highstock.js"></script>
     {# boost.js supprimé : WebGL cause des problèmes sur mobile (graphiques invisibles) et laptop (colonnes au lieu de courbes) #}
     <script src="{{ base_path }}/assets/js/exporting.js"></script>
@@ -785,7 +785,9 @@
                         
                         // Le serveur stocke en Europe/Paris, mais on affiche en Africa/Casablanca
                         // (heure locale réelle du projet physique au Maroc)
-                        moment.tz.setDefault('Africa/Casablanca');
+                        if (typeof moment !== 'undefined' && moment.tz) {
+                            moment.tz.setDefault('Africa/Casablanca');
+                        }
                         
                         // ==============================================
                         // Fonctions de calcul des lignes de tendance
@@ -887,32 +889,28 @@
                             var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
                             var isAndroid = /Android/i.test(navigator.userAgent);
                             
-                            // Sur mobile, forcer dimensions explicites sur les conteneurs
-                            if (isMobile) {
-                                var fallbackWidth = Math.max(280, (window.innerWidth || document.documentElement.clientWidth || 360) - 40);
-                                if (typeof n3AquaponieCharts !== 'undefined') {
-                                    containerEau.style.minHeight = n3AquaponieCharts.statsHeight(0, 'eau') + 'px';
-                                    containerTemp.style.minHeight = n3AquaponieCharts.statsHeight(1, 'temp') + 'px';
-                                }
-                                if (containerEau.offsetWidth < 100) {
-                                    containerEau.style.width = fallbackWidth + 'px';
-                                    containerTemp.style.width = fallbackWidth + 'px';
-                                    containerEau.offsetHeight; // force reflow
-                                }
+                            // Forcer dimensions explicites sur les conteneurs (tous viewports)
+                            if (typeof n3AquaponieCharts !== 'undefined') {
+                                n3AquaponieCharts.prepareContainers(
+                                    containerEau,
+                                    containerTemp,
+                                    function () { return n3AquaponieCharts.statsHeight(0, 'eau'); },
+                                    function () { return n3AquaponieCharts.statsHeight(1, 'temp'); }
+                                );
                             }
                             
                             // S'assurer que les conteneurs ont une taille
                             var containerEauRect = containerEau.getBoundingClientRect();
                             var containerWidth = containerEauRect.width || containerEau.offsetWidth || 0;
                             
-                            var minWidth = isMobile ? 100 : 0;
-                            if (containerWidth <= minWidth && createVersionDAttempts < maxCreateVersionDAttempts) {
+                            var minWidth = isMobile ? 100 : 1;
+                            if (containerWidth < minWidth && createVersionDAttempts < maxCreateVersionDAttempts) {
                                 var retryDelay = isMobile ? 200 : 150;
                                 console.warn('[Highcharts] Conteneur sans dimensions (' + containerWidth + 'px), tentative ' + createVersionDAttempts + '/' + maxCreateVersionDAttempts);
                                 setTimeout(createVersionD, retryDelay);
                                 return;
                             }
-                            if (containerWidth <= minWidth) {
+                            if (containerWidth < minWidth) {
                                 console.warn('[Highcharts] Procédure malgré dimensions insuffisantes (fallback mobile)');
                                 if (isMobile && containerEau.scrollIntoView) {
                                     containerEau.scrollIntoView({ behavior: 'auto', block: 'nearest' });
@@ -1530,60 +1528,20 @@
                             console.log('[Highcharts] Graphiques créés avec succès');
                         }
                         
-                        // Initialiser les graphiques après que le DOM soit complètement chargé
-                        var initChartsAttempts = 0;
-                        var maxInitAttempts = 20;
-                        
-                        function initCharts() {
-                            initChartsAttempts++;
-                            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                            var retryDelay = isMobile ? 200 : 100; // Plus de temps sur mobile
-                            
-                            // Vérifier que Highcharts est chargé
-                            if (typeof Highcharts === 'undefined' || typeof Highcharts.stockChart === 'undefined') {
-                                if (initChartsAttempts < maxInitAttempts) {
-                                    console.warn('[Highcharts] Bibliothèque non chargée, tentative ' + initChartsAttempts + '/' + maxInitAttempts);
-                                    setTimeout(initCharts, retryDelay);
-                                } else {
-                                    console.error('[Highcharts] Échec du chargement après ' + maxInitAttempts + ' tentatives');
+                        if (typeof n3AquaponieCharts !== 'undefined') {
+                            n3AquaponieCharts.scheduleInit(createVersionD, {
+                                prepare: function (containerEau, containerTemp) {
+                                    n3AquaponieCharts.prepareContainers(
+                                        containerEau,
+                                        containerTemp,
+                                        function () { return n3AquaponieCharts.statsHeight(0, 'eau'); },
+                                        function () { return n3AquaponieCharts.statsHeight(1, 'temp'); }
+                                    );
                                 }
-                                return;
-                            }
-                            
-                            // Vérifier que les conteneurs existent
-                            var containerEau = document.getElementById('chart-stock-area-eau-D');
-                            var containerTemp = document.getElementById('chart-stock-area-temp-D');
-                            
-                            if (!containerEau || !containerTemp) {
-                                if (initChartsAttempts < maxInitAttempts) {
-                                    console.warn('[Highcharts] Conteneurs non trouvés, tentative ' + initChartsAttempts + '/' + maxInitAttempts);
-                                    setTimeout(initCharts, retryDelay);
-                                } else {
-                                    console.error('[Highcharts] Conteneurs introuvables après ' + maxInitAttempts + ' tentatives');
-                                }
-                                return;
-                            }
-                            
-                            console.log('[DEBUG] Début initialisation graphiques - v4.10.0 (Mobile fix)');
-                            console.log('[DEBUG] Mobile:', isMobile, 'Tentative:', initChartsAttempts);
-                            createVersionD();
-                            console.log('[DEBUG] createVersionD() appelé, attente création graphiques...');
+                            });
+                        } else {
+                            console.error('[Highcharts] n3AquaponieCharts indisponible');
                         }
-                        
-                        // Attendre que le DOM soit prêt - délai plus long sur mobile (layout pas toujours calculé)
-                        var isMobileInit = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                        var initialDelay = isMobileInit ? 600 : 100;
-                        
-                        function scheduleInitCharts() {
-                            if (document.readyState === 'loading') {
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    setTimeout(initCharts, initialDelay);
-                                });
-                            } else {
-                                setTimeout(initCharts, initialDelay);
-                            }
-                        }
-                        scheduleInitCharts();
                         
                         // Debug: Vérifier la configuration de l'axe X après création complète
                         // Utiliser plusieurs tentatives pour s'assurer que les graphiques sont créés

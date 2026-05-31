@@ -247,10 +247,13 @@
 @media (max-width: 420px) {
     .chart-stock-wrapper { min-height: 300px; }
 }
-/* Vue alt : le chart remplit la colonne grâce à la hauteur calculée en JS, pas de min-height imposée */
+/* Vue alt : hauteur principale via JS ; fallback CSS si layout pas encore calculé */
 .alt-chart-column .chart-stock-wrapper {
-    min-height: 0;
+    min-height: 300px;
     margin-bottom: 0;
+}
+@media (max-width: 736px) {
+    .alt-chart-column .chart-stock-wrapper { min-height: 260px; }
 }
 
 /* ----- DARK MODE ----- */

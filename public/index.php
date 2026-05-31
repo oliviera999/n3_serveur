@@ -326,6 +326,7 @@ require __DIR__ . '/../config/routes_ffp3.php';
 registerAssetRoute($app, '/assets/js/{filename}', $routesConfigFull['asset_js'], 'application/javascript', 'js');
 registerAssetRoute($app, '/assets/css/{filename}', $routesConfigFull['asset_css'], 'text/css', 'css');
 registerAssetRoute($app, '/assets/icons/{filename}', $routesConfigFull['asset_icons'], 'image/png', 'icons');
+registerAssetRoute($app, '/assets/webfonts/{filename}', $routesConfigFull['asset_webfonts'], 'font/woff2', 'webfonts');
 
 $app->get('/assets/logo.png', function (Request $request, Response $response) {
     $filePath = __DIR__ . '/assets/logo.png';
