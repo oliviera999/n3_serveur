@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.9] - 2026-06-01
+
+### Modifié — Docker local (auth session smoke)
+
+- **`.env.docker.example`** : `AUTH_METHOD=both`, hash pour mot de passe dev **`localadmin`** (smoke `-AuthMode both -AdminPassword localadmin`).
+
+### Modifié — cohérence page contrôle aquaponie (audit juin 2026)
+
+- **Documentation** : rapport [`docs/AUDIT_COHERENCE_AQUAPONIE_CONTROL_2026-06.md`](docs/AUDIT_COHERENCE_AQUAPONIE_CONTROL_2026-06.md) ; mises à jour `AUTHENTICATION.md`, `SYNCHRONISATION_BIDIRECTIONNELLE.md`, `AUDIT_PAGE_CONTROL_DISTANT.md`, `ENDPOINTS_ESP32_SERVEUR.md`.
+- **UI** : texte de synchronisation ESP32 aligné sur le polling réel (6–10 s) dans `templates/control.twig`.
+- **Code** : commentaires GPIO 18 (`PumpService` legacy vs page contrôle) dans `OutputSyncService` et `PumpService`.
+- **Tests** : `tests/Repository/OutputRepositoryTest.php` (mapping paramètres / GPIO page contrôle).
+
 ## [5.1.8] - 2026-05-31
 
 ### Correctif — affichage aquaponie (graphiques, icônes, assets locaux)

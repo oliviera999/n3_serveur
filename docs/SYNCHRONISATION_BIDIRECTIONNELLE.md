@@ -18,9 +18,9 @@ Le système FFP3 utilise une synchronisation bidirectionnelle entre l'interface 
 
 ```
 Interface Web (control.twig)
-        ↕ (polling 10s)
+        ↕ (polling 6–10 s, GET state ?fresh=1)
    Base de Données (ffp3Outputs/ffp3Outputs2)
-        ↕ (POST/GET 2-3min)
+        ↕ (POST capteurs ~2–3 min + GET state ~6 s firmware)
      ESP32 (capteurs + actionneurs)
 ```
 
@@ -57,13 +57,13 @@ WHERE gpio = :gpio AND name IS NOT NULL AND name != ''
   AND (lastModifiedBy != 'web' OR requestTime IS NULL OR requestTime < NOW() - INTERVAL :priority SECOND)
 ```
 
-### Problème 2: Logique Inversée GPIO 18 Inconsistante
+### Problème 2: GPIO 18 (pompe réserve) — sémantique UI / firmware / legacy
 
-**Symptôme**: Pompe réserve affichée comme "Activée" alors qu'elle est éteinte côté ESP32.
+**Contrat actuel (page contrôle + GET state + firmware `gpio_parser.cpp`)** : `state = 1` → pompe **ON**, `state = 0` → pompe **OFF**. Aucune inversion dans `getOutputsState()` ni dans `control.twig` (`is_inverted = false`).
 
-**Cause**: Incohérence entre `getOutputsState()` (qui inverse) et `syncStatesFromSensorData()` (qui n'inverse pas).
+**Exception legacy** : [`PumpService`](../src/Service/PumpService.php) (scripts/cron historiques) utilise une logique relais active-low : `runPompeTank()` écrit `0`, `stopPompeTank()` écrit `1`. Ne pas confondre avec la page `/aquaponie-control` ni le poll ESP32.
 
-**Solution Implémentée**: Cohérence maintenue dans les deux fonctions pour GPIO 18.
+**Sync POST** : `syncStatesFromSensorData()` recopie `etatPompeTank` tel quel (même sémantique 0/1 que le firmware POST).
 
 ### Problème 3: Interface Web Désynchronisée
 
@@ -161,8 +161,8 @@ ALTER TABLE ffp3Outputs2 ADD COLUMN lastModifiedBy ENUM('web', 'esp32') NULL;
    - ✅ ESP32 POST → Vérifier que l'état est maintenant écrasé
 
 3. **GPIO 18 cohérence**
-   - ✅ Vérifier cohérence entre affichage, BDD et ESP32
-   - ✅ Tester logique inversée (state=0 = pompe ON)
+   - ✅ Vérifier cohérence entre affichage, BDD et ESP32 (1 = ON sur page contrôle et GET state)
+   - ⚠️ Ne pas appliquer la logique inversée de `PumpService` aux tests de la page web
 
 4. **Polling JavaScript**
    - ✅ Vérifier détection des changements ESP32
@@ -210,7 +210,7 @@ curl https://iot.olution.info/ffp3/api/outputs-test/state
 
 **Causes possibles**:
 - Délai de synchronisation (normal < 3 min)
-- Problème de logique inversée GPIO 18
+- Décalage normal entre poll UI (6–10 s) et cycle POST capteurs (2–3 min) pour les témoins « dernier état Data »
 - Cache navigateur
 
 **Solutions**:

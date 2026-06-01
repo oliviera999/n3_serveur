@@ -125,6 +125,8 @@ public/index.php (front controller Slim 4)  ← Route Slim Framework
 
 **Declenchement OTA distant** : quand la page de controle envoie une demande "Verifier OTA", le serveur ajoute `triggerOtaCheck: true` une seule fois dans la reponse du GET firmware. Les polls web de l'interface utilisent `?fresh=1` et restent en lecture seule pour ce flag, afin de ne pas consommer la commande avant le prochain poll de l'ESP32.
 
+**Page de controle aquaponie (interface web)** : `/aquaponie-control` (prod), `/aquaponie-control-test` (test WROOM). Auth requise pour la page et les `POST` toggle/parameters/OTA ; `GET .../state` reste public (firmware + polling JS). Audit de coherence UI/code/doc : [`AUDIT_COHERENCE_AQUAPONIE_CONTROL_2026-06.md`](AUDIT_COHERENCE_AQUAPONIE_CONTROL_2026-06.md). Mapping GPIO : [`firmwires/ffp5cs/docs/technical/VARIABLE_NAMING.md`](../../firmwires/ffp5cs/docs/technical/VARIABLE_NAMING.md).
+
 ---
 
 ## 🔄 Comparaison Environnements
@@ -231,6 +233,33 @@ Le serveur doit répondre au POST dans le délai client (18 s) pour éviter time
 Si l’URL de poll et la page de contrôle sont sur le même environnement (test↔test ou prod↔prod), le serveur renvoie bien les dernières valeurs écrites par la page. Si l’effet n’apparaît pas sur l’ESP32, la cause est alors côté firmware (poll, parsing ou application des états).
 
 **Deux sources en BDD (pompe aquarium, GPIO 16)** : la colonne **etatPompeAqua** dans les **lignes de mesures capteurs** (POST `post-data*`) reflète le dernier état rapporté par le firmware. Le **GET** utilisé par l’ESP32 pour appliquer les commandes est construit à partir de la table **outputs** (`ffp3Outputs*`, ligne **gpio = 16**), mise à jour par la synchro POST (`OutputRepository::syncStatesFromSensorData`) et par les actions web. Pour un diagnostic du type « la BDD indique ON mais le module reste OFF », comparer explicitement **gpio 16 dans outputs** avec **etatPompeAqua** dans la dernière insertion capteurs : ce ne sont pas la même ligne ni le même usage (commande poll vs dernier relevé).
+
+---
+
+## 🔑 Alignement clés API production (plus de données reçues)
+
+Le serveur **rejette** les POST sans auth valide (**401**, rien en BDD). Vérifier **deux secrets distincts** :
+
+| Côté | Variable | Rôle |
+|------|----------|------|
+| Serveur `.env` | `API_KEY` | Champ POST `api_key` (mode legacy / fallback) |
+| Firmware `secrets_config.h` | `Secrets::API_KEY` | **Identique** à `API_KEY` serveur |
+| Serveur `.env` | `API_SIG_SECRET` | HMAC en-têtes `X-Sig-*` (FFP5CS v13.80+) |
+| Firmware `secrets_config.h` | `Secrets::API_SIG_SECRET` + `#define SECRETS_INCLUDE_API_SIG_SECRET 1` | **Identique** à `API_SIG_SECRET` serveur |
+
+**Comportement serveur (prod testé)** :
+
+- `api_key` invalide, sans en-têtes HMAC → **401**
+- En-têtes `X-Sig-*` présents mais signature fausse → **401** « Signature incorrecte » (donc `API_SIG_SECRET` est configuré côté serveur)
+- Si le firmware envoie des en-têtes HMAC mais le serveur n’a pas `API_SIG_SECRET` → **500** « Configuration serveur manquante »
+
+**Checklist rapide** :
+
+1. `.env` prod : `HMAC_STRICT_MODE=false` tant que tous les appareils n’envoient pas HMAC (sinon **401** systématique).
+2. Si le firmware a `SECRETS_INCLUDE_API_SIG_SECRET` : aligner `API_SIG_SECRET` firmware ↔ serveur ; RTC ESP32 synchronisé NTP (fenêtre `SIG_VALID_WINDOW`, défaut 300 s).
+3. Sinon (legacy) : aligner uniquement `API_KEY` ; désactiver l’include HMAC firmware ou laisser secret vide.
+4. Endpoint prod WROOM : `POST /ffp3/post-data` (pas `-test`) ; profil `wroom-prod` / `PROFILE_PROD`.
+5. Logs serveur : `PostData: rejet auth … code=401` dans cronlog / error_log.
 
 ---
 

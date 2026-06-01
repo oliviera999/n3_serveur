@@ -162,17 +162,19 @@ class PumpService
     }
 
     /**
-     * Arrête la pompe réserve (GPIO à 0)
+     * Arrête la pompe réserve (relais active-low : state BDD = 1).
+     * Ne pas confondre avec la page /aquaponie-control ni le GET /api/outputs/state (1 = ON).
      */
     public function stopPompeTank(): void
     {
-        // Logique inversée historique : 1 = arrêt.
         $this->setState($this->gpioPompeTank, 1);
     }
 
+    /**
+     * Démarre la pompe réserve (relais active-low : state BDD = 0).
+     */
     public function runPompeTank(): void
     {
-        // Logique inversée historique : 0 = marche.
         $this->setState($this->gpioPompeTank, 0);
     }
 

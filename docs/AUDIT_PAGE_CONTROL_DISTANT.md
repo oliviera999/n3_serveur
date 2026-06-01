@@ -2,8 +2,18 @@
 
 **Date**: 2025-01-27  
 **Version analysée**: v4.6.3+  
-**Page analysée**: `/control` et `/control-test`  
-**Statut actuel**: 📎 **Document d’archive** — lire la mise à jour ci-dessous avant toute action.
+**Page analysée (historique)** : `/control` et `/control-test` — **URLs actuelles** : `/aquaponie-control`, `/aquaponie-control-test` (redirections 301 depuis `/control*`).  
+**Statut actuel** : 📎 **Document d’archive** — lire les mises à jour ci-dessous avant toute action.
+
+---
+
+## Mise à jour (2026-06-01)
+
+- **URLs** : interface prod/test = `/aquaponie-control`, `/aquaponie-control-test` ([`config/routes_ffp3.php`](../config/routes_ffp3.php)).
+- **Authentification** : pages de contrôle **protégées** (`protected_paths` + middleware auth sur toggle/parameters/OTA). Voir [`AUTHENTICATION.md`](AUTHENTICATION.md).
+- **GET state** : `/api/outputs/state` (et `-test`) reste **public** pour l’ESP32 et le polling JS (`?fresh=1` sur la page).
+- **Audit de cohérence** : rapport détaillé [`AUDIT_COHERENCE_AQUAPONIE_CONTROL_2026-06.md`](AUDIT_COHERENCE_AQUAPONIE_CONTROL_2026-06.md).
+- Le résumé exécutif « ❌ 500 systématique » et « pas d’authentification » ci-dessous est **obsolète** (contexte 2025-01).
 
 ---
 
@@ -34,7 +44,7 @@ Le corps du document ci-dessous est conservé comme **référence historique** (
 1. **Erreur 500 sur `/control`** - Page inaccessible
 2. **Erreur 500 sur toutes les API** - `/api/outputs/*` non fonctionnelles
 3. **Manque de gestion d'erreurs** - Pas de logs détaillés
-4. **Sécurité** - Pas d'authentification visible
+4. **Sécurité** - Pas d'authentification visible — *obsolète depuis 2026 ; voir AUTHENTICATION.md*
 5. **Documentation** - Manque de documentation technique
 
 ---

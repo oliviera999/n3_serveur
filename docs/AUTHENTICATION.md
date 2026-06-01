@@ -8,14 +8,15 @@ Le système d'authentification protège les pages suivantes :
 - Pages de contrôle : `/aquaponie-control`, `/aquaponie-control-test`, `/aquamobile-control`, `/aquamobile-control-test`
 - Pages d'administration : `/admin/*`
 - Dashboards : `/dashboard*`, `/supervision`, `/tide-stats*`
-- APIs sensibles : `/api/outputs/*`
+- APIs sensibles (écriture) : `POST /api/outputs/toggle`, `POST /api/outputs/parameters`, `POST /api/outputs/trigger-ota-check`, et équivalents `*-test`, `outputs3*`, etc.
 - Export de données : `/export-data*`
 
-**Pages publiques** (non protégées) :
+**Pages et API publiques** (non protégées) :
 - `/` (page d'accueil)
-- Toutes les pages aquaponie : `/aquaponie`, `/aquaponie-test`, `/aquamobile`, `/aquamobile-test`
+- Toutes les pages aquaponie (données) : `/aquaponie`, `/aquaponie-test`, `/aquamobile`, `/aquamobile-test`
 - `/login`, `/logout` (routes d'authentification)
-- `/post-data*`, `/heartbeat*` (endpoints ESP32 - utilisent déjà HMAC/API_KEY)
+- `/post-data*`, `/heartbeat*` (endpoints ESP32 — HMAC/API_KEY)
+- **`GET /api/outputs/state`** (et variantes test : `/api/outputs-test/state`, `/api/outputs3/state`, …) : lecture d'état pour le firmware et le polling de la page de contrôle ; **pas d'authentification** (voir `config/routes_config.php` → `public_paths`)
 
 ## Méthodes d'authentification
 
