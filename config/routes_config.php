@@ -105,6 +105,7 @@ return [
         '/n3ppdatas/',
         '/msp1datas/',
         '/ffp3control/',  // Legacy : getOutputsState
+        '/pgl/',
     ],
 
     // Préfixes de chemins protégés (authentification requise)

@@ -9,6 +9,18 @@
         <p>Statistiques d'absorption des bouteilles plastique recyclées</p>
     </header>
 
+    {% if show_online_status|default(false) %}
+    <div class="project-live-status pgl-live-status" id="pgl-live-status" aria-live="polite" data-aos="fade-up">
+        <span class="project-live-badge {% if system_health.online %}online{% else %}offline{% endif %}" id="pgl-live-badge">
+            <i class="fas fa-circle"></i>
+            {{ system_health.online ? 'LIVE' : 'HORS LIGNE' }}
+        </span>
+        <span class="project-live-datetime" id="pgl-live-datetime">
+            {% if system_health.last_reading %}{{ system_health.last_reading }}{% else %}—{% endif %}
+        </span>
+    </div>
+    {% endif %}
+
     <div class="context-badges">
         <span class="context-badge"><i class="fas fa-recycle"></i> Total: <strong>{{ total_count }}</strong></span>
         <span class="context-badge"><i class="fas fa-globe"></i> Env: <strong>{{ environment }}</strong></span>
@@ -56,4 +68,60 @@
         </div>
     </section>
 </article>
+{% endblock %}
+
+{% block scripts %}
+{% if show_online_status|default(false) %}
+<script>
+(function() {
+    var BASE = '{{ base_path|default('') }}';
+    var POLL_MS = 15000;
+
+    function formatDatetime(str) {
+        if (!str) return '—';
+        var d = new Date(str.replace(' ', 'T'));
+        if (isNaN(d.getTime())) return str;
+        var pad = function(n) { return (n < 10 ? '0' : '') + n; };
+        return pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    }
+
+    function updateHealth(health) {
+        var badge = document.getElementById('pgl-live-badge');
+        var datetimeEl = document.getElementById('pgl-live-datetime');
+        if (!badge || !datetimeEl) return;
+
+        if (health === null) {
+            badge.className = 'project-live-badge error';
+            badge.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erreur';
+            datetimeEl.textContent = '—';
+            return;
+        }
+
+        var online = health.online === true;
+        badge.className = 'project-live-badge ' + (online ? 'online' : 'offline');
+        badge.innerHTML = '<i class="fas fa-circle"></i> ' + (online ? 'LIVE' : 'HORS LIGNE');
+        datetimeEl.textContent = formatDatetime(health.last_reading || null) || '—';
+    }
+
+    function poll() {
+        fetch(BASE + '/pgl/api/system/health')
+            .then(function(r) { return r.ok ? r.json() : null; })
+            .then(updateHealth)
+            .catch(function() { updateHealth(null); });
+    }
+
+    poll();
+    var timer = setInterval(poll, POLL_MS);
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            clearInterval(timer);
+            timer = null;
+        } else {
+            poll();
+            if (timer === null) timer = setInterval(poll, POLL_MS);
+        }
+    });
+})();
+</script>
+{% endif %}
 {% endblock %}

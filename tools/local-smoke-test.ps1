@@ -300,6 +300,7 @@ Assert-Status -Url "$BaseUrl/msp1/api/outputs/state" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/n3pp/api/outputs/state" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/gallery/ffp3/api/outputs/state" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/pgl" -AllowedStatus @(200)
+Assert-Status -Url "$BaseUrl/pgl/api/system/health" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/msp1gallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=6" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/n3ppgallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=7" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/ffp3/ffp3gallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=5" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
@@ -374,6 +375,18 @@ Assert-Status -Url "$BaseUrl/pgl/post-data" -Method "POST" -Body $pglPostData -A
 $pglBadAuth = $pglPostData.Clone()
 $pglBadAuth.api_key = "wrong-key"
 Assert-Status -Url "$BaseUrl/pgl/post-data" -Method "POST" -Body $pglBadAuth -AllowedStatus @(401)
+
+$pglHeartbeat = @{
+    api_key = $ApiKey
+    sensor = "poissonglouton"
+    version = "0.1.2-smoke"
+    uptime = "1200"
+    free = "100000"
+    min = "90000"
+    reboots = "1"
+    rssi = "-60"
+}
+Assert-Status -Url "$BaseUrl/pgl/heartbeat" -Method "POST" -Body $pglHeartbeat -AllowedStatus @(200)
 
 # --- POST données msp (Phase 4 audit 2026-05) ---
 $mspPostData = @{

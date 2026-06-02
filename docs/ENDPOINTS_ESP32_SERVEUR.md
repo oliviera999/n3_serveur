@@ -65,7 +65,9 @@ Codes de reponse upload galerie :
 Firmware `firmwires/poissonglouton/` (mode ecran tactile ou headless).
 
 - `POST /pgl/post-data` — **auth device**: `api_key` dans le body, validee cote serveur (`PGL_API_KEY`, fallback `API_KEY`).
-- `GET /pgl` — page statistiques publique (compteurs horaires / journaliers).
+- `POST /pgl/heartbeat` — **auth device**: meme `api_key` ; champs `uptime`, `free`, `min`, `reboots` (obligatoires), `sensor`, `version`, `rssi` (optionnels). Table `pglHeartbeat`.
+- `GET /pgl` — page statistiques publique (compteurs horaires / journaliers + bandeau LIVE si active).
+- `GET /pgl/api/system/health` — JSON `{ online, last_reading, last_reading_ago_seconds, source }` ; seuil 5 min (`PglConfig::ONLINE_THRESHOLD_SECONDS`).
 
 Payload `POST /pgl/post-data` (form-urlencoded):
 

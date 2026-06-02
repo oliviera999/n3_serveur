@@ -25,6 +25,19 @@ CREATE TABLE IF NOT EXISTS pglEvents (
     INDEX idx_pgl_board (board)
 );
 
+CREATE TABLE IF NOT EXISTS pglHeartbeat (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    uptime BIGINT NOT NULL,
+    freeHeap INT NOT NULL,
+    minHeap INT NOT NULL,
+    reboots INT NOT NULL,
+    rssi INT NULL,
+    sensor VARCHAR(30) NULL,
+    version VARCHAR(30) NULL,
+    reading_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_pgl_heartbeat_time (reading_time)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- Token placeholder : remplacer en production apres migration.
 -- UPDATE pglBoards SET secret_url_token = '<token_fort_64_chars>' WHERE board_id = 'poissonglouton';
 INSERT IGNORE INTO pglBoards (board_id, label, location, secret_url_token)

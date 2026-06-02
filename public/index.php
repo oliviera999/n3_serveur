@@ -28,7 +28,9 @@ use App\Controller\N3pp\N3ppDescriptionController;
 use App\Controller\N3pp\N3ppOutputController;
 use App\Controller\N3pp\N3ppPostDataController;
 use App\Controller\N3pp\N3ppRealtimeApiController;
+use App\Controller\Pgl\PglHeartbeatController;
 use App\Controller\Pgl\PglPostDataController;
+use App\Controller\Pgl\PglRealtimeApiController;
 use App\Controller\Pgl\PglStatsController;
 use App\Controller\SupervisionController;
 use App\Middleware\AuthGuardMiddleware;
@@ -313,7 +315,9 @@ $app->map(['GET', 'POST'], '/ping', function (Request $request, Response $respon
 
 // Poissonglouton (compteur recyclage plastique)
 $app->get('/pgl', [PglStatsController::class, 'show']);
+$app->get('/pgl/api/system/health', [PglRealtimeApiController::class, 'getSystemHealth']);
 $app->post('/pgl/post-data', [PglPostDataController::class, 'handle']);
+$app->post('/pgl/heartbeat', [PglHeartbeatController::class, 'handle']);
 
 // ====================================================================
 // Routes FFP3 (aquaponie) — config/routes_ffp3.php

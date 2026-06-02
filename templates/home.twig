@@ -144,6 +144,27 @@
             </a>
         </div>
 
+        <!-- Poissonglouton - Recyclage -->
+        <div class="project-card" data-module="pgl-prod" data-aos="fade-up" data-aos-delay="250">
+            <i class="fas fa-recycle project-icon"></i>
+            <h3 class="project-title">Poissonglouton</h3>
+            <div class="project-live-status" aria-live="polite">
+                <span class="project-live-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span>
+                <span class="project-live-datetime">—</span>
+            </div>
+            <p class="project-description">
+                Poubelle ludique de recyclage des bouteilles plastique : compteur connecté,
+                feedback audio et statistiques d'absorption.
+            </p>
+            <div class="project-badges">
+                <span class="project-badge"><i class="fas fa-wine-bottle"></i> compteur</span>
+                <span class="project-badge"><i class="fas fa-broadcast-tower"></i> IR / ultrason</span>
+            </div>
+            <a href="{{ base_path|default('') }}/pgl" class="project-link">
+                <i class="fas fa-chart-line"></i> Voir les statistiques
+            </a>
+        </div>
+
         <!-- Images et vidéos -->
         <div class="project-card" data-aos="fade-up" data-aos-delay="300">
             <i class="fas fa-images project-icon"></i>
@@ -227,7 +248,8 @@
     var LIVE_MODULES = [
         { id: 'ffp3-wroom-prod', url: BASE + '/api/realtime/system/health' },
         { id: 'msp1-prod', url: BASE + '/msp1/api/realtime/system/health' },
-        { id: 'n3pp-prod', url: BASE + '/n3pp/api/realtime/system/health' }
+        { id: 'n3pp-prod', url: BASE + '/n3pp/api/realtime/system/health' },
+        { id: 'pgl-prod', url: BASE + '/pgl/api/system/health' }
     ];
     var POLL_INTERVAL_MS = 15000;
 

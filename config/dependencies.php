@@ -484,6 +484,19 @@ return [
         );
     },
 
+    \App\Controller\Pgl\PglHeartbeatController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Pgl\PglHeartbeatController(
+            $c->get(LogService::class),
+            $c->get(PglRepository::class)
+        );
+    },
+
+    \App\Controller\Pgl\PglRealtimeApiController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Pgl\PglRealtimeApiController(
+            $c->get(PglRepository::class)
+        );
+    },
+
     \App\Service\GalleryTrashService::class => function (ContainerInterface $c) {
         return new \App\Service\GalleryTrashService(
             $c->get(LogService::class)

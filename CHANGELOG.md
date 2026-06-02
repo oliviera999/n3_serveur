@@ -11,6 +11,16 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.11] - 2026-06-02
+
+### Ajout — Poissonglouton statut en ligne
+
+- **`POST /pgl/heartbeat`** : ingestion heartbeat (table `pglHeartbeat`), auth `PGL_API_KEY`.
+- **`GET /pgl/api/system/health`** : JSON online/offline (seuil 5 min, heartbeat + dernier événement).
+- Page **`/pgl`** : bandeau LIVE/HORS LIGNE + poll 15 s ; carte accueil + module live.
+- **`PglConfig`** : flags `ONLINE_CHECK_ENABLED`, `SHOW_ONLINE_STATUS_ON_PAGE`, `ONLINE_THRESHOLD_SECONDS`.
+- Migration SQL `2026_06_pgl_heartbeat.sql` ; tests `PglHeartbeatControllerTest`, `PglRepositoryHealthTest`.
+
 ## [5.1.10] - 2026-06-02
 
 ### Modifié — Poissonglouton (stats publiques)

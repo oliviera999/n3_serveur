@@ -25,5 +25,18 @@ CREATE TABLE IF NOT EXISTS pglEvents (
     INDEX idx_pgl_board (board)
 );
 
+CREATE TABLE IF NOT EXISTS pglHeartbeat (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    uptime BIGINT NOT NULL,
+    freeHeap INT NOT NULL,
+    minHeap INT NOT NULL,
+    reboots INT NOT NULL,
+    rssi INT NULL,
+    sensor VARCHAR(30) NULL,
+    version VARCHAR(30) NULL,
+    reading_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_pgl_heartbeat_time (reading_time)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 INSERT IGNORE INTO pglBoards (board_id, label, location, secret_url_token)
 VALUES ('poissonglouton', 'Poissonglouton principal', 'Salle aeree n3', 'a1b2c3d4e5f6a7b8');

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Config\PglConfig;
 use PDO;
 
 class PglRepository extends AbstractRepository
@@ -69,5 +70,108 @@ class PglRepository extends AbstractRepository
     {
         $value = $this->fetchScalar('SELECT COALESCE(SUM(count_delta), 0) FROM pglEvents');
         return (int) ($value ?? 0);
+    }
+
+    public function insertHeartbeat(
+        int $uptime,
+        int $freeHeap,
+        int $minHeap,
+        int $reboots,
+        ?int $rssi,
+        ?string $sensor,
+        ?string $version
+    ): void {
+        $sql = 'INSERT INTO pglHeartbeat (uptime, freeHeap, minHeap, reboots, rssi, sensor, version)
+                VALUES (:uptime, :free, :min, :reboots, :rssi, :sensor, :version)';
+
+        $this->execute($sql, [
+            ':uptime' => $uptime,
+            ':free' => $freeHeap,
+            ':min' => $minHeap,
+            ':reboots' => $reboots,
+            ':rssi' => $rssi,
+            ':sensor' => $sensor,
+            ':version' => $version,
+        ]);
+    }
+
+    public function getLastHeartbeatDate(): ?string
+    {
+        $value = $this->fetchScalar('SELECT MAX(reading_time) FROM pglHeartbeat');
+        return $value !== null ? (string) $value : null;
+    }
+
+    public function getLastEventDate(string $boardId = PglConfig::DEFAULT_BOARD_ID): ?string
+    {
+        $value = $this->fetchScalar(
+            'SELECT MAX(event_time) FROM pglEvents WHERE board = :board',
+            [':board' => $boardId]
+        );
+        return $value !== null ? (string) $value : null;
+    }
+
+    /**
+     * @return array{online: bool|null, last_reading: string|null, last_reading_ago_seconds: int|null, source: string|null}
+     */
+    public function getSystemHealth(int $thresholdSeconds): array
+    {
+        if (!PglConfig::ONLINE_CHECK_ENABLED) {
+            return [
+                'online' => null,
+                'last_reading' => null,
+                'last_reading_ago_seconds' => null,
+                'source' => null,
+            ];
+        }
+
+        $lastHb = $this->getLastHeartbeatDate();
+        $lastEv = $this->getLastEventDate(PglConfig::DEFAULT_BOARD_ID);
+
+        $lastReading = null;
+        $source = null;
+
+        if ($lastHb !== null && $lastEv !== null) {
+            if (strtotime($lastHb) >= strtotime($lastEv)) {
+                $lastReading = $lastHb;
+                $source = 'heartbeat';
+            } else {
+                $lastReading = $lastEv;
+                $source = 'event';
+            }
+        } elseif ($lastHb !== null) {
+            $lastReading = $lastHb;
+            $source = 'heartbeat';
+        } elseif ($lastEv !== null) {
+            $lastReading = $lastEv;
+            $source = 'event';
+        }
+
+        if ($lastReading === null) {
+            return [
+                'online' => false,
+                'last_reading' => null,
+                'last_reading_ago_seconds' => null,
+                'source' => null,
+            ];
+        }
+
+        $lastTs = strtotime($lastReading);
+        if ($lastTs === false) {
+            return [
+                'online' => false,
+                'last_reading' => $lastReading,
+                'last_reading_ago_seconds' => null,
+                'source' => $source,
+            ];
+        }
+
+        $secondsAgo = time() - $lastTs;
+
+        return [
+            'online' => $secondsAgo < $thresholdSeconds,
+            'last_reading' => $lastReading,
+            'last_reading_ago_seconds' => $secondsAgo,
+            'source' => $source,
+        ];
     }
 }
