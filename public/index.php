@@ -312,8 +312,8 @@ $app->map(['GET', 'POST'], '/ping', function (Request $request, Response $respon
 });
 
 // Poissonglouton (compteur recyclage plastique)
+$app->get('/pgl', [PglStatsController::class, 'show']);
 $app->post('/pgl/post-data', [PglPostDataController::class, 'handle']);
-$app->get('/pgl/{secret}', [PglStatsController::class, 'showBySecret']);
 
 // ====================================================================
 // Routes FFP3 (aquaponie) — config/routes_ffp3.php

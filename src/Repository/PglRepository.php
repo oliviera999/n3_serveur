@@ -35,13 +35,6 @@ class PglRepository extends AbstractRepository
         ]);
     }
 
-    public function isValidSecretToken(string $token): bool
-    {
-        $sql = 'SELECT 1 FROM pglBoards WHERE secret_url_token = :token LIMIT 1';
-        $row = $this->fetchOne($sql, [':token' => $token]);
-        return $row !== null;
-    }
-
     /** @return array<int, array<string, mixed>> */
     public function getHourlyStats(int $hours = 48): array
     {

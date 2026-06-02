@@ -65,7 +65,7 @@ Codes de reponse upload galerie :
 Firmware `firmwires/poissonglouton/` (mode ecran tactile ou headless).
 
 - `POST /pgl/post-data` — **auth device**: `api_key` dans le body, validee cote serveur (`PGL_API_KEY`, fallback `API_KEY`).
-- `GET /pgl/{secret}` — page statistiques **cachee** (non menu, non indexee) pour administrateur connaissant l'URL secrete.
+- `GET /pgl` — page statistiques publique (compteurs horaires / journaliers).
 
 Payload `POST /pgl/post-data` (form-urlencoded):
 

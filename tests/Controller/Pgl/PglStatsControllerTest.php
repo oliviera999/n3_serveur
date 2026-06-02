@@ -13,37 +13,30 @@ use Slim\Psr7\Factory\ServerRequestFactory;
 
 final class PglStatsControllerTest extends TestCase
 {
-    public function testReturns404WhenTokenIsInvalid(): void
+    public function testShowReturns200WithRenderedStats(): void
     {
         $repo = $this->createMock(PglRepository::class);
-        $repo->method('isValidSecretToken')->willReturn(false);
-
-        $renderer = $this->createMock(TemplateRenderer::class);
-        $controller = new PglStatsController($renderer, $repo);
-
-        $request = (new ServerRequestFactory())->createServerRequest('GET', '/pgl/invalid');
-        $response = (new ResponseFactory())->createResponse();
-
-        $result = $controller->showBySecret($request, $response, ['secret' => 'invalid-token']);
-        $this->assertSame(404, $result->getStatusCode());
-    }
-
-    public function testReturns200WhenTokenIsValid(): void
-    {
-        $repo = $this->createMock(PglRepository::class);
-        $repo->method('isValidSecretToken')->willReturn(true);
         $repo->method('getHourlyStats')->willReturn([]);
         $repo->method('getDailyStats')->willReturn([]);
         $repo->method('getTotalCount')->willReturn(12);
 
         $renderer = $this->createMock(TemplateRenderer::class);
-        $renderer->method('render')->willReturn('<html>ok</html>');
+        $renderer->expects($this->once())
+            ->method('render')
+            ->with(
+                'pgl_stats.twig',
+                $this->callback(static function (array $vars): bool {
+                    return ($vars['nav_active'] ?? '') === 'pgl'
+                        && ($vars['total_count'] ?? null) === 12;
+                })
+            )
+            ->willReturn('<html>ok</html>');
 
         $controller = new PglStatsController($renderer, $repo);
-        $request = (new ServerRequestFactory())->createServerRequest('GET', '/pgl/a1b2c3d4e5f6a7b8');
+        $request = (new ServerRequestFactory())->createServerRequest('GET', '/pgl');
         $response = (new ResponseFactory())->createResponse();
 
-        $result = $controller->showBySecret($request, $response, ['secret' => 'a1b2c3d4e5f6a7b8']);
+        $result = $controller->show($request, $response);
         $this->assertSame(200, $result->getStatusCode());
         $this->assertStringContainsString('ok', (string) $result->getBody());
     }

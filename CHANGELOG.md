@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.10] - 2026-06-02
+
+### Modifié — Poissonglouton (stats publiques)
+
+- **`GET /pgl`** : page statistiques accessible sans jeton (remplace `GET /pgl/{secret}`).
+- Navigation : entrée « Poissonglouton » dans le menu principal.
+- Smoke test local : assertion sur `/pgl` (200).
+
 ## [5.1.9] - 2026-06-01
 
 ### Modifié — Docker local (auth session smoke)

@@ -14,7 +14,7 @@ Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collect
 Le serveur expose un nouveau flux firmware pour le compteur de bouteilles :
 
 - `POST /pgl/post-data` : ingestion batch des événements (firmware `firmwires/poissonglouton/`).
-- `GET /pgl/{secret}` : page statistiques cachée (non listée dans la navigation).
+- `GET /pgl` : page statistiques publique (menu « Poissonglouton »).
 
 Voir le contrat complet dans `docs/ENDPOINTS_ESP32_SERVEUR.md`.
 
