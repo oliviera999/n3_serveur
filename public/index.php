@@ -35,6 +35,7 @@ use App\Controller\Pgl\PglStatsController;
 use App\Controller\SupervisionController;
 use App\Middleware\AuthGuardMiddleware;
 use App\Middleware\EnvironmentMiddleware;
+use App\Middleware\RawPostBodyMiddleware;
 use App\Middleware\RequestEnvironmentMiddleware;
 use App\Middleware\SecurityHeadersMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -484,5 +485,8 @@ $errorMiddleware->setErrorHandler(
         return $response->withStatus(404)->withHeader('Content-Type', 'text/plain; charset=utf-8');
     }
 );
+
+// Dernier add = exécution en premier : capture php://input avant consommation mod_php (HMAC X-Sig)
+$app->add(new RawPostBodyMiddleware());
 
 $app->run();

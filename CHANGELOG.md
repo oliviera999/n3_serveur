@@ -11,6 +11,21 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.13] - 2026-06-03
+
+### Correctif — clés POST numériques (108, 109) dans reconstruction HMAC
+
+- **`Ffp3HmacPostBody`** : `parse_str` / `parsedBody` peuvent fournir des clés entières (`108`, `109`) — cast en string avant tri et `formatPair` (évite TypeError et 401 HMAC sur nourrissage).
+- **Tests** : extras triés, override `etatPompeTank` sans doublon ; aligné firmware FFP5CS v13.90 (`ffp3_post_body`).
+
+## [5.1.12] - 2026-06-03
+
+### Correctif — POST FFP3 401 avec en-têtes X-Sig (HMAC corps vide)
+
+- **Cause** : sous `application/x-www-form-urlencoded`, `php://input` est souvent vide côté mod_php alors que le firmware signe le corps complet → `Signature incorrecte` malgré NTP et secret OK.
+- **Correctif** : capture du corps via `RawPostBodyMiddleware` + reconstitution canonique `Ffp3HmacPostBody` (ordre aligné FFP5CS) dans `PostDataController`.
+- **Tests** : `Ffp3HmacPostBodyTest`, `PostDataHmacAuthTest` (parsedBody + stream vide).
+
 ## [5.1.11] - 2026-06-02
 
 ### Ajout — Poissonglouton statut en ligne

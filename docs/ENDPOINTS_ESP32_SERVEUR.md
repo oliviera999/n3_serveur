@@ -180,6 +180,7 @@ Le serveur doit répondre au POST dans le délai client (18 s) pour éviter time
 
 - FFP5CS v13.80+ peut envoyer les en-têtes **X-Sig-Timestamp**, **X-Sig-Nonce** et **X-Sig-Hmac**.
 - Format du message HMAC signé par ces en-têtes : `HMAC-SHA256("<timestamp>\n<nonce>\n<body_brut>", API_SIG_SECRET)`.
+- **Corps signé** : chaîne `application/x-www-form-urlencoded` exacte envoyée par l’ESP32 (ex. `api_key=…&sensor=…&version=…&TempAir=…`). Sous mod_php, `php://input` est souvent vide après parsing : le serveur lit d’abord le corps via `RawPostBodyMiddleware`, sinon le **reconstruit** dans l’ordre firmware (`App\Security\Ffp3HmacPostBody`, aligné `automatism_sync.cpp` / `web_client.cpp`).
 - Si ces en-têtes sont valides, la requête est authentifiée sans exiger `api_key` (mode dual de migration).
 - Si le client envoie **timestamp** et **signature** : le serveur valide la signature HMAC.
 - Si ces champs sont absents : fallback automatique sur la validation `api_key` (la clé API doit alors être valide).
@@ -204,6 +205,7 @@ Le serveur doit répondre au POST dans le délai client (18 s) pour éviter time
   - `isValid($timestamp, $signature, $secret, $window)` — sans nonce
   - `isValidWithNonce($timestamp, $nonce, $signature, $secret, $window)` — avec nonce
 - Controllers : `src/Controller/Ffp3/PostDataController.php` (FFP3), `src/Controller/Concerns/HmacAuthTrait.php` (MSP / N3PP).
+- Reconstruction corps HMAC : `src/Security/Ffp3HmacPostBody.php` ; capture précoce : `src/Middleware/RawPostBodyMiddleware.php`.
 
 - Champ optionnel **device_time** : non utilisé aujourd'hui ; peut être ajouté à l'avenir (epoch ou ISO) pour corrélation logs ESP32 / serveur et diagnostic. Non obligatoire pour le contrat actuel.
 

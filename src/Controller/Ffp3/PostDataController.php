@@ -12,6 +12,8 @@ use App\Repository\OutputRepository;
 use App\Repository\SensorRepository;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
+use App\Middleware\RawPostBodyMiddleware;
+use App\Security\Ffp3HmacPostBody;
 use App\Security\SignatureValidator;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -26,7 +28,7 @@ class PostDataController extends AbstractPostDataController
     /** POST minimal ack_command (firmware) — pas d'INSERT ligne capteur. */
     private bool $ackOnlyPost = false;
 
-    /** @var array{timestamp: string, nonce: string, signature: string, body: string}|null */
+    /** @var array{timestamp: string, nonce: string, signature: string, body: string, body_source?: string}|null */
     private ?array $hmacHeaderAuth = null;
 
     public function __construct(
@@ -165,11 +167,28 @@ class PostDataController extends AbstractPostDataController
             return $params;
         }
 
+        $rawBody = $request->getAttribute(RawPostBodyMiddleware::ATTRIBUTE);
+        if (!is_string($rawBody)) {
+            $rawBody = (string) $request->getBody();
+        }
+        $bodySource = 'raw';
+        if ($rawBody === '') {
+            $rawBody = Ffp3HmacPostBody::buildFromParams($params);
+            $bodySource = 'canonical';
+            if ($rawBody !== '') {
+                $this->logger->info('PostData: corps HMAC reconstitue (php://input vide)', [
+                    'body_source' => $bodySource,
+                    'body_len' => strlen($rawBody),
+                ]);
+            }
+        }
+
         $this->hmacHeaderAuth = [
             'timestamp' => $timestamp,
             'nonce' => $nonce,
             'signature' => $signature,
-            'body' => (string) $request->getBody(),
+            'body' => $rawBody,
+            'body_source' => $bodySource,
         ];
 
         return $params;
@@ -224,6 +243,8 @@ class PostDataController extends AbstractPostDataController
                 'ts_received' => $headerAuth['timestamp'],
                 'nonce_len' => strlen($headerAuth['nonce']),
                 'window_s' => $sigWindow,
+                'body_source' => $headerAuth['body_source'] ?? 'unknown',
+                'body_len' => strlen($headerAuth['body']),
             ]);
             return ResponseHelper::text($response, 'Signature incorrecte', 401);
         }

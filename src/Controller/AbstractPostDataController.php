@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Middleware\RawPostBodyMiddleware;
 use App\Service\LogService;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
@@ -96,7 +97,13 @@ abstract class AbstractPostDataController
             return ResponseHelper::text($response, 'POST requis', 405);
         }
 
-        $params = RequestHelper::extractParams($request);
+        $rawBody = $request->getAttribute(RawPostBodyMiddleware::ATTRIBUTE);
+        if (!is_string($rawBody)) {
+            $rawBody = (string) $request->getBody();
+        }
+        $request = $request->withAttribute(RawPostBodyMiddleware::ATTRIBUTE, $rawBody);
+
+        $params = RequestHelper::extractParams($request, $rawBody);
         if ($params === []) {
             $this->logger->warning("{$component}: rejet corps vide code=400", [
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',

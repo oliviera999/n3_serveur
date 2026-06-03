@@ -22,9 +22,10 @@ class RequestHelper
      * 3. Query params
      *
      * @param Request $request Objet Request PSR-7
-     * @return array Paramètres extraits
+     * @param string|null $rawBody Corps déjà lu (évite double lecture du stream pour JSON/HMAC)
+     * @return array<string, mixed> Paramètres extraits
      */
-    public static function extractParams(Request $request): array
+    public static function extractParams(Request $request, ?string $rawBody = null): array
     {
         $params = [];
 
@@ -33,7 +34,9 @@ class RequestHelper
 
             // Priorité 1 : JSON body
             if (str_contains($contentType, 'application/json')) {
-                $rawBody = (string)$request->getBody();
+                if ($rawBody === null) {
+                    $rawBody = (string) $request->getBody();
+                }
                 $decoded = json_decode($rawBody, true);
                 if (is_array($decoded)) {
                     $params = $decoded;
