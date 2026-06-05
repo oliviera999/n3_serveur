@@ -173,13 +173,33 @@
                                     <div class="balance-stat">
                                         <span class="balance-stat-label">
                                             <i class="fas fa-arrows-alt-v"></i>
+                                            Tendance actuelle
+                                        </span>
+                                        <span class="balance-stat-value neutral">
+                                            {% if tide_trend == 'rising' %}
+                                                <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                                            {% elseif tide_trend == 'falling' %}
+                                                <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                                            {% elseif tide_trend == 'stable' %}
+                                                <i class="fas fa-arrows-alt-h" aria-hidden="true"></i>
+                                            {% endif %}
+                                            {{ tide_trend_label|default('n/a') }}
+                                        </span>
+                                    </div>
+                                    <div class="balance-stat">
+                                        <span class="balance-stat-label">
+                                            <i class="fas fa-arrows-alt-v"></i>
                                             Marnage moyen
                                         </span>
                                         <span class="balance-stat-value neutral">
-                                            {{ tide_marnage|default(0)|number_format(2, ',', ' ') }}
-                                            <span class="balance-stat-unit">cm</span>
-                                            {% if tide_marnage_stddev is not null %}
-                                                <span class="balance-stat-stddev">± {{ tide_marnage_stddev|number_format(2, ',', ' ') }}</span>
+                                            {% if tide_marnage is not null %}
+                                                {{ tide_marnage|number_format(2, ',', ' ') }}
+                                                <span class="balance-stat-unit">cm</span>
+                                                {% if tide_marnage_stddev is not null %}
+                                                    <span class="balance-stat-stddev">± {{ tide_marnage_stddev|number_format(2, ',', ' ') }}</span>
+                                                {% endif %}
+                                            {% else %}
+                                                n/a
                                             {% endif %}
                                         </span>
                                     </div>
@@ -189,10 +209,14 @@
                                             Fréquence des marées
                                         </span>
                                         <span class="balance-stat-value neutral">
-                                            {{ tide_frequency|default(0)|number_format(2, ',', ' ') }}
-                                            <span class="balance-stat-unit">/heure</span>
-                                            {% if tide_frequency_stddev is not null %}
-                                                <span class="balance-stat-stddev">± {{ tide_frequency_stddev|number_format(2, ',', ' ') }}</span>
+                                            {% if tide_frequency is not null %}
+                                                {{ tide_frequency|number_format(2, ',', ' ') }}
+                                                <span class="balance-stat-unit">/heure</span>
+                                                {% if tide_frequency_stddev is not null %}
+                                                    <span class="balance-stat-stddev">± {{ tide_frequency_stddev|number_format(2, ',', ' ') }}</span>
+                                                {% endif %}
+                                            {% else %}
+                                                n/a
                                             {% endif %}
                                         </span>
                                     </div>
@@ -202,9 +226,13 @@
                                             Nombre de cycles
                                         </span>
                                         <span class="balance-stat-value neutral">
-                                            {{ tide_cycles|default(0) }}
+                                            {% if tide_cycles > 0 %}{{ tide_cycles }}{% else %}n/a{% endif %}
                                         </span>
                                     </div>
+                                    <p class="balance-note" style="font-size:0.85em;opacity:0.85;margin-top:0.5em;">
+                                        Distance capteur → surface : si elle augmente, l'eau descend ; si elle diminue, l'eau monte.
+                                        Seuil : {{ tide_threshold_cm|default(2) }} cm.
+                                    </p>
                                     <div class="balance-stat">
                                         <span class="balance-stat-label">
                                             <i class="fas fa-chart-line"></i>
@@ -928,6 +956,162 @@
                             
                             var aqEau = n3AquaponieCharts.baseOptions('eau');
                             var aqTemp = n3AquaponieCharts.baseOptions('temp');
+                            var tideMarkerSeries = (window.n3TideMarkers && window.n3TideMarkers.buildSeries)
+                                ? window.n3TideMarkers.buildSeries(tidePeaks, tideTroughs)
+                                : [];
+                            var eauSeries = [
+                                    { 
+                                        name: 'Eau réserve', 
+                                        type: 'areaspline',
+                                        data: EauReserve, 
+                                        color: '#008B74',
+                                        fillColor: {
+                                            linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                                            stops: [[0, 'rgba(0,126,97,0.3)'], [1, 'rgba(0,126,97,0.05)']]
+                                        },
+                                        dashStyle: 'ShortDot',
+                                        lineWidth: 2,
+                                        visible: false,
+                                        tooltip: { valueSuffix: ' cm' } 
+                                    },
+                                    { 
+                                        name: 'Eau potager', 
+                                        type: 'areaspline',
+                                        data: EauPotager, 
+                                        color: '#27BDA0',
+                                        fillColor: {
+                                            linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                                            stops: [[0, 'rgba(39,189,160,0.3)'], [1, 'rgba(39,189,160,0.05)']]
+                                        },
+                                        lineWidth: 1.5,
+                                        tooltip: { valueSuffix: ' cm' } 
+                                    },
+                                    { 
+                                        name: 'Eau aquarium', 
+                                        type: 'areaspline',
+                                        data: EauAquarium, 
+                                        color: '#FF6300',
+                                        fillColor: {
+                                            linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                                            stops: [[0, 'rgba(255,99,0,0.3)'], [1, 'rgba(255,99,0,0.05)']]
+                                        },
+                                        lineWidth: 2,
+                                        tooltip: { valueSuffix: ' cm' } 
+                                    }
+                                ];
+                            if (tideMarkerSeries.length > 0) {
+                                Array.prototype.push.apply(eauSeries, tideMarkerSeries);
+                            }
+                            Array.prototype.push.apply(eauSeries, [
+                                    { 
+                                        name: 'Pompe aquarium ON', 
+                                        type: 'scatter', 
+                                        data: etatPompeAqua.filter(p => p[1] > 0), 
+                                        color: 'rgba(39,189,160,0.6)',
+                                        marker: { symbol: 'circle', radius: 3 },
+                                        showInNavigator: false,
+                                        tooltip: { pointFormat: 'Pompe aquarium: <b>ON</b>' }
+                                    },
+                                    { 
+                                        name: 'Pompe réserve ON', 
+                                        type: 'scatter', 
+                                        data: etatPompeTank.filter(p => p[1] > 0), 
+                                        color: 'rgba(255,159,100,0.6)',
+                                        marker: { symbol: 'square', radius: 3 },
+                                        showInNavigator: false,
+                                        tooltip: { pointFormat: 'Pompe réserve: <b>ON</b>' }
+                                    },
+                                    { 
+                                        name: 'Chauffage ON', 
+                                        type: 'scatter', 
+                                        data: etatHeat.filter(p => p[1] > 0), 
+                                        color: 'rgba(0,142,114,0.6)',
+                                        marker: { symbol: 'triangle', radius: 4 },
+                                        showInNavigator: false,
+                                        tooltip: { pointFormat: 'Chauffage: <b>ON</b>' }
+                                    },
+                                    { 
+                                        name: 'Tendance aquarium', 
+                                        type: 'line', 
+                                        data: EauAquariumTrendLine ? EauAquariumTrendLine.data : [],
+                                        color: '#FF6300',
+                                        lineWidth: 2,
+                                        dashStyle: 'Dash',
+                                        visible: false,
+                                        showInLegend: true,
+                                        enableMouseTracking: false,
+                                        showInNavigator: false,
+                                        tooltip: { valueSuffix: ' cm' }
+                                    },
+                                    { 
+                                        name: 'Tendance réserve', 
+                                        type: 'line', 
+                                        data: EauReserveTrendLine ? EauReserveTrendLine.data : [],
+                                        color: '#008B74',
+                                        lineWidth: 2,
+                                        dashStyle: 'Dash',
+                                        visible: false,
+                                        showInLegend: true,
+                                        enableMouseTracking: false,
+                                        showInNavigator: false,
+                                        tooltip: { valueSuffix: ' cm' }
+                                    },
+                                    { 
+                                        name: 'Tendance potager', 
+                                        type: 'line', 
+                                        data: EauPotagerTrendLine ? EauPotagerTrendLine.data : [],
+                                        color: '#27BDA0',
+                                        lineWidth: 2,
+                                        dashStyle: 'Dash',
+                                        visible: false,
+                                        showInLegend: true,
+                                        enableMouseTracking: false,
+                                        showInNavigator: false,
+                                        tooltip: { valueSuffix: ' cm' }
+                                    },
+                                    { 
+                                        name: 'Tendance aquarium (moy. mobile)', 
+                                        type: 'line', 
+                                        data: EauAquariumMovingAvg || [],
+                                        color: '#FF6300',
+                                        lineWidth: 2,
+                                        dashStyle: 'Solid',
+                                        opacity: 0.7,
+                                        visible: false,
+                                        showInLegend: false,
+                                        enableMouseTracking: false,
+                                        showInNavigator: false,
+                                        tooltip: { valueSuffix: ' cm' }
+                                    },
+                                    { 
+                                        name: 'Tendance réserve (moy. mobile)', 
+                                        type: 'line', 
+                                        data: EauReserveMovingAvg || [],
+                                        color: '#008B74',
+                                        lineWidth: 2,
+                                        dashStyle: 'Solid',
+                                        opacity: 0.7,
+                                        visible: false,
+                                        showInLegend: false,
+                                        enableMouseTracking: false,
+                                        showInNavigator: false,
+                                        tooltip: { valueSuffix: ' cm' }
+                                    },
+                                    { 
+                                        name: 'Tendance potager (moy. mobile)', 
+                                        type: 'line', 
+                                        data: EauPotagerMovingAvg || [],
+                                        color: '#27BDA0',
+                                        lineWidth: 2,
+                                        dashStyle: 'Solid',
+                                        opacity: 0.7,
+                                        visible: false,
+                                        showInLegend: false,
+                                        enableMouseTracking: false,
+                                        showInNavigator: false,
+                                        tooltip: { valueSuffix: ' cm' }
+                                    }
+                                ]);
 
                             // 1. Stock Chart Niveaux d'eau avec aires
                             window.chartEau = Highcharts.stockChart('chart-stock-area-eau-D', {
@@ -1012,174 +1196,7 @@
                                     }
                                 },
                                 legend: aqEau.legend,
-                                series: [
-                                    { 
-                                        name: 'Eau réserve', 
-                                        type: 'areaspline',
-                                        data: EauReserve, 
-                                        color: '#008B74',
-                                        fillColor: {
-                                            linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
-                                            stops: [[0, 'rgba(0,126,97,0.3)'], [1, 'rgba(0,126,97,0.05)']]
-                                        },
-                                        dashStyle: 'ShortDot',
-                                        lineWidth: 2,
-                                        visible: false,
-                                        tooltip: { valueSuffix: ' cm' } 
-                                    },
-                                    { 
-                                        name: 'Eau potager', 
-                                        type: 'areaspline',
-                                        data: EauPotager, 
-                                        color: '#27BDA0',
-                                        fillColor: {
-                                            linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
-                                            stops: [[0, 'rgba(39,189,160,0.3)'], [1, 'rgba(39,189,160,0.05)']]
-                                        },
-                                        lineWidth: 1.5,
-                                        tooltip: { valueSuffix: ' cm' } 
-                                    },
-                                    { 
-                                        name: 'Eau aquarium', 
-                                        type: 'areaspline',
-                                        data: EauAquarium, 
-                                        color: '#FF6300',
-                                        fillColor: {
-                                            linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
-                                            stops: [[0, 'rgba(255,99,0,0.3)'], [1, 'rgba(255,99,0,0.05)']]
-                                        },
-                                        lineWidth: 2,
-                                        tooltip: { valueSuffix: ' cm' } 
-                                    },
-                                    {
-                                        name: 'Pics marée (distance)',
-                                        type: 'scatter',
-                                        data: window.n3TideMarkers ? window.n3TideMarkers.normalizePoints(tidePeaks) : tidePeaks,
-                                        color: '#8E24AA',
-                                        marker: { symbol: 'triangle', radius: 5 },
-                                        showInNavigator: false,
-                                        tooltip: { valueSuffix: ' cm' }
-                                    },
-                                    {
-                                        name: 'Creux marée (distance)',
-                                        type: 'scatter',
-                                        data: window.n3TideMarkers ? window.n3TideMarkers.normalizePoints(tideTroughs) : tideTroughs,
-                                        color: '#1565C0',
-                                        marker: { symbol: 'triangle-down', radius: 5 },
-                                        showInNavigator: false,
-                                        tooltip: { valueSuffix: ' cm' }
-                                    },
-                                    { 
-                                        name: 'Pompe aquarium ON', 
-                                        type: 'scatter', 
-                                        data: etatPompeAqua.filter(p => p[1] > 0), 
-                                        color: 'rgba(39,189,160,0.6)',
-                                        marker: { symbol: 'circle', radius: 3 },
-                                        showInNavigator: false,
-                                        tooltip: { pointFormat: 'Pompe aquarium: <b>ON</b>' }
-                                    },
-                                    { 
-                                        name: 'Pompe réserve ON', 
-                                        type: 'scatter', 
-                                        data: etatPompeTank.filter(p => p[1] > 0), 
-                                        color: 'rgba(255,159,100,0.6)',
-                                        marker: { symbol: 'square', radius: 3 },
-                                        showInNavigator: false,
-                                        tooltip: { pointFormat: 'Pompe réserve: <b>ON</b>' }
-                                    },
-                                    { 
-                                        name: 'Chauffage ON', 
-                                        type: 'scatter', 
-                                        data: etatHeat.filter(p => p[1] > 0), 
-                                        color: 'rgba(0,142,114,0.6)',
-                                        marker: { symbol: 'triangle', radius: 4 },
-                                        showInNavigator: false,
-                                        tooltip: { pointFormat: 'Chauffage: <b>ON</b>' }
-                                    },
-                                    // Lignes de tendance - régression linéaire
-                                    { 
-                                        name: 'Tendance aquarium', 
-                                        type: 'line', 
-                                        data: EauAquariumTrendLine ? EauAquariumTrendLine.data : [],
-                                        color: '#FF6300',
-                                        lineWidth: 2,
-                                        dashStyle: 'Dash',
-                                        visible: false,
-                                        showInLegend: true,
-                                        enableMouseTracking: false,
-                                        showInNavigator: false,
-                                        tooltip: { valueSuffix: ' cm' }
-                                    },
-                                    { 
-                                        name: 'Tendance réserve', 
-                                        type: 'line', 
-                                        data: EauReserveTrendLine ? EauReserveTrendLine.data : [],
-                                        color: '#008B74',
-                                        lineWidth: 2,
-                                        dashStyle: 'Dash',
-                                        visible: false,
-                                        showInLegend: true,
-                                        enableMouseTracking: false,
-                                        showInNavigator: false,
-                                        tooltip: { valueSuffix: ' cm' }
-                                    },
-                                    { 
-                                        name: 'Tendance potager', 
-                                        type: 'line', 
-                                        data: EauPotagerTrendLine ? EauPotagerTrendLine.data : [],
-                                        color: '#27BDA0',
-                                        lineWidth: 2,
-                                        dashStyle: 'Dash',
-                                        visible: false,
-                                        showInLegend: true,
-                                        enableMouseTracking: false,
-                                        showInNavigator: false,
-                                        tooltip: { valueSuffix: ' cm' }
-                                    },
-                                    // Lignes de tendance - moyenne mobile (cachées, conservées pour réutilisation ultérieure)
-                                    { 
-                                        name: 'Tendance aquarium (moy. mobile)', 
-                                        type: 'line', 
-                                        data: EauAquariumMovingAvg || [],
-                                        color: '#FF6300',
-                                        lineWidth: 2,
-                                        dashStyle: 'Solid',
-                                        opacity: 0.7,
-                                        visible: false,
-                                        showInLegend: false,
-                                        enableMouseTracking: false,
-                                        showInNavigator: false,
-                                        tooltip: { valueSuffix: ' cm' }
-                                    },
-                                    { 
-                                        name: 'Tendance réserve (moy. mobile)', 
-                                        type: 'line', 
-                                        data: EauReserveMovingAvg || [],
-                                        color: '#008B74',
-                                        lineWidth: 2,
-                                        dashStyle: 'Solid',
-                                        opacity: 0.7,
-                                        visible: false,
-                                        showInLegend: false,
-                                        enableMouseTracking: false,
-                                        showInNavigator: false,
-                                        tooltip: { valueSuffix: ' cm' }
-                                    },
-                                    { 
-                                        name: 'Tendance potager (moy. mobile)', 
-                                        type: 'line', 
-                                        data: EauPotagerMovingAvg || [],
-                                        color: '#27BDA0',
-                                        lineWidth: 2,
-                                        dashStyle: 'Solid',
-                                        opacity: 0.7,
-                                        visible: false,
-                                        showInLegend: false,
-                                        enableMouseTracking: false,
-                                        showInNavigator: false,
-                                        tooltip: { valueSuffix: ' cm' }
-                                    }
-                                ],
+                                series: eauSeries,
                                 navigator: aqEau.navigator,
                                 scrollbar: aqEau.scrollbar,
                                 credits: { enabled: false }
@@ -1476,7 +1493,7 @@
                                         tooltip: { valueSuffix: '%' } 
                                     },
                                     { 
-                                        name: 'Luminosité (UA)', 
+                                        name: 'Luminosité', 
                                         type: 'areaspline',
                                         data: Luminosite, 
                                         yAxis: 2, 
@@ -1489,7 +1506,7 @@
                                         tooltip: { valueSuffix: ' UA' } 
                                     },
                                     { 
-                                        name: 'LEDs ON', 
+                                        name: 'LEDs', 
                                         type: 'scatter', 
                                         data: etatUV.filter(p => p[1] > 0).map(p => [p[0], 0]), 
                                         yAxis: 3, 
@@ -1742,7 +1759,8 @@
             
             chartUpdater = new ChartUpdater({
                 maxPoints: prefs.maxPoints,
-                autoScroll: prefs.autoScroll
+                autoScroll: prefs.autoScroll,
+                tideThresholdCm: {{ tide_threshold_cm|default(2) }}
             });
             statsUpdater = new StatsUpdater({
                 sensors: ['EauAquarium', 'EauReserve', 'EauPotager', 'TempEau', 'TempAir', 'Humidite', 'Luminosite'],

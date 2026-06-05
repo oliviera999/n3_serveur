@@ -7,6 +7,7 @@ namespace App\Service;
 use App\Repository\SensorReadRepository;
 use App\Util\Ffp3WaterLevelUnit;
 use App\Util\MathUtils;
+use App\Util\ReadingTimeParser;
 use DateTimeInterface;
 
 /**
@@ -17,6 +18,8 @@ use DateTimeInterface;
  */
 class TideAnalysisService
 {
+    private const RESERVE_VARIATION_THRESHOLD_CM = 1.0;
+
     public function __construct(
         private SensorReadRepository $repo,
         private TideCycleDetector $cycleDetector
@@ -54,20 +57,23 @@ class TideAnalysisService
         // Marnage moyen
         $averageRange = $cycles > 0 ? array_sum($amplitudes) / $cycles : null;
 
-        // Fréquence : cycles / durée (heures)
-        $durationSeconds = strtotime(end($times)) - strtotime($times[0]);
-        $hours = $durationSeconds / 3600;
+        $startTs = ReadingTimeParser::toUnixSeconds((string) $times[0]);
+        $endTs = ReadingTimeParser::toUnixSeconds((string) end($times));
+        $hours = ($startTs !== null && $endTs !== null && $endTs > $startTs)
+            ? ($endTs - $startTs) / 3600
+            : 0.0;
         $frequency = ($hours > 0 && $cycles > 0) ? $cycles / $hours : null;
 
         // ------------------------------------------------------------
         // Variations sur EauReserve
         // ------------------------------------------------------------
         $reserveLevels = array_column($rows, 'EauReserve');
-        $reserveVariations = $this->cycleDetector->computeVariations($reserveLevels, 0.0);
+        $reserveVariations = $this->cycleDetector->computeVariations(
+            $reserveLevels,
+            self::RESERVE_VARIATION_THRESHOLD_CM
+        );
 
-        // ------------------------------------------------------------
-        // Statistiques sur diffMaree
-        // ------------------------------------------------------------
+        // diffMaree : variation de distance aquarium (mm, brut firmware) sur fenêtre temporelle
         $diffMareeLevels = array_column($rows, 'diffMaree');
         $diffMareeValid = MathUtils::filterValid($diffMareeLevels);
         

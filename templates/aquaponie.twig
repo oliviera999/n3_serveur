@@ -222,15 +222,36 @@
                             <div class="balance-stat">
                                 <span class="balance-stat-label">
                                     <i class="fas fa-arrows-alt-v"></i>
+                                    Tendance actuelle
+                                </span>
+                                <span class="balance-stat-value neutral">
+                                    {% if tide_trend == 'rising' %}
+                                        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                                    {% elseif tide_trend == 'falling' %}
+                                        <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                                    {% elseif tide_trend == 'stable' %}
+                                        <i class="fas fa-arrows-alt-h" aria-hidden="true"></i>
+                                    {% endif %}
+                                    {{ tide_trend_label|default('n/a') }}
+                                </span>
+                            </div>
+
+                            <div class="balance-stat">
+                                <span class="balance-stat-label">
+                                    <i class="fas fa-arrows-alt-v"></i>
                                     Marnage moyen
                                 </span>
                                 <span class="balance-stat-value neutral">
-                                    {{ tide_marnage|default(0)|number_format(2, ',', ' ') }}
-                                    <span class="balance-stat-unit">cm</span>
-                                    {% if tide_marnage_stddev is not null %}
-                                        <span class="balance-stat-stddev">
-                                            ± {{ tide_marnage_stddev|number_format(2, ',', ' ') }}
-                                        </span>
+                                    {% if tide_marnage is not null %}
+                                        {{ tide_marnage|number_format(2, ',', ' ') }}
+                                        <span class="balance-stat-unit">cm</span>
+                                        {% if tide_marnage_stddev is not null %}
+                                            <span class="balance-stat-stddev">
+                                                ± {{ tide_marnage_stddev|number_format(2, ',', ' ') }}
+                                            </span>
+                                        {% endif %}
+                                    {% else %}
+                                        n/a
                                     {% endif %}
                                 </span>
                             </div>
@@ -241,12 +262,16 @@
                                     Fréquence des marées
                                 </span>
                                 <span class="balance-stat-value neutral">
-                                    {{ tide_frequency|default(0)|number_format(2, ',', ' ') }}
-                                    <span class="balance-stat-unit">/heure</span>
-                                    {% if tide_frequency_stddev is not null %}
-                                        <span class="balance-stat-stddev">
-                                            ± {{ tide_frequency_stddev|number_format(2, ',', ' ') }}
-                                        </span>
+                                    {% if tide_frequency is not null %}
+                                        {{ tide_frequency|number_format(2, ',', ' ') }}
+                                        <span class="balance-stat-unit">/heure</span>
+                                        {% if tide_frequency_stddev is not null %}
+                                            <span class="balance-stat-stddev">
+                                                ± {{ tide_frequency_stddev|number_format(2, ',', ' ') }}
+                                            </span>
+                                        {% endif %}
+                                    {% else %}
+                                        n/a
                                     {% endif %}
                                 </span>
                             </div>
@@ -257,9 +282,14 @@
                                     Nombre de cycles
                                 </span>
                                 <span class="balance-stat-value neutral">
-                                    {{ tide_cycles|default(0) }}
+                                    {% if tide_cycles > 0 %}{{ tide_cycles }}{% else %}n/a{% endif %}
                                 </span>
                             </div>
+
+                            <p class="balance-note" style="font-size:0.85em;opacity:0.85;margin-top:0.5em;">
+                                Distance capteur → surface : si elle augmente, l'eau descend ; si elle diminue, l'eau monte.
+                                Seuil de détection : {{ tide_threshold_cm|default(2) }} cm.
+                            </p>
                             
                             <div class="balance-stat">
                                 <span class="balance-stat-label">
@@ -1544,7 +1574,8 @@
             // Initialiser ChartUpdater et StatsUpdater (instances créées tout de suite)
             chartUpdater = new ChartUpdater({
                 maxPoints: prefs.maxPoints,
-                autoScroll: prefs.autoScroll
+                autoScroll: prefs.autoScroll,
+                tideThresholdCm: {{ tide_threshold_cm|default(2) }}
             });
             statsUpdater = new StatsUpdater({
                 sensors: ['EauAquarium', 'EauReserve', 'EauPotager', 'TempEau', 'TempAir', 'Humidite', 'Luminosite'],

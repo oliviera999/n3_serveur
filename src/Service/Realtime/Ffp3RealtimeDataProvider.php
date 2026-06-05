@@ -8,8 +8,7 @@ use App\Config\TableConfig;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
 use App\Util\Ffp3WaterLevelUnit;
-use DateTimeImmutable;
-use DateTimeZone;
+use App\Util\ReadingTimeParser;
 
 /**
  * Fournisseur de données temps réel pour FFP3 (aquaponie).
@@ -162,13 +161,7 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
      */
     private function readingTimeToUnixTimestamp(string $readingTime): int
     {
-        $dt = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $readingTime, new DateTimeZone('Europe/Paris'));
-        if ($dt !== false) {
-            return $dt->getTimestamp();
-        }
-
-        $fallback = strtotime($readingTime);
-        return $fallback !== false ? $fallback : time();
+        return ReadingTimeParser::toUnixSeconds($readingTime) ?? time();
     }
 
     private function readDeviceIpFile(): ?string

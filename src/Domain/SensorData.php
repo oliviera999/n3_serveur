@@ -23,7 +23,7 @@ class SensorData
      * @param ?float  $eauPotager       Niveau d'eau du potager (cm ou %)
      * @param ?float  $eauAquarium      Niveau d'eau de l'aquarium (cm ou %)
      * @param ?float  $eauReserve       Niveau d'eau de la réserve (cm ou %)
-     * @param ?float  $diffMaree        Différence de niveau (marée) entre aquarium et réserve
+     * @param ?float  $diffMaree        Variation distance aquarium (mm) sur fenêtre firmware ; positif = eau qui monte
      * @param ?float  $luminosite       Luminosité mesurée (lux)
      * @param ?int    $etatPompeAqua    État de la pompe aquarium (1=ON, 0=OFF)
      * @param ?int    $etatPompeTank    État de la pompe réserve (1=ON, 0=OFF)

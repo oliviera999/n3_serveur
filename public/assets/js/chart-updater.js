@@ -4,8 +4,8 @@
  * Gère l'ajout de nouveaux points aux graphiques sans recharger la page.
  * Supporte l'auto-scroll, la limitation du nombre de points, et les mises à jour batch.
  * 
- * @version 1.0.1
- * @date 2025-10-12
+ * @version 1.1.0
+ * @date 2026-06-05
  */
 
 class ChartUpdater {
@@ -14,33 +14,37 @@ class ChartUpdater {
         this.autoScroll = options.autoScroll !== false;
         this.animationsEnabled = options.animationsEnabled !== false;
         this.batchUpdateDelay = options.batchUpdateDelay || 100;
-        
+        this.tideThresholdCm = options.tideThresholdCm
+            || (window.n3TideMarkers ? window.n3TideMarkers.DEFAULT_THRESHOLD_CM : 2.0);
+
         this.charts = new Map();
-        
+
         this.chartContainerIds = options.chartContainerIds || ['chart-stock-area-eau-D', 'chart-stock-area-temp-D'];
-        
+
         var defaultSensorMap = {
-            'EauAquarium': { chartIndex: 0, seriesIndex: 2 },
-            'EauReserve': { chartIndex: 0, seriesIndex: 0 },
-            'EauPotager': { chartIndex: 0, seriesIndex: 1 },
-            'etatPompeAqua': { chartIndex: 0, seriesIndex: 3, scatterOnlyIfTrue: true },
-            'etatPompeTank': { chartIndex: 0, seriesIndex: 4, scatterOnlyIfTrue: true },
-            'etatHeat': { chartIndex: 0, seriesIndex: 5, scatterOnlyIfTrue: true },
-            'TempEau': { chartIndex: 1, seriesIndex: 0 },
-            'TempAir': { chartIndex: 1, seriesIndex: 1 },
-            'Humidite': { chartIndex: 1, seriesIndex: 2 },
-            'Luminosite': { chartIndex: 1, seriesIndex: 3 },
-            'etatUV': { chartIndex: 1, seriesIndex: 4 },
-            'bouffeGros': { chartIndex: 1, seriesIndex: 5 },
-            'bouffePetits': { chartIndex: 1, seriesIndex: 6 }
+            'EauAquarium': { chartIndex: 0, seriesName: 'Eau aquarium' },
+            'EauReserve': { chartIndex: 0, seriesName: 'Eau réserve' },
+            'EauPotager': { chartIndex: 0, seriesName: 'Eau potager' },
+            'etatPompeAqua': { chartIndex: 0, seriesName: 'Pompe aquarium ON', scatterOnlyIfTrue: true },
+            'etatPompeTank': { chartIndex: 0, seriesName: 'Pompe réserve ON', scatterOnlyIfTrue: true },
+            'etatHeat': { chartIndex: 0, seriesName: 'Chauffage ON', scatterOnlyIfTrue: true },
+            'TempEau': { chartIndex: 1, seriesName: 'Température eau' },
+            'TempAir': { chartIndex: 1, seriesName: 'Température air' },
+            'Humidite': { chartIndex: 1, seriesName: 'Humidité' },
+            'Luminosite': { chartIndex: 1, seriesName: 'Luminosité' },
+            'etatUV': { chartIndex: 1, seriesName: 'LEDs' },
+            'bouffeGros': { chartIndex: 1, seriesName: 'Nourriture gros' },
+            'bouffePetits': { chartIndex: 1, seriesName: 'Nourriture petits' }
         };
         this.sensorToSeriesMap = options.sensorToSeriesMap || defaultSensorMap;
-        
-        // État
+
         this.isInitialized = false;
         this.updateQueue = [];
         this.batchTimer = null;
-        
+        this.aquaBuffer = [];
+        this.lastTidePeakTs = null;
+        this.lastTideTroughTs = null;
+
         this.log('ChartUpdater initialized');
     }
     
@@ -68,8 +72,80 @@ class ChartUpdater {
         
         this.isInitialized = this.charts.size > 0;
         this.log(`Initialized with ${this.charts.size} chart(s)`);
-        
+
+        if (this.isInitialized) {
+            this.seedAquaBufferFromChart();
+        }
+
         return this.isInitialized;
+    }
+
+    seedAquaBufferFromChart() {
+        const chart = this.charts.get(0);
+        if (!chart) return;
+        const series = this.findSeriesByName(chart, 'Eau aquarium');
+        if (!series || !Array.isArray(series.xData)) return;
+        this.aquaBuffer = [];
+        for (let i = 0; i < series.xData.length; i++) {
+            const y = series.yData[i];
+            if (y !== null && y !== undefined && !isNaN(y)) {
+                this.aquaBuffer.push([series.xData[i], y]);
+            }
+        }
+        if (window.n3TideMarkers && this.aquaBuffer.length >= 3) {
+            const extrema = window.n3TideMarkers.detectClientExtremum(this.aquaBuffer, this.tideThresholdCm);
+            if (extrema.peak) this.lastTidePeakTs = extrema.peak[0];
+            if (extrema.trough) this.lastTideTroughTs = extrema.trough[0];
+        }
+    }
+
+    findSeriesByName(chart, seriesName) {
+        if (!chart || !chart.series) return null;
+        for (let i = 0; i < chart.series.length; i++) {
+            if (chart.series[i] && chart.series[i].name === seriesName) {
+                return chart.series[i];
+            }
+        }
+        return null;
+    }
+
+    resolveSeriesIndex(chart, seriesName) {
+        if (!chart || !chart.series) return -1;
+        for (let i = 0; i < chart.series.length; i++) {
+            if (chart.series[i] && chart.series[i].name === seriesName) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    maybeAddTideMarkers() {
+        if (!window.n3TideMarkers || this.aquaBuffer.length < 3) return;
+        const chart = this.charts.get(0);
+        if (!chart) return;
+
+        const extrema = window.n3TideMarkers.detectClientExtremum(this.aquaBuffer, this.tideThresholdCm);
+
+        if (extrema.peak && (this.lastTidePeakTs === null || extrema.peak[0] > this.lastTidePeakTs)) {
+            this.addTideMarkerPoint(chart, window.n3TideMarkers.PEAK_SERIES_NAME, extrema.peak);
+            this.lastTidePeakTs = extrema.peak[0];
+        }
+        if (extrema.trough && (this.lastTideTroughTs === null || extrema.trough[0] > this.lastTideTroughTs)) {
+            this.addTideMarkerPoint(chart, window.n3TideMarkers.TROUGH_SERIES_NAME, extrema.trough);
+            this.lastTideTroughTs = extrema.trough[0];
+        }
+    }
+
+    addTideMarkerPoint(chart, seriesName, point) {
+        const series = this.findSeriesByName(chart, seriesName);
+        if (!series) return;
+        const existing = series.data.find(p => p && p.x === point[0]);
+        if (existing) {
+            existing.update(point[1], false);
+        } else {
+            this.insertPointSorted(series, point[0], point[1]);
+        }
+        chart.redraw();
     }
     
     /**
@@ -103,10 +179,16 @@ class ChartUpdater {
                     timestamp: timestampMs,
                     value: numericValue
                 });
+
+                if (sensorName === 'EauAquarium') {
+                    this.aquaBuffer.push([timestampMs, numericValue]);
+                    if (this.aquaBuffer.length > this.maxPoints) {
+                        this.aquaBuffer.shift();
+                    }
+                }
             }
         }
-        
-        // Planifier la mise à jour batch
+
         this.scheduleBatchUpdate();
     }
     
@@ -176,18 +258,21 @@ class ChartUpdater {
             }
             
             updatesByChart.get(mapping.chartIndex).push({
-                seriesIndex: mapping.seriesIndex,
+                seriesName: mapping.seriesName,
                 timestamp: update.timestamp,
                 value: update.value,
                 sensor: update.sensor
             });
         });
-        
-        // Appliquer les mises à jour graphique par graphique
+
         updatesByChart.forEach((updates, chartIndex) => {
             this.updateChartSeries(chartIndex, updates);
         });
-        
+
+        if (updatesToProcess.some(u => u.sensor === 'EauAquarium')) {
+            this.maybeAddTideMarkers();
+        }
+
         this.log(`Batch update completed: ${updatesToProcess.length} point(s) added`);
     }
     
@@ -207,16 +292,19 @@ class ChartUpdater {
         // Désactiver le redraw temporairement
         const shouldRedraw = false;
         
-        // Grouper par série
         const updatesBySeries = new Map();
         updates.forEach(update => {
-            if (!updatesBySeries.has(update.seriesIndex)) {
-                updatesBySeries.set(update.seriesIndex, []);
+            const seriesIndex = this.resolveSeriesIndex(chart, update.seriesName);
+            if (seriesIndex < 0) {
+                this.log(`Series "${update.seriesName}" not found in chart ${chartIndex}`, 'warn');
+                return;
             }
-            updatesBySeries.get(update.seriesIndex).push(update);
+            if (!updatesBySeries.has(seriesIndex)) {
+                updatesBySeries.set(seriesIndex, []);
+            }
+            updatesBySeries.get(seriesIndex).push(update);
         });
-        
-        // Appliquer les points série par série
+
         const touchedSeriesIndices = new Set();
         updatesBySeries.forEach((seriesUpdates, seriesIndex) => {
             const series = chart.series[seriesIndex];
@@ -224,7 +312,7 @@ class ChartUpdater {
                 this.log(`Series ${seriesIndex} not found in chart ${chartIndex}`, 'warn');
                 return;
             }
-            
+
             touchedSeriesIndices.add(seriesIndex);
             seriesUpdates.forEach(update => {
                 // Vérifier les données de mise à jour

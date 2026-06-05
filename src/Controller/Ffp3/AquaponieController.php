@@ -152,8 +152,14 @@ class AquaponieController
             'start_date' => $startDate,
             'end_date'   => $endDate,
             'reading_time' => $reading_time,
-            'tide_peaks' => json_encode($extrema['peaks'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
-            'tide_troughs' => json_encode($extrema['troughs'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+            'tide_peaks' => json_encode(
+                $extrema['peaks'],
+                JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+            ),
+            'tide_troughs' => json_encode(
+                $extrema['troughs'],
+                JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+            ),
             'measure_count' => $measure_count,
             'duration_str' => DurationFormatter::short($startDate, $endDate),
             'version' => Version::getWithPrefix(),

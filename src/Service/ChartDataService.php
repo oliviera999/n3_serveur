@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use DateTimeImmutable;
-use DateTimeZone;
+use App\Util\ReadingTimeParser;
 
 /**
  * Service de préparation des données pour les graphiques Highcharts
@@ -61,11 +60,10 @@ class ChartDataService
     {
         $col = static fn(array $rows, string $key): array => array_column($rows, $key);
         
-        // Conversion en timestamp UTC (ms) en tenant compte du fuseau Europe/Paris
-        $reading_time_ts = array_map(static function ($ts) {
-            $dt = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $ts, new DateTimeZone('Europe/Paris'));
-            return $dt !== false ? $dt->getTimestamp() * 1000 : null;
-        }, $col(array_reverse($readings), 'reading_time'));
+        $reading_time_ts = array_map(
+            static fn ($ts) => ReadingTimeParser::toUnixMs((string) $ts),
+            $col(array_reverse($readings), 'reading_time')
+        );
         
         return json_encode(
             $reading_time_ts,
@@ -89,7 +87,9 @@ class ChartDataService
         }
 
         foreach ($readings as $r) {
-            $ts = isset($r['reading_time']) ? (int) (strtotime($r['reading_time']) * 1000) : 0;
+            $ts = isset($r['reading_time'])
+                ? (ReadingTimeParser::toUnixMs((string) $r['reading_time']) ?? 0)
+                : 0;
             $series['reading_time'][] = $ts;
             foreach ($columns as $col) {
                 $series[$col][] = isset($r[$col]) && $r[$col] !== null ? (float) $r[$col] : null;

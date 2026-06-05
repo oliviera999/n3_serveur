@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.14] - 2026-06-05
+
+### Correctif — marées aquaponie (recalcul EauAquarium, graphiques et stats)
+
+- **`ReadingTimeParser`** : conversion unifiée `reading_time` Europe/Paris → epoch (alignement marqueurs Highcharts et courbes).
+- **`TideCycleDetector`** : flush de l'extrême final, min/max conservés sur petits deltas, seuil harmonisé, `detectCurrentTrend()` + libellés FR.
+- **`WaterBalanceService`** : tendance actuelle (`tide_trend` / `tide_trend_label`), stats n/a si données insuffisantes.
+- **UI aquaponie** : marqueurs « Basse mer » / « Pleine mer », carte tendance, note sémantique distance.
+- **`chart-updater.js`** : résolution des séries par nom (plus d'indices fixes), détection client des marqueurs en LIVE.
+- **`TideAnalysisService`** : seuil réserve aligné (1 cm), définition `diffMaree` corrigée (mm, variation distance).
+- **Tests** : `TideCycleDetectorTest`, `WaterBalanceServiceTest`, `ReadingTimeParserTest`.
+
 ## [5.1.13] - 2026-06-03
 
 ### Correctif — clés POST numériques (108, 109) dans reconstruction HMAC

@@ -6,7 +6,7 @@ namespace App\Service;
 
 use App\Repository\SensorReadRepository;
 use App\Util\Ffp3WaterLevelUnit;
-use App\Util\MathUtils;
+use App\Util\ReadingTimeParser;
 use DateTimeInterface;
 
 /**
@@ -17,8 +17,7 @@ use DateTimeInterface;
  */
 class WaterBalanceService
 {
-    private const UNCERTAINTY_THRESHOLD = 1.0; // Variations ≤1 cm considérées comme incertitudes
-    private const TIDE_VARIATION_THRESHOLD = 2.0; // Variations ≤2 cm ignorées pour la détection des cycles de marée
+    private const UNCERTAINTY_THRESHOLD = 1.0;
 
     public function __construct(
         private SensorReadRepository $repo,
@@ -70,7 +69,10 @@ class WaterBalanceService
             'tide_marnage' => $tideStats['marnage'],
             'tide_marnage_stddev' => $tideStats['marnage_stddev'],
             'tide_cycles' => $tideStats['cycles'],
-            
+            'tide_trend' => $tideStats['trend'],
+            'tide_trend_label' => $tideStats['trend_label'],
+            'tide_threshold_cm' => TideCycleDetector::VARIATION_THRESHOLD_CM,
+
             // Aquarium - Consommation
             'aquarium_consumption' => $aquariumConsumption,
         ];
@@ -106,11 +108,13 @@ class WaterBalanceService
                 'marnage' => null,
                 'marnage_stddev' => null,
                 'cycles' => 0,
+                'trend' => null,
+                'trend_label' => null,
             ];
         }
 
-        // Utiliser le détecteur de cycles
-        $cycleData = $this->cycleDetector->detectCycles($levels, $times, self::TIDE_VARIATION_THRESHOLD);
+        $threshold = TideCycleDetector::VARIATION_THRESHOLD_CM;
+        $cycleData = $this->cycleDetector->detectCycles($levels, $times, $threshold);
         $cycles = $cycleData['cycles'];
         $amplitudes = $cycleData['amplitudes'];
         $cycleDurations = $cycleData['cycleDurations'];
@@ -118,10 +122,14 @@ class WaterBalanceService
         // Marnage moyen et écart-type
         $marnageStats = $this->cycleDetector->computeMarnageStats($amplitudes);
 
-        // Fréquence des marées (nombre par heure)
-        $durationSeconds = strtotime(end($times)) - strtotime($times[0]);
-        $totalHours = $durationSeconds / 3600;
+        $startTs = ReadingTimeParser::toUnixSeconds((string) $times[0]);
+        $endTs = ReadingTimeParser::toUnixSeconds((string) end($times));
+        $totalHours = ($startTs !== null && $endTs !== null && $endTs > $startTs)
+            ? ($endTs - $startTs) / 3600
+            : 0.0;
         $frequencyStats = $this->cycleDetector->computeFrequencyStats($cycleDurations, $cycles, $totalHours);
+
+        $trend = $this->cycleDetector->detectCurrentTrend($levels, $threshold);
 
         return [
             'frequency' => $frequencyStats['frequency'],
@@ -129,6 +137,8 @@ class WaterBalanceService
             'marnage' => $marnageStats['marnage'],
             'marnage_stddev' => $marnageStats['marnageStddev'],
             'cycles' => $cycles,
+            'trend' => $trend,
+            'trend_label' => TideCycleDetector::trendLabel($trend),
         ];
     }
 
@@ -178,6 +188,9 @@ class WaterBalanceService
             'tide_marnage' => null,
             'tide_marnage_stddev' => null,
             'tide_cycles' => 0,
+            'tide_trend' => null,
+            'tide_trend_label' => null,
+            'tide_threshold_cm' => TideCycleDetector::VARIATION_THRESHOLD_CM,
             'aquarium_consumption' => null,
         ];
     }
