@@ -131,8 +131,11 @@ class OutputCacheService
                 $result['triggerOtaCheck'] = true;
             }
         } catch (PDOException $e) {
+            // Chemin de lecture firmware (hot path) : ne PAS créer la table ici (pas de DDL
+            // par requête). Table absente = aucun trigger en attente -> on ignore simplement.
+            // La table est créée par la migration CREATE_FFP3_OTA_TRIGGER_TABLE.sql, et à défaut
+            // par le chemin d'écriture admin (setTriggerOtaCheckRequested) lors d'une demande.
             if ($this->isMissingTableException($e)) {
-                $this->ensureOtaTriggerTableExists($pdo);
                 return;
             }
             throw $e;
