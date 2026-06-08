@@ -236,6 +236,7 @@ class PostDataController extends AbstractPostDataController
         );
 
         if (!$valid) {
+            $body = $headerAuth['body'];
             $this->logger->warning('PostData: rejet auth X-Sig invalide code=401', [
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
                 'sensor' => trim((string) ($params['sensor'] ?? '')),
@@ -244,7 +245,8 @@ class PostDataController extends AbstractPostDataController
                 'nonce_len' => strlen($headerAuth['nonce']),
                 'window_s' => $sigWindow,
                 'body_source' => $headerAuth['body_source'] ?? 'unknown',
-                'body_len' => strlen($headerAuth['body']),
+                'body_len' => strlen($body),
+                'body_hash' => $body !== '' ? substr(hash('sha256', $body), 0, 16) : null,
             ]);
             return ResponseHelper::text($response, 'Signature incorrecte', 401);
         }

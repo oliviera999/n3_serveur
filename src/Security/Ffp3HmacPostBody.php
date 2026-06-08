@@ -62,6 +62,10 @@ final class Ffp3HmacPostBody
             if (!isset($params[$key]) || !is_scalar($params[$key])) {
                 continue;
             }
+            // v14.01 : aligner firmware Ffp3PostBody (champs Eau* omis si mesure absente)
+            if (trim((string) $params[$key]) === '') {
+                continue;
+            }
             $parts[] = self::formatPair($key, $params[$key]);
         }
 
@@ -69,10 +73,16 @@ final class Ffp3HmacPostBody
             $known = array_merge(self::FULL_UPDATE_KEYS, self::SUFFIX_KEYS, self::AUTH_KEYS);
             $extra = self::collectExtraKeys($params, $known);
             foreach ($extra as $key) {
+                if (!is_scalar($params[$key]) || trim((string) $params[$key]) === '') {
+                    continue;
+                }
                 $parts[] = self::formatPair($key, $params[$key]);
             }
             foreach (self::SUFFIX_KEYS as $key) {
                 if (!isset($params[$key]) || !is_scalar($params[$key])) {
+                    continue;
+                }
+                if (trim((string) $params[$key]) === '') {
                     continue;
                 }
                 $parts[] = self::formatPair($key, $params[$key]);
@@ -81,6 +91,9 @@ final class Ffp3HmacPostBody
             $known = array_merge(self::MEASUREMENT_KEYS, self::AUTH_KEYS);
             $extra = self::collectExtraKeys($params, $known);
             foreach ($extra as $key) {
+                if (!is_scalar($params[$key]) || trim((string) $params[$key]) === '') {
+                    continue;
+                }
                 $parts[] = self::formatPair($key, $params[$key]);
             }
         }

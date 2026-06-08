@@ -154,10 +154,22 @@ public/index.php (front controller Slim 4)  ← Route Slim Framework
 
 Le client ESP32 utilise les timeouts suivants (définis dans `include/config.h`, namespace `NetworkConfig`) :
 
-- **POST post-data** : **18 s** (`HTTP_POST_TIMEOUT_MS`) — dérogation à la règle projet 5 s, justifiée par la latence réseau (4G, hébergement). Le RPC côté firmware attend au plus **26 s** (`HTTP_POST_RPC_TIMEOUT_MS`) avant d’abandonner.
+- **POST post-data** : **28 s** (`HTTP_POST_TIMEOUT_MS`, WROOM v14.01) — dérogation à la règle projet 5 s, justifiée par la latence réseau (4G, ~23 s observé) et le retry 401 HMAC. Le RPC côté firmware attend au plus **30 s** (`HTTP_POST_RPC_TIMEOUT_MS`) avant d’abandonner.
 - **GET outputs/state** : 10 s (`OUTPUTS_STATE_HTTP_TIMEOUT_MS`).
 
-Le serveur doit répondre au POST dans le délai client (18 s) pour éviter timeout côté ESP32.
+Le serveur doit répondre au POST dans le délai client (28 s WROOM) pour éviter timeout côté ESP32.
+
+### Diagnostic latence (v14.01)
+
+Pour isoler latence réseau/infra vs traitement PHP :
+
+1. Comparer `GET /ping` (hors BDD) et `POST /post-data-test` depuis le même réseau.
+2. Dans les logs applicatifs (`cronlog.txt` / Monolog) :
+   - `PostData: auth_ms=…` — durée validation HMAC / api_key (avant INSERT).
+   - `PostData timing_ms: insert=… sync=… board=… total=…` — durée traitement BDD.
+3. Si `auth_ms` et `total` sont faibles (< 1 s) mais le client ESP32 mesure > 20 s → cause probable : file PHP-FPM, proxy ou réseau WiFi/4G.
+4. Si `total` est élevé → optimiser BDD (index `post_id`, cache colonnes `INFORMATION_SCHEMA`).
+5. En cas de 401 X-Sig : vérifier `body_source` (`raw` vs `canonical`) et `body_hash` dans les logs ; un `canonical` systématique indique un décalage corps signé firmware / corps reçu.
 
 - **PHP** : `PostDataController::handle()` appelle `set_time_limit(30)` au début de la requête (marge par rapport aux 18 s client). La réponse 200 est renvoyée immédiatement après l’insert BDD, la synchro outputs, l’invalidation cache et la mise à jour du timestamp board (aucun appel externe bloquant).
 - **À vérifier sur l'hébergement** :

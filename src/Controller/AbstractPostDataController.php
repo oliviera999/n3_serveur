@@ -114,7 +114,15 @@ abstract class AbstractPostDataController
         $params = $this->prepareParamsForAuth($request, $params);
 
         // Authentification (HMAC ou API_KEY selon le module)
+        $authStart = microtime(true);
         $authError = $this->validateAuth($params, $response);
+        $authMs = (int) round((microtime(true) - $authStart) * 1000);
+        $this->logger->info("{$component}: auth_ms={authMs}", [
+            'auth_ms' => $authMs,
+            'sensor' => trim((string) ($params['sensor'] ?? '')),
+            'version' => trim((string) ($params['version'] ?? '')),
+            'hmac_ok' => $this->authenticatedByHmac,
+        ]);
         if ($authError !== null) {
             return $authError;
         }

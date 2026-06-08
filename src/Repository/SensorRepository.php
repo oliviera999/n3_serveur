@@ -15,6 +15,8 @@ use PDO;
  */
 class SensorRepository extends AbstractRepository
 {
+    /** @var array<string, bool> Cache colonnes (persiste entre requêtes FPM du même worker). */
+    private static array $columnExistsCache = [];
     /**
      * Exécute une opération atomique sur la même connexion PDO que les autres repositories FFP3.
      */
@@ -142,20 +144,19 @@ class SensorRepository extends AbstractRepository
 
     private function columnExists(string $table, string $column): bool
     {
-        static $cache = [];
         $key = "{$table}.{$column}";
-        if (isset($cache[$key])) {
-            return $cache[$key];
+        if (isset(self::$columnExistsCache[$key])) {
+            return self::$columnExistsCache[$key];
         }
         try {
             $stmt = $this->pdo->prepare(
                 'SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = :t AND COLUMN_NAME = :c LIMIT 1'
             );
             $stmt->execute([':t' => $table, ':c' => $column]);
-            $cache[$key] = ($stmt->fetch() !== false);
+            self::$columnExistsCache[$key] = ($stmt->fetch() !== false);
         } catch (\Throwable) {
-            $cache[$key] = false;
+            self::$columnExistsCache[$key] = false;
         }
-        return $cache[$key];
+        return self::$columnExistsCache[$key];
     }
 }

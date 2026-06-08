@@ -31,10 +31,14 @@ class Database
 
             $dsn = "mysql:host={$host};dbname={$db};charset=utf8mb4";
             try {
-                self::$instance = new PDO($dsn, $user, $pass, [
+                $options = [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                ]);
+                ];
+                if (defined('PDO::MYSQL_ATTR_CONNECT_TIMEOUT')) {
+                    $options[PDO::MYSQL_ATTR_CONNECT_TIMEOUT] = 5;
+                }
+                self::$instance = new PDO($dsn, $user, $pass, $options);
             } catch (PDOException $e) {
                 throw new \RuntimeException('DB connection failed: ' . $e->getMessage());
             }
