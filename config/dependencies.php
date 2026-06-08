@@ -141,7 +141,6 @@ return [
         return new OutputService(
             $c->get(OutputRepository::class),
             $c->get(BoardRepository::class),
-            $c->get(OutputCacheService::class),
             $c->get(SensorReadRepository::class)
         );
     },
@@ -317,7 +316,6 @@ return [
 
     \App\Controller\Ffp3\CacheController::class => function (ContainerInterface $c) {
         return new \App\Controller\Ffp3\CacheController(
-            $c->get(\App\Service\OutputCacheService::class),
             $c->get(\App\Service\TemplateRenderer::class)
         );
     },

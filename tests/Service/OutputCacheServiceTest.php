@@ -41,12 +41,6 @@ class OutputCacheServiceTest extends TestCase
         $this->service = new OutputCacheService($this->pdo);
     }
 
-    protected function tearDown(): void
-    {
-        // Invalider le cache après chaque test
-        $this->service->invalidateCache();
-    }
-
     public function testGetOutputsStateReturnsEmptyArrayForEmptyList(): void
     {
         $result = $this->service->getOutputsState($this->pdo, []);
@@ -62,36 +56,12 @@ class OutputCacheServiceTest extends TestCase
         $this->assertArrayHasKey('18', $result);
     }
 
-    public function testInvalidateCacheClearsCache(): void
-    {
-        // Cache supprimé (v5.x) : invalidateCache est un no-op, getCacheStats retourne toujours valid=false
-        $this->service->getOutputsState($this->pdo, [16]);
-        $this->service->invalidateCache();
-        $stats = $this->service->getCacheStats();
-        $this->assertFalse($stats['valid']);
-        $this->assertSame(0, $stats['cached_items']);
-    }
-
-    public function testGetCacheStatsReturnsExpectedStructure(): void
-    {
-        $stats = $this->service->getCacheStats();
-
-        $this->assertArrayHasKey('valid', $stats);
-        $this->assertArrayHasKey('environment', $stats);
-        $this->assertArrayHasKey('age_seconds', $stats);
-        $this->assertArrayHasKey('ttl_seconds', $stats);
-        $this->assertArrayHasKey('cached_items', $stats);
-    }
-
     public function testGetOutputsStateAlwaysReadsFromBdd(): void
     {
-        // Cache supprimé (v5.x) : chaque appel lit la BDD, getCacheStats reste valid=false
+        // Cache supprimé (v5.x) : chaque appel lit la BDD directement.
         $result = $this->service->getOutputsState($this->pdo, [16, 18]);
         $this->assertArrayHasKey('16', $result);
         $this->assertArrayHasKey('18', $result);
-        $stats = $this->service->getCacheStats();
-        $this->assertFalse($stats['valid']);
-        $this->assertSame(0, $stats['cached_items']);
     }
 
     public function testTriggerOtaCheckPersistedThenConsumedOnce(): void

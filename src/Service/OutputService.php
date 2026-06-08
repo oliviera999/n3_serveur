@@ -38,7 +38,6 @@ class OutputService
     public function __construct(
         private OutputRepository $outputRepository,
         private BoardRepository $boardRepository,
-        private OutputCacheService $outputCache,
         private SensorReadRepository $sensorReadRepository
     ) {
     }
@@ -181,11 +180,7 @@ class OutputService
         if ($state !== 0 && $state !== 1) {
             return false;
         }
-        $result = $this->outputRepository->updateStateById($id, $state, $modifiedBy);
-        if ($result) {
-            $this->outputCache->invalidateCache();
-        }
-        return $result;
+        return $this->outputRepository->updateStateById($id, $state, $modifiedBy);
     }
 
     public function updateStateByGpio(int $gpio, int $state): bool
@@ -193,11 +188,7 @@ class OutputService
         if ($state !== 0 && $state !== 1) {
             return false;
         }
-        $result = $this->outputRepository->updateState($gpio, $state);
-        if ($result) {
-            $this->outputCache->invalidateCache();
-        }
-        return $result;
+        return $this->outputRepository->updateState($gpio, $state);
     }
 
     /**
@@ -208,9 +199,7 @@ class OutputService
      */
     public function updateMultipleParameters(array $params): int
     {
-        $updated = $this->outputRepository->updateMultipleParameters($params, 'web');
-        $this->outputCache->invalidateCache();
-        return $updated;
+        return $this->outputRepository->updateMultipleParameters($params, 'web');
     }
 
     /** @return array<int, string> */

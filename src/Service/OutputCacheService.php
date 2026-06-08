@@ -217,37 +217,4 @@ class OutputCacheService
         }
         $pdo->exec($sql);
     }
-
-    /**
-     * Invalide le cache (no-op, conservé pour compatibilité API).
-     * Le cache a été supprimé ; les appels depuis OutputService restent sans effet.
-     */
-    public function invalidateCache(): void
-    {
-        // NOP - cache supprimé
-    }
-
-    /**
-     * Invalide le cache pour tous les environnements (no-op, conservé pour compatibilité API).
-     */
-    public function invalidateAllEnvironments(): void
-    {
-        // NOP - cache supprimé
-    }
-
-    /**
-     * Obtient les statistiques du cache (toujours vide, conservé pour compatibilité API).
-     *
-     * @return array Statistiques avec valid=false, cached_items=0
-     */
-    public function getCacheStats(): array
-    {
-        return [
-            'valid' => false,
-            'environment' => TableConfig::getEnvironment(),
-            'age_seconds' => null,
-            'ttl_seconds' => 0,
-            'cached_items' => 0,
-        ];
-    }
 }
