@@ -1,6 +1,6 @@
 {
-  "version": "4.40",
-  "min_version": "4.40",
+  "version": "4.41",
+  "min_version": "4.41",
   "url": "http://iot.olution.info/ota/n3pp/firmware.bin",
-  "sha256": "890db6c099c485074ba1b1f875ae98b3b418598c48e494cf8f68341bfbbc2f58"
+  "sha256": "d3c19bdba0906b3da910c33cbea62474c77def8548445fa9b7f7cb73cdf2bd5e"
 }
