@@ -25,6 +25,27 @@ RewriteRule ^\.git - [F,L]
 </IfModule>
 
 # ====================================================================
+# Cache navigateur des assets statiques (si DocumentRoot pointe sur la racine)
+# ====================================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+    <FilesMatch "\.(js|css|png|jpe?g|webp|svg|ico|woff2)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
+# ====================================================================
 # Retrocompatibilite : anciennes URLs /ffp3/* -> routes racine
 # GET : redirection 301 (navigateurs, liens)
 # POST : rewrite interne (firmwares ESP32, corps de requete preserve)

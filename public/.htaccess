@@ -26,6 +26,31 @@
     Options -Indexes
 </IfModule>
 
+# ====================================================================
+# Cache navigateur des assets statiques (JS/CSS/images/fonts).
+# Ces fichiers sont servis directement par Apache (RewriteCond !-f).
+# Cache long + revalidation : invalidation au déploiement via le n° de version
+# présent dans les URLs/templates. ETag/Last-Modified gérés nativement par Apache.
+# ====================================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+    # N'appliquer le cache long qu'aux fichiers d'assets (pas au HTML applicatif).
+    <FilesMatch "\.(js|css|png|jpe?g|webp|svg|ico|woff2)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
 # Bloquer l'execution de PHP / scripts dans les sous-dossiers assets et uploads.
 # Toute requete *.php sous public/assets/ ou public/uploads/ retourne 403.
 <IfModule mod_alias.c>
