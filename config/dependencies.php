@@ -507,4 +507,27 @@ return [
             $c->get(TemplateRenderer::class)
         );
     },
+
+    // ====================================================================
+    // COMMANDS (CRON) — câblées via le conteneur (cf. run-cron.php)
+    // ====================================================================
+    \App\Command\RestartPumpCommand::class => function (ContainerInterface $c) {
+        return new \App\Command\RestartPumpCommand(
+            $c->get(PumpService::class),
+            $c->get(LogService::class)
+        );
+    },
+
+    \App\Command\CronOrchestrator::class => function (ContainerInterface $c) {
+        return new \App\Command\CronOrchestrator(
+            $c->get(LogService::class),
+            $c->get(SensorDataService::class),
+            $c->get(PumpService::class),
+            $c->get(SensorStatisticsService::class),
+            $c->get(NotificationService::class),
+            $c->get(SensorReadRepository::class),
+            $c->get(SystemHealthService::class),
+            $c->get(\App\Command\RestartPumpCommand::class)
+        );
+    },
 ];
