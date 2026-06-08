@@ -87,6 +87,25 @@ class ChartDataServiceTest extends TestCase
         $this->assertEquals('2025-10-10 12:00:00', $result['time']);
     }
 
+    public function testExtractLastReadingsNullEauAquarium(): void
+    {
+        $lastReading = [
+            'TempAir' => 25.5,
+            'TempEau' => 18.2,
+            'Humidite' => 65,
+            'Luminosite' => 500,
+            'EauAquarium' => null,
+            'EauReserve' => 20,
+            'EauPotager' => 15,
+            'reading_time' => '2025-10-10 12:00:00',
+        ];
+
+        $result = $this->service->extractLastReadings($lastReading);
+
+        $this->assertNull($result['eauaqua']);
+        $this->assertSame(20.0, $result['eaureserve']);
+    }
+
     public function testExtractLastReadingsWithNull(): void
     {
         $result = $this->service->extractLastReadings(null);

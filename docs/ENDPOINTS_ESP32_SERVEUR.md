@@ -358,6 +358,8 @@ api_key=<valeur .env>
 
 **Unités (niveaux d’eau)** : les champs `EauPotager`, `EauAquarium` et `EauReserve` sont enregistrés en base en **millimètres**. L’interface web (pages aquaponie, dashboard FFP3, API temps réel capteurs) les expose en **centimètres** (conversion ÷10 côté serveur, affichage décimal avec virgule).
 
+**Mesure absente (capteur invalide)** : le firmware peut **omettre** un ou plusieurs champs `Eau*` du POST (corps HMAC sans la clé). Le serveur insère alors `NULL` en BDD pour ce capteur ; le reste de la ligne (températures, pompes, etc.) est enregistré normalement. Côté UI, la valeur absente s’affiche « — » sans bloquer la page ni le polling temps réel. Politique firmware : `SensorConfig::WaterLevelFallbackPolicy` (flags compile-time par capteur).
+
 **Sémantique marée (distance uniquement)** :
 - `EauAquarium` reste une **distance capteur -> surface** (pas une hauteur d'eau).
 - `diffMaree` côté firmware = `(distance passée sur fenêtre - distance actuelle)` ; valeur positive = surface qui remonte vers le capteur.

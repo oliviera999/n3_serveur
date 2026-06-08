@@ -135,9 +135,11 @@ class StatsUpdater {
         }
         
         for (const [sensorName, value] of Object.entries(sensors)) {
-            if (value !== null && value !== undefined) {
-                this.updateStat(sensorName, parseFloat(value));
+            if (value === null || value === undefined) {
+                this.markStatAbsent(sensorName);
+                continue;
             }
+            this.updateStat(sensorName, parseFloat(value));
         }
         
         // Mettre à jour les informations de période si timestamp fourni
@@ -149,6 +151,23 @@ class StatsUpdater {
         }
     }
     
+    /**
+     * Affiche une mesure absente (capteur invalide / NULL en BDD).
+     */
+    markStatAbsent(sensorName) {
+        const elements = this.sensorElements.get(sensorName);
+        if (!elements) {
+            return;
+        }
+        const config = this.getSensorConfig(sensorName);
+        if (elements.display) {
+            elements.display.innerHTML = `— <span class="stat-card-unit">${config.unit}</span>`;
+        }
+        if (elements.progress) {
+            elements.progress.style.width = '0%';
+        }
+    }
+
     /**
      * Met à jour une statistique individuelle
      * 

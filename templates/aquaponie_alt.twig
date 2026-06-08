@@ -73,9 +73,9 @@
                                 <div class="stat-card aquarium">
                                     <i class="fas fa-fish stat-card-icon"></i>
                                     <div class="stat-card-label">Aquarium</div>
-                                    <div class="stat-card-value" id="eauaqua-display">{{ last_reading_eauaqua|default(0)|number_format(1, ',', ' ') }} <span class="stat-card-unit">cm</span></div>
+                                    <div class="stat-card-value" id="eauaqua-display">{% if last_reading_eauaqua is null %}—{% else %}{{ last_reading_eauaqua|number_format(1, ',', ' ') }}{% endif %} <span class="stat-card-unit">cm</span></div>
                                     <div class="progress-bar-container">
-                                        <div class="progress-bar" id="eauaqua-progress" style="width: {{ (last_reading_eauaqua|default(0) / 100 * 100)|round(0) }}%;"></div>
+                                        <div class="progress-bar" id="eauaqua-progress" style="width: {% if last_reading_eauaqua is null %}0{% else %}{{ (last_reading_eauaqua / 100 * 100)|round(0) }}{% endif %}%;"></div>
                                     </div>
                                     <div class="stat-card-secondary">
                                         <div>Moy: <span id="eauaqua-avg">{{ avg_eauaqua|default(0)|number_format(1, ',', ' ') }}</span> cm | Écart-type: <span id="eauaqua-stddev">{{ stddev_eauaqua|default(0)|number_format(2, ',', ' ') }}</span></div>
@@ -1621,9 +1621,9 @@
                         var TemperatureEau = {{ last_reading_tempeau|default(0) }};
                         var HumiditeLast   = {{ last_reading_humi|default(0) }};
                         var LuminositeLast = {{ last_reading_lumi|default(0) }};
-                        var EauAquariumLast = {{ last_reading_eauaqua|default(0) }};
-                        var EauReserveLast  = {{ last_reading_eaureserve|default(0) }};
-                        var EauPotagerLast  = {{ last_reading_eaupota|default(0) }};
+                        var EauAquariumLast = {{ last_reading_eauaqua is null ? 'null' : last_reading_eauaqua }};
+                        var EauReserveLast  = {{ last_reading_eaureserve is null ? 'null' : last_reading_eaureserve }};
+                        var EauPotagerLast  = {{ last_reading_eaupota is null ? 'null' : last_reading_eaupota }};
 
                         // Affichage direct des dernières valeurs dans les cartes
                         setTempAir(TemperatureAir);
@@ -1681,30 +1681,42 @@
                             var displayEl = document.getElementById('eauaqua-display');
                             var progressEl = displayEl && displayEl.parentElement.querySelector('.progress-bar');
                             if (displayEl) {
-                                displayEl.innerHTML = formatFrCm(curVal) + ' <span class="stat-card-unit">cm</span>';
+                                displayEl.innerHTML = (curVal === null || curVal === undefined)
+                                    ? '— <span class="stat-card-unit">cm</span>'
+                                    : formatFrCm(curVal) + ' <span class="stat-card-unit">cm</span>';
                             }
                             if (progressEl) {
-                                progressEl.style.width = Math.min(100, Math.max(0, curVal)) + '%';
+                                progressEl.style.width = (curVal === null || curVal === undefined)
+                                    ? '0%'
+                                    : Math.min(100, Math.max(0, curVal)) + '%';
                             }
                         }
                         function setEauReserve(curVal){
                             var displayEl = document.getElementById('eaureserve-display');
                             var progressEl = displayEl && displayEl.parentElement.querySelector('.progress-bar');
                             if (displayEl) {
-                                displayEl.innerHTML = formatFrCm(curVal) + ' <span class="stat-card-unit">cm</span>';
+                                displayEl.innerHTML = (curVal === null || curVal === undefined)
+                                    ? '— <span class="stat-card-unit">cm</span>'
+                                    : formatFrCm(curVal) + ' <span class="stat-card-unit">cm</span>';
                             }
                             if (progressEl) {
-                                progressEl.style.width = Math.min(100, Math.max(0, curVal)) + '%';
+                                progressEl.style.width = (curVal === null || curVal === undefined)
+                                    ? '0%'
+                                    : Math.min(100, Math.max(0, curVal)) + '%';
                             }
                         }
                         function setEauPotager(curVal){
                             var displayEl = document.getElementById('eaupota-display');
                             var progressEl = displayEl && displayEl.parentElement.querySelector('.progress-bar');
                             if (displayEl) {
-                                displayEl.innerHTML = formatFrCm(curVal) + ' <span class="stat-card-unit">cm</span>';
+                                displayEl.innerHTML = (curVal === null || curVal === undefined)
+                                    ? '— <span class="stat-card-unit">cm</span>'
+                                    : formatFrCm(curVal) + ' <span class="stat-card-unit">cm</span>';
                             }
                             if (progressEl) {
-                                progressEl.style.width = Math.min(100, Math.max(0, curVal)) + '%';
+                                progressEl.style.width = (curVal === null || curVal === undefined)
+                                    ? '0%'
+                                    : Math.min(100, Math.max(0, curVal)) + '%';
                             }
                         }
                     </script>

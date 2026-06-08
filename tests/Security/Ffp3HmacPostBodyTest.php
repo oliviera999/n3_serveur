@@ -78,6 +78,56 @@ class Ffp3HmacPostBodyTest extends TestCase
         $this->assertSame($referenceBody, $rebuilt);
     }
 
+    /** Corps full update sans EauAquarium (capteur invalide côté firmware). */
+    public function testFullUpdateBodyOmitsMissingEauAquarium(): void
+    {
+        $params = [
+            'api_key' => 'testkey',
+            'sensor' => 'esp32-wroom',
+            'version' => '13.90',
+            'TempAir' => '25.0',
+            'Humidite' => '60.0',
+            'Pression' => '1013.0',
+            'TempEau' => '22.0',
+            'EauPotager' => '100',
+            'EauReserve' => '150',
+            'diffMaree' => '0',
+            'Luminosite' => '300',
+            'etatPompeAqua' => '1',
+            'etatPompeTank' => '0',
+            'etatHeat' => '0',
+            'etatUV' => '1',
+            'bouffeMatin' => '8',
+            'bouffeMidi' => '12',
+            'bouffeSoir' => '20',
+            'tempsGros' => '6',
+            'tempsPetits' => '6',
+            'aqThreshold' => '1',
+            'tankThreshold' => '2005',
+            'chauffageThreshold' => '18.0',
+            'tempsRemplissageSec' => '6',
+            'limFlood' => '6',
+            'WakeUp' => '0',
+            'FreqWakeUp' => '600',
+            'bouffePetits' => '0',
+            'bouffeGros' => '0',
+            'mail' => 'test@test.com',
+            'mailNotif' => 'checked',
+            'resetMode' => '0',
+            'tideEvent' => 'none',
+            'tideTrend' => '0',
+            'tideNoiseMm' => '5',
+            'tideWindowMs' => '60000',
+            'tideExtremeMm' => '10',
+            'configSynced' => '1',
+            'post_id' => 'esp32-wroom-no-aqua-1',
+        ];
+
+        $rebuilt = Ffp3HmacPostBody::buildFromParams($params);
+        $this->assertStringNotContainsString('EauAquarium=', $rebuilt);
+        $this->assertStringContainsString('EauReserve=150', $rebuilt);
+    }
+
     /** Override pompe réservoir : params parsés (une seule valeur) — le firmware ne doit plus dupliquer les clés sur le fil. */
     public function testParsedParamsOverrideEtatPompeTank(): void
     {

@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.15] - 2026-06-08
+
+### Correctif — niveaux d'eau NULL (aquaponie temps réel et stats)
+
+- **`ChartDataService::extractLastReadings`** : `EauAquarium` / `EauReserve` / `EauPotager` renvoient `null` si absent ou vide (plus de `0` trompeur).
+- **`stats-updater.js`** : affichage « — » et barre à 0 % quand une mesure est absente (LIVE).
+- **Templates aquaponie** : cartes stats alignées sur la sémantique null.
+- **Tests** : `ChartDataServiceTest`, `Ffp3RealtimeDataProviderTest`, renforts HMAC `PostDataHmacAuthTest` / `Ffp3HmacPostBodyTest`.
+
 ## [5.1.14] - 2026-06-05
 
 ### Correctif — marées aquaponie (recalcul EauAquarium, graphiques et stats)
