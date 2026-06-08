@@ -1,106 +1,157 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Variable \\$app might not be defined\\.$#"
+			message: '#^Variable \$app might not be defined\.$#'
+			identifier: variable.undefined
 			count: 23
 			path: config/routes_ffp3.php
 
 		-
-			message: "#^Variable \\$applyAuth might not be defined\\.$#"
+			message: '#^Variable \$applyAuth might not be defined\.$#'
+			identifier: variable.undefined
 			count: 7
 			path: config/routes_ffp3.php
 
 		-
-			message: "#^Variable \\$app might not be defined\\.$#"
+			message: '#^Variable \$app might not be defined\.$#'
+			identifier: variable.undefined
 			count: 42
 			path: config/routes_gallery.php
 
 		-
-			message: "#^Variable \\$app might not be defined\\.$#"
+			message: '#^Variable \$app might not be defined\.$#'
+			identifier: variable.undefined
 			count: 1
 			path: config/routes_msp1_n3pp.php
 
 		-
-			message: "#^Variable \\$msp1DataController might not be defined\\.$#"
+			message: '#^Variable \$msp1DataController might not be defined\.$#'
+			identifier: variable.undefined
 			count: 2
 			path: config/routes_msp1_n3pp.php
 
 		-
-			message: "#^Variable \\$msp1DataMethod might not be defined\\.$#"
+			message: '#^Variable \$msp1DataMethod might not be defined\.$#'
+			identifier: variable.undefined
 			count: 2
 			path: config/routes_msp1_n3pp.php
 
 		-
-			message: "#^Variable \\$n3ppDataController might not be defined\\.$#"
+			message: '#^Variable \$n3ppDataController might not be defined\.$#'
+			identifier: variable.undefined
 			count: 2
 			path: config/routes_msp1_n3pp.php
 
 		-
-			message: "#^Variable \\$n3ppDataMethod might not be defined\\.$#"
+			message: '#^Variable \$n3ppDataMethod might not be defined\.$#'
+			identifier: variable.undefined
 			count: 2
 			path: config/routes_msp1_n3pp.php
 
 		-
-			message: "#^Variable \\$pdo might not be defined\\.$#"
+			message: '#^Variable \$pdo might not be defined\.$#'
+			identifier: variable.undefined
 			count: 1
 			path: src/Command/RestartPumpCommand.php
 
 		-
-			message: "#^Variable \\$sensor on left side of \\?\\? always exists and is not nullable\\.$#"
+			message: '#^Call to function is_array\(\) with array will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Controller/AbstractOutputController.php
+
+		-
+			message: '#^Variable \$sensor on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
 			count: 1
 			path: src/Controller/AbstractPostDataController.php
 
 		-
-			message: "#^Variable \\$version on left side of \\?\\? always exists and is not nullable\\.$#"
+			message: '#^Variable \$version on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
 			count: 1
 			path: src/Controller/AbstractPostDataController.php
 
 		-
-			message: "#^Negated boolean expression is always false\\.$#"
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
 			count: 1
 			path: src/Controller/Ffp3/CacheController.php
 
 		-
-			message: "#^Left side of && is always true\\.$#"
+			message: '#^Call to function is_array\(\) with array will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Controller/Ffp3/OutputController.php
+
+		-
+			message: '#^Method App\\Controller\\LocalDataPagesController\:\:logLocalFallback\(\) returns void but does not have any side effects\.$#'
+			identifier: void.pure
+			count: 1
+			path: src/Controller/LocalDataPagesController.php
+
+		-
+			message: '#^Left side of && is always true\.$#'
+			identifier: booleanAnd.leftAlwaysTrue
 			count: 1
 			path: src/Controller/Pgl/PglStatsController.php
 
 		-
-			message: "#^Right side of && is always true\\.$#"
+			message: '#^Right side of && is always true\.$#'
+			identifier: booleanAnd.rightAlwaysTrue
 			count: 1
 			path: src/Controller/Pgl/PglStatsController.php
 
 		-
-			message: "#^Ternary operator condition is always true\\.$#"
+			message: '#^Ternary operator condition is always true\.$#'
+			identifier: ternary.alwaysTrue
 			count: 1
 			path: src/Controller/Pgl/PglStatsController.php
 
 		-
-			message: "#^Negated boolean expression is always false\\.$#"
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
 			count: 1
 			path: src/Repository/PglRepository.php
 
 		-
-			message: "#^Parameter \\#2 \\$level of class Monolog\\\\Handler\\\\StreamHandler constructor expects 100\\|200\\|250\\|300\\|400\\|500\\|550\\|600\\|'ALERT'\\|'alert'\\|'CRITICAL'\\|'critical'\\|'DEBUG'\\|'debug'\\|'EMERGENCY'\\|'emergency'\\|'ERROR'\\|'error'\\|'INFO'\\|'info'\\|'NOTICE'\\|'notice'\\|'WARNING'\\|'warning', int given\\.$#"
+			message: '#^Strict comparison using \!\=\= between mixed and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: src/Service/ChartDataService.php
+
+		-
+			message: '#^Parameter \#2 \$level of class Monolog\\Handler\\StreamHandler constructor expects 100\|200\|250\|300\|400\|500\|550\|600\|''ALERT''\|''alert''\|''CRITICAL''\|''critical''\|''DEBUG''\|''debug''\|''EMERGENCY''\|''emergency''\|''ERROR''\|''error''\|''INFO''\|''info''\|''NOTICE''\|''notice''\|''WARNING''\|''warning'', int given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Service/LogService.php
 
 		-
-			message: "#^Parameter \\#3 \\$level of class Monolog\\\\Handler\\\\RotatingFileHandler constructor expects 100\\|200\\|250\\|300\\|400\\|500\\|550\\|600\\|'ALERT'\\|'alert'\\|'CRITICAL'\\|'critical'\\|'DEBUG'\\|'debug'\\|'EMERGENCY'\\|'emergency'\\|'ERROR'\\|'error'\\|'INFO'\\|'info'\\|'NOTICE'\\|'notice'\\|'WARNING'\\|'warning', int given\\.$#"
+			message: '#^Parameter \#3 \$level of class Monolog\\Handler\\RotatingFileHandler constructor expects 100\|200\|250\|300\|400\|500\|550\|600\|''ALERT''\|''alert''\|''CRITICAL''\|''critical''\|''DEBUG''\|''debug''\|''EMERGENCY''\|''emergency''\|''ERROR''\|''error''\|''INFO''\|''info''\|''NOTICE''\|''notice''\|''WARNING''\|''warning'', int given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Service/LogService.php
 
 		-
-			message: "#^Method App\\\\Service\\\\Realtime\\\\Ffp3RealtimeDataProvider\\:\\:computeModuleUptimeSeconds\\(\\) is unused\\.$#"
+			message: '#^Method App\\Service\\Realtime\\Ffp3RealtimeDataProvider\:\:computeModuleUptimeSeconds\(\) is unused\.$#'
+			identifier: method.unused
 			count: 1
 			path: src/Service/Realtime/Ffp3RealtimeDataProvider.php
 
 		-
-			message: "#^Variable \\$_GET on left side of \\?\\? always exists and is not nullable\\.$#"
+			message: '#^Variable \$_GET on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
 			count: 1
 			path: src/Service/TemplateRenderer.php
 
 		-
-			message: "#^Call to an undefined method DateTimeInterface\\:\\:setTime\\(\\)\\.$#"
+			message: '#^Call to an undefined method DateTimeInterface\:\:setTime\(\)\.$#'
+			identifier: method.notFound
 			count: 2
 			path: src/Service/TideAnalysisService.php
+
+		-
+			message: '#^Method App\\Service\\TideCycleDetector\:\:recordExtremum\(\) never assigns null to &\$lastEventTs so it can be removed from the by\-ref type\.$#'
+			identifier: parameterByRef.unusedType
+			count: 1
+			path: src/Service/TideCycleDetector.php
