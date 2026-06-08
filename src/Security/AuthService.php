@@ -8,7 +8,7 @@ use App\Config\Env;
 
 /**
  * Service d'authentification pour les pages d'administration.
- * 
+ *
  * Gère l'authentification par session et par token.
  * Les identifiants sont stockés dans les variables d'environnement.
  */
@@ -42,7 +42,7 @@ class AuthService
 
     /**
      * Authentifie un utilisateur avec un nom d'utilisateur et un mot de passe.
-     * 
+     *
      * @param string $username Nom d'utilisateur
      * @param string $password Mot de passe en clair
      * @return bool True si l'authentification réussit
@@ -50,30 +50,30 @@ class AuthService
     public function authenticate(string $username, string $password): bool
     {
         Env::load();
-        
+
         $expectedUsername = $_ENV['ADMIN_USERNAME'] ?? null;
         $passwordHash = $_ENV['ADMIN_PASSWORD_HASH'] ?? null;
-        
+
         if ($expectedUsername === null || $passwordHash === null) {
             return false;
         }
-        
+
         // Vérifier le nom d'utilisateur
         if ($username !== $expectedUsername) {
             return false;
         }
-        
+
         // Vérifier le mot de passe avec password_verify
         if (!password_verify($password, $passwordHash)) {
             return false;
         }
-        
+
         return true;
     }
 
     /**
      * Connecte un utilisateur (démarre une session).
-     * 
+     *
      * @param string $username Nom d'utilisateur
      * @return void
      */
@@ -83,7 +83,7 @@ class AuthService
         if (session_status() === PHP_SESSION_ACTIVE) {
             session_regenerate_id(true);
         }
-        
+
         $_SESSION[self::SESSION_KEY] = true;
         $_SESSION[self::SESSION_USER_KEY] = $username;
         $_SESSION['auth_time'] = time();
@@ -91,7 +91,7 @@ class AuthService
 
     /**
      * Déconnecte l'utilisateur (détruit la session).
-     * 
+     *
      * @return void
      */
     public function logout(): void
@@ -99,25 +99,25 @@ class AuthService
         if (session_status() === PHP_SESSION_ACTIVE) {
             // Détruire toutes les variables de session
             $_SESSION = [];
-            
+
             // Supprimer le cookie de session
-            if (ini_get("session.use_cookies")) {
+            if (ini_get('session.use_cookies')) {
                 $params = session_get_cookie_params();
                 setcookie(
                     session_name(),
                     '',
                     time() - 42000,
-                    $params["path"],
-                    $params["domain"],
-                    $params["secure"],
-                    $params["httponly"]
+                    $params['path'],
+                    $params['domain'],
+                    $params['secure'],
+                    $params['httponly']
                 );
             }
-            
+
             // Détruire la session
             session_destroy();
         }
-        
+
         // Supprimer aussi le cookie de token si présent
         if (isset($_COOKIE[self::COOKIE_TOKEN_NAME])) {
             setcookie(self::COOKIE_TOKEN_NAME, '', time() - 3600, '/');
@@ -126,7 +126,7 @@ class AuthService
 
     /**
      * Vérifie si l'utilisateur est authentifié via session.
-     * 
+     *
      * @return bool True si authentifié
      */
     public function isAuthenticated(): bool
@@ -134,11 +134,11 @@ class AuthService
         if (session_status() !== PHP_SESSION_ACTIVE) {
             return false;
         }
-        
+
         if (!isset($_SESSION[self::SESSION_KEY]) || $_SESSION[self::SESSION_KEY] !== true) {
             return false;
         }
-        
+
         // Vérifier le timeout de session
         if (isset($_SESSION['auth_time'])) {
             $elapsed = time() - $_SESSION['auth_time'];
@@ -149,13 +149,13 @@ class AuthService
             // Mettre à jour le temps d'authentification pour prolonger la session
             $_SESSION['auth_time'] = time();
         }
-        
+
         return true;
     }
 
     /**
      * Vérifie si un token d'authentification est valide.
-     * 
+     *
      * @param string|null $token Token à vérifier (peut être null)
      * @return bool True si le token est valide
      */
@@ -164,21 +164,21 @@ class AuthService
         if ($token === null) {
             return false;
         }
-        
+
         Env::load();
         $expectedToken = $_ENV['ADMIN_TOKEN'] ?? null;
-        
+
         if ($expectedToken === null || $expectedToken === '') {
             return false;
         }
-        
+
         // Comparaison timing-safe
         return hash_equals($expectedToken, $token);
     }
 
     /**
      * Vérifie l'authentification par token (cookie ou paramètre URL).
-     * 
+     *
      * @param array $queryParams Paramètres de requête (pour token dans URL)
      * @return bool True si authentifié par token
      */
@@ -190,7 +190,7 @@ class AuthService
                 return true;
             }
         }
-        
+
         // Vérifier le token dans les paramètres URL (évite de le persister en cookie : fuite Referer/logs)
         if (isset($queryParams['token'])) {
             $token = is_scalar($queryParams['token']) ? (string) $queryParams['token'] : '';
@@ -198,7 +198,7 @@ class AuthService
                 return true;
             }
         }
-        
+
         return false;
     }
 
@@ -224,7 +224,7 @@ class AuthService
 
     /**
      * Retourne le nom d'utilisateur actuellement connecté.
-     * 
+     *
      * @return string|null Nom d'utilisateur ou null si non connecté
      */
     public function getCurrentUser(): ?string
@@ -237,7 +237,7 @@ class AuthService
 
     /**
      * Génère un hash de mot de passe pour stockage dans .env.
-     * 
+     *
      * @param string $password Mot de passe en clair
      * @return string Hash du mot de passe
      */

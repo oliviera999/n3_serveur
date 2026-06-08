@@ -30,7 +30,7 @@ class N3ppSensorRepository extends AbstractSensorRepository
 
     public function insert(N3ppSensorData $data): void
     {
-        $sql = "INSERT INTO `" . $this->getTableName() . "` (
+        $sql = 'INSERT INTO `' . $this->getTableName() . '` (
             sensor, version,
             TempAir, Humidite, Luminosite,
             Humid1, Humid2, Humid3, Humid4, HumidMoy,
@@ -46,7 +46,7 @@ class N3ppSensorRepository extends AbstractSensorRepository
             :mail, :mailNotif, :heureArrosage, :resetMode,
             :etatPompe, :tempsArrosage, :bootCount,
             :reading_time
-        )";
+        )';
 
         $this->execute($sql, [
             ':sensor' => $data->sensor,

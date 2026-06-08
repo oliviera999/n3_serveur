@@ -41,7 +41,7 @@ class N3ppOutputRepository extends AbstractOutputRepository
      */
     public function getPartOutputs(int $board, int $limit = 3): array
     {
-        $sql = "SELECT id, name, gpio, state FROM `" . $this->getTable() . "` WHERE board = :board ORDER BY id ASC LIMIT " . (int) $limit;
+        $sql = 'SELECT id, name, gpio, state FROM `' . $this->getTable() . '` WHERE board = :board ORDER BY id ASC LIMIT ' . (int) $limit;
         return $this->fetchAll($sql, [':board' => $board]);
     }
 
@@ -50,7 +50,7 @@ class N3ppOutputRepository extends AbstractOutputRepository
      */
     public function updateById(int $id, string $state): void
     {
-        $sql = "UPDATE `" . $this->getTable() . "` SET state = :state WHERE id = :id";
+        $sql = 'UPDATE `' . $this->getTable() . '` SET state = :state WHERE id = :id';
         $this->execute($sql, [':state' => $state, ':id' => $id]);
     }
 
@@ -59,12 +59,12 @@ class N3ppOutputRepository extends AbstractOutputRepository
      */
     public function deleteById(int $id): ?int
     {
-        $row = $this->fetchOne("SELECT board FROM `" . $this->getTable() . "` WHERE id = :id", [':id' => $id]);
+        $row = $this->fetchOne('SELECT board FROM `' . $this->getTable() . '` WHERE id = :id', [':id' => $id]);
         if ($row === null) {
             return null;
         }
         $board = (int) $row['board'];
-        $this->execute("DELETE FROM `" . $this->getTable() . "` WHERE id = :id", [':id' => $id]);
+        $this->execute('DELETE FROM `' . $this->getTable() . '` WHERE id = :id', [':id' => $id]);
         return $board;
     }
 
@@ -73,7 +73,7 @@ class N3ppOutputRepository extends AbstractOutputRepository
      */
     public function countForBoard(int $board): int
     {
-        $sql = "SELECT COUNT(*) FROM `" . $this->getTable() . "` WHERE board = :board";
+        $sql = 'SELECT COUNT(*) FROM `' . $this->getTable() . '` WHERE board = :board';
         $val = $this->fetchScalar($sql, [':board' => $board]);
         return (int) $val;
     }
@@ -84,7 +84,7 @@ class N3ppOutputRepository extends AbstractOutputRepository
     public function deleteBoardIfEmpty(int $board): void
     {
         if ($this->countForBoard($board) === 0) {
-            $this->execute("DELETE FROM `Boards` WHERE board = :board", [':board' => $board]);
+            $this->execute('DELETE FROM `Boards` WHERE board = :board', [':board' => $board]);
         }
     }
 

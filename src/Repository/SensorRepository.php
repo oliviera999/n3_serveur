@@ -6,6 +6,7 @@ namespace App\Repository;
 
 use App\Config\TableConfig;
 use App\Domain\SensorData;
+use App\Util\TableValidator;
 use PDO;
 
 /**
@@ -45,7 +46,7 @@ class SensorRepository extends AbstractRepository
      */
     public function insert(SensorData $data): void
     {
-        $table = TableConfig::getDataTable();
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
 
         $hasPostId = ($data->postId !== null) && $this->columnExists($table, 'post_id');
 
@@ -118,7 +119,7 @@ class SensorRepository extends AbstractRepository
             $params[':postId'] = $data->postId;
         }
 
-        $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})";
+        $sql = "INSERT INTO `{$table}` ({$columns}) VALUES ({$placeholders})";
 
         $this->execute($sql, $params);
     }
@@ -129,11 +130,11 @@ class SensorRepository extends AbstractRepository
      */
     public function existsByPostId(string $postId): bool
     {
-        $table = TableConfig::getDataTable();
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
         if (!$this->columnExists($table, 'post_id')) {
             return false;
         }
-        $sql = "SELECT 1 FROM {$table} WHERE post_id = :pid LIMIT 1";
+        $sql = "SELECT 1 FROM `{$table}` WHERE post_id = :pid LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([':pid' => $postId]);
         return $stmt->fetch() !== false;
@@ -148,7 +149,7 @@ class SensorRepository extends AbstractRepository
         }
         try {
             $stmt = $this->pdo->prepare(
-                "SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = :t AND COLUMN_NAME = :c LIMIT 1"
+                'SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = :t AND COLUMN_NAME = :c LIMIT 1'
             );
             $stmt->execute([':t' => $table, ':c' => $column]);
             $cache[$key] = ($stmt->fetch() !== false);

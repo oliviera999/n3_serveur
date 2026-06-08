@@ -17,7 +17,8 @@ abstract class AbstractRealtimeApiController
 {
     public function __construct(
         protected RealtimeDataProviderInterface $provider
-    ) {}
+    ) {
+    }
 
     public function getLatestSensors(Request $request, Response $response): Response
     {

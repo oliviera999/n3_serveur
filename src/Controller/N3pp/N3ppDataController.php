@@ -30,7 +30,10 @@ class N3ppDataController extends AbstractDataController
         parent::__construct($renderer, $sensorRepo, $csrfService, $dateRangeExtractor, $csvExportService, $chartDataService);
     }
 
-    protected function getBoard(): int { return 3; }
+    protected function getBoard(): int
+    {
+        return 3;
+    }
 
     protected function getChartColumns(): array
     {
@@ -51,12 +54,30 @@ class N3ppDataController extends AbstractDataController
         ];
     }
 
-    protected function getTemplateName(): string { return 'n3pp_data.twig'; }
-    protected function getPageTitle(string $testSuffix): string { return 'Données serre / élevage - n3 iot' . $testSuffix; }
-    protected function getNavActive(): string { return 'elevage'; }
-    protected function getCsvPrefix(): string { return 'n3pp_data'; }
-    protected function getRealtimeApiBase(string $environment): string { return RealtimeUrlHelper::getN3ppRealtimeApiBase($environment); }
-    protected function getTestEnvironmentName(): string { return 'n3pp_test'; }
+    protected function getTemplateName(): string
+    {
+        return 'n3pp_data.twig';
+    }
+    protected function getPageTitle(string $testSuffix): string
+    {
+        return 'Données serre / élevage - n3 iot' . $testSuffix;
+    }
+    protected function getNavActive(): string
+    {
+        return 'elevage';
+    }
+    protected function getCsvPrefix(): string
+    {
+        return 'n3pp_data';
+    }
+    protected function getRealtimeApiBase(string $environment): string
+    {
+        return RealtimeUrlHelper::getN3ppRealtimeApiBase($environment);
+    }
+    protected function getTestEnvironmentName(): string
+    {
+        return 'n3pp_test';
+    }
 
     protected function getDataConfig(string $environment): array
     {

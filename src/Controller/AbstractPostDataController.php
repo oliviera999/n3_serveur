@@ -23,7 +23,8 @@ abstract class AbstractPostDataController
 
     public function __construct(
         protected LogService $logger
-    ) {}
+    ) {
+    }
 
     abstract protected function componentName(): string;
 
@@ -155,17 +156,17 @@ abstract class AbstractPostDataController
             return $hookResp;
         }
 
-        $sanitize = fn(string $key): ?string =>
+        $sanitize = fn (string $key): ?string =>
             isset($params[$key]) && is_scalar($params[$key])
                 ? trim((string) $params[$key])
                 : null;
 
-        $toFloat = fn(string $key): ?float =>
+        $toFloat = fn (string $key): ?float =>
             isset($params[$key]) && is_numeric($params[$key])
                 ? (float) $params[$key]
                 : null;
 
-        $toInt = fn(string $key): ?int =>
+        $toInt = fn (string $key): ?int =>
             isset($params[$key]) && is_numeric($params[$key])
                 ? (int) $params[$key]
                 : null;

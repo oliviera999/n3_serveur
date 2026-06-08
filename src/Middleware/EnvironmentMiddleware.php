@@ -12,7 +12,7 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 
 /**
  * Middleware pour définir l'environnement (PROD/TEST)
- * 
+ *
  * Permet de factoriser le code des routes qui nécessitent un environnement spécifique
  */
 class EnvironmentMiddleware implements MiddlewareInterface
@@ -27,10 +27,10 @@ class EnvironmentMiddleware implements MiddlewareInterface
         $allowed = ['prod', 'test', 'test3', 's3', 's3test', 'n3pp_test', 'msp_test'];
         if (!in_array($environment, $allowed, true)) {
             throw new \InvalidArgumentException(
-                "Environment must be one of: " . implode(', ', $allowed) . ", got: {$environment}"
+                'Environment must be one of: ' . implode(', ', $allowed) . ", got: {$environment}"
             );
         }
-        
+
         $this->environment = $environment;
     }
 
@@ -38,12 +38,11 @@ class EnvironmentMiddleware implements MiddlewareInterface
     {
         // S'assurer que l'environnement est chargé avant de le définir
         \App\Config\Env::load();
-        
+
         // Définir l'environnement pour cette requête
         TableConfig::setEnvironment($this->environment);
-        
+
         // Continuer le traitement de la requête
         return $handler->handle($request);
     }
 }
-

@@ -13,7 +13,10 @@ if (php_sapi_name() !== 'cli' && strpos(php_sapi_name(), 'cgi') === false) {
 }
 
 try {
-    $orchestrator = new CronOrchestrator();
+    // Câblage via le conteneur DI (mêmes définitions que l'application web).
+    /** @var \Psr\Container\ContainerInterface $container */
+    $container = require __DIR__ . '/config/container.php';
+    $orchestrator = $container->get(CronOrchestrator::class);
     $orchestrator->execute();
     exit(0);
 } catch (\Throwable $e) {

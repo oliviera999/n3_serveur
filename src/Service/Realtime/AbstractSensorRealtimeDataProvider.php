@@ -25,7 +25,8 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
         protected AbstractSensorRepository $sensorRepo,
         private readonly int $board,
         private readonly int $expectedReadingIntervalMinutes = 2,
-    ) {}
+    ) {
+    }
 
     abstract protected function getOutputsForBoard(): array;
 

@@ -98,7 +98,7 @@ class PumpService
         $stmt->execute([':gpio' => $gpio]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $row !== false ? (int)$row['state'] : null;
+        return $row !== false ? (int) $row['state'] : null;
     }
 
     /**

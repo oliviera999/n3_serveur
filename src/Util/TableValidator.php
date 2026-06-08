@@ -6,7 +6,7 @@ namespace App\Util;
 
 /**
  * Validation des noms de tables pour prévenir les injections SQL.
- * 
+ *
  * Centralise les whitelists de tables autorisées.
  */
 class TableValidator
@@ -70,7 +70,7 @@ class TableValidator
         if (!in_array($tableName, $allowedTables, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Table name not allowed for %s: %s. Allowed: %s",
+                    'Table name not allowed for %s: %s. Allowed: %s',
                     $tableType,
                     $tableName,
                     implode(', ', $allowedTables)

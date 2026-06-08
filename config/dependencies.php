@@ -13,6 +13,8 @@ use App\Repository\OutputRepository;
 use App\Repository\PglRepository;
 use App\Repository\SensorReadRepository;
 use App\Repository\SensorRepository;
+use App\Security\AuthService;
+use App\Security\CsrfService;
 use App\Service\ChartDataService;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
@@ -28,11 +30,9 @@ use App\Service\SensorStatisticsService;
 use App\Service\StatisticsAggregatorService;
 use App\Service\SystemHealthService;
 use App\Service\TemplateRenderer;
-use App\Service\TideCycleDetector;
 use App\Service\TideAnalysisService;
+use App\Service\TideCycleDetector;
 use App\Service\WaterBalanceService;
-use App\Security\CsrfService;
-use App\Security\AuthService;
 use Psr\Container\ContainerInterface;
 
 return [
@@ -141,7 +141,6 @@ return [
         return new OutputService(
             $c->get(OutputRepository::class),
             $c->get(BoardRepository::class),
-            $c->get(OutputCacheService::class),
             $c->get(SensorReadRepository::class)
         );
     },
@@ -317,7 +316,6 @@ return [
 
     \App\Controller\Ffp3\CacheController::class => function (ContainerInterface $c) {
         return new \App\Controller\Ffp3\CacheController(
-            $c->get(\App\Service\OutputCacheService::class),
             $c->get(\App\Service\TemplateRenderer::class)
         );
     },
@@ -509,5 +507,27 @@ return [
             $c->get(TemplateRenderer::class)
         );
     },
-];
 
+    // ====================================================================
+    // COMMANDS (CRON) — câblées via le conteneur (cf. run-cron.php)
+    // ====================================================================
+    \App\Command\RestartPumpCommand::class => function (ContainerInterface $c) {
+        return new \App\Command\RestartPumpCommand(
+            $c->get(PumpService::class),
+            $c->get(LogService::class)
+        );
+    },
+
+    \App\Command\CronOrchestrator::class => function (ContainerInterface $c) {
+        return new \App\Command\CronOrchestrator(
+            $c->get(LogService::class),
+            $c->get(SensorDataService::class),
+            $c->get(PumpService::class),
+            $c->get(SensorStatisticsService::class),
+            $c->get(NotificationService::class),
+            $c->get(SensorReadRepository::class),
+            $c->get(SystemHealthService::class),
+            $c->get(\App\Command\RestartPumpCommand::class)
+        );
+    },
+];

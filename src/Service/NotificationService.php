@@ -27,7 +27,7 @@ class NotificationService
     {
         // Chargement des paramètres d'envoi depuis l'environnement
         $this->recipient = $_ENV['NOTIF_EMAIL_RECIPIENT'] ?? 'user@example.com';
-        $this->from      = $_ENV['MAIL_FROM'] ?? 'Aquaponie <noreply@example.com>';
+        $this->from = $_ENV['MAIL_FROM'] ?? 'Aquaponie <noreply@example.com>';
     }
 
     /**
@@ -70,9 +70,9 @@ class NotificationService
      */
     public function notifyMareesProblem(): void
     {
-        $subject = "Alerte système : problème de marées";
+        $subject = 'Alerte système : problème de marées';
         $message = "Le système a détecté une déviation standard anormalement faible sur les mesures de niveau d'eau de l'aquarium, " .
-                   "suggérant un problème avec les marées. La pompe a été mise en pause puis redémarrée.";
+                   'suggérant un problème avec les marées. La pompe a été mise en pause puis redémarrée.';
 
         $this->sendMail($this->recipient, $subject, $message);
     }
@@ -102,7 +102,7 @@ class NotificationService
      */
     public function notifyNoSensorData(): void
     {
-        $subject = "Alerte système : aucune donnée capteur disponible";
+        $subject = 'Alerte système : aucune donnée capteur disponible';
         $message = "Le système n'a enregistré aucune nouvelle donnée de capteur récemment. Veuillez vérifier la connexion ou le capteur.";
 
         $this->sendMail($this->recipient, $subject, $message);
@@ -113,8 +113,8 @@ class NotificationService
      */
     public function notifySystemOffline(): void
     {
-        $subject = "Alerte système : système hors ligne";
-        $message = "Le système ne semble plus transmettre de données depuis la période définie. Veuillez intervenir.";
+        $subject = 'Alerte système : système hors ligne';
+        $message = 'Le système ne semble plus transmettre de données depuis la période définie. Veuillez intervenir.';
 
         $this->sendMail($this->recipient, $subject, $message);
     }

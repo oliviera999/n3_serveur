@@ -32,7 +32,7 @@ class ChartDataServiceTest extends TestCase
 
         // Vérifier que les valeurs sont JSON encodées
         $this->assertJson($result['EauAquarium']);
-        
+
         // Vérifier l'ordre inversé (chronologique)
         $eauAquariumDecoded = json_decode($result['EauAquarium'], true);
         $this->assertEquals([11, 10], $eauAquariumDecoded);
@@ -49,12 +49,12 @@ class ChartDataServiceTest extends TestCase
 
         // Vérifier que c'est du JSON
         $this->assertJson($result);
-        
+
         // Décoder et vérifier que ce sont des timestamps en millisecondes
         $timestamps = json_decode($result, true);
         $this->assertIsArray($timestamps);
         $this->assertCount(2, $timestamps);
-        
+
         // Les timestamps doivent être > 0 et en millisecondes (13 chiffres)
         foreach ($timestamps as $ts) {
             $this->assertGreaterThan(0, $ts);
@@ -111,4 +111,3 @@ class ChartDataServiceTest extends TestCase
         $this->assertEquals(0, $result['tempeau']);
     }
 }
-

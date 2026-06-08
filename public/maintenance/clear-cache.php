@@ -20,7 +20,9 @@ $projectRoot = dirname(__DIR__, 2);
 if (file_exists($projectRoot . '/.env')) {
     $lines = @file($projectRoot . '/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [];
     foreach ($lines as $line) {
-        if (strpos(trim($line), '#') === 0) continue;
+        if (strpos(trim($line), '#') === 0) {
+            continue;
+        }
         if (preg_match('/^([^=]+)=(.*)$/', $line, $m)) {
             $key = trim($m[1]);
             $value = trim($m[2], " \t\n\r\0\x0B\"'");
@@ -77,7 +79,7 @@ foreach ($cacheDirs as $cacheDir) {
         echo "{$count} fichier(s) supprime(s).\n";
     } catch (Throwable $e) {
         $errors[] = "{$dirName}: " . $e->getMessage();
-        echo "ERREUR: " . $e->getMessage() . "\n";
+        echo 'ERREUR: ' . $e->getMessage() . "\n";
     }
 }
 
@@ -92,5 +94,5 @@ if (empty($errors)) {
     echo "Cache vide avec succes ! ({$totalDeleted} fichiers)\n";
     echo "Rechargez la page gallery : https://iot.olution.info/gallery\n";
 } else {
-    echo "Erreurs : " . implode(' ; ', $errors) . "\n";
+    echo 'Erreurs : ' . implode(' ; ', $errors) . "\n";
 }

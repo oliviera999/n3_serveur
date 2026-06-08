@@ -83,7 +83,7 @@ class SensorDataService
 
     /**
      * Valide qu'un nom de colonne est autorisé.
-     * 
+     *
      * @param string $column Nom de la colonne à valider
      * @throws \InvalidArgumentException Si la colonne n'est pas autorisée
      */
@@ -91,8 +91,9 @@ class SensorDataService
     {
         if (!in_array($column, self::ALLOWED_COLUMNS, true)) {
             throw new \InvalidArgumentException(
-                sprintf('Colonne non autorisée: %s. Colonnes valides: %s', 
-                    $column, 
+                sprintf(
+                    'Colonne non autorisée: %s. Colonnes valides: %s',
+                    $column,
                     implode(', ', self::ALLOWED_COLUMNS)
                 )
             );

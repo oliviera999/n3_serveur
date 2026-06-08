@@ -7,13 +7,12 @@ namespace App\Controller;
 use App\Security\AuthService;
 use App\Security\CsrfService;
 use App\Service\TemplateRenderer;
-use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Contrôleur d'authentification.
- * 
+ *
  * Gère l'affichage du formulaire de login et le traitement de l'authentification.
  */
 class AuthController
@@ -60,7 +59,7 @@ class AuthController
     private function getBasePath(Request $request): string
     {
         $scriptName = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? '');
-        
+
         if (strpos($scriptName, '/public/index.php') !== false) {
             // Accès via public/index.php : remonter de 2 niveaux depuis /public/
             $basePath = dirname(dirname($scriptName));
@@ -68,7 +67,7 @@ class AuthController
             // Accès via index.php racine : utiliser le répertoire de SCRIPT_NAME
             $basePath = dirname($scriptName);
         }
-        
+
         return rtrim($basePath, '/');
     }
 
@@ -79,7 +78,7 @@ class AuthController
     {
         // Récupérer le basePath
         $basePath = $this->getBasePath($request);
-        
+
         // Si déjà authentifié, rediriger vers la page demandée ou l'accueil
         if ($this->authService->isAuthenticated()) {
             $queryParams = $request->getQueryParams();
@@ -98,7 +97,7 @@ class AuthController
             'error' => $error,
             'redirect' => $redirect,
             'base_path' => $basePath !== '' ? $basePath : '',
-            'csrf_token' => $this->csrfService->getToken()
+            'csrf_token' => $this->csrfService->getToken(),
         ]);
 
         $response->getBody()->write($html);
@@ -112,7 +111,7 @@ class AuthController
     {
         // Récupérer le basePath
         $basePath = $this->getBasePath($request);
-        
+
         // Vérifier le rate limiting
         if ($this->isRateLimited()) {
             return $this->redirectToLogin($response, $basePath, 'Trop de tentatives de connexion. Veuillez réessayer dans quelques minutes.');
@@ -140,7 +139,7 @@ class AuthController
         if ($this->authService->authenticate($username, $password)) {
             $this->authService->login($username);
             $this->recordLoginAttempt(true);
-            
+
             // Rediriger vers la page demandée ou l'accueil
             return $response
                 ->withStatus(302)
@@ -158,11 +157,11 @@ class AuthController
     public function handleLogout(Request $request, Response $response): Response
     {
         $this->authService->logout();
-        
+
         // Récupérer le basePath
         $basePath = $this->getBasePath($request);
         $loginUrl = ($basePath !== '' ? $basePath : '') . '/login?message=' . urlencode('Vous avez été déconnecté.');
-        
+
         return $response
             ->withStatus(302)
             ->withHeader('Location', $loginUrl);
@@ -191,17 +190,17 @@ class AuthController
 
         $attempts = $_SESSION['login_attempts'] ?? [];
         $now = time();
-        
+
         // Nettoyer les tentatives anciennes
-        $attempts = array_filter($attempts, function($timestamp) use ($now) {
+        $attempts = array_filter($attempts, function ($timestamp) use ($now) {
             return ($now - $timestamp) < self::LOGIN_ATTEMPT_WINDOW;
         });
-        
+
         // Vérifier le nombre de tentatives
         if (count($attempts) >= self::MAX_LOGIN_ATTEMPTS) {
             return true;
         }
-        
+
         return false;
     }
 

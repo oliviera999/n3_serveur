@@ -34,6 +34,10 @@ desktop.ini
 # Patch / explorations frontend (non versionne)
 /ameliorations-visuelles-iot-serveur/
 
+# Dossier source des photos (build-input local) : les images finales sont
+# versionnees dans public/assets/images/aquaponie-description/. Eviter le doublon.
+/photos aquaponie/
+
 # PHP / PHPUnit / PHPStan / PHP-CS-Fixer
 .phpunit.result.cache
 .phpunit.cache/

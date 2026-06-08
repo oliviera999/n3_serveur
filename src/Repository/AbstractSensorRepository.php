@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
-use PDO;
-
 /**
  * Classe abstraite pour les repositories de capteurs MSP1 et N3PP.
  * Fournit les méthodes communes : getLatest, fetchBetween, getLastReadingDate, countReadingsToday.

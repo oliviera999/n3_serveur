@@ -5,7 +5,6 @@ namespace Tests\Controller;
 use App\Controller\AbstractPostDataController;
 use App\Service\LogService;
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Psr7\Factory\ResponseFactory;
 use Slim\Psr7\Factory\ServerRequestFactory;
@@ -18,12 +17,18 @@ class AbstractPostDataControllerTest extends TestCase
     private function createController(): AbstractPostDataController
     {
         $logger = $this->createMock(LogService::class);
-        return new class($logger) extends AbstractPostDataController {
-            protected function componentName(): string { return 'TestModule'; }
-            protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object {
+        return new class ($logger) extends AbstractPostDataController {
+            protected function componentName(): string
+            {
+                return 'TestModule';
+            }
+            protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object
+            {
                 return new \stdClass();
             }
-            protected function insertData(object $data): void {}
+            protected function insertData(object $data): void
+            {
+            }
         };
     }
 

@@ -136,4 +136,3 @@ class AuthGuardMiddleware
         return rtrim($basePath, '/');
     }
 }
-

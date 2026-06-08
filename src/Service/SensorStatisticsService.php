@@ -25,7 +25,9 @@ class SensorStatisticsService
     /**
      * @param PDO $pdo Connexion PDO à la base de données (injectée)
      */
-    public function __construct(private PDO $pdo) {}
+    public function __construct(private PDO $pdo)
+    {
+    }
 
     /**
      * Calcule le minimum d'une colonne sur une période donnée.
@@ -89,12 +91,12 @@ class SensorStatisticsService
         }
 
         $table = TableConfig::getDataTable();
-        $sql  = sprintf('SELECT %s(%s) AS val FROM %s WHERE reading_time BETWEEN :start AND :end', $func, $column, $table);
+        $sql = sprintf('SELECT %s(%s) AS val FROM %s WHERE reading_time BETWEEN :start AND :end', $func, $column, $table);
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([':start' => $start, ':end' => $end]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $row['val'] !== null ? (float)$row['val'] : null;
+        return $row['val'] !== null ? (float) $row['val'] : null;
     }
 
     /**
@@ -112,7 +114,7 @@ class SensorStatisticsService
     {
         $columns = array_values(array_filter(
             $columns,
-            static fn($c): bool => in_array($c, self::NUMERIC_COLUMNS, true)
+            static fn ($c): bool => in_array($c, self::NUMERIC_COLUMNS, true)
         ));
         if ($columns === []) {
             return [];
@@ -145,16 +147,24 @@ class SensorStatisticsService
         $result = [];
         foreach ($columns as $col) {
             $result[$col] = [
-                'min'    => isset($row["min_{$col}"])    ? (float) $row["min_{$col}"]    : null,
-                'max'    => isset($row["max_{$col}"])    ? (float) $row["max_{$col}"]    : null,
-                'avg'    => isset($row["avg_{$col}"])    ? (float) $row["avg_{$col}"]    : null,
+                'min' => isset($row["min_{$col}"]) ? (float) $row["min_{$col}"] : null,
+                'max' => isset($row["max_{$col}"]) ? (float) $row["max_{$col}"] : null,
+                'avg' => isset($row["avg_{$col}"]) ? (float) $row["avg_{$col}"] : null,
                 'stddev' => isset($row["stddev_{$col}"]) ? (float) $row["stddev_{$col}"] : null,
             ];
             // Conserver null si la BDD a retourné NULL (pas de donnees)
-            if ($row["min_{$col}"] === null)    $result[$col]['min']    = null;
-            if ($row["max_{$col}"] === null)    $result[$col]['max']    = null;
-            if ($row["avg_{$col}"] === null)    $result[$col]['avg']    = null;
-            if ($row["stddev_{$col}"] === null) $result[$col]['stddev'] = null;
+            if ($row["min_{$col}"] === null) {
+                $result[$col]['min'] = null;
+            }
+            if ($row["max_{$col}"] === null) {
+                $result[$col]['max'] = null;
+            }
+            if ($row["avg_{$col}"] === null) {
+                $result[$col]['avg'] = null;
+            }
+            if ($row["stddev_{$col}"] === null) {
+                $result[$col]['stddev'] = null;
+            }
         }
         return $result;
     }
@@ -171,11 +181,11 @@ class SensorStatisticsService
         }
 
         // La sous-requête sélectionne les N dernières valeurs, la requête externe calcule STDDEV
-        $limit = (int)$limit;
+        $limit = (int) $limit;
         if ($limit < 1) {
             $limit = 1;
         }
-        
+
         $table = TableConfig::getDataTable();
         $sql = <<<SQL
             SELECT STDDEV(sub.$column) as stddev_amount
@@ -191,6 +201,6 @@ class SensorStatisticsService
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $result && $result['stddev_amount'] !== null ? (float)$result['stddev_amount'] : null;
+        return $result && $result['stddev_amount'] !== null ? (float) $result['stddev_amount'] : null;
     }
 }

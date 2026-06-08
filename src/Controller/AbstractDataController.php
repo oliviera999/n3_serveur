@@ -158,7 +158,7 @@ abstract class AbstractDataController
             $lc = lcfirst($col);
             $values = array_filter(
                 array_column($readings, $col),
-                fn($v) => $v !== null && $v !== '' && is_numeric($v)
+                fn ($v) => $v !== null && $v !== '' && is_numeric($v)
             );
             $stats["avg_{$lc}"] = $values !== [] ? array_sum($values) / count($values) : null;
             $stats["min_{$lc}"] = $values !== [] ? min($values) : null;

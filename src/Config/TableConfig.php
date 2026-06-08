@@ -181,7 +181,7 @@ class TableConfig
     {
         if (!in_array($env, self::ENVIRONMENTS, true)) {
             throw new \InvalidArgumentException(
-                "Environment must be one of: " . implode(', ', self::ENVIRONMENTS) . ", got: {$env}"
+                'Environment must be one of: ' . implode(', ', self::ENVIRONMENTS) . ", got: {$env}"
             );
         }
         self::$requestEnvironment = $env;

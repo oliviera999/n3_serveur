@@ -7,7 +7,6 @@ namespace App\Service;
 use App\Config\TableConfig;
 use App\Util\StateNormalizer;
 use App\Util\TableValidator;
-use App\Service\OutputSyncService;
 use PDO;
 use PDOException;
 
@@ -65,7 +64,7 @@ class OutputCacheService
 
         // Lecture directe BDD (cache supprimé)
         $table = TableConfig::getOutputsTable();
-        
+
         // Construire requête IN sécurisée
         $placeholders = [];
         $params = [];
@@ -74,21 +73,21 @@ class OutputCacheService
             $placeholders[] = $ph;
             $params[$ph] = $gpio;
         }
-        
+
         // Valider le nom de table via la whitelist centralisée
         TableValidator::validateOutputsTable($table);
-        
-        $sql = "SELECT gpio, state FROM `{$table}` WHERE gpio IN (" . implode(',', $placeholders) . ")";
+
+        $sql = "SELECT gpio, state FROM `{$table}` WHERE gpio IN (" . implode(',', $placeholders) . ')';
         $stmt = $pdo->prepare($sql);
         $stmt->execute($params);
         $rows = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        
+
         // Indexer par gpio pour accès rapide
         $byGpio = [];
         foreach ($rows as $row) {
-            $byGpio[(int)$row['gpio']] = $row['state'];
+            $byGpio[(int) $row['gpio']] = $row['state'];
         }
-        
+
         // Normalisation via StateNormalizer ; si absent en BDD, utiliser valeur par défaut
         $result = [];
         foreach ($gpioList as $gpio) {
@@ -96,14 +95,14 @@ class OutputCacheService
                 ? $byGpio[$gpio]
                 : (self::DEFAULT_STATE[$gpio] ?? 0);
             $state = StateNormalizer::normalize($gpio, $state);
-            $result[(string)$gpio] = $state;
+            $result[(string) $gpio] = $state;
         }
-        
+
         // v11.172: Ajouter noms symboliques (double format rétrocompatible)
         // Permet au firmware d'utiliser les clés numériques OU symboliques
         $gpioToSymbol = OutputSyncService::getGpioMapping();
         foreach ($result as $gpioStr => $state) {
-            $gpio = (int)$gpioStr;
+            $gpio = (int) $gpioStr;
             if (isset($gpioToSymbol[$gpio])) {
                 $result[$gpioToSymbol[$gpio]] = $state;
             }
@@ -132,8 +131,11 @@ class OutputCacheService
                 $result['triggerOtaCheck'] = true;
             }
         } catch (PDOException $e) {
+            // Chemin de lecture firmware (hot path) : ne PAS créer la table ici (pas de DDL
+            // par requête). Table absente = aucun trigger en attente -> on ignore simplement.
+            // La table est créée par la migration CREATE_FFP3_OTA_TRIGGER_TABLE.sql, et à défaut
+            // par le chemin d'écriture admin (setTriggerOtaCheckRequested) lors d'une demande.
             if ($this->isMissingTableException($e)) {
-                $this->ensureOtaTriggerTableExists($pdo);
                 return;
             }
             throw $e;
@@ -217,38 +219,5 @@ class OutputCacheService
             );
         }
         $pdo->exec($sql);
-    }
-    
-    /**
-     * Invalide le cache (no-op, conservé pour compatibilité API).
-     * Le cache a été supprimé ; les appels depuis OutputService restent sans effet.
-     */
-    public function invalidateCache(): void
-    {
-        // NOP - cache supprimé
-    }
-
-    /**
-     * Invalide le cache pour tous les environnements (no-op, conservé pour compatibilité API).
-     */
-    public function invalidateAllEnvironments(): void
-    {
-        // NOP - cache supprimé
-    }
-    
-    /**
-     * Obtient les statistiques du cache (toujours vide, conservé pour compatibilité API).
-     *
-     * @return array Statistiques avec valid=false, cached_items=0
-     */
-    public function getCacheStats(): array
-    {
-        return [
-            'valid' => false,
-            'environment' => TableConfig::getEnvironment(),
-            'age_seconds' => null,
-            'ttl_seconds' => 0,
-            'cached_items' => 0,
-        ];
     }
 }

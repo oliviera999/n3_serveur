@@ -8,7 +8,6 @@ use App\Controller\AbstractPostDataController;
 use App\Controller\Concerns\HmacAuthTrait;
 use App\Security\SignatureValidator;
 use App\Service\LogService;
-use App\Util\ResponseHelper;
 use PHPUnit\Framework\TestCase;
 use Slim\Psr7\Factory\ResponseFactory;
 use Slim\Psr7\Response;

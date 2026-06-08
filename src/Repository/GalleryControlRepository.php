@@ -159,4 +159,3 @@ class GalleryControlRepository extends AbstractRepository
         $this->updateByGpio($slug, 100, $version);
     }
 }
-

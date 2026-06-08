@@ -40,7 +40,7 @@ class TideStatsController
         $stats = $this->tideService->compute($startDate, $endDate);
 
         $sixMonthsAgo = date('Y-m-d H:i:s', strtotime('-6 months', strtotime($endDate)));
-        $weeklyStats  = $this->tideService->computeWeeklySeries($sixMonthsAgo, $endDate);
+        $weeklyStats = $this->tideService->computeWeeklySeries($sixMonthsAgo, $endDate);
         // JSON_HEX_TAG/HEX_AMP/HEX_QUOT/HEX_APOS : echappe </script>, &, ', " si une valeur
         // (label, environnement) en contenait, evitant une rupture du contexte JS dans le Twig |raw.
         $weeklyStatsJson = json_encode(
@@ -53,14 +53,14 @@ class TideStatsController
 
         $html = $this->renderer->render('tide_stats.twig', [
             'start_date' => $startDate,
-            'end_date'   => $endDate,
-            'marnage_moyen'    => $stats['marnage_moyen'],
+            'end_date' => $endDate,
+            'marnage_moyen' => $stats['marnage_moyen'],
             'frequence_marees' => $stats['frequence_marees'],
-            'cycles'           => $stats['cycles'],
-            'reserve_pos'      => $stats['reserve_pos'],
-            'reserve_neg'      => $stats['reserve_neg'],
-            'reserve_var'      => $stats['reserve_var'],
-            'diff_maree'       => $stats['diff_maree'],
+            'cycles' => $stats['cycles'],
+            'reserve_pos' => $stats['reserve_pos'],
+            'reserve_neg' => $stats['reserve_neg'],
+            'reserve_var' => $stats['reserve_var'],
+            'diff_maree' => $stats['diff_maree'],
             'weekly_stats_json' => $weeklyStatsJson,
             'version' => Version::getWithPrefix(),
             'environment' => $environment,

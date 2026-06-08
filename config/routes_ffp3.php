@@ -6,11 +6,6 @@
  */
 
 use App\Controller\Ffp3\OutputController;
-use App\Controller\Ffp3\CacheController;
-use App\Controller\Ffp3\DashboardController;
-use App\Controller\Ffp3\ExportController;
-use App\Controller\Ffp3\TideStatsController;
-use App\Controller\SupervisionController;
 use App\Middleware\EnvironmentMiddleware;
 
 // API Temps Réel FFP3 - PUBLIQUES
@@ -21,14 +16,30 @@ registerRealtimeRoutes($app, '/api/realtime3', 's3');
 registerRealtimeRoutes($app, '/api/realtime-s3-test', 's3test');
 
 // Endpoints Firmware ESP32 - PUBLICS (factorisés)
-registerFirmwareRoutes($app, '', 'prod', '/post-data', '/api/outputs/state', '/heartbeat',
-    ['/post-ffp3-data.php', '/ffp3datas/post-ffp3-data2.php'], ['/heartbeat.php']);
+registerFirmwareRoutes(
+    $app,
+    '',
+    'prod',
+    '/post-data',
+    '/api/outputs/state',
+    '/heartbeat',
+    ['/post-ffp3-data.php', '/ffp3datas/post-ffp3-data2.php'],
+    ['/heartbeat.php']
+);
 $app->group('', function ($group) {
     $group->get('/ffp3control/ffp3-outputs-action2.php', [OutputController::class, 'getOutputsState']);
 })->add(new EnvironmentMiddleware('prod'));
 
-registerFirmwareRoutes($app, '', 'test', '/post-data-test', '/api/outputs-test/state', '/heartbeat-test',
-    [], ['/heartbeat-test.php']);
+registerFirmwareRoutes(
+    $app,
+    '',
+    'test',
+    '/post-data-test',
+    '/api/outputs-test/state',
+    '/heartbeat-test',
+    [],
+    ['/heartbeat-test.php']
+);
 registerFirmwareRoutes($app, '', 'test3', '/post-data3-test', '/api/outputs3-test/state', '/heartbeat3-test');
 registerFirmwareRoutes($app, '', 's3', '/post-data3', '/api/outputs3/state', '/heartbeat3');
 registerFirmwareRoutes($app, '', 's3test', '/post-data-s3-test', '/api/outputs-s3-test/state', '/heartbeat-s3-test');

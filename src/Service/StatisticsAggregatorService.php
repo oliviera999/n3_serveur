@@ -8,7 +8,7 @@ use DateTimeInterface;
 
 /**
  * Service d'agrégation des statistiques sur plusieurs capteurs
- * 
+ *
  * Consolide les appels répétitifs aux statistiques pour simplifier les contrôleurs
  */
 class StatisticsAggregatorService
@@ -50,7 +50,7 @@ class StatisticsAggregatorService
 
     /**
      * Agrège les statistiques pour un seul capteur
-     * 
+     *
      * @param string $column Nom de la colonne du capteur
      * @param DateTimeInterface|string $start Date/heure de début
      * @param DateTimeInterface|string $end   Date/heure de fin
@@ -59,16 +59,16 @@ class StatisticsAggregatorService
     public function aggregateForSensor(string $column, DateTimeInterface|string $start, DateTimeInterface|string $end): array
     {
         return [
-            'min'    => $this->statsService->min($column, $start, $end),
-            'max'    => $this->statsService->max($column, $start, $end),
-            'avg'    => $this->statsService->avg($column, $start, $end),
+            'min' => $this->statsService->min($column, $start, $end),
+            'max' => $this->statsService->max($column, $start, $end),
+            'avg' => $this->statsService->avg($column, $start, $end),
             'stddev' => $this->statsService->stddev($column, $start, $end),
         ];
     }
 
     /**
      * Formate les statistiques pour la compatibilité legacy (variables séparées)
-     * 
+     *
      * @param array $stats Statistiques structurées depuis aggregateAllStats()
      * @return array Tableau aplati avec clés legacy (min_tempair, max_tempair, etc.)
      */
@@ -77,20 +77,20 @@ class StatisticsAggregatorService
         $flattened = [];
 
         $mapping = [
-            'TempAir'     => 'tempair',
-            'TempEau'     => 'tempeau',
-            'Humidite'    => 'humi',
-            'Luminosite'  => 'lumi',
+            'TempAir' => 'tempair',
+            'TempEau' => 'tempeau',
+            'Humidite' => 'humi',
+            'Luminosite' => 'lumi',
             'EauAquarium' => 'eauaqua',
-            'EauReserve'  => 'eaureserve',
-            'EauPotager'  => 'eaupota',
+            'EauReserve' => 'eaureserve',
+            'EauPotager' => 'eaupota',
         ];
 
         foreach ($mapping as $column => $shortName) {
             if (isset($stats[$column])) {
-                $flattened["min_{$shortName}"]    = $stats[$column]['min'];
-                $flattened["max_{$shortName}"]    = $stats[$column]['max'];
-                $flattened["avg_{$shortName}"]    = $stats[$column]['avg'];
+                $flattened["min_{$shortName}"] = $stats[$column]['min'];
+                $flattened["max_{$shortName}"] = $stats[$column]['max'];
+                $flattened["avg_{$shortName}"] = $stats[$column]['avg'];
                 $flattened["stddev_{$shortName}"] = $stats[$column]['stddev'];
             }
         }
@@ -98,4 +98,3 @@ class StatisticsAggregatorService
         return $flattened;
     }
 }
-

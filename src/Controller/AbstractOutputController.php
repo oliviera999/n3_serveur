@@ -22,7 +22,8 @@ abstract class AbstractOutputController
         protected LogService $logger,
         protected TemplateRenderer $renderer,
         protected AuthService $authService,
-    ) {}
+    ) {
+    }
 
     abstract protected function defaultBoard(): int;
     abstract protected function componentName(): string;

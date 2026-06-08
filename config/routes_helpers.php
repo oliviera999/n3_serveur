@@ -6,15 +6,15 @@
  * Inclus depuis public/index.php avant les fichiers routes_*.php
  */
 
+use App\Controller\Ffp3\CacheController;
+use App\Controller\Ffp3\DashboardController;
 use App\Controller\Ffp3\ExportController;
 use App\Controller\Ffp3\HeartbeatController;
 use App\Controller\Ffp3\OutputController;
 use App\Controller\Ffp3\PostDataController;
 use App\Controller\Ffp3\RealtimeApiController;
-use App\Controller\SupervisionController;
-use App\Controller\Ffp3\CacheController;
-use App\Controller\Ffp3\DashboardController;
 use App\Controller\Ffp3\TideStatsController;
+use App\Controller\SupervisionController;
 use App\Middleware\EnvironmentMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -93,7 +93,7 @@ function registerRedirects($app, array $redirects, string $basePath): void
 {
     foreach ($redirects as [$from, $to, $methods]) {
         $location = $basePath . $to;
-        $handler = fn($req, $res) => $res->withHeader('Location', $location)->withStatus(301);
+        $handler = fn ($req, $res) => $res->withHeader('Location', $location)->withStatus(301);
         if ($methods === ['GET', 'POST']) {
             $app->map(['GET', 'POST'], $from, $handler);
         } else {
@@ -113,11 +113,33 @@ function registerAssetRoute($app, string $path, array $allowedFiles, string $con
             return $response->withStatus(404);
         }
         $filePath = __DIR__ . '/../public/assets/' . ($subDir ? $subDir . '/' : '') . $filename;
-        if (file_exists($filePath)) {
-            $response->getBody()->write(file_get_contents($filePath));
-            return $response->withHeader('Content-Type', $contentType);
+        if (!file_exists($filePath)) {
+            return $response->withStatus(404);
         }
-        return $response->withStatus(404);
+
+        // Cache navigateur : ces fichiers changent au déploiement (version d'app) ;
+        // on autorise un cache long avec revalidation conditionnelle (ETag / Last-Modified).
+        $mtime = (int) filemtime($filePath);
+        $size = (int) filesize($filePath);
+        $etag = '"' . dechex($mtime) . '-' . dechex($size) . '"';
+        $lastModified = gmdate('D, d M Y H:i:s', $mtime) . ' GMT';
+
+        $response = $response
+            ->withHeader('Content-Type', $contentType)
+            ->withHeader('Cache-Control', 'public, max-age=2592000')
+            ->withHeader('ETag', $etag)
+            ->withHeader('Last-Modified', $lastModified);
+
+        // Revalidation : si le client a déjà une copie à jour, renvoyer 304 sans corps.
+        $ifNoneMatch = trim($request->getHeaderLine('If-None-Match'));
+        $ifModifiedSince = trim($request->getHeaderLine('If-Modified-Since'));
+        if (($ifNoneMatch !== '' && $ifNoneMatch === $etag)
+            || ($ifModifiedSince !== '' && @strtotime($ifModifiedSince) >= $mtime)) {
+            return $response->withStatus(304);
+        }
+
+        $response->getBody()->write((string) file_get_contents($filePath));
+        return $response;
     });
 }
 

@@ -25,7 +25,8 @@ class GalleryControlController
         private readonly TemplateRenderer $renderer,
         private readonly AuthService $authService,
         private readonly LogService $logger,
-    ) {}
+    ) {
+    }
 
     public function showControlPage(Request $request, Response $response, array $args): Response
     {
@@ -202,8 +203,12 @@ class GalleryControlController
             $value = in_array($value, ['1', 'true', 'on'], true) ? '1' : '0';
         } elseif ($paramName === 'sleepTime') {
             $sleep = (int) $value;
-            if ($sleep < 10) $sleep = 10;
-            if ($sleep > 86400) $sleep = 86400;
+            if ($sleep < 10) {
+                $sleep = 10;
+            }
+            if ($sleep > 86400) {
+                $sleep = 86400;
+            }
             $value = (string) $sleep;
         }
 
@@ -353,4 +358,3 @@ class GalleryControlController
         ];
     }
 }
-

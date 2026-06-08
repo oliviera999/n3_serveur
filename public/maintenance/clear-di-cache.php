@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Script de maintenance temporaire : vidage du cache DI et Twig via HTTP.
  *
@@ -37,9 +38,9 @@ foreach ($cacheDirs as $cacheDir) {
 // OpCache
 if (function_exists('opcache_reset') && opcache_get_status()) {
     opcache_reset();
-    $results[] = "OpCache : vidé";
+    $results[] = 'OpCache : vidé';
 } else {
-    $results[] = "OpCache : non disponible ou non activé";
+    $results[] = 'OpCache : non disponible ou non activé';
 }
 
 echo "Cache DI/Twig vidé\n";

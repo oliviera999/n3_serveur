@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Util\TableValidator;
-use PDO;
 
 /**
  * Repository pour gérer les boards (cartes ESP32) en base de données
- * 
+ *
  * Note: La table Boards est partagée entre PROD et TEST (pas de Boards2)
  */
 class BoardRepository extends AbstractRepository
@@ -17,7 +16,7 @@ class BoardRepository extends AbstractRepository
     /**
      * Récupère uniquement les boards actives pour un environnement donné
      * Une board est considérée active si elle a des outputs dans la table correspondante
-     * 
+     *
      * @param string $outputsTable Nom de la table outputs (ffp3Outputs ou ffp3Outputs2)
      * @return array<int, array<string, mixed>>
      */
@@ -25,7 +24,7 @@ class BoardRepository extends AbstractRepository
     {
         // Valider le nom de table pour sécurité
         TableValidator::validateOutputsTable($outputsTable);
-        
+
         $sql = "SELECT DISTINCT b.board, b.last_request
                 FROM Boards b
                 INNER JOIN `{$outputsTable}` o ON b.board = o.board
@@ -43,13 +42,13 @@ class BoardRepository extends AbstractRepository
 
     /**
      * Récupère une board spécifique par son nom
-     * 
+     *
      * @param string $board Nom de la board
      * @return array<string, mixed>|null
      */
     public function findByName(string $board): ?array
     {
-        $sql = "SELECT board, last_request FROM Boards WHERE board = :board";
+        $sql = 'SELECT board, last_request FROM Boards WHERE board = :board';
 
         $result = $this->fetchOne($sql, [':board' => $board]);
         if ($result === null) {
@@ -71,27 +70,27 @@ class BoardRepository extends AbstractRepository
      */
     public function updateLastRequest(string $board): bool
     {
-        $sql = "UPDATE Boards SET last_request = NOW() WHERE board = :board";
-        
+        $sql = 'UPDATE Boards SET last_request = NOW() WHERE board = :board';
+
         return $this->execute($sql, [':board' => $board]);
     }
 
     /**
      * Crée une nouvelle board
-     * 
+     *
      * @param string $board Nom de la board
      * @return bool Succès de l'opération
      */
     public function create(string $board): bool
     {
-        $sql = "INSERT INTO Boards (board) VALUES (:board)";
-        
+        $sql = 'INSERT INTO Boards (board) VALUES (:board)';
+
         return $this->execute($sql, [':board' => $board]);
     }
 
     /**
      * Vérifie si une board existe
-     * 
+     *
      * @param string $board Nom de la board
      * @return bool
      */

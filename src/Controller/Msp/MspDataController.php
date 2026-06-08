@@ -30,7 +30,10 @@ class MspDataController extends AbstractDataController
         parent::__construct($renderer, $sensorRepo, $csrfService, $dateRangeExtractor, $csvExportService, $chartDataService);
     }
 
-    protected function getBoard(): int { return 2; }
+    protected function getBoard(): int
+    {
+        return 2;
+    }
 
     protected function getChartColumns(): array
     {
@@ -54,12 +57,30 @@ class MspDataController extends AbstractDataController
         ];
     }
 
-    protected function getTemplateName(): string { return 'msp1_data.twig'; }
-    protected function getPageTitle(string $testSuffix): string { return 'Données station météo - Le potager' . $testSuffix; }
-    protected function getNavActive(): string { return 'potager'; }
-    protected function getCsvPrefix(): string { return 'msp1_data'; }
-    protected function getRealtimeApiBase(string $environment): string { return RealtimeUrlHelper::getMspRealtimeApiBase($environment); }
-    protected function getTestEnvironmentName(): string { return 'msp_test'; }
+    protected function getTemplateName(): string
+    {
+        return 'msp1_data.twig';
+    }
+    protected function getPageTitle(string $testSuffix): string
+    {
+        return 'Données station météo - Le potager' . $testSuffix;
+    }
+    protected function getNavActive(): string
+    {
+        return 'potager';
+    }
+    protected function getCsvPrefix(): string
+    {
+        return 'msp1_data';
+    }
+    protected function getRealtimeApiBase(string $environment): string
+    {
+        return RealtimeUrlHelper::getMspRealtimeApiBase($environment);
+    }
+    protected function getTestEnvironmentName(): string
+    {
+        return 'msp_test';
+    }
 
     protected function getDataConfig(string $environment): array
     {

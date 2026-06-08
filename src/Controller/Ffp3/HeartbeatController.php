@@ -47,7 +47,7 @@ class HeartbeatController
         $params = RequestHelper::extractParams($request);
 
         // Valeur scalar ou chaîne vide (évite erreur si POST malformé avec tableaux)
-        $get = static fn(string $k): string => isset($params[$k]) && is_scalar($params[$k])
+        $get = static fn (string $k): string => isset($params[$k]) && is_scalar($params[$k])
             ? (string) $params[$k] : '';
 
         // Récupération des paramètres (valeurs numériques)
@@ -71,7 +71,7 @@ class HeartbeatController
             $this->logger->warning('Heartbeat: CRC mismatch', [
                 'calculated' => $calcCrc,
                 'received' => $crc,
-                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a'
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
             ]);
             return ResponseHelper::text($response, "CRC mismatch (calc={$calcCrc}, posted={$crc})", 400);
         }

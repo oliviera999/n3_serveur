@@ -44,7 +44,7 @@ final class PglHeartbeatController
             return ResponseHelper::text($response, 'API key invalide', 401);
         }
 
-        $get = static fn(string $k): string => isset($params[$k]) && is_scalar($params[$k])
+        $get = static fn (string $k): string => isset($params[$k]) && is_scalar($params[$k])
             ? trim((string) $params[$k]) : '';
 
         $uptime = $this->sanitizeNumeric($get('uptime'));
