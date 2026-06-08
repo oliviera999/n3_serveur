@@ -36,11 +36,11 @@ class SensorReadRepository extends AbstractRepository
         }
 
         // Requête SQL multi-colonnes, triée par date décroissante
-        $table = TableConfig::getDataTable();
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
         $sql = <<<SQL
             SELECT id, TempAir, Humidite, TempEau, EauPotager, EauAquarium, EauReserve, diffMaree, Luminosite,
                    etatPompeAqua, etatPompeTank, etatHeat, etatUV, bouffePetits, bouffeGros, reading_time
-            FROM {$table}
+            FROM `{$table}`
             WHERE reading_time BETWEEN :start AND :end
             ORDER BY reading_time DESC
         SQL;
@@ -148,11 +148,11 @@ class SensorReadRepository extends AbstractRepository
      */
     public function getReadingsSince(string $sinceDate): array
     {
-        $table = TableConfig::getDataTable();
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
         $sql = <<<SQL
             SELECT id, TempAir, Humidite, TempEau, EauPotager, EauAquarium, EauReserve, diffMaree, Luminosite,
                    etatPompeAqua, etatPompeTank, etatHeat, etatUV, bouffePetits, bouffeGros, reading_time
-            FROM {$table}
+            FROM `{$table}`
             WHERE reading_time > :since_date
             ORDER BY reading_time ASC
         SQL;
@@ -169,8 +169,8 @@ class SensorReadRepository extends AbstractRepository
      */
     public function countReadingsBetween(string $start, string $end): int
     {
-        $table = TableConfig::getDataTable();
-        $sql = "SELECT COUNT(*) as count FROM {$table} WHERE reading_time BETWEEN :start AND :end";
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
+        $sql = "SELECT COUNT(*) as count FROM `{$table}` WHERE reading_time BETWEEN :start AND :end";
 
         $result = $this->fetchOne($sql, [':start' => $start, ':end' => $end]);
         return (int) ($result['count'] ?? 0);

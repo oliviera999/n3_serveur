@@ -39,7 +39,7 @@ final class HeartbeatRepository extends AbstractRepository
         }
 
         $this->execute(
-            "INSERT INTO {$table} (uptime, freeHeap, minHeap, reboots) "
+            "INSERT INTO `{$table}` (uptime, freeHeap, minHeap, reboots) "
                 . 'VALUES (:uptime, :free, :min, :reboots)',
             [
                 ':uptime' => $uptime,
