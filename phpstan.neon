@@ -1,6 +1,9 @@
-# Configuration PHPStan — serveur n3 IoT (Slim 4 / PHP 8.1+)
+# Configuration PHPStan 2.x — serveur n3 IoT (Slim 4 / PHP 8.1+)
 # Niveau 5 : compromis raisonnable pour un codebase existant.
 # Augmenter progressivement (6 -> 8) au fil du nettoyage.
+# Baseline (phpstan-baseline.neon) : 100 erreurs existantes, en majorité des faux
+# positifs de scoping ($app/$applyAuth dans config/routes_*.php inclus depuis
+# public/index.php). À résorber progressivement.
 
 includes:
     - phpstan-baseline.neon
