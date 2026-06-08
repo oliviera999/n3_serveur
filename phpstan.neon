@@ -2,7 +2,12 @@
 # Niveau 5 : compromis raisonnable pour un codebase existant.
 # Augmenter progressivement (6 -> 8) au fil du nettoyage.
 
+includes:
+    - phpstan-baseline.neon
+
 parameters:
+    # Tolère les patterns d'ignore non déclenchés (évite l'échec selon la version de PHPStan).
+    reportUnmatchedIgnoredErrors: false
     level: 5
     paths:
         - src

@@ -1,0 +1,106 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Variable \\$app might not be defined\\.$#"
+			count: 23
+			path: config/routes_ffp3.php
+
+		-
+			message: "#^Variable \\$applyAuth might not be defined\\.$#"
+			count: 7
+			path: config/routes_ffp3.php
+
+		-
+			message: "#^Variable \\$app might not be defined\\.$#"
+			count: 42
+			path: config/routes_gallery.php
+
+		-
+			message: "#^Variable \\$app might not be defined\\.$#"
+			count: 1
+			path: config/routes_msp1_n3pp.php
+
+		-
+			message: "#^Variable \\$msp1DataController might not be defined\\.$#"
+			count: 2
+			path: config/routes_msp1_n3pp.php
+
+		-
+			message: "#^Variable \\$msp1DataMethod might not be defined\\.$#"
+			count: 2
+			path: config/routes_msp1_n3pp.php
+
+		-
+			message: "#^Variable \\$n3ppDataController might not be defined\\.$#"
+			count: 2
+			path: config/routes_msp1_n3pp.php
+
+		-
+			message: "#^Variable \\$n3ppDataMethod might not be defined\\.$#"
+			count: 2
+			path: config/routes_msp1_n3pp.php
+
+		-
+			message: "#^Variable \\$pdo might not be defined\\.$#"
+			count: 1
+			path: src/Command/RestartPumpCommand.php
+
+		-
+			message: "#^Variable \\$sensor on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/Controller/AbstractPostDataController.php
+
+		-
+			message: "#^Variable \\$version on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/Controller/AbstractPostDataController.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: src/Controller/Ffp3/CacheController.php
+
+		-
+			message: "#^Left side of && is always true\\.$#"
+			count: 1
+			path: src/Controller/Pgl/PglStatsController.php
+
+		-
+			message: "#^Right side of && is always true\\.$#"
+			count: 1
+			path: src/Controller/Pgl/PglStatsController.php
+
+		-
+			message: "#^Ternary operator condition is always true\\.$#"
+			count: 1
+			path: src/Controller/Pgl/PglStatsController.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: src/Repository/PglRepository.php
+
+		-
+			message: "#^Parameter \\#2 \\$level of class Monolog\\\\Handler\\\\StreamHandler constructor expects 100\\|200\\|250\\|300\\|400\\|500\\|550\\|600\\|'ALERT'\\|'alert'\\|'CRITICAL'\\|'critical'\\|'DEBUG'\\|'debug'\\|'EMERGENCY'\\|'emergency'\\|'ERROR'\\|'error'\\|'INFO'\\|'info'\\|'NOTICE'\\|'notice'\\|'WARNING'\\|'warning', int given\\.$#"
+			count: 1
+			path: src/Service/LogService.php
+
+		-
+			message: "#^Parameter \\#3 \\$level of class Monolog\\\\Handler\\\\RotatingFileHandler constructor expects 100\\|200\\|250\\|300\\|400\\|500\\|550\\|600\\|'ALERT'\\|'alert'\\|'CRITICAL'\\|'critical'\\|'DEBUG'\\|'debug'\\|'EMERGENCY'\\|'emergency'\\|'ERROR'\\|'error'\\|'INFO'\\|'info'\\|'NOTICE'\\|'notice'\\|'WARNING'\\|'warning', int given\\.$#"
+			count: 1
+			path: src/Service/LogService.php
+
+		-
+			message: "#^Method App\\\\Service\\\\Realtime\\\\Ffp3RealtimeDataProvider\\:\\:computeModuleUptimeSeconds\\(\\) is unused\\.$#"
+			count: 1
+			path: src/Service/Realtime/Ffp3RealtimeDataProvider.php
+
+		-
+			message: "#^Variable \\$_GET on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/Service/TemplateRenderer.php
+
+		-
+			message: "#^Call to an undefined method DateTimeInterface\\:\\:setTime\\(\\)\\.$#"
+			count: 2
+			path: src/Service/TideAnalysisService.php
