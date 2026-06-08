@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use Monolog\Formatter\LineFormatter;
 
 /**
  * Service centralisé de gestion des logs applicatifs.
@@ -126,7 +126,7 @@ class LogService
     {
         $this->logger->info($event);
     }
-    
+
     /**
      * Ajoute une tâche (sans horodatage explicite) au fichier de log (niveau INFO).
      *
@@ -136,7 +136,7 @@ class LogService
     {
         $this->logger->info($event);
     }
-    
+
     /**
      * Ajoute un nom (sans horodatage et sans saut de ligne) au fichier de log
      */
@@ -147,8 +147,20 @@ class LogService
     }
 
     // Méthodes niveau PSR-3 – garde API existante
-    public function info(string $message, array $context = []): void     { $this->log(Logger::INFO, $message, $context); }
-    public function warning(string $message, array $context = []): void  { $this->log(Logger::WARNING, $message, $context); }
-    public function error(string $message, array $context = []): void    { $this->log(Logger::ERROR, $message, $context); }
-    public function critical(string $message, array $context = []): void { $this->log(Logger::CRITICAL, $message, $context); }
+    public function info(string $message, array $context = []): void
+    {
+        $this->log(Logger::INFO, $message, $context);
+    }
+    public function warning(string $message, array $context = []): void
+    {
+        $this->log(Logger::WARNING, $message, $context);
+    }
+    public function error(string $message, array $context = []): void
+    {
+        $this->log(Logger::ERROR, $message, $context);
+    }
+    public function critical(string $message, array $context = []): void
+    {
+        $this->log(Logger::CRITICAL, $message, $context);
+    }
 }

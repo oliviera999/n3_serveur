@@ -31,7 +31,7 @@ class MspSensorRepository extends AbstractSensorRepository
 
     public function insert(MspSensorData $data): void
     {
-        $sql = "INSERT INTO `" . $this->getTableName() . "` (
+        $sql = 'INSERT INTO `' . $this->getTableName() . '` (
             sensor, version,
             TempAirInt, TempAirExt, HumidAirInt, HumidAirExt,
             LuminositeA, LuminositeB, LuminositeC, LuminositeD, LuminositeMoy,
@@ -47,7 +47,7 @@ class MspSensorRepository extends AbstractSensorRepository
             :wakeUp, :seuilSec, :freqWakeUp, :seuilPontDiv,
             :mail, :mailNotif, :resetMode, :bootCount,
             :reading_time
-        )";
+        )';
 
         $this->execute($sql, [
             ':sensor' => $data->sensor,

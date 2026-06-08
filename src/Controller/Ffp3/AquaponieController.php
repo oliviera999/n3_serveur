@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controller\Ffp3;
 
-use App\Service\LogService;
 use App\Config\TableConfig;
 use App\Config\Version;
 use App\Repository\SensorReadRepository;
 use App\Service\ChartDataService;
 use App\Service\CsvExportService;
 use App\Service\DateRangeExtractor;
+use App\Service\LogService;
 use App\Service\StatisticsAggregatorService;
 use App\Service\TemplateRenderer;
 use App\Service\TideCycleDetector;
@@ -61,7 +61,7 @@ class AquaponieController
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
             ]);
-            $response->getBody()->write("ERREUR AquaponieController: " . $e->getMessage());
+            $response->getBody()->write('ERREUR AquaponieController: ' . $e->getMessage());
             return $response->withStatus(500)->withHeader('Content-Type', 'text/plain; charset=utf-8');
         }
     }
@@ -91,7 +91,7 @@ class AquaponieController
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
             ]);
-            $response->getBody()->write("ERREUR AquaponieController: " . $e->getMessage());
+            $response->getBody()->write('ERREUR AquaponieController: ' . $e->getMessage());
             return $response->withStatus(500)->withHeader('Content-Type', 'text/plain; charset=utf-8');
         }
     }
@@ -133,7 +133,11 @@ class AquaponieController
         $body = $request->getParsedBody() ?? [];
         if (isset($body['export_csv'])) {
             return $this->csvExportService->export(
-                $this->sensorReadRepo, $startDate, $endDate, $response, 'sensor_data'
+                $this->sensorReadRepo,
+                $startDate,
+                $endDate,
+                $response,
+                'sensor_data'
             );
         }
 
@@ -150,7 +154,7 @@ class AquaponieController
 
         return array_merge([
             'start_date' => $startDate,
-            'end_date'   => $endDate,
+            'end_date' => $endDate,
             'reading_time' => $reading_time,
             'tide_peaks' => json_encode(
                 $extrema['peaks'],

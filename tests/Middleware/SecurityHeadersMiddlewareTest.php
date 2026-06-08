@@ -26,7 +26,7 @@ final class SecurityHeadersMiddlewareTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->passthroughHandler = new class implements RequestHandlerInterface {
+        $this->passthroughHandler = new class () implements RequestHandlerInterface {
             public function handle(ServerRequestInterface $request): ResponseInterface
             {
                 return new Response(200);

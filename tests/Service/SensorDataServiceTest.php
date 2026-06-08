@@ -40,9 +40,9 @@ class SensorDataServiceTest extends TestCase
         )');
 
         // Valeur sous le seuil mini, valeur normale, valeur au-dessus du max
-        $this->pdo->exec("INSERT INTO ffp3Data (TempEau) VALUES (2.0)");
-        $this->pdo->exec("INSERT INTO ffp3Data (TempEau) VALUES (4.0)");
-        $this->pdo->exec("INSERT INTO ffp3Data (TempEau) VALUES (30.0)");
+        $this->pdo->exec('INSERT INTO ffp3Data (TempEau) VALUES (2.0)');
+        $this->pdo->exec('INSERT INTO ffp3Data (TempEau) VALUES (4.0)');
+        $this->pdo->exec('INSERT INTO ffp3Data (TempEau) VALUES (30.0)');
 
         $logger = new LogService();
         $this->service = new SensorDataService($this->pdo, $logger);
@@ -52,7 +52,7 @@ class SensorDataServiceTest extends TestCase
     {
         $stats = $this->service->cleanAllSensorData();
 
-        $stmt   = $this->pdo->query('SELECT TempEau FROM ffp3Data ORDER BY id');
+        $stmt = $this->pdo->query('SELECT TempEau FROM ffp3Data ORDER BY id');
         $values = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
         // La première et la troisième valeur doivent être NULL après nettoyage
@@ -70,9 +70,9 @@ class SensorDataServiceTest extends TestCase
         putenv('CLEAN_MIN_EAU_RESERVE=15');
         putenv('CLEAN_MAX_EAU_RESERVE=1000');
 
-        $this->pdo->exec("INSERT INTO ffp3Data (EauReserve) VALUES (10.0)");
-        $this->pdo->exec("INSERT INTO ffp3Data (EauReserve) VALUES (87.0)");
-        $this->pdo->exec("INSERT INTO ffp3Data (EauReserve) VALUES (1500.0)");
+        $this->pdo->exec('INSERT INTO ffp3Data (EauReserve) VALUES (10.0)');
+        $this->pdo->exec('INSERT INTO ffp3Data (EauReserve) VALUES (87.0)');
+        $this->pdo->exec('INSERT INTO ffp3Data (EauReserve) VALUES (1500.0)');
 
         $stats = $this->service->cleanAllSensorData();
 
@@ -89,9 +89,9 @@ class SensorDataServiceTest extends TestCase
         putenv('CLEAN_MIN_EAU_AQUARIUM=40');
         putenv('CLEAN_MAX_EAU_AQUARIUM=700');
 
-        $this->pdo->exec("INSERT INTO ffp3Data (EauAquarium) VALUES (30.0)");
-        $this->pdo->exec("INSERT INTO ffp3Data (EauAquarium) VALUES (209.0)");
-        $this->pdo->exec("INSERT INTO ffp3Data (EauAquarium) VALUES (800.0)");
+        $this->pdo->exec('INSERT INTO ffp3Data (EauAquarium) VALUES (30.0)');
+        $this->pdo->exec('INSERT INTO ffp3Data (EauAquarium) VALUES (209.0)');
+        $this->pdo->exec('INSERT INTO ffp3Data (EauAquarium) VALUES (800.0)');
 
         $service = new SensorDataService($this->pdo, new LogService());
         $stats = $service->cleanAllSensorData();

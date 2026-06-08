@@ -6,7 +6,7 @@ namespace App\Config;
 
 /**
  * Gestion de la version du projet
- * 
+ *
  * Version centralisée selon Semantic Versioning (MAJOR.MINOR.PATCH)
  */
 class Version
@@ -18,7 +18,7 @@ class Version
 
     /**
      * Récupère la version du projet
-     * 
+     *
      * @return string Version (ex: "2.0.0")
      */
     public static function get(): string
@@ -31,13 +31,13 @@ class Version
                 self::$version = '1.0.0'; // Fallback
             }
         }
-        
+
         return self::$version;
     }
 
     /**
      * Récupère la version avec préfixe "v"
-     * 
+     *
      * @return string Version (ex: "v2.0.0")
      */
     public static function getWithPrefix(): string
@@ -47,7 +47,7 @@ class Version
 
     /**
      * Récupère le nom complet de la release
-     * 
+     *
      * @return string Nom complet (ex: "FFP3 Datas v2.0.0")
      */
     public static function getFullName(): string
@@ -55,4 +55,3 @@ class Version
         return 'FFP3 Datas ' . self::getWithPrefix();
     }
 }
-

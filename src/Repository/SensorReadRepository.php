@@ -71,7 +71,7 @@ class SensorReadRepository extends AbstractRepository
     {
         $table = TableValidator::validateDataTable(TableConfig::getDataTable());
         $sql = "SELECT MAX(reading_time) AS last_date FROM `{$table}`";
-        
+
         $result = $this->fetchOne($sql);
         return $result['last_date'] ?? null;
     }
@@ -173,7 +173,7 @@ class SensorReadRepository extends AbstractRepository
         $sql = "SELECT COUNT(*) as count FROM {$table} WHERE reading_time BETWEEN :start AND :end";
 
         $result = $this->fetchOne($sql, [':start' => $start, ':end' => $end]);
-        return (int)($result['count'] ?? 0);
+        return (int) ($result['count'] ?? 0);
     }
 
     /**
@@ -185,7 +185,7 @@ class SensorReadRepository extends AbstractRepository
     {
         $table = TableValidator::validateDataTable(TableConfig::getDataTable());
         $sql = "SELECT version FROM `{$table}` ORDER BY reading_time DESC LIMIT 1";
-        
+
         $result = $this->fetchOne($sql);
         return $result['version'] ?? 'N/A';
     }

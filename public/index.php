@@ -6,33 +6,18 @@ use App\Config\Env;
 use App\Controller\AuthController;
 use App\Controller\Ffp3\AquaponieController;
 use App\Controller\Ffp3\AquaponieDescriptionController;
-use App\Controller\Ffp3\CacheController;
-use App\Controller\Ffp3\DashboardController;
-use App\Controller\Ffp3\ExportController;
-use App\Controller\Ffp3\HeartbeatController;
-use App\Controller\Ffp3\OutputController;
-use App\Controller\Ffp3\PostDataController;
-use App\Controller\Ffp3\RealtimeApiController;
-use App\Controller\Ffp3\TideStatsController;
-use App\Controller\Gallery\GalleryUploadController;
-use App\Controller\Gallery\GalleryViewController;
 use App\Controller\HomeController;
 use App\Controller\LocalDataPagesController;
 use App\Controller\Msp\MspDataController;
 use App\Controller\Msp\MspDescriptionController;
 use App\Controller\Msp\MspOutputController;
-use App\Controller\Msp\MspPostDataController;
-use App\Controller\Msp\MspRealtimeApiController;
 use App\Controller\N3pp\N3ppDataController;
 use App\Controller\N3pp\N3ppDescriptionController;
 use App\Controller\N3pp\N3ppOutputController;
-use App\Controller\N3pp\N3ppPostDataController;
-use App\Controller\N3pp\N3ppRealtimeApiController;
 use App\Controller\Pgl\PglHeartbeatController;
 use App\Controller\Pgl\PglPostDataController;
 use App\Controller\Pgl\PglRealtimeApiController;
 use App\Controller\Pgl\PglStatsController;
-use App\Controller\SupervisionController;
 use App\Middleware\AuthGuardMiddleware;
 use App\Middleware\EnvironmentMiddleware;
 use App\Middleware\RawPostBodyMiddleware;
@@ -389,12 +374,12 @@ $app->get('/robots.txt', function (Request $request, Response $response) use ($a
     $basePath = $app->getBasePath() ?: '';
     $body = "User-agent: *\n"
         . "Allow: /\n"
-        . "Disallow: " . $basePath . "/admin\n"
-        . "Disallow: " . $basePath . "/api\n"
-        . "Disallow: " . $basePath . "/dashboard\n"
-        . "Disallow: " . $basePath . "/supervision\n"
-        . "Disallow: " . $basePath . "/export-data\n"
-        . "Disallow: " . $basePath . "/pgl/\n";
+        . 'Disallow: ' . $basePath . "/admin\n"
+        . 'Disallow: ' . $basePath . "/api\n"
+        . 'Disallow: ' . $basePath . "/dashboard\n"
+        . 'Disallow: ' . $basePath . "/supervision\n"
+        . 'Disallow: ' . $basePath . "/export-data\n"
+        . 'Disallow: ' . $basePath . "/pgl/\n";
     $response->getBody()->write($body);
     return $response
         ->withHeader('Content-Type', 'text/plain; charset=utf-8')
@@ -439,19 +424,19 @@ $app->map(['GET', 'POST'], '/serre', [($useLocalDataFallback ? LocalDataPagesCon
 $app->get('/serre-control', [N3ppOutputController::class, 'showControlPage']);
 
 // Redirections 301 MSP1 / N3PP
-$app->get('/msp1_data', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/meteo')->withStatus(301));
+$app->get('/msp1_data', fn ($rq, $rs) => $rs->withHeader('Location', $basePath . '/meteo')->withStatus(301));
 $app->map(['GET', 'POST'], '/msp1/msp1datas/msp1-data.php', function (Request $request, Response $response) use ($basePath) {
     $query = $request->getUri()->getQuery();
     return $response->withHeader('Location', $basePath . '/meteo' . ($query ? '?' . $query : ''))->withStatus(301);
 });
-$app->get('/msp1/msp1control/', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/meteo-control')->withStatus(301));
-$app->get('/msp1/msp1control/index.php', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/meteo-control')->withStatus(301));
+$app->get('/msp1/msp1control/', fn ($rq, $rs) => $rs->withHeader('Location', $basePath . '/meteo-control')->withStatus(301));
+$app->get('/msp1/msp1control/index.php', fn ($rq, $rs) => $rs->withHeader('Location', $basePath . '/meteo-control')->withStatus(301));
 $app->map(['GET', 'POST'], '/n3pp/n3ppdatas/n3pp-data.php', function (Request $request, Response $response) use ($basePath) {
     $query = $request->getUri()->getQuery();
     return $response->withHeader('Location', $basePath . '/serre' . ($query ? '?' . $query : ''))->withStatus(301);
 });
-$app->get('/n3pp/n3ppcontrol/', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/serre-control')->withStatus(301));
-$app->get('/n3pp/n3ppcontrol/index.php', fn($rq, $rs) => $rs->withHeader('Location', $basePath . '/serre-control')->withStatus(301));
+$app->get('/n3pp/n3ppcontrol/', fn ($rq, $rs) => $rs->withHeader('Location', $basePath . '/serre-control')->withStatus(301));
+$app->get('/n3pp/n3ppcontrol/index.php', fn ($rq, $rs) => $rs->withHeader('Location', $basePath . '/serre-control')->withStatus(301));
 
 // Routes MSP1 et N3PP (prod + test) — config/routes_msp1_n3pp.php + config/modules.php
 $msp1DataController = $useLocalDataFallback ? LocalDataPagesController::class : MspDataController::class;

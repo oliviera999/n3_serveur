@@ -12,7 +12,6 @@ use App\Controller\Msp\MspHeartbeatController;
 use App\Controller\Msp\MspOutputController;
 use App\Controller\Msp\MspPostDataController;
 use App\Controller\Msp\MspRealtimeApiController;
-use App\Controller\N3pp\N3ppDataController;
 use App\Controller\N3pp\N3ppHeartbeatController;
 use App\Controller\N3pp\N3ppOutputController;
 use App\Controller\N3pp\N3ppPostDataController;

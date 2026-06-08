@@ -13,18 +13,18 @@ final class GalleryConfig
     /** @var array<string, array{label: string, env_key: string, default_dir: string}> */
     private const GALLERIES = [
         'msp1' => [
-            'label'       => 'Potager (MSP1)',
-            'env_key'     => 'GALLERY_MSP1_DIR',
+            'label' => 'Potager (MSP1)',
+            'env_key' => 'GALLERY_MSP1_DIR',
             'default_dir' => 'uploads/msp1',
         ],
         'n3pp' => [
-            'label'       => 'Élevage (N3PP)',
-            'env_key'     => 'GALLERY_N3PP_DIR',
+            'label' => 'Élevage (N3PP)',
+            'env_key' => 'GALLERY_N3PP_DIR',
             'default_dir' => 'uploads/n3pp',
         ],
         'ffp3' => [
-            'label'       => 'Aquaponie (FFP3)',
-            'env_key'     => 'GALLERY_FFP3_DIR',
+            'label' => 'Aquaponie (FFP3)',
+            'env_key' => 'GALLERY_FFP3_DIR',
             'default_dir' => 'uploads/ffp3',
         ],
     ];

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Service;
 
-use App\Service\StatisticsAggregatorService;
 use App\Service\SensorStatisticsService;
+use App\Service\StatisticsAggregatorService;
 use PHPUnit\Framework\TestCase;
 
 class StatisticsAggregatorServiceTest extends TestCase
@@ -26,15 +26,15 @@ class StatisticsAggregatorServiceTest extends TestCase
         $this->statsService->expects($this->once())
             ->method('min')
             ->willReturn(10.0);
-        
+
         $this->statsService->expects($this->once())
             ->method('max')
             ->willReturn(30.0);
-        
+
         $this->statsService->expects($this->once())
             ->method('avg')
             ->willReturn(20.0);
-        
+
         $this->statsService->expects($this->once())
             ->method('stddev')
             ->willReturn(5.0);
@@ -89,9 +89,8 @@ class StatisticsAggregatorServiceTest extends TestCase
 
         // TempAir doit être présent
         $this->assertArrayHasKey('min_tempair', $result);
-        
+
         // TempEau ne doit pas être présent
         $this->assertArrayNotHasKey('min_tempeau', $result);
     }
 }
-

@@ -6,7 +6,7 @@ namespace App\Security;
 
 /**
  * Service de protection CSRF simple basé sur les sessions.
- * 
+ *
  * Génère et valide des tokens CSRF pour protéger les formulaires POST
  * contre les attaques Cross-Site Request Forgery.
  */
@@ -25,7 +25,7 @@ class CsrfService
 
     /**
      * Génère un nouveau token CSRF et le stocke en session.
-     * 
+     *
      * @return string Le token CSRF généré
      */
     public function generateToken(): string
@@ -37,7 +37,7 @@ class CsrfService
 
     /**
      * Récupère le token CSRF actuel ou en génère un nouveau.
-     * 
+     *
      * @return string Le token CSRF
      */
     public function getToken(): string
@@ -50,7 +50,7 @@ class CsrfService
 
     /**
      * Valide un token CSRF soumis.
-     * 
+     *
      * @param string|null $submittedToken Le token soumis par le formulaire
      * @return bool True si le token est valide
      */
@@ -66,23 +66,23 @@ class CsrfService
 
     /**
      * Valide et régénère le token (à utiliser après validation réussie).
-     * 
+     *
      * @param string|null $submittedToken Le token soumis
      * @return bool True si le token était valide
      */
     public function validateAndRegenerate(?string $submittedToken): bool
     {
         $isValid = $this->validateToken($submittedToken);
-        
+
         // Régénérer le token après validation pour éviter la réutilisation
         $this->generateToken();
-        
+
         return $isValid;
     }
 
     /**
      * Génère le champ HTML caché pour le formulaire.
-     * 
+     *
      * @return string Le HTML du champ input hidden
      */
     public function getHiddenField(): string

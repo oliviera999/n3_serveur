@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Service\Realtime;
 
-use App\Repository\N3ppSensorRepository;
 use App\Repository\N3ppOutputRepository;
+use App\Repository\N3ppSensorRepository;
 
 /**
  * Fournisseur de données temps réel pour le module N3PP (serre / élevage).

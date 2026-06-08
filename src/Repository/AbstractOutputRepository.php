@@ -109,8 +109,8 @@ abstract class AbstractOutputRepository extends AbstractRepository
     public function getParametersForBoard(int $board): array
     {
         $map = $this->getParamGpioMap();
-        $gpioList = implode(', ', array_map(static fn(int $gpio): string => (string) $gpio, array_keys($map)));
-        $sql = "SELECT gpio, state FROM `" . $this->getTable() . "` WHERE board = :board AND gpio IN ({$gpioList}) ORDER BY gpio ASC";
+        $gpioList = implode(', ', array_map(static fn (int $gpio): string => (string) $gpio, array_keys($map)));
+        $sql = 'SELECT gpio, state FROM `' . $this->getTable() . "` WHERE board = :board AND gpio IN ({$gpioList}) ORDER BY gpio ASC";
         $rows = $this->fetchAll($sql, [':board' => $board]);
 
         $result = [];
@@ -161,7 +161,7 @@ abstract class AbstractOutputRepository extends AbstractRepository
      */
     public function updateByGpio(int $gpio, string $state, int $board): void
     {
-        $sql = "UPDATE `" . $this->getTable() . "` SET state = :state WHERE gpio = :gpio AND board = :board";
+        $sql = 'UPDATE `' . $this->getTable() . '` SET state = :state WHERE gpio = :gpio AND board = :board';
         $this->execute($sql, [':state' => $state, ':gpio' => $gpio, ':board' => $board]);
     }
 
@@ -172,7 +172,7 @@ abstract class AbstractOutputRepository extends AbstractRepository
      */
     public function getOutputByGpioAndBoard(int $board, int $gpio): ?array
     {
-        $sql = "SELECT id, name, gpio, state FROM `" . $this->getTable() . "` WHERE board = :board AND gpio = :gpio LIMIT 1";
+        $sql = 'SELECT id, name, gpio, state FROM `' . $this->getTable() . '` WHERE board = :board AND gpio = :gpio LIMIT 1';
         return $this->fetchOne($sql, [':board' => $board, ':gpio' => $gpio]);
     }
 }

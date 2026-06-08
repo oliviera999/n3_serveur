@@ -8,11 +8,10 @@ use App\Config\TableConfig;
 use App\Domain\SensorData;
 use App\Util\StateNormalizer;
 use App\Util\TableValidator;
-use PDO;
 
 /**
  * Repository pour gérer les outputs (GPIO/relais) en base de données
- * 
+ *
  * Gère la table ffp3Outputs (PROD) ou ffp3Outputs2 (TEST)
  */
 class OutputRepository extends AbstractRepository
@@ -53,7 +52,7 @@ class OutputRepository extends AbstractRepository
 
     /**
      * Récupère tous les outputs avec leurs états actuels
-     * 
+     *
      * @return array<int, array<string, mixed>>
      */
     public function findAll(): array
@@ -81,16 +80,16 @@ class OutputRepository extends AbstractRepository
                         ELSE 99
                     END,
                     gpio ASC";
-        
+
         $results = $this->fetchAll($sql);
-        
+
         // Normaliser les valeurs booléennes via StateNormalizer
         return StateNormalizer::normalizeResults($results);
     }
 
     /**
      * Récupère un output spécifique par son GPIO
-     * 
+     *
      * @param int $gpio Numéro GPIO
      * @return array<string, mixed>|null
      */
@@ -98,21 +97,21 @@ class OutputRepository extends AbstractRepository
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
         $sql = "SELECT id, board, gpio, name, state FROM `{$table}` WHERE gpio = :gpio";
-        
+
         $result = $this->fetchOne($sql, [':gpio' => $gpio]);
         if ($result === null) {
             return null;
         }
-        
+
         // Normaliser la valeur via StateNormalizer
         $result['state'] = StateNormalizer::normalize($gpio, $result['state']);
-        
+
         return $result;
     }
 
     /**
      * Met à jour l'état d'un output
-     * 
+     *
      * @param int $gpio Numéro GPIO
      * @param int $state Nouvel état (0 ou 1)
      * @return bool Succès de l'opération
@@ -195,7 +194,7 @@ class OutputRepository extends AbstractRepository
 
     /**
      * Récupère tous les GPIO d'une board spécifique avec leurs noms et états
-     * 
+     *
      * @param string $board Numéro de la board
      * @return array<int, array<string, mixed>>
      */
@@ -206,27 +205,27 @@ class OutputRepository extends AbstractRepository
                 FROM `{$table}` 
                 WHERE board = :board AND name IS NOT NULL AND name != ''
                 ORDER BY gpio ASC";
-        
+
         $results = $this->fetchAll($sql, [':board' => $board]);
-        
+
         // Normaliser les valeurs booléennes via StateNormalizer
         return StateNormalizer::normalizeResults($results);
     }
 
     /**
      * Récupère la dernière GPIO modifiée d'une board spécifique
-     * 
+     *
      * @param string $board Numéro de la board
      * @return array<string, mixed>|null
      */
     public function findLastModifiedGpio(string $board): ?array
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
-        
+
         // Vérifier si la colonne requestTime existe
         $checkColumnSql = "SHOW COLUMNS FROM `{$table}` LIKE 'requestTime'";
         $hasRequestTime = $this->fetchOne($checkColumnSql) !== null;
-        
+
         if ($hasRequestTime) {
             $sql = "SELECT id, board, gpio, name, state, 
                            DATE_FORMAT(requestTime, '%d/%m/%Y %H:%i:%s') as last_modified_time
@@ -243,25 +242,25 @@ class OutputRepository extends AbstractRepository
                     ORDER BY gpio ASC
                     LIMIT 1";
         }
-        
+
         $result = $this->fetchOne($sql, [':board' => $board]);
-        
+
         if ($result === null) {
             return null;
         }
-        
+
         // Normaliser la valeur via StateNormalizer
-        $gpio = (int)$result['gpio'];
+        $gpio = (int) $result['gpio'];
         $result['state'] = StateNormalizer::normalize($gpio, $result['state']);
-        
+
         return $result;
     }
 
     /**
      * Met à jour plusieurs GPIO avec logique de priorité.
-     * 
+     *
      * Les modifications web ont priorité pendant la durée spécifiée.
-     * 
+     *
      * @param array<int, mixed> $gpioValues [gpio => value]
      * @param string $modifiedBy Source de la modification ('esp32', 'web', etc.)
      * @param int $prioritySeconds Durée de priorité pour les changements web
@@ -270,19 +269,19 @@ class OutputRepository extends AbstractRepository
     public function batchUpdateWithPriority(array $gpioValues, string $modifiedBy, int $prioritySeconds): array
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
-        
-        return $this->executeInTransaction(function() use ($table, $gpioValues, $modifiedBy, $prioritySeconds) {
+
+        return $this->executeInTransaction(function () use ($table, $gpioValues, $modifiedBy, $prioritySeconds) {
             $updated = 0;
             $skipped = 0;
-            
+
             foreach ($gpioValues as $gpio => $value) {
                 if ($value === null) {
                     $skipped++;
                     continue;
                 }
-                
-                $stateValue = (string)$value;
-                
+
+                $stateValue = (string) $value;
+
                 // Protection contre écrasement des changements web récents
                 $sql = "UPDATE `{$table}` 
                         SET state = :state, 
@@ -296,21 +295,21 @@ class OutputRepository extends AbstractRepository
                               OR requestTime IS NULL 
                               OR requestTime < DATE_SUB(NOW(), INTERVAL :priority SECOND)
                           )";
-                
+
                 $rowCount = $this->executeWithRowCount($sql, [
                     ':gpio' => $gpio,
                     ':state' => $stateValue,
                     ':modifiedBy' => $modifiedBy,
-                    ':priority' => $prioritySeconds
+                    ':priority' => $prioritySeconds,
                 ]);
-                
+
                 if ($rowCount > 0) {
                     $updated++;
                 } else {
                     $skipped++;
                 }
             }
-            
+
             return ['updated' => $updated, 'skipped' => $skipped];
         });
     }
@@ -336,7 +335,7 @@ class OutputRepository extends AbstractRepository
             self::AQUARIUM_PUMP_GPIO => $forceAquariumPumpOn ? 1 : $data->etatPompeAqua,
             18 => $data->etatPompeTank,
         ];
-        $physicalFiltered = array_filter($physicalGpios, fn($v) => $v !== null);
+        $physicalFiltered = array_filter($physicalGpios, fn ($v) => $v !== null);
         if ($physicalFiltered !== []) {
             // Protège brièvement les commandes web (toggle UI) contre un POST firmware
             // qui peut encore contenir l'ancien état juste après le clic.
@@ -384,7 +383,7 @@ class OutputRepository extends AbstractRepository
      */
     public function batchUpdateStatesSingleQuery(array $gpioUpdates, string $modifiedBy, int $prioritySeconds): void
     {
-        $filtered = array_filter($gpioUpdates, fn($v) => $v !== null);
+        $filtered = array_filter($gpioUpdates, fn ($v) => $v !== null);
         if ($filtered === []) {
             return;
         }

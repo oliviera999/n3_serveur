@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller\N3pp;
 
-use App\Controller\AbstractOutputController;
 use App\Config\TableConfig;
 use App\Config\Version;
+use App\Controller\AbstractOutputController;
 use App\Repository\N3ppOutputRepository;
 use App\Repository\N3ppSensorRepository;
 use App\Security\AuthService;
@@ -28,9 +28,18 @@ class N3ppOutputController extends AbstractOutputController
         parent::__construct($logger, $renderer, $authService);
     }
 
-    protected function defaultBoard(): int { return 3; }
-    protected function componentName(): string { return 'N3ppOutputController'; }
-    protected function controlTemplate(): string { return 'n3pp_control.twig'; }
+    protected function defaultBoard(): int
+    {
+        return 3;
+    }
+    protected function componentName(): string
+    {
+        return 'N3ppOutputController';
+    }
+    protected function controlTemplate(): string
+    {
+        return 'n3pp_control.twig';
+    }
 
     protected function buildControlPageData(int $board): array
     {

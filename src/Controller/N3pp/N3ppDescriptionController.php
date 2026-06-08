@@ -21,8 +21,8 @@ class N3ppDescriptionController
     public function show(Request $request, Response $response): Response
     {
         $html = $this->renderer->render('n3pp_description.twig', [
-            'page_title' => "Caractéristiques du module N3PP - n3 iot datas",
-            'hero_title' => "Caractéristiques du module N3PP",
+            'page_title' => 'Caractéristiques du module N3PP - n3 iot datas',
+            'hero_title' => 'Caractéristiques du module N3PP',
             'hero_subtitle' => "Description du système, des capteurs, actionneurs et logiciels — Serre / élevage d'insectes",
             'hero_icon' => 'fa-leaf',
             'data_url' => '/serre',

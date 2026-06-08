@@ -35,13 +35,20 @@ class DashboardController
         $defaultStartDate = date('Y-m-d H:i:s', strtotime($defaultEndDate . ' -1 day'));
 
         [$startDate, $endDate] = $this->dateRangeExtractor->extract(
-            $request, $defaultStartDate, $defaultEndDate, validateCsrf: false
+            $request,
+            $defaultStartDate,
+            $defaultEndDate,
+            validateCsrf: false
         );
 
         $body = $request->getParsedBody() ?? [];
         if (isset($body['export_csv'])) {
             return $this->csvExportService->export(
-                $this->sensorReadRepo, $startDate, $endDate, $response, 'sensor_data'
+                $this->sensorReadRepo,
+                $startDate,
+                $endDate,
+                $response,
+                'sensor_data'
             );
         }
 
@@ -69,16 +76,16 @@ class DashboardController
         $realtime_api_base = RealtimeUrlHelper::getRealtimeApiBase($environment);
 
         $html = $this->renderer->render('dashboard.twig', [
-            'startDate'     => $startDate,
-            'endDate'       => $endDate,
-            'duration'      => DurationFormatter::long($startDate, $endDate),
+            'startDate' => $startDate,
+            'endDate' => $endDate,
+            'duration' => DurationFormatter::long($startDate, $endDate),
             'readingsCount' => $readingsCount,
-            'lastReading'   => $lastReading,
-            'stats'         => $stats,
-            'version'       => Version::getWithPrefix(),
+            'lastReading' => $lastReading,
+            'stats' => $stats,
+            'version' => Version::getWithPrefix(),
             'firmware_version' => $firmwareVersion,
-            'environment'   => $environment,
-            'data_table'    => $dataTable,
+            'environment' => $environment,
+            'data_table' => $dataTable,
             'realtime_api_base' => $realtime_api_base,
             'nav_active' => 'dashboard',
         ]);

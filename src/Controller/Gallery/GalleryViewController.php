@@ -123,7 +123,7 @@ class GalleryViewController
         $galleries = [
             [
                 'slug' => 'ffp3',
-                'title' => "Photos aquaponie (FFP3)",
+                'title' => 'Photos aquaponie (FFP3)',
                 'icon' => 'fa-fish',
                 'description' => "La caméra du bassin aquaponie capture régulièrement l'état des plantes, des poissons et du système. Les photos permettent de suivre la croissance et l'évolution du projet.",
                 'url' => $pathPrefix . 'gallery/ffp3',
@@ -185,7 +185,9 @@ class GalleryViewController
             return $response->withStatus(404);
         }
         return $this->showGallery(
-            $request, $response, $slug,
+            $request,
+            $response,
+            $slug,
             $meta[$slug]['title'],
             $meta[$slug]['title'],
             $meta[$slug]['back'],
@@ -215,7 +217,7 @@ class GalleryViewController
         $slug = $args['slug'] ?? '';
         $meta = [
             'msp1' => ['title' => 'Timelapse potager (MSP1)', 'back' => '/meteo', 'nav_active' => 'gallery'],
-            'n3pp' => ['title' => "Timelapse élevage (N3PP)", 'back' => '/serre', 'nav_active' => 'gallery'],
+            'n3pp' => ['title' => 'Timelapse élevage (N3PP)', 'back' => '/serre', 'nav_active' => 'gallery'],
             'ffp3' => ['title' => 'Timelapse aquaponie (FFP3)', 'back' => '/aquaponie', 'nav_active' => 'gallery'],
         ];
         if (!isset($meta[$slug])) {

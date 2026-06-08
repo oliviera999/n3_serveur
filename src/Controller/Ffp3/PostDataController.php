@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace App\Controller\Ffp3;
 
-use App\Controller\AbstractPostDataController;
 use App\Config\TableConfig;
+use App\Controller\AbstractPostDataController;
 use App\Domain\SensorData;
+use App\Middleware\RawPostBodyMiddleware;
 use App\Repository\BoardRepository;
 use App\Repository\OutputRepository;
 use App\Repository\SensorRepository;
-use App\Service\ErrorAlertService;
-use App\Service\LogService;
-use App\Middleware\RawPostBodyMiddleware;
 use App\Security\Ffp3HmacPostBody;
 use App\Security\SignatureValidator;
+use App\Service\ErrorAlertService;
+use App\Service\LogService;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;

@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use App\Repository\OutputRepository;
 use App\Repository\BoardRepository;
+use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
-use App\Service\OutputCacheService;
 
 /**
  * Service de gestion des outputs (GPIO/relais)
- * 
+ *
  * Gère la logique métier pour les contrôles à distance des GPIO
  */
 class OutputService
@@ -41,7 +40,8 @@ class OutputService
         private BoardRepository $boardRepository,
         private OutputCacheService $outputCache,
         private SensorReadRepository $sensorReadRepository
-    ) {}
+    ) {
+    }
 
     /**
      * Derniers états enregistrés dans la table data (dernière ligne POSTée par l'ESP32).
@@ -85,7 +85,7 @@ class OutputService
 
     /**
      * Récupère tous les outputs avec leurs états
-     * 
+     *
      * @return array<int, array<string, mixed>>
      */
     public function getAllOutputs(): array
@@ -113,7 +113,7 @@ class OutputService
         $parameterMap = $this->buildParameterMap();
 
         foreach ($outputs as $output) {
-            $gpio = (int)($output['gpio'] ?? -1);
+            $gpio = (int) ($output['gpio'] ?? -1);
             $value = $output['state'] ?? null;
 
             if (isset($parameterMap[$gpio])) {
@@ -126,7 +126,7 @@ class OutputService
 
     /**
      * Récupère uniquement les boards actives pour l'environnement actuel
-     * 
+     *
      * @return array<int, array<string, mixed>>
      */
     public function getActiveBoardsForCurrentEnvironment(): array
@@ -137,7 +137,7 @@ class OutputService
 
     /**
      * Récupère la dernière GPIO modifiée d'une board spécifique
-     * 
+     *
      * @param string $board Numéro de la board
      * @return array<string, mixed>|null
      */
@@ -170,7 +170,7 @@ class OutputService
 
     /**
      * Met à jour l'état d'un output par son ID
-     * 
+     *
      * @param int $id ID de l'output
      * @param int $state Nouvel état (0 ou 1)
      * @param string $modifiedBy Source de la modification ('web', 'esp32', etc.)
@@ -202,7 +202,7 @@ class OutputService
 
     /**
      * Met à jour plusieurs paramètres depuis un formulaire
-     * 
+     *
      * @param array $params Paramètres à mettre à jour
      * @return int Nombre de paramètres mis à jour
      */

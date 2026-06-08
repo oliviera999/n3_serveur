@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller\Msp;
 
-use App\Controller\AbstractOutputController;
 use App\Config\TableConfig;
 use App\Config\Version;
+use App\Controller\AbstractOutputController;
 use App\Repository\MspOutputRepository;
 use App\Repository\MspSensorRepository;
 use App\Security\AuthService;
@@ -25,9 +25,18 @@ class MspOutputController extends AbstractOutputController
         parent::__construct($logger, $renderer, $authService);
     }
 
-    protected function defaultBoard(): int { return 2; }
-    protected function componentName(): string { return 'MspOutputController'; }
-    protected function controlTemplate(): string { return 'msp1_control.twig'; }
+    protected function defaultBoard(): int
+    {
+        return 2;
+    }
+    protected function componentName(): string
+    {
+        return 'MspOutputController';
+    }
+    protected function controlTemplate(): string
+    {
+        return 'msp1_control.twig';
+    }
 
     protected function buildControlPageData(int $board): array
     {

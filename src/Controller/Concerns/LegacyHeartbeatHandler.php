@@ -56,7 +56,8 @@ final class LegacyHeartbeatHandler
         private readonly PDO $pdo,
         private readonly string $componentName,
         private readonly array $allowedTables,
-    ) {}
+    ) {
+    }
 
     public function handle(Request $request, Response $response, string $tableName): Response
     {
@@ -74,7 +75,7 @@ final class LegacyHeartbeatHandler
             return $authError;
         }
 
-        $get = static fn(string $k): string => isset($params[$k]) && is_scalar($params[$k])
+        $get = static fn (string $k): string => isset($params[$k]) && is_scalar($params[$k])
             ? trim((string) $params[$k]) : '';
 
         $uptime = $this->sanitizeNumeric($get('uptime'));
@@ -105,7 +106,7 @@ final class LegacyHeartbeatHandler
         try {
             $stmt = $this->pdo->prepare(
                 "INSERT INTO {$tableName} (uptime, freeHeap, minHeap, reboots, rssi, sensor, version) "
-                . "VALUES (:uptime, :free, :min, :reboots, :rssi, :sensor, :version)"
+                . 'VALUES (:uptime, :free, :min, :reboots, :rssi, :sensor, :version)'
             );
             $stmt->execute([
                 ':uptime' => (int) $uptime,

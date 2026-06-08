@@ -231,7 +231,7 @@ class GalleryTrashService
             ];
         }
 
-        usort($files, fn(array $a, array $b) => strcmp($b['filename'], $a['filename']));
+        usort($files, fn (array $a, array $b) => strcmp($b['filename'], $a['filename']));
         return $files;
     }
 

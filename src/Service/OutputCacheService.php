@@ -7,7 +7,6 @@ namespace App\Service;
 use App\Config\TableConfig;
 use App\Util\StateNormalizer;
 use App\Util\TableValidator;
-use App\Service\OutputSyncService;
 use PDO;
 use PDOException;
 
@@ -65,7 +64,7 @@ class OutputCacheService
 
         // Lecture directe BDD (cache supprimé)
         $table = TableConfig::getOutputsTable();
-        
+
         // Construire requête IN sécurisée
         $placeholders = [];
         $params = [];
@@ -74,21 +73,21 @@ class OutputCacheService
             $placeholders[] = $ph;
             $params[$ph] = $gpio;
         }
-        
+
         // Valider le nom de table via la whitelist centralisée
         TableValidator::validateOutputsTable($table);
-        
-        $sql = "SELECT gpio, state FROM `{$table}` WHERE gpio IN (" . implode(',', $placeholders) . ")";
+
+        $sql = "SELECT gpio, state FROM `{$table}` WHERE gpio IN (" . implode(',', $placeholders) . ')';
         $stmt = $pdo->prepare($sql);
         $stmt->execute($params);
         $rows = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        
+
         // Indexer par gpio pour accès rapide
         $byGpio = [];
         foreach ($rows as $row) {
-            $byGpio[(int)$row['gpio']] = $row['state'];
+            $byGpio[(int) $row['gpio']] = $row['state'];
         }
-        
+
         // Normalisation via StateNormalizer ; si absent en BDD, utiliser valeur par défaut
         $result = [];
         foreach ($gpioList as $gpio) {
@@ -96,14 +95,14 @@ class OutputCacheService
                 ? $byGpio[$gpio]
                 : (self::DEFAULT_STATE[$gpio] ?? 0);
             $state = StateNormalizer::normalize($gpio, $state);
-            $result[(string)$gpio] = $state;
+            $result[(string) $gpio] = $state;
         }
-        
+
         // v11.172: Ajouter noms symboliques (double format rétrocompatible)
         // Permet au firmware d'utiliser les clés numériques OU symboliques
         $gpioToSymbol = OutputSyncService::getGpioMapping();
         foreach ($result as $gpioStr => $state) {
-            $gpio = (int)$gpioStr;
+            $gpio = (int) $gpioStr;
             if (isset($gpioToSymbol[$gpio])) {
                 $result[$gpioToSymbol[$gpio]] = $state;
             }
@@ -218,7 +217,7 @@ class OutputCacheService
         }
         $pdo->exec($sql);
     }
-    
+
     /**
      * Invalide le cache (no-op, conservé pour compatibilité API).
      * Le cache a été supprimé ; les appels depuis OutputService restent sans effet.
@@ -235,7 +234,7 @@ class OutputCacheService
     {
         // NOP - cache supprimé
     }
-    
+
     /**
      * Obtient les statistiques du cache (toujours vide, conservé pour compatibilité API).
      *

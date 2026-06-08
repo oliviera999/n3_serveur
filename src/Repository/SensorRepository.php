@@ -148,7 +148,7 @@ class SensorRepository extends AbstractRepository
         }
         try {
             $stmt = $this->pdo->prepare(
-                "SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = :t AND COLUMN_NAME = :c LIMIT 1"
+                'SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = :t AND COLUMN_NAME = :c LIMIT 1'
             );
             $stmt->execute([':t' => $table, ':c' => $column]);
             $cache[$key] = ($stmt->fetch() !== false);

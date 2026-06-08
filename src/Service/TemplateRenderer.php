@@ -24,7 +24,7 @@ class TemplateRenderer
     ) {
         $this->csrfService = $csrfService;
         $this->authService = $authService;
-        
+
         $loader = new FilesystemLoader($templatesPath);
 
         $cacheConfig = false;

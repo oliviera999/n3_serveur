@@ -6,7 +6,7 @@ namespace App\Util;
 
 /**
  * Utilitaires mathématiques et statistiques.
- * 
+ *
  * Centralise les calculs statistiques utilisés dans plusieurs services.
  */
 class MathUtils
@@ -41,7 +41,7 @@ class MathUtils
 
         $mean = array_sum($values) / $count;
         $sumSquaredDiffs = array_sum(array_map(
-            fn($x) => pow($x - $mean, 2),
+            fn ($x) => pow($x - $mean, 2),
             $values
         ));
 
@@ -74,7 +74,7 @@ class MathUtils
         if (count($values) === 0) {
             return null;
         }
-        return (float)min($values);
+        return (float) min($values);
     }
 
     /**
@@ -88,7 +88,7 @@ class MathUtils
         if (count($values) === 0) {
             return null;
         }
-        return (float)max($values);
+        return (float) max($values);
     }
 
     /**
@@ -99,7 +99,7 @@ class MathUtils
      */
     public static function filterValid(array $values): array
     {
-        return array_values(array_filter($values, function($value) {
+        return array_values(array_filter($values, function ($value) {
             return $value !== null && $value !== '';
         }));
     }

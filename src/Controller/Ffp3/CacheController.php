@@ -44,7 +44,7 @@ class CacheController
                 $results[$dirName] = [
                     'status' => 'skipped',
                     'message' => "N'existe pas encore, rien à vider",
-                    'deleted' => 0
+                    'deleted' => 0,
                 ];
                 continue;
             }
@@ -61,14 +61,14 @@ class CacheController
                 $results[$dirName] = [
                     'status' => 'success',
                     'message' => "{$deleted} fichier(s) supprimé(s)",
-                    'deleted' => $deleted
+                    'deleted' => $deleted,
                 ];
             } catch (\Exception $e) {
                 $errors[] = "Erreur sur {$dirName}: " . $e->getMessage();
                 $results[$dirName] = [
                     'status' => 'error',
                     'message' => $e->getMessage(),
-                    'deleted' => 0
+                    'deleted' => 0,
                 ];
             }
         }
@@ -88,9 +88,9 @@ class CacheController
         // Réponse JSON
         $msg = $success
             ? "Cache vidé avec succès ! ({$totalDeleted} fichier(s) au total)"
-            . ($opcacheStatus['success'] ? " + Opcache vidé" : "")
-            . ($outputCacheCleared ? " + cache outputs (tous environnements)" : "")
-            : "Le cache a été partiellement vidé avec " . count($errors) . " erreur(s)";
+            . ($opcacheStatus['success'] ? ' + Opcache vidé' : '')
+            . ($outputCacheCleared ? ' + cache outputs (tous environnements)' : '')
+            : 'Le cache a été partiellement vidé avec ' . count($errors) . ' erreur(s)';
         $jsonResponse = [
             'success' => $success,
             'total_deleted' => $totalDeleted,
@@ -98,7 +98,7 @@ class CacheController
             'opcache' => $opcacheStatus,
             'output_cache_cleared' => $outputCacheCleared,
             'message' => $msg,
-            'errors' => $errors
+            'errors' => $errors,
         ];
 
         return ResponseHelper::json($response, $jsonResponse, $success ? 200 : 500);
@@ -369,7 +369,7 @@ HTML;
         $result = [
             'available' => false,
             'success' => false,
-            'message' => ''
+            'message' => '',
         ];
 
         // Vérifier si opcache est disponible

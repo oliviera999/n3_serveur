@@ -7,13 +7,13 @@ namespace App\Controller\Ffp3;
 use App\Config\Database;
 use App\Config\TableConfig;
 use App\Config\Version;
-use App\Service\LogService;
-use App\Service\OutputCacheService;
-use App\Util\RealtimeUrlHelper;
-use App\Service\OutputService;
-use App\Service\TemplateRenderer;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
+use App\Service\LogService;
+use App\Service\OutputCacheService;
+use App\Service\OutputService;
+use App\Service\TemplateRenderer;
+use App\Util\RealtimeUrlHelper;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -50,7 +50,7 @@ class OutputController
 
             foreach ($boards as &$board) {
                 try {
-                    $board['last_gpio'] = $this->outputService->getLastModifiedGpio((string)$board['board']);
+                    $board['last_gpio'] = $this->outputService->getLastModifiedGpio((string) $board['board']);
                 } catch (\Throwable $e) {
                     $board['last_gpio'] = null;
                 }
@@ -101,7 +101,7 @@ class OutputController
             );
             $this->logger->error('Trace: ' . $e->getTraceAsString());
 
-            $isDevelopment = in_array($_ENV['ENV'] ?? 'prod', ['test', 'test3'], true) || (bool)($_ENV['DEBUG'] ?? false);
+            $isDevelopment = in_array($_ENV['ENV'] ?? 'prod', ['test', 'test3'], true) || (bool) ($_ENV['DEBUG'] ?? false);
 
             if ($isDevelopment) {
                 $errorMessage = sprintf(
@@ -112,7 +112,7 @@ class OutputController
                     $e->getTraceAsString()
                 );
             } else {
-                $errorMessage = "Une erreur serveur est survenue. Veuillez contacter l'administrateur.\n\nRéférence : " . $errorId . " (à indiquer en cas de signalement.)";
+                $errorMessage = "Une erreur serveur est survenue. Veuillez contacter l'administrateur.\n\nRéférence : " . $errorId . ' (à indiquer en cas de signalement.)';
             }
 
             return ResponseHelper::text($response, $errorMessage, 500);

@@ -50,14 +50,14 @@ class OutputCacheServiceTest extends TestCase
     public function testGetOutputsStateReturnsEmptyArrayForEmptyList(): void
     {
         $result = $this->service->getOutputsState($this->pdo, []);
-        
+
         $this->assertSame([], $result);
     }
 
     public function testGetOutputsStateReturnsCorrectStates(): void
     {
         $result = $this->service->getOutputsState($this->pdo, [16, 18]);
-        
+
         $this->assertArrayHasKey('16', $result);
         $this->assertArrayHasKey('18', $result);
     }
@@ -75,7 +75,7 @@ class OutputCacheServiceTest extends TestCase
     public function testGetCacheStatsReturnsExpectedStructure(): void
     {
         $stats = $this->service->getCacheStats();
-        
+
         $this->assertArrayHasKey('valid', $stats);
         $this->assertArrayHasKey('environment', $stats);
         $this->assertArrayHasKey('age_seconds', $stats);

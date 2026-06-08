@@ -6,15 +6,15 @@
  * Inclus depuis public/index.php avant les fichiers routes_*.php
  */
 
+use App\Controller\Ffp3\CacheController;
+use App\Controller\Ffp3\DashboardController;
 use App\Controller\Ffp3\ExportController;
 use App\Controller\Ffp3\HeartbeatController;
 use App\Controller\Ffp3\OutputController;
 use App\Controller\Ffp3\PostDataController;
 use App\Controller\Ffp3\RealtimeApiController;
-use App\Controller\SupervisionController;
-use App\Controller\Ffp3\CacheController;
-use App\Controller\Ffp3\DashboardController;
 use App\Controller\Ffp3\TideStatsController;
+use App\Controller\SupervisionController;
 use App\Middleware\EnvironmentMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -93,7 +93,7 @@ function registerRedirects($app, array $redirects, string $basePath): void
 {
     foreach ($redirects as [$from, $to, $methods]) {
         $location = $basePath . $to;
-        $handler = fn($req, $res) => $res->withHeader('Location', $location)->withStatus(301);
+        $handler = fn ($req, $res) => $res->withHeader('Location', $location)->withStatus(301);
         if ($methods === ['GET', 'POST']) {
             $app->map(['GET', 'POST'], $from, $handler);
         } else {

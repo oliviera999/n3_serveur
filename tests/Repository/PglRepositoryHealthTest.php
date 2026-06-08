@@ -12,7 +12,7 @@ final class PglRepositoryHealthTest extends TestCase
 {
     public function testGetSystemHealthOfflineWhenNoData(): void
     {
-        $repo = new class extends PglRepository {
+        $repo = new class () extends PglRepository {
             public function __construct()
             {
             }
@@ -37,7 +37,7 @@ final class PglRepositoryHealthTest extends TestCase
     {
         $recent = date('Y-m-d H:i:s', time() - 60);
 
-        $repo = new class($recent) extends PglRepository {
+        $repo = new class ($recent) extends PglRepository {
             public function __construct(private string $hb)
             {
             }
@@ -64,7 +64,7 @@ final class PglRepositoryHealthTest extends TestCase
         $oldHb = date('Y-m-d H:i:s', time() - 3600);
         $recentEv = date('Y-m-d H:i:s', time() - 30);
 
-        $repo = new class($oldHb, $recentEv) extends PglRepository {
+        $repo = new class ($oldHb, $recentEv) extends PglRepository {
             public function __construct(private string $hb, private string $ev)
             {
             }

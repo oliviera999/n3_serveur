@@ -8,7 +8,7 @@ use PDO;
 
 /**
  * Classe abstraite de base pour les repositories.
- * 
+ *
  * Fournit des méthodes utilitaires pour les opérations PDO courantes,
  * réduisant la duplication de code entre les repositories.
  */
@@ -17,7 +17,9 @@ abstract class AbstractRepository
     /**
      * @param PDO $pdo Connexion PDO à la base de données (injectée)
      */
-    public function __construct(protected PDO $pdo) {}
+    public function __construct(protected PDO $pdo)
+    {
+    }
 
     /**
      * Exécute une requête SELECT et retourne toutes les lignes

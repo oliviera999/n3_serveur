@@ -32,7 +32,9 @@ return (new PhpCsFixer\Config())
     ->setRiskyAllowed(false)
     ->setRules([
         '@PSR12' => true,
-        'declare_strict_types' => true,
+        // 'declare_strict_types' retiré de l'enforcement : c'est un fixer "risky"
+        // (modifie la coercition de types à l'exécution). Le code le déclare déjà
+        // là où nécessaire ; on évite une injection automatique risquée.
         'no_unused_imports' => true,
         'ordered_imports' => ['sort_algorithm' => 'alpha'],
         'single_quote' => true,

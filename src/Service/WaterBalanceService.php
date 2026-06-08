@@ -11,7 +11,7 @@ use DateTimeInterface;
 
 /**
  * Service d'analyse du bilan hydrique du système aquaponique.
- * 
+ *
  * Calcule les statistiques avancées sur la consommation, le ravitaillement,
  * les marées et le marnage avec filtrage des incertitudes de mesure.
  */
@@ -22,11 +22,12 @@ class WaterBalanceService
     public function __construct(
         private SensorReadRepository $repo,
         private TideCycleDetector $cycleDetector
-    ) {}
+    ) {
+    }
 
     /**
      * Calcule le bilan hydrique complet sur une période donnée.
-     * 
+     *
      * @param DateTimeInterface|string $start Date de début
      * @param DateTimeInterface|string $end Date de fin
      * @return array Statistiques complètes du bilan hydrique
@@ -62,7 +63,7 @@ class WaterBalanceService
             'reserve_consumption' => $reserveStats['consumption'],
             'reserve_refill' => $reserveStats['refill'],
             'reserve_balance' => $reserveStats['balance'],
-            
+
             // Aquarium - Marées
             'tide_frequency' => $tideStats['frequency'],
             'tide_frequency_stddev' => $tideStats['frequency_stddev'],
@@ -148,7 +149,7 @@ class WaterBalanceService
     private function computeAquariumConsumption(array $rows): ?float
     {
         $levels = array_column($rows, 'EauAquarium');
-        
+
         if (count($levels) < 2) {
             return null;
         }
@@ -158,7 +159,7 @@ class WaterBalanceService
 
         for ($i = 1, $len = count($levels); $i < $len; $i++) {
             $delta = $levels[$i] - $levels[$i - 1];
-            
+
             // Ignorer les variations d'incertitude
             if (abs($delta) <= self::UNCERTAINTY_THRESHOLD) {
                 continue;

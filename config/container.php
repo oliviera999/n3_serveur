@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use DI\ContainerBuilder;
-use Psr\Container\ContainerInterface;
 
 // Charger les variables d'environnement
 App\Config\Env::load();
@@ -21,4 +20,3 @@ $containerBuilder->addDefinitions(__DIR__ . '/dependencies.php');
 
 // Build et retourner le container
 return $containerBuilder->build();
-

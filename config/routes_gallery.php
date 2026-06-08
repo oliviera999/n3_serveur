@@ -6,10 +6,10 @@
  * Inclus depuis public/index.php — variables $app en scope.
  */
 
+use App\Controller\Gallery\GalleryControlController;
+use App\Controller\Gallery\GalleryTrashController;
 use App\Controller\Gallery\GalleryUploadController;
 use App\Controller\Gallery\GalleryViewController;
-use App\Controller\Gallery\GalleryTrashController;
-use App\Controller\Gallery\GalleryControlController;
 
 // Routes Galeries photo — compatibilité firmwares ESP32-CAM (upload)
 // Route unifiée paramétrée (optionnelle, pour nouveaux clients)

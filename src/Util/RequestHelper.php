@@ -8,7 +8,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Helper pour l'extraction et la validation des paramètres de requête.
- * 
+ *
  * Unifie la logique d'extraction : JSON > ParsedBody > QueryParams
  */
 class RequestHelper
@@ -82,7 +82,7 @@ class RequestHelper
      */
     public static function getInt(array $params, string $key, int $default = 0): int
     {
-        return (isset($params[$key]) && is_numeric($params[$key])) ? (int)$params[$key] : $default;
+        return (isset($params[$key]) && is_numeric($params[$key])) ? (int) $params[$key] : $default;
     }
 
     /**
@@ -95,6 +95,6 @@ class RequestHelper
      */
     public static function getString(array $params, string $key, string $default = ''): string
     {
-        return (isset($params[$key]) && is_scalar($params[$key])) ? (string)$params[$key] : $default;
+        return (isset($params[$key]) && is_scalar($params[$key])) ? (string) $params[$key] : $default;
     }
 }

@@ -13,6 +13,8 @@ use App\Repository\OutputRepository;
 use App\Repository\PglRepository;
 use App\Repository\SensorReadRepository;
 use App\Repository\SensorRepository;
+use App\Security\AuthService;
+use App\Security\CsrfService;
 use App\Service\ChartDataService;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
@@ -28,11 +30,9 @@ use App\Service\SensorStatisticsService;
 use App\Service\StatisticsAggregatorService;
 use App\Service\SystemHealthService;
 use App\Service\TemplateRenderer;
-use App\Service\TideCycleDetector;
 use App\Service\TideAnalysisService;
+use App\Service\TideCycleDetector;
 use App\Service\WaterBalanceService;
-use App\Security\CsrfService;
-use App\Security\AuthService;
 use Psr\Container\ContainerInterface;
 
 return [
@@ -510,4 +510,3 @@ return [
         );
     },
 ];
-

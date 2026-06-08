@@ -39,7 +39,7 @@ class MspOutputRepository extends AbstractOutputRepository
      */
     public function updateByName(string $name, string $state, int $board): void
     {
-        $sql = "UPDATE `" . $this->getTable() . "` SET state = :state WHERE name = :name AND board = :board";
+        $sql = 'UPDATE `' . $this->getTable() . '` SET state = :state WHERE name = :name AND board = :board';
         $this->execute($sql, [':state' => $state, ':name' => $name, ':board' => $board]);
     }
 

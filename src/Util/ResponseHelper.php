@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 /**
  * Helper pour standardiser les réponses HTTP dans les Controllers.
- * 
+ *
  * Élimine la duplication des patterns de réponses JSON/text.
  */
 class ResponseHelper

@@ -23,7 +23,8 @@ class TideAnalysisService
     public function __construct(
         private SensorReadRepository $repo,
         private TideCycleDetector $cycleDetector
-    ) {}
+    ) {
+    }
 
     /**
      * Retourne un tableau associatif avec les statistiques « marnage_moyen » et « frequence_marees ».
@@ -36,9 +37,9 @@ class TideAnalysisService
         $rows = $this->repo->fetchBetween($start, $end);
         if ($rows === []) {
             return [
-                'marnage_moyen'    => null,
+                'marnage_moyen' => null,
                 'frequence_marees' => null,
-                'cycles'           => 0,
+                'cycles' => 0,
             ];
         }
 
@@ -47,7 +48,7 @@ class TideAnalysisService
         $rows = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm($rows);
 
         $levels = array_column($rows, 'EauAquarium');
-        $times  = array_column($rows, 'reading_time');
+        $times = array_column($rows, 'reading_time');
 
         // Utiliser le détecteur de cycles
         $cycleData = $this->cycleDetector->detectCycles($levels, $times);
@@ -76,7 +77,7 @@ class TideAnalysisService
         // diffMaree : variation de distance aquarium (mm, brut firmware) sur fenêtre temporelle
         $diffMareeLevels = array_column($rows, 'diffMaree');
         $diffMareeValid = MathUtils::filterValid($diffMareeLevels);
-        
+
         $diffMareeStats = [
             'moyenne' => MathUtils::mean($diffMareeValid),
             'min' => MathUtils::min($diffMareeValid),
@@ -85,13 +86,13 @@ class TideAnalysisService
         ];
 
         return [
-            'marnage_moyen'    => $averageRange,
+            'marnage_moyen' => $averageRange,
             'frequence_marees' => $frequency,
-            'cycles'           => $cycles,
-            'reserve_pos'      => $reserveVariations['positive'],
-            'reserve_neg'      => $reserveVariations['negative'],
-            'reserve_var'      => $reserveVariations['global'],
-            'diff_maree'       => $diffMareeStats,
+            'cycles' => $cycles,
+            'reserve_pos' => $reserveVariations['positive'],
+            'reserve_neg' => $reserveVariations['negative'],
+            'reserve_var' => $reserveVariations['global'],
+            'diff_maree' => $diffMareeStats,
         ];
     }
 
@@ -99,15 +100,15 @@ class TideAnalysisService
     {
         // Convert parameters to DateTime objects for easier manipulation
         $currentStart = $start instanceof DateTimeInterface ? (clone $start) : new \DateTime($start);
-        $overallEnd   = $end   instanceof DateTimeInterface   ? (clone $end)   : new \DateTime($end);
+        $overallEnd = $end   instanceof DateTimeInterface ? (clone $end) : new \DateTime($end);
 
         // Normalise times to start of day for the first week boundary
         $currentStart->setTime(0, 0, 0);
         $overallEnd->setTime(23, 59, 59);
 
-        $labels        = [];
-        $marnages      = [];
-        $frequences    = [];
+        $labels = [];
+        $marnages = [];
+        $frequences = [];
         $reservePosArr = [];
         $reserveNegArr = [];
         $reserveVarArr = [];
@@ -125,9 +126,9 @@ class TideAnalysisService
             $stats = $this->compute($currentStart, $currentEnd);
 
             // Label uses ISO week number and year (e.g. 2023-W15)
-            $labels[]        = $currentStart->format('o-\WW');
-            $marnages[]      = $stats['marnage_moyen'];
-            $frequences[]    = $stats['frequence_marees'];
+            $labels[] = $currentStart->format('o-\WW');
+            $marnages[] = $stats['marnage_moyen'];
+            $frequences[] = $stats['frequence_marees'];
             $reservePosArr[] = $stats['reserve_pos'];
             $reserveNegArr[] = $stats['reserve_neg'];
             $reserveVarArr[] = $stats['reserve_var'];
@@ -140,15 +141,15 @@ class TideAnalysisService
         }
 
         return [
-            'labels'            => $labels,
-            'marnage_moyen'     => $marnages,
-            'frequence_marees'  => $frequences,
-            'reserve_pos'       => $reservePosArr,
-            'reserve_neg'       => $reserveNegArr,
-            'reserve_var'       => $reserveVarArr,
+            'labels' => $labels,
+            'marnage_moyen' => $marnages,
+            'frequence_marees' => $frequences,
+            'reserve_pos' => $reservePosArr,
+            'reserve_neg' => $reserveNegArr,
+            'reserve_var' => $reserveVarArr,
             'diff_maree_moyenne' => $diffMareeMoyenneArr,
-            'diff_maree_min'    => $diffMareeMinArr,
-            'diff_maree_max'    => $diffMareeMaxArr,
+            'diff_maree_min' => $diffMareeMinArr,
+            'diff_maree_max' => $diffMareeMaxArr,
         ];
     }
 }

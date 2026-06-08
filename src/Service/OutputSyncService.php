@@ -19,7 +19,7 @@ class OutputSyncService
         15 => 'etatUV',            // Lumière
         16 => 'etatPompeAqua',     // Pompe aquarium
         18 => 'etatPompeTank',     // Pompe réservoir (1=ON côté UI/GET/POST ; PumpService legacy = relais actif-bas)
-        
+
         // Configuration
         100 => 'mail',             // Email (string)
         101 => 'mailNotif',        // Notifications (string)
@@ -29,7 +29,7 @@ class OutputSyncService
         105 => 'bouffeMatin',      // Heure nourrissage matin
         106 => 'bouffeMidi',       // Heure nourrissage midi
         107 => 'bouffeSoir',       // Heure nourrissage soir
-        
+
         // Commandes nourrissage (flags remis à 0 par ESP32 après exécution)
         108 => 'bouffePetits',     // Flag nourrissage petits poissons
         109 => 'bouffeGros',       // Flag nourrissage gros poissons
@@ -46,7 +46,7 @@ class OutputSyncService
 
     /**
      * Retourne le mapping GPIO pour référence
-     * 
+     *
      * @return array<int, string>
      */
     public static function getGpioMapping(): array

@@ -16,7 +16,7 @@ use Throwable;
 
 /**
  * Middleware de gestion centralisée des erreurs
- * 
+ *
  * Capture toutes les exceptions non gérées, les log et retourne une réponse HTTP appropriée
  * Enregistre également les erreurs pour détection répétée et alertes automatiques
  */
@@ -126,4 +126,3 @@ class ErrorHandlerMiddleware implements MiddlewareInterface
         return $response->withStatus($status)->withHeader('Content-Type', 'text/plain; charset=utf-8');
     }
 }
-
