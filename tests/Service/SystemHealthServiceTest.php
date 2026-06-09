@@ -10,7 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 class SystemHealthServiceTest extends TestCase
 {
-
     public function testOfflineTriggersCriticalLog(): void
     {
 

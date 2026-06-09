@@ -125,11 +125,11 @@ class ChartDataService
             'tempeau' => $lastReading['TempEau'] ?? 0,
             'humi' => $lastReading['Humidite'] ?? 0,
             'lumi' => $lastReading['Luminosite'] ?? 0,
-            'eauaqua' => (isset($lastReading['EauAquarium']) && $lastReading['EauAquarium'] !== null && $lastReading['EauAquarium'] !== '')
+            'eauaqua' => (isset($lastReading['EauAquarium']) && $lastReading['EauAquarium'] !== '')
                 ? (float) $lastReading['EauAquarium'] : null,
-            'eaureserve' => (isset($lastReading['EauReserve']) && $lastReading['EauReserve'] !== null && $lastReading['EauReserve'] !== '')
+            'eaureserve' => (isset($lastReading['EauReserve']) && $lastReading['EauReserve'] !== '')
                 ? (float) $lastReading['EauReserve'] : null,
-            'eaupota' => (isset($lastReading['EauPotager']) && $lastReading['EauPotager'] !== null && $lastReading['EauPotager'] !== '')
+            'eaupota' => (isset($lastReading['EauPotager']) && $lastReading['EauPotager'] !== '')
                 ? (float) $lastReading['EauPotager'] : null,
             'time' => $lastReading['reading_time'] ?? date('Y-m-d H:i:s'),
         ];
