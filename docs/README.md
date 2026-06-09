@@ -26,7 +26,6 @@ données (msp1, n3pp, ffp3, poissonglouton), contrôle des sorties, galeries pho
 |---------|-------------|
 | [AUTHENTICATION.md](AUTHENTICATION.md) | Modes d’authentification (session, jeton, HMAC, API key). |
 | [SECURITE_ROTATION_API_KEY.md](SECURITE_ROTATION_API_KEY.md) | Procédure de rotation de la clé API. |
-| [RAPPORT_SECURITE_PROD_2025-10-15.md](RAPPORT_SECURITE_PROD_2025-10-15.md) | Rapport de sécurité production (instantané). |
 
 ## ⚙️ Fonctionnement & services
 
@@ -59,12 +58,6 @@ données (msp1, n3pp, ffp3, poissonglouton), contrôle des sorties, galeries pho
 | Fichier | Description |
 |---------|-------------|
 | [AUDIT_SIMPLIFICATION_BACKEND.md](AUDIT_SIMPLIFICATION_BACKEND.md) | Audit de simplification du backend. |
-| [ANALYSE_ENVOI_DONNEES_SERVEUR.md](ANALYSE_ENVOI_DONNEES_SERVEUR.md) | Analyse de l’envoi des données vers le serveur. |
-| [RAPPORT_ANALYSE_SERVEUR_LOCAL_ESP32.md](RAPPORT_ANALYSE_SERVEUR_LOCAL_ESP32.md) | Rapport d’analyse serveur local ↔ ESP32. |
-| [RESUME_EXECUTIF_ANALYSE_SERVEUR.md](RESUME_EXECUTIF_ANALYSE_SERVEUR.md) | Résumé exécutif de l’analyse serveur. |
-| [RAPPORT_PROBLEME_ENVOI_POST.md](RAPPORT_PROBLEME_ENVOI_POST.md) | Rapport sur les problèmes d’envoi POST. |
-| [PROBLEME_INSERTION_BDD_SERVEUR.md](PROBLEME_INSERTION_BDD_SERVEUR.md) | Problème d’insertion en base de données. |
-| [LOGS_COMMUNICATION_SERVEUR_V11.42.md](LOGS_COMMUNICATION_SERVEUR_V11.42.md) | Logs de communication serveur (v11.42). |
 
 ## 🚀 Déploiement (`deployment/`)
 
