@@ -417,57 +417,24 @@ Source : `OutputCacheService::getOutputsState()` (SELECT gpio, state depuis tabl
 
 ---
 
-## 🎯 Conclusion
+## 🔧 Diagnostic HTTP 500 (post-data / heartbeat)
 
-### **L'ancien fichier legacy fait DÉJÀ tout correctement !**
+En cas de `HTTP 500` sur un endpoint d'ingestion, les causes habituelles sont :
 
-✅ Il met à jour **TOUS les GPIO** nécessaires (17)  
-✅ Le chauffage **DEVRAIT** rester allumé
+1. Erreur PHP dans le contrôleur (`PostDataController::handle`).
+2. Erreur SQL (GPIO ou colonne manquant dans la table outputs/data de l'environnement).
+3. Problème de permissions / connexion MySQL.
+4. Payload inattendu (champ requis absent — voir « Validation des champs POST »).
 
-### **Donc pourquoi HTTP 500 ?**
+**Démarche** :
 
-Possibilités :
-1. ❌ Erreur PHP dans `PostDataController::handle`
-2. ❌ Erreur SQL (GPIO manquant dans ffp3Outputs2)
-3. ❌ Problème permissions MySQL
-4. ❌ Erreur PHP (variables undefined, payload inattendu)
+1. Récupérer la **référence d'erreur** affichée à l'utilisateur (ex. `bb3262da436c`) et la
+   chercher dans le cronlog applicatif Monolog : `https://iot.olution.info/public/cronlog.txt`
+   (voir `docs/DEBUG_ERREURS_SERVEUR.md`).
+2. Consulter le log Apache du serveur (`error.log`) pour la trace PHP brute.
+3. Vérifier la présence des tables/colonnes attendues via les scripts `migrations/` (ex.
+   `00_diagnostic_prod.sql`, `99_validate_prod.sql`) — voir `migrations/README.md`.
 
----
-
-## 🔧 Action Immédiate
-
-**Vérifier les logs serveur PHP** pour voir l'erreur exacte :
-
-```bash
-ssh user@iot.olution.info
-tail -f /var/log/apache2/error.log
-# OU
-tail -f /path/to/ffp3/error_log
-```
-
-Ou créer un fichier de test pour diagnostiquer :
-```php
-// test-post.php
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Tester connexion BDD
-$conn = new mysqli("localhost", "oliviera_iot", "Iot#Olution1", "oliviera_iot");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "BDD OK\n";
-
-// Tester table existe
-$result = $conn->query("SHOW TABLES LIKE 'ffp3Data2'");
-echo "Table ffp3Data2: " . ($result->num_rows > 0 ? "EXISTS" : "NOT FOUND") . "\n";
-
-// Tester GPIO existe
-$result = $conn->query("SELECT COUNT(*) as c FROM ffp3Outputs2 WHERE gpio IN (2,15,16,18,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116)");
-$row = $result->fetch_assoc();
-echo "GPIO count: " . $row['c'] . " (attendu: 21)\n";
-?>
-```
-
-Veux-tu que je crée un script de diagnostic complet pour identifier l'erreur exacte ?
+> Les identifiants BDD réels ne sont jamais en dur : ils proviennent du `.env`
+> (`DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`). Pour un diagnostic local, utiliser
+> `tools/verify_environments.php` qui lit ces variables.
