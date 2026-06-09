@@ -58,8 +58,6 @@ données (msp1, n3pp, ffp3, poissonglouton), contrôle des sorties, galeries pho
 | Fichier | Description |
 |---------|-------------|
 | [AUDIT_SIMPLIFICATION_BACKEND.md](AUDIT_SIMPLIFICATION_BACKEND.md) | Audit de simplification du backend. |
-| [RAPPORT_ANALYSE_SERVEUR_LOCAL_ESP32.md](RAPPORT_ANALYSE_SERVEUR_LOCAL_ESP32.md) | Rapport d’analyse serveur local ↔ ESP32. |
-| [RESUME_EXECUTIF_ANALYSE_SERVEUR.md](RESUME_EXECUTIF_ANALYSE_SERVEUR.md) | Résumé exécutif de l’analyse serveur. |
 
 ## 🚀 Déploiement (`deployment/`)
 
