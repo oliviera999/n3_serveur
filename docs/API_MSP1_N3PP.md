@@ -3,7 +3,7 @@
 Référence du contrat HTTP entre les firmwares legacy **msp** (board=2) et **n3pp** (board=3) et le serveur unifié Slim 4.
 
 > Documentation OTA dédiée : [`OTA_N3PP_MSP.md`](OTA_N3PP_MSP.md).
-> Firmwares : [`firmwires/msp/`](../../firmwires/msp/), [`firmwires/n3pp/`](../../firmwires/n3pp/).
+> Firmwares `msp` et `n3pp` : dépôts externes (hors de ce dépôt serveur).
 
 ---
 
@@ -139,10 +139,10 @@ POST /msp1/heartbeat
 | `/n3pp/api/realtime/outputs/state` | GET | publique | État GPIO virtuels |
 | `/n3pp/api/realtime/system/health` | GET | publique | Santé serveur |
 | `/n3pp/api/realtime/alerts/active` | GET | publique | Alertes actives |
-| `/n3pp/api/outputs/toggle` | POST | session/token | Toggle GPIO (UI admin) |
+| `/n3pp/api/outputs/toggle` | GET\|POST | session/token | Toggle GPIO (UI admin) |
 | `/n3pp/api/outputs/parameters` | POST | session/token | Modif paramètres (mail, seuils) |
 
-Mêmes routes pour `/msp1/`.
+Mêmes routes pour `/msp1/`. Le toggle MSP1 accepte `gpio` **ou** `name` (`gpio` prioritaire). Les environnements **test** exposent les mêmes routes sous les préfixes `/n3pp-test/` et `/msp1-test/` (plus les pages de données/contrôle `*-data.php` / `*control/`, omises en prod).
 
 ---
 
@@ -187,4 +187,4 @@ Voir [`.env.example`](../.env.example).
 | 2026-05 | Phase 4 audit : alias `/post-data`, `/heartbeat`, auth HMAC optionnelle (`HmacAuthTrait`), tables `*Heartbeat`, doc dédiée. |
 | 2026-03 | Pages 301 `/serre` et `/meteo` ; routes API realtime. |
 | 2026-02 | Slim 4 unifié (`registerIotModuleRoutes`). Auth `api_key` Monolog. |
-| Pre-Slim | Scripts PHP procéduraux sous `serveur/archives/site-initial/`. |
+| Pre-Slim | Scripts PHP procéduraux (ancienne version du serveur, désormais archivée hors dépôt). |

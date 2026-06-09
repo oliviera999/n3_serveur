@@ -1,233 +1,116 @@
-# 📚 FFP3 Aquaponie Documentation Index
+# 📚 Index de la documentation — Serveur unifié n³ IoT
 
-**Project Version**: 5.0.102  
-**Last Updated**: March 9, 2026
+**Version du projet** : voir [`VERSION`](../VERSION) (actuellement **5.1.15**)
+**Dernière mise à jour de l’index** : 9 juin 2026
 
----
+Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collecte des
+données (msp1, n3pp, ffp3, poissonglouton), contrôle des sorties, galeries photo.
 
-## 📋 Current Documentation (Root Directory)
-
-### Essential Documentation
-
-| File | Description | Status |
-|------|-------------|--------|
-| **README.md** | Main project documentation and architecture | ✅ Updated (5.0.102) |
-| **CHANGELOG.md** | Complete version history and changes | ✅ Updated (5.0.102) |
-| **VERSION** | Current version number | ✅ Updated (5.0.102) |
-| **ESP32_GUIDE.md** | Complete ESP32 integration guide (consolidated) | ✅ Active |
-| **ENVIRONNEMENT_TEST.md** | PROD/TEST environment configuration guide | ✅ Active |
-| **LEGACY_README.md** | Legacy files explanation and status | ✅ Active |
-| **TODO_AMELIORATIONS_CONTROL.md** | Control interface improvements TODO list | ✅ Active |
-| **AUDIT_UI_ACCUEIL_LOGIN_NAV.md** | UI audit focused on Home/Login/Global Nav | ✅ Active |
-| **CHECKLIST_QA_UI_ENTREES.md** | Reusable QA checklist for entry pages UI | ✅ Active |
+> Point d’entrée : `public/index.php`. Vue d’ensemble et démarrage : [`../README.md`](../README.md).
 
 ---
 
-## 📂 Archived Documentation
+## 🔌 API & endpoints
 
-### Archives by Category
+| Fichier | Description |
+|---------|-------------|
+| [ENDPOINTS_ESP32_SERVEUR.md](ENDPOINTS_ESP32_SERVEUR.md) | Contrat complet des endpoints ESP32 ↔ serveur (post-data, heartbeat, outputs, realtime, pgl). |
+| [API_MSP1_N3PP.md](API_MSP1_N3PP.md) | API des modules MSP1 (météo) et N3PP (serre). |
+| [API_REALTIME_MSP_N3PP.md](API_REALTIME_MSP_N3PP.md) | API temps réel (LIVE) MSP1 / N3PP. |
+| [API_REALTIME_OUTPUTS_CONTRAT.md](API_REALTIME_OUTPUTS_CONTRAT.md) | Contrat de l’API d’état des sorties (`/api/outputs/state`). |
+| [OTA_N3PP_MSP.md](OTA_N3PP_MSP.md) | Mises à jour OTA des firmwares N3PP / MSP. |
 
-#### 🔄 Migrations (docs/archive/migrations/)
+## 🔐 Sécurité & authentification
 
-| File | Date | Description |
-|------|------|-------------|
-| MIGRATION_CONTROL_COMPLETE.md | 2025-10-08 | Control module migration to Slim 4 (v2.0.0) |
-| RECAPITULATIF_MIGRATION.md | 2025-10-08 | TEST/PROD migration recap |
-| SYNTHESE_HOMOGENEISATION_V4.4.0.md | 2025-10-11 | v4.4.0 PROD/TEST homogenization |
-| RESUME_MODIFICATIONS.md | 2025-10-10 | Timezone unification summary |
-| TIMEZONE_UNIFICATION.md | 2025-10-10 | Timezone technical details |
+| Fichier | Description |
+|---------|-------------|
+| [AUTHENTICATION.md](AUTHENTICATION.md) | Modes d’authentification (session, jeton, HMAC, API key). |
+| [SECURITE_ROTATION_API_KEY.md](SECURITE_ROTATION_API_KEY.md) | Procédure de rotation de la clé API. |
+| [RAPPORT_SECURITE_PROD_2025-10-15.md](RAPPORT_SECURITE_PROD_2025-10-15.md) | Rapport de sécurité production (instantané). |
 
-**Why archived**: Historical migration documentation for reference. Features are now fully implemented and stable.
+## ⚙️ Fonctionnement & services
 
----
+| Fichier | Description |
+|---------|-------------|
+| [SYNCHRONISATION_BIDIRECTIONNELLE.md](SYNCHRONISATION_BIDIRECTIONNELLE.md) | Synchronisation bidirectionnelle des sorties (serveur ↔ ESP32). |
+| [ETAT_SYNCHRONISATION_SERVEUR.md](ETAT_SYNCHRONISATION_SERVEUR.md) | État de la synchronisation côté serveur. |
+| [LIVE_MODE_IMPLEMENTATION.md](LIVE_MODE_IMPLEMENTATION.md) | Implémentation du mode LIVE (polling temps réel). |
+| [TIMEZONE_MANAGEMENT.md](TIMEZONE_MANAGEMENT.md) | Gestion des fuseaux horaires (Europe/Paris). |
+| [ERROR_ALERT_SERVICE.md](ERROR_ALERT_SERVICE.md) | Service d’alerte sur erreurs (`ErrorAlertService`). |
+| [DEBUG_ERREURS_SERVEUR.md](DEBUG_ERREURS_SERVEUR.md) | Diagnostic d’erreurs serveur à partir d’une référence (HTTP 500). |
+| [CLEAR_CACHE_OPTIONS.md](CLEAR_CACHE_OPTIONS.md) | Options de vidage du cache. |
+| [SERVEUR_DISTANT_GUIDE.md](SERVEUR_DISTANT_GUIDE.md) | Guide du serveur distant. |
+| [CONFIG_SERVEUR_FFP3_URLS.md](CONFIG_SERVEUR_FFP3_URLS.md) | Routage Apache/Nginx des URLs `/ffp3/*` vers `public/index.php`. |
 
-#### 🔍 Diagnostics (docs/archive/diagnostics/)
+## 🎨 UI / Frontend
 
-| File | Date | Description |
-|------|------|-------------|
-| AUDIT_PROJET.md | 2025-10-10 | Complete project audit with recommendations |
-| RESULTAT_DIAGNOSTIC.md | 2025-10-11 | Diagnostic results snapshot |
-| RESUME_DIAGNOSTIC_ESP32.md | 2025-10-11 | ESP32 diagnostic summary |
+| Fichier | Description |
+|---------|-------------|
+| [DARK_MODE.md](DARK_MODE.md) | Implémentation du mode sombre. |
+| [CHECKLIST_QA_UI_ENTREES.md](CHECKLIST_QA_UI_ENTREES.md) | Checklist QA réutilisable pour les pages d’entrée. |
+| [AUDIT_UI_ACCUEIL_LOGIN_NAV.md](AUDIT_UI_ACCUEIL_LOGIN_NAV.md) | Audit UI accueil / login / navigation. |
+| [AUDIT_UI_MOBILE_LAPTOP_GLOBAL_2026-03.md](AUDIT_UI_MOBILE_LAPTOP_GLOBAL_2026-03.md) | Audit UI mobile / laptop (mars 2026). |
+| [AUDIT_GRAPHIQUES_HIGHCHARTS.md](AUDIT_GRAPHIQUES_HIGHCHARTS.md) | Audit des graphiques Highcharts. |
+| [AUDIT_PAGE_CONTROL_DISTANT.md](AUDIT_PAGE_CONTROL_DISTANT.md) | Audit de la page de contrôle distant. |
+| [AUDIT_COHERENCE_AQUAPONIE_CONTROL_2026-06.md](AUDIT_COHERENCE_AQUAPONIE_CONTROL_2026-06.md) | Audit de cohérence aquaponie / contrôle (juin 2026). |
 
-**Why archived**: Point-in-time diagnostic reports. Issues identified have been resolved. Kept for historical reference.
+## 🛠️ Analyses & rapports (instantanés)
 
----
+| Fichier | Description |
+|---------|-------------|
+| [AUDIT_SIMPLIFICATION_BACKEND.md](AUDIT_SIMPLIFICATION_BACKEND.md) | Audit de simplification du backend. |
+| [ANALYSE_ENVOI_DONNEES_SERVEUR.md](ANALYSE_ENVOI_DONNEES_SERVEUR.md) | Analyse de l’envoi des données vers le serveur. |
+| [RAPPORT_ANALYSE_SERVEUR_LOCAL_ESP32.md](RAPPORT_ANALYSE_SERVEUR_LOCAL_ESP32.md) | Rapport d’analyse serveur local ↔ ESP32. |
+| [RESUME_EXECUTIF_ANALYSE_SERVEUR.md](RESUME_EXECUTIF_ANALYSE_SERVEUR.md) | Résumé exécutif de l’analyse serveur. |
+| [RAPPORT_PROBLEME_ENVOI_POST.md](RAPPORT_PROBLEME_ENVOI_POST.md) | Rapport sur les problèmes d’envoi POST. |
+| [PROBLEME_INSERTION_BDD_SERVEUR.md](PROBLEME_INSERTION_BDD_SERVEUR.md) | Problème d’insertion en base de données. |
+| [LOGS_COMMUNICATION_SERVEUR_V11.42.md](LOGS_COMMUNICATION_SERVEUR_V11.42.md) | Logs de communication serveur (v11.42). |
 
-#### ⚙️ Implementations (docs/archive/implementations/)
+## 🚀 Déploiement (`deployment/`)
 
-| File | Date | Description |
-|------|------|-------------|
-| IMPLEMENTATION_REALTIME_PWA.md | 2025-10-11 | v4.0.0 realtime & PWA implementation guide |
-| QUICK_FIX_COMMANDS.md | 2025-10-11 | Quick ESP32 diagnostic commands |
-| GUIDE_TEST_CONTROL_SYNC.md | 2025-10-11 | Control sync testing guide (v4.2.0) |
-| ENDPOINTS_FINAUX.md | 2025-10-11 | v4.0.0 endpoints documentation |
-| QUICKSTART_V4.md | 2025-10-11 | v4.0.0 quick start guide |
+| Fichier | Description |
+|---------|-------------|
+| [deployment/DEPLOYMENT_GUIDE.md](deployment/DEPLOYMENT_GUIDE.md) | Guide complet de déploiement serveur. |
+| [deployment/CRON.md](deployment/CRON.md) | Tâches CRON (déploiement git + applicatif FFP3). |
+| [deployment/CACHE_MANAGEMENT.md](deployment/CACHE_MANAGEMENT.md) | Gestion du cache au déploiement. |
+| [deployment/INSTALL_HOOKS.md](deployment/INSTALL_HOOKS.md) | Installation des hooks git (`post-merge`, `pre-commit`). |
+| [deployment/QUE_FAIRE_COTE_SERVEUR.md](deployment/QUE_FAIRE_COTE_SERVEUR.md) | Actions à effectuer côté serveur. |
 
-**Why archived**: Version-specific implementation guides. Content has been consolidated into current documentation (ESP32_GUIDE.md, README.md).
+## 📝 Changelog (`changelog/`)
 
----
+| Fichier | Description |
+|---------|-------------|
+| [changelog/README.md](changelog/README.md) | Politique de maintenance du changelog (rolling window). |
+| [changelog/archive/](changelog/archive/) | Historique archivé des entrées de changelog. |
 
-## 🚀 Deployment Documentation (docs/deployment/)
-
-| File | Description |
-|------|-------------|
-| **DEPLOYMENT_GUIDE.md** | Complete server deployment guide with troubleshooting |
-
----
-
-## 📖 Documentation by Topic
-
-### Getting Started
-1. **README.md** - Start here for project overview
-2. **ENVIRONNEMENT_TEST.md** - Understand PROD/TEST environments
-3. **ESP32_GUIDE.md** - ESP32 integration complete guide
-
-### Development
-1. **CHANGELOG.md** - See what's changed between versions
-2. **TODO_AMELIORATIONS_CONTROL.md** - Planned improvements
-3. **LEGACY_README.md** - Understand legacy files
-
-### Deployment
-1. **docs/deployment/DEPLOYMENT_GUIDE.md** - Server deployment procedures
-
-### ESP32 Integration
-1. **ESP32_GUIDE.md** - Complete guide (endpoints, authentication, examples, troubleshooting)
-
-### Historical Reference
-1. **docs/archive/migrations/** - Migration history
-2. **docs/archive/diagnostics/** - Past diagnostics
-3. **docs/archive/implementations/** - Version-specific implementation details
-
----
-
-## 🔍 Quick Links
-
-### For New Developers
-- Start with: **README.md**
-- Then read: **ENVIRONNEMENT_TEST.md**
-- Check: **CHANGELOG.md** for recent changes
-
-### For ESP32 Developers
-- **ESP32_GUIDE.md** - Complete integration guide
-- Troubleshooting section in ESP32_GUIDE.md
-- GPIO mapping in ESP32_GUIDE.md
-
-### For Deployment
-- **docs/deployment/DEPLOYMENT_GUIDE.md** - Step-by-step deployment
-- Post-deployment verification checklist
-- Troubleshooting common issues
-
-### For Understanding History
-- **docs/archive/migrations/** - How we got here
-- **docs/archive/diagnostics/** - Past issues and resolutions
-- **CHANGELOG.md** - Complete version history
+Le changelog courant (fenêtre récente) est à la racine : [`../CHANGELOG.md`](../CHANGELOG.md).
 
 ---
 
-## 📊 Documentation Structure
+## 📂 Archives historiques (`archive/`)
 
-```
-archives/ffp3/   (ou extrait dans analyse-ffp3/)
-├── README.md                      # Main documentation
-├── CHANGELOG.md                   # Version history
-├── VERSION                        # Current version
-├── ESP32_GUIDE.md                 # ESP32 complete guide
-├── ENVIRONNEMENT_TEST.md          # PROD/TEST guide
-├── LEGACY_README.md               # Legacy files explanation
-├── TODO_AMELIORATIONS_CONTROL.md  # TODO list
-│
-└── docs/
-    ├── README.md                  # This file
-    │
-    ├── deployment/
-    │   └── DEPLOYMENT_GUIDE.md    # Deployment procedures
-    │
-    └── archive/
-        ├── migrations/            # Historical migrations
-        │   ├── MIGRATION_CONTROL_COMPLETE.md
-        │   ├── RECAPITULATIF_MIGRATION.md
-        │   ├── SYNTHESE_HOMOGENEISATION_V4.4.0.md
-        │   ├── RESUME_MODIFICATIONS.md
-        │   └── TIMEZONE_UNIFICATION.md
-        │
-        ├── diagnostics/           # Historical diagnostics
-        │   ├── AUDIT_PROJET.md
-        │   ├── RESULTAT_DIAGNOSTIC.md
-        │   └── RESUME_DIAGNOSTIC_ESP32.md
-        │
-        └── implementations/       # Version-specific guides
-            ├── IMPLEMENTATION_REALTIME_PWA.md
-            ├── QUICK_FIX_COMMANDS.md
-            ├── GUIDE_TEST_CONTROL_SYNC.md
-            ├── ENDPOINTS_FINAUX.md
-            └── QUICKSTART_V4.md
-```
+Instantanés conservés pour référence. **Non maintenus** — ne reflètent pas
+nécessairement l’état actuel du code.
+
+- `archive/migrations/` — migrations historiques (Slim 4, timezone, homogénéisation v4.4.0).
+- `archive/diagnostics/` — diagnostics ponctuels (audit projet, ESP32, tables test).
+- `archive/fixes/` — correctifs versionnés (HTTP 500, endpoints, outputs v11.36).
+- `archive/implementations/` — guides d’implémentation par version (realtime/PWA v4, contrôle, GPIO).
+- `archive/cleanup/`, `archive/corrections/`, `archive/deployment/` — divers historiques.
 
 ---
 
-## 🔄 Documentation Maintenance
+## 🔄 Maintenance de cet index
 
-### When to Archive
+Lors de l’ajout d’une documentation :
 
-A document should be archived when:
-- It's specific to a past version
-- The feature/issue is fully implemented/resolved
-- Content has been consolidated into current documentation
-- It's a point-in-time snapshot (audit, diagnostic)
+1. Placer le fichier dans `docs/` (vivant) ou `docs/archive/<catégorie>/` (instantané historique).
+2. Ajouter une entrée dans la section appropriée ci-dessus.
+3. Mettre à jour la date de l’index.
 
-### When to Keep Active
-
-A document should remain active when:
-- It's frequently referenced
-- It documents current features
-- It's part of the development workflow
-- It contains configuration information
-
-### Updating This Index
-
-When adding new documentation:
-1. Add entry to appropriate section above
-2. Update the structure diagram
-3. Update the quick links if relevant
-4. Update last updated date
+Un document est **archivé** quand il est spécifique à une version passée, qu’il
+décrit un correctif/diagnostic ponctuel résolu, ou qu’il a été consolidé ailleurs.
 
 ---
 
-## 📞 Need Help?
-
-### Cannot find what you're looking for?
-
-1. **Search in current documentation** (root directory files)
-2. **Check archives** for historical context
-3. **Review CHANGELOG.md** for when features were added
-4. **Check git history** for specific files
-
-### Documentation Issues?
-
-- Missing documentation? Create an issue or PR
-- Outdated documentation? Update and increment version
-- Unclear documentation? Add clarifications
-
----
-
-## 📈 Documentation Statistics
-
-| Category | Files | Status |
-|----------|-------|--------|
-| Active Root Documentation | 7 | ✅ Current |
-| Archived Migrations | 5 | 📚 Historical |
-| Archived Diagnostics | 3 | 📚 Historical |
-| Archived Implementations | 5 | 📚 Historical |
-| Deployment Guides | 1 | ✅ Current |
-| **Total** | **21** | **Organized** |
-
----
-
-**Documentation Index Version**: 1.0  
-**Created**: October 11, 2025  
-**Last Updated**: October 11, 2025
-
----
-
-**© 2025 olution | FFP3 Aquaponie IoT System**
-
+**© olution — Serveur unifié n³ IoT**

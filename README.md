@@ -1,19 +1,17 @@
 # Serveur unifié n3 IoT
 
-Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collecte des données (msp1, n3pp, ffp3), contrôle des sorties, galeries photo.
+Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collecte des données (msp1, n3pp, ffp3, poissonglouton), contrôle des sorties, galeries photo.
 
-- **`archives/site-initial/`** : ancienne version des fichiers serveur (archive). **Ne pas modifier** — conservé pour consultation uniquement (référence, comparaison, historique).
-
-- **`archives/ffp3/`** : ancien sous-projet FFP3 (archive). Un extrait des fichiers utiles pour analyse est dans **`analyse-ffp3/`**. Le code actif est dans `src/`, `config/`, `templates/` ; les outils PHP de diagnostic sont dans **`tools/`**. Voir section « Scripts FFP3 » ci-dessous.
+- **`analyse-ffp3/`** : extrait de l’ancien sous-projet FFP3 conservé pour analyse (scripts `bin/`, `tools/`, doc). Le code actif est dans `src/`, `config/`, `templates/` ; les outils PHP de diagnostic sont dans **`tools/`**. Voir section « Scripts FFP3 » ci-dessous.
 
 - **Point d’entrée** : `public/index.php` (front controller unique).
-- **Documentation détaillée** : voir [archives/ffp3/README.md](archives/ffp3/README.md) pour l’architecture FFP3, ou [analyse-ffp3/README.md](analyse-ffp3/README.md) pour l’extrait à analyser.
+- **Documentation détaillée** : voir [analyse-ffp3/README.md](analyse-ffp3/README.md) pour l’architecture FFP3 et l’extrait à analyser, et l’index [docs/README.md](docs/README.md) pour la documentation technique.
 
 ## Module Poissonglouton (recyclage)
 
 Le serveur expose un nouveau flux firmware pour le compteur de bouteilles :
 
-- `POST /pgl/post-data` : ingestion batch des événements (firmware `firmwires/poissonglouton/`).
+- `POST /pgl/post-data` : ingestion batch des événements (firmware `poissonglouton`, dépôt externe).
 - `POST /pgl/heartbeat` : supervision (uptime, heap, reboots) — flag firmware `PGL_ENABLE_SERVER_HEARTBEAT`.
 - `GET /pgl` : page statistiques publique (menu « Poissonglouton », bandeau LIVE/HORS LIGNE).
 - `GET /pgl/api/system/health` : API JSON pour le statut en ligne (poll accueil + page stats).
@@ -154,12 +152,12 @@ Comportement local actuel :
 
 ## Scripts de déploiement et de test (FFP3)
 
-Le dossier **`archives/ffp3/`** contient l’archive de l’ancien sous-projet FFP3. Un **extrait utile** (scripts bin/tools, doc) est dans **`analyse-ffp3/`**. Le code actif du serveur est dans `src/`, `config/`, `templates/` ; le point d’entrée réel est `public/index.php`. Les **outils PHP** de diagnostic (vérification tables, environnements, etc.) sont dans **`tools/`** (versions de référence avec .env).
+Le dossier **`analyse-ffp3/`** contient un **extrait utile** (scripts bin/tools, doc) de l’ancien sous-projet FFP3. Le code actif du serveur est dans `src/`, `config/`, `templates/` ; le point d’entrée réel est `public/index.php`. Les **outils PHP** de diagnostic (vérification tables, environnements, etc.) sont dans **`tools/`** (versions de référence avec .env).
 
-Scripts FFP3 (extrait dans **`analyse-ffp3/`** ou archive **`archives/ffp3/`**) :
+Scripts FFP3 (extrait dans **`analyse-ffp3/`**) :
 
-- **`analyse-ffp3/bin/`** ou **`archives/ffp3/bin/`** : `deploy.sh`, `deploy_diagnostics.sh`, `deploy_endpoints.ps1`, etc.
-- **`analyse-ffp3/tools/`** ou **`archives/ffp3/tools/`** : scripts .sh/.ps1 de test POST, diagnostic (quick_diagnostic.sh, test_post_data.sh, etc.).
+- **`analyse-ffp3/bin/`** : `deploy.sh`, `deploy_diagnostics.sh`, `deploy_endpoints.ps1`, etc.
+- **`analyse-ffp3/tools/`** : scripts .sh/.ps1 de test POST, diagnostic (quick_diagnostic.sh, test_post_data.sh, etc.).
 - **`analyse-ffp3/scripts/`** : ex. copy_photos_aquaponie.ps1.
 
 Pour les scripts PHP de diagnostic (tables, environnements), utiliser **`tools/`** à la racine du serveur.

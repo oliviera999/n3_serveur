@@ -103,11 +103,11 @@ cat .env | head -n 20
 
 Vérifier qu'il contient bien :
 ```env
-API_KEY=fdGTMoptd5CD2ert3
+API_KEY=<votre_cle_api>
 DB_HOST=localhost
-DB_NAME=oliviera_iot
-DB_USER=oliviera_iot
-DB_PASS="Iot#Olution1"
+DB_NAME=<votre_base>
+DB_USER=<votre_user>
+DB_PASS="<votre_mot_de_passe>"
 ENV=prod
 APP_TIMEZONE=Europe/Paris
 ```
