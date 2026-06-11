@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.1.16] - 2026-06-11
+
+### Correctif — détection des marées assouplie (hystérésis cumulée) et stats du cycle
+
+- **`TideCycleDetector`** : le seuil de 2 cm n'est plus appliqué aux deltas entre lectures consécutives mais en écart cumulé depuis le dernier extrême (zigzag). Les marées lentes (faible variation par lecture, grande amplitude totale) sont désormais détectées — auparavant seules les marées rapides « extrêmes » franchissaient le seuil. Concerne `detectCycles`, `detectExtremaSeries`, `detectCurrentTrend` et `computeVariations` (dérives lentes de la réserve comptabilisées).
+- **`aquaponie-tide-markers.js`** : détection client des extrema (marqueurs LIVE) alignée sur le même algorithme cumulé.
+- **`TideAnalysisService::compute`** : le retour « période sans données » inclut désormais `reserve_pos` / `reserve_neg` / `reserve_var` / `diff_maree`, ce qui supprime les clés manquantes dans `/tide-stats` et les séries hebdomadaires (stats qui n'affichaient plus rien).
+- **Tests** : cas de régression marées lentes (`TideCycleDetectorTest`).
+
 ## [5.1.15] - 2026-06-08
 
 ### Correctif — niveaux d'eau NULL (aquaponie temps réel et stats)
