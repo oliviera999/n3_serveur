@@ -40,6 +40,15 @@ class TideAnalysisService
                 'marnage_moyen' => null,
                 'frequence_marees' => null,
                 'cycles' => 0,
+                'reserve_pos' => 0.0,
+                'reserve_neg' => 0.0,
+                'reserve_var' => 0.0,
+                'diff_maree' => [
+                    'moyenne' => null,
+                    'min' => null,
+                    'max' => null,
+                    'ecart_type' => null,
+                ],
             ];
         }
 

@@ -12,21 +12,32 @@ use App\Util\ReadingTimeParser;
  * Analyse les variations de niveau pour identifier les cycles complets
  * (montée + descente) et calcule les amplitudes et durées.
  *
+ * La détection repose sur une hystérésis cumulée (algorithme « zigzag ») :
+ * un renversement est confirmé dès que le niveau s'écarte du dernier extrême
+ * courant d'au moins le seuil, quelle que soit la vitesse de variation.
+ * Les marées lentes (deltas faibles entre lectures consécutives mais grande
+ * amplitude totale) sont donc détectées au même titre que les marées rapides.
+ *
  * Sémantique distance (EauAquarium) : distance capteur → surface.
  * Distance qui augmente = eau qui descend ; distance qui diminue = eau qui monte.
  */
 class TideCycleDetector
 {
-    /** Variation minimale (cm) pour être considérée comme significative */
+    /** Hystérésis (cm) : écart cumulé depuis le dernier extrême pour confirmer un renversement */
     public const VARIATION_THRESHOLD_CM = 2.0;
     private const EXTREMA_MIN_INTERVAL_SECONDS = 10;
+    /** Nombre de demi-cycles récents utilisés pour la tendance */
+    private const TREND_RECENT_SWINGS = 3;
 
     /**
-     * Détecte les cycles de marée dans une série de niveaux d'eau
+     * Détecte les cycles de marée dans une série de niveaux d'eau.
+     *
+     * Un cycle correspond au passage d'un extrême confirmé au suivant
+     * (montée puis descente, ou l'inverse).
      *
      * @param array<float|int|null> $levels Niveaux d'eau en ordre chronologique ASC
      * @param array<string> $times Timestamps correspondants
-     * @param float $threshold Seuil de variation minimum (défaut: 2.0 cm)
+     * @param float $threshold Hystérésis minimum (défaut: 2.0 cm)
      * @return array{
      *     amplitudes: array<float>,
      *     cycleDurations: array<float>,
@@ -37,81 +48,32 @@ class TideCycleDetector
      */
     public function detectCycles(array $levels, array $times, float $threshold = self::VARIATION_THRESHOLD_CM): array
     {
-        $count = count($levels);
-        if ($count < 2) {
-            return [
-                'amplitudes' => [],
-                'cycleDurations' => [],
-                'cycles' => 0,
-                'cycleMin' => null,
-                'cycleMax' => null,
-            ];
-        }
-
-        $cycleMin = $levels[0];
-        $cycleMax = $levels[0];
-        $direction = null;
-        $hasRisen = false;
-        $hasFallen = false;
-        $amplitudes = [];
-        $cycleDurations = [];
-        $cycleStartTime = $times[0];
-
-        for ($i = 1; $i < $count; $i++) {
-            $level = $levels[$i];
+        $cycleMin = null;
+        $cycleMax = null;
+        foreach ($levels as $level) {
             if ($level === null || !is_numeric($level)) {
                 continue;
             }
             $level = (float) $level;
+            $cycleMin = $cycleMin === null ? $level : min($cycleMin, $level);
+            $cycleMax = $cycleMax === null ? $level : max($cycleMax, $level);
+        }
 
-            $cycleMin = min($cycleMin ?? $level, $level);
-            $cycleMax = max($cycleMax ?? $level, $level);
+        $extrema = $this->findAlternatingExtrema($levels, $threshold)['extrema'];
 
-            $prev = $levels[$i - 1];
-            if ($prev === null || !is_numeric($prev)) {
-                continue;
-            }
-            $delta = $level - (float) $prev;
+        $amplitudes = [];
+        $cycleDurations = [];
+        $extremaCount = count($extrema);
+        for ($i = 1; $i < $extremaCount; $i++) {
+            $amplitudes[] = abs($extrema[$i]['value'] - $extrema[$i - 1]['value']);
 
-            if (abs($delta) <= $threshold) {
-                continue;
-            }
-
-            $currentDir = $delta > 0 ? 1 : -1;
-
-            if ($direction === null) {
-                $direction = $currentDir;
-                $hasRisen = ($currentDir === 1);
-                $hasFallen = ($currentDir === -1);
-            }
-
-            if ($currentDir === 1) {
-                $hasRisen = true;
-            } else {
-                $hasFallen = true;
-            }
-
-            if ($direction !== $currentDir && $hasRisen && $hasFallen) {
-                $amplitude = ($cycleMax ?? $level) - ($cycleMin ?? $level);
-                $amplitudes[] = $amplitude;
-
-                $startTs = ReadingTimeParser::toUnixSeconds((string) $cycleStartTime);
-                $endTs = ReadingTimeParser::toUnixSeconds((string) $times[$i - 1]);
-                if ($startTs !== null && $endTs !== null) {
-                    $cycleDuration = ($endTs - $startTs) / 3600;
-                    if ($cycleDuration > 0) {
-                        $cycleDurations[] = $cycleDuration;
-                    }
+            $startTs = ReadingTimeParser::toUnixSeconds((string) ($times[$extrema[$i - 1]['idx']] ?? ''));
+            $endTs = ReadingTimeParser::toUnixSeconds((string) ($times[$extrema[$i]['idx']] ?? ''));
+            if ($startTs !== null && $endTs !== null) {
+                $cycleDuration = ($endTs - $startTs) / 3600;
+                if ($cycleDuration > 0) {
+                    $cycleDurations[] = $cycleDuration;
                 }
-
-                $cycleMin = $level;
-                $cycleMax = $level;
-                $direction = $currentDir;
-                $hasRisen = ($currentDir === 1);
-                $hasFallen = ($currentDir === -1);
-                $cycleStartTime = $times[$i - 1];
-            } elseif ($direction !== $currentDir) {
-                $direction = $currentDir;
             }
         }
 
@@ -127,32 +89,31 @@ class TideCycleDetector
     /**
      * Tendance physique récente du niveau d'eau (pas la distance brute).
      *
+     * Basée sur les derniers demi-cycles détectés par hystérésis cumulée :
+     * si leurs variations se compensent, le niveau est considéré stable.
+     *
      * @param array<float|int|null> $levels Niveaux distance en ordre chronologique ASC
      * @return 'rising'|'falling'|'stable'|null rising = eau monte (distance diminue)
      */
     public function detectCurrentTrend(array $levels, float $threshold = self::VARIATION_THRESHOLD_CM): ?string
     {
-        $significantDeltas = [];
-        $count = count($levels);
-
-        for ($i = 1; $i < $count; $i++) {
-            $cur = $levels[$i];
-            $prev = $levels[$i - 1];
-            if ($cur === null || $prev === null || !is_numeric($cur) || !is_numeric($prev)) {
-                continue;
-            }
-            $delta = (float) $cur - (float) $prev;
-            if (abs($delta) <= $threshold) {
-                continue;
-            }
-            $significantDeltas[] = $delta;
+        $zigzag = $this->findAlternatingExtrema($levels, $threshold);
+        $points = $zigzag['extrema'];
+        if ($zigzag['provisional'] !== null) {
+            $points[] = $zigzag['provisional'];
         }
 
-        if ($significantDeltas === []) {
+        if (count($points) < 2) {
             return null;
         }
 
-        $recent = array_slice($significantDeltas, -3);
+        $swings = [];
+        $pointCount = count($points);
+        for ($i = 1; $i < $pointCount; $i++) {
+            $swings[] = $points[$i]['value'] - $points[$i - 1]['value'];
+        }
+
+        $recent = array_slice($swings, -self::TREND_RECENT_SWINGS);
         $sum = array_sum($recent);
 
         if (abs($sum) <= $threshold) {
@@ -214,6 +175,10 @@ class TideCycleDetector
     }
 
     /**
+     * Variations cumulées d'un niveau, mesurées entre extrema successifs
+     * (hystérésis cumulée) : les dérives lentes sont comptabilisées même si
+     * chaque delta unitaire reste sous le seuil.
+     *
      * @param array<float|int|null> $levels Niveaux d'eau
      * @return array{positive: float, negative: float, global: float}
      */
@@ -224,21 +189,17 @@ class TideCycleDetector
             return ['positive' => 0.0, 'negative' => 0.0, 'global' => 0.0];
         }
 
+        $zigzag = $this->findAlternatingExtrema($levels, $threshold);
+        $points = $zigzag['extrema'];
+        if ($zigzag['provisional'] !== null) {
+            $points[] = $zigzag['provisional'];
+        }
+
         $positive = 0.0;
         $negative = 0.0;
-
-        for ($i = 1; $i < $count; $i++) {
-            $cur = $levels[$i];
-            $prev = $levels[$i - 1];
-            if ($cur === null || $prev === null || !is_numeric($cur) || !is_numeric($prev)) {
-                continue;
-            }
-            $delta = (float) $cur - (float) $prev;
-
-            if (abs($delta) <= $threshold) {
-                continue;
-            }
-
+        $pointCount = count($points);
+        for ($i = 1; $i < $pointCount; $i++) {
+            $delta = $points[$i]['value'] - $points[$i - 1]['value'];
             if ($delta > 0) {
                 $positive += $delta;
             } elseif ($delta < 0) {
@@ -276,7 +237,8 @@ class TideCycleDetector
         float $threshold = self::VARIATION_THRESHOLD_CM,
         int $minIntervalSeconds = self::EXTREMA_MIN_INTERVAL_SECONDS
     ): array {
-        $points = [];
+        $values = [];
+        $timestamps = [];
         $count = min(count($levels), count($times));
         for ($i = 0; $i < $count; $i++) {
             $level = $levels[$i];
@@ -287,90 +249,130 @@ class TideCycleDetector
             if ($tsMs === null) {
                 continue;
             }
-            $points[] = ['ts' => $tsMs, 'v' => (float) $level];
+            $values[] = (float) $level;
+            $timestamps[] = $tsMs;
         }
 
-        if (count($points) < 3) {
+        if (count($values) < 3) {
             return ['peaks' => [], 'troughs' => []];
         }
 
-        $trend = 0;
-        $extremeIdx = 0;
-        $lastEventTs = null;
-        $minIntervalMs = max(0, $minIntervalSeconds) * 1000;
-
-        $peaks = [];
-        $troughs = [];
-        $n = count($points);
-
-        for ($i = 1; $i < $n; $i++) {
-            if ($trend === 1 && $points[$i]['v'] >= $points[$extremeIdx]['v']) {
-                $extremeIdx = $i;
-            } elseif ($trend === -1 && $points[$i]['v'] <= $points[$extremeIdx]['v']) {
-                $extremeIdx = $i;
-            }
-
-            $delta = $points[$i]['v'] - $points[$i - 1]['v'];
-            if (abs($delta) <= $threshold) {
-                continue;
-            }
-            $dir = $delta > 0 ? 1 : -1;
-
-            if ($trend === 0) {
-                $trend = $dir;
-                $extremeIdx = $i;
-                continue;
-            }
-
-            if ($trend === 1) {
-                if ($points[$i]['v'] >= $points[$extremeIdx]['v']) {
-                    continue;
-                }
-                $drop = $points[$extremeIdx]['v'] - $points[$i]['v'];
-                if ($drop >= $threshold) {
-                    $this->recordExtremum($peaks, $points, $extremeIdx, $lastEventTs, $minIntervalMs);
-                    $trend = -1;
-                    $extremeIdx = $i;
-                }
-                continue;
-            }
-
-            if ($points[$i]['v'] <= $points[$extremeIdx]['v']) {
-                continue;
-            }
-            $rise = $points[$i]['v'] - $points[$extremeIdx]['v'];
-            if ($rise >= $threshold) {
-                $this->recordExtremum($troughs, $points, $extremeIdx, $lastEventTs, $minIntervalMs);
-                $trend = 1;
-                $extremeIdx = $i;
-            }
+        $zigzag = $this->findAlternatingExtrema($values, $threshold);
+        $points = $zigzag['extrema'];
+        if ($zigzag['provisional'] !== null) {
+            $points[] = $zigzag['provisional'];
         }
 
-        if ($trend === 1) {
-            $this->recordExtremum($peaks, $points, $extremeIdx, $lastEventTs, $minIntervalMs);
-        } elseif ($trend === -1) {
-            $this->recordExtremum($troughs, $points, $extremeIdx, $lastEventTs, $minIntervalMs);
+        $minIntervalMs = max(0, $minIntervalSeconds) * 1000;
+        $peaks = [];
+        $troughs = [];
+        $lastEventTs = null;
+
+        foreach ($points as $point) {
+            $eventTs = $timestamps[$point['idx']];
+            if ($lastEventTs !== null && ($eventTs - $lastEventTs) < $minIntervalMs) {
+                continue;
+            }
+            if ($point['isPeak']) {
+                $peaks[] = [$eventTs, $point['value']];
+            } else {
+                $troughs[] = [$eventTs, $point['value']];
+            }
+            $lastEventTs = $eventTs;
         }
 
         return ['peaks' => $peaks, 'troughs' => $troughs];
     }
 
     /**
-     * @param array<array{0:int,1:float}> $target
-     * @param array<array{ts:int,v:float}> $points
+     * Extrait les extrema alternés d'une série par hystérésis cumulée (zigzag).
+     *
+     * Un extrême est confirmé dès que la série s'en écarte d'au moins le seuil,
+     * indépendamment du nombre de lectures nécessaires pour y parvenir.
+     *
+     * @param array<float|int|null> $levels Série en ordre chronologique ASC
+     * @return array{
+     *   extrema: array<array{idx:int, value:float, isPeak:bool}>,
+     *   provisional: array{idx:int, value:float, isPeak:bool}|null,
+     *   trend: int
+     * } extrema = confirmés ; provisional = extrême courant non encore confirmé ;
+     *   trend = 1 distance en hausse, -1 en baisse, 0 seuil jamais franchi.
+     *   idx référence l'indice dans la série d'entrée.
      */
-    private function recordExtremum(
-        array &$target,
-        array $points,
-        int $extremeIdx,
-        ?int &$lastEventTs,
-        int $minIntervalMs
-    ): void {
-        $eventTs = $points[$extremeIdx]['ts'];
-        if ($lastEventTs !== null && ($eventTs - $lastEventTs) < $minIntervalMs) {
-            return;
+    private function findAlternatingExtrema(array $levels, float $threshold): array
+    {
+        $indexes = [];
+        $values = [];
+        foreach ($levels as $i => $level) {
+            if ($level === null || !is_numeric($level)) {
+                continue;
+            }
+            $indexes[] = $i;
+            $values[] = (float) $level;
         }
-        $target[] = [$eventTs, $points[$extremeIdx]['v']];
-        $lastEventTs = $eventTs;
+
+        $n = count($values);
+        if ($n < 2) {
+            return ['extrema' => [], 'provisional' => null, 'trend' => 0];
+        }
+
+        $extrema = [];
+        $trend = 0;
+        $minPos = 0;
+        $maxPos = 0;
+        $extremePos = 0;
+
+        for ($k = 1; $k < $n; $k++) {
+            $v = $values[$k];
+
+            if ($trend === 0) {
+                if ($v <= $values[$minPos]) {
+                    $minPos = $k;
+                }
+                if ($v >= $values[$maxPos]) {
+                    $maxPos = $k;
+                }
+                if ($v - $values[$minPos] >= $threshold) {
+                    $extrema[] = ['idx' => $indexes[$minPos], 'value' => $values[$minPos], 'isPeak' => false];
+                    $trend = 1;
+                    $extremePos = $k;
+                } elseif ($values[$maxPos] - $v >= $threshold) {
+                    $extrema[] = ['idx' => $indexes[$maxPos], 'value' => $values[$maxPos], 'isPeak' => true];
+                    $trend = -1;
+                    $extremePos = $k;
+                }
+                continue;
+            }
+
+            if ($trend === 1) {
+                if ($v >= $values[$extremePos]) {
+                    $extremePos = $k;
+                } elseif ($values[$extremePos] - $v >= $threshold) {
+                    $extrema[] = ['idx' => $indexes[$extremePos], 'value' => $values[$extremePos], 'isPeak' => true];
+                    $trend = -1;
+                    $extremePos = $k;
+                }
+                continue;
+            }
+
+            if ($v <= $values[$extremePos]) {
+                $extremePos = $k;
+            } elseif ($v - $values[$extremePos] >= $threshold) {
+                $extrema[] = ['idx' => $indexes[$extremePos], 'value' => $values[$extremePos], 'isPeak' => false];
+                $trend = 1;
+                $extremePos = $k;
+            }
+        }
+
+        $provisional = null;
+        if ($trend !== 0) {
+            $provisional = [
+                'idx' => $indexes[$extremePos],
+                'value' => $values[$extremePos],
+                'isPeak' => $trend === 1,
+            ];
+        }
+
+        return ['extrema' => $extrema, 'provisional' => $provisional, 'trend' => $trend];
     }
 }

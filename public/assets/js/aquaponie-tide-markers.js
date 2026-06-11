@@ -56,6 +56,11 @@
 
     /**
      * Détection client des extrema (alignée sur TideCycleDetector PHP).
+     *
+     * Hystérésis cumulée (zigzag) : un extrême est confirmé dès que le niveau
+     * s'écarte du dernier extrême courant d'au moins le seuil, même si chaque
+     * delta entre deux points consécutifs reste faible (marées lentes).
+     *
      * @param {Array<[number, number]>} buffer Points [timestampMs, valueCm] ordre chronologique
      * @param {number} threshold Seuil en cm
      * @returns {{peak: [number, number]|null, trough: [number, number]|null}}
@@ -67,73 +72,73 @@
         }
 
         var trend = 0;
+        var minIdx = 0;
+        var maxIdx = 0;
         var extremeIdx = 0;
         var lastEventTs = null;
         var peak = null;
         var trough = null;
         var n = buffer.length;
+        var extrema = [];
 
-        function record(target, idx) {
-            var ts = buffer[idx][0];
-            if (lastEventTs !== null && (ts - lastEventTs) < MIN_INTERVAL_MS) {
-                return;
-            }
-            target = [ts, buffer[idx][1]];
-            lastEventTs = ts;
-            return target;
+        function pushExtremum(idx, isPeak) {
+            extrema.push({ ts: buffer[idx][0], v: buffer[idx][1], isPeak: isPeak });
         }
 
         for (var i = 1; i < n; i++) {
-            if (trend === 1 && buffer[i][1] >= buffer[extremeIdx][1]) {
-                extremeIdx = i;
-            } else if (trend === -1 && buffer[i][1] <= buffer[extremeIdx][1]) {
-                extremeIdx = i;
-            }
-
-            var delta = buffer[i][1] - buffer[i - 1][1];
-            if (Math.abs(delta) <= threshold) {
-                continue;
-            }
-            var dir = delta > 0 ? 1 : -1;
+            var v = buffer[i][1];
 
             if (trend === 0) {
-                trend = dir;
-                extremeIdx = i;
-                continue;
-            }
-
-            if (trend === 1) {
-                if (buffer[i][1] >= buffer[extremeIdx][1]) {
-                    continue;
-                }
-                var drop = buffer[extremeIdx][1] - buffer[i][1];
-                if (drop >= threshold) {
-                    var p = record('peak', extremeIdx);
-                    if (p) { peak = p; }
+                if (v <= buffer[minIdx][1]) { minIdx = i; }
+                if (v >= buffer[maxIdx][1]) { maxIdx = i; }
+                if (v - buffer[minIdx][1] >= threshold) {
+                    pushExtremum(minIdx, false);
+                    trend = 1;
+                    extremeIdx = i;
+                } else if (buffer[maxIdx][1] - v >= threshold) {
+                    pushExtremum(maxIdx, true);
                     trend = -1;
                     extremeIdx = i;
                 }
                 continue;
             }
 
-            if (buffer[i][1] <= buffer[extremeIdx][1]) {
+            if (trend === 1) {
+                if (v >= buffer[extremeIdx][1]) {
+                    extremeIdx = i;
+                } else if (buffer[extremeIdx][1] - v >= threshold) {
+                    pushExtremum(extremeIdx, true);
+                    trend = -1;
+                    extremeIdx = i;
+                }
                 continue;
             }
-            var rise = buffer[i][1] - buffer[extremeIdx][1];
-            if (rise >= threshold) {
-                var t = record('trough', extremeIdx);
-                if (t) { trough = t; }
+
+            if (v <= buffer[extremeIdx][1]) {
+                extremeIdx = i;
+            } else if (v - buffer[extremeIdx][1] >= threshold) {
+                pushExtremum(extremeIdx, false);
                 trend = 1;
                 extremeIdx = i;
             }
         }
 
-        if (trend === 1) {
-            var fp = record('peak', extremeIdx);
-            if (fp) { peak = fp; }
-        } else if (trend === -1) {
-            var ft = record('trough', extremeIdx);
-            if (ft) { trough = ft; }
+        // Extrême courant provisoire (même comportement que le PHP)
+        if (trend !== 0) {
+            pushExtremum(extremeIdx, trend === 1);
+        }
+
+        for (var j = 0; j < extrema.length; j++) {
+            var e = extrema[j];
+            if (lastEventTs !== null && (e.ts - lastEventTs) < MIN_INTERVAL_MS) {
+                continue;
+            }
+            if (e.isPeak) {
+                peak = [e.ts, e.v];
+            } else {
+                trough = [e.ts, e.v];
+            }
+            lastEventTs = e.ts;
         }
 
         return { peak: peak, trough: trough };

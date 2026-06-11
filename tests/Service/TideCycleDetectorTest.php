@@ -36,8 +36,29 @@ class TideCycleDetectorTest extends TestCase
 
         $this->assertNotEmpty($result['peaks']);
         $this->assertNotEmpty($result['troughs']);
-        $this->assertSame(35.0, $result['peaks'][0][1]);
-        $this->assertSame(26.0, $result['troughs'][0][1]);
+        $this->assertContains(35.0, array_column($result['peaks'], 1));
+        $this->assertContains(26.0, array_column($result['troughs'], 1));
+    }
+
+    public function testDetectExtremaSeriesFindsSlowTides(): void
+    {
+        // Marée lente : deltas de 0.5 cm par lecture (sous le seuil de 2 cm),
+        // mais amplitude totale de 4 cm — doit être détectée.
+        $levels = [];
+        $times = [];
+        $base = strtotime('2026-05-25 10:00:00');
+        $profile = array_merge(range(30.0, 34.0, 0.5), range(33.5, 30.0, 0.5), range(30.5, 34.0, 0.5));
+        foreach ($profile as $i => $level) {
+            $levels[] = $level;
+            $times[] = date('Y-m-d H:i:s', $base + $i * 60);
+        }
+
+        $result = $this->detector->detectExtremaSeries($levels, $times, 2.0, 0);
+
+        $this->assertNotEmpty($result['peaks']);
+        $this->assertNotEmpty($result['troughs']);
+        $this->assertContains(34.0, array_column($result['peaks'], 1));
+        $this->assertContains(30.0, array_column($result['troughs'], 1));
     }
 
     public function testDetectExtremaSeriesReturnsEmptyWhenInsufficientData(): void
@@ -144,6 +165,46 @@ class TideCycleDetectorTest extends TestCase
         if ($result['amplitudes'] !== []) {
             $this->assertGreaterThanOrEqual(5.0, max($result['amplitudes']));
         }
+    }
+
+    public function testDetectCyclesFindsSlowCycles(): void
+    {
+        // Cycle lent : montée puis descente par paliers de 0.4 cm (sous le seuil),
+        // amplitude totale 8 cm — un cycle complet doit être détecté.
+        $levels = array_merge(range(30.0, 38.0, 0.4), range(37.6, 30.0, 0.4));
+        $times = [];
+        $base = strtotime('2026-05-25 10:00:00');
+        foreach (array_keys($levels) as $i) {
+            $times[] = date('Y-m-d H:i:s', $base + $i * 60);
+        }
+
+        $result = $this->detector->detectCycles($levels, $times, 2.0);
+
+        $this->assertGreaterThanOrEqual(1, $result['cycles']);
+        $this->assertGreaterThanOrEqual(7.0, max($result['amplitudes']));
+        $this->assertNotEmpty($result['cycleDurations']);
+    }
+
+    public function testDetectCurrentTrendOnSlowVariation(): void
+    {
+        // Descente lente de la distance (eau qui monte) : deltas de 0.5 cm
+        $levels = range(40.0, 34.0, 0.5);
+        $this->assertSame('rising', $this->detector->detectCurrentTrend($levels, 2.0));
+
+        // Montée lente de la distance (eau qui descend)
+        $levels = range(30.0, 36.0, 0.5);
+        $this->assertSame('falling', $this->detector->detectCurrentTrend($levels, 2.0));
+    }
+
+    public function testComputeVariationsAccumulatesSlowDrift(): void
+    {
+        // Dérive lente : -0.3 cm par lecture, 6 cm au total (seuil 1 cm)
+        $levels = range(50.0, 44.0, 0.3);
+        $result = $this->detector->computeVariations(array_values($levels), 1.0);
+
+        $this->assertGreaterThanOrEqual(5.0, $result['negative']);
+        $this->assertSame(0.0, $result['positive']);
+        $this->assertEqualsWithDelta(-6.0, $result['global'], 0.001);
     }
 
     public function testDetectCurrentTrend(): void
