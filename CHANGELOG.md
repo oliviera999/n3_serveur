@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.2.0] - 2026-06-12
+
+### Évolution — consommation de l'aquarium d'après la courbe de tendance (cm/jour)
+
+- **`MathUtils::linearRegression`** : ajustement d'une droite par moindres carrés (pente + ordonnée à l'origine), réutilisable.
+- **`WaterBalanceService`** : nouvelle consommation de l'aquarium calculée sur la **courbe de tendance** du niveau `EauAquarium`. La pente de la régression (distance capteur → surface) est ramenée en **cm/jour** : une distance qui augmente correspond à une baisse du niveau, donc à une consommation. Champs ajoutés au bilan : `aquarium_consumption_per_day` (baisse en cm/jour, ≥ 0) et `aquarium_trend_slope_per_day` (pente signée). La « Consommation moyenne » par événement existante est conservée.
+- **Templates aquaponie (`aquaponie.twig`, `aquaponie_alt.twig`)** : nouvelle ligne « Consommation (tendance) » exprimée en cm/jour dans la carte Cycles de marée.
+- **Tests** : `MathUtilsTest` (régression linéaire) et cas de dérive nette dans `WaterBalanceServiceTest`.
+
 ## [5.1.16] - 2026-06-11
 
 ### Correctif — détection des marées assouplie (hystérésis cumulée) et stats du cycle
