@@ -92,6 +92,48 @@ class MathUtils
     }
 
     /**
+     * Calcule la régression linéaire (moindres carrés) d'un nuage de points.
+     *
+     * Ajuste la droite y = slope·x + intercept qui minimise l'erreur quadratique.
+     *
+     * @param array<int|float> $x Abscisses
+     * @param array<int|float> $y Ordonnées (même longueur que $x)
+     * @return array{slope: float, intercept: float}|null Coefficients, ou null si
+     *         moins de 2 points ou si tous les x sont identiques (pente indéfinie)
+     */
+    public static function linearRegression(array $x, array $y): ?array
+    {
+        $x = array_values($x);
+        $y = array_values($y);
+        $count = count($x);
+        if ($count < 2 || $count !== count($y)) {
+            return null;
+        }
+
+        $meanX = array_sum($x) / $count;
+        $meanY = array_sum($y) / $count;
+
+        $covariance = 0.0;
+        $varianceX = 0.0;
+        for ($i = 0; $i < $count; $i++) {
+            $dx = (float) $x[$i] - $meanX;
+            $covariance += $dx * ((float) $y[$i] - $meanY);
+            $varianceX += $dx * $dx;
+        }
+
+        if ($varianceX <= 0.0) {
+            return null;
+        }
+
+        $slope = $covariance / $varianceX;
+
+        return [
+            'slope' => $slope,
+            'intercept' => $meanY - $slope * $meanX,
+        ];
+    }
+
+    /**
      * Filtre les valeurs null/vides d'un tableau
      *
      * @param array $values Tableau de valeurs

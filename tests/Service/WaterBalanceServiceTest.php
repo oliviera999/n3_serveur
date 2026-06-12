@@ -64,4 +64,41 @@ class WaterBalanceServiceTest extends TestCase
         $this->assertSame(2.0, $balance['tide_threshold_cm']);
         $this->assertGreaterThanOrEqual(0, $balance['tide_cycles']);
     }
+
+    public function testComputeBalanceReportsTrendConsumptionPerDay(): void
+    {
+        // Distance EauAquarium (mm) qui dérive à la hausse malgré les marées :
+        // la distance augmente ~= 240 mm / jour => l'eau baisse de 24 cm/jour.
+        $rows = [];
+        $base = new \DateTimeImmutable('2026-05-25 00:00:00');
+        $distancesMm = [200, 260, 230, 290, 260, 320, 290, 350, 320, 380, 350, 410];
+        foreach ($distancesMm as $i => $mm) {
+            $ts = $base->modify('+' . ($i * 2) . ' hours');
+            $rows[] = [
+                'reading_time' => $ts->format('Y-m-d H:i:s'),
+                'EauAquarium' => $mm,
+                'EauReserve' => 500 - $i,
+                'EauPotager' => 200,
+            ];
+        }
+
+        $repo = $this->createMock(SensorReadRepository::class);
+        $repo->method('fetchBetween')->willReturn(array_reverse($rows));
+
+        $service = new WaterBalanceService($repo, new TideCycleDetector());
+        $balance = $service->computeBalance('2026-05-25 00:00:00', '2026-05-25 22:00:00');
+
+        $this->assertArrayHasKey('aquarium_consumption_per_day', $balance);
+        $this->assertArrayHasKey('aquarium_trend_slope_per_day', $balance);
+        $this->assertNotNull($balance['aquarium_consumption_per_day']);
+        // Pente positive (distance qui augmente => eau qui baisse => consommation).
+        $this->assertGreaterThan(0, $balance['aquarium_trend_slope_per_day']);
+        $this->assertSame(
+            max(0.0, $balance['aquarium_trend_slope_per_day']),
+            $balance['aquarium_consumption_per_day']
+        );
+        // Niveaux convertis mm -> cm : baisse de l'ordre de ~20 cm/jour.
+        $this->assertGreaterThan(10.0, $balance['aquarium_consumption_per_day']);
+        $this->assertLessThan(30.0, $balance['aquarium_consumption_per_day']);
+    }
 }

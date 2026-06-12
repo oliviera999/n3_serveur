@@ -6,6 +6,7 @@ namespace App\Service;
 
 use App\Repository\SensorReadRepository;
 use App\Util\Ffp3WaterLevelUnit;
+use App\Util\MathUtils;
 use App\Util\ReadingTimeParser;
 use DateTimeInterface;
 
@@ -58,6 +59,11 @@ class WaterBalanceService
         // ------------------------------------------------------------
         $aquariumConsumption = $this->computeAquariumConsumption($rows);
 
+        // ------------------------------------------------------------
+        // AQUARIUM : Consommation selon la courbe de tendance (cm/jour)
+        // ------------------------------------------------------------
+        $aquariumTrend = $this->computeAquariumTrendConsumption($rows);
+
         return [
             // Réserve
             'reserve_consumption' => $reserveStats['consumption'],
@@ -76,6 +82,10 @@ class WaterBalanceService
 
             // Aquarium - Consommation
             'aquarium_consumption' => $aquariumConsumption,
+
+            // Aquarium - Consommation selon la courbe de tendance
+            'aquarium_consumption_per_day' => $aquariumTrend['consumption_per_day'],
+            'aquarium_trend_slope_per_day' => $aquariumTrend['slope_per_day'],
         ];
     }
 
@@ -176,6 +186,55 @@ class WaterBalanceService
     }
 
     /**
+     * Calcule la consommation de l'aquarium d'après sa courbe de tendance.
+     *
+     * Ajuste une droite (régression par moindres carrés) sur le niveau
+     * EauAquarium en fonction du temps, puis exprime sa pente en cm/jour.
+     *
+     * EauAquarium est une distance capteur → surface : une distance qui
+     * augmente signifie que l'eau baisse. La pente de tendance positive
+     * correspond donc à une consommation nette ; négative, à un gain net.
+     *
+     * @param array<array{reading_time?: mixed, EauAquarium?: mixed}> $rows Lectures ASC, niveaux en cm
+     * @return array{consumption_per_day: float|null, slope_per_day: float|null}
+     *         consumption_per_day = baisse moyenne du niveau en cm/jour (>= 0),
+     *         slope_per_day = pente signée de la tendance en cm/jour.
+     */
+    private function computeAquariumTrendConsumption(array $rows): array
+    {
+        $xDays = [];
+        $yLevels = [];
+        $firstTs = null;
+
+        foreach ($rows as $row) {
+            $level = $row['EauAquarium'] ?? null;
+            if ($level === null || !is_numeric($level)) {
+                continue;
+            }
+            $ts = ReadingTimeParser::toUnixSeconds((string) ($row['reading_time'] ?? ''));
+            if ($ts === null) {
+                continue;
+            }
+            $firstTs ??= $ts;
+            $xDays[] = ($ts - $firstTs) / 86400;
+            $yLevels[] = (float) $level;
+        }
+
+        $regression = MathUtils::linearRegression($xDays, $yLevels);
+        if ($regression === null) {
+            return ['consumption_per_day' => null, 'slope_per_day' => null];
+        }
+
+        $slopePerDay = $regression['slope'];
+
+        // Distance qui augmente (pente > 0) => l'eau baisse => consommation.
+        return [
+            'consumption_per_day' => max(0.0, $slopePerDay),
+            'slope_per_day' => $slopePerDay,
+        ];
+    }
+
+    /**
      * Retourne un bilan vide (aucune donnée disponible)
      */
     private function getEmptyBalance(): array
@@ -193,6 +252,8 @@ class WaterBalanceService
             'tide_trend_label' => null,
             'tide_threshold_cm' => TideCycleDetector::VARIATION_THRESHOLD_CM,
             'aquarium_consumption' => null,
+            'aquarium_consumption_per_day' => null,
+            'aquarium_trend_slope_per_day' => null,
         ];
     }
 }
