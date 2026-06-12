@@ -301,6 +301,26 @@
                                     <span class="balance-stat-unit">cm</span>
                                 </span>
                             </div>
+
+                            <div class="balance-stat">
+                                <span class="balance-stat-label">
+                                    <i class="fas fa-calendar-day"></i>
+                                    Consommation (tendance)
+                                </span>
+                                <span class="balance-stat-value {% if aquarium_consumption_per_day|default(0) > 0 %}negative{% else %}neutral{% endif %}">
+                                    {% if aquarium_consumption_per_day is not null %}
+                                        {{ aquarium_consumption_per_day|number_format(2, ',', ' ') }}
+                                        <span class="balance-stat-unit">cm/jour</span>
+                                    {% else %}
+                                        n/a
+                                    {% endif %}
+                                </span>
+                            </div>
+
+                            <p class="balance-note" style="font-size:0.85em;opacity:0.85;margin-top:0.5em;">
+                                Consommation (tendance) : pente de la courbe de tendance (régression linéaire)
+                                du niveau d'aquarium, ramenée à une baisse moyenne par jour.
+                            </p>
                         </div>
                     </div>
                         </div>

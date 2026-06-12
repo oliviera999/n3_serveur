@@ -172,6 +172,8 @@ class LocalDataPagesController
             'tide_marnage_stddev' => null,
             'tide_cycles' => 0,
             'aquarium_consumption' => null,
+            'aquarium_consumption_per_day' => null,
+            'aquarium_trend_slope_per_day' => null,
             'EauAquarium' => '[]',
             'EauReserve' => '[]',
             'EauPotager' => '[]',
