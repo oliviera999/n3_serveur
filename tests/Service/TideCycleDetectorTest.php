@@ -227,4 +227,45 @@ class TideCycleDetectorTest extends TestCase
         $this->assertSame('Stable', TideCycleDetector::trendLabel('stable'));
         $this->assertNull(TideCycleDetector::trendLabel(null));
     }
+
+    /**
+     * La passe zigzag partagée (analyzeSeries) réinjectée dans detectCycles /
+     * detectCurrentTrend / computeVariations doit donner exactement le même résultat
+     * que les appels autonomes (qui recalculent le zigzag en interne).
+     */
+    public function testAnalyzeSeriesSharedPassMatchesStandaloneCalls(): void
+    {
+        $levels = [30.0, 35.0, 40.0, 35.0, 30.0, 35.0, 38.0, 33.0, 28.0];
+        $times = [
+            '2026-05-25 10:00:00',
+            '2026-05-25 10:10:00',
+            '2026-05-25 10:20:00',
+            '2026-05-25 10:30:00',
+            '2026-05-25 10:40:00',
+            '2026-05-25 10:50:00',
+            '2026-05-25 11:00:00',
+            '2026-05-25 11:10:00',
+            '2026-05-25 11:20:00',
+        ];
+        $threshold = 2.0;
+
+        $zigzag = $this->detector->analyzeSeries($levels, $threshold);
+
+        // detectCycles : autonome vs zigzag pré-calculé.
+        $cyclesStandalone = $this->detector->detectCycles($levels, $times, $threshold);
+        $cyclesShared = $this->detector->detectCycles($levels, $times, $threshold, $zigzag);
+        $this->assertSame($cyclesStandalone, $cyclesShared);
+
+        // detectCurrentTrend : autonome vs zigzag pré-calculé.
+        $this->assertSame(
+            $this->detector->detectCurrentTrend($levels, $threshold),
+            $this->detector->detectCurrentTrend($levels, $threshold, $zigzag)
+        );
+
+        // computeVariations : autonome vs zigzag pré-calculé (même seuil).
+        $this->assertSame(
+            $this->detector->computeVariations($levels, $threshold),
+            $this->detector->computeVariations($levels, $threshold, $zigzag)
+        );
+    }
 }

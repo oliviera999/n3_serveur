@@ -107,29 +107,7 @@ class AquaponieController
 
         [$startDate, $endDate] = $this->dateRangeExtractor->extract($request, $defaultStartDate, $defaultEndDate);
 
-        $readings = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm(
-            $this->sensorReadRepo->fetchBetween($startDate, $endDate)
-        );
-        $measure_count = count($readings);
-
-        $chartSeries = $this->chartDataService->prepareSeriesData($readings);
-        $reading_time = $this->chartDataService->prepareTimestamps($readings);
-        $rowsAsc = array_reverse($readings);
-        $extrema = $this->tideCycleDetector->detectExtremaSeries(
-            array_column($rowsAsc, 'EauAquarium'),
-            array_column($rowsAsc, 'reading_time')
-        );
-
-        $lastReading = $this->sensorReadRepo->getLastReadings();
-        $lastReadingExtracted = $this->chartDataService->extractLastReadings(
-            Ffp3WaterLevelUnit::scaleSensorRowFromMmToCm($lastReading)
-        );
-
-        $allStats = $this->statsAggregator->aggregateAllStats($startDate, $endDate);
-        $statsFlattened = Ffp3WaterLevelUnit::scaleAquaponieFlattenedStatsFromMmToCm(
-            $this->statsAggregator->flattenForLegacy($allStats)
-        );
-
+        // Sorties anticipées (export CSV, redirection legacy) AVANT tout chargement/calcul lourd.
         $body = $request->getParsedBody() ?? [];
         if (isset($body['export_csv'])) {
             return $this->csvExportService->export(
@@ -146,8 +124,43 @@ class AquaponieController
             return $response->withStatus(302)->withHeader('Location', '/aquaponie');
         }
 
+        // Chargement direct en ordre chronologique ASC (plus d'array_reverse analytique).
+        $rowsAsc = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm(
+            $this->sensorReadRepo->fetchBetween($startDate, $endDate, 'ASC')
+        );
+        $measure_count = count($rowsAsc);
+
+        // ChartDataService attend des lectures DESC (il les ré-inverse en interne pour
+        // produire des séries chronologiques) : on lui fournit une vue DESC dérivée.
+        $readingsDesc = array_reverse($rowsAsc);
+        $chartSeries = $this->chartDataService->prepareSeriesData($readingsDesc);
+        $reading_time = $this->chartDataService->prepareTimestamps($readingsDesc);
+        $extrema = $this->tideCycleDetector->detectExtremaSeries(
+            array_column($rowsAsc, 'EauAquarium'),
+            array_column($rowsAsc, 'reading_time')
+        );
+
+        // Dernière lecture : si la plage couvre la dernière mesure connue, on réutilise la
+        // dernière ligne déjà chargée (ASC) au lieu d'une requête getLastReadings() supplémentaire.
+        if ($rowsAsc !== [] && $lastDate !== null && $endDate === $lastDate) {
+            $lastReadingExtracted = $this->chartDataService->extractLastReadings(
+                $rowsAsc[count($rowsAsc) - 1]
+            );
+        } else {
+            $lastReading = $this->sensorReadRepo->getLastReadings();
+            $lastReadingExtracted = $this->chartDataService->extractLastReadings(
+                Ffp3WaterLevelUnit::scaleSensorRowFromMmToCm($lastReading)
+            );
+        }
+
+        $allStats = $this->statsAggregator->aggregateAllStats($startDate, $endDate);
+        $statsFlattened = Ffp3WaterLevelUnit::scaleAquaponieFlattenedStatsFromMmToCm(
+            $this->statsAggregator->flattenForLegacy($allStats)
+        );
+
         $firmwareVersion = $this->sensorReadRepo->getFirmwareVersion();
-        $waterBalance = $this->waterBalanceService->computeBalance($startDate, $endDate);
+        // Réutilise les lignes déjà chargées (ASC, cm) pour éviter un second fetch.
+        $waterBalance = $this->waterBalanceService->computeBalance($startDate, $endDate, $rowsAsc);
         $environment = TableConfig::getEnvironment();
         $dataTable = TableConfig::getDataTable();
         $realtime_api_base = RealtimeUrlHelper::getRealtimeApiBase($environment);

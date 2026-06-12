@@ -24,6 +24,31 @@ class Ffp3WaterLevelUnitTest extends TestCase
         $this->assertSame(22.5, $out['TempAir']);
     }
 
+    public function testScaleSensorRowsFromMmToCm(): void
+    {
+        $rows = [
+            ['EauAquarium' => '125', 'EauReserve' => 200.0, 'EauPotager' => null, 'TempAir' => 22.5],
+            ['EauAquarium' => 100, 'EauReserve' => '', 'EauPotager' => 300, 'TempAir' => 21.0],
+        ];
+        $out = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm($rows);
+
+        // Première ligne
+        $this->assertSame(12.5, $out[0]['EauAquarium']);
+        $this->assertSame(20.0, $out[0]['EauReserve']);
+        $this->assertNull($out[0]['EauPotager']);
+        $this->assertSame(22.5, $out[0]['TempAir']);
+        // Deuxième ligne ('' inchangé, autres divisés)
+        $this->assertSame(10.0, $out[1]['EauAquarium']);
+        $this->assertSame('', $out[1]['EauReserve']);
+        $this->assertSame(30.0, $out[1]['EauPotager']);
+        $this->assertSame(21.0, $out[1]['TempAir']);
+    }
+
+    public function testScaleSensorRowsFromMmToCmEmpty(): void
+    {
+        $this->assertSame([], Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm([]));
+    }
+
     public function testScaleAquaponieFlattenedStatsFromMmToCm(): void
     {
         $flat = [

@@ -33,9 +33,24 @@ class TideAnalysisService
      */
     public function compute(DateTimeInterface|string $start, DateTimeInterface|string $end): array
     {
-        // On récupère les lectures dans l'ordre chronologique ASC
+        // On récupère les lectures puis on délègue à computeFromRows.
+        // fetchBetween renvoie DESC → inverser pour ASC + conversion mm→cm.
         $rows = $this->repo->fetchBetween($start, $end);
-        if ($rows === []) {
+        $rows = array_reverse($rows);
+        $rows = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm($rows);
+
+        return $this->computeFromRows($rows);
+    }
+
+    /**
+     * Calcule les statistiques de marée à partir de lignes déjà préparées.
+     *
+     * @param array<array<string, mixed>> $rowsAsc Lignes en ordre chronologique ASC,
+     *        déjà converties mm→cm.
+     */
+    public function computeFromRows(array $rowsAsc): array
+    {
+        if ($rowsAsc === []) {
             return [
                 'marnage_moyen' => null,
                 'frequence_marees' => null,
@@ -52,10 +67,7 @@ class TideAnalysisService
             ];
         }
 
-        // fetchBetween renvoie DESC → inverser pour ASC
-        $rows = array_reverse($rows);
-        $rows = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm($rows);
-
+        $rows = $rowsAsc;
         $levels = array_column($rows, 'EauAquarium');
         $times = array_column($rows, 'reading_time');
 
@@ -115,6 +127,12 @@ class TideAnalysisService
         $currentStart->setTime(0, 0, 0);
         $overallEnd->setTime(23, 59, 59);
 
+        // UNE seule récupération de la plage entière (4 colonnes, ASC), convertie mm→cm une fois.
+        // Les lignes sont ensuite découpées par semaine en PHP au lieu d'une requête SQL par semaine.
+        $allRows = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm(
+            $this->repo->fetchTideSeriesBetween($currentStart, $overallEnd)
+        );
+
         $labels = [];
         $marnages = [];
         $frequences = [];
@@ -125,6 +143,11 @@ class TideAnalysisService
         $diffMareeMinArr = [];
         $diffMareeMaxArr = [];
 
+        // Curseur sur $allRows (triées ASC) : chaque ligne n'est visitée qu'une fois,
+        // le découpage hebdomadaire complet reste en O(n).
+        $rowCount = count($allRows);
+        $cursor = 0;
+
         while ($currentStart <= $overallEnd) {
             // Calculate end of the current week (Sunday 23:59:59)
             $currentEnd = (clone $currentStart)->modify('+6 days')->setTime(23, 59, 59);
@@ -132,7 +155,20 @@ class TideAnalysisService
                 $currentEnd = $overallEnd;
             }
 
-            $stats = $this->compute($currentStart, $currentEnd);
+            // Découpage en PHP : on ne garde que les lignes de la semaine courante.
+            $weekStartSql = $currentStart->format('Y-m-d H:i:s');
+            $weekEndSql = $currentEnd->format('Y-m-d H:i:s');
+
+            while ($cursor < $rowCount && (string) ($allRows[$cursor]['reading_time'] ?? '') < $weekStartSql) {
+                $cursor++;
+            }
+            $weekRows = [];
+            while ($cursor < $rowCount && (string) ($allRows[$cursor]['reading_time'] ?? '') <= $weekEndSql) {
+                $weekRows[] = $allRows[$cursor];
+                $cursor++;
+            }
+
+            $stats = $this->computeFromRows($weekRows);
 
             // Label uses ISO week number and year (e.g. 2023-W15)
             $labels[] = $currentStart->format('o-\WW');

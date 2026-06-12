@@ -110,6 +110,44 @@ class OutputRepository extends AbstractRepository
     }
 
     /**
+     * Récupère les outputs correspondant à une liste de GPIO (filtrage SQL via IN).
+     *
+     * Évite de charger toute la table via findAll() puis de filtrer en PHP lorsque
+     * seul un sous-ensemble de GPIO est nécessaire (ex. mapping des paramètres).
+     *
+     * @param array<int, int> $gpios Liste de numéros GPIO
+     * @return array<int, array<string, mixed>>
+     */
+    public function findByGpios(array $gpios): array
+    {
+        // Normalise et déduplique en entiers stricts (les valeurs viennent d'un mapping interne).
+        $gpios = array_values(array_unique(array_map('intval', $gpios)));
+        if ($gpios === []) {
+            return [];
+        }
+
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+
+        $placeholders = [];
+        $params = [];
+        foreach ($gpios as $i => $gpio) {
+            $ph = ':g' . $i;
+            $placeholders[] = $ph;
+            $params[$ph] = $gpio;
+        }
+        $inList = implode(', ', $placeholders);
+
+        // Même filtre que findAll() (name non vide) pour exclure les doublons vides historiques.
+        $sql = "SELECT id, board, gpio, name, state FROM `{$table}`"
+            . " WHERE gpio IN ({$inList}) AND name IS NOT NULL AND name != ''";
+
+        $results = $this->fetchAll($sql, $params);
+
+        // Normaliser les valeurs booléennes via StateNormalizer
+        return StateNormalizer::normalizeResults($results);
+    }
+
+    /**
      * Met à jour l'état d'un output
      *
      * @param int $gpio Numéro GPIO
