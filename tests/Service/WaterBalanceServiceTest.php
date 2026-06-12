@@ -64,4 +64,49 @@ class WaterBalanceServiceTest extends TestCase
         $this->assertSame(2.0, $balance['tide_threshold_cm']);
         $this->assertGreaterThanOrEqual(0, $balance['tide_cycles']);
     }
+
+    /**
+     * computeBalance($start, $end, $rowsAsc) doit produire le MÊME résultat que la
+     * version qui fetch elle-même, sans toucher au repository (lignes déjà ASC + cm).
+     */
+    public function testComputeBalanceWithPreloadedRowsEqualsFetchedVersion(): void
+    {
+        // Lignes brutes (mm) en ordre chronologique ASC.
+        $rowsMmAsc = [
+            ['reading_time' => '2026-05-25 10:00:00', 'EauAquarium' => 300, 'EauReserve' => 500, 'EauPotager' => 200],
+            ['reading_time' => '2026-05-25 10:10:00', 'EauAquarium' => 350, 'EauReserve' => 490, 'EauPotager' => 200],
+            ['reading_time' => '2026-05-25 10:20:00', 'EauAquarium' => 400, 'EauReserve' => 480, 'EauPotager' => 200],
+            ['reading_time' => '2026-05-25 10:30:00', 'EauAquarium' => 350, 'EauReserve' => 470, 'EauPotager' => 200],
+            ['reading_time' => '2026-05-25 10:40:00', 'EauAquarium' => 300, 'EauReserve' => 460, 'EauPotager' => 200],
+            ['reading_time' => '2026-05-25 10:50:00', 'EauAquarium' => 280, 'EauReserve' => 450, 'EauPotager' => 200],
+        ];
+
+        // Version de référence : le repository renvoie DESC, le service reverse + scale.
+        $repoFetch = $this->createMock(SensorReadRepository::class);
+        $repoFetch->method('fetchBetween')->willReturn(array_reverse($rowsMmAsc));
+        $serviceFetch = new WaterBalanceService($repoFetch, new TideCycleDetector());
+        $expected = $serviceFetch->computeBalance('2026-05-25 10:00:00', '2026-05-25 10:50:00');
+
+        // Version pré-chargée : lignes déjà ASC + déjà converties en cm. Le repository
+        // ne doit JAMAIS être appelé.
+        $rowsCmAsc = \App\Util\Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm($rowsMmAsc);
+        $repoPreloaded = $this->createMock(SensorReadRepository::class);
+        $repoPreloaded->expects($this->never())->method('fetchBetween');
+        $servicePreloaded = new WaterBalanceService($repoPreloaded, new TideCycleDetector());
+        $actual = $servicePreloaded->computeBalance('2026-05-25 10:00:00', '2026-05-25 10:50:00', $rowsCmAsc);
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    public function testComputeBalanceWithEmptyPreloadedRowsReturnsEmptyBalance(): void
+    {
+        $repo = $this->createMock(SensorReadRepository::class);
+        $repo->expects($this->never())->method('fetchBetween');
+        $service = new WaterBalanceService($repo, new TideCycleDetector());
+
+        $balance = $service->computeBalance('2026-05-25 10:00:00', '2026-05-25 10:50:00', []);
+
+        $this->assertNull($balance['reserve_consumption']);
+        $this->assertSame(0, $balance['tide_cycles']);
+    }
 }

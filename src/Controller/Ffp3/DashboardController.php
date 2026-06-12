@@ -56,15 +56,14 @@ class DashboardController
         $readingsCount = count($readings);
         $lastReading = $readings[0] ?? null;
 
-        $stats = Ffp3WaterLevelUnit::scaleDashboardWaterStatsFromMmToCm([
-            'TempAir' => $this->calculateStats('TempAir', $startDate, $endDate),
-            'TempEau' => $this->calculateStats('TempEau', $startDate, $endDate),
-            'Humidite' => $this->calculateStats('Humidite', $startDate, $endDate),
-            'Luminosite' => $this->calculateStats('Luminosite', $startDate, $endDate),
-            'EauAquarium' => $this->calculateStats('EauAquarium', $startDate, $endDate),
-            'EauReserve' => $this->calculateStats('EauReserve', $startDate, $endDate),
-            'EauPotager' => $this->calculateStats('EauPotager', $startDate, $endDate),
-        ]);
+        // UNE seule requête (aggregateMany) au lieu de 7×4 = 28 appels unitaires.
+        $stats = Ffp3WaterLevelUnit::scaleDashboardWaterStatsFromMmToCm(
+            $this->statsService->aggregateMany(
+                ['TempAir', 'TempEau', 'Humidite', 'Luminosite', 'EauAquarium', 'EauReserve', 'EauPotager'],
+                $startDate,
+                $endDate
+            )
+        );
 
         if ($lastReading !== null) {
             $lastReading = Ffp3WaterLevelUnit::scaleSensorRowFromMmToCm($lastReading);
@@ -92,15 +91,5 @@ class DashboardController
 
         $response->getBody()->write($html);
         return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
-    }
-
-    private function calculateStats(string $column, string $start, string $end): array
-    {
-        return [
-            'min' => $this->statsService->min($column, $start, $end),
-            'max' => $this->statsService->max($column, $start, $end),
-            'avg' => $this->statsService->avg($column, $start, $end),
-            'stddev' => $this->statsService->stddev($column, $start, $end),
-        ];
     }
 }

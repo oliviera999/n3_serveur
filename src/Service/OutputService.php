@@ -107,9 +107,11 @@ class OutputService
 
     public function getParametersMap(): array
     {
-        $outputs = $this->outputRepository->findAll();
-        $parameters = [];
         $parameterMap = $this->buildParameterMap();
+        // Filtrage SQL ciblé (IN ...) plutôt que findAll() suivi d'un tri PHP :
+        // seuls les GPIO présents dans le mapping de paramètres nous intéressent ici.
+        $outputs = $this->outputRepository->findByGpios(array_keys($parameterMap));
+        $parameters = [];
 
         foreach ($outputs as $output) {
             $gpio = (int) ($output['gpio'] ?? -1);

@@ -48,4 +48,105 @@ class SensorReadRepositoryTest extends TestCase
         $this->assertSame(12.0, (float) $two[0]['EauAquarium']);
         $this->assertSame(10.0, (float) $two[1]['EauAquarium']);
     }
+
+    /**
+     * Construit un repository adossé à une table complète (toutes colonnes attendues
+     * par fetchBetween/exportCsv/fetchTideSeriesBetween).
+     */
+    private function makeFullRepo(): SensorReadRepository
+    {
+        $pdo = new PDO('sqlite::memory:');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->exec('CREATE TABLE ffp3Data (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            TempAir REAL, Humidite REAL, TempEau REAL,
+            EauPotager REAL, EauAquarium REAL, EauReserve REAL, diffMaree REAL, Luminosite REAL,
+            etatPompeAqua INTEGER, etatPompeTank INTEGER, etatHeat INTEGER, etatUV INTEGER,
+            bouffePetits INTEGER, bouffeGros INTEGER, reading_time TEXT
+        )');
+        $insert = 'INSERT INTO ffp3Data
+            (TempAir, Humidite, TempEau, EauPotager, EauAquarium, EauReserve, diffMaree, Luminosite,
+             etatPompeAqua, etatPompeTank, etatHeat, etatUV, bouffePetits, bouffeGros, reading_time)
+            VALUES (20,50,22,100,?,?,?,500,0,0,0,0,0,0,?)';
+        $stmt = $pdo->prepare($insert);
+        // 3 lignes chronologiques (EauAquarium, EauReserve, diffMaree, reading_time)
+        $stmt->execute([300, 500, 11, '2026-05-25 10:00:00']);
+        $stmt->execute([320, 490, 12, '2026-05-25 10:10:00']);
+        $stmt->execute([310, 480, 13, '2026-05-25 10:20:00']);
+
+        return new SensorReadRepository($pdo);
+    }
+
+    public function testFetchBetweenDescByDefault(): void
+    {
+        $repo = $this->makeFullRepo();
+        $rows = $repo->fetchBetween('2026-05-25 09:00:00', '2026-05-25 11:00:00');
+
+        $this->assertCount(3, $rows);
+        // DESC : la plus récente en premier.
+        $this->assertSame('2026-05-25 10:20:00', $rows[0]['reading_time']);
+        $this->assertSame('2026-05-25 10:00:00', $rows[2]['reading_time']);
+    }
+
+    public function testFetchBetweenAscReturnsChronologicalOrder(): void
+    {
+        $repo = $this->makeFullRepo();
+        $rows = $repo->fetchBetween('2026-05-25 09:00:00', '2026-05-25 11:00:00', 'ASC');
+
+        $this->assertCount(3, $rows);
+        // ASC : la plus ancienne en premier.
+        $this->assertSame('2026-05-25 10:00:00', $rows[0]['reading_time']);
+        $this->assertSame('2026-05-25 10:20:00', $rows[2]['reading_time']);
+    }
+
+    public function testFetchBetweenInvalidOrderFallsBackToDesc(): void
+    {
+        $repo = $this->makeFullRepo();
+        // Une valeur arbitraire (potentielle injection) doit retomber sur DESC.
+        $rows = $repo->fetchBetween('2026-05-25 09:00:00', '2026-05-25 11:00:00', 'ASC; DROP TABLE ffp3Data');
+
+        $this->assertCount(3, $rows);
+        $this->assertSame('2026-05-25 10:20:00', $rows[0]['reading_time']);
+    }
+
+    public function testFetchTideSeriesBetweenReturnsFourColumnsAsc(): void
+    {
+        $repo = $this->makeFullRepo();
+        $rows = $repo->fetchTideSeriesBetween('2026-05-25 09:00:00', '2026-05-25 11:00:00');
+
+        $this->assertCount(3, $rows);
+        $this->assertSame('2026-05-25 10:00:00', $rows[0]['reading_time']);
+        $this->assertSame(
+            ['EauAquarium', 'EauReserve', 'diffMaree', 'reading_time'],
+            array_keys($rows[0])
+        );
+    }
+
+    public function testExportCsvStreamsRowsToFile(): void
+    {
+        $repo = $this->makeFullRepo();
+        $tmp = tempnam(sys_get_temp_dir(), 'csvtest_');
+        $this->assertNotFalse($tmp);
+
+        $count = $repo->exportCsv('2026-05-25 09:00:00', '2026-05-25 11:00:00', $tmp);
+
+        $this->assertSame(3, $count);
+        $lines = file($tmp, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        // 1 ligne d'en-tête + 3 lignes de données.
+        $this->assertCount(4, $lines);
+        $this->assertStringContainsString('reading_time', $lines[0]);
+        @unlink($tmp);
+    }
+
+    public function testExportCsvReturnsZeroWhenNoRows(): void
+    {
+        $repo = $this->makeFullRepo();
+        $tmp = sys_get_temp_dir() . '/csvtest_empty_' . uniqid() . '.csv';
+
+        $count = $repo->exportCsv('2030-01-01 00:00:00', '2030-01-02 00:00:00', $tmp);
+
+        $this->assertSame(0, $count);
+        // Aucun fichier ne doit avoir été écrit pour une plage vide.
+        $this->assertFileDoesNotExist($tmp);
+    }
 }

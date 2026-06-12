@@ -20,13 +20,20 @@ class SensorReadRepository extends AbstractRepository
      *
      * @param DateTimeInterface|string $start Date/heure de début (objet ou string SQL)
      * @param DateTimeInterface|string $end   Date/heure de fin (objet ou string SQL)
+     * @param string $order                   Sens du tri sur reading_time : 'DESC' (défaut) ou 'ASC'
      * @return array<array<string, mixed>>    Tableau associatif de mesures (une par ligne)
      *
      * Cette méthode convertit les objets DateTime en string SQL si besoin, puis exécute
      * une requête préparée pour récupérer les mesures dans l'intervalle demandé.
+     *
+     * Le paramètre $order permet de récupérer directement les lectures en ordre
+     * chronologique (ASC) sans array_reverse côté consommateur.
      */
-    public function fetchBetween(DateTimeInterface|string $start, DateTimeInterface|string $end): array
-    {
+    public function fetchBetween(
+        DateTimeInterface|string $start,
+        DateTimeInterface|string $end,
+        string $order = 'DESC'
+    ): array {
         // Conversion des dates en string SQL si besoin
         if ($start instanceof DateTimeInterface) {
             $start = $start->format('Y-m-d H:i:s');
@@ -35,14 +42,48 @@ class SensorReadRepository extends AbstractRepository
             $end = $end->format('Y-m-d H:i:s');
         }
 
-        // Requête SQL multi-colonnes, triée par date décroissante
+        // Validation stricte du sens de tri (whitelist) pour éviter toute injection.
+        $order = strtoupper($order) === 'ASC' ? 'ASC' : 'DESC';
+
+        // Requête SQL multi-colonnes, triée par date selon $order
         $table = TableValidator::validateDataTable(TableConfig::getDataTable());
         $sql = <<<SQL
             SELECT id, TempAir, Humidite, TempEau, EauPotager, EauAquarium, EauReserve, diffMaree, Luminosite,
                    etatPompeAqua, etatPompeTank, etatHeat, etatUV, bouffePetits, bouffeGros, reading_time
             FROM `{$table}`
             WHERE reading_time BETWEEN :start AND :end
-            ORDER BY reading_time DESC
+            ORDER BY reading_time {$order}
+        SQL;
+
+        return $this->fetchAll($sql, [':start' => $start, ':end' => $end]);
+    }
+
+    /**
+     * Récupère une série réduite dédiée à l'analyse de marées, en ordre chronologique (ASC).
+     *
+     * Ne charge que les 4 colonnes nécessaires (EauAquarium, EauReserve, diffMaree,
+     * reading_time) afin d'alléger les requêtes couvrant de larges plages
+     * (ex. 6 mois pour les séries hebdomadaires).
+     *
+     * @param DateTimeInterface|string $start Date/heure de début
+     * @param DateTimeInterface|string $end   Date/heure de fin
+     * @return array<array<string, mixed>>    Lignes en ordre chronologique ASC
+     */
+    public function fetchTideSeriesBetween(DateTimeInterface|string $start, DateTimeInterface|string $end): array
+    {
+        if ($start instanceof DateTimeInterface) {
+            $start = $start->format('Y-m-d H:i:s');
+        }
+        if ($end instanceof DateTimeInterface) {
+            $end = $end->format('Y-m-d H:i:s');
+        }
+
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
+        $sql = <<<SQL
+            SELECT EauAquarium, EauReserve, diffMaree, reading_time
+            FROM `{$table}`
+            WHERE reading_time BETWEEN :start AND :end
+            ORDER BY reading_time ASC
         SQL;
 
         return $this->fetchAll($sql, [':start' => $start, ':end' => $end]);
@@ -85,8 +126,31 @@ class SensorReadRepository extends AbstractRepository
      */
     public function exportCsv(DateTimeInterface|string $start, DateTimeInterface|string $end, string $filePath): int
     {
-        $rows = $this->fetchBetween($start, $end);
-        if ($rows === []) {
+        // Conversion des dates en string SQL si besoin
+        if ($start instanceof DateTimeInterface) {
+            $start = $start->format('Y-m-d H:i:s');
+        }
+        if ($end instanceof DateTimeInterface) {
+            $end = $end->format('Y-m-d H:i:s');
+        }
+
+        // Écriture en streaming : on itère ligne à ligne sur le statement PDO
+        // (fetch() dans une boucle) plutôt que de tout charger en mémoire via fetchAll.
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
+        $sql = <<<SQL
+            SELECT id, TempAir, Humidite, TempEau, EauPotager, EauAquarium, EauReserve, diffMaree, Luminosite,
+                   etatPompeAqua, etatPompeTank, etatHeat, etatUV, bouffePetits, bouffeGros, reading_time
+            FROM `{$table}`
+            WHERE reading_time BETWEEN :start AND :end
+            ORDER BY reading_time DESC
+        SQL;
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':start' => $start, ':end' => $end]);
+
+        // On lit la première ligne pour décider d'ouvrir (ou non) le fichier et écrire l'en-tête.
+        $first = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($first === false) {
             return 0;
         }
 
@@ -95,14 +159,22 @@ class SensorReadRepository extends AbstractRepository
             throw new \RuntimeException('Impossible d\'ouvrir le fichier ' . $filePath);
         }
 
-        // En-têtes
-        fputcsv($handle, array_keys($rows[0]));
-        foreach ($rows as $row) {
-            fputcsv($handle, $row);
-        }
+        // En-têtes (clés de la première ligne).
+        // Les paramètres séparateur/enclosure/escape sont fournis explicitement pour
+        // conserver le format historique et éviter la dépréciation PHP 8.1+ de $escape.
+        fputcsv($handle, array_keys($first), ',', '"', '\\');
+
+        $count = 0;
+        $row = $first;
+        do {
+            fputcsv($handle, $row, ',', '"', '\\');
+            $count++;
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        } while ($row !== false);
+
         fclose($handle);
 
-        return count($rows);
+        return $count;
     }
 
     /**

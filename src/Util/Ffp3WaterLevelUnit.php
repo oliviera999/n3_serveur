@@ -40,13 +40,19 @@ final class Ffp3WaterLevelUnit
      */
     public static function scaleSensorRowsFromMmToCm(array $rows): array
     {
-        $out = [];
-        foreach ($rows as $r) {
-            $scaled = self::scaleSensorRowFromMmToCm($r);
-            $out[] = $scaled ?? $r;
+        // $rows est déjà une copie locale (passage par valeur) : on modifie en place
+        // par référence pour éviter de recopier chaque ligne via scaleSensorRowFromMmToCm.
+        foreach ($rows as &$row) {
+            foreach (self::SENSOR_KEYS as $k) {
+                if (!array_key_exists($k, $row) || $row[$k] === null || $row[$k] === '') {
+                    continue;
+                }
+                $row[$k] = (float) $row[$k] / self::MM_PER_CM;
+            }
         }
+        unset($row);
 
-        return $out;
+        return $rows;
     }
 
     /**

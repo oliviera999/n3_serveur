@@ -51,16 +51,37 @@ class CsvExportService
             }
         }
 
-        $csvContent = file_get_contents($tmpFile);
-        @unlink($tmpFile);
+        // Lecture du fichier temporaire en streaming (par blocs) vers le corps de la
+        // réponse, plutôt qu'un file_get_contents chargeant tout le CSV en mémoire.
+        // La taille (Content-Length) est lue séparément via filesize().
+        $contentLength = filesize($tmpFile);
+        $handle = fopen($tmpFile, 'r');
+        if ($handle === false) {
+            @unlink($tmpFile);
+            throw new \RuntimeException('Impossible de lire le fichier ' . $tmpFile);
+        }
 
-        $response->getBody()->write($csvContent);
+        $bodyStream = $response->getBody();
+        while (!feof($handle)) {
+            $chunk = fread($handle, 8192);
+            if ($chunk === false) {
+                break;
+            }
+            $bodyStream->write($chunk);
+        }
+        fclose($handle);
+        @unlink($tmpFile);
 
         $filename = $filenamePrefix . '_' . date('YmdHis') . '.csv';
 
-        return $response
+        $response = $response
             ->withHeader('Content-Type', 'text/csv; charset=utf-8')
-            ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"')
-            ->withHeader('Content-Length', (string) strlen($csvContent));
+            ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"');
+
+        if ($contentLength !== false) {
+            $response = $response->withHeader('Content-Length', (string) $contentLength);
+        }
+
+        return $response;
     }
 }

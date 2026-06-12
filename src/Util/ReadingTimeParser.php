@@ -16,6 +16,13 @@ final class ReadingTimeParser
     private const SQL_FORMAT = 'Y-m-d H:i:s';
 
     /**
+     * Instance DateTimeZone mise en cache (lazy init).
+     * Évite de reconstruire l'objet à chaque appel sur le chemin chaud
+     * (détection d'extrema : des dizaines de milliers de points par requête).
+     */
+    private static ?DateTimeZone $timezone = null;
+
+    /**
      * @return int|null Epoch Unix en secondes, ou null si parsing impossible
      */
     public static function toUnixSeconds(string $readingTime): ?int
@@ -23,7 +30,7 @@ final class ReadingTimeParser
         $dt = DateTimeImmutable::createFromFormat(
             self::SQL_FORMAT,
             $readingTime,
-            new DateTimeZone(self::DB_TIMEZONE)
+            self::dbTimezone()
         );
         if ($dt !== false) {
             return $dt->getTimestamp();
@@ -40,5 +47,13 @@ final class ReadingTimeParser
     {
         $seconds = self::toUnixSeconds($readingTime);
         return $seconds !== null ? $seconds * 1000 : null;
+    }
+
+    /**
+     * Retourne l'instance partagée DateTimeZone Europe/Paris (créée à la demande).
+     */
+    private static function dbTimezone(): DateTimeZone
+    {
+        return self::$timezone ??= new DateTimeZone(self::DB_TIMEZONE);
     }
 }

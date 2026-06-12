@@ -30,18 +30,29 @@ class WaterBalanceService
      *
      * @param DateTimeInterface|string $start Date de début
      * @param DateTimeInterface|string $end Date de fin
+     * @param array<array<string, mixed>>|null $rowsAsc Lignes déjà chargées en ordre
+     *        chronologique ASC ET converties mm→cm. Si null, le service les charge
+     *        et les convertit lui-même (comportement historique).
      * @return array Statistiques complètes du bilan hydrique
      */
-    public function computeBalance(DateTimeInterface|string $start, DateTimeInterface|string $end): array
-    {
-        $rows = $this->repo->fetchBetween($start, $end);
+    public function computeBalance(
+        DateTimeInterface|string $start,
+        DateTimeInterface|string $end,
+        ?array $rowsAsc = null
+    ): array {
+        if ($rowsAsc !== null) {
+            // Lignes fournies par l'appelant : déjà ASC et déjà converties en cm.
+            $rows = $rowsAsc;
+        } else {
+            $rows = $this->repo->fetchBetween($start, $end);
+            // fetchBetween renvoie DESC → inverser pour ASC (chronologique)
+            $rows = array_reverse($rows);
+            $rows = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm($rows);
+        }
+
         if ($rows === []) {
             return $this->getEmptyBalance();
         }
-
-        // fetchBetween renvoie DESC → inverser pour ASC (chronologique)
-        $rows = array_reverse($rows);
-        $rows = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm($rows);
 
         // ------------------------------------------------------------
         // RÉSERVE : Consommation et Ravitaillement
@@ -115,7 +126,9 @@ class WaterBalanceService
         }
 
         $threshold = TideCycleDetector::VARIATION_THRESHOLD_CM;
-        $cycleData = $this->cycleDetector->detectCycles($levels, $times, $threshold);
+        // UNE seule passe zigzag partagée entre la détection de cycles et la tendance.
+        $zigzag = $this->cycleDetector->analyzeSeries($levels, $threshold);
+        $cycleData = $this->cycleDetector->detectCycles($levels, $times, $threshold, $zigzag);
         $cycles = $cycleData['cycles'];
         $amplitudes = $cycleData['amplitudes'];
         $cycleDurations = $cycleData['cycleDurations'];
@@ -130,7 +143,7 @@ class WaterBalanceService
             : 0.0;
         $frequencyStats = $this->cycleDetector->computeFrequencyStats($cycleDurations, $cycles, $totalHours);
 
-        $trend = $this->cycleDetector->detectCurrentTrend($levels, $threshold);
+        $trend = $this->cycleDetector->detectCurrentTrend($levels, $threshold, $zigzag);
 
         return [
             'frequency' => $frequencyStats['frequency'],

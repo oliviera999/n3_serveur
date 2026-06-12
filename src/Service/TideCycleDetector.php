@@ -46,8 +46,12 @@ class TideCycleDetector
      *     cycleMax: float|null
      * }
      */
-    public function detectCycles(array $levels, array $times, float $threshold = self::VARIATION_THRESHOLD_CM): array
-    {
+    public function detectCycles(
+        array $levels,
+        array $times,
+        float $threshold = self::VARIATION_THRESHOLD_CM,
+        ?array $zigzag = null
+    ): array {
         $cycleMin = null;
         $cycleMax = null;
         foreach ($levels as $level) {
@@ -59,7 +63,10 @@ class TideCycleDetector
             $cycleMax = $cycleMax === null ? $level : max($cycleMax, $level);
         }
 
-        $extrema = $this->findAlternatingExtrema($levels, $threshold)['extrema'];
+        // Réutilise une passe zigzag pré-calculée si fournie (cf. analyzeSeries),
+        // sinon la calcule à la volée (rétro-compatibilité).
+        $zigzag ??= $this->findAlternatingExtrema($levels, $threshold);
+        $extrema = $zigzag['extrema'];
 
         $amplitudes = [];
         $cycleDurations = [];
@@ -95,9 +102,13 @@ class TideCycleDetector
      * @param array<float|int|null> $levels Niveaux distance en ordre chronologique ASC
      * @return 'rising'|'falling'|'stable'|null rising = eau monte (distance diminue)
      */
-    public function detectCurrentTrend(array $levels, float $threshold = self::VARIATION_THRESHOLD_CM): ?string
-    {
-        $zigzag = $this->findAlternatingExtrema($levels, $threshold);
+    public function detectCurrentTrend(
+        array $levels,
+        float $threshold = self::VARIATION_THRESHOLD_CM,
+        ?array $zigzag = null
+    ): ?string {
+        // Réutilise une passe zigzag pré-calculée si fournie (cf. analyzeSeries).
+        $zigzag ??= $this->findAlternatingExtrema($levels, $threshold);
         $points = $zigzag['extrema'];
         if ($zigzag['provisional'] !== null) {
             $points[] = $zigzag['provisional'];
@@ -182,14 +193,16 @@ class TideCycleDetector
      * @param array<float|int|null> $levels Niveaux d'eau
      * @return array{positive: float, negative: float, global: float}
      */
-    public function computeVariations(array $levels, float $threshold = 1.0): array
+    public function computeVariations(array $levels, float $threshold = 1.0, ?array $zigzag = null): array
     {
         $count = count($levels);
         if ($count < 2) {
             return ['positive' => 0.0, 'negative' => 0.0, 'global' => 0.0];
         }
 
-        $zigzag = $this->findAlternatingExtrema($levels, $threshold);
+        // Réutilise une passe zigzag pré-calculée si fournie (doit avoir été
+        // calculée sur la même série et le même seuil).
+        $zigzag ??= $this->findAlternatingExtrema($levels, $threshold);
         $points = $zigzag['extrema'];
         if ($zigzag['provisional'] !== null) {
             $points[] = $zigzag['provisional'];
@@ -282,6 +295,25 @@ class TideCycleDetector
         }
 
         return ['peaks' => $peaks, 'troughs' => $troughs];
+    }
+
+    /**
+     * Exécute UNE seule passe zigzag et retourne son résultat brut, réutilisable.
+     *
+     * Permet de partager le coût de la détection d'extrema entre plusieurs
+     * consommateurs (detectCycles, detectCurrentTrend, computeVariations) au lieu
+     * de relancer findAlternatingExtrema pour chacun.
+     *
+     * @param array<float|int|null> $levels Série en ordre chronologique ASC
+     * @return array{
+     *   extrema: array<array{idx:int, value:float, isPeak:bool}>,
+     *   provisional: array{idx:int, value:float, isPeak:bool}|null,
+     *   trend: int
+     * }
+     */
+    public function analyzeSeries(array $levels, float $threshold = self::VARIATION_THRESHOLD_CM): array
+    {
+        return $this->findAlternatingExtrema($levels, $threshold);
     }
 
     /**

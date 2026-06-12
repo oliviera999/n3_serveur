@@ -27,7 +27,10 @@ class MathUtils
     }
 
     /**
-     * Calcule la variance d'un tableau de valeurs
+     * Calcule la variance d'un tableau de valeurs.
+     *
+     * NOTE : il s'agit de la variance de POPULATION (division par n, et non n-1).
+     * Choix assumé et cohérent avec les statistiques existantes ; ne pas changer la formule.
      *
      * @param array<int|float> $values Tableau de valeurs numériques
      * @return float|null Variance ou null si moins de 2 valeurs
@@ -40,10 +43,12 @@ class MathUtils
         }
 
         $mean = array_sum($values) / $count;
-        $sumSquaredDiffs = array_sum(array_map(
-            fn ($x) => pow($x - $mean, 2),
-            $values
-        ));
+        // Boucle simple avec multiplication ($d*$d) plutôt que array_map + pow.
+        $sumSquaredDiffs = 0.0;
+        foreach ($values as $x) {
+            $d = $x - $mean;
+            $sumSquaredDiffs += $d * $d;
+        }
 
         return $sumSquaredDiffs / $count;
     }
