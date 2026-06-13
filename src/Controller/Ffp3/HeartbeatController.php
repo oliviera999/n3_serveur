@@ -6,7 +6,9 @@ namespace App\Controller\Ffp3;
 
 use App\Config\Paths;
 use App\Config\TableConfig;
+use App\Middleware\RawPostBodyMiddleware;
 use App\Repository\HeartbeatRepository;
+use App\Security\SignatureValidator;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
 use App\Util\RequestHelper;
@@ -63,6 +65,15 @@ class HeartbeatController
             return ResponseHelper::text($response, 'Champs manquants', 400);
         }
 
+        // Authentification HMAC OPTIONNELLE (rétrocompatible) : le firmware FFP5CS envoie déjà
+        // les en-têtes X-Sig-* sur le heartbeat (via WebClient::httpRequest) quand HMAC est activé.
+        // Si présents → on vérifie la signature (401 si invalide). Si absents → comportement
+        // historique inchangé (CRC32 seul). Le CRC32 reste un contrôle d'intégrité, pas d'auth.
+        $hmacReject = $this->verifyOptionalHeaderHmac($request, $response);
+        if ($hmacReject !== null) {
+            return $hmacReject;
+        }
+
         // Vérification CRC32
         $raw = "uptime={$uptime}&free={$free}&min={$min}&reboots={$reboots}";
         $calcCrc = strtoupper(hash('crc32b', $raw));
@@ -111,6 +122,80 @@ class HeartbeatController
 
             return ResponseHelper::text($response, 'Erreur serveur', 500);
         }
+    }
+
+    /**
+     * Vérifie la signature HMAC d'en-têtes X-Sig-* SI elle est présente (rétrocompatible).
+     *
+     * Contrat aligné sur PostDataController::validateHeaderHmac et le firmware FFP5CS
+     * (hmac_sign.cpp) : message = timestamp + "\n" + nonce + "\n" + body, où body est le
+     * corps POST brut effectivement signé (capté par RawPostBodyMiddleware).
+     *
+     * @return Response|null  null si OK ou si aucun en-tête X-Sig (fallback CRC) ;
+     *                        Response 401/500 si en-têtes présents mais invalides.
+     */
+    private function verifyOptionalHeaderHmac(Request $request, Response $response): ?Response
+    {
+        $timestamp = trim($request->getHeaderLine('X-Sig-Timestamp'));
+        $nonce = trim($request->getHeaderLine('X-Sig-Nonce'));
+        $signature = trim($request->getHeaderLine('X-Sig-Hmac'));
+
+        // Aucun en-tête de signature → device legacy : on laisse passer (CRC seul).
+        if ($timestamp === '' && $nonce === '' && $signature === '') {
+            return null;
+        }
+
+        // En-têtes partiels → rejet (signature incomplète).
+        if ($timestamp === '' || $nonce === '' || $signature === '') {
+            $this->logger->warning('Heartbeat: rejet auth X-Sig incomplete code=401', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'has_timestamp' => $timestamp !== '',
+                'has_nonce' => $nonce !== '',
+                'has_signature' => $signature !== '',
+            ]);
+            return ResponseHelper::text($response, 'Signature incomplete', 401);
+        }
+
+        $sigSecret = $_ENV['API_SIG_SECRET'] ?? null;
+        if (!is_string($sigSecret) || $sigSecret === '') {
+            $this->logger->error('Heartbeat: rejet config API_SIG_SECRET manquante code=500');
+            return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
+        }
+
+        $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+        if ($sigWindow <= 0) {
+            $sigWindow = 300;
+        }
+
+        // Corps signé = corps POST brut (capté avant consommation par mod_php).
+        $body = $request->getAttribute(RawPostBodyMiddleware::ATTRIBUTE);
+        if (!is_string($body) || $body === '') {
+            $body = (string) $request->getBody();
+        }
+
+        $valid = SignatureValidator::isValidForBody(
+            $timestamp,
+            $nonce,
+            $body,
+            $signature,
+            $sigSecret,
+            $sigWindow
+        );
+
+        if (!$valid) {
+            $this->logger->warning('Heartbeat: rejet auth X-Sig invalide code=401', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'ts_received' => $timestamp,
+                'nonce_len' => strlen($nonce),
+                'window_s' => $sigWindow,
+                'body_len' => strlen($body),
+            ]);
+            return ResponseHelper::text($response, 'Signature incorrecte', 401);
+        }
+
+        $this->logger->info('Heartbeat: auth HMAC OK', ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a']);
+
+        return null;
     }
 
     /**

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Tests\Controller\Ffp3;
 
 use App\Controller\Ffp3\HeartbeatController;
+use App\Middleware\RawPostBodyMiddleware;
 use App\Repository\HeartbeatRepository;
+use App\Security\SignatureValidator;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
 use PDO;
@@ -142,6 +144,77 @@ class HeartbeatControllerTest extends TestCase
         $response = $this->makeController()->handle($request, new Response());
 
         $this->assertSame(405, $response->getStatusCode());
+        $this->assertSame(0, $this->rowCount());
+    }
+
+    // --- Authentification HMAC OPTIONNELLE (en-têtes X-Sig-*) ---
+
+    private const SIG_SECRET = 'unit-test-heartbeat-sig-secret';
+
+    /**
+     * Requête heartbeat avec en-têtes X-Sig-* signant le corps brut (comme le firmware).
+     * Le corps brut est aussi exposé via l'attribut RawPostBodyMiddleware (capté en prod).
+     */
+    private function signedPostRequest(array $params, string $rawBody, ?string $signature = null, ?string $nonce = null)
+    {
+        $timestamp = (string) time();
+        $nonce ??= 'a1b2c3d4e5f60718';
+        $signature ??= SignatureValidator::createSignatureForBody((int) $timestamp, $nonce, $rawBody, self::SIG_SECRET);
+
+        return $this->postRequest($params)
+            ->withAttribute(RawPostBodyMiddleware::ATTRIBUTE, $rawBody)
+            ->withHeader('X-Sig-Timestamp', $timestamp)
+            ->withHeader('X-Sig-Nonce', $nonce)
+            ->withHeader('X-Sig-Hmac', $signature);
+    }
+
+    /** En-têtes X-Sig valides -> 200 + insertion (et CRC toujours validé). */
+    public function testValidHmacHeadersAccepted(): void
+    {
+        $_ENV['API_SIG_SECRET'] = self::SIG_SECRET;
+
+        $crc = self::crcFor(123456, 80000, 60000, 3);
+        $params = ['uptime' => '123456', 'free' => '80000', 'min' => '60000', 'reboots' => '3', 'crc' => $crc];
+        $rawBody = "uptime=123456&free=80000&min=60000&reboots=3&crc={$crc}&ip=192.168.1.42";
+
+        $response = $this->makeController()->handle($this->signedPostRequest($params, $rawBody), new Response());
+
+        $this->assertSame(200, $response->getStatusCode());
+        $this->assertSame(1, $this->rowCount());
+    }
+
+    /** Signature X-Sig invalide -> 401, aucune insertion (l'auth prime sur le CRC valide). */
+    public function testInvalidHmacSignatureRejected(): void
+    {
+        $_ENV['API_SIG_SECRET'] = self::SIG_SECRET;
+
+        $crc = self::crcFor(123456, 80000, 60000, 3);
+        $params = ['uptime' => '123456', 'free' => '80000', 'min' => '60000', 'reboots' => '3', 'crc' => $crc];
+        $rawBody = "uptime=123456&free=80000&min=60000&reboots=3&crc={$crc}&ip=192.168.1.42";
+
+        $request = $this->signedPostRequest($params, $rawBody, signature: str_repeat('0', 64));
+        $response = $this->makeController()->handle($request, new Response());
+
+        $this->assertSame(401, $response->getStatusCode());
+        $this->assertSame(0, $this->rowCount());
+    }
+
+    /** En-têtes X-Sig incomplets (timestamp + hmac sans nonce) -> 401. */
+    public function testIncompleteHmacHeadersRejected(): void
+    {
+        $_ENV['API_SIG_SECRET'] = self::SIG_SECRET;
+
+        $crc = self::crcFor(123456, 80000, 60000, 3);
+        $params = ['uptime' => '123456', 'free' => '80000', 'min' => '60000', 'reboots' => '3', 'crc' => $crc];
+
+        $request = $this->postRequest($params)
+            ->withHeader('X-Sig-Timestamp', (string) time())
+            ->withHeader('X-Sig-Hmac', str_repeat('a', 64));
+        // pas de X-Sig-Nonce
+
+        $response = $this->makeController()->handle($request, new Response());
+
+        $this->assertSame(401, $response->getStatusCode());
         $this->assertSame(0, $this->rowCount());
     }
 }
