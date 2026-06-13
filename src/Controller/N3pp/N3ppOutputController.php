@@ -82,8 +82,8 @@ class N3ppOutputController extends AbstractOutputController
                 'Contrôle des sorties et paramètres de la serre et de l\'élevage d\'insectes (n3pp). Les commandes sont transmises à l\'ESP32 au prochain cycle.',
                 count($partOutputs),
                 'fa-seedling',
-                'Contrôle N3PP – Serre & Élevage',
-                'Activez/désactivez les sorties et configurez les paramètres du firmware n3pp4_2 (arrosage, énergie, notifications).',
+                'Contrôle de la serre',
+                'Pilotez l\'eau (pompe, arrosage), l\'énergie et les alertes de la serre. Vos commandes sont transmises au module au prochain cycle.',
                 '/n3pp/api/outputs'
             ),
         ];

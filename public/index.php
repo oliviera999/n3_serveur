@@ -379,7 +379,12 @@ $app->get('/robots.txt', function (Request $request, Response $response) use ($a
         . 'Disallow: ' . $basePath . "/dashboard\n"
         . 'Disallow: ' . $basePath . "/supervision\n"
         . 'Disallow: ' . $basePath . "/export-data\n"
-        . 'Disallow: ' . $basePath . "/pgl/\n";
+        . 'Disallow: ' . $basePath . "/pgl/\n"
+        . 'Disallow: ' . $basePath . "/aquaponie-control\n"
+        . 'Disallow: ' . $basePath . "/meteo-control\n"
+        . 'Disallow: ' . $basePath . "/serre-control\n"
+        . 'Disallow: ' . $basePath . "/aquamobile-control\n"
+        . 'Disallow: ' . $basePath . "/tide-stats\n";
     $response->getBody()->write($body);
     return $response
         ->withHeader('Content-Type', 'text/plain; charset=utf-8')

@@ -82,9 +82,9 @@ class N3ppDataController extends AbstractDataController
     protected function getDataConfig(string $environment): array
     {
         return [
-            'hero_title' => "L'élevage d'insectes – Serre",
+            'hero_title' => "L'élevage d'insectes — la serre",
             'hero_icon' => 'fa-leaf',
-            'hero_subtitle' => 'Supervision des capteurs de la serre (température, humidité air et sol, luminosité, état pompe).',
+            'hero_subtitle' => "L'habitat de nos insectes — phasmes, mantes, vers à soie et d'autres espèces, de plus en plus locales — surveillé en direct : humidité, chaleur, lumière, et arrosage automatique.",
             'hero_more_url' => '/serre-description',
             'hero_more_label' => 'En savoir plus sur le module',
             'form_action' => '/serre',
