@@ -32,7 +32,7 @@ final class PglStatsController
             $systemHealth = $showOnline
                 ? $this->repository->getSystemHealth(PglConfig::ONLINE_THRESHOLD_SECONDS)
                 : null;
-        } catch (\Throwable $e) {
+        } catch (\Throwable) {
             $hourlyStats = [];
             $dailyStats = [];
             $totalCount = 0;
