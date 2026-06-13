@@ -216,11 +216,11 @@
                         <i class="fas fa-chart-line"></i>
                         <h3 class="msp-sheet-card-title">Graphique des mesures</h3>
                     </div>
-                    <div class="msp-sheet-card-container">
-                        <iframe seamless scrolling="auto" loading="lazy"
-                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT5i0I15n-Nef5J1LlY-MGYkPNQtmyzJJ08yObEc4dI_YCQrHFyEwxBx6vmwX-6MnqHwHVzDvupD_Qv/pubchart?oid=583144182&amp;format=interactive">
-                        </iframe>
-                    </div>
+                    {% include 'partials/_google_sheet_chart.twig' with {
+                        container_class: 'msp-sheet-card-container',
+                        src: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5i0I15n-Nef5J1LlY-MGYkPNQtmyzJJ08yObEc4dI_YCQrHFyEwxBx6vmwX-6MnqHwHVzDvupD_Qv/pubchart?oid=583144182&format=interactive',
+                        title: 'Mesures manuelles MSP1'
+                    } %}
                 </div>
             </div>
         </div>

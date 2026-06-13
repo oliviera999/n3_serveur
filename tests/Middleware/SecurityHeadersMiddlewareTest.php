@@ -132,6 +132,26 @@ final class SecurityHeadersMiddlewareTest extends TestCase
         $this->assertNotSame('', $response->getHeaderLine('Strict-Transport-Security'));
     }
 
+    public function testDefaultCspAllowsGoogleSheetsIframes(): void
+    {
+        unset($_ENV['SECURITY_CSP']);
+        $middleware = new SecurityHeadersMiddleware();
+        $response = $middleware->process(
+            $this->makeRequest('http://localhost/'),
+            $this->passthroughHandler
+        );
+        // Sans frame-src explicite, les iframes Google Sheets (pubchart) sont
+        // bloquees par le fallback default-src 'self'.
+        $this->assertStringContainsString(
+            'frame-src',
+            $response->getHeaderLine('Content-Security-Policy')
+        );
+        $this->assertStringContainsString(
+            'https://docs.google.com',
+            $response->getHeaderLine('Content-Security-Policy')
+        );
+    }
+
     public function testCustomCspOverridesDefault(): void
     {
         $_ENV['SECURITY_CSP'] = "default-src 'none'";

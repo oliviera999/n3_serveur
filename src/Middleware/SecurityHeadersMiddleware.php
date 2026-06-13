@@ -18,6 +18,7 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
  *   - Referrer-Policy : strict-origin-when-cross-origin (limite Referer)
  *   - Permissions-Policy : geolocation/microphone/camera bloques par defaut
  *   - Content-Security-Policy : restrictive avec ouverture pour Highcharts/CDN locaux
+ *                               et iframes Google Sheets (frame-src docs.google.com)
  *   - Strict-Transport-Security : HTTPS detecte via scheme OU X-Forwarded-Proto
  *
  * Override via .env :
@@ -37,6 +38,10 @@ class SecurityHeadersMiddleware implements MiddlewareInterface
         . "img-src 'self' data: blob:; "
         . "font-src 'self' data:; "
         . "connect-src 'self'; "
+        // Graphiques Google Sheets publies (pubchart) embarques en <iframe> sur
+        // les pages aquaponie/MSP. Sans frame-src explicite, le fallback default-src
+        // 'self' bloque ces iframes et les graphiques ne s'affichent pas.
+        . "frame-src 'self' https://docs.google.com; "
         . "frame-ancestors 'self'; "
         . "base-uri 'self'; "
         . "form-action 'self'; "
