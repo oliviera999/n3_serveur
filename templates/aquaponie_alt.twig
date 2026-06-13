@@ -629,11 +629,10 @@
                                     <i class="fas fa-chart-line chemistry-chart-icon"></i>
                                     <h3 class="chemistry-chart-title">Paramètres principaux</h3>
                                 </div>
-                                <div class="chemistry-chart-container">
-                                    <iframe seamless scrolling="auto"
-                                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=209032696&amp;format=interactive">
-                                    </iframe>
-                                </div>
+                                {% include 'partials/_google_sheet_chart.twig' with {
+                                    src: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=209032696&format=interactive',
+                                    title: 'Paramètres principaux — analyses chimiques manuelles'
+                                } %}
                             </div>
 
                             <!-- Bloc 2 : Nutriments et minéraux -->
@@ -642,11 +641,10 @@
                                     <i class="fas fa-chart-area chemistry-chart-icon"></i>
                                     <h3 class="chemistry-chart-title">Nutriments et minéraux</h3>
                                 </div>
-                                <div class="chemistry-chart-container">
-                                    <iframe seamless scrolling="auto"
-                                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=699943208&amp;format=interactive">
-                                    </iframe>
-                                </div>
+                                {% include 'partials/_google_sheet_chart.twig' with {
+                                    src: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=699943208&format=interactive',
+                                    title: 'Nutriments et minéraux — analyses chimiques manuelles'
+                                } %}
                             </div>
 
                             <!-- Bloc 3 : Équilibre chimique -->
@@ -655,11 +653,10 @@
                                     <i class="fas fa-chart-bar chemistry-chart-icon"></i>
                                     <h3 class="chemistry-chart-title">Équilibre chimique</h3>
                                 </div>
-                                <div class="chemistry-chart-container">
-                                    <iframe seamless scrolling="auto"
-                                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=1338338691&amp;format=interactive">
-                                    </iframe>
-                                </div>
+                                {% include 'partials/_google_sheet_chart.twig' with {
+                                    src: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=1338338691&format=interactive',
+                                    title: 'Équilibre chimique — analyses chimiques manuelles'
+                                } %}
                             </div>
 
                             <!-- Bloc 4 : Paramètres surveillés -->

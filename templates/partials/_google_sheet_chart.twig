@@ -1,0 +1,24 @@
+{#
+  Graphique Google Sheets publie (pubchart, format=interactive) embarque en <iframe>.
+
+  Variables attendues :
+    - src             : URL complete du pubchart Google Sheets (obligatoire).
+    - title           : libelle accessible de l'iframe (recommande).
+    - container_class : classe CSS du conteneur (defaut: chemistry-chart-container).
+
+  Pre-requis :
+    - La CSP doit autoriser `frame-src https://docs.google.com`
+      (voir SecurityHeadersMiddleware).
+    - Le dimensionnement responsive est gere en CSS (common-data.css).
+#}
+<div class="{{ container_class|default('chemistry-chart-container') }}">
+    <iframe
+        src="{{ src }}"
+        title="{{ title|default('Graphique Google Sheets') }}"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        frameborder="0"
+        scrolling="auto"
+        seamless
+        allowfullscreen></iframe>
+</div>
