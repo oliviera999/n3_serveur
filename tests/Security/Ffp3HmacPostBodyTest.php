@@ -178,4 +178,66 @@ class Ffp3HmacPostBodyTest extends TestCase
         $this->assertStringContainsString('etatPompeTank=0', $rebuilt);
         $this->assertSame(1, substr_count($rebuilt, 'etatPompeTank='));
     }
+
+    /**
+     * Contrat HMAC : les champs flottants (TempAir/Humidite/Pression/TempEau/
+     * chauffageThreshold) sont normalisés à 1 décimale (sprintf %.1f). Le firmware
+     * signe avec la même normalisation ; toute divergence casserait la vérification
+     * HMAC (401). Caractérise le comportement actuel pour éviter une dérive silencieuse.
+     */
+    public function testFloatFieldsNormalizedToOneDecimal(): void
+    {
+        parse_str(
+            'api_key=k&sensor=esp32-wroom&version=14.0&TempAir=25.07&Humidite=60.4'
+            . '&Pression=1013.25&TempEau=22.0&EauPotager=1&EauAquarium=2&EauReserve=3'
+            . '&diffMaree=0&Luminosite=1&etatPompeAqua=1&etatPompeTank=0&etatHeat=0&etatUV=0'
+            . '&chauffageThreshold=18.12&resetMode=0',
+            $params
+        );
+        $rebuilt = Ffp3HmacPostBody::buildFromParams($params);
+
+        $this->assertStringContainsString('TempAir=25.1', $rebuilt);
+        $this->assertStringContainsString('Humidite=60.4', $rebuilt);
+        // round-half-to-even (IEEE 754) : 1013.25 -> 1013.2 (et NON 1013.3). Le firmware
+        // utilise le même snprintf("%.1f"), donc l'HMAC reste cohérent — on verrouille ce fait.
+        $this->assertStringContainsString('Pression=1013.2', $rebuilt);
+        $this->assertStringContainsString('chauffageThreshold=18.1', $rebuilt);
+        $this->assertStringNotContainsString('chauffageThreshold=18.12', $rebuilt);
+    }
+
+    /**
+     * Un champ rempli uniquement d'espaces est omis (comme un champ absent), car le
+     * firmware ne l'inclut pas dans le corps signé. Évite un faux 401 par divergence.
+     */
+    public function testWhitespaceOnlyFieldIsOmitted(): void
+    {
+        parse_str(
+            'api_key=k&sensor=esp32-wroom&version=14.0&TempAir=25.0&Humidite=60.0'
+            . '&Pression=1013.0&TempEau=22.0&EauPotager=100&EauReserve=150'
+            . '&diffMaree=0&Luminosite=300&etatPompeAqua=1&etatPompeTank=0&etatHeat=0&etatUV=1'
+            . '&resetMode=0',
+            $params
+        );
+        $params['EauAquarium'] = '   '; // espaces uniquement
+
+        $rebuilt = Ffp3HmacPostBody::buildFromParams($params);
+
+        $this->assertStringNotContainsString('EauAquarium=', $rebuilt);
+        $this->assertStringContainsString('EauPotager=100', $rebuilt);
+    }
+
+    /** La reconstruction est déterministe : mêmes paramètres -> même corps (HMAC stable). */
+    public function testBuildFromParamsIsDeterministic(): void
+    {
+        parse_str(
+            'api_key=k&sensor=esp32-wroom&version=14.0&Pression=1013.0&bouffeMatin=8'
+            . '&zeb=1&alpha=2&gamma=3&resetMode=0&post_id=x',
+            $params
+        );
+        $a = Ffp3HmacPostBody::buildFromParams($params);
+        $b = Ffp3HmacPostBody::buildFromParams($params);
+        $this->assertSame($a, $b);
+        // Les extras inconnus sont triés alphabétiquement entre champs principaux et suffixes.
+        $this->assertStringContainsString('alpha=2&gamma=3&zeb=1', $a);
+    }
 }
