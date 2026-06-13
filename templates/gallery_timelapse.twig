@@ -1,6 +1,7 @@
 {% extends 'layout.twig' %}
 
-{% block title %}{{ page_title|default('Timelapse - n³ iot datas') }}{% endblock %}
+{% block title %}{{ page_title|default('Timelapses des projets | n³ IoT') }}{% endblock %}
+{% block meta_description %}Photos et vidéos accélérées capturées par les caméras des écosystèmes n³.{% endblock %}
 
 {% block wrapper_class %} gallery-timelapse-wrapper{% endblock %}
 
@@ -547,7 +548,7 @@
   <div class="timelapse-hero">
     <div>
       <h1><i class="fas fa-film"></i> {{ gallery_title }}</h1>
-      <p class="timelapse-hero-subtitle">Vue image par image avec plages temporelles et export vidéo</p>
+      <p class="timelapse-hero-subtitle">Faites défiler les images une à une, choisissez une plage de temps, puis transformez la séquence en vidéo. Quelques heures de vie de l'écosystème, condensées en quelques secondes.</p>
       <div class="timelapse-status timelapse-status-spacing">
         <span class="timelapse-status-dot"></span>
         <span id="systemStatus">EN LIGNE</span>

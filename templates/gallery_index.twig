@@ -1,7 +1,8 @@
 {% extends 'layout.twig' %}
 {# Page d'index des galeries — présente les différentes galeries (aquaponie, potager, élevage) #}
 
-{% block title %}{{ page_title|default('Galeries photos') }} - n³ iot datas{% endblock %}
+{% block title %}{{ page_title|default('Timelapses des projets | n³ IoT') }}{% endblock %}
+{% block meta_description %}Photos et vidéos accélérées capturées par les caméras des écosystèmes n³.{% endblock %}
 
 {% block wrapper_class %}supervision-wrapper{% endblock %}
 
@@ -12,8 +13,8 @@
 {% block content %}
 <article class="post featured">
     <header class="major" data-aos="fade-up">
-        <h1><i class="fas fa-images"></i> Galeries photos</h1>
-        <p>Photos et vidéos capturées par les caméras ESP32-CAM des projets IoT (aquaponie, potager, élevage).</p>
+        <h1><i class="fas fa-images"></i> Galeries</h1>
+        <p>Des caméras photographient chaque écosystème à intervalles réguliers. Mises bout à bout, ces images racontent le temps qui passe : une plante qui pousse, une journée de lumière, la vie de la serre.</p>
         <hr />
     </header>
 

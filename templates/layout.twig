@@ -4,10 +4,17 @@
     {% set load_realtime_styles = load_realtime_styles is defined ? load_realtime_styles : true %}
     {% set load_highcharts_theme = load_highcharts_theme is defined ? load_highcharts_theme : true %}
     {% set load_enhancement_scripts = load_enhancement_scripts is defined ? load_enhancement_scripts : true %}
-    <title>{% block title %}n³ iot datas{% endblock %}</title>
+    <title>{% block title %}n³ IoT — Les capteurs de la salle aérée | olution{% endblock %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#008B74" />
+    <meta name="description" content="{% block meta_description %}{{ meta_description|default('Trois écosystèmes vivants du lycée Lyautey, équipés et suivis en direct par les élèves : aquaponie, potager connecté, élevage d\'insectes.') }}{% endblock %}" />
+    {% block meta_og %}
+    <meta property="og:title" content="{{ og_title|default(block('title')) }}" />
+    <meta property="og:description" content="{{ og_description|default(block('meta_description')) }}" />
+    <meta property="og:image" content="{{ og_image|default((base_path|default('')) ~ '/assets/logo.png') }}" />
+    <meta property="og:type" content="website" />
+    {% endblock %}
     {% block meta_pwa %}
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
