@@ -80,6 +80,49 @@ final class AbstractSensorRepositoryTest extends TestCase
         $this->assertSame('v1.2', $this->repo->getFirmwareVersion());
     }
 
+    /**
+     * Vérifie que getFirmwareVersion() interroge bien la table renvoyée par
+     * getTableName() de la sous-classe (et non une table en dur), via un mock
+     * PDO/PDOStatement qui capture le SQL exécuté.
+     */
+    public function testGetFirmwareVersionQueriesTableFromGetTableName(): void
+    {
+        $capturedSql = null;
+
+        $stmt = $this->createMock(\PDOStatement::class);
+        $stmt->method('execute')->willReturn(true);
+        $stmt->method('fetch')->willReturn(['version' => '9.9.9']);
+
+        $pdo = $this->createMock(PDO::class);
+        $pdo->expects($this->once())
+            ->method('prepare')
+            ->with($this->callback(function (string $sql) use (&$capturedSql): bool {
+                $capturedSql = $sql;
+                return true;
+            }))
+            ->willReturn($stmt);
+
+        $repo = new class ($pdo) extends AbstractSensorRepository {
+            protected function getTableName(): string
+            {
+                return 'custom_sensor_table';
+            }
+
+            /** @return string[] */
+            public function getSensorColumns(): array
+            {
+                return ['TempAir'];
+            }
+        };
+
+        $this->assertSame('9.9.9', $repo->getFirmwareVersion());
+        $this->assertNotNull($capturedSql);
+        $this->assertStringContainsString('`custom_sensor_table`', $capturedSql);
+        $this->assertStringContainsString('SELECT version', $capturedSql);
+        $this->assertStringContainsString('ORDER BY reading_time DESC', $capturedSql);
+        $this->assertStringContainsString('LIMIT 1', $capturedSql);
+    }
+
     public function testFetchBetweenReturnsRowsInRangeOrderedAsc(): void
     {
         $today = date('Y-m-d');
