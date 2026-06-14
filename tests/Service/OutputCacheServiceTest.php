@@ -96,4 +96,43 @@ class OutputCacheServiceTest extends TestCase
         $afterConsume = $this->service->getOutputsState($this->pdo, [16]);
         $this->assertArrayNotHasKey('triggerOtaCheck', $afterConsume);
     }
+
+    /**
+     * Contrat dbvars (firmware) : tous les GPIO de config 100-116 doivent être présents
+     * dans la réponse, même absents en BDD (valeur par défaut), sinon le firmware reçoit un
+     * champ manquant. Vérifie aussi la présence des alias symboliques (double format).
+     */
+    public function testGetOutputsStateReturnsAllConfigGpiosEvenWhenAbsentFromDb(): void
+    {
+        $configGpios = range(100, 116);
+        $result = $this->service->getOutputsState($this->pdo, $configGpios, true, false);
+
+        foreach ($configGpios as $gpio) {
+            $this->assertArrayHasKey((string) $gpio, $result, "GPIO {$gpio} manquant dans dbvars");
+        }
+        // Alias symboliques attendus par le firmware (web_server.cpp::fillDbVarsJson).
+        $this->assertArrayHasKey('bouffeMatin', $result);
+        $this->assertArrayHasKey('chauffageThreshold', $result);
+        $this->assertArrayHasKey('FreqWakeUp', $result);
+    }
+
+    /**
+     * La réponse JSON dbvars doit rester sous la limite de buffer du firmware ESP32-WROOM
+     * (le serveur vise <1024 o, compact, sans PRETTY_PRINT). Valeurs réalistes (email long).
+     * Garde-fou contre un ajout de champ qui ferait silencieusement tronquer côté firmware.
+     */
+    public function testGetOutputsStateJsonStaysUnderFirmwareBuffer(): void
+    {
+        // Email réaliste relativement long sur GPIO 100.
+        $this->pdo->exec("INSERT INTO ffp3Outputs (gpio, state) VALUES (100, 'aquaponie.ferme.exploitation@example.com')");
+        $result = $this->service->getOutputsState($this->pdo, range(100, 116), true, false);
+
+        $json = json_encode($result, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        $this->assertNotFalse($json);
+        $this->assertLessThan(
+            1024,
+            strlen($json),
+            'Réponse dbvars >= 1024 o : risque de troncature sur buffer ESP32-WROOM (' . strlen($json) . ' o)'
+        );
+    }
 }

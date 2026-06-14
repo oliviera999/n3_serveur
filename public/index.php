@@ -221,67 +221,9 @@ $app->get('/serre-description', [N3ppDescriptionController::class, 'show']);
 // Auth opt-in via OTA_REQUIRE_AUTH=true (.env) : exige X-Api-Key / X-OTA-Key / ?api_key= sinon 401.
 // Par défaut (compat firmwares déployés) : lecture publique des binaires ; l'intégrité est
 // validée côté firmware par MD5 (cf. firmwires/ffp5cs/include/ota_config.h).
-$otaHandler = function (Request $request, Response $response, array $args): Response {
-    $path = $args['path'] ?? '';
-    if (strpos($path, '..') !== false || $path === '') {
-        return $response->withStatus(400);
-    }
-
-    $requireAuth = filter_var($_ENV['OTA_REQUIRE_AUTH'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
-    if ($requireAuth) {
-        $expectedKey = trim((string) ($_ENV['API_KEY'] ?? ''));
-        if ($expectedKey === '') {
-            error_log('[OTA] OTA_REQUIRE_AUTH=true mais API_KEY non configuree');
-            return $response->withStatus(500);
-        }
-        $providedKey = trim($request->getHeaderLine('X-Api-Key'));
-        if ($providedKey === '') {
-            $providedKey = trim($request->getHeaderLine('X-OTA-Key'));
-        }
-        if ($providedKey === '') {
-            $params = $request->getQueryParams();
-            if (isset($params['api_key']) && is_scalar($params['api_key'])) {
-                $providedKey = trim((string) $params['api_key']);
-            }
-        }
-        if ($providedKey === '' || !hash_equals($expectedKey, $providedKey)) {
-            error_log(sprintf('[OTA] rejet auth path=%s ip=%s', $path, $_SERVER['REMOTE_ADDR'] ?? 'n/a'));
-            return $response->withStatus(401);
-        }
-    }
-
-    $otaDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ota' . DIRECTORY_SEPARATOR;
-    $file = $otaDir . str_replace('/', DIRECTORY_SEPARATOR, $path);
-    if (!is_file($file)) {
-        return $response->withStatus(404);
-    }
-    $fileSize = filesize($file);
-    if ($fileSize === false) {
-        return $response->withStatus(500);
-    }
-    $ext = pathinfo($file, PATHINFO_EXTENSION);
-    $response = $response->withHeader('Content-Length', (string) $fileSize);
-    if ($ext === 'json') {
-        $response = $response->withHeader('Content-Type', 'application/json');
-    } elseif ($ext === 'bin') {
-        $response = $response->withHeader('Content-Type', 'application/octet-stream');
-    }
-    $stream = fopen($file, 'rb');
-    if ($stream === false) {
-        return $response->withStatus(500);
-    }
-    $body = $response->getBody();
-    while (!feof($stream)) {
-        $chunk = fread($stream, 65536);
-        if ($chunk === false) {
-            break;
-        }
-        $body->write($chunk);
-    }
-    fclose($stream);
-
-    return $response;
-};
+// Supporte HTTP Range (206) pour la reprise de download ; téléchargement complet (200) inchangé.
+// Logique extraite et testée dans App\Controller\Ffp3\OtaFileController (OtaFileControllerTest).
+$otaHandler = new \App\Controller\Ffp3\OtaFileController(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ota');
 
 // Fichiers OTA (n3pp, msp, cam, ffp3) — servis depuis serveur/ota/
 $app->get('/ota/{path:.+}', $otaHandler);
