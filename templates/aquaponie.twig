@@ -5,6 +5,9 @@
 #}
 {% extends 'layout.twig' %}
 
+{% block title %}{{ page_title|default('Aquaponie FFP3 — Données en direct | n³ IoT') }}{% endblock %}
+{% block meta_description %}Niveaux d'eau, températures, marées et chimie de l'eau d'une ferme aquaponique pédagogique, mesurés en temps réel.{% endblock %}
+
 {% block head_scripts %}
         <script src="{{ base_path }}/assets/js/moment.min.js"></script>
         <script src="{{ base_path }}/assets/js/moment-timezone-with-data.min.js"></script>
@@ -32,7 +35,7 @@
                     hero_icon_left: 'fa-seedling',
                     hero_icon_right: 'fa-fish',
                     hero_title: "L'aquaponie",
-                    hero_subtitle: 'Supervision en direct des capteurs, pompes et indicateurs de la ferme aquaponique.',
+                    hero_subtitle: 'Tout ce que la ferme aquaponique mesure et fait, en direct : capteurs, pompes, marées et chimie de l\'eau.',
                     hero_more_url: '/aquaponie-description',
                     hero_more_label: 'En savoir plus sur le module',
                     hero_synthesis: '📊 Synthèse du <span id="summary-start-date">' ~ start_date|date('d/m/Y H:i') ~ '</span> au <span id="summary-end-date">' ~ end_date|date('d/m/Y H:i') ~ '</span> — ' ~ measure_count ~ ' mesures — ' ~ duration_str
@@ -40,12 +43,22 @@
 
                 <!-- Featured Post : ordre des sections = Hero, Niveaux d'eau, Paramètres physiques, Bilan hydrique (révélable), Graphiques eau/temp, Chimie, Filtrage + État système + Contrôles live -->
                 <article class="post featured">
+                    <!-- En un coup d'œil -->
+                    <div class="aquaponie-glance" data-aos="fade-up">
+                        <p>
+                            <strong>En un coup d'œil.</strong> L'eau circule par cycles (comme des marées), la température et l'humidité sont stables. Pour vérifier la santé du bassin, regardez surtout les paramètres chimiques plus bas : ce sont eux qui protègent les poissons.
+                        </p>
+                    </div>
+
                     <!-- Section Niveaux d'eau -->
                     <div class="section-header" data-aos="fade-up">
                         <i class="fas fa-tint"></i>
                         <h3>Niveaux d'eau</h3>
                     </div>
-                    
+                    <p class="aquaponie-section-intro" data-aos="fade-up">
+                        Trois bacs sont surveillés : l'aquarium, la réserve et le potager. Pourquoi cette « marée » ? L'eau monte et descend en cycles pour irriguer les plantes puis revenir aux poissons. Note de précision : une variation d'1 cm ou moins est considérée comme une incertitude de mesure et n'est pas comptée.
+                    </p>
+
                     <div class="stats-grid">
                         <!-- Aquarium -->
                         <div class="stat-card aquarium" data-aos="fade-up" data-aos-delay="0">
@@ -287,8 +300,7 @@
                             </div>
 
                             <p class="balance-note" style="font-size:0.85em;opacity:0.85;margin-top:0.5em;">
-                                Distance capteur → surface : si elle augmente, l'eau descend ; si elle diminue, l'eau monte.
-                                Seuil de détection : {{ tide_threshold_cm|default(2) }} cm.
+                                On mesure la distance entre le capteur et la surface de l'eau. Si cette distance augmente, l'eau descend ; si elle diminue, l'eau monte. Le seuil de détection est de {{ tide_threshold_cm|default(2) }} cm.
                             </p>
                             
                             <div class="balance-stat">
@@ -356,9 +368,7 @@
                                     Analyses manuelles réalisées par les élèves
                                 </div>
                                 <div class="chemistry-info-text">
-                                    Ces mesures sont effectuées régulièrement par les élèves à l'aide d'un kit d'analyse dédié à l'aquariophilie. 
-                                    Le suivi de ces paramètres chimiques est essentiel pour maintenir un écosystème aquaponique équilibré et assurer 
-                                    le bien-être des poissons et la croissance optimale des plantes.
+                                    Régulièrement, les élèves analysent l'eau avec un kit d'aquariophilie. Ces mesures chimiques sont le vrai tableau de bord de santé du bassin : elles garantissent l'équilibre entre les poissons, les bactéries et les plantes.
                                 </div>
                             </div>
                         </div>
@@ -413,28 +423,28 @@
                                             <i class="fas fa-tint chemistry-legend-icon legend-ph"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">pH (Potentiel Hydrogène)</div>
-                                                <div class="chemistry-legend-value">Acidité / alcalinité. Idéal : 6,8–7,2</div>
+                                                <div class="chemistry-legend-value">Acide ou basique ? Idéal : 6,8–7,2. Hors zone, plantes et poissons souffrent.</div>
                                             </div>
                                         </div>
                                         <div class="chemistry-legend-item">
                                             <i class="fas fa-wind chemistry-legend-icon legend-nh3"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">Ammoniaque (NH₃)</div>
-                                                <div class="chemistry-legend-value">Toxique pour les poissons. &lt; 0,02 mg/L</div>
+                                                <div class="chemistry-legend-value">Déchet des poissons, toxique. Doit rester &lt; 0,02 mg/L</div>
                                             </div>
                                         </div>
                                         <div class="chemistry-legend-item">
                                             <i class="fas fa-leaf chemistry-legend-icon legend-no2"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">Nitrites (NO₂)</div>
-                                                <div class="chemistry-legend-value">Cycle de l'azote. Doit être indétectable</div>
+                                                <div class="chemistry-legend-value">Étape dangereuse du cycle de l'azote. Doit être indétectable</div>
                                             </div>
                                         </div>
                                         <div class="chemistry-legend-item">
                                             <i class="fas fa-seedling chemistry-legend-icon legend-no3"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">Nitrates (NO₃)</div>
-                                                <div class="chemistry-legend-value">Nutriment plantes. Optimal : 5–150 mg/L</div>
+                                                <div class="chemistry-legend-value">L'engrais des plantes. Optimal : 5–150 mg/L</div>
                                             </div>
                                         </div>
                                         <div class="chemistry-legend-item">
@@ -448,21 +458,21 @@
                                             <i class="fas fa-atom chemistry-legend-icon legend-po4"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">Phosphates (PO₄³⁻)</div>
-                                                <div class="chemistry-legend-value">Macronutriment pour les plantes. Optimal : 1–10 mg/L</div>
+                                                <div class="chemistry-legend-value">Nourriture des plantes. Optimal : 1–10 mg/L</div>
                                             </div>
                                         </div>
                                         <div class="chemistry-legend-item">
                                             <i class="fas fa-flask chemistry-legend-icon legend-k"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">Potassium (K⁺)</div>
-                                                <div class="chemistry-legend-value">Souvent déficient en aquaponie. Optimal : 50–150 mg/L</div>
+                                                <div class="chemistry-legend-value">Souvent en manque en aquaponie. Optimal : 50–150 mg/L</div>
                                             </div>
                                         </div>
                                         <div class="chemistry-legend-item">
                                             <i class="fas fa-magnet chemistry-legend-icon legend-fe"></i>
                                             <div class="chemistry-legend-content">
                                                 <div class="chemistry-legend-label">Fer (Fe²⁺/Fe³⁺)</div>
-                                                <div class="chemistry-legend-value">Oligo-élément essentiel aux plantes. Optimal : 0,5–2 mg/L</div>
+                                                <div class="chemistry-legend-value">En petite quantité, indispensable aux plantes. Optimal : 0,5–2 mg/L</div>
                                             </div>
                                         </div>
                                     </div>
@@ -605,14 +615,14 @@
                         <div class="health-grid">
                             <div class="health-item">
                                 <div class="health-item-label">Statut</div>
-                                <div id="system-status-indicator" class="status-indicator status-online is-animated">
+                                <div id="system-status-indicator" class="status-indicator status-loading">
                                     <span class="status-pill" data-status-badge>
                                         <i class="fas fa-circle"></i>
-                                        <strong>TEMPS RÉEL</strong>
+                                        <strong>STATUT</strong>
                                     </span>
                                     <span class="status-text" data-status-label>
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>En ligne</span>
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        <span>Chargement…</span>
                                     </span>
                                 </div>
                             </div>

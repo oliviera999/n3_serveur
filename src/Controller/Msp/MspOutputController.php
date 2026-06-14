@@ -74,8 +74,8 @@ class MspOutputController extends AbstractOutputController
                 'Contrôle des sorties et paramètres de la station météo (MSP). Les commandes sont transmises à l\'ESP32 au prochain cycle.',
                 count($outputs),
                 'fa-cloud-sun',
-                'Contrôle MSP1 – Station Météo',
-                'Activez/désactivez les sorties et configurez les paramètres du firmware msp2_5.',
+                'Contrôle de la station météo',
+                'Activez ou coupez les sorties, et réglez les paramètres du potager. Vos commandes sont envoyées au module au cycle suivant — elles ne sont donc pas instantanées.',
                 '/msp1/api/outputs'
             ),
         ];

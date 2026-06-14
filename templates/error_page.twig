@@ -6,7 +6,7 @@
 <article class="post featured">
     <header class="major">
         <h2>{{ heading|default('Une erreur est survenue') }}</h2>
-        <p>{{ message|default('Veuillez réessayer plus tard ou revenir à l\'accueil.') }}</p>
+        <p>{{ message|default('Cette page rencontre un problème technique en ce moment. Les données sont en sécurité — réessayez plus tard, ou revenez à l\'accueil.') }}</p>
     </header>
     {% if reference is defined and reference %}
     <p class="error-reference"><strong>Référence :</strong> {{ reference }}</p>

@@ -85,9 +85,9 @@ class MspDataController extends AbstractDataController
     protected function getDataConfig(string $environment): array
     {
         return [
-            'hero_title' => 'Le potager – Station météo',
+            'hero_title' => 'Le potager — station météo',
             'hero_icon' => 'fa-sun',
-            'hero_subtitle' => 'Supervision des capteurs de la station météo (température, humidité, luminosité, eau, pluie).',
+            'hero_subtitle' => 'La météo du jardin, mesurée en continu : soleil, chaleur, pluie, et l\'eau dans le sol.',
             'hero_more_url' => '/meteo-description',
             'hero_more_label' => 'En savoir plus sur le module',
             'form_action' => '/meteo',
