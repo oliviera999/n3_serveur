@@ -3,7 +3,8 @@
 {% set load_highcharts_theme = false %}
 {% set load_enhancement_scripts = false %}
 
-{% block title %}n³ iot datas - olution{% endblock %}
+{% block title %}n³ IoT — Les capteurs de la salle aérée | olution{% endblock %}
+{% block meta_description %}Trois écosystèmes vivants du lycée Lyautey, équipés et suivis en direct par les élèves : aquaponie, potager connecté, élevage d'insectes.{% endblock %}
 
 {% block head_css %}
 <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/home-styles.css" />
@@ -20,7 +21,7 @@
             <i class="icon solid fa-microchip"></i>
         </h1>
         <p class="home-hero-subtitle">
-            Toutes les données de suivi des objets connectés de la <a href="https://n3.olution.info" target="_blank" rel="noopener noreferrer">salle aérée n<sup>3</sup></a> (Nature, Numérique, Nomade).
+            Ici, les capteurs parlent. Trois écosystèmes vivants du <a href="https://www.lyceelyautey.org/" target="_blank" rel="noopener noreferrer">lycée Lyautey</a> — une ferme aquaponique, un potager et un élevage d'insectes — sont équipés, programmés et suivis par les élèves. Les chiffres que vous voyez sont réels et mis à jour en direct.
         </p>
         <hr />
     </header>
@@ -28,28 +29,16 @@
     <!-- Intro (titre principal dans le hero ci-dessus) -->
     <div class="home-intro-block" data-aos="fade-up">
         <p>
-            Ce site permet le suivi des prototypes d'objets connectés de la <a href="https://n3.olution.info" target="_blank" rel="noopener noreferrer">salle aérée n<sup>3</sup></a> et les mesures réalisées par les élèves.
+            <a href="https://n3.olution.info" target="_blank" rel="noopener noreferrer">n<sup>3</sup></a> — pour Nature, Numérique, Nomade — est une salle de cours en plein air, au lycée Lyautey de Casablanca. On y fait cours dehors, et bien plus. Tout ce que vous trouverez ici a été construit par et pour les élèves, avec d'autres usagers de l'établissement. C'est expérimental, et c'est exactement le but : apprendre en fabriquant.
         </p>
         <p>
-            Le projet de <a href="https://n3.olution.info" target="_blank" rel="noopener noreferrer">salle aérée n<sup>3</sup></a> permet de faire cours dehors, et bien plus, au sein du lycée Lyautey de Casablanca au Maroc.
-        </p>
-        <p>
-            L'ensemble de ce que cette salle de cours d'un nouveau genre propose a été développé pour et par les élèves accompagnés d'autres usagers de l'établissement, cela est donc tout à fait expérimental.
+            Concrètement, les élèves apprennent à brancher des capteurs, à les programmer et à lire ce qu'ils mesurent. Cette plateforme rassemble toutes ces données en un seul endroit.
         </p>
         <p class="home-intro-note">
-            <strong>Les projets :</strong> Aquaponie (FFP3), Potager (MSP1 — station météo), Élevage (N3PP — serre aux insectes).
+            <strong>Comment lire ce site ?</strong> Chaque projet a deux pages : les données (ce que les capteurs mesurent maintenant) et la description (comment c'est fabriqué). Un point de couleur indique si le module envoie des données fraîches 🟢, dort un peu 🟠, ou est hors ligne 🔴.
         </p>
         <p>
-            Cette plateforme a été développée dans le cadre des projets pédagogiques d'<a href="https://olution.info" target="_blank" rel="noopener noreferrer">olution</a>, permettant aux élèves d'apprendre à programmer des capteurs et à suivre les données en direct.
-        </p>
-        <p>
-            Plus d'informations sur <a href="https://www.lyceelyautey.org/?s=n3" target="_blank" rel="noopener noreferrer">le site officiel de l'établissement</a>.
-        </p>
-        <p>
-            La <a href="https://n3.olution.info" target="_blank" rel="noopener noreferrer">salle aérée n<sup>3</sup></a> est un projet proposé par <a href="https://olution.info" target="_blank" rel="noopener noreferrer">olution</a>, <a href="https://olution.info/course/view.php?id=511" target="_blank" rel="noopener noreferrer">voir l'espace pédagogique en lien</a>.
-        </p>
-        <p>
-            Pour toute question, n'hésitez pas à prendre contact auprès de <a href="mailto:oarnould@lyceelyautey.org">Olivier ARNOULD-LAURENT</a> ou <a href="mailto:abesteiro@lyceelyautey.org">Anne BESTEIRO</a>.
+            Une question ? Écrivez à <a href="mailto:oarnould@lyceelyautey.org">Olivier Arnould-Laurent</a> ou <a href="mailto:abesteiro@lyceelyautey.org">Anne Besteiro</a> (professeurs au lycée Lyautey).
         </p>
     </div>
 
@@ -69,8 +58,7 @@
                 <span class="project-live-datetime">—</span>
             </div>
             <p class="project-description">
-                Système d'aquaponie automatisé avec surveillance en temps réel des niveaux d'eau, 
-                températures, humidité et luminosité. Contrôle à distance des pompes, chauffage et alimentation.
+                Des poissons nourrissent des plantes, les plantes nettoient l'eau des poissons. On surveille en direct les niveaux d'eau, les températures et la lumière, et on pilote à distance les pompes, le chauffage et le repas des poissons.
             </p>
             <div class="project-badges">
                 <span class="project-badge"><i class="fas fa-tint"></i> 3 niveaux</span>
@@ -98,8 +86,7 @@
                 <span class="project-live-datetime">—</span>
             </div>
             <p class="project-description">
-                Potager connecté avec surveillance des conditions de croissance optimales. 
-                Mesure de l'humidité du sol, température ambiante et ensoleillement.
+                Une station météo maison veille sur le jardin : humidité du sol, pluie, soleil, chaleur. De quoi comprendre ce dont une plante a vraiment besoin pour pousser.
             </p>
             <div class="project-badges">
                 <span class="project-badge"><i class="fas fa-sun"></i> luminosité</span>
@@ -126,8 +113,7 @@
                 <span class="project-live-datetime">—</span>
             </div>
             <p class="project-description">
-                Élevage connecté de phasmes avec surveillance des conditions environnementales. 
-                Suivi de l'humidité, température et luminosité pour un habitat optimal.
+                Une serre connectée accueille tour à tour phasmes, mantes religieuses, vers à soie et d'autres espèces — avec un cap assumé vers la faune locale. Humidité, température, lumière, arrosage : tout est mesuré pour leur offrir le bon habitat.
             </p>
             <div class="project-badges">
                 <span class="project-badge"><i class="fas fa-seedling"></i> humid. sol</span>
@@ -153,8 +139,7 @@
                 <span class="project-live-datetime">—</span>
             </div>
             <p class="project-description">
-                Poubelle ludique de recyclage des bouteilles plastique : compteur connecté,
-                feedback audio et statistiques d'absorption.
+                Une poubelle qui adore les bouteilles plastique : elle les compte, réagit avec du son, et tient les statistiques de tout ce qu'elle avale.
             </p>
             <div class="project-badges">
                 <span class="project-badge"><i class="fas fa-wine-bottle"></i> compteur</span>
@@ -170,7 +155,7 @@
             <i class="fas fa-images project-icon"></i>
             <h3 class="project-title">Images et vidéos</h3>
             <p class="project-description">
-                Galeries de photos et vidéos capturées par les caméras des projets IoT.
+                Des caméras photographient les écosystèmes à intervalles réguliers. Mises bout à bout, ces images deviennent des vidéos accélérées : la croissance d'une plante en quelques secondes.
             </p>
             <div class="project-badges">
                 <span class="project-badge"><i class="fas fa-camera"></i> aquaponie</span>

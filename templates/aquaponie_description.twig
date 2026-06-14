@@ -33,7 +33,7 @@
 {% block content %}
     {% include 'partials/_hero_data.twig' with {
         hero_icon: 'fa-info-circle',
-        hero_title: "Caractéristiques du module FFP3",
+        hero_title: "Comment fonctionne l'aquaponie (module FFP3)",
         hero_subtitle: "Description du système, des capteurs, actionneurs et logiciels",
         hero_more_url: '/aquaponie',
         hero_more_label: 'Voir les données en direct'
@@ -42,7 +42,7 @@
     <article class="post featured">
         <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-globe"></i> Vue d'ensemble</h2>
-            <p>Le module FFP3 permet la <strong>supervision et le pilotage</strong> d'une installation aquaponique : suivi des niveaux d'eau, des températures, de l'humidité, commande des pompes, du chauffage et de la lumière, et programmation du nourrissage. Le système fonctionne en <strong>offline-first</strong> : la configuration est stockée localement sur l'ESP32 et le système continue à fonctionner sans réseau.</p>
+            <p>Le module FFP3 surveille et pilote toute l'installation : niveaux d'eau, températures, humidité, mais aussi les pompes, le chauffage, la lumière et les repas des poissons. Sa force : il fonctionne même sans internet (<strong><abbr class="glossary-term" title="Conçu pour fonctionner même sans internet : réglages stockés sur la carte, données rejouées au retour du réseau.">offline-first</abbr></strong>). Sa mémoire et ses réglages sont stockés directement sur la carte électronique (un <abbr class="glossary-term" title="Petite carte électronique programmable (microcontrôleur) avec Wi-Fi : le « cerveau » du module.">ESP32</abbr>), donc tout continue de tourner si le réseau tombe.</p>
             <div class="desc-images">
                 <figure>
                     <img src="{{ images_base }}/introduction.jpg" alt="Introduction au système aquaponique" loading="lazy" />
@@ -59,10 +59,10 @@
             <h2><i class="fas fa-tint"></i> Capteurs</h2>
             <p>Le module mesure :</p>
             <ul>
-                <li><strong>Niveaux d'eau</strong> (aquarium, réserve, potager) — capteur à ultrasons (HC-SR04) mesurant la hauteur en cm</li>
+                <li><strong>Niveaux d'eau</strong> (aquarium, réserve, potager) — <abbr class="glossary-term" title="Mesure une distance avec un son inaudible, comme une chauve-souris ; ici, la hauteur de l'eau.">capteur à ultrasons</abbr> (HC-SR04) mesurant la hauteur en cm</li>
                 <li><strong>Température eau</strong> — sonde étanche (DS18B20) en °C</li>
                 <li><strong>Température air</strong> et <strong>humidité</strong> — capteur combiné (DHT22) en °C et %</li>
-                <li><strong>Luminosité</strong> — capteur lumière, en UA (échelle relative)</li>
+                <li><strong>Luminosité</strong> — capteur lumière, en <abbr class="glossary-term" title="Unité arbitraire : un nombre sans unité physique, utile pour comparer les mesures entre elles.">UA</abbr> (échelle relative)</li>
                 <li><strong>Marée</strong> — différence de niveau pour l'analyse des cycles</li>
             </ul>
             <div class="desc-images">
@@ -82,17 +82,20 @@
                 <li><strong>Lumière UV</strong></li>
                 <li><strong>Nourrissage</strong> — programmation par horaires et durées</li>
             </ul>
+            <p class="desc-control-link">
+                <a href="/aquaponie-control"><i class="fas fa-sliders-h"></i> Page de contrôle de l'aquaponie</a> — pilotage des sorties (accès protégé).
+            </p>
         </section>
 
         <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-microchip"></i> Firmware (ESP32)</h2>
-            <p>Le firmware (programme embarqué sur la carte ESP32) assure la lecture des capteurs, la commande des actionneurs et les échanges avec le serveur. Principales caractéristiques :</p>
+            <p><em>Pour les curieux de technique :</em> le firmware (programme embarqué sur la carte ESP32) assure la lecture des capteurs, la commande des actionneurs et les échanges avec le serveur. Principales caractéristiques :</p>
             <ul>
                 <li><strong>Offline-first</strong> — fonctionnement sans réseau, configuration stockée localement</li>
                 <li><strong>Envoi périodique</strong> des données vers le serveur (environ toutes les 2 minutes)</li>
                 <li><strong>Réception des commandes</strong> — synchronisation des ordres environ toutes les 4 secondes</li>
                 <li><strong>Résilience réseau</strong> — les données sont rejouées au retour de la connexion en cas de coupure</li>
-                <li><strong>Mise à jour OTA</strong> — mise à jour du programme à distance sans câble</li>
+                <li><strong>Mise à jour <abbr class="glossary-term" title="« Over-The-Air » : mise à jour du programme de la carte à distance, sans câble.">OTA</abbr></strong> — mise à jour du programme à distance sans câble</li>
             </ul>
             <div class="desc-images">
                 <figure>
@@ -104,19 +107,23 @@
 
         <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-server"></i> Serveur embarqué (ESP32)</h2>
-            <p>La carte ESP32 héberge une interface locale sur le réseau de l'établissement, permettant de consulter et piloter le module sans dépendre d'internet.</p>
+            <p><em>Pour les curieux de technique :</em> la carte ESP32 héberge une interface locale sur le réseau de l'établissement, permettant de consulter et piloter le module sans dépendre d'internet.</p>
         </section>
 
         <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-cloud"></i> Serveur distant</h2>
-            <p>Le serveur web (iot.olution.info) agrège les données, conserve l'historique et permet le pilotage à distance. Flux :</p>
+            <p><em>Pour les curieux de technique :</em> le serveur web (iot.olution.info) agrège les données, conserve l'historique et permet le pilotage à distance. Flux :</p>
             <ul>
                 <li><strong>POST</strong> données capteurs + états des sorties (post-data)</li>
                 <li><strong>GET</strong> état des sorties (api/outputs/state) pour synchroniser les commandes</li>
-                <li><strong>Heartbeat</strong> pour le suivi de présence des modules</li>
+                <li><strong><abbr class="glossary-term" title="« Battement » : un petit signal régulier qui dit « je suis vivant » au serveur.">Heartbeat</abbr></strong> pour le suivi de présence des modules</li>
             </ul>
             <p>Environnements distincts (test, prod, S3) avec tables et pages dédiées. Les changements faits depuis l'interface web sont synchronisés avec l'ESP32 au prochain cycle.</p>
         </section>
+
+        <p class="desc-glossary-link" data-aos="fade-up">
+            <a href="/glossaire"><i class="fas fa-book"></i> Un mot inconnu ? Consultez le glossaire</a>
+        </p>
     </article>
 {% endblock %}
 

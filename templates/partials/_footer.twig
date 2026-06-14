@@ -7,6 +7,7 @@
 {% set footer_table_label = fc.table_label|default('') %}
 {% set footer_version = fc.version|default(version|default('')) %}
 {% set footer_firmware_version = fc.firmware_version|default(firmware_version|default('')) %}
+{% set footer_firmware_label = fc.firmware_label|default(firmware_label|default('Firmware ESP32')) %}
 {% set footer_text_resolved = fc.footer_text|default('') %}
 {% set footer_base_path = fc.base_path|default(base_path|default('')) %}
 <footer id="footer" class="app-footer app-footer--elevated">
@@ -25,10 +26,10 @@
         <span class="context-badge"><i class="fas fa-database"></i> Table {{ data_table }}</span>
         {% endif %}
         {% if footer_version %}
-        <span class="context-badge"><i class="fas fa-code-branch"></i> {{ footer_version }}</span>
+        <span class="context-badge"><i class="fas fa-code-branch"></i> Plateforme {{ footer_version }}</span>
         {% endif %}
         {% if footer_firmware_version %}
-        <span class="context-badge"><i class="fas fa-microchip"></i> Firmware v{{ footer_firmware_version }}</span>
+        <span class="context-badge"><i class="fas fa-microchip"></i> {{ footer_firmware_label }} v{{ footer_firmware_version }}</span>
         {% endif %}
     </div>
     <p class="footer-copyright">
@@ -45,6 +46,8 @@
     </p>
     <p class="footer-nav-links">
         <a href="{{ footer_base_path }}/" class="footer-nav-link"><i class="fas fa-home"></i> Accueil</a>
+        <span class="footer-nav-sep">&nbsp;|&nbsp;</span>
+        <a href="{{ footer_base_path }}/glossaire" class="footer-nav-link"><i class="fas fa-book"></i> Glossaire</a>
         <span class="footer-nav-sep">&nbsp;|&nbsp;</span>
         <a href="{{ footer_base_path }}/supervision" class="footer-nav-link"><i class="fas fa-cog"></i> Administration</a>
     </p>

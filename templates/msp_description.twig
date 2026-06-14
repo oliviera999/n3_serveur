@@ -2,8 +2,8 @@
 
 {% block desc_sections %}
         <section class="desc-section">
-            <h2><i class="fas fa-globe"></i> Vue d'ensemble</h2>
-            <p>La station météo du <strong>Tiny Garden</strong> (Le potager) assure la supervision des conditions environnementales du jardin : température de l'air (intérieur et extérieur), humidité, luminosité (4 cellules), humidité du sol, pluie, température du sol. Un <strong>tracker solaire</strong> (2 servos) oriente les panneaux ou capteurs pour optimiser l'exposition. Les données alimentent les projets pédagogiques basés sur des mesures réelles (voir <a href="https://n3.olution.info/accueil/poles/" target="_blank" rel="noopener">n³.olution.info – Le Tiny Garden</a>).</p>
+            <h2><i class="fas fa-globe"></i> Comment fonctionne le potager (module MSP1)</h2>
+            <p>La station météo du <strong>Tiny Garden</strong> surveille tout ce qui compte pour un jardin : la température de l'air (dedans et dehors), l'humidité, la lumière (quatre capteurs), l'humidité du sol, la pluie et la température du sol. Un détail malin : un <strong><abbr class="glossary-term" title="Un support motorisé qui suit le soleil pour capter le plus de lumière possible.">tracker solaire</abbr></strong> — deux petits moteurs — oriente le capteur vers le soleil pour toujours capter le maximum de lumière. Toutes ces mesures servent ensuite en cours, à partir de données vraies (voir <a href="https://n3.olution.info/accueil/poles/" target="_blank" rel="noopener">n³.olution.info – Le Tiny Garden</a>).</p>
         </section>
 
         <section class="desc-section">
@@ -12,10 +12,10 @@
             <ul>
                 <li><strong>Température et humidité de l'air</strong> — 2× DHT11 (intérieur / extérieur), en °C et %</li>
                 <li><strong>Température du sol</strong> — DS18B20 (OneWire), en °C</li>
-                <li><strong>Humidité du sol</strong> — capteur analogique, en UA</li>
+                <li><strong>Humidité du sol</strong> — capteur analogique, en <abbr class="glossary-term" title="Unité arbitraire : un nombre sans unité physique, utile pour comparer les mesures entre elles.">UA</abbr></li>
                 <li><strong>Détection de pluie</strong> — capteur analogique</li>
-                <li><strong>Luminosité</strong> — 4 photorésistances (A, B, C, D), moyenne en UA</li>
-                <li><strong>Batterie</strong> — pont diviseur pour suivi d'autonomie</li>
+                <li><strong>Luminosité</strong> — 4 <abbr class="glossary-term" title="Capteurs dont la résistance change avec la lumière reçue.">photorésistances</abbr> (A, B, C, D), moyenne en UA</li>
+                <li><strong>Batterie</strong> — <abbr class="glossary-term" title="Un montage électronique simple pour mesurer une tension, ici celle de la batterie.">pont diviseur</abbr> pour suivi d'autonomie</li>
             </ul>
         </section>
 
@@ -32,12 +32,12 @@
             <h2><i class="fas fa-microchip"></i> Firmware (ESP32)</h2>
             <p>Le firmware <strong>msp2_5</strong> (MeteoStationPrototype) assure la lecture des capteurs, le pilotage du tracker et les échanges avec le serveur. Principales caractéristiques :</p>
             <ul>
-                <li><strong>Deep sleep</strong> — réveil timer + GPIO pour économie d'énergie</li>
+                <li><strong><abbr class="glossary-term" title="Veille profonde : la carte « dort » pour économiser l'énergie, puis se réveille pour mesurer.">Deep sleep</abbr></strong> — réveil timer + GPIO pour économie d'énergie</li>
                 <li><strong>OLED SSD1306</strong> — affichage local des mesures</li>
                 <li><strong>POST</strong> périodique vers <code>post-msp1-data.php</code></li>
                 <li><strong>GET</strong> état des sorties pour synchroniser les commandes</li>
                 <li><strong>ESP Mail Client</strong> — alertes SMTP en cas d'anomalie</li>
-                <li>Mise à jour <strong>OTA</strong> du firmware</li>
+                <li>Mise à jour <strong><abbr class="glossary-term" title="« Over-The-Air » : mise à jour du programme de la carte à distance, sans câble.">OTA</abbr></strong> du firmware</li>
             </ul>
         </section>
 
@@ -50,4 +50,8 @@
             </ul>
             <p>Pages : <a href="/meteo">Données</a> et <a href="/meteo-control">Contrôle</a>. Environnements prod et test disponibles.</p>
         </section>
+
+        <p class="desc-glossary-link">
+            <a href="/glossaire"><i class="fas fa-book"></i> Un mot inconnu ? Consultez le glossaire</a>
+        </p>
 {% endblock %}

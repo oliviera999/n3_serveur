@@ -482,6 +482,12 @@ return [
         );
     },
 
+    \App\Controller\GlossaireController::class => function (ContainerInterface $c) {
+        return new \App\Controller\GlossaireController(
+            $c->get(TemplateRenderer::class)
+        );
+    },
+
     \App\Controller\Pgl\PglHeartbeatController::class => function (ContainerInterface $c) {
         return new \App\Controller\Pgl\PglHeartbeatController(
             $c->get(LogService::class),
