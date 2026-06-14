@@ -58,3 +58,6 @@ desktop.ini
 # Rate limiting cache (genere par GalleryUploadController)
 /var/cache/ratelimit/
 
+
+# Agent worktrees (Claude Code, transient)
+/.claude/
