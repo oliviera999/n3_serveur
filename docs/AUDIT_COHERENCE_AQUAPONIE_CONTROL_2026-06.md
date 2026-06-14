@@ -130,10 +130,10 @@ Checklist manuelle (complétée 2026-06-01) :
 | Chemins serveur dans `gpio_mapping.h` | Commentaires mis à jour |
 | GPIO 117 non documenté firmware | `VARIABLE_NAMING.md` + commentaire header |
 | Absence tests cohérence mapping | `OutputRepositoryTest.php` |
+| Badges SYNC/EN ATTENTE vs badge réel `#control-sync-badge` | Doc `SYNCHRONISATION_BIDIRECTIONNELLE.md` alignée sur `control-sync.js` (2026-06-14) : 6 états réels du polling (`SYNC`/`CONNEXION...`/`RECONNEXION...`/`ERREUR`/`HORS LIGNE`/`PAUSE`), tableau état↔condition JS↔libellé ; suppression des badges fictifs « EN ATTENTE ESP32 » / « ESP32 SYNC » (hook `window.updateSyncBadge` jamais défini) |
 
 ## Écarts non traités (backlog)
 
-- Badges SYNC/EN ATTENTE décrits dans `SYNCHRONISATION_BIDIRECTIONNELLE.md` vs implémentation réelle du badge `#control-sync-badge` — à harmoniser si refonte UX.
 - Centralisation unique du mapping côté serveur (objectif déjà noté dans `VARIABLE_NAMING.md`).
 - Tests d’intégration HTTP Docker pour toggle/parameters (hors PHPUnit unitaire).
 
