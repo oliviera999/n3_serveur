@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Config\Ffp3GpioMap;
 use App\Config\TableConfig;
 use App\Domain\SensorData;
 use App\Util\StateNormalizer;
@@ -22,32 +23,17 @@ class OutputRepository extends AbstractRepository
     private const RESET_COMMAND_WEB_PRIORITY_SECONDS = 20;
     private const PHYSICAL_COMMAND_WEB_PRIORITY_SECONDS = 12;
 
-    /** @var array<string, int> */
-    private const PARAMETER_GPIO_MAP = [
-        'mail' => 100,
-        'mailNotif' => 101,
-        'aqThr' => 102,
-        'taThr' => 103,
-        'chauff' => 104,
-        'bouffeMatin' => 105,
-        'bouffeMidi' => 106,
-        'bouffeSoir' => 107,
-        'tempsGros' => 111,
-        'tempsPetits' => 112,
-        'tempsRemplissageSec' => 113,
-        'limFlood' => 114,
-        'WakeUp' => 115,
-        'FreqWakeUp' => 116,
-    ];
-
     /**
-     * Mapping canonique nom de paramètre (UI / API) → GPIO pour la table outputs.
+     * Mapping nom de paramètre (UI / API) → GPIO pour la table outputs.
+     *
+     * Dérivé de la source unique {@see Ffp3GpioMap} : plus de tableau hardcodé
+     * dupliqué avec OutputSyncService.
      *
      * @return array<string, int>
      */
     public static function getParameterGpioMap(): array
     {
-        return self::PARAMETER_GPIO_MAP;
+        return Ffp3GpioMap::parameterGpioMap();
     }
 
     /**
@@ -205,7 +191,7 @@ class OutputRepository extends AbstractRepository
                     WHERE gpio = :gpio";
             $stmt = $this->pdo->prepare($sql);
 
-            foreach (self::PARAMETER_GPIO_MAP as $paramName => $gpio) {
+            foreach (self::getParameterGpioMap() as $paramName => $gpio) {
                 if (!array_key_exists($paramName, $params)) {
                     continue;
                 }
