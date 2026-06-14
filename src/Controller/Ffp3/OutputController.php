@@ -173,9 +173,15 @@ class OutputController
         }
 
         try {
-            $updated = $this->outputService->updateMultipleParameters($payload);
+            $result = $this->outputService->updateMultipleParameters($payload);
 
-            return ResponseHelper::success($response, ['updated' => $updated]);
+            return ResponseHelper::success($response, [
+                'updated' => $result['updated'],
+                'warnings' => $result['warnings'],
+            ]);
+        } catch (\InvalidArgumentException $e) {
+            // Erreur de validation (ex. horaire de nourrissage hors de [0..23]) : 400, pas 500
+            return ResponseHelper::error($response, $e->getMessage(), 400);
         } catch (\Throwable $e) {
             $errorId = substr(bin2hex(random_bytes(8)), 0, 12);
             $this->logger->error(
