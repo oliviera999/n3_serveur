@@ -194,14 +194,36 @@ class OutputService
     }
 
     /**
-     * Met à jour plusieurs paramètres depuis un formulaire
+     * Met à jour plusieurs paramètres depuis un formulaire.
      *
-     * @param array $params Paramètres à mettre à jour
-     * @return int Nombre de paramètres mis à jour
+     * Valide les horaires de nourrissage avant persistance :
+     * - plage [0..23] : contrainte dure (lève \InvalidArgumentException) ;
+     * - matin < midi < soir : contrainte consultative (avertissement non bloquant).
+     *
+     * @param array<string, mixed> $params Paramètres à mettre à jour
+     * @return array{updated:int, warnings:list<string>}
+     * @throws \InvalidArgumentException Si un horaire de nourrissage est hors de [0..23]
      */
-    public function updateMultipleParameters(array $params): int
+    public function updateMultipleParameters(array $params): array
     {
-        return $this->outputRepository->updateMultipleParameters($params, 'web');
+        // Contrainte dure : plages des horaires de nourrissage
+        $incomingHours = \App\Util\FeedingScheduleValidator::assertHourRanges($params);
+
+        // Contrainte consultative : ordre strictement croissant du trio résultant
+        $warnings = [];
+        if ($incomingHours !== []) {
+            $warning = \App\Util\FeedingScheduleValidator::crossFieldWarning(
+                $this->getParametersMap(),
+                $incomingHours
+            );
+            if ($warning !== null) {
+                $warnings[] = $warning;
+            }
+        }
+
+        $updated = $this->outputRepository->updateMultipleParameters($params, 'web');
+
+        return ['updated' => $updated, 'warnings' => $warnings];
     }
 
     /** @return array<int, string> */

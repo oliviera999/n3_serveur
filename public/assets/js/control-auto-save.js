@@ -110,6 +110,11 @@
                 if (typeof toastManager !== 'undefined') {
                     saveState.toast = toastManager.showSuccess(`Paramètre ${parameterName} sauvegardé`, 2500);
                 }
+
+                // Avertissements non bloquants renvoyés par le serveur (ex. horaires non croissants)
+                if (Array.isArray(data?.warnings) && data.warnings.length > 0 && typeof toastManager !== 'undefined') {
+                    data.warnings.forEach(warning => toastManager.showWarning(warning, 8000));
+                }
             })
             .catch(error => {
                 console.error('[ControlAutoSave] Save error', error);
