@@ -1,4 +1,6 @@
 {% extends 'layout.twig' %}
+{# Page d'erreur simple : animations conservees, pas de graphiques (cf. layout.twig) #}
+{% set page_family = 'gallery' %}
 
 {% block title %}{{ page_title|default('Erreur') }}{% endblock %}
 

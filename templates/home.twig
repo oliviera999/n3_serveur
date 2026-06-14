@@ -1,7 +1,7 @@
 {# Page d'accueil - Vue d'ensemble du projet N3 IoT Datas #}
 {% extends 'layout.twig' %}
-{% set load_highcharts_theme = false %}
-{% set load_enhancement_scripts = false %}
+{# Page d'entree : ni graphiques ni scripts d'amelioration (cf. layout.twig) #}
+{% set page_family = 'entry' %}
 
 {% block title %}n³ IoT — Les capteurs de la salle aérée | olution{% endblock %}
 {% block meta_description %}Trois écosystèmes vivants du lycée Lyautey, équipés et suivis en direct par les élèves : aquaponie, potager connecté, élevage d'insectes.{% endblock %}

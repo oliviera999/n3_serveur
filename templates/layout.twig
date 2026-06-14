@@ -1,9 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
+    {#
+        Chargement conditionnel des assets par famille de page.
+        `page_family` resume le besoin en assets lourds (cf. AUDIT_UI item 6) :
+          - entry   : pages d'accueil/connexion (sans graphiques ni temps reel)
+          - gallery : galeries/timelapse simples (animations, sans graphiques)
+          - data    : pages de donnees (graphiques temps reel)
+          - control : pages de pilotage (temps reel + commandes)
+        Les drapeaux d'assets en derivent ; un template peut toujours surcharger
+        un drapeau individuel apres l'`extends` si besoin (retro-compatible).
+        Defaut volontairement "complet" pour ne jamais retirer un asset par erreur.
+    #}
+    {% set page_family = page_family|default('data') %}
+    {% set family_needs_charts = page_family not in ['entry', 'gallery'] %}
+    {% set family_needs_enhancements = page_family != 'entry' %}
     {% set load_realtime_styles = load_realtime_styles is defined ? load_realtime_styles : true %}
-    {% set load_highcharts_theme = load_highcharts_theme is defined ? load_highcharts_theme : true %}
-    {% set load_enhancement_scripts = load_enhancement_scripts is defined ? load_enhancement_scripts : true %}
+    {% set load_highcharts_theme = load_highcharts_theme is defined ? load_highcharts_theme : family_needs_charts %}
+    {% set load_enhancement_scripts = load_enhancement_scripts is defined ? load_enhancement_scripts : family_needs_enhancements %}
     <title>{% block title %}n³ IoT — Les capteurs de la salle aérée | olution{% endblock %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
