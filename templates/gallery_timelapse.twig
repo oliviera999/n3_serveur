@@ -1,4 +1,6 @@
 {% extends 'layout.twig' %}
+{# Galerie/timelapse : animations conservees, pas de graphiques (cf. layout.twig) #}
+{% set page_family = 'gallery' %}
 
 {% block title %}{{ page_title|default('Timelapses des projets | n³ IoT') }}{% endblock %}
 {% block meta_description %}Photos et vidéos accélérées capturées par les caméras des écosystèmes n³.{% endblock %}
