@@ -240,4 +240,33 @@ class Ffp3HmacPostBodyTest extends TestCase
         // Les extras inconnus sont triés alphabétiquement entre champs principaux et suffixes.
         $this->assertStringContainsString('alpha=2&gamma=3&zeb=1', $a);
     }
+
+    /**
+     * Un extra à valeur vide (ou espaces) est OMIS du corps reconstruit, comme un champ
+     * principal vide. Verrouille la symétrie avec le firmware Ffp3PostBody (qui omet désormais
+     * aussi les extras vides) — évite un 401 HMAC si un extra vide transite.
+     */
+    public function testEmptyExtraValueIsOmitted(): void
+    {
+        $params = [
+            'api_key' => 'testkey',
+            'sensor' => 'esp32-wroom',
+            'version' => '14.0',
+            'Pression' => '1013.0',
+            'bouffeMatin' => '8',
+            'resetMode' => '0',
+            'post_id' => 'test-xyz',
+            'empty_extra' => '',        // extra vide
+            'another_empty' => '   ',   // espaces uniquement (vide après trim)
+            'valid_extra' => 'value',   // extra non vide
+        ];
+
+        $rebuilt = Ffp3HmacPostBody::buildFromParams($params);
+
+        $this->assertStringNotContainsString('empty_extra=', $rebuilt);
+        $this->assertStringNotContainsString('another_empty=', $rebuilt);
+        $this->assertStringContainsString('valid_extra=value', $rebuilt);
+        // Ordre : champs principaux -> extras triés -> suffixes.
+        $this->assertStringContainsString('bouffeMatin=8&valid_extra=value&resetMode=0', $rebuilt);
+    }
 }
