@@ -42,7 +42,7 @@
     <article class="post featured">
         <section class="desc-section" data-aos="fade-up">
             <h2><i class="fas fa-globe"></i> Vue d'ensemble</h2>
-            <p>Le module FFP3 surveille et pilote toute l'installation : niveaux d'eau, températures, humidité, mais aussi les pompes, le chauffage, la lumière et les repas des poissons. Sa force : il fonctionne même sans internet (<strong>offline-first</strong>). Sa mémoire et ses réglages sont stockés directement sur la carte électronique (un ESP32), donc tout continue de tourner si le réseau tombe.</p>
+            <p>Le module FFP3 surveille et pilote toute l'installation : niveaux d'eau, températures, humidité, mais aussi les pompes, le chauffage, la lumière et les repas des poissons. Sa force : il fonctionne même sans internet (<strong><abbr class="glossary-term" title="Conçu pour fonctionner même sans internet : réglages stockés sur la carte, données rejouées au retour du réseau.">offline-first</abbr></strong>). Sa mémoire et ses réglages sont stockés directement sur la carte électronique (un <abbr class="glossary-term" title="Petite carte électronique programmable (microcontrôleur) avec Wi-Fi : le « cerveau » du module.">ESP32</abbr>), donc tout continue de tourner si le réseau tombe.</p>
             <div class="desc-images">
                 <figure>
                     <img src="{{ images_base }}/introduction.jpg" alt="Introduction au système aquaponique" loading="lazy" />
@@ -59,10 +59,10 @@
             <h2><i class="fas fa-tint"></i> Capteurs</h2>
             <p>Le module mesure :</p>
             <ul>
-                <li><strong>Niveaux d'eau</strong> (aquarium, réserve, potager) — capteur à ultrasons (HC-SR04) mesurant la hauteur en cm</li>
+                <li><strong>Niveaux d'eau</strong> (aquarium, réserve, potager) — <abbr class="glossary-term" title="Mesure une distance avec un son inaudible, comme une chauve-souris ; ici, la hauteur de l'eau.">capteur à ultrasons</abbr> (HC-SR04) mesurant la hauteur en cm</li>
                 <li><strong>Température eau</strong> — sonde étanche (DS18B20) en °C</li>
                 <li><strong>Température air</strong> et <strong>humidité</strong> — capteur combiné (DHT22) en °C et %</li>
-                <li><strong>Luminosité</strong> — capteur lumière, en UA (échelle relative)</li>
+                <li><strong>Luminosité</strong> — capteur lumière, en <abbr class="glossary-term" title="Unité arbitraire : un nombre sans unité physique, utile pour comparer les mesures entre elles.">UA</abbr> (échelle relative)</li>
                 <li><strong>Marée</strong> — différence de niveau pour l'analyse des cycles</li>
             </ul>
             <div class="desc-images">
@@ -95,7 +95,7 @@
                 <li><strong>Envoi périodique</strong> des données vers le serveur (environ toutes les 2 minutes)</li>
                 <li><strong>Réception des commandes</strong> — synchronisation des ordres environ toutes les 4 secondes</li>
                 <li><strong>Résilience réseau</strong> — les données sont rejouées au retour de la connexion en cas de coupure</li>
-                <li><strong>Mise à jour OTA</strong> — mise à jour du programme à distance sans câble</li>
+                <li><strong>Mise à jour <abbr class="glossary-term" title="« Over-The-Air » : mise à jour du programme de la carte à distance, sans câble.">OTA</abbr></strong> — mise à jour du programme à distance sans câble</li>
             </ul>
             <div class="desc-images">
                 <figure>
@@ -116,10 +116,14 @@
             <ul>
                 <li><strong>POST</strong> données capteurs + états des sorties (post-data)</li>
                 <li><strong>GET</strong> état des sorties (api/outputs/state) pour synchroniser les commandes</li>
-                <li><strong>Heartbeat</strong> pour le suivi de présence des modules</li>
+                <li><strong><abbr class="glossary-term" title="« Battement » : un petit signal régulier qui dit « je suis vivant » au serveur.">Heartbeat</abbr></strong> pour le suivi de présence des modules</li>
             </ul>
             <p>Environnements distincts (test, prod, S3) avec tables et pages dédiées. Les changements faits depuis l'interface web sont synchronisés avec l'ESP32 au prochain cycle.</p>
         </section>
+
+        <p class="desc-glossary-link" data-aos="fade-up">
+            <a href="/glossaire"><i class="fas fa-book"></i> Un mot inconnu ? Consultez le glossaire</a>
+        </p>
     </article>
 {% endblock %}
 

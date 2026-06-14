@@ -11,9 +11,9 @@
             <p>Le module N3PP mesure :</p>
             <ul>
                 <li><strong>Température et humidité de l'air</strong> — DHT, en °C et %</li>
-                <li><strong>Humidité du sol</strong> — 4 capteurs analogiques (Humid1 à 4), moyenne en UA</li>
-                <li><strong>Luminosité</strong> — photorésistance, en UA</li>
-                <li><strong>Batterie</strong> — pont diviseur pour suivi d'autonomie</li>
+                <li><strong>Humidité du sol</strong> — 4 capteurs analogiques (Humid1 à 4), moyenne en <abbr class="glossary-term" title="Unité arbitraire : un nombre sans unité physique, utile pour comparer les mesures entre elles.">UA</abbr></li>
+                <li><strong>Luminosité</strong> — <abbr class="glossary-term" title="Un capteur dont la résistance change avec la lumière reçue.">photorésistance</abbr>, en UA</li>
+                <li><strong>Batterie</strong> — <abbr class="glossary-term" title="Un montage électronique simple pour mesurer une tension, ici celle de la batterie.">pont diviseur</abbr> pour suivi d'autonomie</li>
             </ul>
         </section>
 
@@ -31,13 +31,13 @@
             <h2><i class="fas fa-microchip"></i> Firmware (ESP32)</h2>
             <p>Le firmware <strong>n3pp4_2</strong> (N3PhasmesProto) assure la lecture des capteurs, la commande de la pompe et les échanges avec le serveur. Principales caractéristiques :</p>
             <ul>
-                <li><strong>Deep sleep</strong> — réveil timer + GPIO (touch) pour économie d'énergie</li>
+                <li><strong><abbr class="glossary-term" title="Veille profonde : la carte « dort » pour économiser l'énergie, puis se réveille pour mesurer.">Deep sleep</abbr></strong> — réveil timer + GPIO (touch) pour économie d'énergie</li>
                 <li><strong>OLED SSD1306</strong> — affichage local des mesures</li>
                 <li><strong>Arrosage automatique</strong> — déclenché selon seuil (SeuilSec) et programmation</li>
                 <li><strong>POST</strong> périodique vers <code>post-n3pp-data.php</code></li>
                 <li><strong>GET</strong> état des sorties pour synchroniser les commandes</li>
                 <li><strong>ESP Mail Client</strong> — alertes SMTP en cas d'anomalie (humidité, batterie)</li>
-                <li>Mise à jour <strong>OTA</strong> du firmware</li>
+                <li>Mise à jour <strong><abbr class="glossary-term" title="« Over-The-Air » : mise à jour du programme de la carte à distance, sans câble.">OTA</abbr></strong> du firmware</li>
             </ul>
         </section>
 
@@ -50,4 +50,8 @@
             </ul>
             <p>Pages : <a href="/serre">Données</a> et <a href="/serre-control">Contrôle</a>. Environnements prod et test disponibles.</p>
         </section>
+
+        <p class="desc-glossary-link">
+            <a href="/glossaire"><i class="fas fa-book"></i> Un mot inconnu ? Consultez le glossaire</a>
+        </p>
 {% endblock %}

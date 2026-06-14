@@ -5186,3 +5186,14 @@ background-color: rgba(255, 255, 255, 0.16);
 [data-theme="dark"] #navPanelToggle.alt:hover {
  background-color: var(--bg-card-hover);
 }
+/* Termes du glossaire — infobulles (reco B.9) */
+abbr.glossary-term,
+abbr[title].glossary-term {
+    text-decoration: underline dotted;
+    text-underline-offset: 2px;
+    cursor: help;
+}
+.desc-glossary-link {
+    margin-top: 1.5rem;
+    font-weight: 600;
+}

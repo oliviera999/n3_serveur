@@ -299,6 +299,9 @@ $app->map(['GET', 'POST'], '/ping', function (Request $request, Response $respon
         ->withStatus(200);
 });
 
+// Glossaire — définitions des termes techniques (public collège)
+$app->get('/glossaire', [\App\Controller\GlossaireController::class, 'show']);
+
 // Poissonglouton (compteur recyclage plastique)
 $app->get('/pgl', [PglStatsController::class, 'show']);
 $app->get('/pgl/api/system/health', [PglRealtimeApiController::class, 'getSystemHealth']);

@@ -1,0 +1,40 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Glossaire — n³ IoT{% endblock %}
+
+{% block meta_description %}Les mots techniques du projet n³ IoT expliqués simplement : capteurs, ESP32, aquaponie, marnage, OTA, heartbeat et chimie de l'eau.{% endblock %}
+
+{% block content %}
+<article class="post featured">
+    <header class="major">
+        <h1><i class="fas fa-book"></i> Glossaire</h1>
+        <p>Les mots techniques du projet, expliqués simplement. Sur le reste du site, ces termes sont souvent <abbr class="glossary-term" title="Comme ici : passez la souris sur un mot souligné pour voir sa définition.">soulignés</abbr> : passez la souris dessus pour lire leur définition.</p>
+    </header>
+
+    {% for group in glossary %}
+    <section class="glossary-group" data-aos="fade-up">
+        <h3><i class="fas {{ group.icon }}"></i> {{ group.title }}</h3>
+        <dl class="glossary-list">
+            {% for entry in group.terms %}
+            <dt>{{ entry.term }}</dt>
+            <dd>{{ entry.definition }}</dd>
+            {% endfor %}
+        </dl>
+    </section>
+    {% endfor %}
+</article>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .glossary-group { margin-bottom: 2.5rem; }
+    .glossary-group h3 { display: flex; align-items: center; gap: .5rem; }
+    .glossary-list dt { font-weight: 700; margin-top: 1rem; }
+    .glossary-list dd { margin: .15rem 0 0; padding-left: 1rem; border-left: 3px solid var(--accent-color, #008B74); }
+    abbr.glossary-term, .glossary-term[title] {
+        text-decoration: underline dotted;
+        text-underline-offset: 2px;
+        cursor: help;
+    }
+</style>
+{% endblock %}
