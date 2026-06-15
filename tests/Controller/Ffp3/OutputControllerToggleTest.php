@@ -7,6 +7,7 @@ namespace Tests\Controller\Ffp3;
 use App\Config\TableConfig;
 use App\Controller\Ffp3\OutputController;
 use App\Repository\SensorReadRepository;
+use App\Service\ControlAuditLogger;
 use App\Service\LogService;
 use App\Service\OutputCacheService;
 use App\Service\OutputService;
@@ -31,6 +32,7 @@ class OutputControllerToggleTest extends TestCase
             $this->createMock(SensorReadRepository::class),
             $this->createMock(OutputCacheService::class),
             $this->createMock(LogService::class),
+            $this->createMock(ControlAuditLogger::class),
         );
     }
 
@@ -71,11 +73,12 @@ class OutputControllerToggleTest extends TestCase
             ->method('updateStateById')
             ->with(12, 1, 'web')
             ->willReturn(true);
-        // gpio quelconque (5) : pas de logique de forçage pompe aquarium.
+        // gpio quelconque (15, lumière) : pas de logique de forçage pompe aquarium.
         $outputService->method('isAquariumPumpForceEnabled')->willReturn(false);
+        $outputService->method('isGpioAllowed')->willReturn(true);
 
         $controller = $this->makeController($outputService);
-        $response = $controller->toggleOutput($this->postToggle(12, 1, 5), new Response());
+        $response = $controller->toggleOutput($this->postToggle(12, 1, 15), new Response());
 
         $this->assertSame(200, $response->getStatusCode());
         $payload = json_decode((string) $response->getBody(), true);
@@ -108,12 +111,59 @@ class OutputControllerToggleTest extends TestCase
 
         $outputService = $this->createMock(OutputService::class);
         $outputService->method('isAquariumPumpForceEnabled')->willReturn(false);
+        $outputService->method('isGpioAllowed')->willReturn(true);
         $outputService->method('updateStateById')->willReturn(false);
 
         $controller = $this->makeController($outputService);
-        $response = $controller->toggleOutput($this->postToggle(12, 1, 5), new Response());
+        $response = $controller->toggleOutput($this->postToggle(12, 1, 15), new Response());
 
         $this->assertSame(500, $response->getStatusCode());
+    }
+
+    /**
+     * Validation stricte (Phase 2) : un GPIO hors de l'ensemble canonique autorisé
+     * est rejeté en 400 AVANT toute persistance ; updateStateById n'est pas appelé.
+     */
+    public function testToggleOutputUnauthorizedGpioReturns400(): void
+    {
+        TableConfig::setEnvironment('test');
+
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isGpioAllowed')->willReturn(false);
+        $outputService->expects($this->never())->method('updateStateById');
+
+        $controller = $this->makeController($outputService);
+        // gpio 9999 inconnu -> 400
+        $response = $controller->toggleOutput($this->postToggle(12, 1, 9999), new Response());
+
+        $this->assertSame(400, $response->getStatusCode());
+        $payload = json_decode((string) $response->getBody(), true);
+        $this->assertSame('error', $payload['status']);
+    }
+
+    /**
+     * Validation stricte (Phase 2) : un GPIO appartenant à l'ensemble canonique autorisé
+     * (ici 16, pompe aquarium) est accepté et persisté (contrat de succès inchangé).
+     */
+    public function testToggleOutputAuthorizedGpioAccepted(): void
+    {
+        TableConfig::setEnvironment('test');
+
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isGpioAllowed')->willReturn(true);
+        $outputService->method('isAquariumPumpForceEnabled')->willReturn(false);
+        $outputService->expects($this->once())
+            ->method('updateStateById')
+            ->with(12, 1, 'web')
+            ->willReturn(true);
+
+        $controller = $this->makeController($outputService);
+        $response = $controller->toggleOutput($this->postToggle(12, 1, 16), new Response());
+
+        $this->assertSame(200, $response->getStatusCode());
+        $payload = json_decode((string) $response->getBody(), true);
+        $this->assertSame('ok', $payload['status']);
+        $this->assertSame(12, $payload['id']);
     }
 
     /** @return array<string, array{0:string}> */

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Security\AuthService;
+use App\Service\ControlAuditLogger;
 use App\Service\LogService;
 use App\Service\TemplateRenderer;
 use App\Util\RequestHelper;
@@ -18,11 +19,57 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 abstract class AbstractOutputController
 {
+    protected ControlAuditLogger $auditLogger;
+
     public function __construct(
         protected LogService $logger,
         protected TemplateRenderer $renderer,
         protected AuthService $authService,
+        ?ControlAuditLogger $auditLogger = null,
     ) {
+        // Les sous-classes (MSP/N3pp) appellent parent::__construct() avec 3 arguments :
+        // on construit alors l'audit logger à partir des dépendances déjà fournies.
+        $this->auditLogger = $auditLogger ?? new ControlAuditLogger($logger, $authService);
+    }
+
+    /**
+     * Nom de module utilisé dans les entrées d'audit (ffp3, msp, n3pp).
+     * Dérivé du componentName() par défaut ; surcharge possible.
+     */
+    protected function auditModule(): string
+    {
+        $component = strtolower($this->componentName());
+        if (str_contains($component, 'msp')) {
+            return 'msp';
+        }
+        if (str_contains($component, 'n3pp')) {
+            return 'n3pp';
+        }
+        return $component;
+    }
+
+    /**
+     * Ensemble canonique des GPIO autorisés en écriture pour le module (actionneurs +
+     * configuration + commandes one-shot). Validé AVANT toute persistance.
+     *
+     * Construit sans dépendre des repos (non modifiables) : actionneurs physiques communs
+     * (2/15/16/18), GPIO de configuration (100..116) et commandes one-shot (108/109/110)
+     * couvrent l'intégralité des cibles légitimes des modules MSP/N3pp.
+     *
+     * @return list<int>
+     */
+    protected function allowedGpios(): array
+    {
+        $gpios = [2, 15, 16, 18];
+        for ($gpio = 100; $gpio <= 116; $gpio++) {
+            $gpios[] = $gpio;
+        }
+        return $gpios;
+    }
+
+    protected function isGpioAllowed(int $gpio): bool
+    {
+        return in_array($gpio, $this->allowedGpios(), true);
     }
 
     abstract protected function defaultBoard(): int;
@@ -170,17 +217,54 @@ abstract class AbstractOutputController
         $params = RequestHelper::extractParams($request);
         $board = (int) ($params['board'] ?? $this->defaultBoard());
 
+        $gpio = (int) ($params['gpio'] ?? 0);
+        $name = trim((string) ($params['name'] ?? ''));
+        if ($gpio > 0 && !$this->isGpioAllowed($gpio)) {
+            $this->auditLogger->logAction(
+                $request,
+                $this->auditModule(),
+                'toggle',
+                ['gpio' => $gpio, 'name' => $name, 'board' => $board],
+                false,
+                'GPIO non autorisé'
+            );
+            return ResponseHelper::json($response, ['error' => 'GPIO non autorisé'], 400);
+        }
+
         try {
             $result = $this->doToggle($params, $board);
             if (isset($result['success']) && $result['success'] === true) {
                 $this->logger->info("{$this->componentName()}: toggle ok", $result);
+                $this->auditLogger->logAction(
+                    $request,
+                    $this->auditModule(),
+                    'toggle',
+                    ['gpio' => $gpio, 'name' => $name, 'state' => $result['state'] ?? null, 'board' => $board],
+                    true
+                );
                 return ResponseHelper::json($response, $result);
             }
             $status = $result['status'] ?? 400;
             unset($result['status']);
+            $this->auditLogger->logAction(
+                $request,
+                $this->auditModule(),
+                'toggle',
+                ['gpio' => $gpio, 'name' => $name, 'board' => $board],
+                false,
+                is_string($result['error'] ?? null) ? $result['error'] : 'Échec toggle'
+            );
             return ResponseHelper::json($response, $result, $status);
         } catch (\Throwable $e) {
             $this->logger->error("{$this->componentName()}: erreur toggle — {msg}", ['msg' => $e->getMessage()]);
+            $this->auditLogger->logAction(
+                $request,
+                $this->auditModule(),
+                'toggle',
+                ['gpio' => $gpio, 'name' => $name, 'board' => $board],
+                false,
+                'Erreur serveur'
+            );
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }
@@ -216,8 +300,29 @@ abstract class AbstractOutputController
         $paramName = (string) array_key_first($payload);
         $value = trim((string) ($payload[$paramName] ?? ''));
 
+        // Validation stricte : le paramètre doit appartenir à l'ensemble canonique du module.
+        if (!in_array($paramName, $this->getDefaultParamKeys(), true)) {
+            $this->auditLogger->logAction(
+                $request,
+                $this->auditModule(),
+                'update_parameter',
+                ['param' => $paramName, 'board' => $board],
+                false,
+                'Paramètre non autorisé'
+            );
+            return ResponseHelper::json($response, ['error' => 'Paramètre inconnu'], 400);
+        }
+
         $normalized = $this->normalizeAndValidateParameterValue($paramName, $value);
         if (($normalized['ok'] ?? false) !== true) {
+            $this->auditLogger->logAction(
+                $request,
+                $this->auditModule(),
+                'update_parameter',
+                ['param' => $paramName, 'board' => $board],
+                false,
+                is_string($normalized['error'] ?? null) ? $normalized['error'] : 'Valeur invalide'
+            );
             return ResponseHelper::json($response, ['error' => $normalized['error'] ?? 'Valeur invalide'], 400);
         }
         $value = (string) ($normalized['value'] ?? $value);
@@ -225,12 +330,35 @@ abstract class AbstractOutputController
         try {
             $ok = $this->updateParameterByName($board, $paramName, $value);
             if (!$ok) {
+                $this->auditLogger->logAction(
+                    $request,
+                    $this->auditModule(),
+                    'update_parameter',
+                    ['param' => $paramName, 'board' => $board],
+                    false,
+                    'Paramètre inconnu'
+                );
                 return ResponseHelper::json($response, ['error' => 'Paramètre inconnu'], 400);
             }
             $this->logger->info("{$this->componentName()}: parametre mis a jour", ['param' => $paramName]);
+            $this->auditLogger->logAction(
+                $request,
+                $this->auditModule(),
+                'update_parameter',
+                ['param' => $paramName, 'value' => $value, 'board' => $board],
+                true
+            );
             return ResponseHelper::json($response, ['success' => true, 'param' => $paramName]);
         } catch (\Throwable $e) {
             $this->logger->error("{$this->componentName()}: erreur updateParameterByName", ['error' => $e->getMessage()]);
+            $this->auditLogger->logAction(
+                $request,
+                $this->auditModule(),
+                'update_parameter',
+                ['param' => $paramName, 'board' => $board],
+                false,
+                'Erreur serveur'
+            );
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }
@@ -255,17 +383,55 @@ abstract class AbstractOutputController
         }
 
         $board = (int) ($params['board'] ?? $this->defaultBoard());
+
+        $gpio = (int) ($params['gpio'] ?? 0);
+        $name = trim((string) ($params['name'] ?? ''));
+        if ($gpio > 0 && !$this->isGpioAllowed($gpio)) {
+            $this->auditLogger->logAction(
+                $request,
+                $this->auditModule(),
+                'set',
+                ['gpio' => $gpio, 'name' => $name, 'board' => $board],
+                false,
+                'GPIO non autorisé'
+            );
+            return ResponseHelper::json($response, ['error' => 'GPIO non autorisé'], 400);
+        }
+
         try {
             $result = $this->doSetOutput($params, $board);
             if (($result['success'] ?? false) === true) {
                 $this->logger->info("{$this->componentName()}: output mis a jour", $result + ['board' => $board]);
+                $this->auditLogger->logAction(
+                    $request,
+                    $this->auditModule(),
+                    'set',
+                    ['gpio' => $gpio, 'name' => $name, 'state' => $result['state'] ?? null, 'board' => $board],
+                    true
+                );
                 return ResponseHelper::json($response, $result);
             }
             $status = (int) ($result['status'] ?? 400);
             unset($result['status']);
+            $this->auditLogger->logAction(
+                $request,
+                $this->auditModule(),
+                'set',
+                ['gpio' => $gpio, 'name' => $name, 'board' => $board],
+                false,
+                is_string($result['error'] ?? null) ? $result['error'] : 'Échec set'
+            );
             return ResponseHelper::json($response, $result, $status);
         } catch (\Throwable $e) {
             $this->logger->error("{$this->componentName()}: erreur mise a jour", ['error' => $e->getMessage()]);
+            $this->auditLogger->logAction(
+                $request,
+                $this->auditModule(),
+                'set',
+                ['gpio' => $gpio, 'name' => $name, 'board' => $board],
+                false,
+                'Erreur serveur'
+            );
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }
