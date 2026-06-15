@@ -1,0 +1,47 @@
+# ---------------------------------------------------------------------------
+# Stack MySQL dédiée aux tests d'intégration HTTP du panneau de contrôle FFP3.
+#
+# Volontairement minimale : un seul service MySQL exposé en local, qui charge
+# le schéma de test au premier démarrage. La suite PHPUnit
+# (tests/Integration/Http/OutputControlHttpIntegrationTest.php) démarre elle-même
+# le front-controller via `php -S` ; aucune image PHP n'est nécessaire ici.
+#
+# Démarrage / arrêt :
+#   docker compose -f docker-compose.integration.yml up -d
+#   docker compose -f docker-compose.integration.yml down -v
+#
+# Variables d'env attendues par la suite (voir docs/TESTS_INTEGRATION_HTTP.md) :
+#   DB_HOST=127.0.0.1 DB_PORT=3310 DB_NAME=n3_http_test
+#   DB_USER=n3_http   DB_PASS=n3_http_pass
+#   ADMIN_TOKEN=integration-http-token
+#
+# Port 3310 choisi pour ne pas entrer en conflit avec 3306 (local) ni 3307
+# (docker-compose.local.yml).
+# ---------------------------------------------------------------------------
+
+services:
+  db-integration:
+    image: mysql:8.0
+    container_name: n3_iot_db_integration
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root_integration_n3
+      MYSQL_DATABASE: n3_http_test
+      MYSQL_USER: n3_http
+      MYSQL_PASSWORD: n3_http_pass
+    ports:
+      - "3310:3306"
+    volumes:
+      # Schéma de test chargé une fois à l'initialisation du volume.
+      - ./tests/Integration/Http/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - db_data_integration:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot_integration_n3"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 20s
+    restart: unless-stopped
+
+volumes:
+  db_data_integration:

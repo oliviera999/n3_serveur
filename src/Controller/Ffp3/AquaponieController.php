@@ -107,6 +107,12 @@ class AquaponieController
 
         [$startDate, $endDate] = $this->dateRangeExtractor->extract($request, $defaultStartDate, $defaultEndDate);
 
+        // Navigation par fenêtre temporelle (GET ?from/to ou ?window=&offset=).
+        // Rétro-compatible : sans param GET reconnu, la plage reste inchangée.
+        $periodNav = $this->dateRangeExtractor->resolveDataWindow($request, $startDate, $endDate);
+        $startDate = $periodNav['start'];
+        $endDate = $periodNav['end'];
+
         // Sorties anticipées (export CSV, redirection legacy) AVANT tout chargement/calcul lourd.
         $body = $request->getParsedBody() ?? [];
         if (isset($body['export_csv'])) {
@@ -185,6 +191,7 @@ class AquaponieController
             'data_table' => $dataTable,
             'realtime_api_base' => $realtime_api_base,
             'nav_active' => 'aquaponie',
+            'period_nav' => $periodNav,
         ], $chartSeries, [
             'last_reading_tempair' => $lastReadingExtracted['tempair'],
             'last_reading_tempeau' => $lastReadingExtracted['tempeau'],

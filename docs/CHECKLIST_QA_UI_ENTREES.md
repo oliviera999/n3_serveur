@@ -27,6 +27,10 @@ Correctifs restant en backlog: optimisation du chargement conditionnel CSS/JS su
 - [ ] Sur mobile, l'ouverture/fermeture du menu est utilisable au clavier.
 - [ ] La fermeture du menu mobile restitue le focus au bouton menu.
 
+> Validation clavier multi-navigateurs detaillee du menu mobile : suivre le plan
+> `docs/QA_CLAVIER_NAV_MOBILE.md` (matrice navigateurs x cas). Garde-fous
+> statiques de non-regression : `tests/Ui/MobileNavKeyboardTest.php`.
+
 ## 3) Accessibilite semantique
 
 - [ ] Les labels du formulaire login sont correctement associes aux champs.

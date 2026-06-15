@@ -742,6 +742,128 @@ small {
     100% { background-color: transparent; }
 }
 
+/* ========================================
+   INDICATEURS DE CHARGEMENT / SUCCÈS / ÉCHEC
+   (états des écritures : toggle, sauvegarde paramètres, OTA)
+   ======================================== */
+
+/* Animation de pulsation pendant une requête en cours */
+@keyframes controlUpdatingPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+}
+
+/* --- Cartes d'action (toggle) --- */
+.action-card.is-updating {
+    position: relative;
+    border-color: var(--control-primary);
+    box-shadow: 0 0 0 2px var(--control-primary-muted);
+    animation: controlUpdatingPulse var(--control-animation-pulse) var(--control-easing-standard) infinite;
+}
+
+/* Petit spinner dans le coin de la carte en cours de mise à jour */
+.action-card.is-updating::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--control-primary-muted);
+    border-top-color: var(--control-primary);
+    border-radius: 50%;
+    animation: controlSpin 0.7s linear infinite;
+}
+
+@keyframes controlSpin {
+    to { transform: rotate(360deg); }
+}
+
+.action-card.is-success {
+    border-color: #27ae60;
+    box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2);
+    transition: border-color var(--control-transition-base), box-shadow var(--control-transition-base);
+}
+
+.action-card.is-error {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+    transition: border-color var(--control-transition-base), box-shadow var(--control-transition-base);
+}
+
+/* --- Champs paramètres (auto-save) --- */
+[data-parameter-wrapper].is-saving {
+    border-color: rgba(0, 139, 116, 0.35);
+    box-shadow: 0 0 0 2px rgba(0, 139, 116, 0.12);
+}
+
+[data-parameter-wrapper].is-success {
+    border-color: rgba(39, 174, 96, 0.45);
+    box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.14);
+    transition: border-color var(--control-transition-base), box-shadow var(--control-transition-base);
+}
+
+[data-parameter-wrapper].is-error {
+    border-color: rgba(231, 76, 60, 0.45);
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.14);
+    transition: border-color var(--control-transition-base), box-shadow var(--control-transition-base);
+}
+
+/* Indicateur d'état "data-saving" sur l'input lui-même (état en cours) */
+.parameter-item input[data-saving="true"] {
+    border-color: var(--control-primary);
+    box-shadow: 0 0 0 3px var(--control-primary-muted);
+}
+
+/* --- Indicateur de sauvegarde textuel (save-indicator) --- */
+.save-indicator {
+    display: block;
+    min-height: 1rem;
+    font-size: 0.78em;
+    color: var(--text-muted);
+}
+.save-indicator[data-state="saving"] { color: #1d70b8; }
+.save-indicator[data-state="success"] { color: #1d7a46; }
+.save-indicator[data-state="error"] { color: #b42318; }
+
+/* --- Bouton OTA : états de chargement --- */
+.trigger-ota-btn.is-updating {
+    opacity: 0.85;
+    cursor: progress;
+}
+.trigger-ota-btn.is-updating::after {
+    content: '';
+    display: inline-block;
+    margin-left: 8px;
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: controlSpin 0.7s linear infinite;
+}
+.trigger-ota-btn.is-success {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+.trigger-ota-btn.is-error {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+/* Respect des préférences de réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+    .action-card.is-updating,
+    .action-card.is-updating::after,
+    .trigger-ota-btn.is-updating::after {
+        animation: none;
+    }
+}
+
+[data-theme="dark"] .save-indicator { color: var(--text-muted); }
+[data-theme="dark"] .save-indicator[data-state="saving"] { color: #7dd3fc; }
+[data-theme="dark"] .save-indicator[data-state="success"] { color: #86efac; }
+[data-theme="dark"] .save-indicator[data-state="error"] { color: #fda4af; }
+
 
 
 

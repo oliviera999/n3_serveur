@@ -18,6 +18,12 @@ class OutputService
     /** GPIOs affichés comme indicateurs booléens (0/1) sur la page de contrôle */
     private const BOOLEAN_GPIOS_FOR_INDICATOR = [2, 15, 16, 18, 101, 108, 109, 110, 115];
 
+    /**
+     * GPIO de forçage serveur de la pompe aquarium (page contrôle / sync JSON).
+     * Présent dans la table outputs mais absent du mapping canonique GPIO→propriété.
+     */
+    private const AQUARIUM_PUMP_FORCE_GPIO = 117;
+
     public function __construct(
         private OutputRepository $outputRepository,
         private BoardRepository $boardRepository,
@@ -207,6 +213,49 @@ class OutputService
         $updated = $this->outputRepository->updateMultipleParameters($params, 'web');
 
         return ['updated' => $updated, 'warnings' => $warnings];
+    }
+
+    /**
+     * Ensemble canonique des GPIO autorisés en écriture pour le module FFP3.
+     *
+     * Dérivé de la source unique de vérité {@see \App\Config\Ffp3GpioMap} (actionneurs +
+     * paramètres de configuration + commandes one-shot), complété par le GPIO de forçage
+     * pompe aquarium (117) qui n'est pas dans le mapping propriété mais existe en base.
+     *
+     * @return list<int>
+     */
+    public function getAllowedGpios(): array
+    {
+        $gpios = array_keys(\App\Config\Ffp3GpioMap::gpioToProperty());
+        $gpios[] = self::AQUARIUM_PUMP_FORCE_GPIO;
+
+        return array_values(array_unique($gpios));
+    }
+
+    /**
+     * Vérifie qu'un GPIO appartient à l'ensemble canonique autorisé du module FFP3.
+     */
+    public function isGpioAllowed(int $gpio): bool
+    {
+        return in_array($gpio, $this->getAllowedGpios(), true);
+    }
+
+    /**
+     * Ensemble canonique des noms de paramètres autorisés en écriture (FFP3).
+     *
+     * @return list<string>
+     */
+    public function getAllowedParameterNames(): array
+    {
+        return array_keys(\App\Config\Ffp3GpioMap::parameterGpioMap());
+    }
+
+    /**
+     * Vérifie qu'un nom de paramètre appartient à l'ensemble canonique autorisé (FFP3).
+     */
+    public function isParameterAllowed(string $name): bool
+    {
+        return in_array($name, $this->getAllowedParameterNames(), true);
     }
 
     /** @return array<int, string> */

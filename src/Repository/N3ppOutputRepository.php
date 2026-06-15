@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Config\N3ppGpioMap;
 use App\Config\TableConfig;
 use PDO;
 
@@ -31,7 +32,7 @@ class N3ppOutputRepository extends AbstractOutputRepository
 
     protected function getParamGpioMap(): array
     {
-        return self::PARAM_GPIO_MAP;
+        return N3ppGpioMap::paramGpioMap();
     }
 
     /**
@@ -87,17 +88,4 @@ class N3ppOutputRepository extends AbstractOutputRepository
             $this->execute('DELETE FROM `Boards` WHERE board = :board', [':board' => $board]);
         }
     }
-
-    /** Mapping GPIO 100-107 vers les noms de parametres (site initial). */
-    private const PARAM_GPIO_MAP = [
-        100 => 'mail',
-        101 => 'mailNotif',
-        102 => 'SeuilSec',
-        103 => 'SeuilPontDiv',
-        104 => 'HeureArrosage',
-        105 => 'tempsArrosage',
-        106 => 'WakeUp',
-        107 => 'FreqWakeUp',
-    ];
-
 }

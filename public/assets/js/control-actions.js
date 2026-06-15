@@ -1,8 +1,80 @@
+/**
+ * Helper de retry réseau borné pour les écritures de contrôle (toggle, parameters, OTA).
+ *
+ * - 3 tentatives max, backoff exponentiel borné : 300ms, 600ms, 1200ms.
+ * - Ne retente QUE sur erreur réseau (fetch rejette) ou réponse 5xx.
+ * - NE retente JAMAIS sur 4xx (403 CSRF, 400 validation, etc.) : la réponse est rendue telle quelle.
+ * - L'en-tête X-CSRF-Token (meta csrf-token) est (re)lu et réinjecté à CHAQUE tentative.
+ *
+ * Exposé en global (window.fetchWithRetry) pour réutilisation par control-auto-save.js
+ * et le handler OTA inline. Idempotent : ne s'écrase pas s'il est déjà défini.
+ *
+ * @param {string} url
+ * @param {RequestInit} [options]
+ * @param {{retries?: number, backoffBaseMs?: number, backoffMaxMs?: number}} [retryConfig]
+ * @returns {Promise<Response>}
+ */
+if (typeof window.fetchWithRetry !== 'function') {
+    window.fetchWithRetry = async function fetchWithRetry(url, options = {}, retryConfig = {}) {
+        const retries = Number.isInteger(retryConfig.retries) ? retryConfig.retries : 3;
+        const backoffBaseMs = retryConfig.backoffBaseMs || 300;
+        const backoffMaxMs = retryConfig.backoffMaxMs || 1200;
+
+        const buildOptions = () => {
+            const opts = Object.assign({}, options);
+            // (Re)lecture du token CSRF à chaque tentative : il peut être renouvelé entre deux essais.
+            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+            opts.headers = Object.assign({}, options.headers || {}, { 'X-CSRF-Token': csrfToken });
+            return opts;
+        };
+
+        let lastError = null;
+
+        for (let attempt = 1; attempt <= retries; attempt++) {
+            try {
+                const response = await fetch(url, buildOptions());
+
+                // 4xx : erreur définitive (CSRF/validation) — on NE retente PAS.
+                if (response.status >= 400 && response.status < 500) {
+                    return response;
+                }
+
+                // 5xx : erreur serveur potentiellement transitoire — on retente si possible.
+                if (response.status >= 500 && attempt < retries) {
+                    await new Promise(resolve => setTimeout(
+                        resolve,
+                        Math.min(backoffBaseMs * Math.pow(2, attempt - 1), backoffMaxMs)
+                    ));
+                    continue;
+                }
+
+                return response;
+            } catch (networkError) {
+                // Erreur réseau (timeout, DNS, offline) : on retente si possible.
+                lastError = networkError;
+                if (attempt < retries) {
+                    await new Promise(resolve => setTimeout(
+                        resolve,
+                        Math.min(backoffBaseMs * Math.pow(2, attempt - 1), backoffMaxMs)
+                    ));
+                    continue;
+                }
+                throw lastError;
+            }
+        }
+
+        // Sécurité (ne devrait pas être atteint) : relance la dernière erreur réseau.
+        throw lastError || new Error('fetchWithRetry: échec inattendu');
+    };
+}
+
 class ControlActions {
     constructor(options = {}) {
         this.apiBase = options.apiBase || (typeof window.CONTROL_API_BASE !== 'undefined' ? window.CONTROL_API_BASE : '/api/outputs');
         this.isProcessing = false;
         this.queue = [];
+        // Anti-double-clic : ensemble des contrôles ayant une requête toggle en vol.
+        this.inFlight = new Set();
     }
 
     toggleOutput(element) {
@@ -73,16 +145,30 @@ class ControlActions {
 
     async sendToggleRequest(payload, element) {
         const endpoint = this.withCurrentToken(`${this.apiBase}/toggle`);
+
+        // Anti-double-clic : ignore une 2e requête concurrente pour le même contrôle.
+        const controlKey = `${payload.gpio}:${payload.id}`;
+        if (this.inFlight.has(controlKey)) {
+            element.checked = !element.checked; // annule l'effet visuel du clic redondant
+            return;
+        }
+        this.inFlight.add(controlKey);
+
+        const card = element.closest('.action-card');
         element.disabled = true;
-        element.closest('.action-card')?.classList.add('is-updating');
+        card?.classList.remove('is-success', 'is-error');
+        card?.classList.add('is-updating');
+
+        const fetchWithRetry = window.fetchWithRetry || fetch;
 
         try {
-            const response = await fetch(endpoint, {
+            const response = await fetchWithRetry(endpoint, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     'X-Requested-With': 'fetch',
+                    // X-CSRF-Token est (ré)injecté par fetchWithRetry à chaque tentative.
                     'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
                 },
                 credentials: 'include',
@@ -118,6 +204,12 @@ class ControlActions {
                 toastManager.showSuccess('Commande envoyée', 2500);
             }
 
+            // Indicateur visuel de succès transitoire.
+            if (card) {
+                card.classList.add('is-success');
+                setTimeout(() => card.classList.remove('is-success'), 1500);
+            }
+
             if (window.controlSync) {
                 window.controlSync.forceSync();
             }
@@ -125,12 +217,18 @@ class ControlActions {
         } catch (error) {
             console.error('[ControlActions] Toggle error', error);
             element.checked = !element.checked;
+            // Indicateur visuel d'échec transitoire.
+            if (card) {
+                card.classList.add('is-error');
+                setTimeout(() => card.classList.remove('is-error'), 2500);
+            }
             if (typeof toastManager !== 'undefined') {
                 toastManager.showError('Commande refusée', 4000);
             }
         } finally {
             element.disabled = false;
-            element.closest('.action-card')?.classList.remove('is-updating');
+            card?.classList.remove('is-updating');
+            this.inFlight.delete(controlKey);
         }
     }
 

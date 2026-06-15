@@ -33,6 +33,8 @@
         pendingSave: null,
         lastSavedValues: new Map(),
         toast: null,
+        // Anti-double-requête : paramètres ayant une sauvegarde en vol.
+        inFlight: new Set(),
     };
 
     const selectors = {
@@ -69,6 +71,17 @@
     }
 
     function performSave(parameterName, payload) {
+        // Anti-double-requête : si une sauvegarde du même paramètre est déjà en vol,
+        // on replanifie un essai juste après pour ne pas perdre la valeur la plus récente.
+        if (saveState.inFlight.has(parameterName)) {
+            if (saveState.pendingSave) {
+                clearTimeout(saveState.pendingSave);
+            }
+            saveState.pendingSave = setTimeout(() => performSave(parameterName, payload), 200);
+            return;
+        }
+        saveState.inFlight.add(parameterName);
+
         const inputElement = findInput(parameterName);
         const wrapper = inputElement ? inputElement.closest(selectors.wrapper) : null;
 
@@ -76,17 +89,21 @@
             inputElement.setAttribute('data-saving', 'true');
         }
         if (wrapper) {
+            wrapper.classList.remove('is-success', 'is-error');
             wrapper.classList.add('is-saving');
         }
 
         showSaveIndicator(parameterName);
         saveState.isSaving = true;
 
-        fetch(withCurrentToken(PARAM_ENDPOINT), {
+        const fetchWithRetry = window.fetchWithRetry || fetch;
+
+        fetchWithRetry(withCurrentToken(PARAM_ENDPOINT), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
+                // X-CSRF-Token est (ré)injecté par fetchWithRetry à chaque tentative.
                 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
             },
             body: JSON.stringify(payload),
@@ -103,6 +120,11 @@
                 saveState.lastSaveTime = Date.now();
                 saveState.lastSavedValues.set(parameterName, payload.value);
                 showSuccessIndicator(parameterName, data?.message || 'Paramètre enregistré');
+
+                if (wrapper) {
+                    wrapper.classList.add('is-success');
+                    setTimeout(() => wrapper.classList.remove('is-success'), 1500);
+                }
 
                 if (typeof window.controlValuesUpdater?.updateParameterDisplay === 'function' && data?.gpio !== undefined) {
                     window.controlValuesUpdater.updateParameterDisplay(data.gpio, payload.value);
@@ -121,12 +143,18 @@
                 console.error('[ControlAutoSave] Save error', error);
                 showErrorIndicator(parameterName, 'Erreur de sauvegarde');
 
+                if (wrapper) {
+                    wrapper.classList.add('is-error');
+                    setTimeout(() => wrapper.classList.remove('is-error'), 2500);
+                }
+
                 if (typeof toastManager !== 'undefined') {
                     toastManager.showError(`Échec sauvegarde ${parameterName}`, 5000);
                 }
             })
             .finally(() => {
                 saveState.isSaving = false;
+                saveState.inFlight.delete(parameterName);
 
                 if (inputElement) {
                     inputElement.removeAttribute('data-saving');

@@ -7,6 +7,7 @@ namespace Tests\Controller\Ffp3;
 use App\Config\Database;
 use App\Controller\Ffp3\OutputController;
 use App\Repository\SensorReadRepository;
+use App\Service\ControlAuditLogger;
 use App\Service\LogService;
 use App\Service\OutputCacheService;
 use App\Service\OutputService;
@@ -29,12 +30,11 @@ use Slim\Psr7\Response;
  *    en-têtes (Content-Type application/json, Content-Length), endpoint public.
  *  - POST /api/outputs/trigger-ota-check : triggerOtaCheck() — contrat JSON {ok,message}.
  *
- * NB contrat : un paramètre INCONNU n'est PAS rejeté en 400. Le contrôleur délègue à
- * OutputService::updateMultipleParameters() qui ne persiste que les paramètres figurant dans
- * la whitelist PARAMETER_GPIO_MAP ; les clés inconnues sont silencieusement ignorées (updated
- * reflète uniquement les paramètres connus). Le 400 provient soit d'un payload vide, soit d'une
- * \InvalidArgumentException de validation (ex. horaire de nourrissage hors de [0..23]). Ces
- * tests verrouillent ce comportement ACTUEL.
+ * NB contrat (AUDIT_PAGE_CONTROL_DISTANT Phase 2 — validation stricte) : un paramètre INCONNU
+ * (hors de l'ensemble canonique autorisé) est désormais rejeté en 400 AVANT toute persistance,
+ * et le service n'est pas appelé. Le 400 provient donc d'un payload vide, d'un paramètre non
+ * autorisé, ou d'une \InvalidArgumentException de validation (ex. horaire de nourrissage hors
+ * de [0..23]). Ces tests verrouillent ce comportement.
  */
 class OutputControllerParametersStateTest extends TestCase
 {
@@ -50,6 +50,11 @@ class OutputControllerParametersStateTest extends TestCase
 
         $this->outputService = $this->createMock(OutputService::class);
         $this->outputCache = $this->createMock(OutputCacheService::class);
+
+        // Par défaut, les GPIO/paramètres testés sont considérés autorisés ; les tests de
+        // rejet (GPIO/param hors whitelist) surchargent explicitement ce comportement.
+        $this->outputService->method('isParameterAllowed')->willReturn(true);
+        $this->outputService->method('isGpioAllowed')->willReturn(true);
     }
 
     protected function tearDown(): void
@@ -68,6 +73,7 @@ class OutputControllerParametersStateTest extends TestCase
             $this->createMock(SensorReadRepository::class),
             $this->outputCache,
             $this->createMock(LogService::class),
+            $this->createMock(ControlAuditLogger::class),
         );
     }
 
@@ -197,22 +203,35 @@ class OutputControllerParametersStateTest extends TestCase
     }
 
     /**
-     * Paramètre INCONNU : non rejeté (contrat actuel). Le contrôleur délègue ; seules les clés
-     * connues sont persistées par le service. Ici aucune clé connue -> updated = 0, mais 200.
+     * Paramètre INCONNU (hors ensemble canonique autorisé) : rejeté en 400 AVANT persistance.
+     * Le service updateMultipleParameters() n'est jamais appelé (validation stricte Phase 2).
      */
-    public function testUpdateParametersUnknownParameterIsIgnoredNotRejected(): void
+    public function testUpdateParametersUnknownParameterRejectedWith400(): void
     {
-        $this->outputService->expects($this->once())
-            ->method('updateMultipleParameters')
-            ->with(['parametreInexistant' => 'x'])
-            ->willReturn(['updated' => 0, 'warnings' => []]);
+        // Réinitialise le mock pour ne PAS autoriser ce paramètre inconnu.
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isParameterAllowed')->willReturn(false);
+        $outputService->expects($this->never())->method('updateMultipleParameters');
 
-        $response = $this->postParameters(['parametreInexistant' => 'x']);
+        $controller = new OutputController(
+            $outputService,
+            $this->createMock(TemplateRenderer::class),
+            $this->createMock(SensorReadRepository::class),
+            $this->outputCache,
+            $this->createMock(LogService::class),
+            $this->createMock(ControlAuditLogger::class),
+        );
 
-        $this->assertSame(200, $response->getStatusCode());
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('POST', 'http://localhost/api/outputs/parameters')
+            ->withHeader('Content-Type', 'application/x-www-form-urlencoded')
+            ->withParsedBody(['parametreInexistant' => 'x']);
+
+        $response = $controller->updateParameters($request, new Response());
+
+        $this->assertSame(400, $response->getStatusCode());
         $body = self::decode($response);
-        $this->assertSame('ok', $body['status']);
-        $this->assertSame(0, $body['updated']);
+        $this->assertSame('error', $body['status']);
     }
 
     /** Validation métier (\InvalidArgumentException) -> 400 avec le message de validation. */
