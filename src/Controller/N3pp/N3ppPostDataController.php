@@ -45,6 +45,16 @@ class N3ppPostDataController extends AbstractPostDataController
 
     protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object
     {
+        $mail = $sanitize('mail');
+        if ($mail !== null && $mail !== '' && filter_var($mail, FILTER_VALIDATE_EMAIL) === false) {
+            $this->logger->warning('N3ppPostData: email firmware invalide ignore (format)', [
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'mail_len' => strlen($mail),
+            ]);
+            $mail = '';
+        }
+
         return new N3ppSensorData(
             sensor: substr($sanitize('sensor') ?? '', 0, 30),
             version: substr($sanitize('version') ?? '', 0, 30),
@@ -62,7 +72,7 @@ class N3ppPostDataController extends AbstractPostDataController
             seuilSec: $toInt('SeuilSec'),
             freqWakeUp: $toInt('FreqWakeUp'),
             seuilPontDiv: $toInt('SeuilPontDiv'),
-            mail: $sanitize('mail'),
+            mail: $mail,
             mailNotif: $sanitize('mailNotif'),
             heureArrosage: $toInt('HeureArrosage'),
             resetMode: $toInt('resetMode'),
