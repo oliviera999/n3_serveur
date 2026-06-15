@@ -1,0 +1,75 @@
+{#
+    Navigation par fenêtre temporelle côté serveur (longues périodes).
+    Rétro-compatible : si `period_nav` n'est pas défini, ce bloc ne rend rien
+    et la page conserve son comportement historique.
+
+    Paramètres attendus dans le contexte :
+      - period_nav : tableau renvoyé par DateRangeExtractor::resolveDataWindow()
+        { mode, window, offset, has_prev, has_next }
+
+    Le rechargement effectif est piloté par public/assets/js/period-nav.js,
+    qui construit l'URL ?window=&offset= (ou ?from=&to=) et navigue. Les liens
+    portent une URL de repli fonctionnelle sans JavaScript (dégradation propre).
+#}
+{% if period_nav is defined and period_nav %}
+{# Liens en query-string relative : résolus par le navigateur contre l'URL courante,
+   donc aucune dépendance à un chemin serveur. period-nav.js peut surcharger. #}
+{% set _pn_window = period_nav.window|default('') %}
+<style>
+.period-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.75rem;margin:1rem 0;}
+.period-nav-arrows{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;}
+.period-nav-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .8rem;border-radius:6px;background:rgba(255,255,255,.08);color:inherit;text-decoration:none;font-size:.9em;transition:background .15s ease;}
+.period-nav-btn:hover{background:rgba(255,255,255,.18);}
+.period-nav-btn.is-disabled{opacity:.4;pointer-events:none;cursor:default;}
+.period-nav-window-select{padding:.45rem .6rem;border-radius:6px;background:rgba(255,255,255,.08);color:inherit;border:1px solid rgba(255,255,255,.2);font-size:.9em;}
+.period-nav-reset{display:inline-flex;align-items:center;gap:.35rem;font-size:.85em;text-decoration:none;opacity:.85;}
+.period-nav-reset:hover{opacity:1;}
+</style>
+<div class="period-nav" id="period-nav"
+     data-period-mode="{{ period_nav.mode }}"
+     data-period-window="{{ _pn_window }}"
+     data-period-offset="{{ period_nav.offset|default(0) }}"
+     role="navigation"
+     aria-label="Navigation par fenêtre temporelle">
+
+    <div class="period-nav-arrows">
+        {# Fenêtre précédente (plus ancienne) #}
+        <a class="period-nav-btn period-nav-prev{{ period_nav.has_prev ? '' : ' is-disabled' }}"
+           data-period-nav="prev"
+           {% if not period_nav.has_prev %}aria-disabled="true" tabindex="-1"{% endif %}
+           href="{% if period_nav.has_prev and _pn_window %}?window={{ _pn_window }}&amp;offset={{ period_nav.prev_offset|default(period_nav.offset + 1) }}{% else %}#{% endif %}"
+           title="Période précédente (plus ancienne)">
+            <i class="fas fa-chevron-left"></i>
+            <span>Période précédente</span>
+        </a>
+
+        {# Sélecteur de durée de fenêtre #}
+        <select class="period-nav-window-select" id="period-nav-window" aria-label="Durée de la fenêtre">
+            <option value="">— Naviguer par fenêtre —</option>
+            <option value="1h"{{ _pn_window == '1h' ? ' selected' : '' }}>Fenêtres de 1 heure</option>
+            <option value="3h"{{ _pn_window == '3h' ? ' selected' : '' }}>Fenêtres de 3 heures</option>
+            <option value="6h"{{ _pn_window == '6h' ? ' selected' : '' }}>Fenêtres de 6 heures</option>
+            <option value="12h"{{ _pn_window == '12h' ? ' selected' : '' }}>Fenêtres de 12 heures</option>
+            <option value="1d"{{ _pn_window == '1d' ? ' selected' : '' }}>Fenêtres de 1 jour</option>
+            <option value="7d"{{ _pn_window == '7d' ? ' selected' : '' }}>Fenêtres de 1 semaine</option>
+            <option value="30d"{{ _pn_window == '30d' ? ' selected' : '' }}>Fenêtres de 1 mois</option>
+        </select>
+
+        {# Fenêtre suivante (plus récente) #}
+        <a class="period-nav-btn period-nav-next{{ period_nav.has_next ? '' : ' is-disabled' }}"
+           data-period-nav="next"
+           {% if not period_nav.has_next %}aria-disabled="true" tabindex="-1"{% endif %}
+           href="{% if period_nav.has_next and _pn_window %}?window={{ _pn_window }}&amp;offset={{ period_nav.next_offset|default(0) }}{% else %}#{% endif %}"
+           title="Période suivante (plus récente)">
+            <span>Période suivante</span>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+
+    {% if period_nav.mode != 'default' %}
+    <a class="period-nav-reset" data-period-nav="reset" href="?" title="Revenir à la période courante">
+        <i class="fas fa-rotate-left"></i> Période courante
+    </a>
+    {% endif %}
+</div>
+{% endif %}

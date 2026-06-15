@@ -171,6 +171,7 @@
 {% block scripts %}
     {% include 'partials/_live_badge.twig' %}
     {% include 'partials/_set_period_js.twig' with { form_id: 'n3ppFilterForm' } %}
+    <script src="{{ base_path }}/assets/js/period-nav.js" defer></script>
     {# JSON_HEX_TAG(1)|HEX_AMP(2)|HEX_APOS(4)|HEX_QUOT(8) = 15 — anti-XSS dans bloc <script> #}
     <script>
     var reading_time = {{ reading_time|json_encode(15)|raw }};
