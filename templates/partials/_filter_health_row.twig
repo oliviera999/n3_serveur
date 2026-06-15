@@ -42,6 +42,9 @@
         </div>
     </div>
 
+    {# Navigation par fenêtre temporelle (longues périodes) — rétro-compatible. #}
+    {% include 'partials/_period_nav.twig' %}
+
     <div class="quick-filters">
         <button class="quick-filter-btn" onclick="setPeriod(1, 'hours')">
             <i class="far fa-clock"></i> 1 heure

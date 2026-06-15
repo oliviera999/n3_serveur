@@ -86,6 +86,13 @@ abstract class AbstractDataController
             throw $e;
         }
 
+        // Navigation par fenêtre temporelle (GET ?from/to ou ?window=&offset=).
+        // N'intervient que si le POST n'a pas déjà fixé une plage personnalisée :
+        // sans param GET reconnu, la fenêtre reste strictement celle ci-dessus.
+        $periodNav = $this->dateRangeExtractor->resolveDataWindow($request, $startDate, $endDate);
+        $startDate = $periodNav['start'];
+        $endDate = $periodNav['end'];
+
         $readings = $this->sensorRepo->fetchBetween($startDate, $endDate);
         $measureCount = count($readings);
 
@@ -138,6 +145,7 @@ abstract class AbstractDataController
             'temps_total_module' => $tempsTotalModule,
             'firmware_version' => $this->sensorRepo->getFirmwareVersion(),
             'version' => Version::getWithPrefix(),
+            'period_nav' => $periodNav,
         ];
 
         $context = array_merge($context, $series, $stats);

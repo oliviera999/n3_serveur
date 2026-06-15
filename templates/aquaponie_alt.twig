@@ -43,6 +43,7 @@
     <script src="{{ base_path }}/assets/js/n3-stock-chart-layout.js"></script>
     <script src="{{ base_path }}/assets/js/aquaponie-chart-layout.js"></script>
     <script src="{{ base_path }}/assets/js/aquaponie-tide-markers.js"></script>
+    <script src="{{ base_path }}/assets/js/period-nav.js" defer></script>
 {% endblock %}
 
 {% block styles %}{% endblock %}
@@ -373,6 +374,9 @@
                                 </div>
                             </div>
                         </div>
+
+                        {# Navigation par fenêtre temporelle (longues périodes) — rétro-compatible. #}
+                        {% include 'partials/_period_nav.twig' %}
 
                         <!-- Filtres rapides : 2 lignes × 4 boutons -->
                         <div class="quick-filters">
