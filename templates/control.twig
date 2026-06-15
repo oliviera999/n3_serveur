@@ -488,9 +488,19 @@
                 const btnOta = document.getElementById('btn-trigger-ota');
                 if (btnOta) {
                     btnOta.addEventListener('click', async () => {
+                        // Anti-double-clic : ignore si une requête OTA est déjà en vol.
+                        if (btnOta.dataset.inflight === '1') {
+                            return;
+                        }
+                        btnOta.dataset.inflight = '1';
                         btnOta.disabled = true;
+                        btnOta.classList.remove('is-success', 'is-error');
+                        btnOta.classList.add('is-updating');
+                        // fetchWithRetry (control-actions.js) : retry borné sur réseau/5xx,
+                        // PAS sur 4xx, en conservant l'en-tête X-CSRF-Token à chaque tentative.
+                        const otaFetch = window.fetchWithRetry || fetch;
                         try {
-                            const res = await fetch(controlApiBase + '/trigger-ota-check', {
+                            const res = await otaFetch(controlApiBase + '/trigger-ota-check', {
                                 method: 'POST',
                                 credentials: 'include',
                                 headers: { 'Accept': 'application/json', 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '' }
@@ -501,12 +511,17 @@
                             } else if (!res.ok && typeof toastManager !== 'undefined') {
                                 toastManager.showError('Échec de la demande OTA', 5000);
                             }
+                            btnOta.classList.add(res.ok ? 'is-success' : 'is-error');
                         } catch (e) {
                             if (typeof toastManager !== 'undefined') {
                                 toastManager.showError('Erreur réseau', 5000);
                             }
+                            btnOta.classList.add('is-error');
                         } finally {
                             btnOta.disabled = false;
+                            btnOta.dataset.inflight = '0';
+                            btnOta.classList.remove('is-updating');
+                            setTimeout(() => btnOta.classList.remove('is-success', 'is-error'), 2500);
                         }
                     });
                 }
