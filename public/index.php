@@ -103,6 +103,13 @@ $app->add($container->get(\App\Middleware\ErrorHandlerMiddleware::class));
 // ====================================================================
 $app->add(new SecurityHeadersMiddleware());
 
+// ====================================================================
+// Protection CSRF des écritures navigateur du panneau de contrôle
+// (toggle/parameters/trigger-ota). Gaté par liste positive de chemins :
+// n'impacte JAMAIS les endpoints ESP32 (post-data, heartbeat, /state).
+// ====================================================================
+$app->add($container->get(\App\Middleware\CsrfMiddleware::class));
+
 // Réinitialise l'environnement BDD au défaut .env en début de requête (évite fuites inter-requêtes)
 $app->add(new RequestEnvironmentMiddleware());
 
@@ -140,7 +147,9 @@ $app->add(function (Request $request, $handler) {
 // Routes d'authentification (publiques - pas d'auth requise)
 // ====================================================================
 $app->get('/login', [AuthController::class, 'showLogin']);
-$app->post('/login', [AuthController::class, 'handleLogin']);
+// Anti-brute-force par IP en complément du limiteur par session du contrôleur.
+$app->post('/login', [AuthController::class, 'handleLogin'])
+    ->add($container->get(\App\Middleware\RateLimitMiddleware::class));
 $app->get('/logout', [AuthController::class, 'handleLogout']);
 
 // Déterminer la méthode d'authentification à utiliser
