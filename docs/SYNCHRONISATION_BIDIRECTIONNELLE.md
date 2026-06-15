@@ -2,6 +2,7 @@
 
 **Version**: 11.43  
 **Date**: 2025-01-15  
+**Dernière révision**: 2026-06-14 (badges `#control-sync-badge` alignés sur `control-sync.js`)  
 **Projet**: FFP3 Aquaponie IoT
 
 ---
@@ -72,22 +73,36 @@ WHERE gpio = :gpio AND name IS NOT NULL AND name != ''
 **Cause**: Le polling JavaScript (10s) récupère des états qui sont écrasés par l'ESP32 (2-3min).
 
 **Solution Implémentée**: **Indicateurs Visuels de Synchronisation**
-- Badges de statut en temps réel
-- Informations de dernière synchronisation ESP32
-- Notifications visuelles des conflits
+- Badge global `#control-sync-badge` reflétant l'état du polling JS (`SYNC` quand le polling réussit, `RECONNEXION...` / `ERREUR` / `HORS LIGNE` / `PAUSE` sinon — voir tableau dans « Indicateurs Visuels »)
+- Animation flash + mise à jour des switches sur les cartes dont l'état change côté serveur
+- Notifications toast des changements détectés et des erreurs de synchronisation
 
 ---
 
 ## 🎨 Indicateurs Visuels
 
-### Badges de Statut
+### Badge global `#control-sync-badge`
 
-| Badge | Couleur | Signification |
-|-------|---------|---------------|
-| 🟢 **SYNC** | Vert | État synchronisé entre web et ESP32 |
-| 🟡 **EN ATTENTE ESP32** | Jaune | Changement web en attente de sync ESP32 |
-| 🔵 **ESP32 SYNC** | Bleu | Synchronisation en cours par l'ESP32 |
-| 🔴 **ERREUR** | Rouge | Erreur de communication ou conflit |
+Un unique badge global `#control-sync-badge` (placé en haut de page par `control.twig` / `_control_base.twig`) reflète l'état du **polling** JavaScript du fichier `public/assets/js/control-sync.js`. Il ne reflète **pas** un état « sync / en attente » par GPIO : c'est uniquement l'état de la boucle de polling `GET .../state` côté navigateur.
+
+Le badge est piloté exclusivement par la méthode `updateBadgeStatus(status)` : elle retire toutes les classes (`connecting`, `online`, `offline`, `error`, `warning`, `paused`), applique la classe correspondant au `status`, puis écrit le libellé issu de la table `texts`. Le markup initial est `<div id="control-sync-badge" class="connecting">CONNEXION...</div>`.
+
+#### État badge ↔ condition JS ↔ classe CSS ↔ libellé
+
+| `status` (arg) | Classe CSS appliquée | Libellé (`textContent`) | Déclenchement (`control-sync.js`) |
+|----------------|----------------------|-------------------------|-----------------------------------|
+| `connecting` | `connecting` | `CONNEXION...` | `start()`, début de `poll()` tant que le badge n'a pas la classe `online`, reprise après visibilité |
+| `online` | `online` | `SYNC` | `poll()` réussi (réponse `GET .../state` HTTP OK), `retryCount` remis à 0 |
+| `warning` | `warning` | `RECONNEXION...` | échec de `poll()`, tentative de reconnexion avec backoff exponentiel (1 s × 2^n, plafonné à 30 s) tant que `retryCount < maxRetries` |
+| `error` | `error` | `ERREUR` | `maxRetries` (5) atteint → arrêt du polling (`stop()`) + toast d'erreur |
+| `offline` | `offline` | `HORS LIGNE` | `stop()` (arrêt manuel ou après `error`) |
+| `paused` | `paused` | `PAUSE` | onglet masqué (`visibilitychange` → `document.hidden`) ; le polling reprend (`connecting` puis `online`) au retour |
+
+> ℹ️ **Il n'existe pas de badge global « EN ATTENTE ESP32 » ni « ESP32 SYNC »** sur `#control-sync-badge`. Le code prévoit un hook optionnel `window.updateSyncBadge(gpio, état, libellé)` (appelé avec les libellés `ESP32 SYNC` / `SYNC` lors d'un changement distant détecté), mais cette fonction **n'est définie nulle part** dans le projet : les appels sont gardés par `if (window.updateSyncBadge)` et restent donc sans effet. Les libellés « EN ATTENTE ESP32 » / « ESP32 SYNC » décrits dans les anciennes versions de ce document ne correspondent à aucun état réellement affiché.
+
+#### Retour visuel par actionneur
+
+Le feedback « changement distant » par GPIO ne passe pas par un badge texte mais par une **animation flash** : lorsqu'un état change côté serveur (détecté au polling), la carte `.action-card` correspondante reçoit la classe `state-changed` pendant 1 s, le switch est mis à jour (`checked`), l'attribut `data-state` et le libellé `Activé`/`Désactivé` sont ajustés. Un toast d'information « Changement détecté: GPIO … » est aussi affiché si `window.toastManager` est présent.
 
 ### Informations de Synchronisation
 
@@ -189,7 +204,7 @@ mysql -e "SELECT gpio, state, lastModifiedBy, requestTime FROM ffp3Outputs2 ORDE
 ### Problèmes Courants
 
 #### 1. Changements web ignorés
-**Symptôme**: L'interface affiche "EN ATTENTE ESP32" indéfiniment.
+**Symptôme**: Un changement web n'est jamais répercuté côté matériel (le badge global peut afficher `RECONNEXION...` ou `ERREUR` si le polling échoue, mais reste `SYNC` tant que le serveur répond — il ne traduit pas l'état de l'ESP32).
 
 **Causes possibles**:
 - ESP32 déconnecté/éteint
@@ -218,13 +233,13 @@ curl https://iot.olution.info/ffp3/api/outputs-test/state
 - Rafraîchir la page (Ctrl+F5)
 - Vérifier logs serveur
 
-#### 3. Badges de statut incorrects
-**Symptôme**: Badges restent en "EN ATTENTE" ou "ERREUR".
+#### 3. Badge `#control-sync-badge` bloqué
+**Symptôme**: Le badge global reste en `RECONNEXION...`, `ERREUR` ou `HORS LIGNE` (le polling JS échoue ou est arrêté). Après 5 échecs consécutifs (`maxRetries`), `control-sync.js` passe en `ERREUR` puis `stop()` (badge `HORS LIGNE`).
 
 **Solutions**:
-- Vérifier console JavaScript (F12)
-- Redémarrer le polling automatique
-- Vérifier logs `control-sync.js`
+- Vérifier console JavaScript (F12) et l'accès à `GET .../state`
+- Relancer le polling : `window.controlSync.start()` (ou rafraîchir la page)
+- Vérifier logs `control-sync.js` (préfixe `[ControlSync]`)
 
 ---
 
@@ -282,6 +297,6 @@ tail -f /path/to/ffp3/cronlog.txt | grep "Données capteurs insérées"
 
 ---
 
-**Dernière mise à jour**: 2025-01-15  
-**Version du document**: 1.0  
+**Dernière mise à jour**: 2026-06-14  
+**Version du document**: 1.1  
 **Auteur**: Système FFP3 IoT

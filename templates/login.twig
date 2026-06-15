@@ -1,6 +1,6 @@
 {% extends 'layout.twig' %}
-{% set load_highcharts_theme = false %}
-{% set load_enhancement_scripts = false %}
+{# Page d'entree : ni graphiques ni scripts d'amelioration (cf. layout.twig) #}
+{% set page_family = 'entry' %}
 
 {% block title %}{{ page_title }}{% endblock %}
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Util\ReadingTimeParser;
+use App\Util\SeriesDownsampler;
 
 /**
  * Service de préparation des données pour les graphiques Highcharts
@@ -15,13 +16,37 @@ use App\Util\ReadingTimeParser;
 class ChartDataService
 {
     /**
+     * Plafond de points par défaut appliqué aux séries préparées.
+     *
+     * Au-delà, les longues périodes sont sous-échantillonnées (LTTB) afin
+     * d'alléger les pages Highcharts (cf. docs/AUDIT_GRAPHIQUES_HIGHCHARTS.md §5).
+     * En dessous, le comportement est strictement identique à l'historique.
+     */
+    public const DEFAULT_MAX_POINTS = SeriesDownsampler::DEFAULT_MAX_POINTS;
+
+    /**
+     * Colonne de référence (axe Y LTTB) pour décimer les lectures FFP3.
+     * Le niveau d'eau aquarium est la série « phare » de la page aquaponie.
+     */
+    private const FFP3_REFERENCE_COLUMN = 'EauAquarium';
+    /**
      * Prépare toutes les séries de données pour Highcharts
      *
      * @param array $readings Lectures capteurs (ordre DESC de la DB)
+     * @param int $maxPoints Plafond de points par série (décimation LTTB au-delà)
      * @return array Tableau associatif des séries encodées en JSON
      */
-    public function prepareSeriesData(array $readings): array
+    public function prepareSeriesData(array $readings, int $maxPoints = self::DEFAULT_MAX_POINTS): array
     {
+        // Décimation au niveau des lectures : toutes les colonnes (et les
+        // timestamps préparés ensuite à partir du même jeu) restent alignées.
+        $readings = SeriesDownsampler::downsampleReadings(
+            array_values($readings),
+            'reading_time',
+            self::FFP3_REFERENCE_COLUMN,
+            $maxPoints
+        );
+
         // Utilitaires internes (JSON injecte dans bloc <script> Twig via |raw : on durcit
         // l'echappement avec JSON_HEX_TAG/HEX_AMP/HEX_QUOT/HEX_APOS pour eviter toute
         // rupture du contexte JS si une valeur (cas peu probable, mais defense en profondeur)
@@ -54,10 +79,21 @@ class ChartDataService
      * Prépare les timestamps pour Highcharts (ms epoch UTC)
      *
      * @param array $readings Lectures capteurs (ordre DESC de la DB)
+     * @param int $maxPoints Plafond de points (décimation LTTB au-delà)
      * @return string JSON array des timestamps en millisecondes
      */
-    public function prepareTimestamps(array $readings): string
+    public function prepareTimestamps(array $readings, int $maxPoints = self::DEFAULT_MAX_POINTS): string
     {
+        // Même décimation que prepareSeriesData : index sélectionnés identiques
+        // (même jeu de lectures, même colonne de référence, même plafond) donc
+        // timestamps et valeurs restent strictement cohérents.
+        $readings = SeriesDownsampler::downsampleReadings(
+            array_values($readings),
+            'reading_time',
+            self::FFP3_REFERENCE_COLUMN,
+            $maxPoints
+        );
+
         $col = static fn (array $rows, string $key): array => array_column($rows, $key);
 
         $reading_time_ts = array_map(
@@ -77,10 +113,24 @@ class ChartDataService
      *
      * @param array $readings Lectures capteurs
      * @param string[] $columns Noms des colonnes à extraire
+     * @param int $maxPoints Plafond de points par série (décimation LTTB au-delà)
      * @return array<string, mixed> reading_time[] + une clé par colonne
      */
-    public function prepareGenericSeries(array $readings, array $columns): array
-    {
+    public function prepareGenericSeries(
+        array $readings,
+        array $columns,
+        int $maxPoints = self::DEFAULT_MAX_POINTS
+    ): array {
+        // Décimation au niveau des lectures : toutes les colonnes restent
+        // alignées avec reading_time (mêmes index retenus).
+        $referenceColumn = $columns[0] ?? 'reading_time';
+        $readings = SeriesDownsampler::downsampleReadings(
+            array_values($readings),
+            'reading_time',
+            $referenceColumn,
+            $maxPoints
+        );
+
         $series = ['reading_time' => []];
         foreach ($columns as $col) {
             $series[$col] = [];

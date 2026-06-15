@@ -17,23 +17,6 @@ class OutputService
 {
     /** GPIOs affichés comme indicateurs booléens (0/1) sur la page de contrôle */
     private const BOOLEAN_GPIOS_FOR_INDICATOR = [2, 15, 16, 18, 101, 108, 109, 110, 115];
-    /** @var array<string, string> */
-    private const PROPERTY_TO_PARAM_NAME = [
-        'aqThreshold' => 'aqThr',
-        'tankThreshold' => 'taThr',
-        'chauffageThreshold' => 'chauff',
-        'bouffeMatin' => 'bouffeMatin',
-        'bouffeMidi' => 'bouffeMidi',
-        'bouffeSoir' => 'bouffeSoir',
-        'tempsGros' => 'tempsGros',
-        'tempsPetits' => 'tempsPetits',
-        'tempsRemplissageSec' => 'tempsRemplissageSec',
-        'limFlood' => 'limFlood',
-        'mail' => 'mail',
-        'mailNotif' => 'mailNotif',
-        'WakeUp' => 'WakeUp',
-        'FreqWakeUp' => 'FreqWakeUp',
-    ];
 
     public function __construct(
         private OutputRepository $outputRepository,
@@ -229,10 +212,11 @@ class OutputService
     /** @return array<int, string> */
     private function buildParameterMap(): array
     {
+        $propertyToParam = \App\Config\Ffp3GpioMap::propertyToParam();
         $map = [];
         foreach (OutputSyncService::getGpioMapping() as $gpio => $propertyName) {
-            if (isset(self::PROPERTY_TO_PARAM_NAME[$propertyName])) {
-                $map[$gpio] = self::PROPERTY_TO_PARAM_NAME[$propertyName];
+            if (isset($propertyToParam[$propertyName])) {
+                $map[$gpio] = $propertyToParam[$propertyName];
             }
         }
         return $map;
