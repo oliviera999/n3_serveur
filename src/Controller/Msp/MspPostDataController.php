@@ -45,6 +45,16 @@ class MspPostDataController extends AbstractPostDataController
 
     protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object
     {
+        $mail = $sanitize('mail');
+        if ($mail !== null && $mail !== '' && filter_var($mail, FILTER_VALIDATE_EMAIL) === false) {
+            $this->logger->warning('MspPostData: email firmware invalide ignore (format)', [
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'mail_len' => strlen($mail),
+            ]);
+            $mail = '';
+        }
+
         return new MspSensorData(
             sensor: substr($sanitize('sensor') ?? '', 0, 30),
             version: substr($sanitize('version') ?? '', 0, 30),
@@ -67,7 +77,7 @@ class MspPostDataController extends AbstractPostDataController
             seuilSec: $toInt('SeuilSec'),
             freqWakeUp: $toInt('FreqWakeUp'),
             seuilPontDiv: $toInt('SeuilPontDiv'),
-            mail: $sanitize('mail'),
+            mail: $mail,
             mailNotif: $sanitize('mailNotif'),
             resetMode: $toInt('resetMode'),
             bootCount: $toInt('bootCount'),

@@ -292,6 +292,14 @@ class PostDataController extends AbstractPostDataController
     {
         $mailMaxLen = 255;
         $mail = $sanitize('mail');
+        if ($mail !== null && $mail !== '' && filter_var($mail, FILTER_VALIDATE_EMAIL) === false) {
+            $this->logger->warning('PostData: email firmware invalide ignore (format)', [
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'mail_len' => strlen($mail),
+            ]);
+            $mail = '';
+        }
         $mail = $mail !== null ? substr($mail, 0, $mailMaxLen) : null;
         $mailNotif = $sanitize('mailNotif');
         $mailNotif = $mailNotif !== null ? substr($mailNotif, 0, $mailMaxLen) : null;

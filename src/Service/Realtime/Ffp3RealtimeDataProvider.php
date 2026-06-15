@@ -219,17 +219,4 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         }
         return max(60, min(86400, $seconds));
     }
-
-    /**
-     * Calcule le temps total (en secondes) depuis la première mesure enregistrée.
-     * Correspond au « temps depuis le début du fonctionnement du module » côté serveur.
-     */
-    private function computeModuleUptimeSeconds(): ?int
-    {
-        $firstDate = $this->sensorReadRepo->getFirstReadingDate();
-        if ($firstDate === null) {
-            return null;
-        }
-        return (int) (time() - strtotime($firstDate));
-    }
 }

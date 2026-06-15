@@ -60,8 +60,8 @@ Application PHP 8+ de supervision d'un système d'aquaponie avec ESP32, utilisan
 - Validation via `SignatureValidator` service
 
 ### Fichier .env
-- ⚠️ **PARTICULARITÉ**: Le `.env` est versionné dans Git pour ce projet (contrairement aux conventions usuelles)
-- Assurer la protection des informations sensibles par d'autres moyens si nécessaire
+- ⚠️ **IMPORTANT**: Le `.env` n'est **PAS** versionné dans Git (il est gitignored, voir `.gitignore`) — seuls les modèles `.env.example` / `.env.docker.example` sont versionnés
+- Fournir les secrets localement : copier `.env.example` vers `.env` et renseigner les valeurs ; ne JAMAIS committer un vrai `.env` contenant des secrets
 
 ## 📋 Conventions de code
 

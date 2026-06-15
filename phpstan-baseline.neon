@@ -133,12 +133,6 @@ parameters:
 			path: src/Service/LogService.php
 
 		-
-			message: '#^Method App\\Service\\Realtime\\Ffp3RealtimeDataProvider\:\:computeModuleUptimeSeconds\(\) is unused\.$#'
-			identifier: method.unused
-			count: 1
-			path: src/Service/Realtime/Ffp3RealtimeDataProvider.php
-
-		-
 			message: '#^Variable \$_GET on left side of \?\? always exists and is not nullable\.$#'
 			identifier: nullCoalesce.variable
 			count: 1
