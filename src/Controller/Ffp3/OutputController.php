@@ -9,6 +9,7 @@ use App\Config\TableConfig;
 use App\Config\Version;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
+use App\Service\ControlAuditLogger;
 use App\Service\LogService;
 use App\Service\OutputCacheService;
 use App\Service\OutputService;
@@ -35,6 +36,7 @@ class OutputController
         private SensorReadRepository $sensorReadRepo,
         private OutputCacheService $outputCache,
         private LogService $logger,
+        private ControlAuditLogger $auditLogger,
     ) {
     }
 
@@ -137,7 +139,28 @@ class OutputController
         $gpio = RequestHelper::getInt($params, 'gpio', 0);
 
         if ($id === 0 || ($state !== 0 && $state !== 1)) {
+            $this->auditLogger->logAction(
+                $request,
+                'ffp3',
+                'toggle',
+                ['id' => $id, 'gpio' => $gpio, 'state' => $state],
+                false,
+                'Invalid parameters'
+            );
             return ResponseHelper::error($response, 'Invalid parameters', 400);
+        }
+
+        // Validation stricte : un GPIO ciblé doit appartenir à l'ensemble canonique autorisé.
+        if ($gpio !== 0 && !$this->outputService->isGpioAllowed($gpio)) {
+            $this->auditLogger->logAction(
+                $request,
+                'ffp3',
+                'toggle',
+                ['id' => $id, 'gpio' => $gpio, 'state' => $state],
+                false,
+                'GPIO non autorisé'
+            );
+            return ResponseHelper::error($response, 'Unauthorized GPIO', 400);
         }
 
         if ($gpio === self::AQUARIUM_PUMP_GPIO && $state === 0 && $this->outputService->isAquariumPumpForceEnabled()) {
@@ -150,9 +173,24 @@ class OutputController
             if ($gpio === self::AQUARIUM_PUMP_FORCE_GPIO && $state === 1) {
                 $this->outputService->updateStateByGpio(self::AQUARIUM_PUMP_GPIO, 1);
             }
+            $this->auditLogger->logAction(
+                $request,
+                'ffp3',
+                'toggle',
+                ['id' => $id, 'gpio' => $gpio, 'state' => $state],
+                true
+            );
             return ResponseHelper::success($response, ['id' => $id, 'state' => $state]);
         }
 
+        $this->auditLogger->logAction(
+            $request,
+            'ffp3',
+            'toggle',
+            ['id' => $id, 'gpio' => $gpio, 'state' => $state],
+            false,
+            'Persistence failed'
+        );
         return ResponseHelper::error($response, 'Failed to update output', 500);
     }
 
@@ -172,14 +210,47 @@ class OutputController
             return ResponseHelper::error($response, 'No parameters provided', 400);
         }
 
+        // Validation stricte : tout paramètre doit appartenir à l'ensemble canonique autorisé.
+        foreach (array_keys($payload) as $paramName) {
+            if (!$this->outputService->isParameterAllowed((string) $paramName)) {
+                $this->auditLogger->logAction(
+                    $request,
+                    'ffp3',
+                    'update_parameter',
+                    ['param' => (string) $paramName],
+                    false,
+                    'Paramètre non autorisé'
+                );
+                return ResponseHelper::error($response, 'Unauthorized parameter', 400);
+            }
+        }
+
         try {
             $result = $this->outputService->updateMultipleParameters($payload);
+
+            foreach ($payload as $paramName => $value) {
+                $this->auditLogger->logAction(
+                    $request,
+                    'ffp3',
+                    'update_parameter',
+                    ['param' => (string) $paramName, 'value' => is_scalar($value) ? $value : null],
+                    true
+                );
+            }
 
             return ResponseHelper::success($response, [
                 'updated' => $result['updated'],
                 'warnings' => $result['warnings'],
             ]);
         } catch (\InvalidArgumentException $e) {
+            $this->auditLogger->logAction(
+                $request,
+                'ffp3',
+                'update_parameter',
+                ['params' => implode(',', array_keys($payload))],
+                false,
+                $e->getMessage()
+            );
             // Erreur de validation (ex. horaire de nourrissage hors de [0..23]) : 400, pas 500
             return ResponseHelper::error($response, $e->getMessage(), 400);
         } catch (\Throwable $e) {
@@ -287,6 +358,7 @@ class OutputController
     public function triggerOtaCheck(Request $request, Response $response): Response
     {
         $this->outputCache->setTriggerOtaCheckRequested();
+        $this->auditLogger->logAction($request, 'ffp3', 'trigger_ota_check', [], true);
         return ResponseHelper::json($response, [
             'ok' => true,
             'message' => "Demande envoyée. L'ESP32 vérifiera la mise à jour au prochain cycle.",

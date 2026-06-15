@@ -93,6 +93,13 @@ return [
         return new LogService();
     },
 
+    \App\Service\ControlAuditLogger::class => function (ContainerInterface $c) {
+        return new \App\Service\ControlAuditLogger(
+            $c->get(LogService::class),
+            $c->get(AuthService::class)
+        );
+    },
+
     SensorStatisticsService::class => function (ContainerInterface $c) {
         return new SensorStatisticsService($c->get(PDO::class));
     },
@@ -248,7 +255,8 @@ return [
             $c->get(\App\Service\TemplateRenderer::class),
             $c->get(\App\Repository\SensorReadRepository::class),
             $c->get(\App\Service\OutputCacheService::class),
-            $c->get(\App\Service\LogService::class)
+            $c->get(\App\Service\LogService::class),
+            $c->get(\App\Service\ControlAuditLogger::class)
         );
     },
 
