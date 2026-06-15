@@ -183,6 +183,30 @@ return [
         return new AuthService();
     },
 
+    \App\Security\RateLimiter::class => function (ContainerInterface $c) {
+        $dir = getenv('RATE_LIMIT_DIR');
+        return new \App\Security\RateLimiter(is_string($dir) && $dir !== '' ? $dir : null);
+    },
+
+    \App\Middleware\RateLimitMiddleware::class => function (ContainerInterface $c) {
+        // Anti-brute-force login par IP, en complément du limiteur par session.
+        $max = (int) (getenv('LOGIN_RATE_LIMIT_MAX') ?: 20);
+        $window = (int) (getenv('LOGIN_RATE_LIMIT_WINDOW') ?: 600);
+        return new \App\Middleware\RateLimitMiddleware(
+            $c->get(\App\Security\RateLimiter::class),
+            'login',
+            $max,
+            $window
+        );
+    },
+
+    \App\Middleware\CsrfMiddleware::class => function (ContainerInterface $c) {
+        return new \App\Middleware\CsrfMiddleware(
+            $c->get(CsrfService::class),
+            $c->get(AuthService::class)
+        );
+    },
+
     TemplateRenderer::class => function (ContainerInterface $c) {
         $templatesPath = __DIR__ . '/../templates';
         $resolved = realpath($templatesPath);
