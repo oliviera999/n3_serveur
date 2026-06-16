@@ -146,6 +146,30 @@ jobs:
           mysql -h 127.0.0.1 -P 3306 -uroot -proot_integration_n3 n3_http_test \
             < tests/Integration/Http/schema.sql
 
+      - name: Create .env for the integrated server
+        # Le front-controller (php -S lancé par le test) lit toute sa config via
+        # $_ENV (App\Config\Database, AuthService::ADMIN_TOKEN, index.php AUTH_METHOD),
+        # peuplé par App\Config\Env::load() depuis un .env (Dotenv). Les variables
+        # du job ne suffisent pas : la PHP de CI a variables_order=GPCS, donc $_ENV
+        # n'est PAS alimenté depuis l'environnement OS. On fournit donc un .env de test.
+        run: |
+          cat > .env <<'EOF'
+          ENV=test
+          AUTH_METHOD=both
+          ADMIN_TOKEN=integration-http-token
+          DB_HOST=127.0.0.1
+          DB_PORT=3306
+          DB_NAME=n3_http_test
+          DB_USER=n3_http
+          DB_PASS=n3_http_pass
+          CACHE_ENABLED=false
+          APP_TIMEZONE=Europe/Paris
+          LOG_LEVEL=ERROR
+          API_KEY=integration_api_key
+          API_SIG_SECRET=integration_hmac_secret
+          SIG_VALID_WINDOW=300
+          EOF
+
       - name: PHPUnit (Intégration HTTP)
         run: composer test:integration-http
 
