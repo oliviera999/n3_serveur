@@ -11,10 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.2.2] - 2026-06-16
+
+### Correctif
+- **Poissonglouton** : retrait script maintenance temporaire (table `pglHeartbeat` appliquee en prod).
+
 ## [5.2.1] - 2026-06-16
 
 ### Correctif
-- **Poissonglouton** : script maintenance `public/maintenance/ensure-pgl-heartbeat.php` (table `pglHeartbeat` absente en prod → HTTP 500 sur `/pgl/heartbeat`).
+- **Poissonglouton** : table `pglHeartbeat` créée en prod (maintenance 2026-06-16) — `/pgl/heartbeat` répond 200.
 - **`.env.example`** : documentation `PGL_API_KEY` (alignement `secrets.h` firmware).
 
 ## [5.2.0] - 2026-06-12
