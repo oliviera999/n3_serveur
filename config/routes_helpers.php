@@ -56,6 +56,8 @@ function registerFirmwareRoutes($app, string $groupPrefix, string $env, string $
 
 /**
  * Enregistre les routes protégées FFP3 (dashboard, tide-stats, export, contrôle) pour un environnement.
+ *
+ * @param \Closure $applyAuth
  */
 function registerFfp3ProtectedRoutes($app, array $routes, string $env, $applyAuth): void
 {
@@ -197,6 +199,8 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
 
 /**
  * Enregistre les routes de contrôle aquaponie (toggle, parameters, ota, board status) sous /ffp3.
+ *
+ * @param \Closure $applyAuth
  */
 function registerFfp3ControlRoutes($app, string $outputsPrefix, string $toggleMethod, string $env, $applyAuth): void
 {

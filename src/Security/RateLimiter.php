@@ -96,6 +96,7 @@ class RateLimiter
     }
 
     /**
+     * @param resource $fp
      * @return list<int>
      */
     private function readTimestamps($fp, int $now, int $windowSeconds): array
