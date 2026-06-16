@@ -16,7 +16,7 @@ Comparaison dump prod vs serveur **5.1.3** : voir le plan d'audit dans le dépô
 | `post_id` ffp3DataS3* | `001b_add_post_id_s3.sql` | Critique |
 | Colonnes config FFP3 | `ADD_MISSING_COLUMNS_v11.36.sql` | Critique |
 | Heartbeats msp/n3pp | `CREATE_LEGACY_HEARTBEAT_TABLES.sql` | Critique |
-| Poissonglouton | `CREATE_PGL_TABLES.sql` | Si appareil déployé |
+| Poissonglouton | `CREATE_PGL_TABLES.sql` (+ `2026_06_pgl_heartbeat.sql` si HB 500) | Si appareil déployé |
 | Trigger OTA | `CREATE_FFP3_OTA_TRIGGER_TABLE.sql` | Recommandé (auto-créé en 5.1.3+) |
 | Colonnes marée `tide*` | `002_add_tide_event_columns.sql` | Déjà OK sur prod (2026-05) |
 | Doublons GPIO | `FIX_DUPLICATE_GPIO_ROWS.sql` puis `INIT_GPIO_BASE_ROWS.sql` | Si diagnostic le signale |
