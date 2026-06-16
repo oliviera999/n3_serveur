@@ -68,6 +68,9 @@ Firmware `firmwires/poissonglouton/` (mode ecran tactile ou headless).
 - `POST /pgl/heartbeat` — **auth device**: meme `api_key` ; champs `uptime`, `free`, `min`, `reboots` (obligatoires), `sensor`, `version`, `rssi` (optionnels). Table `pglHeartbeat`.
 - `GET /pgl` — page statistiques publique (compteurs horaires / journaliers + bandeau LIVE si active).
 - `GET /pgl/api/system/health` — JSON `{ online, last_reading, last_reading_ago_seconds, source }` ; seuil 5 min (`PglConfig::ONLINE_THRESHOLD_SECONDS`).
+- `GET /pgl/api/realtime/system/health` — JSON compat avec l’UI temps réel (alias de `GET /pgl/api/system/health`).
+- `GET /pgl/api/realtime/sensors/latest` — JSON dernier “bucket horaire” (polling UI).
+- `GET /pgl/api/realtime/sensors/since/{timestamp}` — JSON liste de buckets horaires depuis un timestamp Unix (polling UI).
 
 Payload `POST /pgl/post-data` (form-urlencoded):
 

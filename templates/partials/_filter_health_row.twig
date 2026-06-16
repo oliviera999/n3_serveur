@@ -42,77 +42,80 @@
         </div>
     </div>
 
-    {# Navigation par fenêtre temporelle (longues périodes) — rétro-compatible. #}
-    {% include 'partials/_period_nav.twig' %}
+    {% set showFilterForm = show_filter_form|default(true) %}
+    {% if showFilterForm %}
+        {# Navigation par fenêtre temporelle (longues périodes) — rétro-compatible. #}
+        {% include 'partials/_period_nav.twig' %}
 
-    <div class="quick-filters">
-        <button class="quick-filter-btn" onclick="setPeriod(1, 'hours')">
-            <i class="far fa-clock"></i> 1 heure
-        </button>
-        <button class="quick-filter-btn" onclick="setPeriod(3, 'hours')">
-            <i class="far fa-clock"></i> 3 heures
-        </button>
-        <button class="quick-filter-btn" onclick="setPeriod(6, 'hours')">
-            <i class="far fa-clock"></i> 6 heures
-        </button>
-        <button class="quick-filter-btn" onclick="setPeriod(12, 'hours')">
-            <i class="far fa-clock"></i> 12 heures
-        </button>
-        <button class="quick-filter-btn" onclick="setPeriod(1, 'days')">
-            <i class="far fa-calendar"></i> 1 jour
-        </button>
-        <button class="quick-filter-btn" onclick="setPeriod(7, 'days')">
-            <i class="far fa-calendar-alt"></i> 1 semaine
-        </button>
-        <button class="quick-filter-btn" onclick="setPeriod(30, 'days')">
-            <i class="far fa-calendar-alt"></i> 1 mois
-        </button>
-    </div>
-
-    <div class="custom-filter">
-        <div class="custom-filter-title">
-            <i class="fas fa-calendar-days"></i>
-            Période personnalisée
+        <div class="quick-filters">
+            <button class="quick-filter-btn" onclick="setPeriod(1, 'hours')">
+                <i class="far fa-clock"></i> 1 heure
+            </button>
+            <button class="quick-filter-btn" onclick="setPeriod(3, 'hours')">
+                <i class="far fa-clock"></i> 3 heures
+            </button>
+            <button class="quick-filter-btn" onclick="setPeriod(6, 'hours')">
+                <i class="far fa-clock"></i> 6 heures
+            </button>
+            <button class="quick-filter-btn" onclick="setPeriod(12, 'hours')">
+                <i class="far fa-clock"></i> 12 heures
+            </button>
+            <button class="quick-filter-btn" onclick="setPeriod(1, 'days')">
+                <i class="far fa-calendar"></i> 1 jour
+            </button>
+            <button class="quick-filter-btn" onclick="setPeriod(7, 'days')">
+                <i class="far fa-calendar-alt"></i> 1 semaine
+            </button>
+            <button class="quick-filter-btn" onclick="setPeriod(30, 'days')">
+                <i class="far fa-calendar-alt"></i> 1 mois
+            </button>
         </div>
 
-        <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}" id="{{ form_id }}">
-            {{ csrf_field|raw }}
-            <div class="datetime-grid">
-                <div class="datetime-field">
-                    <label for="start_datetime">
-                        <i class="fas fa-play"></i> Début
-                    </label>
-                    <input type="datetime-local" 
-                           id="start_datetime" 
-                           name="start_datetime" 
-                           value="{{ start_date|date('Y-m-d\\TH:i') }}" 
-                           required>
-                </div>
-
-                <div class="datetime-field">
-                    <label for="end_datetime">
-                        <i class="fas fa-stop"></i> Fin
-                    </label>
-                    <input type="datetime-local" 
-                           id="end_datetime" 
-                           name="end_datetime" 
-                           value="{{ end_date|date('Y-m-d\\TH:i') }}" 
-                           required>
-                </div>
+        <div class="custom-filter">
+            <div class="custom-filter-title">
+                <i class="fas fa-calendar-days"></i>
+                Période personnalisée
             </div>
 
-            <div class="action-buttons">
-                <button type="submit" class="btn-primary">
-                    <i class="fas fa-chart-line"></i>
-                    Afficher les mesures
-                </button>
-                <button type="submit" name="export_csv" class="btn-secondary">
-                    <i class="fas fa-file-csv"></i>
-                    Télécharger CSV
-                </button>
-            </div>
-        </form>
-    </div>
+            <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}" id="{{ form_id }}">
+                {{ csrf_field|raw }}
+                <div class="datetime-grid">
+                    <div class="datetime-field">
+                        <label for="start_datetime">
+                            <i class="fas fa-play"></i> Début
+                        </label>
+                        <input type="datetime-local"
+                               id="start_datetime"
+                               name="start_datetime"
+                               value="{{ start_date|date('Y-m-d\\TH:i') }}"
+                               required>
+                    </div>
+
+                    <div class="datetime-field">
+                        <label for="end_datetime">
+                            <i class="fas fa-stop"></i> Fin
+                        </label>
+                        <input type="datetime-local"
+                               id="end_datetime"
+                               name="end_datetime"
+                               value="{{ end_date|date('Y-m-d\\TH:i') }}"
+                               required>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-chart-line"></i>
+                        Afficher les mesures
+                    </button>
+                    <button type="submit" name="export_csv" class="btn-secondary">
+                        <i class="fas fa-file-csv"></i>
+                        Télécharger CSV
+                    </button>
+                </div>
+            </form>
+        </div>
+    {% endif %}
 
     <div class="filter-module-uptime" style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9em;">
         <i class="fas fa-clock"></i>

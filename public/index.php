@@ -255,6 +255,9 @@ $app->get('/glossaire', [\App\Controller\GlossaireController::class, 'show']);
 
 // Poissonglouton (compteur recyclage plastique)
 $app->get('/pgl', [PglStatsController::class, 'show']);
+$app->get('/pgl/api/realtime/sensors/latest', [PglRealtimeApiController::class, 'getLatestSensors']);
+$app->get('/pgl/api/realtime/sensors/since/{timestamp}', [PglRealtimeApiController::class, 'getSensorsSince']);
+$app->get('/pgl/api/realtime/system/health', [PglRealtimeApiController::class, 'getSystemHealth']);
 $app->get('/pgl/api/system/health', [PglRealtimeApiController::class, 'getSystemHealth']);
 $app->post('/pgl/post-data', [PglPostDataController::class, 'handle']);
 $app->post('/pgl/heartbeat', [PglHeartbeatController::class, 'handle']);

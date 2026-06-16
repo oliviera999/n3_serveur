@@ -246,6 +246,12 @@ return [
         );
     },
 
+    \App\Service\Realtime\PglRealtimeDataProvider::class => function (ContainerInterface $c) {
+        return new \App\Service\Realtime\PglRealtimeDataProvider(
+            $c->get(PglRepository::class)
+        );
+    },
+
     // ====================================================================
     // CONTROLLERS (Définis explicitement pour éviter les problèmes d'autowiring)
     // ====================================================================
@@ -529,7 +535,7 @@ return [
 
     \App\Controller\Pgl\PglRealtimeApiController::class => function (ContainerInterface $c) {
         return new \App\Controller\Pgl\PglRealtimeApiController(
-            $c->get(PglRepository::class)
+            $c->get(\App\Service\Realtime\PglRealtimeDataProvider::class)
         );
     },
 

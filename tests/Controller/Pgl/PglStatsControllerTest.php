@@ -16,9 +16,10 @@ final class PglStatsControllerTest extends TestCase
     public function testShowReturns200WithRenderedStats(): void
     {
         $repo = $this->createMock(PglRepository::class);
-        $repo->method('getHourlyStats')->willReturn([]);
-        $repo->method('getDailyStats')->willReturn([]);
-        $repo->method('getTotalCount')->willReturn(12);
+        $repo->method('getEventsBetween')->willReturn([]);
+        $repo->method('countEventsBetween')->willReturn(0);
+        $repo->method('getRunningTotalBefore')->willReturn(0);
+        $repo->method('getLatestEvent')->willReturn(null);
 
         $renderer = $this->createMock(TemplateRenderer::class);
         $renderer->expects($this->once())
@@ -27,7 +28,12 @@ final class PglStatsControllerTest extends TestCase
                 'pgl_stats.twig',
                 $this->callback(static function (array $vars): bool {
                     return ($vars['nav_active'] ?? '') === 'pgl'
-                        && ($vars['total_count'] ?? null) === 12;
+                        && isset($vars['reading_time'])
+                        && is_array($vars['reading_time'])
+                        && count($vars['reading_time']) === 72
+                        && isset($vars['count_delta_series'])
+                        && is_array($vars['count_delta_series'])
+                        && count($vars['count_delta_series']) === 72;
                 })
             )
             ->willReturn('<html>ok</html>');

@@ -1,127 +1,126 @@
 {% extends 'layout.twig' %}
 
-{% block title %}Poissonglouton - Statistiques{% endblock %}
+{% block title %}Poissonglouton - Données{% endblock %}
+
+{% block meta_description %}Compteur recyclage plastique des bouteilles recyclées — suivi en temps réel (poisson glouton).{% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/common-data.css" />
+{% endblock %}
+
+{% block head_scripts %}
+    <script src="{{ base_path }}/assets/js/moment.min.js"></script>
+    <script src="{{ base_path }}/assets/js/moment-timezone-with-data.min.js"></script>
+    <script src="{{ base_path }}/assets/js/highstock.js"></script>
+    <script src="{{ base_path }}/assets/js/exporting.js"></script>
+    <script src="{{ base_path }}/assets/js/export-data.js"></script>
+    <script src="{{ base_path }}/assets/js/accessibility.js"></script>
+    <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-stock-chart-layout.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-stock-chart-bootstrap.js"></script>
+{% endblock %}
 
 {% block content %}
-<article class="post featured">
-    <header class="major">
-        <h1><i class="fas fa-fish"></i> Poissonglouton</h1>
-        <p>Statistiques d'absorption des bouteilles plastique recyclées</p>
-    </header>
+    {% include 'partials/_hero_data.twig' with {
+        hero_title: 'Poissonglouton',
+        hero_icon: 'fa-fish',
+        hero_subtitle: 'Statistiques d’absorption des bouteilles plastique recyclées — mise à jour en direct',
+        hero_synthesis: '📊 Synthèse du ' ~ start_date|date('d/m/Y H:i') ~ ' au ' ~ end_date|date('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' événements — fenêtre fixe 72h'
+    } %}
 
-    {% if show_online_status|default(false) %}
-    <div class="project-live-status pgl-live-status" id="pgl-live-status" aria-live="polite" data-aos="fade-up">
-        <span class="project-live-badge {% if system_health.online %}online{% else %}offline{% endif %}" id="pgl-live-badge">
-            <i class="fas fa-circle"></i>
-            {{ system_health.online ? 'LIVE' : 'HORS LIGNE' }}
-        </span>
-        <span class="project-live-datetime" id="pgl-live-datetime">
-            {% if system_health.last_reading %}{{ system_health.last_reading }}{% else %}—{% endif %}
-        </span>
-    </div>
-    {% endif %}
+    <article class="post featured">
+        {% include 'partials/_filter_health_row.twig' with {
+            form_id: 'pglFilterForm',
+            data_config: { form_action: '/pgl' },
+            show_filter_form: false
+        } %}
 
-    <div class="context-badges">
-        <span class="context-badge"><i class="fas fa-recycle"></i> Total: <strong>{{ total_count }}</strong></span>
-        <span class="context-badge"><i class="fas fa-globe"></i> Env: <strong>{{ environment }}</strong></span>
-    </div>
-
-    <section>
-        <h3>Dernières 72h (agrégation horaire)</h3>
-        <div class="modern-table">
-            <table>
-                <thead>
-                    <tr><th>Heure</th><th>Compteur</th></tr>
-                </thead>
-                <tbody>
-                {% for row in hourly_stats %}
-                    <tr>
-                        <td>{{ row.bucket }}</td>
-                        <td>{{ row.total }}</td>
-                    </tr>
-                {% else %}
-                    <tr><td colspan="2">Aucune donnée</td></tr>
-                {% endfor %}
-                </tbody>
-            </table>
+        <div class="section-header alt-section-title-full" data-aos="fade-up">
+            <i class="fas fa-recycle"></i>
+            <h3>Suivi temps réel</h3>
         </div>
-    </section>
 
-    <section>
-        <h3>60 derniers jours</h3>
-        <div class="modern-table">
-            <table>
-                <thead>
-                    <tr><th>Jour</th><th>Compteur</th></tr>
-                </thead>
-                <tbody>
-                {% for row in daily_stats %}
-                    <tr>
-                        <td>{{ row.bucket }}</td>
-                        <td>{{ row.total }}</td>
-                    </tr>
-                {% else %}
-                    <tr><td colspan="2">Aucune donnée</td></tr>
-                {% endfor %}
-                </tbody>
-            </table>
+        <div class="alt-data-chart-row" data-aos="fade-up">
+            <div class="alt-stats-column">
+                {% include 'partials/_stat_cards.twig' with { sensors_config: sensors_config } %}
+            </div>
+            <div class="alt-chart-column">
+                <div id="chart-hourly" class="n3-chart-main"></div>
+            </div>
         </div>
-    </section>
-</article>
+
+        <div class="alt-data-chart-row" data-aos="fade-up">
+            <div class="alt-chart-column">
+                <div id="chart-cumulative" class="n3-chart-main"></div>
+            </div>
+        </div>
+    </article>
+{% endblock %}
+
+{% block footer %}
+    {% include 'partials/_footer.twig' %}
 {% endblock %}
 
 {% block scripts %}
-{% if show_online_status|default(false) %}
-<script>
-(function() {
-    var BASE = '{{ base_path|default('') }}';
-    var POLL_MS = 15000;
+    {% include 'partials/_live_badge.twig' %}
 
-    function formatDatetime(str) {
-        if (!str) return '—';
-        var d = new Date(str.replace(' ', 'T'));
-        if (isNaN(d.getTime())) return str;
-        var pad = function(n) { return (n < 10 ? '0' : '') + n; };
-        return pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
-    }
+    <script>
+    (function() {
+        // Séries initiales (72 buckets horaires)
+        window.pglRealtime = window.pglRealtime || {};
+        window.pglRealtime.reading_time = {{ reading_time|json_encode(15)|raw }};
+        window.pglRealtime.count_delta_series = {{ count_delta_series|json_encode(15)|raw }};
+        window.pglRealtime.total_count_series = {{ total_count_series|json_encode(15)|raw }};
+    })();
+    </script>
 
-    function updateHealth(health) {
-        var badge = document.getElementById('pgl-live-badge');
-        var datetimeEl = document.getElementById('pgl-live-datetime');
-        if (!badge || !datetimeEl) return;
-
-        if (health === null) {
-            badge.className = 'project-live-badge error';
-            badge.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erreur';
-            datetimeEl.textContent = '—';
+    <script>
+    (function() {
+        var bootstrap = window.n3StockChartBootstrap;
+        if (!bootstrap) {
+            console.warn('[pgl] n3StockChartBootstrap indisponible');
             return;
         }
 
-        var online = health.online === true;
-        badge.className = 'project-live-badge ' + (online ? 'online' : 'offline');
-        badge.innerHTML = '<i class="fas fa-circle"></i> ' + (online ? 'LIVE' : 'HORS LIGNE');
-        datetimeEl.textContent = formatDatetime(health.last_reading || null) || '—';
-    }
+        bootstrap.ensureContainersReady(
+            ['chart-hourly', 'chart-cumulative'],
+            function () {
+                bootstrap.createStockChart('chart-hourly', 'main', {
+                    yAxis: [
+                        { title: { text: 'Compteurs / heure' }, opposite: false }
+                    ],
+                    series: [
+                        { name: 'Heure', data: zipSeries(window.pglRealtime.reading_time, window.pglRealtime.count_delta_series), type: 'column', color: '#f39c12', lineWidth: 2 }
+                    ]
+                });
 
-    function poll() {
-        fetch(BASE + '/pgl/api/system/health')
-            .then(function(r) { return r.ok ? r.json() : null; })
-            .then(updateHealth)
-            .catch(function() { updateHealth(null); });
-    }
+                bootstrap.createStockChart('chart-cumulative', 'main', {
+                    yAxis: [
+                        { title: { text: 'Total recyclé (cumul)' }, opposite: false }
+                    ],
+                    series: [
+                        { name: 'Cumul', data: zipSeries(window.pglRealtime.reading_time, window.pglRealtime.total_count_series), type: 'areaspline', color: '#008B74', fillColor: n3AreaGradientFill(0, 139, 116), lineWidth: 2 }
+                    ]
+                });
+            }
+        );
+    })();
+    </script>
 
-    poll();
-    var timer = setInterval(poll, POLL_MS);
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            clearInterval(timer);
-            timer = null;
-        } else {
-            poll();
-            if (timer === null) timer = setInterval(poll, POLL_MS);
-        }
-    });
-})();
-</script>
-{% endif %}
+    <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-updater-generic.js"></script>
+    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+
+    {% include 'partials/_chart_init_js.twig' with {
+        chart_ids_json: chart_ids_json,
+        chart_debug: true,
+        sensor_map_json: sensor_map_json
+    } %}
+
+    {% include 'partials/_realtime_init_js.twig' with {
+        realtime_api_base: realtime_api_base,
+        poll_interval: 15000,
+        base_path: base_path|default('')
+    } %}
 {% endblock %}

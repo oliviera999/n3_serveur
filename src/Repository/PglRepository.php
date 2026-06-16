@@ -72,6 +72,99 @@ class PglRepository extends AbstractRepository
         return (int) ($value ?? 0);
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
+    public function getLatestEvent(string $boardId = PglConfig::DEFAULT_BOARD_ID): ?array
+    {
+        $sql = 'SELECT id, board, event_time, count_delta, sensor_mode, is_tandem_validated,
+                       battery_v, rssi, fw_version
+                FROM pglEvents
+                WHERE board = :board
+                ORDER BY event_time DESC, id DESC
+                LIMIT 1';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':board' => $boardId]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $row !== false ? $row : null;
+    }
+
+    /**
+     * @return array<int, array<string, mixed>>
+     */
+    public function getEventsSince(string $sinceDatetime, string $boardId = PglConfig::DEFAULT_BOARD_ID): array
+    {
+        $sql = 'SELECT id, board, event_time, count_delta, sensor_mode, is_tandem_validated,
+                       battery_v, rssi, fw_version
+                FROM pglEvents
+                WHERE board = :board AND event_time > :since
+                ORDER BY event_time ASC, id ASC';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':board' => $boardId, ':since' => $sinceDatetime]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * @return array<int, array<string, mixed>>
+     */
+    public function getEventsBetween(string $start, string $end, string $boardId = PglConfig::DEFAULT_BOARD_ID): array
+    {
+        $sql = 'SELECT id, board, event_time, count_delta, sensor_mode, is_tandem_validated,
+                       battery_v, rssi, fw_version
+                FROM pglEvents
+                WHERE board = :board AND event_time >= :start AND event_time <= :end
+                ORDER BY event_time ASC, id ASC';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':board' => $boardId, ':start' => $start, ':end' => $end]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function countEventsToday(string $boardId = PglConfig::DEFAULT_BOARD_ID): int
+    {
+        $value = $this->fetchScalar(
+            'SELECT COUNT(*) FROM pglEvents WHERE board = :board AND DATE(event_time) = CURDATE()',
+            [':board' => $boardId]
+        );
+
+        return (int) ($value ?? 0);
+    }
+
+    public function getRunningTotalBefore(string $datetime, string $boardId = PglConfig::DEFAULT_BOARD_ID): int
+    {
+        $value = $this->fetchScalar(
+            'SELECT COALESCE(SUM(count_delta), 0) FROM pglEvents
+             WHERE board = :board AND event_time < :dt',
+            [':board' => $boardId, ':dt' => $datetime]
+        );
+
+        return (int) ($value ?? 0);
+    }
+
+    public function countEventsBetween(string $start, string $end, string $boardId = PglConfig::DEFAULT_BOARD_ID): int
+    {
+        $value = $this->fetchScalar(
+            'SELECT COUNT(*) FROM pglEvents
+             WHERE board = :board AND event_time >= :start AND event_time <= :end',
+            [':board' => $boardId, ':start' => $start, ':end' => $end]
+        );
+
+        return (int) ($value ?? 0);
+    }
+
+    public function getFirstEventDate(string $boardId = PglConfig::DEFAULT_BOARD_ID): ?string
+    {
+        $value = $this->fetchScalar(
+            'SELECT MIN(event_time) FROM pglEvents WHERE board = :board',
+            [':board' => $boardId]
+        );
+
+        return $value !== null ? (string) $value : null;
+    }
+
     public function insertHeartbeat(
         int $uptime,
         int $freeHeap,

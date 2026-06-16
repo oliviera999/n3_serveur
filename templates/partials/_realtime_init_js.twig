@@ -26,6 +26,38 @@
         if (counter) counter.textContent = newReadingsCount;
     }
 
+    function formatSensorValue(value, decimals) {
+        if (value === null || value === undefined) return '—';
+        var num = Number(value);
+        if (isNaN(num)) return '—';
+        var d = Number.isInteger(decimals) ? decimals : 0;
+        try {
+            return new Intl.NumberFormat('fr-FR', {
+                minimumFractionDigits: d,
+                maximumFractionDigits: d
+            }).format(num);
+        } catch (e) {
+            // Fallback : pas de format locale.
+            return d > 0 ? num.toFixed(d) : String(Math.round(num));
+        }
+    }
+
+    function updateDataSensors(readings) {
+        if (!Array.isArray(readings) || readings.length === 0) return;
+        var last = readings[readings.length - 1];
+        if (!last || !last.sensors) return;
+
+        Object.keys(last.sensors).forEach(function (sensorKey) {
+            var val = last.sensors[sensorKey];
+            var nodes = document.querySelectorAll('[data-sensor="' + sensorKey + '"]');
+            nodes.forEach(function (node) {
+                var decimalsAttr = node.getAttribute('data-decimals');
+                var decimals = decimalsAttr !== null ? parseInt(decimalsAttr, 10) : 0;
+                node.textContent = formatSensorValue(val, isNaN(decimals) ? 0 : decimals);
+            });
+        });
+    }
+
     var prefs = loadLivePreferences();
 
     if (typeof initRealtimeUpdater === 'function' && apiBase) {
@@ -36,6 +68,7 @@
             onNewData: function(readings) {
                 newReadingsCount += readings.length;
                 updateReadingsCounter();
+                updateDataSensors(readings);
             }
         });
     }

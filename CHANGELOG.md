@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.2.3] - 2026-06-16
+
+### Évolution
+- **Poissonglouton** : page `/pgl` unifiée avec le pattern live (badge, panneau état, stat-cards, graphiques Highcharts).
+- **Poissonglouton** : ajout d’un API temps réel standard `/pgl/api/realtime/*` pour l’UI polling.
+
 ## [5.2.2] - 2026-06-16
 
 ### Correctif

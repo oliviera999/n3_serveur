@@ -301,6 +301,7 @@ Assert-Status -Url "$BaseUrl/n3pp/api/outputs/state" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/gallery/ffp3/api/outputs/state" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/pgl" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/pgl/api/system/health" -AllowedStatus @(200)
+Assert-Status -Url "$BaseUrl/pgl/api/realtime/sensors/latest" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/msp1gallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=6" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/n3ppgallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=7" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/ffp3/ffp3gallery/uploadphotoserver-outputs-action.php?action=outputs_state&board=5" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
@@ -476,11 +477,30 @@ Assert-Status -Url "$BaseUrl/n3pp/heartbeat" -Method "POST" -Body $legacyHeartbe
 # Upload photo galerie (JPEG existant du projet)
 $uploadFile = Join-Path (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)) "public/assets/images/aquaponie-description/introduction.jpg"
 if (Test-Path $uploadFile) {
-    $form = @{
-        imageFile = Get-Item $uploadFile
+    # Note: Invoke-WebRequest + hashtable(FileInfo) peut parfois ne pas générer correctement le multipart.
+    # On utilise curl pour fiabiliser l'envoi du fichier pendant le smoke test.
+    $allowedStatuses = @(200,202)
+
+    $uploadUrl1 = "$BaseUrl/gallery/ffp3/upload"
+    $uploadRes1 = (& curl.exe -sS -o - -w "|%{http_code}" -H "X-Api-Key: $ApiKey" -F "imageFile=@$uploadFile" $uploadUrl1)
+    $parts1 = $uploadRes1 -split '\|', 2
+    $status1 = [int]$parts1[1]
+    if ($allowedStatuses -notcontains $status1) {
+        throw "Echec smoke test: POST $uploadUrl1 => HTTP $status1 (attendu: $($allowedStatuses -join ', '))`nBody: $($parts1[0])"
     }
-    Assert-Status -Url "$BaseUrl/gallery/ffp3/upload" -Method "POST" -Headers @{ "X-Api-Key" = $ApiKey } -Body $form -AllowedStatus @(200,202)
-    Assert-Status -Url "$BaseUrl/ffp3/ffp3gallery/upload.php" -Method "POST" -Headers @{ "X-Api-Key" = $ApiKey } -Body $form -AllowedStatus @(200,202)
+    Write-Host "OK POST $uploadUrl1 => HTTP $status1" -ForegroundColor Green
+
+    # Le point de terminaison ffp3gallery est rate-limité : on attend avant la 2e requête.
+    Start-Sleep -Seconds 11
+
+    $uploadUrl2 = "$BaseUrl/ffp3/ffp3gallery/upload.php"
+    $uploadRes2 = (& curl.exe -sS -o - -w "|%{http_code}" -H "X-Api-Key: $ApiKey" -F "imageFile=@$uploadFile" $uploadUrl2)
+    $parts2 = $uploadRes2 -split '\|', 2
+    $status2 = [int]$parts2[1]
+    if ($allowedStatuses -notcontains $status2) {
+        throw "Echec smoke test: POST $uploadUrl2 => HTTP $status2 (attendu: $($allowedStatuses -join ', '))`nBody: $($parts2[0])"
+    }
+    Write-Host "OK POST $uploadUrl2 => HTTP $status2" -ForegroundColor Green
 } else {
     Write-Warning "Upload JPEG saute: fichier introuvable ($uploadFile)"
 }
