@@ -36,6 +36,60 @@ class PglRepository extends AbstractRepository
         ]);
     }
 
+    /**
+     * Insère un événement de manière idempotente grâce à l'identifiant device_event_id.
+     *
+     * Si (board, device_event_id) existe déjà, l'insertion est silencieusement ignorée
+     * (INSERT IGNORE) pour éviter les doublons lors des renvois après timeout/reboot.
+     *
+     * Retourne true si une ligne a été réellement insérée, false si doublon ignoré.
+     */
+    public function insertEventIdempotent(
+        string $boardId,
+        string $eventTime,
+        int $countDelta,
+        string $sensorMode,
+        bool $tandemValidated,
+        ?float $batteryV,
+        ?int $rssi,
+        string $fwVersion,
+        int $deviceEventId
+    ): bool {
+        $sql = 'INSERT IGNORE INTO pglEvents
+            (board, event_time, count_delta, sensor_mode, is_tandem_validated, battery_v, rssi, fw_version, device_event_id)
+            VALUES
+            (:board, :event_time, :count_delta, :sensor_mode, :is_tandem_validated, :battery_v, :rssi, :fw_version, :device_event_id)';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':board' => $boardId,
+            ':event_time' => $eventTime,
+            ':count_delta' => $countDelta,
+            ':sensor_mode' => $sensorMode,
+            ':is_tandem_validated' => $tandemValidated ? 1 : 0,
+            ':battery_v' => $batteryV,
+            ':rssi' => $rssi,
+            ':fw_version' => $fwVersion,
+            ':device_event_id' => $deviceEventId,
+        ]);
+
+        return $stmt->rowCount() > 0;
+    }
+
+    /**
+     * Retourne le device_event_id maximal acquitté pour un board donné.
+     * Utile pour le diagnostic de resync.
+     */
+    public function getMaxDeviceEventId(string $boardId = PglConfig::DEFAULT_BOARD_ID): int
+    {
+        $value = $this->fetchScalar(
+            'SELECT COALESCE(MAX(device_event_id), 0) FROM pglEvents WHERE board = :board',
+            [':board' => $boardId]
+        );
+
+        return (int) ($value ?? 0);
+    }
+
     /** @return array<int, array<string, mixed>> */
     public function getHourlyStats(int $hours = 48): array
     {

@@ -11,6 +11,17 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.2.4] - 2026-06-16
+
+### Ajout
+- **Poissonglouton offline-sync** : endpoint `POST /pgl/post-data` supporte le nouveau champ `event_id` (7e champ dans le payload `events`). Insertion idempotente via `INSERT IGNORE` sur contrainte `UNIQUE(board, device_event_id)`. La réponse JSON inclut désormais `last_acked_event_id` pour permettre au firmware de faire avancer son curseur de rattrapage.
+- **Migration SQL** : `migrations/2026_06_pgl_device_event_id.sql` — ajout colonne `device_event_id INT UNSIGNED` + contrainte unique sur `pglEvents` (à appliquer en production).
+
+### Correctif
+- **Galeries timelapse** : la plage par défaut et les raccourcis (6 h, 24 h, etc.) se terminent sur la dernière photo stockée, pas sur l’heure courante.
+- **Galeries timelapse** : si la fenêtre par défaut est vide alors que des photos existent, affichage automatique de toute la plage disponible.
+- **API** `/api/gallery/{slug}/latest` : expose aussi la photo la plus ancienne et le nombre total d’images.
+
 ## [5.2.3] - 2026-06-16
 
 ### Évolution

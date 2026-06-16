@@ -286,9 +286,13 @@ class GalleryViewController
     }
 
     /**
-     * API JSON : horodatage de la photo la plus récente (nom de fichier antéchronologique).
+     * API JSON : bornes temporelles des photos stockées (plus récente / plus ancienne).
      * GET /api/gallery/{slug}/latest
-     * Retourne { timestamp: ISO8601|null, filename: string|null }.
+     * Retourne {
+     *   timestamp, filename,
+     *   oldest_timestamp, oldest_filename,
+     *   count
+     * }.
      */
     public function latestPhoto(Request $request, Response $response, array $args): Response
     {
@@ -297,29 +301,42 @@ class GalleryViewController
             return $response->withStatus(404);
         }
 
+        $emptyPayload = [
+            'timestamp' => null,
+            'filename' => null,
+            'oldest_timestamp' => null,
+            'oldest_filename' => null,
+            'count' => 0,
+        ];
+
         try {
             $uploadDir = $this->getUploadDir($slug);
         } catch (\Throwable) {
-            $response->getBody()->write(json_encode(['timestamp' => null, 'filename' => null]));
+            $response->getBody()->write(json_encode($emptyPayload));
             return $response->withHeader('Content-Type', 'application/json');
         }
 
         if (!is_dir($uploadDir) || !is_readable($uploadDir)) {
-            $response->getBody()->write(json_encode(['timestamp' => null, 'filename' => null]));
+            $response->getBody()->write(json_encode($emptyPayload));
             return $response->withHeader('Content-Type', 'application/json');
         }
 
         $allFiles = $this->listImageFiles($uploadDir);
         if ($allFiles === []) {
-            $response->getBody()->write(json_encode(['timestamp' => null, 'filename' => null]));
+            $response->getBody()->write(json_encode($emptyPayload));
             return $response->withHeader('Content-Type', 'application/json');
         }
 
         $filename = $allFiles[0];
+        $oldestFilename = $allFiles[count($allFiles) - 1];
         $ts = $this->extractTimestampFromFilename($uploadDir . '/' . $filename, $filename);
+        $oldestTs = $this->extractTimestampFromFilename($uploadDir . '/' . $oldestFilename, $oldestFilename);
         $response->getBody()->write(json_encode([
             'timestamp' => $ts->format('c'),
             'filename' => $filename,
+            'oldest_timestamp' => $oldestTs->format('c'),
+            'oldest_filename' => $oldestFilename,
+            'count' => count($allFiles),
         ]));
 
         return $response->withHeader('Content-Type', 'application/json');

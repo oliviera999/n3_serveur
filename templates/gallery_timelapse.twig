@@ -676,7 +676,7 @@
 {% block scripts %}
 <script>
 const CONFIG = { defaultFps: 24, bufferSize: 40, preloadAhead: 15, preloadConcurrency: 4 };
-let state = { frames: [], currentIndex: 0, fps: CONFIG.defaultFps, isPlaying: false, playInterval: null, isLive: false, liveTimer: null, totalLoaded: 0, recording: false, mediaRecorder: null, recordedChunks: [], latestPhotoAt: null, feedbackTimer: null };
+let state = { frames: [], currentIndex: 0, fps: CONFIG.defaultFps, isPlaying: false, playInterval: null, isLive: false, liveTimer: null, totalLoaded: 0, recording: false, mediaRecorder: null, recordedChunks: [], latestPhotoAt: null, oldestPhotoAt: null, photoCount: 0, feedbackTimer: null };
 // File de préchargement avec deux niveaux de priorité
 const preloadQ = { hi: [], lo: [] };
 let preloadWorkers = 0;
@@ -880,7 +880,21 @@ async function renderAtIndexSkippingMissing(targetIndex, silent, expectedGen) {
  * Si from/to sont fournis (Date), ils sont utilisés ; sinon lecture depuis les champs Début/Fin.
  * Utilisé au chargement de la page avec les dernières 24h par défaut.
  */
-async function loadRange(fromOrNull, toOrNull) {
+function getRangeEnd() {
+  return state.latestPhotoAt instanceof Date ? new Date(state.latestPhotoAt.getTime()) : new Date();
+}
+function computeRangeForHours(hours) {
+  const end = getRangeEnd();
+  let from = new Date(end.getTime() - hours * 3600000);
+  if (state.oldestPhotoAt instanceof Date && from < state.oldestPhotoAt) {
+    from = new Date(state.oldestPhotoAt.getTime());
+  }
+  if (from >= end) {
+    from = new Date(end.getTime() - 60000);
+  }
+  return { from, end };
+}
+async function loadRange(fromOrNull, toOrNull, options = {}) {
   let from = fromOrNull != null ? fromOrNull : new Date(document.getElementById('dateFrom').value);
   let to = toOrNull != null ? toOrNull : new Date(document.getElementById('dateTo').value);
   if (isNaN(from) || isNaN(to) || from >= to) { showToast('Plage invalide', 'error'); return; }
@@ -888,7 +902,20 @@ async function loadRange(fromOrNull, toOrNull) {
   preloadQ.hi.length = 0; preloadQ.lo.length = 0; // annuler les préchargements précédents
   showLoading('Récupération des métadonnées...');
   try {
-    const rawFrames = await fetchFrames(from, to);
+    let rawFrames = await fetchFrames(from, to);
+    if (rawFrames.length === 0 && options.fallbackToFullRange
+        && state.oldestPhotoAt instanceof Date && state.latestPhotoAt instanceof Date) {
+      from = new Date(state.oldestPhotoAt.getTime());
+      to = new Date(state.latestPhotoAt.getTime());
+      if (from >= to) {
+        from = new Date(to.getTime() - 60000);
+      }
+      setDateRangeFromBounds(from, to);
+      rawFrames = await fetchFrames(from, to);
+      if (rawFrames.length > 0) {
+        showToast('Plage étendue à toutes les photos disponibles', 'success');
+      }
+    }
     if (rawFrames.length === 0) { showToast('Aucune image dans cette plage', 'error'); hideLoading(); return; }
     state.frames = rawFrames;
     state.currentIndex = 0;
@@ -912,11 +939,8 @@ async function loadRange(fromOrNull, toOrNull) {
   } catch(e) { hideLoading(); showToast('Erreur: ' + e.message, 'error'); }
 }
 function setDateRange(hours) {
-  const to = new Date();
-  const from = new Date(to.getTime() - hours * 3600000);
-  const toLocal = d => { const off = d.getTimezoneOffset(); const local = new Date(d.getTime() - off * 60000); return local.toISOString().slice(0, 16); };
-  document.getElementById('dateFrom').value = toLocal(from);
-  document.getElementById('dateTo').value = toLocal(to);
+  const { from, end } = computeRangeForHours(hours);
+  setDateRangeFromBounds(from, end);
 }
 function updateScrubber() {
   const pct = state.frames.length > 1 ? (state.currentIndex / (state.frames.length - 1)) * 100 : 0;
@@ -952,8 +976,8 @@ function toggleLive() {
     if (state.frames.length > 0) { stopPlay(); goTo(state.frames.length - 1); }
     state.liveTimer = setInterval(async () => {
       try {
-        const lastTs = state.frames.length > 0 ? state.frames[state.frames.length-1].timestamp : new Date(Date.now() - 3600000);
-        const newFrames = await fetchFrames(lastTs, new Date());
+        const lastTs = state.frames.length > 0 ? state.frames[state.frames.length-1].timestamp : new Date(getRangeEnd().getTime() - 3600000);
+        const newFrames = await fetchFrames(lastTs, getRangeEnd());
         if (newFrames.length > 1) { state.frames.push(...newFrames.slice(1)); updateTimeLabels(); updateStats(); }
         goTo(state.frames.length - 1);
       } catch(e) {}
@@ -1037,16 +1061,20 @@ function showToast(msg, type) {
   state.feedbackTimer = setTimeout(() => feedback.classList.remove('show'), 3500);
 }
 function updateClock() { document.getElementById('clock').textContent = new Date().toLocaleTimeString('fr-FR'); }
-async function fetchLatestPhotoTimestamp() {
+async function fetchPhotoBounds() {
   const url = document.getElementById('apiLatestUrl').value;
-  if (!url) return null;
+  if (!url) return { latest: null, oldest: null, count: 0 };
   try {
     const resp = await fetch(url);
-    if (!resp.ok) return null;
+    if (!resp.ok) return { latest: null, oldest: null, count: 0 };
     const data = await resp.json();
-    if (data.timestamp) return new Date(data.timestamp);
+    return {
+      latest: data.timestamp ? new Date(data.timestamp) : null,
+      oldest: data.oldest_timestamp ? new Date(data.oldest_timestamp) : null,
+      count: Number(data.count) || 0,
+    };
   } catch(e) {}
-  return null;
+  return { latest: null, oldest: null, count: 0 };
 }
 function setDateRangeFromBounds(from, to) {
   const toLocal = d => { const off = d.getTimezoneOffset(); const local = new Date(d.getTime() - off * 60000); return local.toISOString().slice(0, 16); };
@@ -1075,15 +1103,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Plage par défaut : 24 h se terminant à l’horodatage de la dernière photo (sinon maintenant)
+  // Plage par défaut : 24 h se terminant à la dernière photo ; repli sur toute la plage si vide
   const DEFAULT_HOURS = 24;
   (async function bootstrapTimelapse() {
-    const latest = await fetchLatestPhotoTimestamp();
-    state.latestPhotoAt = latest;
-    const end = latest instanceof Date ? latest : new Date();
-    const fromDefault = new Date(end.getTime() - DEFAULT_HOURS * 3600000);
-    setDateRangeFromBounds(fromDefault, end);
-    await loadRange(fromDefault, end);
+    const bounds = await fetchPhotoBounds();
+    state.latestPhotoAt = bounds.latest;
+    state.oldestPhotoAt = bounds.oldest;
+    state.photoCount = bounds.count;
+    if (!(bounds.latest instanceof Date)) return;
+    const { from, end } = computeRangeForHours(DEFAULT_HOURS);
+    setDateRangeFromBounds(from, end);
+    await loadRange(from, end, { fallbackToFullRange: true });
   })();
 
   document.querySelectorAll('.timelapse-range-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-range-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); setDateRange(parseInt(btn.dataset.hours, 10)); }); });

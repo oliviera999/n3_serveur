@@ -20,9 +20,11 @@ CREATE TABLE IF NOT EXISTS pglEvents (
     rssi INT DEFAULT NULL,
     sensor_mode ENUM('ir', 'us', 'tandem', 'unknown') NOT NULL DEFAULT 'unknown',
     is_tandem_validated TINYINT(1) NOT NULL DEFAULT 0,
+    device_event_id INT UNSIGNED DEFAULT NULL COMMENT 'Identifiant monotone assigne par le firmware (NULL = ancien firmware sans event_id)',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_pgl_event_time (event_time),
-    INDEX idx_pgl_board (board)
+    INDEX idx_pgl_board (board),
+    UNIQUE KEY uq_pgl_board_event_id (board, device_event_id)
 );
 
 CREATE TABLE IF NOT EXISTS pglHeartbeat (
