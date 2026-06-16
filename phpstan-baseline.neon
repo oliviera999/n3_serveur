@@ -19,6 +19,48 @@ parameters:
 			path: config/routes_gallery.php
 
 		-
+			message: '#^Function registerAssetRoute\(\) has parameter \$app with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: config/routes_helpers.php
+
+		-
+			message: '#^Function registerFfp3ControlRoutes\(\) has parameter \$app with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: config/routes_helpers.php
+
+		-
+			message: '#^Function registerFfp3ProtectedRoutes\(\) has parameter \$app with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: config/routes_helpers.php
+
+		-
+			message: '#^Function registerFirmwareRoutes\(\) has parameter \$app with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: config/routes_helpers.php
+
+		-
+			message: '#^Function registerIotModuleRoutes\(\) has parameter \$app with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: config/routes_helpers.php
+
+		-
+			message: '#^Function registerRealtimeRoutes\(\) has parameter \$app with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: config/routes_helpers.php
+
+		-
+			message: '#^Function registerRedirects\(\) has parameter \$app with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: config/routes_helpers.php
+
+		-
 			message: '#^Variable \$app might not be defined\.$#'
 			identifier: variable.undefined
 			count: 1
@@ -143,9 +185,3 @@ parameters:
 			identifier: method.notFound
 			count: 2
 			path: src/Service/TideAnalysisService.php
-
-		-
-			message: '#^Method App\\Service\\TideCycleDetector\:\:recordExtremum\(\) never assigns null to &\$lastEventTs so it can be removed from the by\-ref type\.$#'
-			identifier: parameterByRef.unusedType
-			count: 1
-			path: src/Service/TideCycleDetector.php

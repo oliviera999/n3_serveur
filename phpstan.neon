@@ -11,7 +11,7 @@ includes:
 parameters:
     # Tolère les patterns d'ignore non déclenchés (évite l'échec selon la version de PHPStan).
     reportUnmatchedIgnoredErrors: false
-    level: 5
+    level: 6
     paths:
         - src
         - public/index.php
