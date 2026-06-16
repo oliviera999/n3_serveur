@@ -44,6 +44,9 @@ desktop.ini
 .php-cs-fixer.cache
 .phpstan.cache/
 
+# Rapports de couverture (générés en CI : build/coverage.xml)
+/build/
+
 # Photos uploadees (garder la structure via .gitkeep)
 /uploads/msp1/*
 !/uploads/msp1/.gitkeep

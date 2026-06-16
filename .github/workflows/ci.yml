@@ -66,3 +66,124 @@ jobs:
       - run: composer install --prefer-dist --no-progress --no-interaction
       - name: composer audit
         run: composer audit
+
+  integration:
+    name: Tests d'intégration HTTP (MySQL)
+    runs-on: ubuntu-latest
+
+    # Base MySQL 8 dédiée aux tests d'intégration HTTP du panneau de contrôle FFP3.
+    # Identifiants alignés sur docker-compose.integration.yml / env.test.example.
+    # Le port hôte est 3306 (et non 3310) car App\Config\Database construit son DSN
+    # sans port — le serveur php -S lancé par le test doit donc joindre MySQL sur
+    # le port par défaut.
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root_integration_n3
+          MYSQL_DATABASE: n3_http_test
+          MYSQL_USER: n3_http
+          MYSQL_PASSWORD: n3_http_pass
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -proot_integration_n3"
+          --health-interval=5s
+          --health-timeout=3s
+          --health-retries=20
+          --health-start-period=20s
+
+    env:
+      # Variables lues par tests/Integration/Http/OutputControlHttpIntegrationTest.php
+      # (tryConnect → getenv) et par le front-controller servi via php -S
+      # (App\Config\Database → $_ENV). ADMIN_TOKEN doit valoir la const TOKEN du test.
+      DB_HOST: 127.0.0.1
+      DB_PORT: '3306'
+      DB_NAME: n3_http_test
+      DB_USER: n3_http
+      DB_PASS: n3_http_pass
+      ADMIN_TOKEN: integration-http-token
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: pdo, pdo_mysql, mbstring, intl, gd, curl
+          coverage: none
+          tools: composer:v2
+
+      - name: Cache Composer
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache
+          key: composer-integration-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-integration-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Wait for MySQL to be ready
+        run: |
+          for i in $(seq 1 30); do
+            if mysqladmin ping -h 127.0.0.1 -P 3306 -uroot -proot_integration_n3 --silent; then
+              echo "MySQL is up."
+              exit 0
+            fi
+            echo "Waiting for MySQL... ($i/30)"
+            sleep 2
+          done
+          echo "MySQL did not become ready in time." >&2
+          exit 1
+
+      - name: Apply test schema
+        # La suite réinjecte aussi le schéma (DROP/CREATE idempotents) avant chaque
+        # test ; cet import garantit que la base n3_http_test est déjà peuplée.
+        run: |
+          mysql -h 127.0.0.1 -P 3306 -uroot -proot_integration_n3 n3_http_test \
+            < tests/Integration/Http/schema.sql
+
+      - name: PHPUnit (Intégration HTTP)
+        run: composer test:integration-http
+
+  coverage:
+    name: Couverture de code (Unit)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP (avec pcov)
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: pdo, pdo_sqlite, mbstring, intl, gd
+          coverage: pcov
+          tools: composer:v2
+
+      - name: Cache Composer
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache
+          key: composer-coverage-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-coverage-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: PHPUnit (couverture, suite Unit)
+        # Résumé texte dans les logs + rapport Clover (build/coverage.xml).
+        # Non bloquant : la couverture est informative, sans seuil imposé.
+        continue-on-error: true
+        run: composer test:coverage
+
+      - name: Upload coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-clover
+          path: build/coverage.xml
+          if-no-files-found: warn
