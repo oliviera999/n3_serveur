@@ -44,6 +44,7 @@
         "test:unit": "php tools/run-phpunit.php --testsuite Unit",
         "test:integration": "php tools/run-phpunit.php --testsuite Integration",
         "test:integration-http": "php tools/run-phpunit.php --testsuite Integration --filter OutputControlHttpIntegrationTest",
+        "test:coverage": "php tools/run-phpunit.php --testsuite Unit --coverage-text --coverage-clover build/coverage.xml",
         "analyse": "phpstan analyse --memory-limit=512M",
         "cs:check": "php-cs-fixer fix --dry-run --diff",
         "cs:fix": "php-cs-fixer fix",
