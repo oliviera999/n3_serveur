@@ -361,17 +361,29 @@ $postData = @{
 }
 Assert-Status -Url "$BaseUrl/post-data" -Method "POST" -Body $postData -AllowedStatus @(200)
 
-# POST data Poissonglouton
+# POST data Poissonglouton (contrat firmware 0.2.x)
 $pglPostData = @{
     api_key = $ApiKey
     sensor = "poissonglouton"
-    version = "0.1.0-smoke"
+    version = "0.2.3-smoke"
+    location = "n3-recyclage"
     total_count = "12"
     today_count = "3"
     batch_count = "2"
-    events = "1716123000:1:3:1:4020:-60,1716123010:1:1:0:4010:-61"
+    events = "1716123000:1:3:1:4020:-60:1001,1716123010:1:1:0:4010:-61:1002"
 }
-Assert-Status -Url "$BaseUrl/pgl/post-data" -Method "POST" -Body $pglPostData -AllowedStatus @(200)
+$pglPostResult = Assert-Status -Url "$BaseUrl/pgl/post-data" -Method "POST" -Body $pglPostData -AllowedStatus @(200)
+$pglPostJson = $null
+if ($pglPostResult.Response -and $pglPostResult.Response.Content) {
+    $pglPostJson = $pglPostResult.Response.Content | ConvertFrom-Json
+}
+if ($null -eq $pglPostJson -or $pglPostJson.status -ne "ok") {
+    throw "Echec smoke test PGL post-data: reponse JSON invalide"
+}
+if ([int]$pglPostJson.last_acked_event_id -lt 1002) {
+    throw "Echec smoke test PGL post-data: last_acked_event_id attendu >= 1002"
+}
+Write-Host "OK PGL post-data JSON last_acked_event_id=$($pglPostJson.last_acked_event_id)" -ForegroundColor Green
 
 $pglBadAuth = $pglPostData.Clone()
 $pglBadAuth.api_key = "wrong-key"

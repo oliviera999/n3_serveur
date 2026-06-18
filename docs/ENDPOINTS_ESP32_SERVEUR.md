@@ -72,17 +72,30 @@ Firmware `firmwires/poissonglouton/` (mode ecran tactile ou headless).
 - `GET /pgl/api/realtime/sensors/latest` — JSON dernier “bucket horaire” (polling UI).
 - `GET /pgl/api/realtime/sensors/since/{timestamp}` — JSON liste de buckets horaires depuis un timestamp Unix (polling UI).
 
-Payload `POST /pgl/post-data` (form-urlencoded):
+Payload `POST /pgl/post-data` (form-urlencoded) :
 
-- `sensor` (ex. `poissonglouton`)
-- `version` (ex. `0.1.0`)
-- `events` (lot compact) : `epoch:count:mode:tandem:batteryMv:rssi,...`
-  - `mode`: `1=ir`, `2=us`, `3=tandem`
-  - `tandem`: `0` ou `1`
+- `api_key` (obligatoire, validee contre `PGL_API_KEY` ou fallback `API_KEY`)
+- `sensor` (ex. `poissonglouton`, stocke en colonne `board`)
+- `version` (ex. `0.2.3`, stocke en `fw_version`)
+- `events` (lot compact, separe par virgules) : `epoch:countDelta:mode:tandem:batteryMv:rssi:eventId`
+  - `mode` : `1=ir`, `2=us`, `3=tandem`
+  - `tandem` : `0` ou `1`
+  - `eventId` : identifiant monotone firmware (`device_event_id` en BDD, idempotence `INSERT IGNORE`)
+- Champs optionnels envoyes par le firmware mais ignores cote serveur : `location`, `total_count`, `today_count`, `batch_count`
 
-Codes de reponse:
+Reponse `HTTP 200` :
 
-- `HTTP 200` : lot accepte (`{"status":"ok","inserted":N}`)
+```json
+{"status":"ok","inserted":N,"last_acked_event_id":M}
+```
+
+`last_acked_event_id` : plus grand `eventId` traite dans le lot (y compris doublons ignores). Le firmware avance son curseur d'acquittement jusqu'a cette valeur.
+
+**Migration BDD production** (firmware >= 0.2.0) : appliquer `serveur/migrations/2026_06_pgl_device_event_id.sql` (colonne `device_event_id` + contrainte `UNIQUE(board, device_event_id)`). Le schéma Docker local (`docker/mysql/init/90-poissonglouton.sql`) est deja a jour.
+
+Codes de reponse :
+
+- `HTTP 200` : lot accepte (`{"status":"ok","inserted":N,"last_acked_event_id":M}`)
 - `HTTP 400` : payload invalide (events manquant / vide)
 - `HTTP 401` : cle API invalide
 

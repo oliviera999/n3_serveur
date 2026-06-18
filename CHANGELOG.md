@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.2.5] - 2026-06-16
+
+### Modifié
+- **Doc API PGL** : `docs/ENDPOINTS_ESP32_SERVEUR.md` — format `events` avec `eventId`, réponse `last_acked_event_id`, note migration `device_event_id`.
+- **Smoke test Docker** : `POST /pgl/post-data` avec payload firmware 0.2.x (`eventId`) et vérification JSON `last_acked_event_id`.
+
 ## [5.2.4] - 2026-06-16
 
 ### Ajout
