@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.2.7] - 2026-06-18
+
+### Modifié
+- **OTA** : publication `ffp5-wroom-prod` v14.14 (déploiement canal prod après validation flash USB).
+
 ## [5.2.6] - 2026-06-18
 
 ### Modifié
