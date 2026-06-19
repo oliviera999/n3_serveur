@@ -167,6 +167,37 @@ final class OutputControlHttpIntegrationTest extends TestCase
         self::assertSame('0', $this->currentStateById($id), 'État inchangé après rejet CSRF');
     }
 
+    public function testToggleAquariumPumpForceOffPersistsEvenWithStaleId(): void
+    {
+        // GPIO 117 absent du schéma minimal : créé à la volée par ensureAquariumPumpForceRowExists.
+        [$status] = $this->httpGet('/api/outputs-test/state?fresh=1');
+        self::assertSame(200, $status);
+
+        $gpio117Id = $this->outputIdForGpio(117);
+        self::assertGreaterThan(0, $gpio117Id);
+
+        // Activer le forçage avec le bon id.
+        [$status, , $body] = $this->httpPost('/api/outputs-test/toggle', [
+            'id' => $gpio117Id,
+            'state' => 1,
+            'gpio' => 117,
+        ]);
+        self::assertSame(200, $status);
+        self::assertSame('1', $this->currentStateByGpio(117));
+
+        // Désactiver avec un id obsolète : doit quand même passer à 0 (update par GPIO).
+        [$status, , $body] = $this->httpPost('/api/outputs-test/toggle', [
+            'id' => 99999,
+            'state' => 0,
+            'gpio' => 117,
+        ]);
+        self::assertSame(200, $status);
+        $json = json_decode($body, true);
+        self::assertSame('ok', $json['status'] ?? null);
+        self::assertSame(0, (int) ($json['state'] ?? -1));
+        self::assertSame('0', $this->currentStateByGpio(117), 'GPIO 117 doit être à 0 après désactivation');
+    }
+
     // ── POST /parameters ───────────────────────────────────────────────────
 
     public function testUpdateParametersPersistsValues(): void

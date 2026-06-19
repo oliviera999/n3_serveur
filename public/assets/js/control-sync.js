@@ -193,7 +193,7 @@ class ControlSync {
             // Pour les GPIOs >= 100, c'est souvent une valeur (texte, nombre, email, etc.)
             // Ne pas convertir systématiquement en parseInt pour éviter NaN sur les chaînes
             let newState;
-            if (gpioNum < 100 || gpioNum === 101 || gpioNum === 108 || gpioNum === 109 || gpioNum === 110 || gpioNum === 115) {
+            if (gpioNum < 100 || gpioNum === 101 || gpioNum === 108 || gpioNum === 109 || gpioNum === 110 || gpioNum === 115 || gpioNum === 117) {
                 // États binaires (switches): convertir en entier
                 newState = parseInt(state);
             } else if (gpioNum === 100) {

@@ -77,15 +77,29 @@ class OutputCacheService
         // Valider le nom de table via la whitelist centralisée
         TableValidator::validateOutputsTable($table);
 
-        $sql = "SELECT gpio, state FROM `{$table}` WHERE gpio IN (" . implode(',', $placeholders) . ')';
+        // Exclure les lignes fantômes (name vide) en MySQL ; schéma SQLite minimal des tests sans colonne name.
+        $nameFilter = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME) === 'mysql'
+            ? " AND name IS NOT NULL AND name != ''"
+            : '';
+        $sql = "SELECT gpio, state FROM `{$table}` WHERE gpio IN (" . implode(',', $placeholders) . ')' . $nameFilter;
         $stmt = $pdo->prepare($sql);
         $stmt->execute($params);
         $rows = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-        // Indexer par gpio pour accès rapide
+        // Fusionner les doublons board/gpio : pour les GPIO booléens, 1 l'emporte (ex. forçage 117).
         $byGpio = [];
         foreach ($rows as $row) {
-            $byGpio[(int) $row['gpio']] = $row['state'];
+            $gpio = (int) $row['gpio'];
+            $state = $row['state'];
+            if (!array_key_exists($gpio, $byGpio)) {
+                $byGpio[$gpio] = $state;
+                continue;
+            }
+            if (StateNormalizer::isBooleanGpio($gpio)) {
+                $prev = (int) StateNormalizer::normalize($gpio, $byGpio[$gpio]);
+                $next = (int) StateNormalizer::normalize($gpio, $state);
+                $byGpio[$gpio] = max($prev, $next);
+            }
         }
 
         // Normalisation via StateNormalizer ; si absent en BDD, utiliser valeur par défaut

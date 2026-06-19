@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.2.9] - 2026-06-19
+
+### Correctif - switch forçage pompe aquarium (GPIO 117) bloqué à ON
+- **Résumé** : le toggle « Forcer pompe aquarium ON » persistait par `id` HTML ; un id obsolète renvoyait un faux succès (0 ligne mise à jour) puis le polling remettait le switch à 1. Désormais persistance par GPIO 117, `updateStateById`/`updateState` échouent si aucune ligne affectée, GET state ignore les lignes sans nom et fusionne les doublons booléens ; `control-sync.js` traite le GPIO 117 comme switch binaire.
+
 ## [5.2.8] - 2026-06-18
 
 ### Modifié

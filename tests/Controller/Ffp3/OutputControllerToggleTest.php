@@ -166,6 +166,60 @@ class OutputControllerToggleTest extends TestCase
         $this->assertSame(12, $payload['id']);
     }
 
+    /** GPIO 117 (forçage pompe) : persistance par GPIO, pas par id (évite faux succès id obsolète). */
+    public function testToggleAquariumPumpForceUsesGpioUpdate(): void
+    {
+        TableConfig::setEnvironment('test');
+
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isGpioAllowed')->willReturn(true);
+        $outputService->method('isAquariumPumpForceEnabled')->willReturn(false);
+        $outputService->expects($this->never())->method('updateStateById');
+        $outputService->expects($this->once())
+            ->method('updateStateByGpio')
+            ->with(117, 0)
+            ->willReturn(true);
+
+        $controller = $this->makeController($outputService);
+        $response = $controller->toggleOutput($this->postToggle(999, 0, 117), new Response());
+
+        $this->assertSame(200, $response->getStatusCode());
+        $payload = json_decode((string) $response->getBody(), true);
+        $this->assertSame('ok', $payload['status']);
+        $this->assertSame(0, $payload['state']);
+    }
+
+    /** GPIO 117 activé : miroir GPIO 16 à 1 via updateStateByGpio. */
+    public function testToggleAquariumPumpForceOnMirrorsPumpToOne(): void
+    {
+        TableConfig::setEnvironment('test');
+
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isGpioAllowed')->willReturn(true);
+        $outputService->method('isAquariumPumpForceEnabled')->willReturn(false);
+        $outputService->expects($this->never())->method('updateStateById');
+        $outputService->expects($this->exactly(2))
+            ->method('updateStateByGpio')
+            ->willReturnCallback(function (int $gpio, int $state): bool {
+                static $calls = 0;
+                $calls++;
+                if ($calls === 1) {
+                    $this->assertSame(117, $gpio);
+                    $this->assertSame(1, $state);
+                } else {
+                    $this->assertSame(16, $gpio);
+                    $this->assertSame(1, $state);
+                }
+
+                return true;
+            });
+
+        $controller = $this->makeController($outputService);
+        $response = $controller->toggleOutput($this->postToggle(22, 1, 117), new Response());
+
+        $this->assertSame(200, $response->getStatusCode());
+    }
+
     /** @return array<string, array{0:string}> */
     public static function environmentProvider(): array
     {

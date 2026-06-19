@@ -167,7 +167,13 @@ class OutputController
             $state = 1;
         }
 
-        $success = $this->outputService->updateStateById($id, $state, 'web');
+        // GPIO 117 : persistance par numéro GPIO (toutes les lignes board) plutôt que par id,
+        // pour éviter un faux succès si l'id HTML est obsolète (0 ligne mise à jour).
+        if ($gpio === self::AQUARIUM_PUMP_FORCE_GPIO) {
+            $success = $this->outputService->updateStateByGpio($gpio, $state);
+        } else {
+            $success = $this->outputService->updateStateById($id, $state, 'web');
+        }
 
         if ($success) {
             if ($gpio === self::AQUARIUM_PUMP_FORCE_GPIO && $state === 1) {

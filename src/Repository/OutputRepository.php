@@ -149,11 +149,11 @@ class OutputRepository extends AbstractRepository
                     lastModifiedBy = :modifiedBy
                 WHERE gpio = :gpio";
 
-        return $this->execute($sql, [
+        return $this->executeWithRowCount($sql, [
             ':gpio' => $gpio,
             ':state' => $state,
             ':modifiedBy' => $modifiedBy,
-        ]);
+        ]) > 0;
     }
 
     /**
@@ -167,11 +167,11 @@ class OutputRepository extends AbstractRepository
                     requestTime = NOW(),
                     lastModifiedBy = :modifiedBy
                 WHERE id = :id";
-        return $this->execute($sql, [
+        return $this->executeWithRowCount($sql, [
             ':state' => $state,
             ':id' => $id,
             ':modifiedBy' => $modifiedBy,
-        ]);
+        ]) > 0;
     }
 
     /**
