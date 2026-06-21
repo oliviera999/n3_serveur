@@ -62,5 +62,6 @@ desktop.ini
 /var/cache/ratelimit/
 
 
-# Agent worktrees (Claude Code, transient)
-/.claude/
+# Agent config Claude Code : tout ignorer SAUF les skills partagés du dépôt
+/.claude/*
+!/.claude/skills/
