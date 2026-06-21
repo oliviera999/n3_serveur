@@ -1,0 +1,13 @@
+{#
+   Librairies Highcharts / Highstock chargees en `defer` :
+   - `defer` => le telechargement ne bloque pas le rendu HTML, et l'execution
+     a lieu apres le parsing du document, dans l'ordre de declaration.
+   - A inclure via le bloc `chart_libs` des layouts qui en ont besoin.
+   Prerequis : tout code d'initialisation des graphes doit s'executer apres
+   le chargement (DOMContentLoaded ou script lui-meme en `defer`).
+#}
+<script defer src="https://code.highcharts.com/stock/highstock.js"></script>
+<script defer src="https://code.highcharts.com/modules/exporting.js"></script>
+<script defer src="https://code.highcharts.com/modules/export-data.js"></script>
+<script defer src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script defer src="{{ base_path|default('') }}/assets/js/highcharts-theme.js"></script>

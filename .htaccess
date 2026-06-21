@@ -25,6 +25,26 @@ RewriteRule ^\.git - [F,L]
 </IfModule>
 
 # ====================================================================
+# Compression des reponses texte (HTML, CSS, JS, JSON, SVG).
+# Reduit fortement la taille transferee (~70-80 % sur CSS/JS).
+# Les fonts woff2 et images sont deja compressees -> exclues.
+# ====================================================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript text/javascript application/x-javascript
+    AddOutputFilterByType DEFLATE application/json application/ld+json application/manifest+json
+    AddOutputFilterByType DEFLATE image/svg+xml application/xml application/rss+xml
+    AddOutputFilterByType DEFLATE font/ttf font/otf
+</IfModule>
+# Brotli si disponible (meilleure compression que gzip), sinon ignore silencieusement.
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript text/javascript application/x-javascript
+    AddOutputFilterByType BROTLI_COMPRESS application/json application/ld+json application/manifest+json
+    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml application/xml application/rss+xml
+</IfModule>
+
+# ====================================================================
 # Cache navigateur des assets statiques (si DocumentRoot pointe sur la racine)
 # ====================================================================
 <IfModule mod_expires.c>

@@ -9,14 +9,16 @@
     <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/theme-variables.css" />
     <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/main.css" />
     <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/realtime-styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/fontawesome.min.css" />
     <link rel="icon" type="image/png" href="{{ base_path|default('') }}/assets/icons/favicon-n3-orange.png" />
     <link rel="shortcut icon" type="image/png" href="{{ base_path|default('') }}/assets/icons/favicon-n3-orange.png" />
-    <script src="https://code.highcharts.com/stock/highstock.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <script src="{{ base_path|default('') }}/assets/js/highcharts-theme.js"></script>
+    {#
+       Librairies de graphiques (Highcharts/Highstock) chargees a la demande.
+       Bloc vide par defaut : les pages sans graphe (ex. admin) ne telechargent plus
+       ~600 Ko de scripts CDN bloquants inutilement.
+       Pour activer sur une page : {% block chart_libs %}{% include 'partials/_highcharts_libs.twig' %}{% endblock %}
+    #}
+    {% block chart_libs %}{% endblock %}
     {% block page_styles %}{% endblock %}
 </head>
 <body class="is-preload">
