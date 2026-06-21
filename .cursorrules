@@ -1,5 +1,9 @@
 # Règles du projet FFP3 Datas - Plateforme Aquaponie & IoT
 
+> 🔗 Un fichier [`CLAUDE.md`](CLAUDE.md) reprend ces règles pour Claude Code (+ skills dans
+> `.claude/skills/`). **Garder les deux fichiers cohérents** : toute règle métier modifiée ici
+> doit l'être aussi dans `CLAUDE.md`, et inversement.
+
 ## 🎯 Vue d'ensemble du projet
 
 Application PHP 8+ de supervision de systèmes IoT (aquaponie, serre/élevage, station météo)
