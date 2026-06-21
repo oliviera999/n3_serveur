@@ -138,10 +138,10 @@ class PglRealtimeDataProvider implements RealtimeDataProviderInterface
         if ($lastEvent !== null) {
             $readingTime = isset($lastEvent['event_time']) ? (string) $lastEvent['event_time'] : null;
 
-            if (isset($lastEvent['battery_v']) && $lastEvent['battery_v'] !== null) {
+            if (isset($lastEvent['battery_v'])) {
                 $sensors['battery_v'] = (float) $lastEvent['battery_v'];
             }
-            if (isset($lastEvent['rssi']) && $lastEvent['rssi'] !== null) {
+            if (isset($lastEvent['rssi'])) {
                 $sensors['rssi'] = (int) $lastEvent['rssi'];
             }
         }
@@ -171,9 +171,6 @@ class PglRealtimeDataProvider implements RealtimeDataProviderInterface
 
         // Estimation : 1 événement attendu par heure en fonctionnement normal
         $expected = self::UPTIME_DAYS * 24;
-        if ($expected === 0) {
-            return 0.0;
-        }
 
         return min($eventCount / $expected * 100, 100.0);
     }
