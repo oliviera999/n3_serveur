@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.1] - 2026-06-21
+
+### Performance - Chargement des assets front
+- **Compression HTTP** : ajout de `mod_deflate` (fallback) et `mod_brotli` (si disponible) dans les `.htaccess` racine et `public/` pour HTML/CSS/JS/JSON/SVG (CSS/JS maison réduits de ~70–80 % sur le réseau). Fonts `woff2` et images exclues.
+- **Highcharts opt-in** : `layout_base.twig` ne charge plus systématiquement ~600 Ko de scripts Highcharts CDN en `<head>` bloquant (les pages admin n'affichant aucun graphe). Remplacé par un bloc `chart_libs` vide par défaut + partial `partials/_highcharts_libs.twig` (scripts en `defer`). FontAwesome basculé du CDN vers la copie locale.
+
+### Modifié - Déduplication contrôleurs Msp/N3pp
+- Nouvelles bases abstraites `AbstractDescriptionController` et `AbstractHeartbeatController` : la logique commune des contrôleurs MSP1/N3PP (Description, Heartbeat) n'est plus dupliquée ; les concrètes ne portent que leurs spécificités. Routes, DI et contrats firmware inchangés.
+
+### Tests
+- Couverture unitaire des repositories `BoardRepository`, `HeartbeatRepository`, `MspOutputRepository` (dont acquittement one-shot GPIO 108/109/110), puis `SensorRepository`, `GalleryControlRepository`, `PglRepository`, `UserRepository` (whitelists colonnes/modules, transactions, vérification de mot de passe). +118 tests.
+
 ## [5.3.0] - 2026-06-19
 
 ### Ajout - Gestionnaire d'utilisateurs multi-comptes
