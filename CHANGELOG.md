@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.4] - 2026-06-21
+
+### Maintenabilité - Activation de l'autowiring PHP-DI et purge des closures DI redondantes
+- **`config/dependencies.php`** : suppression de **78** closures de fabrique manuelles purement redondantes (de 83 à 5 définitions). Toutes les classes dont le constructeur n'attend que des dépendances typées par des classes/interfaces résolvables (contrôleurs, services, repositories, middlewares) sont désormais instanciées par **autowiring** — ajouter une nouvelle classe « pure » ne nécessite plus aucune entrée dans ce fichier.
+- **Entrées conservées (5)** : `PDO` (fabrique `Database::getConnection()`), `RoleAccessService` (lit `routes_config.php`), `RateLimiter` et `RateLimitMiddleware` (lisent des scalaires d'environnement), `TemplateRenderer` (chemin templates + flag cache), ainsi que `RestartPumpCommand` et `CronOrchestrator` dont les constructeurs à paramètres **tous optionnels** déclencheraient sinon un fallback `Database::getConnection()` (connexion MySQL réelle) au build.
+- **`config/container.php`** : `useAutowiring(true)` rendu explicite (déjà le défaut PHP-DI 7) ; la compilation en production reste active et fonctionnelle avec l'autowiring.
+- **Tests** : nouveau `tests/Config/ContainerWiringTest.php` (filet de sécurité) qui construit le vrai container (sans compilation, PDO remplacé par SQLite en mémoire) et résout tous les contrôleurs de `public/index.php` plus les services/repositories/middlewares/commandes clés ; échoue si une dépendance n'est plus autowirable. Comportement applicatif inchangé.
+
 ## [5.3.3] - 2026-06-21
 
 ### Correctif - apply-recent-migrations.php en production
