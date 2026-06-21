@@ -4,24 +4,20 @@ declare(strict_types=1);
 
 namespace App\Controller\Msp;
 
-use App\Controller\AbstractPostDataController;
-use App\Controller\Concerns\HmacAuthTrait;
+use App\Controller\AbstractHmacPostDataController;
 use App\Domain\MspSensorData;
 use App\Repository\MspSensorRepository;
 use App\Service\LogService;
-use Psr\Http\Message\ResponseInterface as Response;
 
 /**
  * Reception des donnees POST du firmware msp (station meteo, board=2).
- * Herite du flux commun AbstractPostDataController.
+ * Herite du flux commun AbstractHmacPostDataController (auth HMAC + email).
  *
  * Authentification : HMAC-SHA256 si timestamp+signature presents, sinon clé API
  * legacy (compatibilite ascendante avec firmwares <= 2.42).
  */
-class MspPostDataController extends AbstractPostDataController
+class MspPostDataController extends AbstractHmacPostDataController
 {
-    use HmacAuthTrait;
-
     public function __construct(
         LogService $logger,
         private MspSensorRepository $sensorRepo,
@@ -34,26 +30,9 @@ class MspPostDataController extends AbstractPostDataController
         return 'MspPostData';
     }
 
-    /**
-     * Auth HMAC optionnelle (timestamp+signature) avec fallback api_key.
-     * Alignement contrat FFP3 (cf. App\Controller\Ffp3\PostDataController).
-     */
-    protected function validateAuth(array $params, Response $response): ?Response
-    {
-        return $this->validateHmacOrFallback($params, $response);
-    }
-
     protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object
     {
-        $mail = $sanitize('mail');
-        if ($mail !== null && $mail !== '' && filter_var($mail, FILTER_VALIDATE_EMAIL) === false) {
-            $this->logger->warning('MspPostData: email firmware invalide ignore (format)', [
-                'sensor' => trim((string) ($params['sensor'] ?? '')),
-                'version' => trim((string) ($params['version'] ?? '')),
-                'mail_len' => strlen($mail),
-            ]);
-            $mail = '';
-        }
+        $mail = $this->sanitizeFirmwareEmail($params, $sanitize);
 
         return new MspSensorData(
             sensor: substr($sanitize('sensor') ?? '', 0, 30),
