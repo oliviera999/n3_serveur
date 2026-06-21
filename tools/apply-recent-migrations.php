@@ -20,9 +20,6 @@ require $projectRoot . '/vendor/autoload.php';
 use App\Config\Env;
 use App\Domain\User;
 use App\Repository\UserRepository;
-use PDO;
-use PDOException;
-use RuntimeException;
 
 $dryRun = in_array('--dry-run', $argv, true);
 $skipBootstrap = in_array('--skip-bootstrap', $argv, true);
