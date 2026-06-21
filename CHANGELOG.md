@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.3] - 2026-06-21
+
+### Correctif - apply-recent-migrations.php en production
+- **Résumé** : ignore les requêtes SELECT de vérification des fichiers SQL et active PDO buffered query ; corrige l'erreur « Cannot execute queries while other unbuffered queries are active » après contrainte PGL déjà existante.
+
 ## [5.3.2] - 2026-06-21
 
 ### Ajout - Script migrations SQL récentes

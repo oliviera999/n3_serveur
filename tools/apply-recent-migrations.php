@@ -17,10 +17,12 @@ declare(strict_types=1);
 $projectRoot = dirname(__DIR__);
 require $projectRoot . '/vendor/autoload.php';
 
-use App\Config\Database;
 use App\Config\Env;
 use App\Domain\User;
 use App\Repository\UserRepository;
+use PDO;
+use PDOException;
+use RuntimeException;
 
 $dryRun = in_array('--dry-run', $argv, true);
 $skipBootstrap = in_array('--skip-bootstrap', $argv, true);
@@ -68,7 +70,7 @@ if ($dryRun) {
 }
 
 try {
-    $pdo = Database::getConnection();
+    $pdo = createMigrationPdo();
     $dbName = (string) ($_ENV['DB_NAME'] ?? '');
     echo "Base cible : {$dbName}\n\n";
 } catch (Throwable $e) {
@@ -104,8 +106,11 @@ foreach ($migrations as $migration) {
 
     $statements = splitSqlStatements($sql);
     foreach ($statements as $statement) {
+        if (isReadOnlySqlStatement($statement)) {
+            continue;
+        }
         try {
-            $pdo->exec($statement);
+            executeMigrationStatement($pdo, $statement);
         } catch (PDOException $e) {
             if (isBenignMigrationError($e)) {
                 echo "   (ignoré — déjà appliqué) " . trimShort($e->getMessage()) . "\n";
@@ -133,6 +138,41 @@ if ($skipBootstrap) {
 
 echo ">> Bootstrap administrateur (tools/bootstrap-admin-user.php)\n\n";
 exit(runBootstrap($pdo));
+
+function createMigrationPdo(): PDO
+{
+    foreach (['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS'] as $var) {
+        if (empty($_ENV[$var])) {
+            throw new RuntimeException("Variable .env manquante : {$var}");
+        }
+    }
+
+    $options = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ];
+    if (defined('PDO::MYSQL_ATTR_USE_BUFFERED_QUERY')) {
+        $options[PDO::MYSQL_ATTR_USE_BUFFERED_QUERY] = true;
+    }
+
+    return new PDO(
+        'mysql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_NAME'] . ';charset=utf8mb4',
+        (string) $_ENV['DB_USER'],
+        (string) $_ENV['DB_PASS'],
+        $options
+    );
+}
+
+function executeMigrationStatement(PDO $pdo, string $statement): void
+{
+    $pdo->exec($statement);
+}
+
+function isReadOnlySqlStatement(string $statement): bool
+{
+    $normalized = ltrim($statement);
+    return (bool) preg_match('/^(SELECT|SHOW|DESCRIBE|DESC|EXPLAIN)\b/i', $normalized);
+}
 
 function tableExists(PDO $pdo, string $table): bool
 {
