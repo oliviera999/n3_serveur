@@ -224,6 +224,34 @@ Depuis la version 5.3.0, les comptes d'administration peuvent être gérés en b
 
 ### Migration production
 
+**Commande unique (recommandée)** — depuis la racine `serveur/` :
+
+```bash
+php tools/apply-recent-migrations.php
+```
+
+Sous Linux (SSH) :
+
+```bash
+bash tools/apply-recent-migrations.sh
+```
+
+Sous Windows :
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\apply-recent-migrations.ps1
+```
+
+Options : `--dry-run` (simulation), `--skip-bootstrap` (SQL seulement, sans création du 1er admin).
+
+Le script enchaîne dans l'ordre :
+1. `migrations/2026_06_pgl_device_event_id.sql` (si `pglEvents` existe)
+2. `tools/sql/migrate-n3-users.sql`
+3. `tools/sql/migrate-gpio117-ffp3.sql` (si `ffp3Outputs` existe)
+4. Bootstrap admin depuis `.env` si `n3_users` est vide
+
+**Étapes manuelles équivalentes** :
+
 1. Exécuter `tools/sql/migrate-n3-users.sql` sur la BDD
 2. Exécuter `php tools/bootstrap-admin-user.php` (crée le premier admin depuis `.env` si la table est vide)
 3. Se connecter et créer les comptes opérateur/lecteur via l'interface

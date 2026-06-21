@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.2] - 2026-06-21
+
+### Ajout - Script migrations SQL récentes
+- **`tools/apply-recent-migrations.php`** (wrappers `.sh` / `.ps1`) : enchaîne PGL `device_event_id`, table `n3_users`, GPIO 117 FFP3 et bootstrap admin ; options `--dry-run`, `--skip-bootstrap`.
+- **`tools/sql/migrate-gpio117-ffp3.sql`** : insertion idempotente GPIO 117 prod/test.
+
 ## [5.3.1] - 2026-06-21
 
 ### Performance - Chargement des assets front
