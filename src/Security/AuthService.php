@@ -213,7 +213,7 @@ class AuthService
     {
         if (session_status() === PHP_SESSION_ACTIVE && isset($_SESSION[self::SESSION_USER_ID_KEY])) {
             $id = $_SESSION[self::SESSION_USER_ID_KEY];
-            return $id !== null ? (int) $id : null;
+            return (int) $id;
         }
         return null;
     }
@@ -224,7 +224,7 @@ class AuthService
             return (string) ($_SESSION[self::SESSION_ROLE_KEY] ?? User::ROLE_ADMIN);
         }
 
-        if ($this->isAuthenticatedByToken($_GET ?? [])) {
+        if ($this->isAuthenticatedByToken($_GET)) {
             return User::ROLE_ADMIN;
         }
 

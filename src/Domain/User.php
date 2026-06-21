@@ -43,7 +43,7 @@ final class User
             isActive: (bool) (int) ($row['is_active'] ?? 0),
             createdAt: isset($row['created_at']) ? (string) $row['created_at'] : null,
             updatedAt: isset($row['updated_at']) ? (string) $row['updated_at'] : null,
-            lastLoginAt: isset($row['last_login_at']) && $row['last_login_at'] !== null ? (string) $row['last_login_at'] : null,
+            lastLoginAt: isset($row['last_login_at']) ? (string) $row['last_login_at'] : null,
         );
     }
 
