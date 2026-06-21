@@ -4,24 +4,20 @@ declare(strict_types=1);
 
 namespace App\Controller\N3pp;
 
-use App\Controller\AbstractPostDataController;
-use App\Controller\Concerns\HmacAuthTrait;
+use App\Controller\AbstractHmacPostDataController;
 use App\Domain\N3ppSensorData;
 use App\Repository\N3ppSensorRepository;
 use App\Service\LogService;
-use Psr\Http\Message\ResponseInterface as Response;
 
 /**
  * Reception des donnees POST du firmware n3pp (serre/aquaponie, board=3).
- * Herite du flux commun AbstractPostDataController.
+ * Herite du flux commun AbstractHmacPostDataController (auth HMAC + email).
  *
  * Authentification : HMAC-SHA256 si timestamp+signature presents, sinon clé API
  * legacy (compatibilite ascendante avec firmwares <= 4.38).
  */
-class N3ppPostDataController extends AbstractPostDataController
+class N3ppPostDataController extends AbstractHmacPostDataController
 {
-    use HmacAuthTrait;
-
     public function __construct(
         LogService $logger,
         private N3ppSensorRepository $sensorRepo,
@@ -34,26 +30,9 @@ class N3ppPostDataController extends AbstractPostDataController
         return 'N3ppPostData';
     }
 
-    /**
-     * Auth HMAC optionnelle (timestamp+signature) avec fallback api_key.
-     * Alignement contrat FFP3 (cf. App\Controller\Ffp3\PostDataController).
-     */
-    protected function validateAuth(array $params, Response $response): ?Response
-    {
-        return $this->validateHmacOrFallback($params, $response);
-    }
-
     protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object
     {
-        $mail = $sanitize('mail');
-        if ($mail !== null && $mail !== '' && filter_var($mail, FILTER_VALIDATE_EMAIL) === false) {
-            $this->logger->warning('N3ppPostData: email firmware invalide ignore (format)', [
-                'sensor' => trim((string) ($params['sensor'] ?? '')),
-                'version' => trim((string) ($params['version'] ?? '')),
-                'mail_len' => strlen($mail),
-            ]);
-            $mail = '';
-        }
+        $mail = $this->sanitizeFirmwareEmail($params, $sanitize);
 
         return new N3ppSensorData(
             sensor: substr($sanitize('sensor') ?? '', 0, 30),

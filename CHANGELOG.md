@@ -19,6 +19,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ### Modifié - Déduplication contrôleurs Msp/N3pp
 - Nouvelles bases abstraites `AbstractDescriptionController` et `AbstractHeartbeatController` : la logique commune des contrôleurs MSP1/N3PP (Description, Heartbeat) n'est plus dupliquée ; les concrètes ne portent que leurs spécificités. Routes, DI et contrats firmware inchangés.
+- Nouvelle base `AbstractHmacPostDataController` : factorise `validateAuth()` (HMAC + fallback clé API) et la normalisation de l'email firmware, jusqu'ici dupliquées dans `MspPostDataController`/`N3ppPostDataController`. Les contrôleurs `Data` restent par module (configuration spécifique : capteurs, graphes, libellés) et les repositories `Sensor` restent distincts (schémas de mesures différents) — déjà factorisés via `AbstractDataController`/`AbstractSensorRepository`.
 
 ### Tests
 - Couverture unitaire des repositories `BoardRepository`, `HeartbeatRepository`, `MspOutputRepository` (dont acquittement one-shot GPIO 108/109/110), puis `SensorRepository`, `GalleryControlRepository`, `PglRepository`, `UserRepository` (whitelists colonnes/modules, transactions, vérification de mot de passe). +118 tests.
