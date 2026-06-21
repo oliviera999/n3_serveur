@@ -57,6 +57,28 @@ final class UserServiceTest extends TestCase
         $this->assertArrayHasKey('errors', $result);
     }
 
+    public function testUpdateUserRejectsInvalidPasswordBeforePersistingRole(): void
+    {
+        $existing = new User(2, 'operator', null, null, User::ROLE_OPERATOR, true, null, null, null);
+        $repo = $this->createMock(UserRepository::class);
+        $repo->method('findById')->with(2)->willReturn($existing);
+        $repo->expects($this->never())->method('update');
+        $repo->expects($this->never())->method('updatePassword');
+        $service = new UserService($repo);
+
+        $result = $service->updateUser(2, [
+            'email' => '',
+            'display_name' => '',
+            'role' => User::ROLE_READER,
+            'is_active' => 'on',
+            'password' => 'court',
+            'password_confirm' => 'court',
+        ]);
+
+        $this->assertArrayHasKey('errors', $result);
+        $this->assertSame(['Le mot de passe doit contenir au moins 8 caractères.'], $result['errors']);
+    }
+
     public function testDeleteSelfIsBlocked(): void
     {
         $admin = new User(1, 'solo', null, null, User::ROLE_ADMIN, true, null, null, null);

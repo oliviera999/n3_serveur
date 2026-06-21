@@ -93,15 +93,8 @@ class UserService
             }
         }
 
-        $this->userRepository->update(
-            id: $id,
-            email: $this->nullableString($data['email'] ?? null),
-            displayName: $this->nullableString($data['display_name'] ?? null),
-            role: $role,
-            isActive: $isActive,
-        );
-
         $password = trim((string) ($data['password'] ?? ''));
+        $passwordHash = null;
         if ($password !== '') {
             if (strlen($password) < 8) {
                 return ['errors' => ['Le mot de passe doit contenir au moins 8 caractères.']];
@@ -110,7 +103,19 @@ class UserService
             if ($password !== $confirm) {
                 return ['errors' => ['Les mots de passe ne correspondent pas.']];
             }
-            $this->userRepository->updatePassword($id, AuthService::hashPassword($password));
+            $passwordHash = AuthService::hashPassword($password);
+        }
+
+        $this->userRepository->update(
+            id: $id,
+            email: $this->nullableString($data['email'] ?? null),
+            displayName: $this->nullableString($data['display_name'] ?? null),
+            role: $role,
+            isActive: $isActive,
+        );
+
+        if ($passwordHash !== null) {
+            $this->userRepository->updatePassword($id, $passwordHash);
         }
 
         $user = $this->userRepository->findById($id);

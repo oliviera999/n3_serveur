@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Tests\Security;
 
 use App\Config\Env;
+use App\Domain\User;
+use App\Repository\UserRepository;
 use App\Security\AuthService;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -54,6 +56,11 @@ final class AuthServiceTest extends TestCase
         $prop = $ref->getProperty('loaded');
         $prop->setAccessible(true);
         $prop->setValue(null, $this->previousLoaded);
+
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            $_SESSION = [];
+            session_destroy();
+        }
     }
 
     public function testHashPasswordProducesPasswordVerifyCompatibleHash(): void
@@ -84,6 +91,57 @@ final class AuthServiceTest extends TestCase
         $this->assertNotNull($creds);
         $this->assertSame('admin', $creds['role']);
         $this->assertTrue($creds['from_env']);
+    }
+
+    public function testResolveCredentialsDoesNotFallbackToEnvWhenDatabaseHasUsers(): void
+    {
+        $_ENV['ADMIN_USERNAME'] = 'admin-test';
+        $_ENV['ADMIN_PASSWORD_HASH'] = password_hash('s3cret', PASSWORD_DEFAULT);
+
+        $repo = $this->createMock(UserRepository::class);
+        $repo->method('tableExists')->willReturn(true);
+        $repo->method('isEmpty')->willReturn(false);
+        $repo->method('verifyPassword')->with('admin-test', 's3cret')->willReturn(null);
+
+        $auth = new AuthService($repo);
+
+        $this->assertNull($auth->resolveCredentials('admin-test', 's3cret'));
+    }
+
+    public function testIsAuthenticatedRejectsInactiveDatabaseSession(): void
+    {
+        $repo = $this->createMock(UserRepository::class);
+        $repo->method('findById')->with(7)->willReturn(
+            new User(7, 'operator-test', null, null, User::ROLE_OPERATOR, false, null, null, null)
+        );
+
+        $auth = new AuthService($repo);
+        $_SESSION['authenticated'] = true;
+        $_SESSION['auth_user'] = 'operator-test';
+        $_SESSION['auth_user_id'] = 7;
+        $_SESSION['auth_role'] = User::ROLE_OPERATOR;
+        $_SESSION['auth_time'] = time();
+
+        $this->assertFalse($auth->isAuthenticated());
+    }
+
+    public function testIsAuthenticatedRefreshesDatabaseSessionRole(): void
+    {
+        $repo = $this->createMock(UserRepository::class);
+        $repo->method('findById')->with(7)->willReturn(
+            new User(7, 'reader-test', null, null, User::ROLE_READER, true, null, null, null)
+        );
+
+        $auth = new AuthService($repo);
+        $_SESSION['authenticated'] = true;
+        $_SESSION['auth_user'] = 'old-name';
+        $_SESSION['auth_user_id'] = 7;
+        $_SESSION['auth_role'] = User::ROLE_ADMIN;
+        $_SESSION['auth_time'] = time();
+
+        $this->assertTrue($auth->isAuthenticated());
+        $this->assertSame('reader-test', $_SESSION['auth_user']);
+        $this->assertSame(User::ROLE_READER, $_SESSION['auth_role']);
     }
 
     public function testAuthenticateFailsWhenEnvIncomplete(): void

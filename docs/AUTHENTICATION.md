@@ -227,11 +227,11 @@ Depuis la version 5.3.0, les comptes d'administration peuvent être gérés en b
 1. Exécuter `tools/sql/migrate-n3-users.sql` sur la BDD
 2. Exécuter `php tools/bootstrap-admin-user.php` (crée le premier admin depuis `.env` si la table est vide)
 3. Se connecter et créer les comptes opérateur/lecteur via l'interface
-4. Le fallback `.env` (`ADMIN_USERNAME` / `ADMIN_PASSWORD_HASH`) reste actif temporairement si la BDD est vide ou en cas d'échec — à retirer une fois tous les comptes migrés
+4. Le fallback `.env` (`ADMIN_USERNAME` / `ADMIN_PASSWORD_HASH`) reste actif temporairement uniquement si la table est absente/vide ou si la BDD est indisponible — à retirer une fois tous les comptes migrés
 
 ### Authentification
 
-- **Session** : recherche en BDD en priorité, puis fallback `.env`
+- **Session** : recherche en BDD en priorité. Si la table contient des utilisateurs, un mot de passe erroné ou un compte désactivé ne retombe pas sur `.env`.
 - **Token** (`ADMIN_TOKEN`) : équivalent rôle **admin** (comportement inchangé)
 
 ## Support

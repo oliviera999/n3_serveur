@@ -52,9 +52,14 @@ class AuthService
      */
     public function resolveCredentials(string $username, string $password): ?array
     {
-        $dbResult = $this->authenticateFromDatabase($username, $password);
-        if ($dbResult !== null) {
-            return $dbResult;
+        if ($this->userRepository !== null) {
+            try {
+                if ($this->userRepository->tableExists() && !$this->userRepository->isEmpty()) {
+                    return $this->authenticateFromDatabase($username, $password);
+                }
+            } catch (PDOException) {
+                return $this->authenticateFromEnv($username, $password);
+            }
         }
 
         return $this->authenticateFromEnv($username, $password);
@@ -145,6 +150,11 @@ class AuthService
                 return false;
             }
             $_SESSION['auth_time'] = time();
+        }
+
+        if (!$this->refreshDatabaseSession()) {
+            $this->logout();
+            return false;
         }
 
         return true;
@@ -273,25 +283,17 @@ class AuthService
             return null;
         }
 
-        try {
-            if (!$this->userRepository->tableExists() || $this->userRepository->isEmpty()) {
-                return null;
-            }
-
-            $user = $this->userRepository->verifyPassword($username, $password);
-            if ($user === null) {
-                return null;
-            }
-
-            return [
-                'username' => $user->username,
-                'role' => $user->role,
-                'user_id' => $user->id,
-                'from_env' => false,
-            ];
-        } catch (PDOException) {
+        $user = $this->userRepository->verifyPassword($username, $password);
+        if ($user === null) {
             return null;
         }
+
+        return [
+            'username' => $user->username,
+            'role' => $user->role,
+            'user_id' => $user->id,
+            'from_env' => false,
+        ];
     }
 
     /**
@@ -322,5 +324,32 @@ class AuthService
             'user_id' => null,
             'from_env' => true,
         ];
+    }
+
+    private function refreshDatabaseSession(): bool
+    {
+        $userId = $_SESSION[self::SESSION_USER_ID_KEY] ?? null;
+        if ($userId === null) {
+            return true;
+        }
+
+        if ($this->userRepository === null) {
+            return true;
+        }
+
+        try {
+            $user = $this->userRepository->findById((int) $userId);
+        } catch (PDOException) {
+            return false;
+        }
+
+        if ($user === null || !$user->isActive) {
+            return false;
+        }
+
+        $_SESSION[self::SESSION_USER_KEY] = $user->username;
+        $_SESSION[self::SESSION_ROLE_KEY] = $user->role;
+
+        return true;
     }
 }

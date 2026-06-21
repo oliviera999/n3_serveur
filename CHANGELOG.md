@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.1] - 2026-06-21
+
+### Correctif - révocation des comptes et intégrité des mises à jour utilisateurs
+- **Résumé** : les sessions issues de `n3_users` sont revalidées en BDD à chaque requête protégée afin d'appliquer immédiatement une désactivation ou un changement de rôle. Le fallback admin `.env` reste limité au bootstrap (table absente/vide ou BDD indisponible) et ne contourne plus un compte BDD existant avec mot de passe erroné ou désactivé. La mise à jour d'un utilisateur valide désormais le mot de passe optionnel avant de persister rôle/activation.
+
 ## [5.3.0] - 2026-06-19
 
 ### Ajout - Gestionnaire d'utilisateurs multi-comptes
