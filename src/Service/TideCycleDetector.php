@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use App\Domain\TideStatistics;
 use App\Util\ReadingTimeParser;
 
 /**
@@ -154,21 +155,8 @@ class TideCycleDetector
      */
     public function computeFrequencyStats(array $cycleDurations, int $cycles, float $totalHours): array
     {
-        $frequency = ($totalHours > 0 && $cycles > 0) ? $cycles / $totalHours : null;
-
-        $frequencyStddev = null;
-        if (count($cycleDurations) > 1) {
-            $cycleFrequencies = array_map(static function ($duration) {
-                return $duration > 0 ? 1 / $duration : 0;
-            }, $cycleDurations);
-
-            $frequencyStddev = \App\Util\MathUtils::standardDeviation($cycleFrequencies);
-        }
-
-        return [
-            'frequency' => $frequency,
-            'frequencyStddev' => $frequencyStddev,
-        ];
+        // Calcul pur délégué à App\Domain\TideStatistics (même contrat).
+        return TideStatistics::frequencyStats($cycleDurations, $cycles, $totalHours);
     }
 
     /**
@@ -177,12 +165,8 @@ class TideCycleDetector
      */
     public function computeMarnageStats(array $amplitudes): array
     {
-        $cycles = count($amplitudes);
-
-        return [
-            'marnage' => $cycles > 0 ? array_sum($amplitudes) / $cycles : null,
-            'marnageStddev' => $cycles > 1 ? \App\Util\MathUtils::standardDeviation($amplitudes) : null,
-        ];
+        // Calcul pur délégué à App\Domain\TideStatistics (même contrat).
+        return TideStatistics::marnageStats($amplitudes);
     }
 
     /**
@@ -208,17 +192,8 @@ class TideCycleDetector
             $points[] = $zigzag['provisional'];
         }
 
-        $positive = 0.0;
-        $negative = 0.0;
-        $pointCount = count($points);
-        for ($i = 1; $i < $pointCount; $i++) {
-            $delta = $points[$i]['value'] - $points[$i - 1]['value'];
-            if ($delta > 0) {
-                $positive += $delta;
-            } elseif ($delta < 0) {
-                $negative += abs($delta);
-            }
-        }
+        // Agrégation pure des swings déléguée à App\Domain\TideStatistics.
+        $swings = TideStatistics::aggregateSwings($points);
 
         $first = $levels[0];
         $last = $levels[$count - 1];
@@ -228,8 +203,8 @@ class TideCycleDetector
         }
 
         return [
-            'positive' => $positive,
-            'negative' => $negative,
+            'positive' => $swings['positive'],
+            'negative' => $swings['negative'],
             'global' => $global,
         ];
     }

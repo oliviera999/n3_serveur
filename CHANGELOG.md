@@ -11,6 +11,17 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.5] - 2026-06-21
+
+### Maintenabilité - Extraction d'un domaine de calcul de marée testable
+- **`src/Domain/TideStatistics.php`** : nouvelle classe pure (aucune I/O, PDO ni `$_ENV`) regroupant les calculs statistiques sur les cycles de marée : `frequencyStats()` (fréquence + écart-type des fréquences), `marnageStats()` (marnage moyen + écart-type) et `aggregateSwings()` (agrégation positive/négative des deltas entre extrema).
+- **`src/Service/TideCycleDetector.php`** : `computeFrequencyStats()`, `computeMarnageStats()` et la partie agrégation de `computeVariations()` **délèguent** désormais à `TideStatistics`. Aucun changement de comportement : mêmes clés de tableau, mêmes arrondis, signatures publiques inchangées ; l'algorithme zigzag/extrema reste la responsabilité du service.
+- **Tests** : nouveau `tests/Domain/TideStatisticsTest.php` (12 cas, nominaux + limites : tableau vide, durée nulle, point unique, clés non séquentielles). Les tests existants du détecteur restent verts.
+
+### Build - Migration Monolog 2 -> 3
+- **`composer.json` / `composer.lock`** : `monolog/monolog` passe de `^2.9` à `^3` (2.11.0 → 3.10.0).
+- **`src/Service/LogService.php`** (seul consommateur de Monolog) : adaptation à l'API Monolog 3 — `parseLevel()` renvoie l'enum `Monolog\Level` (`Level::Debug/Info/Warning/Error/Critical`) au lieu des constantes int `Logger::*` ; `log()` accepte `int|string|Level`. Comportement strictement conservé (mêmes niveaux mappés, même `LineFormatter`, même fichier et rotation `RotatingFileHandler`/`StreamHandler`). Tests de logging inchangés.
+
 ## [5.3.4] - 2026-06-21
 
 ### Maintenabilité - Activation de l'autowiring PHP-DI et purge des closures DI redondantes
