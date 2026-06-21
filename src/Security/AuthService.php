@@ -5,102 +5,108 @@ declare(strict_types=1);
 namespace App\Security;
 
 use App\Config\Env;
+use App\Domain\User;
+use App\Repository\UserRepository;
+use PDOException;
 
 /**
  * Service d'authentification pour les pages d'administration.
  *
- * Gère l'authentification par session et par token.
- * Les identifiants sont stockés dans les variables d'environnement.
+ * Authentification par session (BDD n3_users + fallback .env temporaire) et par token.
  */
 class AuthService
 {
     private const SESSION_KEY = 'authenticated';
     private const SESSION_USER_KEY = 'auth_user';
+    private const SESSION_USER_ID_KEY = 'auth_user_id';
+    private const SESSION_ROLE_KEY = 'auth_role';
     private const COOKIE_TOKEN_NAME = 'admin_token';
     private const SESSION_TIMEOUT = 7200; // 2 heures
 
-    public function __construct()
-    {
-        // S'assurer que la session est démarrée
+    /** @var array<string, int> */
+    private const ROLE_LEVELS = [
+        User::ROLE_READER => 1,
+        User::ROLE_OPERATOR => 2,
+        User::ROLE_ADMIN => 3,
+    ];
+
+    public function __construct(
+        private ?UserRepository $userRepository = null,
+    ) {
         if (session_status() === PHP_SESSION_NONE) {
-            // Configuration sécurisée de la session
             ini_set('session.cookie_httponly', '1');
-            // SameSite=Lax : protege contre CSRF cross-site tout en gardant la navigation classique.
             ini_set('session.cookie_samesite', 'Lax');
-            // Detection HTTPS : direct (Apache) ou derriere reverse proxy (X-Forwarded-Proto).
             $isHttps = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
                 || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string) $_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
                 || (isset($_SERVER['SERVER_PORT']) && (int) $_SERVER['SERVER_PORT'] === 443);
             if ($isHttps) {
                 ini_set('session.cookie_secure', '1');
             }
-            // Duree d'inactivite : aligne sur self::SESSION_TIMEOUT (2h)
             ini_set('session.gc_maxlifetime', (string) self::SESSION_TIMEOUT);
             session_start();
         }
     }
 
     /**
-     * Authentifie un utilisateur avec un nom d'utilisateur et un mot de passe.
-     *
-     * @param string $username Nom d'utilisateur
-     * @param string $password Mot de passe en clair
-     * @return bool True si l'authentification réussit
+     * @return array{username: string, role: string, user_id: ?int, from_env: bool}|null
      */
+    public function resolveCredentials(string $username, string $password): ?array
+    {
+        $dbResult = $this->authenticateFromDatabase($username, $password);
+        if ($dbResult !== null) {
+            return $dbResult;
+        }
+
+        return $this->authenticateFromEnv($username, $password);
+    }
+
     public function authenticate(string $username, string $password): bool
     {
-        Env::load();
-
-        $expectedUsername = $_ENV['ADMIN_USERNAME'] ?? null;
-        $passwordHash = $_ENV['ADMIN_PASSWORD_HASH'] ?? null;
-
-        if ($expectedUsername === null || $passwordHash === null) {
-            return false;
-        }
-
-        // Vérifier le nom d'utilisateur
-        if ($username !== $expectedUsername) {
-            return false;
-        }
-
-        // Vérifier le mot de passe avec password_verify
-        if (!password_verify($password, $passwordHash)) {
-            return false;
-        }
-
-        return true;
+        return $this->resolveCredentials($username, $password) !== null;
     }
 
     /**
-     * Connecte un utilisateur (démarre une session).
-     *
-     * @param string $username Nom d'utilisateur
-     * @return void
+     * @param array{username: string, role: string, user_id: ?int, from_env: bool} $credentials
      */
-    public function login(string $username): void
+    public function login(array $credentials): void
     {
-        // Régénérer l'ID de session pour éviter la fixation de session
         if (session_status() === PHP_SESSION_ACTIVE) {
             session_regenerate_id(true);
         }
 
         $_SESSION[self::SESSION_KEY] = true;
-        $_SESSION[self::SESSION_USER_KEY] = $username;
+        $_SESSION[self::SESSION_USER_KEY] = $credentials['username'];
+        $_SESSION[self::SESSION_USER_ID_KEY] = $credentials['user_id'];
+        $_SESSION[self::SESSION_ROLE_KEY] = $credentials['role'];
         $_SESSION['auth_time'] = time();
+
+        if ($credentials['user_id'] !== null && $this->userRepository !== null) {
+            try {
+                $this->userRepository->updateLastLogin($credentials['user_id']);
+            } catch (PDOException) {
+                // Ignorer si BDD indisponible
+            }
+        }
     }
 
     /**
-     * Déconnecte l'utilisateur (détruit la session).
-     *
-     * @return void
+     * @deprecated Utiliser login(array $credentials)
      */
+    public function loginLegacy(string $username): void
+    {
+        $this->login([
+            'username' => $username,
+            'role' => User::ROLE_ADMIN,
+            'user_id' => null,
+            'from_env' => true,
+        ]);
+    }
+
     public function logout(): void
     {
         if (session_status() === PHP_SESSION_ACTIVE) {
-            // Détruire toutes les variables de session
             $_SESSION = [];
 
-            // Supprimer le cookie de session
             if (ini_get('session.use_cookies')) {
                 $params = session_get_cookie_params();
                 setcookie(
@@ -114,21 +120,14 @@ class AuthService
                 );
             }
 
-            // Détruire la session
             session_destroy();
         }
 
-        // Supprimer aussi le cookie de token si présent
         if (isset($_COOKIE[self::COOKIE_TOKEN_NAME])) {
             setcookie(self::COOKIE_TOKEN_NAME, '', time() - 3600, '/');
         }
     }
 
-    /**
-     * Vérifie si l'utilisateur est authentifié via session.
-     *
-     * @return bool True si authentifié
-     */
     public function isAuthenticated(): bool
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -139,26 +138,18 @@ class AuthService
             return false;
         }
 
-        // Vérifier le timeout de session
         if (isset($_SESSION['auth_time'])) {
             $elapsed = time() - $_SESSION['auth_time'];
             if ($elapsed > self::SESSION_TIMEOUT) {
                 $this->logout();
                 return false;
             }
-            // Mettre à jour le temps d'authentification pour prolonger la session
             $_SESSION['auth_time'] = time();
         }
 
         return true;
     }
 
-    /**
-     * Vérifie si un token d'authentification est valide.
-     *
-     * @param string|null $token Token à vérifier (peut être null)
-     * @return bool True si le token est valide
-     */
     public function validateToken(?string $token): bool
     {
         if ($token === null) {
@@ -172,26 +163,17 @@ class AuthService
             return false;
         }
 
-        // Comparaison timing-safe
         return hash_equals($expectedToken, $token);
     }
 
-    /**
-     * Vérifie l'authentification par token (cookie ou paramètre URL).
-     *
-     * @param array $queryParams Paramètres de requête (pour token dans URL)
-     * @return bool True si authentifié par token
-     */
     public function isAuthenticatedByToken(array $queryParams = []): bool
     {
-        // Vérifier le token dans le cookie
         if (isset($_COOKIE[self::COOKIE_TOKEN_NAME])) {
             if ($this->validateToken($_COOKIE[self::COOKIE_TOKEN_NAME])) {
                 return true;
             }
         }
 
-        // Vérifier le token dans les paramètres URL (évite de le persister en cookie : fuite Referer/logs)
         if (isset($queryParams['token'])) {
             $token = is_scalar($queryParams['token']) ? (string) $queryParams['token'] : '';
             if ($token !== '' && $this->validateToken($token)) {
@@ -202,9 +184,6 @@ class AuthService
         return false;
     }
 
-    /**
-     * Pose le cookie admin_token après login explicite (session établie).
-     */
     public function setAdminTokenCookie(string $token): void
     {
         if (!$this->validateToken($token)) {
@@ -222,27 +201,126 @@ class AuthService
         ]);
     }
 
-    /**
-     * Retourne le nom d'utilisateur actuellement connecté.
-     *
-     * @return string|null Nom d'utilisateur ou null si non connecté
-     */
     public function getCurrentUser(): ?string
     {
         if (session_status() === PHP_SESSION_ACTIVE && isset($_SESSION[self::SESSION_USER_KEY])) {
-            return $_SESSION[self::SESSION_USER_KEY];
+            return (string) $_SESSION[self::SESSION_USER_KEY];
         }
         return null;
     }
 
-    /**
-     * Génère un hash de mot de passe pour stockage dans .env.
-     *
-     * @param string $password Mot de passe en clair
-     * @return string Hash du mot de passe
-     */
+    public function getCurrentUserId(): ?int
+    {
+        if (session_status() === PHP_SESSION_ACTIVE && isset($_SESSION[self::SESSION_USER_ID_KEY])) {
+            $id = $_SESSION[self::SESSION_USER_ID_KEY];
+            return $id !== null ? (int) $id : null;
+        }
+        return null;
+    }
+
+    public function getCurrentRole(): ?string
+    {
+        if ($this->isAuthenticated()) {
+            return (string) ($_SESSION[self::SESSION_ROLE_KEY] ?? User::ROLE_ADMIN);
+        }
+
+        if ($this->isAuthenticatedByToken($_GET ?? [])) {
+            return User::ROLE_ADMIN;
+        }
+
+        return null;
+    }
+
+    public function hasMinimumRole(string $requiredRole): bool
+    {
+        $currentRole = $this->getCurrentRole();
+        if ($currentRole === null) {
+            return false;
+        }
+
+        $currentLevel = self::ROLE_LEVELS[$currentRole] ?? 0;
+        $requiredLevel = self::ROLE_LEVELS[$requiredRole] ?? 99;
+
+        return $currentLevel >= $requiredLevel;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->hasMinimumRole(User::ROLE_ADMIN);
+    }
+
+    public function canAccessControl(): bool
+    {
+        return $this->hasMinimumRole(User::ROLE_OPERATOR);
+    }
+
+    public function canManageUsers(): bool
+    {
+        return $this->isAdmin();
+    }
+
     public static function hashPassword(string $password): string
     {
         return password_hash($password, PASSWORD_DEFAULT);
+    }
+
+    /**
+     * @return array{username: string, role: string, user_id: ?int, from_env: bool}|null
+     */
+    private function authenticateFromDatabase(string $username, string $password): ?array
+    {
+        if ($this->userRepository === null) {
+            return null;
+        }
+
+        try {
+            if (!$this->userRepository->tableExists() || $this->userRepository->isEmpty()) {
+                return null;
+            }
+
+            $user = $this->userRepository->verifyPassword($username, $password);
+            if ($user === null) {
+                return null;
+            }
+
+            return [
+                'username' => $user->username,
+                'role' => $user->role,
+                'user_id' => $user->id,
+                'from_env' => false,
+            ];
+        } catch (PDOException) {
+            return null;
+        }
+    }
+
+    /**
+     * @return array{username: string, role: string, user_id: ?int, from_env: bool}|null
+     */
+    private function authenticateFromEnv(string $username, string $password): ?array
+    {
+        Env::load();
+
+        $expectedUsername = $_ENV['ADMIN_USERNAME'] ?? null;
+        $passwordHash = $_ENV['ADMIN_PASSWORD_HASH'] ?? null;
+
+        if ($expectedUsername === null || $passwordHash === null) {
+            return null;
+        }
+
+        if ($username !== $expectedUsername) {
+            return null;
+        }
+
+        if (!password_verify($password, $passwordHash)) {
+            return null;
+        }
+
+        return [
+            'username' => $username,
+            'role' => User::ROLE_ADMIN,
+            'user_id' => null,
+            'from_env' => true,
+        ];
     }
 }

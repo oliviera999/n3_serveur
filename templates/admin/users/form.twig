@@ -1,0 +1,114 @@
+{% extends 'layout.twig' %}
+{% set page_family = 'entry' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/admin-users.css" />
+{% endblock %}
+
+{% block content %}
+<article class="admin-users-page">
+    <header class="admin-users-header" data-aos="fade-up">
+        <h1>
+            <i class="fas fa-{{ is_create ? 'user-plus' : 'user-edit' }}" aria-hidden="true"></i>
+            {{ is_create ? 'Nouvel utilisateur' : 'Modifier « ' ~ user.username ~ ' »' }}
+        </h1>
+    </header>
+
+    {% if errors is not empty %}
+    <div class="admin-flash admin-flash-error" data-aos="fade-up">
+        <ul class="error-list">
+            {% for err in errors %}
+            <li>{{ err }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% set fd = form_data %}
+    <form method="POST" action="{{ base_path|default('') }}/admin/users{% if not is_create %}/{{ user.id }}{% endif %}" class="admin-user-form" data-aos="fade-up">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+        {% if is_create %}
+        <div class="form-group">
+            <label for="username">Nom d'utilisateur <span class="required">*</span></label>
+            <input type="text" id="username" name="username" required autocomplete="username"
+                   value="{{ fd.username|default('') }}" pattern="[a-zA-Z0-9_.-]{3,64}"
+                   placeholder="ex. prof.dupont" />
+            <small>3 à 64 caractères : lettres, chiffres, _ . -</small>
+        </div>
+        {% else %}
+        <div class="form-group">
+            <label>Nom d'utilisateur</label>
+            <p class="readonly-field">{{ user.username }}</p>
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="display_name">Nom affiché</label>
+            <input type="text" id="display_name" name="display_name" maxlength="128"
+                   value="{{ fd.display_name|default(user.displayName|default('')) }}"
+                   placeholder="ex. Prof. Dupont" />
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" maxlength="191"
+                   value="{{ fd.email|default(user.email|default('')) }}"
+                   placeholder="ex. dupont@lyautey.ma" />
+        </div>
+
+        <div class="form-group">
+            <label for="role">Rôle <span class="required">*</span></label>
+            <select id="role" name="role" required>
+                {% for r in roles %}
+                <option value="{{ r }}" {% if (fd.role|default(user.role|default('reader'))) == r %}selected{% endif %}>
+                    {{ role_labels[r]|default(r) }}
+                </option>
+                {% endfor %}
+            </select>
+            <small>
+                <strong>Administrateur</strong> : tout + gestion utilisateurs.
+                <strong>Opérateur</strong> : contrôle, supervision, admin technique.
+                <strong>Lecteur</strong> : dashboards et exports uniquement.
+            </small>
+        </div>
+
+        <div class="form-group form-group-checkbox">
+            <label>
+                <input type="checkbox" name="is_active" value="1"
+                    {% if fd.is_active is defined %}
+                        {{ fd.is_active ? 'checked' : '' }}
+                    {% elseif user is null or user.isActive %}
+                        checked
+                    {% endif %}
+                />
+                Compte actif
+            </label>
+        </div>
+
+        <fieldset class="password-fieldset">
+            <legend>{{ is_create ? 'Mot de passe' : 'Changer le mot de passe (optionnel)' }}</legend>
+            <div class="form-group">
+                <label for="password">{{ is_create ? 'Mot de passe' : 'Nouveau mot de passe' }}{% if is_create %} <span class="required">*</span>{% endif %}</label>
+                <input type="password" id="password" name="password" autocomplete="new-password"
+                       {% if is_create %}required minlength="8"{% endif %} />
+                <small>Minimum 8 caractères.</small>
+            </div>
+            <div class="form-group">
+                <label for="password_confirm">Confirmer le mot de passe{% if is_create %} <span class="required">*</span>{% endif %}</label>
+                <input type="password" id="password_confirm" name="password_confirm" autocomplete="new-password"
+                       {% if is_create %}required minlength="8"{% endif %} />
+            </div>
+        </fieldset>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-admin-primary">
+                <i class="fas fa-save"></i> {{ is_create ? 'Créer' : 'Enregistrer' }}
+            </button>
+            <a href="{{ base_path|default('') }}/admin/users" class="btn-admin-secondary">Annuler</a>
+        </div>
+    </form>
+</article>
+{% endblock %}

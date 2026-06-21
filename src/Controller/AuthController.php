@@ -136,8 +136,9 @@ class AuthController
         }
 
         // Authentifier l'utilisateur
-        if ($this->authService->authenticate($username, $password)) {
-            $this->authService->login($username);
+        $credentials = $this->authService->resolveCredentials($username, $password);
+        if ($credentials !== null) {
+            $this->authService->login($credentials);
             $this->recordLoginAttempt(true);
 
             // Rediriger vers la page demandée ou l'accueil

@@ -1,0 +1,281 @@
+.admin-users-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+}
+
+.admin-users-header h1 {
+    font-size: 1.75rem;
+    margin: 0 0 8px;
+    color: var(--accent-color, #008B74);
+}
+
+.admin-users-header p {
+    margin: 0;
+    color: var(--text-muted, #6c757d);
+}
+
+.admin-users-header-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.btn-admin-primary,
+.btn-admin-secondary,
+.btn-admin-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.15s, transform 0.1s;
+}
+
+.btn-admin-primary {
+    background: #008B74;
+    color: #fff;
+}
+.btn-admin-primary:hover {
+    background: #00B794;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.btn-admin-secondary {
+    background: #e9ecef;
+    color: #2c3e50;
+}
+[data-theme="dark"] .btn-admin-secondary {
+    background: var(--bg-card, #2a2a2a);
+    color: var(--text-primary, #eee);
+}
+.btn-admin-secondary:hover {
+    background: #dee2e6;
+    color: #2c3e50;
+}
+
+.btn-admin-sm {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    background: #e9ecef;
+    color: #2c3e50;
+}
+.btn-admin-sm:hover {
+    background: #dee2e6;
+}
+.btn-admin-danger {
+    background: #dc3545;
+    color: #fff;
+}
+.btn-admin-danger:hover {
+    background: #c82333;
+    color: #fff;
+}
+
+.admin-flash {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-weight: 500;
+}
+.admin-flash-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.admin-flash-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+[data-theme="dark"] .admin-flash-success {
+    background: rgba(40, 167, 69, 0.15);
+    color: #7dcea0;
+}
+[data-theme="dark"] .admin-flash-error {
+    background: rgba(220, 53, 69, 0.15);
+    color: #f1948a;
+}
+
+.admin-users-table-wrap {
+    overflow-x: auto;
+    margin-top: 20px;
+    background: var(--card-bg, #fff);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+[data-theme="dark"] .admin-users-table-wrap {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.admin-users-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+.admin-users-table th,
+.admin-users-table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color, #eee);
+}
+.admin-users-table th {
+    background: var(--bg-muted, #f8f9fa);
+    font-weight: 600;
+    white-space: nowrap;
+}
+[data-theme="dark"] .admin-users-table th {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.role-admin { background: #6f42c1; color: #fff; }
+.role-operator { background: #008B74; color: #fff; }
+.role-reader { background: #6c757d; color: #fff; }
+
+.status-active { color: #28a745; }
+.status-inactive { color: #dc3545; }
+
+.actions-cell {
+    white-space: nowrap;
+}
+.inline-delete-form {
+    display: inline;
+    margin-left: 4px;
+}
+
+.empty-row {
+    text-align: center;
+    color: var(--text-muted, #6c757d);
+    padding: 32px !important;
+}
+
+.admin-users-back {
+    margin-top: 24px;
+}
+.admin-users-back a {
+    color: var(--accent-color, #008B74);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.admin-user-form {
+    max-width: 560px;
+    margin-top: 20px;
+    background: var(--card-bg, #fff);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.admin-user-form .form-group {
+    margin-bottom: 18px;
+}
+.admin-user-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.admin-user-form input[type="text"],
+.admin-user-form input[type="email"],
+.admin-user-form input[type="password"],
+.admin-user-form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color, #ced4da);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--input-bg, #fff);
+    color: var(--text-primary, #212529);
+}
+.admin-user-form small {
+    display: block;
+    margin-top: 4px;
+    color: var(--text-muted, #6c757d);
+    font-size: 0.85rem;
+}
+.required { color: #dc3545; }
+
+.readonly-field {
+    margin: 0;
+    padding: 10px 12px;
+    background: var(--bg-muted, #f8f9fa);
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.password-fieldset {
+    border: 1px solid var(--border-color, #dee2e6);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+}
+.password-fieldset legend {
+    font-weight: 600;
+    padding: 0 8px;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.error-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.forbidden-box {
+    max-width: 480px;
+    margin: 48px auto;
+    text-align: center;
+    padding: 40px 32px;
+    background: var(--card-bg, #fff);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+.forbidden-icon {
+    font-size: 3rem;
+    color: #dc3545;
+    margin-bottom: 16px;
+}
+.forbidden-path code {
+    font-size: 0.85rem;
+    word-break: break-all;
+}
+.forbidden-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+    .admin-users-header-row {
+        flex-direction: column;
+    }
+    .admin-users-table {
+        font-size: 0.85rem;
+    }
+    .admin-users-table th,
+    .admin-users-table td {
+        padding: 8px 10px;
+    }
+}

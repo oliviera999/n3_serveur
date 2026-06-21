@@ -57,13 +57,26 @@ class TemplateRenderer
         if ($this->authService !== null) {
             try {
                 $queryParams = $_GET ?? [];
-                $context['is_admin'] = $this->authService->isAuthenticated()
+                $isAuth = $this->authService->isAuthenticated()
                     || $this->authService->isAuthenticatedByToken($queryParams);
+                $context['is_admin'] = $isAuth && $this->authService->canAccessControl();
+                $context['user_role'] = $this->authService->getCurrentRole();
+                $context['can_manage_users'] = $isAuth && $this->authService->canManageUsers();
+                $context['can_access_control'] = $isAuth && $this->authService->canAccessControl();
+                $context['current_username'] = $this->authService->getCurrentUser();
             } catch (\Throwable) {
                 $context['is_admin'] = false;
+                $context['user_role'] = null;
+                $context['can_manage_users'] = false;
+                $context['can_access_control'] = false;
+                $context['current_username'] = null;
             }
         } else {
             $context['is_admin'] = false;
+            $context['user_role'] = null;
+            $context['can_manage_users'] = false;
+            $context['can_access_control'] = false;
+            $context['current_username'] = null;
         }
         if ($this->csrfService !== null) {
             $context['csrf_token'] = $this->csrfService->getToken();

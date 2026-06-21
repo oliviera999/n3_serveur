@@ -413,6 +413,11 @@ require __DIR__ . '/../config/routes_msp1_n3pp.php';
 require __DIR__ . '/../config/routes_gallery.php';
 
 // ====================================================================
+// Routes Administration utilisateurs — config/routes_admin.php
+// ====================================================================
+require __DIR__ . '/../config/routes_admin.php';
+
+// ====================================================================
 // Middleware Slim (routing et erreurs)
 // ====================================================================
 $app->addRoutingMiddleware();

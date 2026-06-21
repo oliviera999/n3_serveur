@@ -1,0 +1,29 @@
+{% extends 'layout.twig' %}
+{% set page_family = 'entry' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/admin-users.css" />
+{% endblock %}
+
+{% block content %}
+<article class="admin-users-page admin-forbidden-page">
+    <div class="forbidden-box" data-aos="zoom-in">
+        <div class="forbidden-icon"><i class="fas fa-ban" aria-hidden="true"></i></div>
+        <h1>Accès refusé</h1>
+        <p>Votre rôle{% if user_role %} ({{ user_role }}){% endif %} ne permet pas d'accéder à cette page.</p>
+        {% if requested_path is defined %}
+        <p class="forbidden-path"><code>{{ requested_path }}</code></p>
+        {% endif %}
+        <div class="forbidden-actions">
+            <a href="{{ base_path|default('') }}/" class="btn-admin-secondary"><i class="fas fa-home"></i> Accueil</a>
+            {% if can_access_control|default(false) %}
+            <a href="{{ base_path|default('') }}/supervision" class="btn-admin-primary"><i class="fas fa-cog"></i> Supervision</a>
+            {% elseif user_role == 'reader' %}
+            <a href="{{ base_path|default('') }}/dashboard" class="btn-admin-primary"><i class="fas fa-chart-line"></i> Dashboard</a>
+            {% endif %}
+        </div>
+    </div>
+</article>
+{% endblock %}

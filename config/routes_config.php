@@ -146,12 +146,36 @@ return [
         '/admin/',
     ],
 
+    // Rôle minimum requis par préfixe de chemin (hiérarchie : reader < operator < admin)
+    'role_requirements' => [
+        'admin' => [
+            '/admin/users',
+        ],
+        'reader' => [
+            '/dashboard',
+            '/dashboard-test',
+            '/dashboard3',
+            '/dashboard3-test',
+            '/dashboard-s3-test',
+            '/tide-stats',
+            '/tide-stats-test',
+            '/tide-stats3',
+            '/tide-stats3-test',
+            '/tide-stats-s3-test',
+            '/export-data',
+            '/export-data-test',
+            '/export-data3',
+            '/export-data3-test',
+            '/export-data-s3-test',
+        ],
+    ],
+
     // Whitelist des assets servis par registerAssetRoute()
     'asset_js' => [
         'back-to-top.js', 'balance-reveal.js', 'breakpoints.min.js', 'browser.min.js',
         'chart-helpers.js', 'chart-updater-generic.js', 'chart-updater.js', 'chartjs-theme.js',
         'control-actions.js', 'control-auto-save.js', 'control-sync.js', 'control-values-updater.js', 'gallery-lightbox.js',
-        'confirm-modal.js',
+        'confirm-modal.js', 'admin-users.js',
         'highstock.js', 'exporting.js', 'export-data.js', 'accessibility.js',
         'highcharts-defaults.js', 'highcharts-theme.js', 'n3-stock-chart-layout.js', 'n3-stock-chart-bootstrap.js', 'aquaponie-chart-layout.js', 'aquaponie-tide-markers.js', 'jquery.min.js', 'jquery.scrollex.min.js',
         'jquery.scrolly.min.js', 'main.js', 'page-nav-toggles.js', 'period-nav.js', 'pwa-init.js',
@@ -162,7 +186,7 @@ return [
     'asset_css' => [
         'aquaponie.css', 'aquaponie-description-styles.css', 'common-data.css', 'control-styles.css',
         'fontawesome.min.css',
-        'gallery-styles.css', 'home-styles.css', 'login-styles.css', 'main.css',
+        'gallery-styles.css', 'home-styles.css', 'login-styles.css', 'main.css', 'admin-users.css',
         'module-description-styles.css', 'msp1-sheet-styles.css', 'noscript.css', 'realtime-styles.css', 'supervision-styles.css',
         'theme-variables.css', 'timelapse-styles.css',
     ],

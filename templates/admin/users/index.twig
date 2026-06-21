@@ -1,0 +1,88 @@
+{% extends 'layout.twig' %}
+{% set page_family = 'entry' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/admin-users.css" />
+{% endblock %}
+
+{% block content %}
+<article class="admin-users-page">
+    <header class="admin-users-header" data-aos="fade-up">
+        <div class="admin-users-header-row">
+            <div>
+                <h1><i class="fas fa-users-cog" aria-hidden="true"></i> Gestion des utilisateurs</h1>
+                <p>Comptes d'accès à l'interface d'administration (rôles admin, opérateur, lecteur).</p>
+            </div>
+            <a href="{{ base_path|default('') }}/admin/users/new" class="btn-admin-primary">
+                <i class="fas fa-user-plus"></i> Nouvel utilisateur
+            </a>
+        </div>
+    </header>
+
+    {% if flash_success %}
+    <div class="admin-flash admin-flash-success" data-aos="fade-up">{{ flash_success }}</div>
+    {% endif %}
+    {% if flash_error %}
+    <div class="admin-flash admin-flash-error" data-aos="fade-up">{{ flash_error }}</div>
+    {% endif %}
+
+    <div class="admin-users-table-wrap" data-aos="fade-up">
+        <table class="admin-users-table">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom affiché</th>
+                    <th>E-mail</th>
+                    <th>Rôle</th>
+                    <th>Actif</th>
+                    <th>Dernière connexion</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+                <tr>
+                    <td><strong>{{ u.username }}</strong></td>
+                    <td>{{ u.displayName|default('—') }}</td>
+                    <td>{{ u.email|default('—') }}</td>
+                    <td><span class="role-badge role-{{ u.role }}">{{ role_labels[u.role]|default(u.role) }}</span></td>
+                    <td>
+                        {% if u.isActive %}
+                        <span class="status-active"><i class="fas fa-check-circle"></i> Oui</span>
+                        {% else %}
+                        <span class="status-inactive"><i class="fas fa-times-circle"></i> Non</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ u.lastLoginAt|default('Jamais') }}</td>
+                    <td class="actions-cell">
+                        <a href="{{ base_path|default('') }}/admin/users/{{ u.id }}/edit" class="btn-admin-sm" title="Modifier">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <form method="POST" action="{{ base_path|default('') }}/admin/users/{{ u.id }}/delete" class="inline-delete-form" data-confirm="Supprimer l'utilisateur « {{ u.username }} » ?">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            <button type="submit" class="btn-admin-sm btn-admin-danger" title="Supprimer">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7" class="empty-row">Aucun utilisateur en base. <a href="{{ base_path|default('') }}/admin/users/new">Créer le premier compte</a>.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <p class="admin-users-back">
+        <a href="{{ base_path|default('') }}/supervision"><i class="fas fa-arrow-left"></i> Retour à la supervision</a>
+    </p>
+</article>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ base_path|default('') }}/assets/js/admin-users.js"></script>
+{% endblock %}

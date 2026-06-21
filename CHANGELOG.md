@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.0] - 2026-06-19
+
+### Ajout - Gestionnaire d'utilisateurs multi-comptes
+- **Résumé** : table `n3_users`, authentification session via BDD (fallback `.env` temporaire), trois rôles (admin, opérateur, lecteur), page `/admin/users` accessible depuis `/supervision`, script `tools/bootstrap-admin-user.php` et migration SQL `tools/sql/migrate-n3-users.sql`.
+
 ## [5.2.9] - 2026-06-19
 
 ### Correctif - switch forçage pompe aquarium (GPIO 117) bloqué à ON

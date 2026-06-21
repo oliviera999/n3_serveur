@@ -224,6 +224,7 @@ function Assert-TokenAuth {
         throw "AdminToken est requis pour les tests token."
     }
     Assert-Status -Url "${BaseUrl}${protectedPath}?token=$AdminToken" -AllowedStatus @(200) -Label "token valid"
+    Assert-Status -Url "${BaseUrl}/admin/users?token=$AdminToken" -AllowedStatus @(200) -Label "admin users token"
 }
 
 function Assert-SessionAuth {
@@ -243,6 +244,7 @@ function Assert-SessionAuth {
         -MaximumRedirection 10 -TimeoutSec $TimeoutSec -UseBasicParsing -ErrorAction Stop | Out-Null
     Write-Host "OK POST /login session (redirections suivies)" -ForegroundColor Green
     Assert-Status -Url "${BaseUrl}${protectedPath}" -AllowedStatus @(200) -WebSession $session -Label "session protected access"
+    Assert-Status -Url "${BaseUrl}/admin/users" -AllowedStatus @(200) -WebSession $session -Label "admin users session"
 }
 
 function Assert-NegativeAuthChecks {

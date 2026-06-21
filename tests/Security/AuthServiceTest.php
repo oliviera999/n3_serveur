@@ -67,17 +67,29 @@ final class AuthServiceTest extends TestCase
     {
         $_ENV['ADMIN_USERNAME'] = 'admin-test';
         $_ENV['ADMIN_PASSWORD_HASH'] = password_hash('s3cret', PASSWORD_DEFAULT);
-        $auth = new AuthService();
+        $auth = new AuthService(null);
 
         $this->assertTrue($auth->authenticate('admin-test', 's3cret'));
         $this->assertFalse($auth->authenticate('admin-test', 'wrong'));
         $this->assertFalse($auth->authenticate('autre', 's3cret'));
     }
 
+    public function testResolveCredentialsFromEnvReturnsAdminRole(): void
+    {
+        $_ENV['ADMIN_USERNAME'] = 'admin-test';
+        $_ENV['ADMIN_PASSWORD_HASH'] = password_hash('s3cret', PASSWORD_DEFAULT);
+        $auth = new AuthService(null);
+
+        $creds = $auth->resolveCredentials('admin-test', 's3cret');
+        $this->assertNotNull($creds);
+        $this->assertSame('admin', $creds['role']);
+        $this->assertTrue($creds['from_env']);
+    }
+
     public function testAuthenticateFailsWhenEnvIncomplete(): void
     {
         unset($_ENV['ADMIN_USERNAME'], $_ENV['ADMIN_PASSWORD_HASH']);
-        $auth = new AuthService();
+        $auth = new AuthService(null);
 
         $this->assertFalse($auth->authenticate('any', 'any'));
     }
@@ -85,7 +97,7 @@ final class AuthServiceTest extends TestCase
     public function testValidateTokenTimingSafe(): void
     {
         $_ENV['ADMIN_TOKEN'] = 'super-secret-token-abc';
-        $auth = new AuthService();
+        $auth = new AuthService(null);
 
         $this->assertTrue($auth->validateToken('super-secret-token-abc'));
         $this->assertFalse($auth->validateToken('super-secret-token-xyz'));
@@ -96,14 +108,14 @@ final class AuthServiceTest extends TestCase
     public function testValidateTokenFailsWhenEnvMissing(): void
     {
         unset($_ENV['ADMIN_TOKEN']);
-        $auth = new AuthService();
+        $auth = new AuthService(null);
         $this->assertFalse($auth->validateToken('whatever'));
     }
 
     public function testIsAuthenticatedByTokenFromQueryParam(): void
     {
         $_ENV['ADMIN_TOKEN'] = 'super-secret-token-abc';
-        $auth = new AuthService();
+        $auth = new AuthService(null);
 
         $this->assertTrue($auth->isAuthenticatedByToken(['token' => 'super-secret-token-abc']));
         $this->assertFalse($auth->isAuthenticatedByToken(['token' => 'wrong']));

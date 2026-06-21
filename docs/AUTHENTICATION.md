@@ -210,6 +210,30 @@ Si vous migrez depuis une version sans authentification :
 4. Testez l'accès aux pages protégées
 5. Les endpoints ESP32 (`/post-data`, `/heartbeat`) continuent de fonctionner sans changement (ils utilisent déjà HMAC/API_KEY)
 
+## Gestion des utilisateurs (multi-comptes)
+
+Depuis la version 5.3.0, les comptes d'administration peuvent être gérés en base de données (table `n3_users`) via `/admin/users`, accessible depuis la page `/supervision` (section Administration, réservée aux administrateurs).
+
+### Rôles
+
+| Rôle | Accès |
+|------|-------|
+| **admin** | Tout, y compris gestion des utilisateurs (`/admin/users`) |
+| **operator** | Contrôle distant, supervision, administration technique (cache, galeries…) |
+| **reader** | Dashboards, statistiques marées, exports de données uniquement |
+
+### Migration production
+
+1. Exécuter `tools/sql/migrate-n3-users.sql` sur la BDD
+2. Exécuter `php tools/bootstrap-admin-user.php` (crée le premier admin depuis `.env` si la table est vide)
+3. Se connecter et créer les comptes opérateur/lecteur via l'interface
+4. Le fallback `.env` (`ADMIN_USERNAME` / `ADMIN_PASSWORD_HASH`) reste actif temporairement si la BDD est vide ou en cas d'échec — à retirer une fois tous les comptes migrés
+
+### Authentification
+
+- **Session** : recherche en BDD en priorité, puis fallback `.env`
+- **Token** (`ADMIN_TOKEN`) : équivalent rôle **admin** (comportement inchangé)
+
 ## Support
 
 Pour toute question ou problème, consultez :

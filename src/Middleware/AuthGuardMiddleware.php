@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace App\Middleware;
 
 use App\Security\AuthService;
+use App\Security\RoleAccessService;
+use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 
 /**
- * Encapsule la logique d'authentification globale (session/token/both).
+ * Encapsule la logique d'authentification globale (session/token/both) et contrôle des rôles.
  */
 class AuthGuardMiddleware
 {
@@ -18,6 +20,8 @@ class AuthGuardMiddleware
         private AuthService $authService,
         private AuthMiddleware $authMiddleware,
         private TokenAuthMiddleware $tokenAuthMiddleware,
+        private ?RoleAccessService $roleAccessService = null,
+        private ?TemplateRenderer $templateRenderer = null,
     ) {
     }
 
@@ -27,17 +31,17 @@ class AuthGuardMiddleware
             return $handler->handle($request);
         }
         if ($authMethod === 'session') {
-            return $this->authMiddleware->process($request, $handler);
+            return $this->processWithRoleCheck($request, $handler);
         }
         if ($authMethod === 'token') {
             return $this->tokenAuthMiddleware->process($request, $handler);
         }
         if ($authMethod === 'both') {
             if ($this->authService->isAuthenticated()) {
-                return $handler->handle($request);
+                return $this->processWithRoleCheck($request, $handler);
             }
             if ($this->authService->isAuthenticatedByToken($request->getQueryParams())) {
-                return $handler->handle($request);
+                return $this->processWithRoleCheck($request, $handler);
             }
             return $this->authMiddleware->process($request, $handler);
         }
@@ -45,8 +49,6 @@ class AuthGuardMiddleware
     }
 
     /**
-     * Protège les chemins déclarés dans routes_config.php.
-     *
      * @param array<string, mixed> $routesConfig
      */
     public function processProtectedPaths(
@@ -75,11 +77,32 @@ class AuthGuardMiddleware
             $isAuthenticated = $this->authService->isAuthenticatedByToken($request->getQueryParams());
         }
 
-        if ($isAuthenticated) {
-            return $handler->handle($request);
+        if (!$isAuthenticated) {
+            return $this->buildLoginRedirectResponse($path);
         }
 
-        return $this->buildLoginRedirectResponse($path);
+        if (!$this->hasRoleAccess($path)) {
+            return $this->buildForbiddenResponse($path);
+        }
+
+        return $handler->handle($request);
+    }
+
+    private function processWithRoleCheck(Request $request, RequestHandler $handler): Response
+    {
+        $path = $request->getUri()->getPath();
+        if (!$this->hasRoleAccess($path)) {
+            return $this->buildForbiddenResponse($path);
+        }
+        return $handler->handle($request);
+    }
+
+    private function hasRoleAccess(string $path): bool
+    {
+        if ($this->roleAccessService === null) {
+            return true;
+        }
+        return $this->roleAccessService->hasAccess($path, $this->authService->getCurrentRole());
     }
 
     /**
@@ -123,6 +146,24 @@ class AuthGuardMiddleware
         return $response
             ->withStatus(302)
             ->withHeader('Location', $redirectUrl);
+    }
+
+    private function buildForbiddenResponse(string $path): Response
+    {
+        $response = new \Slim\Psr7\Response();
+        if ($this->templateRenderer !== null) {
+            $html = $this->templateRenderer->render('admin/forbidden.twig', [
+                'page_title' => 'Accès refusé - n3 iot datas',
+                'nav_active' => 'supervision',
+                'requested_path' => $path,
+                'user_role' => $this->authService->getCurrentRole(),
+            ]);
+            $response->getBody()->write($html);
+            return $response->withStatus(403)->withHeader('Content-Type', 'text/html; charset=utf-8');
+        }
+
+        $response->getBody()->write('<h1>403 — Accès refusé</h1><p>Votre rôle ne permet pas d\'accéder à cette page.</p>');
+        return $response->withStatus(403)->withHeader('Content-Type', 'text/html; charset=utf-8');
     }
 
     private static function resolveBasePath(): string

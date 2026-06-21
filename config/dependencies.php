@@ -13,6 +13,7 @@ use App\Repository\OutputRepository;
 use App\Repository\PglRepository;
 use App\Repository\SensorReadRepository;
 use App\Repository\SensorRepository;
+use App\Repository\UserRepository;
 use App\Security\AuthService;
 use App\Security\CsrfService;
 use App\Service\ChartDataService;
@@ -186,8 +187,24 @@ return [
         return new CsrfService();
     },
 
+    UserRepository::class => function (ContainerInterface $c) {
+        return new UserRepository($c->get(PDO::class));
+    },
+
+    \App\Service\UserService::class => function (ContainerInterface $c) {
+        return new \App\Service\UserService(
+            $c->get(UserRepository::class)
+        );
+    },
+
+    \App\Security\RoleAccessService::class => function (ContainerInterface $c) {
+        $routesConfigPath = __DIR__ . '/routes_config.php';
+        $routesConfig = is_file($routesConfigPath) ? require $routesConfigPath : [];
+        return new \App\Security\RoleAccessService($routesConfig);
+    },
+
     AuthService::class => function (ContainerInterface $c) {
-        return new AuthService();
+        return new AuthService($c->get(UserRepository::class));
     },
 
     \App\Security\RateLimiter::class => function (ContainerInterface $c) {
@@ -388,7 +405,18 @@ return [
         return new \App\Middleware\AuthGuardMiddleware(
             $c->get(\App\Security\AuthService::class),
             $c->get(\App\Middleware\AuthMiddleware::class),
-            $c->get(\App\Middleware\TokenAuthMiddleware::class)
+            $c->get(\App\Middleware\TokenAuthMiddleware::class),
+            $c->get(\App\Security\RoleAccessService::class),
+            $c->get(\App\Service\TemplateRenderer::class)
+        );
+    },
+
+    \App\Controller\Admin\UserAdminController::class => function (ContainerInterface $c) {
+        return new \App\Controller\Admin\UserAdminController(
+            $c->get(\App\Service\UserService::class),
+            $c->get(\App\Service\TemplateRenderer::class),
+            $c->get(\App\Security\AuthService::class),
+            $c->get(\App\Security\CsrfService::class)
         );
     },
 
