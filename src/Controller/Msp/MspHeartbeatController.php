@@ -5,11 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Msp;
 
 use App\Config\TableConfig;
-use App\Controller\Concerns\LegacyHeartbeatHandler;
-use App\Service\LogService;
-use PDO;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use App\Controller\AbstractHeartbeatController;
 
 /**
  * Heartbeat firmware msp (station meteo, board=2).
@@ -17,24 +13,20 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  * Route prod : POST /msp1/heartbeat
  * Route test : POST /msp1-test/heartbeat
  */
-class MspHeartbeatController
+class MspHeartbeatController extends AbstractHeartbeatController
 {
-    private const ALLOWED_TABLES = ['msp1Heartbeat', 'msp1HeartbeatTest'];
-
-    private LegacyHeartbeatHandler $handler;
-
-    public function __construct(LogService $logger, PDO $pdo)
+    protected function componentName(): string
     {
-        $this->handler = new LegacyHeartbeatHandler(
-            logger: $logger,
-            pdo: $pdo,
-            componentName: 'MspHeartbeat',
-            allowedTables: self::ALLOWED_TABLES,
-        );
+        return 'MspHeartbeat';
     }
 
-    public function handle(Request $request, Response $response): Response
+    protected function allowedTables(): array
     {
-        return $this->handler->handle($request, $response, TableConfig::getMspHeartbeatTable());
+        return ['msp1Heartbeat', 'msp1HeartbeatTest'];
+    }
+
+    protected function targetTable(): string
+    {
+        return TableConfig::getMspHeartbeatTable();
     }
 }
