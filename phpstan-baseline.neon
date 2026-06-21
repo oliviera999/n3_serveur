@@ -3,6 +3,18 @@ parameters:
 		-
 			message: '#^Variable \$app might not be defined\.$#'
 			identifier: variable.undefined
+			count: 1
+			path: config/routes_admin.php
+
+		-
+			message: '#^Variable \$applyAuth might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: config/routes_admin.php
+
+		-
+			message: '#^Variable \$app might not be defined\.$#'
+			identifier: variable.undefined
 			count: 23
 			path: config/routes_ffp3.php
 
@@ -141,12 +153,6 @@ parameters:
 		-
 			message: '#^Right side of && is always true\.$#'
 			identifier: booleanAnd.rightAlwaysTrue
-			count: 1
-			path: src/Controller/Pgl/PglStatsController.php
-
-		-
-			message: '#^Ternary operator condition is always true\.$#'
-			identifier: ternary.alwaysTrue
 			count: 1
 			path: src/Controller/Pgl/PglStatsController.php
 
