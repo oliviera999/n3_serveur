@@ -142,4 +142,3 @@ final class PglRealtimeDataProviderTest extends TestCase
         $this->assertGreaterThan(0, $health['module_uptime_seconds']);
     }
 }
-
