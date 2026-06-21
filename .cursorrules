@@ -2,7 +2,11 @@
 
 ## 🎯 Vue d'ensemble du projet
 
-Application PHP 8+ de supervision d'un système d'aquaponie avec ESP32, utilisant Slim 4, Twig et Monolog.
+Application PHP 8+ de supervision de systèmes IoT (aquaponie, serre/élevage, station météo)
+basés sur ESP32, utilisant Slim 4, Twig et Monolog.
+
+> ℹ️ Le projet ne gère pas qu'un seul système : il agrège plusieurs familles
+> d'appareils (voir section « Environnements et Tables »).
 
 ## 🏗️ Architecture
 
@@ -10,34 +14,64 @@ Application PHP 8+ de supervision d'un système d'aquaponie avec ESP32, utilisan
 - **Framework**: Slim 4 (routing, middleware)
 - **Template**: Twig (Bootstrap 5)
 - **Logs**: Monolog
-- **Tests**: PHPUnit
+- **Tests**: PHPUnit (+ PHPStan, php-cs-fixer)
 - **Base de données**: MySQL/MariaDB avec PDO
 - **Dépendances**: Gérées via Composer
 
 ### Structure des dossiers
 ```
-├── public/              # Front-controller Slim (point d'entrée)
+├── public/              # Front-controller Slim (point d'entrée web)
 ├── src/
-│   ├── Config/          # Configuration (.env, PDO, TableConfig)
+│   ├── Config/          # Configuration (Env, Database PDO, TableConfig, Version, GpioMap…)
 │   ├── Controller/      # Endpoints HTTP (callbacks Slim)
 │   ├── Domain/          # DTO métier (ex: SensorData)
+│   ├── Middleware/      # Middlewares Slim (ex: bascule d'environnement par requête)
 │   ├── Repository/      # Accès base de données (PDO)
-│   ├── Service/         # Services métier (logs, stats, pompes, notifications)
-│   └── Command/         # Jobs CRON
+│   ├── Security/        # Authentification, CSRF, rate-limiting, signature HMAC
+│   ├── Service/         # Services métier (logs, stats, pompes, notifications…)
+│   │   └── Realtime/    # Services temps réel (live mode)
+│   ├── Util/            # Utilitaires transverses
+│   └── Command/         # Jobs CRON (CronOrchestrator + sous-commandes)
 ├── templates/           # Vues Twig
-└── tests/              # Tests unitaires PHPUnit
+├── migrations/          # Migrations SQL
+├── docs/                # Documentation technique (voir index ci-dessous)
+├── VERSION              # Version SemVer du projet (lue par App\Config\Version)
+├── CHANGELOG.md         # Journal des modifications
+└── tests/               # Tests unitaires et d'intégration PHPUnit
 ```
 
 ## 🗄️ Environnements et Tables
 
-### Environnements
-- **PRODUCTION**: Tables `ffp3Data` et `ffp3Outputs`
-- **TEST**: Tables `ffp3Data2` et `ffp3Outputs2`
+### Familles d'appareils
+Le projet supervise **3 familles d'appareils**, chacune avec ses tables :
+- **FFP3** (aquaponie) : `ffp3Data`, `ffp3Outputs`, `ffp3Heartbeat`
+- **N3PP** (serre / élevage) : `n3ppData`, `n3ppOutputs`, `n3ppHeartbeat`
+- **MSP1** (station météo) : `msp1Data`, `msp1Outputs`, `msp1Heartbeat`
+
+### Environnements (`ENV`)
+La constante `TableConfig::ENVIRONMENTS` définit les valeurs valides :
+`prod`, `test`, `test3`, `s3`, `s3test`, `n3pp_test`, `msp_test`.
+
+Exemple pour FFP3 (suffixes de table selon l'environnement) :
+| ENV       | Table données   | Type      |
+|-----------|-----------------|-----------|
+| `prod`    | `ffp3Data`      | PRODUCTION|
+| `test`    | `ffp3Data2`     | TEST      |
+| `test3`   | `ffp3Data3`     | TEST      |
+| `s3`      | `ffp3DataS3`    | PRODUCTION (S3) |
+| `s3test`  | `ffp3DataS3Test`| TEST      |
+
+> ⚠️ `s3` est un environnement de **production** (`isTest()` renvoie `false`).
 
 ### Configuration via .env
-- Variable `ENV=prod` ou `ENV=test` détermine l'environnement par défaut
-- **TOUJOURS** utiliser `TableConfig::getEnvironment()` et `TableConfig::getDataTable()` pour accéder aux bonnes tables
-- Ne JAMAIS coder en dur les noms de tables
+- La variable `ENV` détermine l'environnement **par défaut** (défaut : `prod`).
+- **TOUJOURS** passer par `TableConfig` pour obtenir un nom de table — ne JAMAIS le coder en dur :
+  - `TableConfig::getEnvironment()` / `TableConfig::isTest()`
+  - `TableConfig::getDataTable()` / `getOutputsTable()` / `getHeartbeatTable()`
+  - N3PP : `getN3ppDataTable()` / `getN3ppOutputsTable()` / `getN3ppHeartbeatTable()`
+  - MSP1 : `getMspDataTable()` / `getMspOutputsTable()` / `getMspHeartbeatTable()`
+- La bascule d'environnement **par requête** se fait via le middleware dédié
+  (`TableConfig::setEnvironment()` / `resetRequestEnvironment()`) — ne mute pas `$_ENV`.
 
 ### Routes
 - Routes PROD: `/aquaponie`, `/dashboard`, `/post-data`, etc.
@@ -51,13 +85,21 @@ Application PHP 8+ de supervision d'un système d'aquaponie avec ESP32, utilisan
 - Le timezone est configuré automatiquement par `Env::load()`
 - **Ne JAMAIS** appeler `date_default_timezone_set()` manuellement dans les contrôleurs
 - Highcharts dans les templates Twig doit utiliser moment-timezone avec Europe/Paris
+- Doc de référence : `docs/TIMEZONE_MANAGEMENT.md`
 
 ## 🔒 Sécurité
 
 ### API POST `/post-data`
 - Authentification par `api_key` (legacy) ET/OU signature HMAC-SHA256
 - Variables `.env`: `API_KEY`, `API_SIG_SECRET`, `SIG_VALID_WINDOW`
-- Validation via `SignatureValidator` service
+- Validation via `App\Security\SignatureValidator` (+ `Ffp3HmacPostBody` pour le corps signé)
+- Clé par appareil : `App\Security\DeviceApiKeyValidator`
+
+### Autres briques de sécurité (`src/Security/`)
+- `AuthService` : authentification des utilisateurs (sessions)
+- `CsrfService` : protection CSRF des formulaires
+- `RateLimiter` : limitation de débit
+- Doc de référence : `docs/AUTHENTICATION.md`, `docs/SECURITE_ROTATION_API_KEY.md`
 
 ### Fichier .env
 - ⚠️ **IMPORTANT**: Le `.env` n'est **PAS** versionné dans Git (il est gitignored, voir `.gitignore`) — seuls les modèles `.env.example` / `.env.docker.example` sont versionnés
@@ -67,14 +109,17 @@ Application PHP 8+ de supervision d'un système d'aquaponie avec ESP32, utilisan
 
 ### PHP
 - Version minimale: PHP 8.1
-- PSR-4 autoloading via Composer
+- `declare(strict_types=1);` en tête de chaque fichier
+- Namespace racine : `App\` (PSR-4, voir `composer.json`)
 - Utiliser le type hinting strict
-- Préférer les méthodes statiques pour les services utilitaires
+- Préférer les méthodes statiques pour les services utilitaires/config
+- Respecter `.php-cs-fixer.php` et `phpstan.neon` (analyse statique)
 
 ### Base de données
 - Utiliser PDO avec prepared statements
 - Les repositories encapsulent l'accès aux données
 - Pas d'ORM, requêtes SQL directes pour la performance
+- Connexion unique via `App\Config\Database::getConnection()`
 
 ### Gestion des erreurs
 - Logs via Monolog dans `cronlog.txt` (ou `LOG_FILE_PATH` du .env)
@@ -85,12 +130,14 @@ Application PHP 8+ de supervision d'un système d'aquaponie avec ESP32, utilisan
 ### Installation
 ```bash
 composer install --no-dev   # Production
-composer install            # Développement (avec PHPUnit)
+composer install            # Développement (avec PHPUnit, PHPStan, cs-fixer)
 ```
 
-### Tests
+### Qualité & tests
 ```bash
-./vendor/bin/phpunit
+./vendor/bin/phpunit                 # Tests
+./vendor/bin/phpstan analyse         # Analyse statique
+./vendor/bin/php-cs-fixer fix        # Formatage
 ```
 
 ### Serveur de développement
@@ -100,43 +147,52 @@ php -S localhost:8080 -t public
 
 ## 🤖 Tâches CRON
 
-- **Point d'entrée unique** : `run-cron.php` (CLI) → `CronOrchestrator`
+- **Point d'entrée unique** : `run-cron.php` (CLI) → `App\Command\CronOrchestrator`
 - **Fréquence crontab** : toutes les 5 min (`*/5 * * * * php run-cron.php`)
 - **Cadences internes** : tâches fréquentes à chaque run ; tâches horaires (online, réservoir) selon `CRON_HOURLY_INTERVAL_SECONDS` (défaut 3600 s)
-- **Sous-commande** : `RestartPumpCommand` (redémarrage pompe aqua différé 5 min)
+- **Sous-commande** : `App\Command\RestartPumpCommand` (redémarrage pompe aqua différé 5 min)
 - Verrouillage global par `flock` (`cron_orchestrator.lock`)
 - Doc : `docs/deployment/CRON.md`
-- Déploiement séparé : cron `git pull` + hook `post-merge` (voir règle git-et-versionnement)
+- Déploiement séparé : cron `git pull` + hook `post-merge` (voir `docs/deployment/INSTALL_HOOKS.md`)
 
 ## 📊 Services métier importants
 
-- `SensorStatisticsService`: Calculs statistiques sur les capteurs
+- `SensorStatisticsService` / `StatisticsAggregatorService`: Calculs statistiques capteurs
+- `SensorDataService` / `ChartDataService`: Données capteurs & séries pour les graphiques
 - `PumpService`: Contrôle GPIO des pompes (aqua, tank)
+- `WaterBalanceService` / `TideAnalysisService` / `TideCycleDetector`: Analyses hydrauliques
 - `NotificationService`: Envoi d'emails d'alerte
+- `ErrorAlertService`: Alertes d'erreurs serveur
 - `LogService`: Centralisation des logs Monolog
+- `OutputService` / `OutputCacheService` / `OutputSyncService`: Gestion des sorties/relais
+- `GalleryTrashService`: Gestion de la galerie photos
 
 ## 🚫 À NE PAS FAIRE
 
-1. ❌ Ne JAMAIS coder en dur les noms de tables (`ffp3Data`, `ffp3Data2`) → utiliser `TableConfig`
+1. ❌ Ne JAMAIS coder en dur les noms de tables (`ffp3Data`, `ffp3Data2`, `n3ppData`, `msp1Data`…) → utiliser `TableConfig`
 2. ❌ Ne JAMAIS appeler `date_default_timezone_set()` dans les contrôleurs → timezone centralisé
 3. ❌ Ne PAS utiliser `mail()` directement → utiliser `NotificationService`
 4. ❌ Ne PAS créer de nouvelles connexions PDO manuelles → utiliser `Database::getConnection()`
 5. ❌ Ne PAS ignorer la validation de signature pour les endpoints POST d'API
-6. ❌ Ne JAMAIS oublier d'incrémenter la version après chaque modification significative → mettre à jour `ffp3datas/VERSION` et `CHANGELOG.md`
+6. ❌ Ne PAS muter `$_ENV['ENV']` pour changer d'environnement → utiliser `TableConfig::setEnvironment()`
+7. ❌ Ne JAMAIS oublier d'incrémenter la version après chaque modification significative → mettre à jour `VERSION` et `CHANGELOG.md` (à la racine)
 
 ## 📚 Documentation de référence
 
 - `README.md`: Documentation principale et roadmap
-- `RESUME_MODIFICATIONS.md`: Historique de l'unification timezone
-- `ENVIRONNEMENT_TEST.md`: Guide détaillé des environnements PROD/TEST
-- `TIMEZONE_UNIFICATION.md`: Documentation technique timezone (si existe)
+- `CHANGELOG.md`: Journal des modifications (racine)
+- `docs/README.md`: Index de la documentation technique
+- `docs/TIMEZONE_MANAGEMENT.md`: Documentation technique du fuseau horaire
+- `docs/AUTHENTICATION.md`: Authentification & sécurité
+- `docs/ENDPOINTS_ESP32_SERVEUR.md`: Contrats d'API des ESP32
+- `docs/deployment/DEPLOYMENT_GUIDE.md` & `docs/deployment/CRON.md`: Déploiement & CRON
 
 ## 🎯 Workflow recommandé
 
-1. Développer et tester sur l'environnement TEST (`/aquaponie-test`, tables `*2`)
-2. **Incrémenter la version** dans `ffp3datas/VERSION` et documenter dans `CHANGELOG.md`
-3. Valider les modifications (tests unitaires, vérification graphiques, vérification affichage version)
-4. Déployer en PROD (les routes et code sont déjà partagés)
+1. Développer et tester sur un environnement de TEST (`/aquaponie-test`, tables `*2`)
+2. **Incrémenter la version** dans `VERSION` et documenter dans `CHANGELOG.md`
+3. Valider les modifications (tests unitaires, PHPStan, vérification graphiques, affichage version)
+4. Déployer en PROD (les routes et le code sont déjà partagés)
 
 ---
 
@@ -154,6 +210,7 @@ php -S localhost:8080 -t public
 - Vérifier si les utilisateurs s'attendent à voir l'heure de Casablanca
 - Les ESP32 doivent envoyer des timestamps cohérents avec cette configuration
 - En cas de modification de timezone, penser à mettre à jour Highcharts (moment-timezone)
+- Détails et historique : `docs/TIMEZONE_MANAGEMENT.md`
 
 ### 📌 Versionnage du projet
 
@@ -161,17 +218,19 @@ php -S localhost:8080 -t public
 
 À chaque modification du code (ajout de fonctionnalité, correction de bug, amélioration) :
 
-1. **Incrémenter IMMÉDIATEMENT la version** dans `ffp3datas/VERSION` selon Semantic Versioning (MAJOR.MINOR.PATCH)
+1. **Incrémenter IMMÉDIATEMENT la version** dans `VERSION` (racine) selon Semantic Versioning (MAJOR.MINOR.PATCH)
    - MAJOR (x.0.0) : Changements incompatibles avec les versions précédentes (breaking changes)
    - MINOR (0.x.0) : Ajout de fonctionnalités rétrocompatibles (nouvelles features)
    - PATCH (0.0.x) : Corrections de bugs et améliorations mineures
 
-2. **Documenter la modification** dans `ffp3datas/CHANGELOG.md` avec :
+2. **Documenter la modification** dans `CHANGELOG.md` (racine) avec :
    - Le numéro de version
    - La date
    - La description claire de la modification
 
-3. **Vérifier l'affichage** : La version doit être visible sur toutes les pages web (header, footer ou coin de page)
+3. **Vérifier l'affichage** : La version doit être visible sur toutes les pages web (header, footer ou coin de page).
+   La version est exposée par la classe `App\Config\Version` (`Version::get()`, `getWithPrefix()`, `getFullName()`),
+   qui lit le fichier `VERSION` à la racine — **ne pas coder la version en dur** dans les templates.
 
 **Processus à suivre** :
 ```
@@ -187,4 +246,3 @@ Modification du code → Incrémenter VERSION → Mettre à jour CHANGELOG.md �
 **⚠️ NE PAS oublier** : L'incrémentation de version fait partie intégrante de chaque modification, pas une étape optionnelle !
 
 <!-- Ajoutez d'autres règles personnalisées ci-dessous -->
-
