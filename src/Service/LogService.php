@@ -7,7 +7,6 @@ namespace App\Service;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
-use Monolog\Level;
 use Monolog\Logger;
 
 /**
@@ -55,15 +54,25 @@ class LogService
         $this->logger->pushHandler($handler);
     }
 
-    private function parseLevel(string $level): Level
+    /**
+     * Convertit un nom de niveau en entier Monolog.
+     *
+     * Utilise les constantes entières de `Monolog\Logger` (Logger::DEBUG, …)
+     * plutôt que l'enum `Monolog\Level` : ces constantes existent dans Monolog 2
+     * ET 3, ce qui rend le service tolérant à un `vendor/` déployé sur une version
+     * antérieure (l'enum `Level` n'existe qu'à partir de Monolog 3).
+     *
+     * @return Logger::DEBUG|Logger::INFO|Logger::WARNING|Logger::ERROR|Logger::CRITICAL Niveau Monolog
+     */
+    private function parseLevel(string $level): int
     {
         return match (strtoupper($level)) {
-            'DEBUG' => Level::Debug,
-            'INFO' => Level::Info,
-            'WARNING', 'WARN' => Level::Warning,
-            'ERROR' => Level::Error,
-            'CRITICAL', 'FATAL' => Level::Critical,
-            default => Level::Debug,
+            'DEBUG' => Logger::DEBUG,
+            'INFO' => Logger::INFO,
+            'WARNING', 'WARN' => Logger::WARNING,
+            'ERROR' => Logger::ERROR,
+            'CRITICAL', 'FATAL' => Logger::CRITICAL,
+            default => Logger::DEBUG,
         };
     }
 
@@ -93,11 +102,11 @@ class LogService
     /**
      * Ajoute une entrée de log à un niveau donné (privé, utilisé par les méthodes publiques).
      *
-     * @param int|string|Level $level   Niveau Monolog (enum Level, constante ou nom, ex : Level::Info)
-     * @param string           $message Message à enregistrer (peut contenir des {placeholders})
-     * @param array            $context Variables à injecter dans le message
+     * @param int|string $level   Niveau Monolog (constante entière Logger::* ou nom, ex : Logger::INFO)
+     * @param string     $message Message à enregistrer (peut contenir des {placeholders})
+     * @param array      $context Variables à injecter dans le message
      */
-    private function log(int|string|Level $level, string $message, array $context = []): void
+    private function log(int|string $level, string $message, array $context = []): void
     {
         // Masquer les IP du contexte si LOG_MASK_IP est actif
         if ($this->maskIp) {
@@ -150,18 +159,18 @@ class LogService
     // Méthodes niveau PSR-3 – garde API existante
     public function info(string $message, array $context = []): void
     {
-        $this->log(Level::Info, $message, $context);
+        $this->log(Logger::INFO, $message, $context);
     }
     public function warning(string $message, array $context = []): void
     {
-        $this->log(Level::Warning, $message, $context);
+        $this->log(Logger::WARNING, $message, $context);
     }
     public function error(string $message, array $context = []): void
     {
-        $this->log(Level::Error, $message, $context);
+        $this->log(Logger::ERROR, $message, $context);
     }
     public function critical(string $message, array $context = []): void
     {
-        $this->log(Level::Critical, $message, $context);
+        $this->log(Logger::CRITICAL, $message, $context);
     }
 }

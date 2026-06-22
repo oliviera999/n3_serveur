@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.6] - 2026-06-22
+
+### Correction - `LogService` compatible Monolog 2 et 3 (fatal `Class "Monolog\Level" not found`)
+- **`src/Service/LogService.php`** : suppression de la dépendance directe à l'enum `Monolog\Level` (introduit seulement par Monolog 3). `parseLevel()` renvoie désormais un `int` basé sur les constantes `Monolog\Logger::DEBUG|INFO|WARNING|ERROR|CRITICAL`, présentes **à la fois dans Monolog 2 et 3** ; les méthodes `info()/warning()/error()/critical()` et la signature `log(int|string $level, …)` suivent. Comportement de log inchangé (mêmes niveaux, même format).
+- **Contexte** : en production le `vendor/` déployé contenait encore Monolog 2, où la classe `Monolog\Level` n'existe pas, ce qui provoquait un `Fatal error: Uncaught Error: Class "Monolog\Level" not found` à l'instanciation de `LogService` (front-controller cassé). Le service est maintenant tolérant à la version de Monolog effectivement installée. ⚠️ Penser tout de même à `composer install` sur le serveur pour aligner `vendor/` sur `composer.lock` (Monolog 3.10).
+
 ## [5.3.5] - 2026-06-21
 
 ### Maintenabilité - Extraction d'un domaine de calcul de marée testable
