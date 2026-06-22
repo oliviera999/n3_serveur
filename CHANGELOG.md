@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.7] - 2026-06-22
+
+### Correctif - Bilan hydrique aquaponie
+- **`WaterBalanceService`** : corrige l'interprétation des distances capteur -> surface pour la réserve et l'aquarium. Une distance qui augmente signifie que l'eau descend (consommation) ; une distance qui diminue signifie que l'eau monte (ravitaillement). Les cartes "Consommation", "Ravitaillement" et "Bilan net" n'inversent plus les signes.
+- **Tests** : ajout d'une régression `testConsumptionFollowsDistanceSemantics` couvrant consommation réserve, ravitaillement réserve, bilan net et consommation moyenne aquarium.
+
 ## [5.3.6] - 2026-06-22
 
 ### Correction - `LogService` compatible Monolog 2 et 3 (fatal `Class "Monolog\Level" not found`)

@@ -101,7 +101,11 @@ class WaterBalanceService
     }
 
     /**
-     * Calcule les statistiques de la réserve (consommation, ravitaillement, bilan)
+     * Calcule les statistiques de la réserve (consommation, ravitaillement, bilan).
+     *
+     * Sémantique distance (EauReserve = distance capteur → surface) :
+     * distance qui augmente (delta > 0) = niveau qui baisse = consommation ;
+     * distance qui diminue (delta < 0) = niveau qui monte = ravitaillement.
      */
     private function computeReserveStats(array $rows): array
     {
@@ -109,9 +113,9 @@ class WaterBalanceService
         $variations = $this->cycleDetector->computeVariations($reserveLevels, self::UNCERTAINTY_THRESHOLD);
 
         return [
-            'consumption' => $variations['negative'],
-            'refill' => $variations['positive'],
-            'balance' => $variations['positive'] - $variations['negative'],
+            'consumption' => $variations['positive'],
+            'refill' => $variations['negative'],
+            'balance' => $variations['negative'] - $variations['positive'],
         ];
     }
 
@@ -167,7 +171,11 @@ class WaterBalanceService
     }
 
     /**
-     * Calcule la consommation moyenne de l'aquarium (différence de niveau)
+     * Calcule la consommation moyenne de l'aquarium (cm par variation significative).
+     *
+     * Sémantique distance (EauAquarium = distance capteur → surface) :
+     * seules les hausses de distance (delta > 0 = eau qui descend) comptent
+     * comme consommation.
      */
     private function computeAquariumConsumption(array $rows): ?float
     {
@@ -188,9 +196,9 @@ class WaterBalanceService
                 continue;
             }
 
-            // Compter uniquement les baisses de niveau (consommation)
-            if ($delta < 0) {
-                $consumption += abs($delta);
+            // Distance qui augmente = eau qui descend (consommation).
+            if ($delta > 0) {
+                $consumption += $delta;
                 $countSignificantChanges++;
             }
         }

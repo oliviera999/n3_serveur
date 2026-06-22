@@ -146,4 +146,40 @@ class WaterBalanceServiceTest extends TestCase
         $this->assertGreaterThan(10.0, $balance['aquarium_consumption_per_day']);
         $this->assertLessThan(30.0, $balance['aquarium_consumption_per_day']);
     }
+
+    /**
+     * Sémantique distance : distance qui augmente = eau qui descend (consommation),
+     * distance qui diminue = eau qui monte (ravitaillement).
+     */
+    public function testConsumptionFollowsDistanceSemantics(): void
+    {
+        // Valeurs en mm (brut BDD), converties en cm par le service.
+        // EauReserve (cm) : 50 -> 53 -> 56 -> 56 -> 46 -> 49
+        //   consommation (distance augmente) : 3 + 3 + 3 = 9 cm ; ravitaillement (distance diminue) : 10 cm
+        // EauAquarium (cm) : 30 -> 33 -> 36 -> 33 -> 36 -> 33
+        //   consommation moyenne (distance augmente) : (3 + 3 + 3) / 3 = 3 cm
+        $reserve = [500, 530, 560, 560, 460, 490];
+        $aquarium = [300, 330, 360, 330, 360, 330];
+
+        $rows = [];
+        foreach ($reserve as $i => $r) {
+            $rows[] = [
+                'reading_time' => sprintf('2026-05-25 10:%02d:00', $i * 10),
+                'EauAquarium' => $aquarium[$i],
+                'EauReserve' => $r,
+                'EauPotager' => 200,
+            ];
+        }
+
+        $repo = $this->createMock(SensorReadRepository::class);
+        $repo->method('fetchBetween')->willReturn(array_reverse($rows));
+
+        $service = new WaterBalanceService($repo, new TideCycleDetector());
+        $balance = $service->computeBalance('2026-05-25 10:00:00', '2026-05-25 10:50:00');
+
+        $this->assertEqualsWithDelta(9.0, $balance['reserve_consumption'], 0.001);
+        $this->assertEqualsWithDelta(10.0, $balance['reserve_refill'], 0.001);
+        $this->assertEqualsWithDelta(1.0, $balance['reserve_balance'], 0.001);
+        $this->assertEqualsWithDelta(3.0, $balance['aquarium_consumption'], 0.001);
+    }
 }

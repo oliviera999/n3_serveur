@@ -174,6 +174,11 @@ class TideCycleDetector
      * (hystérésis cumulée) : les dérives lentes sont comptabilisées même si
      * chaque delta unitaire reste sous le seuil.
      *
+     * Cumuls de variations brutes de la série (sans interprétation physique).
+     * Sur une série distance capteur → surface : positive = distance qui augmente
+     * = eau qui descend ; negative = distance qui diminue = eau qui monte.
+     * L'interprétation (consommation / ravitaillement) appartient à l'appelant.
+     *
      * @param array<float|int|null> $levels Niveaux d'eau
      * @return array{positive: float, negative: float, global: float}
      */
