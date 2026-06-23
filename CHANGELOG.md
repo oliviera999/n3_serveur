@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.9] - 2026-06-23
+
+### Correctif - Auto-création des lignes GPIO 118-123 (angles servo) en BDD
+- **`OutputRepository::ensureServoAngleRowsExist()`** : crée à la volée les six lignes `ffp3Outputs*` manquantes (comme GPIO 117), sans migration SQL manuelle.
+- Appels au chargement page contrôle, GET état outputs, POST données et enregistrement des paramètres.
+- **`tools/sql/migrate-gpio118-123-servo-angles-ffp3.sql`** : reste utilisable pour seed initial ou phpMyAdmin.
+
 ## [5.3.8] - 2026-06-23
 
 ### Ajout - Angles servo nourrissage FFP3 (GPIO 118-123)

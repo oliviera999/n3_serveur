@@ -24,6 +24,20 @@ class OutputRepository extends AbstractRepository
     private const PHYSICAL_COMMAND_WEB_PRIORITY_SECONDS = 12;
 
     /**
+     * GPIO 118-123 : angles servo nourrissage (défauts alignés OutputCacheService / migrate-gpio118-123).
+     *
+     * @var array<int, array{name: string, state: string, description: string}>
+     */
+    private const SERVO_ANGLE_ROWS = [
+        118 => ['name' => 'angleReposGros', 'state' => '88', 'description' => 'Angle repos servo gros poissons (degres)'],
+        119 => ['name' => 'angleDistribGros', 'state' => '140', 'description' => 'Angle distribution servo gros poissons (degres)'],
+        120 => ['name' => 'angleInterGros', 'state' => '45', 'description' => 'Angle intermediaire servo gros poissons (degres)'],
+        121 => ['name' => 'angleReposPetits', 'state' => '88', 'description' => 'Angle repos servo petits poissons (degres)'],
+        122 => ['name' => 'angleDistribPetits', 'state' => '140', 'description' => 'Angle distribution servo petits poissons (degres)'],
+        123 => ['name' => 'angleInterPetits', 'state' => '45', 'description' => 'Angle intermediaire servo petits poissons (degres)'],
+    ];
+
+    /**
      * Mapping nom de paramètre (UI / API) → GPIO pour la table outputs.
      *
      * Dérivé de la source unique {@see Ffp3GpioMap} : plus de tableau hardcodé
@@ -44,6 +58,7 @@ class OutputRepository extends AbstractRepository
     public function findAll(): array
     {
         $this->ensureAquariumPumpForceRowExists();
+        $this->ensureServoAngleRowsExist();
 
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
         // Filtrer : name NOT NULL et name != '' pour éviter les doublons vides
@@ -457,13 +472,7 @@ class OutputRepository extends AbstractRepository
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
 
-        $boardRow = $this->fetchOne(
-            "SELECT board FROM `{$table}` WHERE gpio = :gpio LIMIT 1",
-            [':gpio' => self::AQUARIUM_PUMP_GPIO]
-        );
-        $board = isset($boardRow['board']) && trim((string) $boardRow['board']) !== ''
-            ? (string) $boardRow['board']
-            : '1';
+        $board = $this->resolveDefaultBoardForNewRows($table);
 
         $forceName = 'Forcage pompe aquarium ON';
 
@@ -504,5 +513,67 @@ class OutputRepository extends AbstractRepository
             error_log('[OutputRepository] ensureAquariumPumpForceRowExists INSERT failed: '
                 . json_encode($stmt->errorInfo(), JSON_UNESCAPED_UNICODE));
         }
+    }
+
+    /**
+     * Garantit les lignes GPIO 118-123 (angles servo nourrissage) pour la page contrôle et la persistance.
+     * Idempotent : ne modifie pas state si la ligne existe déjà avec un nom non vide.
+     */
+    public function ensureServoAngleRowsExist(): void
+    {
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+        $board = $this->resolveDefaultBoardForNewRows($table);
+
+        foreach (self::SERVO_ANGLE_ROWS as $gpio => $meta) {
+            $existing = $this->fetchOne(
+                "SELECT id, name FROM `{$table}` WHERE gpio = :gpio LIMIT 1",
+                [':gpio' => $gpio]
+            );
+
+            if ($existing !== null) {
+                $name = isset($existing['name']) ? trim((string) $existing['name']) : '';
+                if ($name === '') {
+                    $sql = "UPDATE `{$table}` SET board = :board, name = :name, description = :description WHERE gpio = :gpio";
+                    $stmt = $this->pdo->prepare($sql);
+                    if (!$stmt->execute([
+                        ':board' => $board,
+                        ':name' => $meta['name'],
+                        ':description' => $meta['description'],
+                        ':gpio' => $gpio,
+                    ])) {
+                        error_log('[OutputRepository] ensureServoAngleRowsExist UPDATE (name vide) failed: '
+                            . json_encode($stmt->errorInfo(), JSON_UNESCAPED_UNICODE));
+                    }
+                }
+
+                continue;
+            }
+
+            $sql = "INSERT INTO `{$table}` (board, gpio, name, state, description)
+                    VALUES (:board, :gpio, :name, :state, :description)";
+            $stmt = $this->pdo->prepare($sql);
+            if (!$stmt->execute([
+                ':board' => $board,
+                ':gpio' => $gpio,
+                ':name' => $meta['name'],
+                ':state' => $meta['state'],
+                ':description' => $meta['description'],
+            ])) {
+                error_log('[OutputRepository] ensureServoAngleRowsExist INSERT failed: '
+                    . json_encode($stmt->errorInfo(), JSON_UNESCAPED_UNICODE));
+            }
+        }
+    }
+
+    private function resolveDefaultBoardForNewRows(string $table): string
+    {
+        $boardRow = $this->fetchOne(
+            "SELECT board FROM `{$table}` WHERE gpio = :gpio LIMIT 1",
+            [':gpio' => self::AQUARIUM_PUMP_GPIO]
+        );
+
+        return isset($boardRow['board']) && trim((string) $boardRow['board']) !== ''
+            ? (string) $boardRow['board']
+            : '1';
     }
 }

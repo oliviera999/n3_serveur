@@ -94,8 +94,14 @@ class OutputService
         $this->outputRepository->ensureAquariumPumpForceRowExists();
     }
 
+    public function ensureServoAngleRows(): void
+    {
+        $this->outputRepository->ensureServoAngleRowsExist();
+    }
+
     public function getParametersMap(): array
     {
+        $this->outputRepository->ensureServoAngleRowsExist();
         $parameterMap = $this->buildParameterMap();
         // Filtrage SQL ciblé (IN ...) plutôt que findAll() suivi d'un tri PHP :
         // seuls les GPIO présents dans le mapping de paramètres nous intéressent ici.
@@ -200,6 +206,8 @@ class OutputService
 
         // Contrainte dure : angles servo nourrissage (GPIO 118-123)
         \App\Util\FeedingServoAngleValidator::assertAngleRanges($params);
+
+        $this->outputRepository->ensureServoAngleRowsExist();
 
         // Contrainte consultative : ordre strictement croissant du trio résultant
         $warnings = [];

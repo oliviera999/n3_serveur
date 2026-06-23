@@ -301,6 +301,7 @@ class OutputController
         $consumeOtaTrigger = !$skipCache;
 
         $this->outputService->ensureAquariumPumpForceOutputRow();
+        $this->outputService->ensureServoAngleRows();
 
         $pdo = Database::getConnection();
         $result = $this->outputCache->getOutputsState($pdo, $gpioList, $skipCache, $consumeOtaTrigger);
