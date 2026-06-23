@@ -156,6 +156,13 @@ abstract class AbstractOutputController
      */
     public function showControlPage(Request $request, Response $response): Response
     {
+        if (!$this->authService->isAuthenticated()
+            && !$this->authService->isAuthenticatedByToken($request->getQueryParams())) {
+            $redirect = '/login?redirect=' . urlencode($request->getUri()->getPath());
+
+            return $response->withHeader('Location', $redirect)->withStatus(302);
+        }
+
         try {
             $board = $this->defaultBoard();
             $data = $this->buildControlPageData($board);

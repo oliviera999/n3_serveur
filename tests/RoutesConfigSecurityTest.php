@@ -114,4 +114,60 @@ class RoutesConfigSecurityTest extends TestCase
     {
         $this->assertTrue($this->isProtected('/admin/gallery/msp1'));
     }
+
+    public function testControlPagesAreProtected(): void
+    {
+        $controlPaths = [
+            '/aquaponie-control',
+            '/aquaponie-control-test',
+            '/aquamobile-control',
+            '/meteo-control',
+            '/serre-control',
+            '/msp1-test/msp1control/',
+            '/n3pp-test/n3ppcontrol/',
+        ];
+
+        foreach ($controlPaths as $path) {
+            $this->assertTrue(
+                $this->isProtected($path),
+                "Page de controle {$path} doit etre dans protected_paths"
+            );
+        }
+    }
+
+    public function testControlPagesAreNotBypassedByPublicPrefixCollision(): void
+    {
+        $controlPaths = [
+            '/aquaponie-control',
+            '/meteo-control',
+            '/serre-control',
+        ];
+
+        foreach ($controlPaths as $path) {
+            $this->assertTrue(
+                $this->requiresAuth($path),
+                "Page de controle {$path} ne doit pas etre accessible sans auth (collision prefixe public)"
+            );
+        }
+    }
+
+    public function testVitrinePagesDoNotRequireAuth(): void
+    {
+        $vitrinePaths = ['/aquaponie', '/meteo', '/serre', '/gallery'];
+
+        foreach ($vitrinePaths as $path) {
+            $this->assertFalse(
+                $this->requiresAuth($path),
+                "Page vitrine {$path} doit rester publique"
+            );
+        }
+    }
+
+    /**
+     * Reproduit la logique du middleware global : seuls les chemins protected_paths exigent l'auth.
+     */
+    private function requiresAuth(string $path): bool
+    {
+        return $this->isProtected($path);
+    }
 }

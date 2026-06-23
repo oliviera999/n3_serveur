@@ -126,6 +126,8 @@ return [
         '/export-data-s3-test',
         '/meteo-control',
         '/serre-control',
+        '/msp1-test/msp1control',
+        '/n3pp-test/n3ppcontrol',
         '/gallery/msp1/control',
         '/gallery/n3pp/control',
         '/gallery/ffp3/control',

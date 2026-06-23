@@ -31,6 +31,10 @@ class AuthGuardMiddleware
             return $handler->handle($request);
         }
         if ($authMethod === 'session') {
+            if (!$this->authService->isAuthenticated()) {
+                return $this->authMiddleware->process($request, $handler);
+            }
+
             return $this->processWithRoleCheck($request, $handler);
         }
         if ($authMethod === 'token') {
@@ -62,9 +66,6 @@ class AuthGuardMiddleware
         }
 
         $path = $request->getUri()->getPath();
-        if ($this->isPublicPath($path, $routesConfig)) {
-            return $handler->handle($request);
-        }
         if (!$this->isProtectedPath($path, $routesConfig)) {
             return $handler->handle($request);
         }
@@ -103,24 +104,6 @@ class AuthGuardMiddleware
             return true;
         }
         return $this->roleAccessService->hasAccess($path, $this->authService->getCurrentRole());
-    }
-
-    /**
-     * @param array<string, mixed> $routesConfig
-     */
-    private function isPublicPath(string $path, array $routesConfig): bool
-    {
-        $exactPublicPaths = $routesConfig['exact_public_paths'] ?? [];
-        $publicPaths = $routesConfig['public_paths'] ?? [];
-        if (in_array($path, $exactPublicPaths, true)) {
-            return true;
-        }
-        foreach ($publicPaths as $publicPath) {
-            if (strpos($path, (string) $publicPath) === 0) {
-                return true;
-            }
-        }
-        return preg_match('#^/(ffp3/)?api/outputs(-test|3-test|3)?/state$#', $path) === 1;
     }
 
     /**

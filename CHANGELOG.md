@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.7] - 2026-06-23
+
+### Sécurité - Protection des pages de contrôle (collision préfixes public/protected)
+- **`src/Middleware/AuthGuardMiddleware.php`** : le middleware global ne s'appuie plus sur `public_paths` pour court-circuiter `protected_paths` — seuls les préfixes `protected_paths` exigent l'authentification (corrige l'accès anonyme à `/aquaponie-control`, `/meteo-control`, `/serre-control`, etc. lorsque le chemin commençait par un préfixe public `/aquaponie`, `/meteo` ou `/serre`). En mode `session`, `$applyAuth` redirige désormais vers `/login` si l'utilisateur n'est pas connecté (au lieu de ne vérifier que le rôle).
+- **`config/routes_config.php`** : ajout de `/msp1-test/msp1control` et `/n3pp-test/n3ppcontrol` aux chemins protégés.
+- **`src/Controller/AbstractOutputController.php`** : vérification d'authentification inline dans `showControlPage()` (alignement sur les galeries).
+- **Tests** : `tests/Middleware/AuthGuardMiddlewareTest.php`, extension de `RoutesConfigSecurityTest` ; smoke `-RunNegativeAuthChecks` couvre les pages `*-control` MSP/N3PP test.
+
 ## [5.3.6] - 2026-06-22
 
 ### Correction - `LogService` compatible Monolog 2 et 3 (fatal `Class "Monolog\Level" not found`)

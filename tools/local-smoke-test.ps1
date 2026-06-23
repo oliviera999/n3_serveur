@@ -248,11 +248,19 @@ function Assert-SessionAuth {
 }
 
 function Assert-NegativeAuthChecks {
-    # Sans auth
-    Assert-Status -Url "$BaseUrl$protectedPath" -AllowedStatus @(301, 302) -Label "protected without auth"
+  $protectedControlPaths = @(
+    $protectedPath,
+    "/meteo-control",
+    "/serre-control",
+    "/aquaponie-control-test",
+    "/msp1-test/msp1control/",
+    "/n3pp-test/n3ppcontrol/"
+  )
 
-    # Token invalide
-    Assert-Status -Url "${BaseUrl}${protectedPath}?token=invalid-token" -AllowedStatus @(301, 302) -Label "token invalid"
+  foreach ($path in $protectedControlPaths) {
+    Assert-Status -Url "$BaseUrl$path" -AllowedStatus @(301, 302) -Label "protected without auth: $path"
+    Assert-Status -Url "${BaseUrl}${path}?token=invalid-token" -AllowedStatus @(301, 302) -Label "token invalid: $path"
+  }
 
     # Login invalide
     $negSession = New-Object Microsoft.PowerShell.Commands.WebRequestSession
