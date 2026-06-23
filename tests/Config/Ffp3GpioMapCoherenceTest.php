@@ -40,6 +40,12 @@ class Ffp3GpioMapCoherenceTest extends TestCase
         'limFlood' => 114,
         'WakeUp' => 115,
         'FreqWakeUp' => 116,
+        'angleReposGros' => 118,
+        'angleDistribGros' => 119,
+        'angleInterGros' => 120,
+        'angleReposPetits' => 121,
+        'angleDistribPetits' => 122,
+        'angleInterPetits' => 123,
     ];
 
     public function testCanonicalParameterGpioMapValuesAreFrozen(): void

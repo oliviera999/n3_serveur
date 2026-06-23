@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.8] - 2026-06-23
+
+### Ajout - Angles servo nourrissage FFP3 (GPIO 118-123)
+- **`src/Config/Ffp3GpioMap.php`** : six paramètres `angleReposGros`, `angleDistribGros`, `angleInterGros`, `angleReposPetits`, `angleDistribPetits`, `angleInterPetits` (défauts 88/140/45).
+- **`templates/control.twig`** : section « Angles servos » dans le bloc Nourrissage (auto-save existant).
+- **`src/Util/FeedingServoAngleValidator.php`** : validation 0–180° à l'enregistrement des paramètres.
+- **`tools/sql/migrate-gpio118-123-servo-angles-ffp3.sql`** : seed idempotent pour toutes les tables `ffp3Outputs*`.
+- **`OutputController::getOutputsState()`** : exposition des GPIO 118–123 au firmware.
+
 ## [5.3.7] - 2026-06-23
 
 ### Sécurité - Protection des pages de contrôle (collision préfixes public/protected)

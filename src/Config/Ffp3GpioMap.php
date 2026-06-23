@@ -56,6 +56,14 @@ final class Ffp3GpioMap
         114 => 'limFlood',         // Limite débordement
         115 => 'WakeUp',           // WakeUp forcé (v11.172: harmonisé avec firmware)
         116 => 'FreqWakeUp',       // Fréquence réveil (v11.172: harmonisé avec firmware)
+
+        // Angles servo nourrissage (GPIO 118-123)
+        118 => 'angleReposGros',
+        119 => 'angleDistribGros',
+        120 => 'angleInterGros',
+        121 => 'angleReposPetits',
+        122 => 'angleDistribPetits',
+        123 => 'angleInterPetits',
     ];
 
     /**
@@ -81,6 +89,12 @@ final class Ffp3GpioMap
         'limFlood' => 'limFlood',
         'WakeUp' => 'WakeUp',
         'FreqWakeUp' => 'FreqWakeUp',
+        'angleReposGros' => 'angleReposGros',
+        'angleDistribGros' => 'angleDistribGros',
+        'angleInterGros' => 'angleInterGros',
+        'angleReposPetits' => 'angleReposPetits',
+        'angleDistribPetits' => 'angleDistribPetits',
+        'angleInterPetits' => 'angleInterPetits',
     ];
 
     /**

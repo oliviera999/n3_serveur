@@ -310,7 +310,7 @@ Vérifier que **tous les GPIO existent** dans `ffp3Outputs2` :
 ```sql
 SELECT gpio, name, state 
 FROM ffp3Outputs2 
-WHERE gpio IN (2, 15, 16, 18, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116)
+WHERE gpio IN (2, 15, 16, 18, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 118, 119, 120, 121, 122, 123)
 ORDER BY gpio;
 
 -- Doit retourner 21 lignes
@@ -419,11 +419,14 @@ Exemple (extrait) :
   "100": "...", "101": "1", "102": "18", "103": "80", "104": "18",
   "105": "8", "106": "12", "107": "19", "108": "0", "109": "0", "110": "0",
   "111": "2", "112": "2", "113": "5", "114": "8", "115": "0", "116": "6",
+  "118": "88", "119": "140", "120": "45", "121": "88", "122": "140", "123": "45",
   "etatHeat": "0", "etatUV": "1", "etatPompeAqua": "0", "etatPompeTank": 0,
   "mail": "...", "mailNotif": "1", "aqThreshold": "18", "tankThreshold": "80",
   "chauffageThreshold": "18", "bouffeMatin": "8", "bouffeMidi": "12", "bouffeSoir": "19",
   "bouffePetits": "0", "bouffeGros": "0", "resetMode": "0",
   "tempsGros": "2", "tempsPetits": "2", "tempsRemplissageSec": "5",
+  "angleReposGros": "88", "angleDistribGros": "140", "angleInterGros": "45",
+  "angleReposPetits": "88", "angleDistribPetits": "140", "angleInterPetits": "45",
   "limFlood": "8", "WakeUp": "0", "FreqWakeUp": "6"
 }
 ```

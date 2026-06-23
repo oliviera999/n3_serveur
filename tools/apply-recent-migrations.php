@@ -41,6 +41,11 @@ $migrations = [
         'label' => 'GPIO 117 ForcePompeAquarium (v5.2.9)',
         'requires_table' => 'ffp3Outputs',
     ],
+    [
+        'path' => 'tools/sql/migrate-gpio118-123-servo-angles-ffp3.sql',
+        'label' => 'GPIO 118-123 angles servo nourrissage FFP3',
+        'requires_table' => 'ffp3Outputs',
+    ],
 ];
 
 echo "=== Application des migrations SQL récentes ===\n";

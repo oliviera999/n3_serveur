@@ -38,6 +38,8 @@ class OutputCacheService
         108 => 0, 109 => 0, 110 => 0,              // commandes nourrissage + reset
         111 => 3, 112 => 2, 113 => 120, 114 => 8, 115 => 0, 116 => 600, // durées / limites / wake
         117 => 0, // forçage pompe aquarium (serveur uniquement, défaut désactivé)
+        118 => 88, 119 => 140, 120 => 45, // angles servo gros
+        121 => 88, 122 => 140, 123 => 45, // angles servo petits
     ];
 
     public function __construct(

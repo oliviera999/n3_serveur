@@ -290,6 +290,7 @@ class OutputController
             100, 101, 102, 103, 104, 105, 106, 107, // email + params
             108, 109, 110, // commandes nourrissage + reset
             111, 112, 113, 114, 115, 116, // durées / limites / wake
+            118, 119, 120, 121, 122, 123, // angles servo nourrissage
             117, // forçage serveur pompe aquarium (page contrôle + sync JSON)
         ];
 

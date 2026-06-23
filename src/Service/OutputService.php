@@ -198,6 +198,9 @@ class OutputService
         // Contrainte dure : plages des horaires de nourrissage
         $incomingHours = \App\Util\FeedingScheduleValidator::assertHourRanges($params);
 
+        // Contrainte dure : angles servo nourrissage (GPIO 118-123)
+        \App\Util\FeedingServoAngleValidator::assertAngleRanges($params);
+
         // Contrainte consultative : ordre strictement croissant du trio résultant
         $warnings = [];
         if ($incomingHours !== []) {

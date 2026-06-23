@@ -280,6 +280,42 @@
                                         <small class="save-indicator" data-save-indicator data-parameter="tempsPetits" data-state="idle"></small>
                                     </label>
                                 </div>
+                                <h3>Angles servos — gros poissons</h3>
+                                <div class="parameters-grid">
+                                    <label class="parameter-item">
+                                        <span>Repos (°)</span>
+                                        <input type="number" name="angleReposGros" min="0" max="180" id="angleReposGros" data-parameter="angleReposGros" data-parameter-gpio="{{ parameter_gpio_map['angleReposGros'] }}" value="{{ params.angleReposGros|default(88) }}">
+                                        <small class="save-indicator" data-save-indicator data-parameter="angleReposGros" data-state="idle"></small>
+                                    </label>
+                                    <label class="parameter-item">
+                                        <span>Distribution (°)</span>
+                                        <input type="number" name="angleDistribGros" min="0" max="180" id="angleDistribGros" data-parameter="angleDistribGros" data-parameter-gpio="{{ parameter_gpio_map['angleDistribGros'] }}" value="{{ params.angleDistribGros|default(140) }}">
+                                        <small class="save-indicator" data-save-indicator data-parameter="angleDistribGros" data-state="idle"></small>
+                                    </label>
+                                    <label class="parameter-item">
+                                        <span>Intermédiaire (°)</span>
+                                        <input type="number" name="angleInterGros" min="0" max="180" id="angleInterGros" data-parameter="angleInterGros" data-parameter-gpio="{{ parameter_gpio_map['angleInterGros'] }}" value="{{ params.angleInterGros|default(45) }}">
+                                        <small class="save-indicator" data-save-indicator data-parameter="angleInterGros" data-state="idle"></small>
+                                    </label>
+                                </div>
+                                <h3>Angles servos — petits poissons</h3>
+                                <div class="parameters-grid">
+                                    <label class="parameter-item">
+                                        <span>Repos (°)</span>
+                                        <input type="number" name="angleReposPetits" min="0" max="180" id="angleReposPetits" data-parameter="angleReposPetits" data-parameter-gpio="{{ parameter_gpio_map['angleReposPetits'] }}" value="{{ params.angleReposPetits|default(88) }}">
+                                        <small class="save-indicator" data-save-indicator data-parameter="angleReposPetits" data-state="idle"></small>
+                                    </label>
+                                    <label class="parameter-item">
+                                        <span>Distribution (°)</span>
+                                        <input type="number" name="angleDistribPetits" min="0" max="180" id="angleDistribPetits" data-parameter="angleDistribPetits" data-parameter-gpio="{{ parameter_gpio_map['angleDistribPetits'] }}" value="{{ params.angleDistribPetits|default(140) }}">
+                                        <small class="save-indicator" data-save-indicator data-parameter="angleDistribPetits" data-state="idle"></small>
+                                    </label>
+                                    <label class="parameter-item">
+                                        <span>Intermédiaire (°)</span>
+                                        <input type="number" name="angleInterPetits" min="0" max="180" id="angleInterPetits" data-parameter="angleInterPetits" data-parameter-gpio="{{ parameter_gpio_map['angleInterPetits'] }}" value="{{ params.angleInterPetits|default(45) }}">
+                                        <small class="save-indicator" data-save-indicator data-parameter="angleInterPetits" data-state="idle"></small>
+                                    </label>
+                                </div>
                             </section>
                         </article>
 

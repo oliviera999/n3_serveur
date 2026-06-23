@@ -30,7 +30,13 @@ INSERT INTO `ffp3Outputs` (`board`, `gpio`, `name`, `state`, `description`, `req
 ('1', 114, 'limFlood', '8', 'Limite anti-flood', NOW(), 'web'),
 ('1', 115, 'WakeUp', '0', 'Commande one-shot wake-up', NOW(), 'web'),
 ('1', 116, 'FreqWakeUp', '6', 'Frequence wake-up (h)', NOW(), 'web'),
-('1', 117, 'ForcePompeAquarium', '0', 'Force la BDD pompe aquarium a 1 (ignore etat switch ESP32)', NOW(), 'web')
+('1', 117, 'ForcePompeAquarium', '0', 'Force la BDD pompe aquarium a 1 (ignore etat switch ESP32)', NOW(), 'web'),
+('1', 118, 'angleReposGros', '88', 'Angle repos servo gros poissons (degres)', NOW(), 'web'),
+('1', 119, 'angleDistribGros', '140', 'Angle distribution servo gros poissons (degres)', NOW(), 'web'),
+('1', 120, 'angleInterGros', '45', 'Angle intermediaire servo gros poissons (degres)', NOW(), 'web'),
+('1', 121, 'angleReposPetits', '88', 'Angle repos servo petits poissons (degres)', NOW(), 'web'),
+('1', 122, 'angleDistribPetits', '140', 'Angle distribution servo petits poissons (degres)', NOW(), 'web'),
+('1', 123, 'angleInterPetits', '45', 'Angle intermediaire servo petits poissons (degres)', NOW(), 'web')
 ON DUPLICATE KEY UPDATE
 `name` = VALUES(`name`),
 `state` = VALUES(`state`),
