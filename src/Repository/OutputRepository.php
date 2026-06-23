@@ -26,15 +26,15 @@ class OutputRepository extends AbstractRepository
     /**
      * GPIO 118-123 : angles servo nourrissage (défauts alignés OutputCacheService / migrate-gpio118-123).
      *
-     * @var array<int, array{name: string, state: string, description: string}>
+     * @var array<int, array{name: string, state: string}>
      */
     private const SERVO_ANGLE_ROWS = [
-        118 => ['name' => 'angleReposGros', 'state' => '88', 'description' => 'Angle repos servo gros poissons (degres)'],
-        119 => ['name' => 'angleDistribGros', 'state' => '140', 'description' => 'Angle distribution servo gros poissons (degres)'],
-        120 => ['name' => 'angleInterGros', 'state' => '45', 'description' => 'Angle intermediaire servo gros poissons (degres)'],
-        121 => ['name' => 'angleReposPetits', 'state' => '88', 'description' => 'Angle repos servo petits poissons (degres)'],
-        122 => ['name' => 'angleDistribPetits', 'state' => '140', 'description' => 'Angle distribution servo petits poissons (degres)'],
-        123 => ['name' => 'angleInterPetits', 'state' => '45', 'description' => 'Angle intermediaire servo petits poissons (degres)'],
+        118 => ['name' => 'angleReposGros', 'state' => '88'],
+        119 => ['name' => 'angleDistribGros', 'state' => '140'],
+        120 => ['name' => 'angleInterGros', 'state' => '45'],
+        121 => ['name' => 'angleReposPetits', 'state' => '88'],
+        122 => ['name' => 'angleDistribPetits', 'state' => '140'],
+        123 => ['name' => 'angleInterPetits', 'state' => '45'],
     ];
 
     /**
@@ -533,12 +533,11 @@ class OutputRepository extends AbstractRepository
             if ($existing !== null) {
                 $name = isset($existing['name']) ? trim((string) $existing['name']) : '';
                 if ($name === '') {
-                    $sql = "UPDATE `{$table}` SET board = :board, name = :name, description = :description WHERE gpio = :gpio";
+                    $sql = "UPDATE `{$table}` SET board = :board, name = :name WHERE gpio = :gpio";
                     $stmt = $this->pdo->prepare($sql);
                     if (!$stmt->execute([
                         ':board' => $board,
                         ':name' => $meta['name'],
-                        ':description' => $meta['description'],
                         ':gpio' => $gpio,
                     ])) {
                         error_log('[OutputRepository] ensureServoAngleRowsExist UPDATE (name vide) failed: '
@@ -549,15 +548,14 @@ class OutputRepository extends AbstractRepository
                 continue;
             }
 
-            $sql = "INSERT INTO `{$table}` (board, gpio, name, state, description)
-                    VALUES (:board, :gpio, :name, :state, :description)";
+            $sql = "INSERT INTO `{$table}` (board, gpio, name, state)
+                    VALUES (:board, :gpio, :name, :state)";
             $stmt = $this->pdo->prepare($sql);
             if (!$stmt->execute([
                 ':board' => $board,
                 ':gpio' => $gpio,
                 ':name' => $meta['name'],
                 ':state' => $meta['state'],
-                ':description' => $meta['description'],
             ])) {
                 error_log('[OutputRepository] ensureServoAngleRowsExist INSERT failed: '
                     . json_encode($stmt->errorInfo(), JSON_UNESCAPED_UNICODE));

@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.10] - 2026-06-23
+
+### Correctif - Erreur 500 sur GET outputs/state et page contrôle (prod sans colonne `description`)
+- **`ensureServoAngleRowsExist()`** : INSERT/UPDATE alignés sur GPIO 117 (`board`, `gpio`, `name`, `state` uniquement) — la prod n'a pas toujours la colonne `description` sur `ffp3Outputs*`.
+
 ## [5.3.9] - 2026-06-23
 
 ### Correctif - Auto-création des lignes GPIO 118-123 (angles servo) en BDD
