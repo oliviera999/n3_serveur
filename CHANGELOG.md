@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.3.11] - 2026-06-24
+
+### Correctif - Purge des lignes fantômes/doublons GPIO + contrainte anti-récidive
+- **`migrations/FIX_GPIO16_NULL_DUPLICATES_2026_06.sql`** : migration idempotente qui
+  (1) sauvegarde la table, (2) supprime les lignes `ffp3Outputs*` sans nom (fantômes),
+  (3) déduplique en conservant une ligne par `gpio`, (4) ajoute `UNIQUE(gpio)`.
+- **Contexte** : la prod présentait ~403 lignes fantômes `gpio=16` (`name`/`board` NULL,
+  `state='1'`, toutes datées 2025-10-16) issues de l'ancien `PumpService`
+  (`INSERT ... ON DUPLICATE KEY UPDATE` sans contrainte UNIQUE → un INSERT par écriture).
+  La fuite est déjà stoppée depuis v11.38 (PumpService en UPDATE seul) ; ce script purge
+  le résidu et empêche toute récidive via la contrainte `UNIQUE(gpio)`.
+- **`migrations/README.md`** : entrée ajoutée dans la checklist prod.
+
 ## [5.3.10] - 2026-06-23
 
 ### Correctif - Erreur 500 sur GET outputs/state et page contrôle (prod sans colonne `description`)

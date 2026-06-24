@@ -12,7 +12,7 @@ final class FeedingServoAngleValidator
     public const MIN_ANGLE = 0;
     public const MAX_ANGLE = 180;
 
-  /** @var list<string> */
+    /** @var list<string> */
     private const ANGLE_PARAM_NAMES = [
         'angleReposGros',
         'angleDistribGros',

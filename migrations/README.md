@@ -20,6 +20,7 @@ Comparaison dump prod vs serveur **5.1.3** : voir le plan d'audit dans le dépô
 | Trigger OTA | `CREATE_FFP3_OTA_TRIGGER_TABLE.sql` | Recommandé (auto-créé en 5.1.3+) |
 | Colonnes marée `tide*` | `002_add_tide_event_columns.sql` | Déjà OK sur prod (2026-05) |
 | Doublons GPIO | `FIX_DUPLICATE_GPIO_ROWS.sql` puis `INIT_GPIO_BASE_ROWS.sql` | Si diagnostic le signale |
+| Lignes fantômes gpio 16 + `UNIQUE(gpio)` | `FIX_GPIO16_NULL_DUPLICATES_2026_06.sql` | **Critique** si doublons `name=NULL` (purge + anti-récidive) |
 | Angles servo FFP3 (GPIO 118-123) | `tools/sql/migrate-gpio118-123-servo-angles-ffp3.sql` | Si prod antérieure à 5.3.9 (auto-créé depuis 5.3.9) |
 | Validation post-migration | `99_validate_prod.sql` | Après migration |
 
