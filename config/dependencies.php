@@ -119,6 +119,7 @@ return [
             $c->get(\App\Service\NotificationService::class),
             $c->get(\App\Repository\SensorReadRepository::class),
             $c->get(\App\Service\SystemHealthService::class),
+            $c->get(\App\Service\DeviceHealthService::class),
             $c->get(\App\Command\RestartPumpCommand::class)
         );
     },
