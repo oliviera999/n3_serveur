@@ -11,6 +11,16 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.4.0] - 2026-06-24
+
+### Modifié - Gestionnaire d'utilisateurs toujours actif + compte admin initial visible
+- **`templates/partials/_nav.twig`** : lien permanent « Utilisateurs » dans la barre de navigation pour les administrateurs (`can_manage_users`). Le gestionnaire est désormais accessible en permanence, sans interrupteur.
+- **`templates/supervision.twig`** : suppression de l'interrupteur d'affichage (`page-nav-toggle` `admin-users`) qui se remettait à 0 (état stocké en localStorage, par appareil) — la carte « Gestion des utilisateurs » reste présente.
+- **`public/assets/js/page-nav-toggles.js`** : purge de la clé localStorage obsolète `admin-users` pour éviter un doublon dans le menu chez les utilisateurs ayant activé l'ancien toggle.
+- **`UserService::ensureLegacyAdminMaterialized()`** : matérialise (de façon idempotente) le compte admin historique du `.env` (`ADMIN_USERNAME` / `ADMIN_PASSWORD_HASH`) dans la table `n3_users` s'il n'y figure pas — il apparaît et devient gérable dans le gestionnaire. Appelé depuis `UserAdminController::index()`.
+- **`UserAdminController`** : `nav_active = 'users'` sur les pages de gestion (liste, création, édition) pour surligner l'entrée de navigation.
+- Étape transitoire vers le retrait du système d'authentification mono-compte (`.env`) une fois le gestionnaire pleinement opérationnel.
+
 ## [5.3.10] - 2026-06-23
 
 ### Correctif - Erreur 500 sur GET outputs/state et page contrôle (prod sans colonne `description`)
