@@ -37,6 +37,8 @@ final class MspGpioMap
         105 => 'ServoGD',
         106 => 'WakeUp',
         107 => 'FreqWakeUp',
+        108 => 'notifMode',
+        109 => 'notifCategories',
         111 => 'ServoModeAuto',
     ];
 

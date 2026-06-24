@@ -278,7 +278,7 @@ class OutputService
      */
     public function getAllowedParameterNames(): array
     {
-        return array_keys(\App\Config\Ffp3GpioMap::parameterGpioMap());
+        return array_keys(OutputRepository::getParameterGpioMap());
     }
 
     /**

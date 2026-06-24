@@ -48,7 +48,10 @@ class OutputRepository extends AbstractRepository
      */
     public static function getParameterGpioMap(): array
     {
-        return Ffp3GpioMap::parameterGpioMap();
+        return array_merge(
+            Ffp3GpioMap::parameterGpioMap(),
+            Ffp3GpioMap::serverOnlyParameterGpioMap()
+        );
     }
 
     /**
@@ -212,7 +215,7 @@ class OutputRepository extends AbstractRepository
                     continue;
                 }
                 $value = $params[$paramName];
-                if ($paramName === 'mail') {
+                if ($paramName === 'mail' || $paramName === 'notifMode' || $paramName === 'notifCategories') {
                     $value = (string) $value;
                 } elseif ($paramName === 'mailNotif') {
                     $value = (is_string($value) && in_array(strtolower($value), ['1', 'true', 'on', 'yes', 'checked'], true))

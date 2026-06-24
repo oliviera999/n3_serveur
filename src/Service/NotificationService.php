@@ -12,6 +12,7 @@ use App\Notification\MailTransportFactory;
 use App\Notification\NotificationCategory;
 use App\Notification\NotificationDigest;
 use App\Notification\NotificationPolicy;
+use App\Notification\NotificationPolicyResolver;
 use App\Notification\Severity;
 
 /**
@@ -38,19 +39,20 @@ class NotificationService
     private string $recipient;
     /** Adresse e-mail d'expéditeur (configurable via .env). */
     private string $from;
-    private NotificationPolicy $policy;
+    private NotificationPolicyResolver $policyResolver;
     private AlertThrottler $throttler;
     private MailTransport $transport;
     private EmailRenderer $renderer;
     private DigestQueue $digest;
 
     /**
-     * @param LogService              $logger    Service de log pour tracer les notifications
-     * @param NotificationPolicy|null $policy    Politique de verbosité (défaut : depuis l'env)
-     * @param AlertThrottler|null     $throttler Anti-spam + historique (défaut : auto)
-     * @param MailTransport|null      $transport Transport e-mail (défaut : choisi selon l'env)
-     * @param EmailRenderer|null      $renderer  Rendu Twig HTML/texte (défaut : auto)
-     * @param DigestQueue|null        $digest    File de synthèse P3/P4 (défaut : NotificationDigest)
+     * @param LogService                      $logger         Service de log pour tracer les notifications
+     * @param NotificationPolicy|null         $policy         Politique globale fixe (tests) — ignoré si $policyResolver est fourni
+     * @param AlertThrottler|null             $throttler      Anti-spam + historique (défaut : auto)
+     * @param MailTransport|null              $transport      Transport e-mail (défaut : choisi selon l'env)
+     * @param EmailRenderer|null              $renderer       Rendu Twig HTML/texte (défaut : auto)
+     * @param DigestQueue|null                $digest         File de synthèse P3/P4 (défaut : NotificationDigest)
+     * @param NotificationPolicyResolver|null $policyResolver Résolution par famille (prod)
      */
     public function __construct(
         private LogService $logger,
@@ -58,11 +60,20 @@ class NotificationService
         ?AlertThrottler $throttler = null,
         ?MailTransport $transport = null,
         ?EmailRenderer $renderer = null,
-        ?DigestQueue $digest = null
+        ?DigestQueue $digest = null,
+        ?NotificationPolicyResolver $policyResolver = null
     ) {
         $this->recipient = $_ENV['NOTIF_EMAIL_RECIPIENT'] ?? 'user@example.com';
         $this->from = $_ENV['MAIL_FROM'] ?? 'Aquaponie <noreply@example.com>';
-        $this->policy = $policy ?? NotificationPolicy::fromEnv();
+        if ($policyResolver !== null) {
+            $this->policyResolver = $policyResolver;
+        } elseif ($policy !== null) {
+            $this->policyResolver = NotificationPolicyResolver::fixed($policy);
+        } else {
+            $this->policyResolver = NotificationPolicyResolver::fromEnv(
+                new \App\Repository\NotificationPolicyRepository(\App\Config\Database::getConnection())
+            );
+        }
         $this->throttler = $throttler ?? new AlertThrottler($logger);
         $this->transport = $transport ?? MailTransportFactory::fromEnv($logger);
         $this->renderer = $renderer ?? new EmailRenderer();
@@ -95,9 +106,11 @@ class NotificationService
         ?int $cooldown = null,
         bool $digestable = false
     ): bool {
-        if (!$this->policy->shouldSend($severity, $category)) {
+        $policy = $this->policyResolver->resolve($family);
+        if (!$policy->shouldSend($severity, $category)) {
             $this->logger->info('Notification filtrée par la politique de notification', [
-                'mode' => $this->policy->mode->value,
+                'mode' => $policy->mode->value,
+                'family' => $family,
                 'severity' => $severity->value,
                 'category' => $category->value,
                 'subject' => $subject,

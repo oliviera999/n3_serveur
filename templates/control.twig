@@ -365,41 +365,8 @@
                             <header class="controls-column-header-secondary">
                                 <h2><i class="fas fa-envelope"></i> Notifications</h2>
                             </header>
-                            <div class="control-cards-grid">
-                                {% set notificationOutputs = [] %}
-                                {% for output in outputs %}
-                                    {% if output.gpio == 101 %}
-                                        {% set notificationOutputs = notificationOutputs|merge([output]) %}
-                                    {% endif %}
-                                {% endfor %}
-                                {% for output in notificationOutputs %}
-                                    <article class="action-card" data-state="{{ output.state }}" data-gpio="{{ output.gpio }}">
-                                        <header>
-                                            <div class="action-icon"><i class="fas fa-bell"></i></div>
-                                            <div>
-                                                <h3>Notifications email</h3>
-                                            </div>
-                                        </header>
-                                        <footer>
-                                            <span data-state-label>{{ output.state == 1 ? 'Activé' : 'Désactivé' }}</span>
-                                            <span class="data-indicator data-indicator-{{ (lastDataStates[output.gpio] is defined and lastDataStates[output.gpio] is not null) ? (lastDataStates[output.gpio] == 1 ? 'on' : 'off') : 'unknown' }}" data-data-indicator data-gpio="{{ output.gpio }}" title="Dernier état enregistré (table data)"></span>
-                                            <label class="modern-switch" title="Activer/désactiver les notifications email">
-                                                <input type="checkbox" onchange="updateOutput(this)" data-id="{{ output.id }}" data-gpio="{{ output.gpio }}" {{ output.state == 1 ? 'checked' : '' }} role="switch" aria-checked="{{ output.state == 1 ? 'true' : 'false' }}" aria-label="Notifications email">
-                                                <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                                            </label>
-                                        </footer>
-                                    </article>
-                                {% endfor %}
-                            </div>
                             <section class="parameters-panel">
-                                <h3>Configuration</h3>
-                                <div class="parameters-grid">
-                                    <label class="parameter-item">
-                                        <span>Email d'alerte</span>
-                                        <input type="email" name="mail" id="mail" data-parameter="mail" data-parameter-gpio="{{ parameter_gpio_map['mail'] }}" value="{{ params.mail|default('') }}" placeholder="email@exemple.com">
-                                        <small class="save-indicator" data-save-indicator data-parameter="mail" data-state="idle"></small>
-                                    </label>
-                                </div>
+                                {% include 'partials/_notification_policy.twig' with { mail_gpio: parameter_gpio_map['mail']|default(100) } %}
                             </section>
                         </article>
 
@@ -489,6 +456,7 @@
         <script src="{{ base_path }}/assets/js/control-values-updater.js"></script>
         <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
         <script src="{{ base_path }}/assets/js/control-actions.js"></script>
+        <script src="{{ base_path }}/assets/js/notification-policy.js"></script>
         <script src="{{ base_path }}/assets/js/control-auto-save.js"></script>
         <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
 

@@ -59,10 +59,15 @@ class Ffp3GpioMapCoherenceTest extends TestCase
 
     public function testOutputRepositoryDerivesFromCanonicalSource(): void
     {
-        $this->assertSame(
+        $expected = array_merge(
             Ffp3GpioMap::parameterGpioMap(),
+            Ffp3GpioMap::serverOnlyParameterGpioMap()
+        );
+
+        $this->assertSame(
+            $expected,
             OutputRepository::getParameterGpioMap(),
-            'OutputRepository::getParameterGpioMap() doit dériver de Ffp3GpioMap.'
+            'OutputRepository::getParameterGpioMap() doit dériver de Ffp3GpioMap (firmware + server-only).'
         );
     }
 
@@ -93,7 +98,7 @@ class Ffp3GpioMapCoherenceTest extends TestCase
             }
         }
 
-        $repositoryMap = OutputRepository::getParameterGpioMap();
+        $repositoryMap = Ffp3GpioMap::parameterGpioMap();
 
         // Cohérence couple par couple, indépendamment de l'ordre des clés.
         ksort($derivedParamToGpio);
@@ -113,6 +118,7 @@ class Ffp3GpioMapCoherenceTest extends TestCase
     public function testEveryParameterGpioExistsInGpioMapping(): void
     {
         $knownGpios = array_keys(Ffp3GpioMap::gpioToProperty());
+        $serverOnly = array_flip(Ffp3GpioMap::serverOnlyGpios());
 
         foreach (Ffp3GpioMap::parameterGpioMap() as $paramName => $gpio) {
             $this->assertContains(
@@ -120,6 +126,11 @@ class Ffp3GpioMapCoherenceTest extends TestCase
                 $knownGpios,
                 "Le GPIO {$gpio} du paramètre '{$paramName}' est absent de Ffp3GpioMap::gpioToProperty()."
             );
+        }
+
+        foreach (Ffp3GpioMap::serverOnlyParameterGpioMap() as $paramName => $gpio) {
+            $this->assertArrayHasKey($gpio, $serverOnly, "GPIO server-only {$gpio} doit être déclaré dans serverOnlyGpios().");
+            $this->assertNotContains($gpio, $knownGpios, "GPIO server-only {$gpio} ne doit pas être dans gpioToProperty().");
         }
     }
 

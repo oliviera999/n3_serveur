@@ -7,10 +7,14 @@ namespace App\Controller\Ffp3;
 use App\Config\Database;
 use App\Config\TableConfig;
 use App\Config\Version;
+use App\Controller\Traits\HandlesNotificationPolicy;
+use App\Notification\NotificationFamily;
+use App\Repository\NotificationPolicyRepository;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
 use App\Service\ControlAuditLogger;
 use App\Service\LogService;
+use App\Service\NotificationPolicySaveService;
 use App\Service\OutputCacheService;
 use App\Service\OutputService;
 use App\Service\TemplateRenderer;
@@ -27,6 +31,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 class OutputController
 {
+    use HandlesNotificationPolicy;
+
     private const AQUARIUM_PUMP_GPIO = 16;
     private const AQUARIUM_PUMP_FORCE_GPIO = 117;
 
@@ -37,6 +43,7 @@ class OutputController
         private OutputCacheService $outputCache,
         private LogService $logger,
         private ControlAuditLogger $auditLogger,
+        private NotificationPolicyRepository $notificationPolicyRepo,
     ) {
     }
 
@@ -68,7 +75,10 @@ class OutputController
             $realtime_api_base = RealtimeUrlHelper::getRealtimeApiBase($environment);
             $outputs_api_base = RealtimeUrlHelper::getOutputsApiBase($environment);
 
-            $data = [
+            $this->outputService->ensureAquariumPumpForceOutputRow();
+            $this->notificationPolicyRepo->ensurePolicyRows(NotificationFamily::Ffp3);
+
+            $data = array_merge([
                 'outputs' => $outputs,
                 'boards' => $boards,
                 'params' => $params,
@@ -82,7 +92,7 @@ class OutputController
                 'firmware_version' => $firmwareVersion,
                 'lastDataStates' => $lastData['states'],
                 'lastDataReadingTime' => $lastData['readingTime'],
-            ];
+            ], $this->notificationPolicyTwigData($this->notificationPolicyRepo));
 
             $html = $this->renderer->render('control.twig', $data);
             $response->getBody()->write($html);
@@ -404,5 +414,28 @@ class OutputController
             'ok' => true,
             'message' => "Demande envoyée. L'ESP32 vérifiera la mise à jour au prochain cycle.",
         ], 200);
+    }
+
+    protected function notificationFamily(): NotificationFamily
+    {
+        return NotificationFamily::Ffp3;
+    }
+
+    public function saveNotificationPolicy(
+        Request $request,
+        Response $response,
+        NotificationPolicySaveService $saveService
+    ): Response {
+        return $this->updateNotificationPolicy(
+            $request,
+            $response,
+            $saveService,
+            $this->notificationPolicyRepo
+        );
+    }
+
+    protected function requireAuthForNotificationPolicy(Request $request, Response $response): ?Response
+    {
+        return null;
     }
 }

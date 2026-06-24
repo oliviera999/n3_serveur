@@ -11,6 +11,20 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.9.1] - 2026-06-24
+
+### Correctif - Migration GPIO politique notifications (prod)
+- **`migrations/2026_06_notification_policy_gpio.sql`** : retrait de la colonne `description` (absente du schéma prod `ffp3Outputs`) ; INSERT explicites sans `SELECT *` pour les tables test.
+
+## [5.9.0] - 2026-06-24
+
+### Ajout - Politique de notifications configurable par page de contrôle
+- **Pages contrôle** (FFP3, MSP1, N3PP, galeries) : remplacement de l'interrupteur booléen par un **menu à choix multiples** (Aucun / Important / Partiel / Complet) et des **cases à cocher par catégorie** d'alerte.
+- **Couplage firmware + serveur** : le mode « Aucun » coupe `mailNotif` côté ESP32 ; les autres modes l'activent et appliquent `NOTIF_MODE` équivalent côté serveur.
+- **`NotificationPolicyResolver`** : politique par famille (BDD, GPIO server-only 124-125 FFP3 / 108-109 MSP-N3PP / 107-108 galeries) avec repli sur `.env` global.
+- **API** : `POST …/api/outputs/notification-policy` (auth requise).
+- **Migration** : `migrations/2026_06_notification_policy_gpio.sql` ; seed Docker aligné.
+
 ## [5.8.0] - 2026-06-24
 
 ### Ajout - GPIO 117 : sélecteur 3 modes de pilotage de la pompe aquarium

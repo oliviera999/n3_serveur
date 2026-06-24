@@ -77,22 +77,36 @@ return [
     },
 
     // ====================================================================
-    // NOTIFICATIONS — politique de verbosité lue depuis l'environnement
-    // (NOTIF_MODE / NOTIF_DISABLED_CATEGORIES) + anti-spam/historique.
-    // Entrée explicite car NotificationPolicy se construit via fromEnv()
-    // (enum + scalaires), non autowirable.
-    // ====================================================================
+    // Notifications — politique par famille (BDD pages contrôle) avec repli .env global.
+    \App\Repository\NotificationPolicyRepository::class => function (ContainerInterface $c): \App\Repository\NotificationPolicyRepository {
+        return new \App\Repository\NotificationPolicyRepository(
+            $c->get(\PDO::class)
+        );
+    },
+
+    \App\Notification\NotificationPolicyResolver::class => function (ContainerInterface $c): \App\Notification\NotificationPolicyResolver {
+        return \App\Notification\NotificationPolicyResolver::fromEnv(
+            $c->get(\App\Repository\NotificationPolicyRepository::class)
+        );
+    },
+
+    \App\Service\NotificationPolicySaveService::class => function (ContainerInterface $c): \App\Service\NotificationPolicySaveService {
+        return new \App\Service\NotificationPolicySaveService(
+            $c->get(\App\Repository\NotificationPolicyRepository::class)
+        );
+    },
+
     \App\Service\NotificationService::class => function (ContainerInterface $c): \App\Service\NotificationService {
         $logger = $c->get(\App\Service\LogService::class);
 
         return new \App\Service\NotificationService(
             $logger,
-            \App\Notification\NotificationPolicy::fromEnv(),
+            null,
             new \App\Notification\AlertThrottler($logger),
-            // Transport choisi selon l'environnement (SMTP via DSN, sinon repli mail()).
             \App\Notification\MailTransportFactory::fromEnv($logger),
             new \App\Notification\EmailRenderer(),
-            new \App\Notification\NotificationDigest($logger)
+            new \App\Notification\NotificationDigest($logger),
+            $c->get(\App\Notification\NotificationPolicyResolver::class)
         );
     },
 

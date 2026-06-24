@@ -7,11 +7,16 @@ namespace App\Controller\Msp;
 use App\Config\TableConfig;
 use App\Config\Version;
 use App\Controller\AbstractOutputController;
+use App\Notification\NotificationFamily;
 use App\Repository\MspOutputRepository;
 use App\Repository\MspSensorRepository;
+use App\Repository\NotificationPolicyRepository;
 use App\Security\AuthService;
 use App\Service\LogService;
+use App\Service\NotificationPolicySaveService;
 use App\Service\TemplateRenderer;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class MspOutputController extends AbstractOutputController
 {
@@ -21,6 +26,7 @@ class MspOutputController extends AbstractOutputController
         AuthService $authService,
         private MspOutputRepository $outputRepo,
         private MspSensorRepository $sensorRepo,
+        private NotificationPolicyRepository $notificationPolicyRepo,
     ) {
         parent::__construct($logger, $renderer, $authService);
     }
@@ -55,7 +61,7 @@ class MspOutputController extends AbstractOutputController
             $resetOutput = null;
         }
 
-        return [
+        return array_merge([
             'page_title' => 'Contrôle station météo - Le potager',
             'outputs' => $outputs,
             'params' => $params,
@@ -78,12 +84,30 @@ class MspOutputController extends AbstractOutputController
                 'Activez ou coupez les sorties, et réglez les paramètres du potager. Vos commandes sont envoyées au module au cycle suivant — elles ne sont donc pas instantanées.',
                 '/msp1/api/outputs'
             ),
-        ];
+        ], $this->notificationPolicyTwigData($this->notificationPolicyRepo));
+    }
+
+    protected function notificationFamily(): NotificationFamily
+    {
+        return NotificationFamily::Msp1;
+    }
+
+    public function saveNotificationPolicy(
+        Request $request,
+        Response $response,
+        NotificationPolicySaveService $saveService
+    ): Response {
+        return $this->updateNotificationPolicy(
+            $request,
+            $response,
+            $saveService,
+            $this->notificationPolicyRepo
+        );
     }
 
     protected function getDefaultParamKeys(): array
     {
-        return ['mail', 'mailNotif', 'SeuilSec', 'SeuilPontDiv', 'ServoHB', 'ServoGD', 'WakeUp', 'FreqWakeUp', 'ServoModeAuto'];
+        return ['mail', 'mailNotif', 'notifMode', 'notifCategories', 'SeuilSec', 'SeuilPontDiv', 'ServoHB', 'ServoGD', 'WakeUp', 'FreqWakeUp', 'ServoModeAuto'];
     }
 
     /** @return array<string, string> */

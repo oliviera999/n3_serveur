@@ -7,10 +7,13 @@ namespace App\Controller\N3pp;
 use App\Config\TableConfig;
 use App\Config\Version;
 use App\Controller\AbstractOutputController;
+use App\Notification\NotificationFamily;
 use App\Repository\N3ppOutputRepository;
 use App\Repository\N3ppSensorRepository;
+use App\Repository\NotificationPolicyRepository;
 use App\Security\AuthService;
 use App\Service\LogService;
+use App\Service\NotificationPolicySaveService;
 use App\Service\TemplateRenderer;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -24,6 +27,7 @@ class N3ppOutputController extends AbstractOutputController
         AuthService $authService,
         private N3ppOutputRepository $outputRepo,
         private N3ppSensorRepository $sensorRepo,
+        private NotificationPolicyRepository $notificationPolicyRepo,
     ) {
         parent::__construct($logger, $renderer, $authService);
     }
@@ -63,7 +67,7 @@ class N3ppOutputController extends AbstractOutputController
             $firmwareVersion = 'N/A';
         }
 
-        return [
+        return array_merge([
             'page_title' => 'Contrôle serre / élevage - n3 iot',
             'part_outputs' => $partOutputs,
             'params' => $params,
@@ -86,12 +90,30 @@ class N3ppOutputController extends AbstractOutputController
                 'Pilotez l\'eau (pompe, arrosage), l\'énergie et les alertes de la serre. Vos commandes sont transmises au module au prochain cycle.',
                 '/n3pp/api/outputs'
             ),
-        ];
+        ], $this->notificationPolicyTwigData($this->notificationPolicyRepo));
+    }
+
+    protected function notificationFamily(): NotificationFamily
+    {
+        return NotificationFamily::N3pp;
+    }
+
+    public function saveNotificationPolicy(
+        Request $request,
+        Response $response,
+        NotificationPolicySaveService $saveService
+    ): Response {
+        return $this->updateNotificationPolicy(
+            $request,
+            $response,
+            $saveService,
+            $this->notificationPolicyRepo
+        );
     }
 
     protected function getDefaultParamKeys(): array
     {
-        return ['mail', 'mailNotif', 'SeuilSec', 'SeuilPontDiv', 'HeureArrosage', 'tempsArrosage', 'WakeUp', 'FreqWakeUp'];
+        return ['mail', 'mailNotif', 'notifMode', 'notifCategories', 'SeuilSec', 'SeuilPontDiv', 'HeureArrosage', 'tempsArrosage', 'WakeUp', 'FreqWakeUp'];
     }
 
     protected function getStateData(int $board): array

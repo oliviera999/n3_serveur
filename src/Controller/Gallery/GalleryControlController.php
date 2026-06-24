@@ -5,10 +5,14 @@ declare(strict_types=1);
 namespace App\Controller\Gallery;
 
 use App\Config\Version;
+use App\Controller\Traits\HandlesNotificationPolicy;
+use App\Notification\NotificationFamily;
 use App\Repository\GalleryControlRepository;
+use App\Repository\NotificationPolicyRepository;
 use App\Security\AuthService;
 use App\Security\DeviceApiKeyValidator;
 use App\Service\LogService;
+use App\Service\NotificationPolicySaveService;
 use App\Service\TemplateRenderer;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
@@ -20,11 +24,16 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 class GalleryControlController
 {
+    use HandlesNotificationPolicy;
+
+    private ?string $gallerySlugContext = null;
+
     public function __construct(
         private readonly GalleryControlRepository $repository,
         private readonly TemplateRenderer $renderer,
         private readonly AuthService $authService,
         private readonly LogService $logger,
+        private readonly NotificationPolicyRepository $notificationPolicyRepo,
     ) {
     }
 
@@ -44,7 +53,7 @@ class GalleryControlController
             $module = $this->repository->getModule($slug);
             $outputs = $this->repository->getOutputsForControlPage($slug);
             $params = $this->repository->getParametersForControlPage($slug);
-            $data = [
+            $data = array_merge([
                 'page_title' => 'Controle galerie ' . $module['label'] . ' - n3 iot',
                 'gallery_slug' => $slug,
                 'gallery_label' => $module['label'],
@@ -58,7 +67,7 @@ class GalleryControlController
                 'nav_active' => 'gallery_control',
                 'outputs_api_base' => '/gallery/' . $slug . '/api/outputs',
                 'control_config' => $this->buildControlConfig($slug, $module['label'], count($outputs)),
-            ];
+            ], $this->notificationPolicyTwigDataForSlug($slug));
 
             $html = $this->renderer->render('gallery_control.twig', $data);
             $response->getBody()->write($html);
@@ -356,5 +365,49 @@ class GalleryControlController
             'main_description' => 'Pilotez les parametres de reveil et de notification de la camera uploadphotosserver.',
             'default_api_base' => '/gallery/' . $slug . '/api/outputs',
         ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function notificationPolicyTwigDataForSlug(string $slug): array
+    {
+        $this->gallerySlugContext = $slug;
+        $family = $this->notificationFamily();
+        $this->notificationPolicyRepo->ensurePolicyRows($family);
+
+        return $this->notificationPolicyTwigData($this->notificationPolicyRepo);
+    }
+
+    protected function notificationFamily(): NotificationFamily
+    {
+        $slug = $this->gallerySlugContext ?? 'ffp3';
+
+        return NotificationFamily::fromGallerySlug($slug) ?? NotificationFamily::GalleryFfp3;
+    }
+
+    public function saveNotificationPolicyBySlug(
+        Request $request,
+        Response $response,
+        array $args,
+        NotificationPolicySaveService $saveService
+    ): Response {
+        $slug = (string) ($args['slug'] ?? '');
+        if (!$this->isAllowedSlug($slug)) {
+            return ResponseHelper::json($response, ['error' => 'Galerie inconnue'], 404);
+        }
+        $this->gallerySlugContext = $slug;
+
+        return $this->updateNotificationPolicy(
+            $request,
+            $response,
+            $saveService,
+            $this->notificationPolicyRepo
+        );
+    }
+
+    protected function requireAuthForNotificationPolicy(Request $request, Response $response): ?Response
+    {
+        return $this->requireAuth($request, $response);
     }
 }

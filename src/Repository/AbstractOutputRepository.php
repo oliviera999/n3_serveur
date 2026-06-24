@@ -13,8 +13,8 @@ use PDO;
  */
 abstract class AbstractOutputRepository extends AbstractRepository
 {
-    /** @var int[] GPIO de commande one-shot (envoyés puis acquittés à 0) */
-    private const ONE_SHOT_GPIOS = [108, 109, 110];
+    /** @var int[] GPIO de commande one-shot FFP3 (envoyés puis acquittés à 0) */
+    private const FFP3_ONE_SHOT_GPIOS = [108, 109, 110];
 
     public function __construct(
         PDO $pdo,
@@ -38,6 +38,16 @@ abstract class AbstractOutputRepository extends AbstractRepository
     abstract protected function getParamGpioMap(): array;
 
     /**
+     * GPIO server-only exclus des réponses firmware (sous-classes MSP/N3PP).
+     *
+     * @return int[]
+     */
+    protected function getServerOnlyGpios(): array
+    {
+        return \App\Config\NotificationPolicyGpioMap::serverOnlyGpiosForMspN3pp();
+    }
+
+    /**
      * Retourne l'état des outputs pour le firmware (format JSON : gpio => state).
      *
      * @return array<string, string> Clés = numéros GPIO (string), valeurs = état (string)
@@ -50,13 +60,17 @@ abstract class AbstractOutputRepository extends AbstractRepository
 
         $result = [];
         $gpioToAck = [];
+        $serverOnly = array_flip($this->getServerOnlyGpios());
         foreach ($rows as $row) {
             $gpio = (string) ($row['gpio'] ?? '');
+            $gpioInt = (int) $gpio;
+            if (isset($serverOnly[$gpioInt])) {
+                continue;
+            }
             $state = (string) ($row['state'] ?? '');
             $result[$gpio] = $state;
 
-            $gpioInt = (int) $gpio;
-            if (in_array($gpioInt, self::ONE_SHOT_GPIOS, true) && $this->isActiveState($state)) {
+            if (in_array($gpioInt, self::FFP3_ONE_SHOT_GPIOS, true) && $this->isActiveState($state)) {
                 $gpioToAck[] = $gpioInt;
             }
         }

@@ -1,0 +1,62 @@
+{# Politique de notifications serveur + firmware (mode NOTIF_MODE + catégories) #}
+<div class="notification-policy-panel" data-notification-policy>
+    <div class="parameter-item notification-mode-item">
+        <span>Notifications par e-mail</span>
+        <div class="notification-mode-control">
+            <select
+                class="notification-mode-select pump-force-select"
+                data-notification-mode-select
+                aria-label="Niveau de notifications par e-mail"
+                onchange="setNotificationMode(this)"
+            >
+                {% for mode in notification_modes_meta %}
+                    <option value="{{ mode.value }}" {{ notif_mode|default('important') == mode.value ? 'selected' : '' }} title="{{ mode.hint }}">
+                        {{ mode.label }}
+                    </option>
+                {% endfor %}
+            </select>
+            <small class="save-indicator" data-save-indicator data-notification-save-indicator data-state="idle"></small>
+        </div>
+        <p class="parameter-item-hint notification-mode-hint">
+            {% for mode in notification_modes_meta %}
+                {% if notif_mode|default('important') == mode.value %}{{ mode.hint }}{% endif %}
+            {% endfor %}
+            {% if notif_from_env|default(false) %}
+                <span class="text-muted"> (valeurs par défaut du serveur — modifiez pour personnaliser cet appareil)</span>
+            {% endif %}
+        </p>
+    </div>
+
+    <fieldset class="notification-categories-fieldset" data-notification-categories {{ notif_mode|default('important') == 'none' ? 'disabled' : '' }}>
+        <legend>Catégories d'alertes</legend>
+        <div class="notification-categories-grid parameters-grid">
+            {% for cat in notification_categories_meta %}
+                <label class="parameter-item parameter-item-checkbox">
+                    <input
+                        type="checkbox"
+                        data-notification-category
+                        value="{{ cat.value }}"
+                        {{ cat.value in notif_categories_enabled|default([]) ? 'checked' : '' }}
+                        onchange="toggleNotificationCategory(this)"
+                        {{ notif_mode|default('important') == 'none' ? 'disabled' : '' }}
+                    >
+                    <span>{{ cat.emoji }} {{ cat.label }}</span>
+                </label>
+            {% endfor %}
+        </div>
+    </fieldset>
+
+    <label class="parameter-item" data-parameter-wrapper>
+        <span>Adresse e-mail</span>
+        <input
+            type="email"
+            data-parameter="mail"
+            data-parameter-gpio="{{ mail_gpio|default('100') }}"
+            id="mail"
+            value="{{ params.mail|default('')|e('html_attr') }}"
+            placeholder="email@exemple.com"
+            autocomplete="email"
+        >
+        <small class="save-indicator" data-save-indicator data-parameter="mail" data-state="idle"></small>
+    </label>
+</div>

@@ -28,7 +28,12 @@ class GalleryControlRepository extends AbstractRepository
         'forceWakeUp' => 104,
         'sleepTime' => 105,
         'resetMode' => 106,
+        'notifMode' => 107,
+        'notifCategories' => 108,
     ];
+
+    /** @var int[] */
+    private const SERVER_ONLY_GPIOS = [107, 108];
 
     public function __construct(
         \PDO $pdo,
@@ -62,9 +67,10 @@ class GalleryControlRepository extends AbstractRepository
         $rows = $this->fetchAll($sql, [':board' => $board]);
 
         $state = [];
+        $serverOnly = array_flip(self::SERVER_ONLY_GPIOS);
         foreach ($rows as $row) {
             $gpio = (string) ($row['gpio'] ?? '');
-            if ($gpio === '') {
+            if ($gpio === '' || isset($serverOnly[(int) $gpio])) {
                 continue;
             }
             $state[$gpio] = (string) ($row['state'] ?? '');
@@ -93,15 +99,23 @@ class GalleryControlRepository extends AbstractRepository
      */
     public function getParametersForControlPage(string $slug): array
     {
-        $state = $this->getStateForFirmware($slug);
+        $module = $this->getModule($slug);
+        $table = $module['table'];
+        $board = $module['board'];
 
-        return [
-            'mail' => $state[(string) self::PARAM_GPIO_MAP['mail']] ?? '',
-            'mailNotif' => $state[(string) self::PARAM_GPIO_MAP['mailNotif']] ?? 'false',
-            'forceWakeUp' => $state[(string) self::PARAM_GPIO_MAP['forceWakeUp']] ?? '0',
-            'sleepTime' => $state[(string) self::PARAM_GPIO_MAP['sleepTime']] ?? '600',
-            'resetMode' => $state[(string) self::PARAM_GPIO_MAP['resetMode']] ?? '0',
-        ];
+        $sql = "SELECT gpio, state FROM `{$table}` WHERE board = :board";
+        $rows = $this->fetchAll($sql, [':board' => $board]);
+        $byGpio = [];
+        foreach ($rows as $row) {
+            $byGpio[(int) ($row['gpio'] ?? 0)] = (string) ($row['state'] ?? '');
+        }
+
+        $params = [];
+        foreach (self::PARAM_GPIO_MAP as $name => $gpio) {
+            $params[$name] = $byGpio[$gpio] ?? ($name === 'mail' ? '' : ($name === 'mailNotif' ? 'false' : '0'));
+        }
+
+        return $params;
     }
 
     public function getLastBoardRequest(string $slug): ?string

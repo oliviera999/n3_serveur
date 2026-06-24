@@ -64,6 +64,9 @@ class OutputRepositoryTest extends TestCase
         }
     }
 
+    /** GPIO server-only (politique notifications) exclus du poll firmware */
+    private const FIRMWARE_EXCLUDED_SERVER_ONLY = [124, 125];
+
     public function testFirmwareStateGpioListIncludesControlActuatorsAndParameters(): void
     {
         $map = OutputRepository::getParameterGpioMap();
@@ -77,11 +80,23 @@ class OutputRepositoryTest extends TestCase
         }
 
         foreach ($map as $gpio) {
+            if (in_array($gpio, self::FIRMWARE_EXCLUDED_SERVER_ONLY, true)) {
+                continue;
+            }
             $this->assertContains(
                 $gpio,
                 self::FIRMWARE_STATE_GPIOS,
                 "GPIO paramètre {$gpio} absent de la liste getOutputsState"
             );
+        }
+    }
+
+    public function testServerOnlyNotificationGpiosAreExcludedFromFirmwarePoll(): void
+    {
+        $gpioValues = array_values(OutputRepository::getParameterGpioMap());
+        foreach (self::FIRMWARE_EXCLUDED_SERVER_ONLY as $gpio) {
+            $this->assertContains($gpio, $gpioValues);
+            $this->assertContains($gpio, \App\Config\Ffp3GpioMap::serverOnlyGpios());
         }
     }
 

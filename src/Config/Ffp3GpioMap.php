@@ -98,6 +98,34 @@ final class Ffp3GpioMap
     ];
 
     /**
+     * Paramètres server-only (politique notifications, non synchronisés firmware).
+     *
+     * @var array<string, int>
+     */
+    private const SERVER_ONLY_PARAM_GPIO = [
+        'notifMode' => 124,
+        'notifCategories' => 125,
+    ];
+
+    /**
+     * GPIO server-only exclus du GET firmware FFP3.
+     *
+     * @return int[]
+     */
+    public static function serverOnlyGpios(): array
+    {
+        return array_values(self::SERVER_ONLY_PARAM_GPIO);
+    }
+
+    /**
+     * @return array<string, int>
+     */
+    public static function serverOnlyParameterGpioMap(): array
+    {
+        return self::SERVER_ONLY_PARAM_GPIO;
+    }
+
+    /**
      * GPIO → propriété SensorData.
      *
      * @return array<int, string>

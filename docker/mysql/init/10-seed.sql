@@ -36,7 +36,9 @@ INSERT INTO `ffp3Outputs` (`board`, `gpio`, `name`, `state`, `description`, `req
 ('1', 120, 'angleInterGros', '45', 'Angle intermediaire servo gros poissons (degres)', NOW(), 'web'),
 ('1', 121, 'angleReposPetits', '88', 'Angle repos servo petits poissons (degres)', NOW(), 'web'),
 ('1', 122, 'angleDistribPetits', '140', 'Angle distribution servo petits poissons (degres)', NOW(), 'web'),
-('1', 123, 'angleInterPetits', '45', 'Angle intermediaire servo petits poissons (degres)', NOW(), 'web')
+('1', 123, 'angleInterPetits', '45', 'Angle intermediaire servo petits poissons (degres)', NOW(), 'web'),
+('1', 124, 'notifMode', 'important', 'Mode notifications serveur', NOW(), 'web'),
+('1', 125, 'notifCategories', '', 'Categories notifications activees (CSV)', NOW(), 'web')
 ON DUPLICATE KEY UPDATE
 `name` = VALUES(`name`),
 `state` = VALUES(`state`),
@@ -93,7 +95,9 @@ INSERT INTO `msp1Outputs` (`board`, `gpio`, `name`, `state`, `requestTime`) VALU
 ('2', 106, 'WakeUp', '0', NOW()),
 ('2', 107, 'FreqWakeUp', '10', NOW()),
 ('2', 110, 'resetMode', '0', NOW()),
-('2', 111, 'ServoModeAuto', '1', NOW())
+('2', 111, 'ServoModeAuto', '1', NOW()),
+('2', 108, 'notifMode', 'important', NOW()),
+('2', 109, 'notifCategories', '', NOW())
 ON DUPLICATE KEY UPDATE
 `name` = VALUES(`name`),
 `state` = VALUES(`state`),
@@ -117,7 +121,9 @@ INSERT INTO `n3ppOutputs` (`board`, `gpio`, `name`, `state`, `requestTime`) VALU
 ('3', 105, 'tempsArrosage', '10', NOW()),
 ('3', 106, 'WakeUp', '0', NOW()),
 ('3', 107, 'FreqWakeUp', '8', NOW()),
-('3', 110, 'resetMode', '0', NOW())
+('3', 110, 'resetMode', '0', NOW()),
+('3', 108, 'notifMode', 'important', NOW()),
+('3', 109, 'notifCategories', '', NOW())
 ON DUPLICATE KEY UPDATE
 `name` = VALUES(`name`),
 `state` = VALUES(`state`),
@@ -135,7 +141,9 @@ INSERT INTO `UploadPhoto1Outputs` (`board`, `gpio`, `name`, `state`, `requestTim
 ('5', 103, 'mailNotif', 'checked', NOW()),
 ('5', 104, 'forceWakeUp', '0', NOW()),
 ('5', 105, 'sleepTime', '600', NOW()),
-('5', 106, 'resetMode', '0', NOW())
+('5', 106, 'resetMode', '0', NOW()),
+('5', 107, 'notifMode', 'important', NOW()),
+('5', 108, 'notifCategories', '', NOW())
 ON DUPLICATE KEY UPDATE
 `name` = VALUES(`name`),
 `state` = VALUES(`state`),
@@ -147,7 +155,9 @@ INSERT INTO `UploadPhoto2Outputs` (`board`, `gpio`, `name`, `state`, `requestTim
 ('6', 103, 'mailNotif', 'checked', NOW()),
 ('6', 104, 'forceWakeUp', '0', NOW()),
 ('6', 105, 'sleepTime', '600', NOW()),
-('6', 106, 'resetMode', '0', NOW())
+('6', 106, 'resetMode', '0', NOW()),
+('6', 107, 'notifMode', 'important', NOW()),
+('6', 108, 'notifCategories', '', NOW())
 ON DUPLICATE KEY UPDATE
 `name` = VALUES(`name`),
 `state` = VALUES(`state`),
@@ -159,7 +169,9 @@ INSERT INTO `UploadPhoto3Outputs` (`board`, `gpio`, `name`, `state`, `requestTim
 ('7', 103, 'mailNotif', 'checked', NOW()),
 ('7', 104, 'forceWakeUp', '0', NOW()),
 ('7', 105, 'sleepTime', '600', NOW()),
-('7', 106, 'resetMode', '0', NOW())
+('7', 106, 'resetMode', '0', NOW()),
+('7', 107, 'notifMode', 'important', NOW()),
+('7', 108, 'notifCategories', '', NOW())
 ON DUPLICATE KEY UPDATE
 `name` = VALUES(`name`),
 `state` = VALUES(`state`),

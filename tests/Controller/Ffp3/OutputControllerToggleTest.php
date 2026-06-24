@@ -6,6 +6,7 @@ namespace Tests\Controller\Ffp3;
 
 use App\Config\TableConfig;
 use App\Controller\Ffp3\OutputController;
+use App\Repository\NotificationPolicyRepository;
 use App\Repository\SensorReadRepository;
 use App\Service\ControlAuditLogger;
 use App\Service\LogService;
@@ -33,6 +34,7 @@ class OutputControllerToggleTest extends TestCase
             $this->createMock(OutputCacheService::class),
             $this->createMock(LogService::class),
             $this->createMock(ControlAuditLogger::class),
+            $this->createMock(NotificationPolicyRepository::class),
         );
     }
 

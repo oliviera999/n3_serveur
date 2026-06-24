@@ -6,6 +6,7 @@ namespace Tests\Controller\Ffp3;
 
 use App\Config\Database;
 use App\Controller\Ffp3\OutputController;
+use App\Repository\NotificationPolicyRepository;
 use App\Repository\SensorReadRepository;
 use App\Service\ControlAuditLogger;
 use App\Service\LogService;
@@ -74,6 +75,7 @@ class OutputControllerParametersStateTest extends TestCase
             $this->outputCache,
             $this->createMock(LogService::class),
             $this->createMock(ControlAuditLogger::class),
+            $this->createMock(NotificationPolicyRepository::class),
         );
     }
 
@@ -220,6 +222,7 @@ class OutputControllerParametersStateTest extends TestCase
             $this->outputCache,
             $this->createMock(LogService::class),
             $this->createMock(ControlAuditLogger::class),
+            $this->createMock(NotificationPolicyRepository::class),
         );
 
         $request = (new ServerRequestFactory())

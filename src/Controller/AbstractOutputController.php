@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Controller\Traits\HandlesNotificationPolicy;
 use App\Security\AuthService;
 use App\Service\ControlAuditLogger;
 use App\Service\LogService;
@@ -19,6 +20,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 abstract class AbstractOutputController
 {
+    use HandlesNotificationPolicy;
+
     protected ControlAuditLogger $auditLogger;
 
     public function __construct(
@@ -505,5 +508,10 @@ abstract class AbstractOutputController
         }
 
         return ['ok' => true, 'value' => $value];
+    }
+
+    protected function requireAuthForNotificationPolicy(Request $request, Response $response): ?Response
+    {
+        return $this->requireAuth($request, $response);
     }
 }

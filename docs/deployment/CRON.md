@@ -71,6 +71,7 @@ Fichier d'état : `var/cache/cron_last_hourly.timestamp`
 | `CLEAN_MIN_*` / `CLEAN_MAX_*` | voir `.env.example` | Seuils nettoyage capteurs |
 | `LOG_FILE_PATH` | `cronlog.txt` | Journal Monolog |
 | `NOTIF_EMAIL_RECIPIENT` | — | Destinataire alertes email |
+| `NOTIF_MODE` / `NOTIF_DISABLED_CATEGORIES` | voir `.env.example` | Défaut global ; surcharge par famille via les pages de contrôle (FFP3, MSP1, N3PP, galeries) |
 
 ## Logs et diagnostic
 

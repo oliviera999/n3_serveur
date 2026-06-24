@@ -74,6 +74,7 @@ function registerFfp3ProtectedRoutes($app, array $routes, string $env, $applyAut
         $group->get($routes['control'], [OutputController::class, 'showInterface']);
         $group->post($routes['toggle'], [OutputController::class, 'toggleOutput']);
         $group->post($routes['parameters'], [OutputController::class, 'updateParameters']);
+        $group->post(str_replace('/parameters', '/notification-policy', $routes['parameters']), [OutputController::class, 'saveNotificationPolicy']);
         $group->post($routes['trigger_ota'], [OutputController::class, 'triggerOtaCheck']);
         $group->get($routes['board_status'], [OutputController::class, 'getBoardStatus']);
         if (isset($routes['admin_clear'])) {
@@ -187,6 +188,7 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
         $group->map(['GET', 'POST'], "/{$pathPrefix}/api/outputs/toggle", [$outputController, 'toggleOutput']);
         if ($hasParameters) {
             $group->post("/{$pathPrefix}/api/outputs/parameters", [$outputController, 'updateParameters']);
+            $group->post("/{$pathPrefix}/api/outputs/notification-policy", [$outputController, 'saveNotificationPolicy']);
         }
         // Heartbeat moderne (auth HMAC ou api_key) — table dediee msp1Heartbeat / n3ppHeartbeat.
         if ($heartbeatController !== null) {
@@ -207,6 +209,7 @@ function registerFfp3ControlRoutes($app, string $outputsPrefix, string $toggleMe
     $app->group('/ffp3', function ($group) use ($outputsPrefix, $toggleMethod) {
         $group->post($outputsPrefix . '/toggle', [OutputController::class, $toggleMethod]);
         $group->post($outputsPrefix . '/parameters', [OutputController::class, 'updateParameters']);
+        $group->post($outputsPrefix . '/notification-policy', [OutputController::class, 'saveNotificationPolicy']);
         $group->post($outputsPrefix . '/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
         $group->get($outputsPrefix . '/board/{board}/status', [OutputController::class, 'getBoardStatus']);
     })->add(new EnvironmentMiddleware($env))

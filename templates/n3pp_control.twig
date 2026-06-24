@@ -53,21 +53,7 @@
                 <h2><i class="fas fa-envelope"></i> Notification</h2>
             </header>
             <div class="parameters-panel">
-                <div class="parameters-grid">
-                    <label class="parameter-item" data-parameter-wrapper>
-                        <span>Mail</span>
-                        <input type="text" data-parameter="mail" data-parameter-gpio="100" id="mail" value="{{ params.mail|default('')|e('html_attr') }}" placeholder="email@exemple.com">
-                        <small class="save-indicator" data-save-indicator data-parameter="mail" data-state="idle"></small>
-                    </label>
-                    <label class="parameter-item parameter-item-switch">
-                        <span>Notification par mail</span>
-                        <label class="modern-switch" title="Activer/désactiver les notifications par mail">
-                            <input type="checkbox" data-parameter-gpio="101" id="mailNotif" {{ params.mailNotif|default('') == 'checked' ? 'checked' : '' }} role="switch" aria-label="Notification par mail" onchange="saveParamSwitch('mailNotif', this.checked, 'checked', 'false')">
-                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                        </label>
-                        <span class="parameter-item-hint" id="mailNotif-hint">{{ params.mailNotif|default('') == 'checked' ? 'Activé' : 'Désactivé' }}</span>
-                    </label>
-                </div>
+                {% include 'partials/_notification_policy.twig' with { mail_gpio: 100 } %}
             </div>
         </div>
 
