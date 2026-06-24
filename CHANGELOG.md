@@ -11,7 +11,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
-## [5.4.0] - 2026-06-24
+## [5.5.0] - 2026-06-24
 
 ### Ajout - Système de notifications par sévérité + mode de verbosité configurable (Phase 0)
 - **`src/Notification/`** : nouveau socle de notification.
@@ -25,6 +25,21 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - **`.env.example`** : ajout de `NOTIF_MODE` (défaut recommandé `important`) et `NOTIF_DISABLED_CATEGORIES` ; suppression de la variable morte `ALERT_EMAIL`.
 - **`config/dependencies.php`** : câblage explicite de `NotificationService` (politique depuis l'env + throttler).
 - **Tests** : `tests/Notification/` (Severity, NotificationMode, NotificationPolicy, AlertThrottler) + `NotificationServiceTest` étendu (modes, catégories coupées, anti-spam). `CronOrchestratorTest` aligné sur `sendAlert`.
+
+## [5.4.0] - 2026-06-24
+
+### Modifié - Gestionnaire d'utilisateurs toujours actif + compte admin initial visible
+- **`templates/partials/_nav.twig`** : lien permanent « Utilisateurs » dans la barre de navigation pour les administrateurs (`can_manage_users`). Le gestionnaire est désormais accessible en permanence, sans interrupteur.
+- **`templates/supervision.twig`** : suppression de l'interrupteur d'affichage (`page-nav-toggle` `admin-users`) qui se remettait à 0 (état stocké en localStorage, par appareil) — la carte « Gestion des utilisateurs » reste présente.
+- **`public/assets/js/page-nav-toggles.js`** : purge de la clé localStorage obsolète `admin-users` pour éviter un doublon dans le menu chez les utilisateurs ayant activé l'ancien toggle.
+- **`UserService::ensureLegacyAdminMaterialized()`** : matérialise (de façon idempotente) le compte admin historique du `.env` (`ADMIN_USERNAME` / `ADMIN_PASSWORD_HASH`) dans la table `n3_users` s'il n'y figure pas — il apparaît et devient gérable dans le gestionnaire. Appelé depuis `UserAdminController::index()`.
+- **`UserAdminController`** : `nav_active = 'users'` sur les pages de gestion (liste, création, édition) pour surligner l'entrée de navigation.
+- Étape transitoire vers le retrait du système d'authentification mono-compte (`.env`) une fois le gestionnaire pleinement opérationnel.
+
+### Correctif - Tests préexistants désynchronisés (feature angles servo v5.3.8-5.3.10)
+- **`tests/Service/OutputSyncServiceTest`** : contrat GPIO canonique mis à jour avec les angles servo 118-123 (déjà présents dans `Ffp3GpioMap` et exposés au firmware via `getOutputsState()`) — comptage 21 → 27.
+- **`tests/Controller/Ffp3PostDataControllerTest`** : le mock `OutputRepository` stubbe désormais `ensureServoAngleRowsExist()` (appelée dans `insertData()` depuis v5.3.10) — sans ce stub, la vraie méthode s'exécutait sans connexion PDO (constructeur désactivé) → 500.
+- ⚠️ Côté contrat firmware↔serveur : à confirmer que `GPIOMap::ALL_MAPPINGS` (repo `n3_firmwires`) porte bien les GPIO 118-123 (non vérifiable depuis ce dépôt).
 
 ## [5.3.10] - 2026-06-23
 
