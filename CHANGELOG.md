@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.4.1] - 2026-06-24
+
+### Vérifié - Contrat GPIO firmware↔serveur (angles servo 118-123)
+- Cross-check de `GPIOMap::ALL_MAPPINGS` (`n3_firmwires`, `ffp5cs/include/gpio_mapping.h`) contre le contrat gelé `OutputSyncServiceTest::EXPECTED` : **27/27 entrées concordantes** (GPIO → `serverPostName` firmware == GPIO → propriété serveur), `MAPPING_COUNT` firmware = 27.
+- Les six angles servo **118-123** sont bien présents dans `ALL_MAPPINGS` (`angleReposGros`, `angleDistribGros`, `angleInterGros`, `angleReposPetits`, `angleDistribPetits`, `angleInterPetits`) ; défauts firmware 88/140/45 (`GPIODefaults::SERVO_REST/FEED/INTER_ANGLE`) dans la plage `FeedingServoAngleValidator` 0–180.
+- **GPIO 117** confirmé absent de `ALL_MAPPINGS` côté firmware (extension serveur uniquement) — cohérent avec `OutputSyncServiceTest::testGpio117IsNotInContract`.
+- Lève le ⚠️ ouvert en 5.4.0 : le contrat firmware↔serveur sur les angles servo est désormais vérifié des deux côtés.
+
 ## [5.4.0] - 2026-06-24
 
 ### Modifié - Gestionnaire d'utilisateurs toujours actif + compte admin initial visible
@@ -24,7 +32,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ### Correctif - Tests préexistants désynchronisés (feature angles servo v5.3.8-5.3.10)
 - **`tests/Service/OutputSyncServiceTest`** : contrat GPIO canonique mis à jour avec les angles servo 118-123 (déjà présents dans `Ffp3GpioMap` et exposés au firmware via `getOutputsState()`) — comptage 21 → 27.
 - **`tests/Controller/Ffp3PostDataControllerTest`** : le mock `OutputRepository` stubbe désormais `ensureServoAngleRowsExist()` (appelée dans `insertData()` depuis v5.3.10) — sans ce stub, la vraie méthode s'exécutait sans connexion PDO (constructeur désactivé) → 500.
-- ⚠️ Côté contrat firmware↔serveur : à confirmer que `GPIOMap::ALL_MAPPINGS` (repo `n3_firmwires`) porte bien les GPIO 118-123 (non vérifiable depuis ce dépôt).
+- ✅ Côté contrat firmware↔serveur : **vérifié en 5.4.1** — `GPIOMap::ALL_MAPPINGS` (`n3_firmwires`) porte bien les GPIO 118-123 (27/27 entrées concordantes).
 
 ## [5.3.10] - 2026-06-23
 
