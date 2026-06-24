@@ -31,9 +31,12 @@ class UserAdminController
             return $deny;
         }
 
+        // Le compte admin historique (.env) doit apparaître dans le gestionnaire.
+        $this->userService->ensureLegacyAdminMaterialized();
+
         $html = $this->renderer->render('admin/users/index.twig', [
             'page_title' => 'Gestion des utilisateurs - n3 iot datas',
-            'nav_active' => 'supervision',
+            'nav_active' => 'users',
             'users' => $this->userService->listUsers(),
             'role_labels' => $this->roleLabels(),
             'flash_success' => $this->flashGet('success'),
@@ -147,7 +150,7 @@ class UserAdminController
     {
         $html = $this->renderer->render('admin/users/form.twig', [
             'page_title' => ($user === null ? 'Nouvel utilisateur' : 'Modifier utilisateur') . ' - n3 iot datas',
-            'nav_active' => 'supervision',
+            'nav_active' => 'users',
             'user' => $user,
             'form_data' => $data,
             'errors' => $errors,

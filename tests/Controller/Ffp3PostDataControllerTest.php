@@ -33,7 +33,7 @@ final class Ffp3PostDataControllerTest extends TestCase
             /** @var OutputRepository&MockObject $outputRepo */
             $outputRepo = $this->getMockBuilder(OutputRepository::class)
                 ->disableOriginalConstructor()
-                ->onlyMethods(['ensureAquariumPumpForceRowExists', 'syncStatesFromSensorData'])
+                ->onlyMethods(['ensureAquariumPumpForceRowExists', 'ensureServoAngleRowsExist', 'syncStatesFromSensorData'])
                 ->getMock();
 
             /** @var BoardRepository&MockObject $boardRepo */
@@ -59,6 +59,8 @@ final class Ffp3PostDataControllerTest extends TestCase
 
             $outputRepo->expects($this->once())
                 ->method('ensureAquariumPumpForceRowExists');
+            $outputRepo->expects($this->once())
+                ->method('ensureServoAngleRowsExist');
             $outputRepo->expects($this->once())
                 ->method('syncStatesFromSensorData')
                 ->with($this->callback(fn (SensorData $data): bool => $data->postId === 'retry-123'));
