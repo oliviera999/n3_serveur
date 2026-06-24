@@ -88,7 +88,11 @@ return [
         return new \App\Service\NotificationService(
             $logger,
             \App\Notification\NotificationPolicy::fromEnv(),
-            new \App\Notification\AlertThrottler($logger)
+            new \App\Notification\AlertThrottler($logger),
+            // Transport choisi selon l'environnement (SMTP via DSN, sinon repli mail()).
+            \App\Notification\MailTransportFactory::fromEnv($logger),
+            new \App\Notification\EmailRenderer(),
+            new \App\Notification\NotificationDigest($logger)
         );
     },
 

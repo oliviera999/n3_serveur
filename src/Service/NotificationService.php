@@ -5,7 +5,12 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Notification\AlertThrottler;
+use App\Notification\DigestQueue;
+use App\Notification\EmailRenderer;
+use App\Notification\MailTransport;
+use App\Notification\MailTransportFactory;
 use App\Notification\NotificationCategory;
+use App\Notification\NotificationDigest;
 use App\Notification\NotificationPolicy;
 use App\Notification\Severity;
 
@@ -13,13 +18,19 @@ use App\Notification\Severity;
  * Service responsable de l'envoi de notifications par e-mail.
  *
  * Chaque notification porte une SÉVÉRITÉ (P1..P4) et une CATÉGORIE (domaine).
- * Avant l'envoi, deux filtres s'appliquent :
+ * Avant l'envoi, plusieurs filtres s'appliquent :
  *   1. la POLITIQUE (NotificationPolicy) — mode de verbosité configurable
  *      (none/important/partial/full) + catégories coupées ;
- *   2. l'ANTI-SPAM (AlertThrottler) — cooldown par clé d'alerte, persisté en base.
+ *   2. l'ANTI-SPAM (AlertThrottler) — cooldown par clé d'alerte, persisté en base ;
+ *   3. le DIGEST (NotificationDigest) — les alertes de faible sévérité (P3/P4) issues
+ *      de sendAlert() sont accumulées et envoyées groupées (flushDigest()), tandis que
+ *      les P1/P2 partent immédiatement.
+ *
+ * Le transport est abstrait ({@see MailTransport}) : SMTP via symfony/mailer lorsqu'un
+ * DSN est configuré (SMTP_DSN / SMTP_HOST…), sinon repli gracieux sur mail() (dev/CI).
+ * Le corps est rendu via des gabarits Twig HTML + texte ({@see EmailRenderer}).
  *
  * Le sujet est préfixé « [FAMILLE][Pn] » pour permettre le tri côté boîte mail.
- * Le transport reste mail() (cf. docs : migration SMTP prévue en phase ultérieure).
  */
 class NotificationService
 {
@@ -29,36 +40,50 @@ class NotificationService
     private string $from;
     private NotificationPolicy $policy;
     private AlertThrottler $throttler;
+    private MailTransport $transport;
+    private EmailRenderer $renderer;
+    private DigestQueue $digest;
 
     /**
      * @param LogService              $logger    Service de log pour tracer les notifications
      * @param NotificationPolicy|null $policy    Politique de verbosité (défaut : depuis l'env)
      * @param AlertThrottler|null     $throttler Anti-spam + historique (défaut : auto)
+     * @param MailTransport|null      $transport Transport e-mail (défaut : choisi selon l'env)
+     * @param EmailRenderer|null      $renderer  Rendu Twig HTML/texte (défaut : auto)
+     * @param DigestQueue|null        $digest    File de synthèse P3/P4 (défaut : NotificationDigest)
      */
     public function __construct(
         private LogService $logger,
         ?NotificationPolicy $policy = null,
-        ?AlertThrottler $throttler = null
+        ?AlertThrottler $throttler = null,
+        ?MailTransport $transport = null,
+        ?EmailRenderer $renderer = null,
+        ?DigestQueue $digest = null
     ) {
         $this->recipient = $_ENV['NOTIF_EMAIL_RECIPIENT'] ?? 'user@example.com';
         $this->from = $_ENV['MAIL_FROM'] ?? 'Aquaponie <noreply@example.com>';
         $this->policy = $policy ?? NotificationPolicy::fromEnv();
         $this->throttler = $throttler ?? new AlertThrottler($logger);
+        $this->transport = $transport ?? MailTransportFactory::fromEnv($logger);
+        $this->renderer = $renderer ?? new EmailRenderer();
+        $this->digest = $digest ?? new NotificationDigest($logger);
     }
 
     // ------------------------------------------------------------------
-    // Cœur : politique + anti-spam + formatage + envoi
+    // Cœur : politique + anti-spam + digest + formatage + envoi
     // ------------------------------------------------------------------
 
     /**
-     * Applique la politique de verbosité et l'anti-spam, formate le sujet, envoie et journalise.
+     * Applique la politique, l'anti-spam et le routage digest, formate, envoie et journalise.
      *
-     * @param string      $message     Corps HTML déjà finalisé
+     * @param string      $subject     Objet de l'alerte (sert de titre et de corps texte source)
+     * @param string      $message     Corps de l'alerte (texte brut, sans HTML)
      * @param string|null $throttleKey Clé d'anti-spam (null = pas de cooldown)
-     * @param string|null $family      Famille d'appareils (FFP3, N3PP, MSP1…) pour le préfixe de sujet
+     * @param string|null $family      Famille d'appareils (FFP3, N3PP, MSP1…) pour le préfixe
      * @param int|null    $cooldown    Cooldown en secondes (défaut : selon la sévérité)
+     * @param bool        $digestable  Si vrai, une P3/P4 est mise en file de synthèse au lieu d'un envoi immédiat
      *
-     * @return bool Vrai si l'e-mail est remis au MTA ; faux si filtré, en cooldown ou échec
+     * @return bool Vrai si remis au transport (ou mis en file digest) ; faux si filtré/cooldown/échec
      */
     private function dispatch(
         Severity $severity,
@@ -67,7 +92,8 @@ class NotificationService
         string $message,
         ?string $throttleKey = null,
         ?string $family = null,
-        ?int $cooldown = null
+        ?int $cooldown = null,
+        bool $digestable = false
     ): bool {
         if (!$this->policy->shouldSend($severity, $category)) {
             $this->logger->info('Notification filtrée par la politique de notification', [
@@ -93,8 +119,27 @@ class NotificationService
             }
         }
 
+        // Faible sévérité (P3/P4) et flux digestable : on accumule au lieu d'envoyer.
+        if ($digestable && $severity->priority() >= Severity::Info->priority()) {
+            $queued = $this->digest->queue($severity, $category, $family, $subject, $message);
+            if ($queued) {
+                $this->logger->info('Notification mise en file de synthèse (digest)', [
+                    'severity' => $severity->value,
+                    'subject' => $subject,
+                ]);
+                if ($throttleKey !== null) {
+                    $this->throttler->record($throttleKey, $severity, $category, $this->recipient, $subject);
+                }
+
+                return true;
+            }
+            // Si la mise en file échoue (base indisponible), on bascule sur un envoi direct.
+        }
+
         $formattedSubject = $this->formatSubject($severity, $subject, $family);
-        $isSuccess = $this->sendMail($this->recipient, $formattedSubject, $message);
+        $html = $this->renderer->renderAlertHtml($severity, $category, $family, $subject, $message);
+        $text = $this->renderer->renderAlertText($severity, $category, $family, $subject, $message);
+        $isSuccess = $this->sendMail($this->recipient, $formattedSubject, $html, $text);
 
         if ($isSuccess && $throttleKey !== null) {
             $this->throttler->record($throttleKey, $severity, $category, $this->recipient, $formattedSubject);
@@ -116,21 +161,11 @@ class NotificationService
     }
 
     /**
-     * Envoie une notification simple par e-mail. Utilise la fonction mail() de PHP
-     * et logge le résultat (succès ou échec).
+     * Envoie un e-mail multipart (HTML + texte) via le transport configuré et journalise.
      */
-    private function sendMail(string $recipient, string $subject, string $message): bool
+    private function sendMail(string $recipient, string $subject, string $htmlBody, string $textBody): bool
     {
-        // Construction de l'en-tête sous forme de chaîne car mail() n'accepte pas un tableau
-        $headersArray = [
-            'MIME-Version: 1.0',
-            'Content-type: text/html; charset=utf-8',
-            'From: ' . $this->from,
-        ];
-
-        $headersString = implode("\r\n", $headersArray);
-
-        $isSuccess = mail($recipient, $subject, $message, $headersString);
+        $isSuccess = $this->transport->send($recipient, $this->from, $subject, $htmlBody, $textBody);
 
         if ($isSuccess) {
             $this->logger->info("E-mail envoyé à {$recipient} avec le sujet : {$subject}");
@@ -147,7 +182,10 @@ class NotificationService
 
     /**
      * Envoie une alerte typée. Entrée privilégiée pour les nouveaux appels.
-     * Le corps est passé dans nl2br() (texte simple -> HTML).
+     *
+     * Les alertes de faible sévérité (P3 Info / P4 Diagnostic) sont mises en file de
+     * synthèse (digest) et regroupées lors du prochain flush ; les P1/P2 partent
+     * immédiatement.
      */
     public function sendAlert(
         Severity $severity,
@@ -157,7 +195,16 @@ class NotificationService
         string $message,
         ?string $throttleKey = null
     ): bool {
-        return $this->dispatch($severity, $category, $subject, nl2br($message), $throttleKey, $family);
+        return $this->dispatch(
+            $severity,
+            $category,
+            $subject,
+            $message,
+            $throttleKey,
+            $family,
+            null,
+            true
+        );
     }
 
     /**
@@ -166,7 +213,39 @@ class NotificationService
      */
     public function sendCustomAlert(string $subject, string $message): bool
     {
-        return $this->dispatch(Severity::Alert, NotificationCategory::System, $subject, nl2br($message));
+        return $this->dispatch(Severity::Alert, NotificationCategory::System, $subject, $message);
+    }
+
+    /**
+     * Vide la file de synthèse : envoie un unique e-mail regroupant les alertes P3/P4
+     * accumulées. À appeler sur un tick CRON ou en fin de run. No-op si la file est vide.
+     *
+     * @return bool Vrai si un e-mail de synthèse a été envoyé ; faux si rien à envoyer ou échec
+     */
+    public function flushDigest(): bool
+    {
+        $items = $this->digest->flush();
+        if ($items === []) {
+            return false;
+        }
+
+        $count = count($items);
+        $subject = $this->formatDigestSubject($count);
+        $html = $this->renderer->renderDigestHtml($items);
+        $text = $this->renderer->renderDigestText($items);
+
+        $isSuccess = $this->sendMail($this->recipient, $subject, $html, $text);
+        if ($isSuccess) {
+            $this->logger->info('E-mail de synthèse (digest) envoyé', ['groupes' => $count]);
+        }
+
+        return $isSuccess;
+    }
+
+    /** Sujet de l'e-mail de synthèse : « [SYNTHÈSE] N notification(s) ». */
+    private function formatDigestSubject(int $count): string
+    {
+        return sprintf('[SYNTHÈSE] %d notification(s) de faible sévérité', $count);
     }
 
     /**

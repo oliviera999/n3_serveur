@@ -11,6 +11,22 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.6.0] - 2026-06-24
+
+### Ajout - Transport e-mail fiable (SMTP via symfony/mailer) + e-mails HTML Twig + digest P3/P4
+- **`src/Notification/MailTransport`** : abstraction de transport e-mail (découple `NotificationService` du mécanisme d'envoi).
+  - `SymfonyMailTransport` : envoi SMTP via **symfony/mailer** (DSN issu de l'environnement), corps multipart HTML + texte ; échec capturé et journalisé.
+  - `NativeMailTransport` : **repli gracieux** sur la fonction PHP `mail()` (multipart) quand aucun SMTP n'est configuré — dev / CI / hôtes mutualisés continuent de fonctionner.
+  - `MailTransportFactory::fromEnv()` : choisit le transport (SMTP si `SMTP_DSN` ou `SMTP_HOST…`, sinon `mail()`) et reconstruit un DSN depuis `SMTP_HOST/PORT/USER/PASS/ENCRYPTION` (identifiants percent-encodés, jamais loggés).
+- **E-mails HTML via Twig** : `EmailRenderer` rend `templates/emails/alert.html.twig` (alerte) et `templates/emails/digest.html.twig` (synthèse) avec **repli texte brut**, en remplacement de la concaténation de chaînes.
+- **Digest des alertes de faible sévérité (P3/P4)** : `NotificationDigest` (interface `DigestQueue`) accumule les alertes mineures issues de `sendAlert()` dans la table auto-créée `notification_digest`, puis `NotificationService::flushDigest()` envoie **un unique e-mail groupé** (déclenché sur le tick horaire CRON). Les **P1/P2 restent immédiates**. Repli en envoi direct si la file est indisponible.
+- **`NotificationService`** : refactor du transport (plus de `mail()` direct), API publique conservée (`sendAlert`, `sendCustomAlert`, `notify*`) ; nouvelle méthode `flushDigest()`. Dépendances injectables (transport, renderer, digest) pour la testabilité.
+- **`CronOrchestrator`** : appel de `flushDigest()` dans les tâches horaires.
+- **`.env.example`** : documentation des variables `SMTP_DSN` / `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` / `SMTP_ENCRYPTION` (repli `mail()` si absentes).
+- **`config/dependencies.php`** : câblage explicite du transport (via factory), du renderer et de la file de synthèse.
+- **Dépendance** : ajout de `symfony/mailer:^6.4` (LTS, PHP 8.1+) — `composer audit` reste propre.
+- **Tests** : `tests/Notification/` (`MailTransportFactoryTest`, `NativeMailTransportTest`, `EmailRendererTest`, doubles `FakeMailTransport` / `FakeDigestQueue`) ; `NotificationServiceTest` réécrit sur transport factice (rendu HTML/texte, routage digest, flush groupé).
+
 ## [5.5.0] - 2026-06-24
 
 ### Ajout - Système de notifications par sévérité + mode de verbosité configurable (Phase 0)

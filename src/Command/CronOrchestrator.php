@@ -207,6 +207,8 @@ class CronOrchestrator
         $this->logger->info('Lancement des tâches horaires CRON...');
         $this->healthService->checkOnlineStatus();
         $this->healthService->checkTankLevel();
+        // Envoie un unique e-mail regroupant les alertes de faible sévérité accumulées.
+        $this->notifier->flushDigest();
         $this->logger->info('Tâches horaires CRON terminées.');
     }
 
