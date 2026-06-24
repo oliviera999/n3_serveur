@@ -11,6 +11,21 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.4.0] - 2026-06-24
+
+### Ajout - Système de notifications par sévérité + mode de verbosité configurable (Phase 0)
+- **`src/Notification/`** : nouveau socle de notification.
+  - `Severity` (P1 Critique / P2 Alerte / P3 Info / P4 Diagnostic) avec code, priorité et cooldown anti-spam par défaut (P1 = 15 min, P2 = 1 h, P3 = 6 h, P4 = 24 h).
+  - `NotificationCategory` (domaines : hydraulic, energy, environment, feeding, availability, lifecycle, camera, system).
+  - `NotificationMode` (`none` / `important` / `partial` / `full`) : seuil de verbosité par sévérité.
+  - `NotificationPolicy` : combine le mode et les catégories coupées ; construite depuis `NOTIF_MODE` + `NOTIF_DISABLED_CATEGORIES`.
+  - `AlertThrottler` : anti-spam transversal + **historique unifié** (table auto-créée `notification_log`), généralise le cooldown de `ErrorAlertService` à toutes les alertes (fail-open si base indisponible).
+- **`NotificationService`** : chaque envoi passe désormais par la politique (mode + catégorie) puis l'anti-spam ; sujets préfixés `[FAMILLE][Pn]` (tri/filtre côté boîte mail). Nouvelle méthode `sendAlert(severity, category, family, subject, message, throttleKey)`. API existante conservée.
+- **Correctif anti-spam CRON** : les alertes « niveau d'eau bas » (`ffp3:water-low`) et « problème de marées » (`ffp3:tide-problem`) étaient envoyées **à chaque passe CRON (toutes les 5 min)** tant que la cause persistait → désormais throttlées (cooldown P1 = 15 min). Idem pour « hors ligne » et « aucune donnée capteur ».
+- **`.env.example`** : ajout de `NOTIF_MODE` (défaut recommandé `important`) et `NOTIF_DISABLED_CATEGORIES` ; suppression de la variable morte `ALERT_EMAIL`.
+- **`config/dependencies.php`** : câblage explicite de `NotificationService` (politique depuis l'env + throttler).
+- **Tests** : `tests/Notification/` (Severity, NotificationMode, NotificationPolicy, AlertThrottler) + `NotificationServiceTest` étendu (modes, catégories coupées, anti-spam). `CronOrchestratorTest` aligné sur `sendAlert`.
+
 ## [5.3.10] - 2026-06-23
 
 ### Correctif - Erreur 500 sur GET outputs/state et page contrôle (prod sans colonne `description`)

@@ -29,6 +29,11 @@ if (!\function_exists('App\\Service\\mail')) {
 
 namespace Tests\Service;
 
+use App\Notification\AlertThrottler;
+use App\Notification\NotificationCategory;
+use App\Notification\NotificationMode;
+use App\Notification\NotificationPolicy;
+use App\Notification\Severity;
 use App\Service\LogService;
 use App\Service\NotificationService;
 use PHPUnit\Framework\TestCase;
@@ -39,14 +44,16 @@ use PHPUnit\Framework\TestCase;
  * Les envois e-mail sont interceptés par la surcharge App\Service\mail() définie en tête de
  * fichier : chaque appel est enregistré dans $GLOBALS['__notif_mail_calls'] et la valeur de
  * retour de mail() est pilotée par $GLOBALS['__notif_mail_return']. Le LogService est mocké
- * pour vérifier les branches de log succès/échec.
+ * pour vérifier les branches de log succès/échec. Le AlertThrottler est mocké (allow=true par
+ * défaut) afin d'isoler les tests de la base de données.
  *
  * Couverture :
  *  - configuration du destinataire et de l'expéditeur depuis $_ENV ;
- *  - chaque notification déclenche exactement UN envoi (sujet/destinataire attendus) ;
+ *  - chaque notification déclenche exactement UN envoi (sujet préfixé [FAMILLE][Pn]) ;
  *  - sendCustomAlert() applique nl2br() au corps du message ;
  *  - branche succès -> LogService::info, branche échec -> LogService::error ;
- *  - en-tête From positionné dans les headers.
+ *  - filtrage par la politique (mode + catégorie coupée) ;
+ *  - suppression par l'anti-spam (cooldown).
  */
 final class NotificationServiceTest extends TestCase
 {
@@ -88,9 +95,25 @@ final class NotificationServiceTest extends TestCase
         return $GLOBALS['__notif_mail_calls'] ?? [];
     }
 
-    private function makeService(?LogService $logger = null): NotificationService
+    /** Throttler permissif (autorise tout envoi) pour isoler les tests de la base. */
+    private function permissiveThrottler(): AlertThrottler
     {
-        return new NotificationService($logger ?? $this->createMock(LogService::class));
+        $throttler = $this->createMock(AlertThrottler::class);
+        $throttler->method('allow')->willReturn(true);
+
+        return $throttler;
+    }
+
+    private function makeService(
+        ?LogService $logger = null,
+        ?NotificationPolicy $policy = null,
+        ?AlertThrottler $throttler = null
+    ): NotificationService {
+        return new NotificationService(
+            $logger ?? $this->createMock(LogService::class),
+            $policy ?? new NotificationPolicy(NotificationMode::Full),
+            $throttler ?? $this->permissiveThrottler()
+        );
     }
 
     public function testSendCustomAlertSendsSingleMailToConfiguredRecipient(): void
@@ -103,7 +126,8 @@ final class NotificationServiceTest extends TestCase
         $calls = $this->mailCalls();
         self::assertCount(1, $calls);
         self::assertSame('destinataire@test.local', $calls[0]['to']);
-        self::assertSame('Sujet de test', $calls[0]['subject']);
+        // sendCustomAlert : sévérité P2 (Alerte), sans famille -> préfixe [P2].
+        self::assertSame('[P2] Sujet de test', $calls[0]['subject']);
     }
 
     public function testSendCustomAlertAppliesNl2brToBody(): void
@@ -167,7 +191,7 @@ final class NotificationServiceTest extends TestCase
 
         $calls = $this->mailCalls();
         self::assertCount(1, $calls);
-        self::assertSame("Alerte système : risque d'inondation", $calls[0]['subject']);
+        self::assertSame("[FFP3][P1] Risque d'inondation", $calls[0]['subject']);
         self::assertStringContainsString("niveau d'eau", $calls[0]['message']);
     }
 
@@ -179,7 +203,7 @@ final class NotificationServiceTest extends TestCase
 
         $calls = $this->mailCalls();
         self::assertCount(1, $calls);
-        self::assertSame('Alerte système : problème de marées', $calls[0]['subject']);
+        self::assertSame('[FFP3][P1] Problème de marées', $calls[0]['subject']);
     }
 
     public function testNotifyNoSensorDataSendsExpectedSubject(): void
@@ -190,7 +214,7 @@ final class NotificationServiceTest extends TestCase
 
         $calls = $this->mailCalls();
         self::assertCount(1, $calls);
-        self::assertSame('Alerte système : aucune donnée capteur disponible', $calls[0]['subject']);
+        self::assertSame('[FFP3][P2] Aucune donnée capteur disponible', $calls[0]['subject']);
     }
 
     public function testNotifySystemOfflineSendsExpectedSubject(): void
@@ -201,7 +225,24 @@ final class NotificationServiceTest extends TestCase
 
         $calls = $this->mailCalls();
         self::assertCount(1, $calls);
-        self::assertSame('Alerte système : système hors ligne', $calls[0]['subject']);
+        self::assertSame('[FFP3][P1] Système hors ligne', $calls[0]['subject']);
+    }
+
+    public function testSendAlertBuildsFamilyAndSeverityPrefix(): void
+    {
+        $service = $this->makeService();
+
+        $service->sendAlert(
+            Severity::Critical,
+            NotificationCategory::Energy,
+            'N3PP',
+            'Batterie critique (1650 mV)',
+            'Niveau batterie sous le seuil.'
+        );
+
+        $calls = $this->mailCalls();
+        self::assertCount(1, $calls);
+        self::assertSame('[N3PP][P1] Batterie critique (1650 mV)', $calls[0]['subject']);
     }
 
     public function testDefaultRecipientUsedWhenEnvMissing(): void
@@ -212,5 +253,56 @@ final class NotificationServiceTest extends TestCase
 
         $calls = $this->mailCalls();
         self::assertSame('user@example.com', $calls[0]['to']);
+    }
+
+    // ------------------------------------------------------------------
+    // Filtrage par la politique (mode de verbosité + catégorie coupée)
+    // ------------------------------------------------------------------
+
+    public function testModeNoneBlocksEveryMail(): void
+    {
+        $service = $this->makeService(null, new NotificationPolicy(NotificationMode::None));
+
+        $service->notifyMareesProblem();
+        $service->notifySystemOffline();
+
+        self::assertCount(0, $this->mailCalls());
+    }
+
+    public function testImportantModeBlocksInfoButAllowsAlert(): void
+    {
+        $service = $this->makeService(null, new NotificationPolicy(NotificationMode::Important));
+
+        $service->sendAlert(Severity::Info, NotificationCategory::Lifecycle, 'FFP3', 'Réveil système', 'corps');
+        self::assertCount(0, $this->mailCalls(), 'Une P3 doit être filtrée en mode important');
+
+        $service->sendAlert(Severity::Alert, NotificationCategory::System, 'FFP3', 'Anomalie', 'corps');
+        self::assertCount(1, $this->mailCalls(), 'Une P2 doit passer en mode important');
+    }
+
+    public function testDisabledCategoryBlocksMatchingMailOnly(): void
+    {
+        $policy = new NotificationPolicy(NotificationMode::Full, [NotificationCategory::Hydraulic]);
+        $service = $this->makeService(null, $policy);
+
+        // Catégorie Hydraulic coupée -> marées filtrées.
+        $service->notifyMareesProblem();
+        self::assertCount(0, $this->mailCalls());
+
+        // Catégorie Availability toujours active -> passe.
+        $service->notifySystemOffline();
+        self::assertCount(1, $this->mailCalls());
+    }
+
+    public function testThrottledAlertIsNotSent(): void
+    {
+        $throttler = $this->createMock(AlertThrottler::class);
+        $throttler->method('allow')->willReturn(false);
+
+        $service = $this->makeService(null, new NotificationPolicy(NotificationMode::Full), $throttler);
+
+        $service->notifyMareesProblem();
+
+        self::assertCount(0, $this->mailCalls(), 'Le cooldown anti-spam doit supprimer l\'envoi');
     }
 }

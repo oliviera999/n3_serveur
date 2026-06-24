@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Command;
 
 use App\Config\Database;
+use App\Notification\NotificationCategory;
+use App\Notification\Severity;
 use App\Repository\SensorReadRepository;
 use App\Service\LogService;
 use App\Service\NotificationService;
@@ -244,7 +246,14 @@ class CronOrchestrator
             $lastWaterLevel,
             $this->aquaLowThreshold
         );
-        $this->notifier->sendCustomAlert('Alerte niveau d\'eau aquarium', $message);
+        $this->notifier->sendAlert(
+            Severity::Critical,
+            NotificationCategory::Hydraulic,
+            'FFP3',
+            "Niveau d'eau aquarium bas",
+            $message,
+            'ffp3:water-low'
+        );
     }
 
     private function checkTideSystem(): void

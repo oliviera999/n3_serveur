@@ -77,6 +77,22 @@ return [
     },
 
     // ====================================================================
+    // NOTIFICATIONS — politique de verbosité lue depuis l'environnement
+    // (NOTIF_MODE / NOTIF_DISABLED_CATEGORIES) + anti-spam/historique.
+    // Entrée explicite car NotificationPolicy se construit via fromEnv()
+    // (enum + scalaires), non autowirable.
+    // ====================================================================
+    \App\Service\NotificationService::class => function (ContainerInterface $c): \App\Service\NotificationService {
+        $logger = $c->get(\App\Service\LogService::class);
+
+        return new \App\Service\NotificationService(
+            $logger,
+            \App\Notification\NotificationPolicy::fromEnv(),
+            new \App\Notification\AlertThrottler($logger)
+        );
+    },
+
+    // ====================================================================
     // COMMANDS (CRON) — dépendances OBLIGATOIREMENT explicites.
     // Leurs constructeurs ont des paramètres TOUS optionnels (?Type = null) :
     // l'autowiring PHP-DI laisserait ces paramètres à null, déclenchant le

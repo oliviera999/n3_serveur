@@ -133,7 +133,7 @@ class CronOrchestratorTest extends TestCase
         $repo->method('getLastReadings')->willReturn(['EauAquarium' => 210.0]);
 
         $notifier = $this->createMock(NotificationService::class);
-        $notifier->expects($this->once())->method('sendCustomAlert');
+        $notifier->expects($this->once())->method('sendAlert');
 
         $orchestrator = $this->buildOrchestrator(
             pumpService: $pump,
@@ -157,7 +157,7 @@ class CronOrchestratorTest extends TestCase
         $repo->method('getLastReadings')->willReturn(['EauAquarium' => 150.0]);
 
         $notifier = $this->createMock(NotificationService::class);
-        $notifier->expects($this->never())->method('sendCustomAlert');
+        $notifier->expects($this->never())->method('sendAlert');
 
         $orchestrator = $this->buildOrchestrator(
             pumpService: $pump,
