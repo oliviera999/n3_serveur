@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.4.2] - 2026-06-24
+
+### Correctif - Auto-création outputs FFP3 résistante aux requêtes concurrentes
+- **`OutputRepository`** : les violations de doublon attendues pendant l'INSERT concurrent des lignes GPIO 117 et 118-123 sont ignorées, ce qui évite un `500` et un rollback du POST capteur lors d'un premier déploiement multi-workers.
+- **Tests** : garde-fou unitaire sur le doublon SQLSTATE `23000`, vérification de l'appel `ensureServoAngleRowsExist()` dans le flux POST FFP3 et budget JSON complet `outputs/state` sous 2048 o.
+
 ## [5.4.1] - 2026-06-24
 
 ### Vérifié - Contrat GPIO firmware↔serveur (angles servo 118-123)
