@@ -28,9 +28,26 @@ class StateNormalizerTest extends TestCase
 
     public function testIsBooleanGpioConfigBooleans(): void
     {
-        foreach ([101, 108, 109, 110, 115, 117] as $gpio) {
+        foreach ([101, 108, 109, 110, 115] as $gpio) {
             $this->assertTrue(StateNormalizer::isBooleanGpio($gpio), "GPIO {$gpio} doit être booléen");
         }
+    }
+
+    /** GPIO 117 (forçage pompe aquarium) est un tri-état, pas un booléen. */
+    public function testAquariumForceGpioIsNotBoolean(): void
+    {
+        $this->assertFalse(StateNormalizer::isBooleanGpio(117));
+    }
+
+    /** GPIO 117 : 0=auto, 1=forcer ON, 2=forcer OFF ; toute autre valeur retombe sur 0 (auto). */
+    public function testNormalizeAquariumForceTriState(): void
+    {
+        $this->assertSame(0, StateNormalizer::normalize(117, '0'));
+        $this->assertSame(1, StateNormalizer::normalize(117, '1'));
+        $this->assertSame(2, StateNormalizer::normalize(117, '2'));
+        $this->assertSame(0, StateNormalizer::normalize(117, 3));
+        $this->assertSame(0, StateNormalizer::normalize(117, 'on'));
+        $this->assertSame(0, StateNormalizer::normalize(117, null));
     }
 
     public function testIsBooleanGpioRejectsNumericConfig(): void

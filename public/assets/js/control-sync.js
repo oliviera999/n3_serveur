@@ -232,6 +232,11 @@ class ControlSync {
             this.updateSwitches(switchSyncList);
         }
 
+        // GPIO 117 : sélecteur tri-état (Auto/ON/OFF), pas un switch input -> reflet dédié.
+        if (this.lastStates[117] !== undefined) {
+            this.updatePumpForceSelect(this.lastStates[117]);
+        }
+
         if (states.dataStates && typeof states.dataStates === 'object') {
             this.updateDataIndicators(states.dataStates, states.dataStatesReadingTime);
         }
@@ -337,6 +342,29 @@ class ControlSync {
             }
             indicator.setAttribute('title', 'Dernier état enregistré (table data)' + titleSuffix);
         });
+    }
+
+    /**
+     * Reflète le mode de forçage pompe aquarium (GPIO 117) dans le sélecteur tri-état.
+     * @param {number} mode 0=Auto, 1=Forcer ON, 2=Forcer OFF
+     */
+    updatePumpForceSelect(mode) {
+        const select = document.querySelector('select[data-pump-force]');
+        if (!select) {
+            return;
+        }
+        const val = String(Number(mode));
+        if (select.value !== val) {
+            select.value = val;
+        }
+        const card = select.closest('.action-card');
+        if (card) {
+            card.setAttribute('data-state', val);
+            const label = card.querySelector('[data-pump-force-label]');
+            if (label) {
+                label.textContent = val === '1' ? 'Forcé ON' : (val === '2' ? 'Forcé OFF' : 'Auto');
+            }
+        }
     }
 
     /**

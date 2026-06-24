@@ -166,22 +166,24 @@ class OutputControllerToggleTest extends TestCase
         $this->assertSame(12, $payload['id']);
     }
 
-    /** GPIO 117 (forçage pompe) : persistance par GPIO, pas par id (évite faux succès id obsolète). */
-    public function testToggleAquariumPumpForceUsesGpioUpdate(): void
+    /** GPIO 117 mode Auto (0) : persistance via updatePumpForceMode, id non requis, pas de reflet sur 16. */
+    public function testToggleAquariumPumpForceModeAuto(): void
     {
         TableConfig::setEnvironment('test');
 
         $outputService = $this->createMock(OutputService::class);
         $outputService->method('isGpioAllowed')->willReturn(true);
-        $outputService->method('isAquariumPumpForceEnabled')->willReturn(false);
         $outputService->expects($this->never())->method('updateStateById');
         $outputService->expects($this->once())
-            ->method('updateStateByGpio')
-            ->with(117, 0)
+            ->method('updatePumpForceMode')
+            ->with(0)
             ->willReturn(true);
+        // Mode Auto : aucun reflet forcé sur GPIO 16 (l'ESP32 reprend la main).
+        $outputService->expects($this->never())->method('updateStateByGpio');
 
         $controller = $this->makeController($outputService);
-        $response = $controller->toggleOutput($this->postToggle(999, 0, 117), new Response());
+        // id=0 accepté pour 117 (persistance par GPIO).
+        $response = $controller->toggleOutput($this->postToggle(0, 0, 117), new Response());
 
         $this->assertSame(200, $response->getStatusCode());
         $payload = json_decode((string) $response->getBody(), true);
@@ -189,50 +191,69 @@ class OutputControllerToggleTest extends TestCase
         $this->assertSame(0, $payload['state']);
     }
 
-    /** GPIO 117 activé : miroir GPIO 16 à 1 via updateStateByGpio. */
+    /** GPIO 117 = Forcer ON (1) : updatePumpForceMode(1) + miroir GPIO 16 à 1. */
     public function testToggleAquariumPumpForceOnMirrorsPumpToOne(): void
     {
         TableConfig::setEnvironment('test');
 
         $outputService = $this->createMock(OutputService::class);
         $outputService->method('isGpioAllowed')->willReturn(true);
-        $outputService->method('isAquariumPumpForceEnabled')->willReturn(false);
         $outputService->expects($this->never())->method('updateStateById');
-        $outputService->expects($this->exactly(2))
+        $outputService->expects($this->once())
+            ->method('updatePumpForceMode')
+            ->with(1)
+            ->willReturn(true);
+        $outputService->expects($this->once())
             ->method('updateStateByGpio')
-            ->willReturnCallback(function (int $gpio, int $state): bool {
-                static $calls = 0;
-                $calls++;
-                if ($calls === 1) {
-                    $this->assertSame(117, $gpio);
-                    $this->assertSame(1, $state);
-                } else {
-                    $this->assertSame(16, $gpio);
-                    $this->assertSame(1, $state);
-                }
-
-                return true;
-            });
+            ->with(16, 1)
+            ->willReturn(true);
 
         $controller = $this->makeController($outputService);
         $response = $controller->toggleOutput($this->postToggle(22, 1, 117), new Response());
 
         $this->assertSame(200, $response->getStatusCode());
+        $payload = json_decode((string) $response->getBody(), true);
+        $this->assertSame(1, $payload['state']);
     }
 
-    /**
-     * Arrêt pompe aquarium (16→0) avec forçage GPIO 117 actif : le serveur ne ment plus.
-     * Il maintient l'état BDD à 1 (cohérent avec le forçage) MAIS répond blocked=true + message,
-     * pour que l'UI explique pourquoi l'arrêt est ignoré au lieu d'un faux « Commande envoyée ».
-     */
-    public function testToggleAquariumPumpStopBlockedByForceIsTransparent(): void
+    /** GPIO 117 = Forcer OFF (2) : updatePumpForceMode(2) + miroir GPIO 16 à 0. */
+    public function testToggleAquariumPumpForceOffMirrorsPumpToZero(): void
     {
         TableConfig::setEnvironment('test');
 
         $outputService = $this->createMock(OutputService::class);
         $outputService->method('isGpioAllowed')->willReturn(true);
-        $outputService->method('isAquariumPumpForceEnabled')->willReturn(true);
-        // L'état 0 demandé est réécrit en 1 (forçage), persisté par id.
+        $outputService->expects($this->never())->method('updateStateById');
+        $outputService->expects($this->once())
+            ->method('updatePumpForceMode')
+            ->with(2)
+            ->willReturn(true);
+        $outputService->expects($this->once())
+            ->method('updateStateByGpio')
+            ->with(16, 0)
+            ->willReturn(true);
+
+        $controller = $this->makeController($outputService);
+        $response = $controller->toggleOutput($this->postToggle(22, 2, 117), new Response());
+
+        $this->assertSame(200, $response->getStatusCode());
+        $payload = json_decode((string) $response->getBody(), true);
+        $this->assertSame(2, $payload['state']);
+    }
+
+    /**
+     * Arrêt pompe (16→0) avec mode « Forcer ON » (117=1) : le serveur ne ment plus.
+     * Il maintient l'état BDD à 1 MAIS répond blocked=true + message, pour que l'UI explique
+     * pourquoi l'arrêt est ignoré au lieu d'un faux « Commande envoyée ».
+     */
+    public function testToggleAquariumPumpStopBlockedByForceOnIsTransparent(): void
+    {
+        TableConfig::setEnvironment('test');
+
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isGpioAllowed')->willReturn(true);
+        $outputService->method('getAquariumPumpForceMode')->willReturn(1);
+        // L'état 0 demandé est réécrit en 1 (forçage ON), persisté par id.
         $outputService->expects($this->once())
             ->method('updateStateById')
             ->with(7, 1, 'web')
@@ -249,14 +270,39 @@ class OutputControllerToggleTest extends TestCase
         $this->assertArrayHasKey('message', $payload);
     }
 
-    /** Sans forçage, l'arrêt pompe (16→0) reste un succès normal sans drapeau blocked. */
-    public function testToggleAquariumPumpStopNotBlockedWhenForceOff(): void
+    /**
+     * Démarrage pompe (16→1) avec mode « Forcer OFF » (117=2) : symétrique, l'état est réécrit
+     * à 0 et la réponse signale blocked=true.
+     */
+    public function testToggleAquariumPumpStartBlockedByForceOff(): void
     {
         TableConfig::setEnvironment('test');
 
         $outputService = $this->createMock(OutputService::class);
         $outputService->method('isGpioAllowed')->willReturn(true);
-        $outputService->method('isAquariumPumpForceEnabled')->willReturn(false);
+        $outputService->method('getAquariumPumpForceMode')->willReturn(2);
+        $outputService->expects($this->once())
+            ->method('updateStateById')
+            ->with(7, 0, 'web')
+            ->willReturn(true);
+
+        $controller = $this->makeController($outputService);
+        $response = $controller->toggleOutput($this->postToggle(7, 1, 16), new Response());
+
+        $this->assertSame(200, $response->getStatusCode());
+        $payload = json_decode((string) $response->getBody(), true);
+        $this->assertSame(0, $payload['state']);
+        $this->assertTrue($payload['blocked']);
+    }
+
+    /** Mode Auto (117=0) : l'arrêt pompe (16→0) reste un succès normal sans drapeau blocked. */
+    public function testToggleAquariumPumpStopNotBlockedInAutoMode(): void
+    {
+        TableConfig::setEnvironment('test');
+
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isGpioAllowed')->willReturn(true);
+        $outputService->method('getAquariumPumpForceMode')->willReturn(0);
         $outputService->expects($this->once())
             ->method('updateStateById')
             ->with(7, 0, 'web')

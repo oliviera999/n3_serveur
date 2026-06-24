@@ -18,9 +18,14 @@ class StateNormalizer
      * - 101 : Notifications (checkbox)
      * - 108, 109, 110 : Commandes nourrissage
      * - 115 : Forçage réveil (checkbox)
-     * - 117 : Forçage pompe aquarium ON (checkbox)
+     *
+     * NB : GPIO 117 (forçage pompe aquarium) n'est PAS booléen : c'est un tri-état
+     * 0=auto / 1=forcer ON / 2=forcer OFF (voir {@see normalize()}).
      */
-    private const BOOLEAN_GPIOS = [101, 108, 109, 110, 115, 117];
+    private const BOOLEAN_GPIOS = [101, 108, 109, 110, 115];
+
+    /** GPIO 117 : sélecteur de mode forçage pompe aquarium (0=auto, 1=ON, 2=OFF). */
+    private const AQUARIUM_PUMP_FORCE_GPIO = 117;
 
     /**
      * Vérifie si un GPIO doit être traité comme un booléen
@@ -49,6 +54,12 @@ class StateNormalizer
      */
     public static function normalize(int $gpio, mixed $state): mixed
     {
+        // GPIO 117 : tri-état 0=auto, 1=forcer ON, 2=forcer OFF (toute autre valeur => auto).
+        if ($gpio === self::AQUARIUM_PUMP_FORCE_GPIO) {
+            $mode = is_numeric($state) ? (int) $state : 0;
+            return in_array($mode, [1, 2], true) ? $mode : 0;
+        }
+
         if (!self::isBooleanGpio($gpio)) {
             // GPIOs non-booléens : retourner tel quel (email, paramètres)
             return $state;

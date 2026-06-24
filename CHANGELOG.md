@@ -11,6 +11,23 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.5.0] - 2026-06-24
+
+### Ajout - GPIO 117 : sélecteur 3 modes de pilotage de la pompe aquarium
+- **Auto / Forcer ON / Forcer OFF** (encodage `0` / `1` / `2`, rétro-compatible : 0 et 1 inchangés).
+  - **Forcer OFF** (mode maintenance) : le serveur épingle GPIO 16 à 0 à chaque POST, exactement
+    comme Forcer ON épingle 16 à 1. **Aucune modification firmware** : la pompe aquarium suit
+    strictement le GPIO 16 du serveur (vérifié — pas de logique autonome côté ESP32).
+- **`StateNormalizer`** : GPIO 117 traité en tri-état (0/1/2) au lieu de booléen.
+- **`OutputRepository::getAquariumPumpForceMode()`** + `syncStatesFromSensorData` : épinglage 16=1
+  (ON) / 16=0 (OFF) / écho `etatPompeAqua` (Auto).
+- **`OutputService::updatePumpForceMode()`** ; **`OutputController`** : toggle 117 accepte 0/1/2,
+  blocage symétrique transparent (Forcer ON bloque l'arrêt, Forcer OFF bloque le démarrage).
+- **`control.twig`** : sélecteur déroulant ; **`control-actions.js` / `control-sync.js`** : envoi du
+  mode + reflet du mode serveur au polling.
+
+> ⚠️ À valider sur l'environnement **TEST** (firmware réel) avant bascule prod.
+
 ## [5.4.0] - 2026-06-24
 
 ### Correctif - Arrêt pompe aquarium « rejeté » : transparence du forçage GPIO 117

@@ -87,6 +87,14 @@ class OutputService
     }
 
     /**
+     * Mode de forçage pompe aquarium (GPIO 117) : 0=auto, 1=forcer ON, 2=forcer OFF.
+     */
+    public function getAquariumPumpForceMode(): int
+    {
+        return $this->outputRepository->getAquariumPumpForceMode();
+    }
+
+    /**
      * Crée / répare la ligne GPIO 117 avant lecture état (GET state) ou affichage.
      */
     public function ensureAquariumPumpForceOutputRow(): void
@@ -186,6 +194,18 @@ class OutputService
             return false;
         }
         return $this->outputRepository->updateState($gpio, $state);
+    }
+
+    /**
+     * Écrit le mode de forçage pompe aquarium (GPIO 117) : 0=auto, 1=forcer ON, 2=forcer OFF.
+     * Persistance par GPIO (toutes les lignes 117) pour éviter un faux succès sur id obsolète.
+     */
+    public function updatePumpForceMode(int $mode): bool
+    {
+        if (!in_array($mode, [0, 1, 2], true)) {
+            return false;
+        }
+        return $this->outputRepository->updateState(self::AQUARIUM_PUMP_FORCE_GPIO, $mode);
     }
 
     /**

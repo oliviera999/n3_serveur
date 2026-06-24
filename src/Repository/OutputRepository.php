@@ -363,7 +363,13 @@ class OutputRepository extends AbstractRepository
      */
     public function syncStatesFromSensorData(SensorData $data): void
     {
-        $forceAquariumPumpOn = $this->getAquariumPumpForceState();
+        // Mode de forçage pompe aquarium : 0=auto (suit l'ESP32), 1=forcer ON, 2=forcer OFF.
+        $forceMode = $this->getAquariumPumpForceMode();
+        $aquaPumpState = match ($forceMode) {
+            1 => 1,
+            2 => 0,
+            default => $data->etatPompeAqua,
+        };
 
         // Actionneurs physiques — toujours synchronisés (états réels des relais)
         // NOTE: GPIO 110 (reset) est traité à part avec une fenêtre de priorité web
@@ -371,7 +377,7 @@ class OutputRepository extends AbstractRepository
         $physicalGpios = [
             2 => $data->etatHeat,
             15 => $data->etatUV,
-            self::AQUARIUM_PUMP_GPIO => $forceAquariumPumpOn ? 1 : $data->etatPompeAqua,
+            self::AQUARIUM_PUMP_GPIO => $aquaPumpState,
             18 => $data->etatPompeTank,
         ];
         $physicalFiltered = array_filter($physicalGpios, fn ($v) => $v !== null);
@@ -385,13 +391,12 @@ class OutputRepository extends AbstractRepository
             );
         }
 
-        // Sécurité de cohérence : si le forçage est actif, maintenir explicitement GPIO 16 à 1.
-        if ($forceAquariumPumpOn) {
-            $this->batchUpdateStatesSingleQuery(
-                [self::AQUARIUM_PUMP_GPIO => 1],
-                'server-force',
-                0
-            );
+        // Sécurité de cohérence : si un forçage est actif, ré-épingler explicitement GPIO 16
+        // (priorité 0 = toujours appliqué) à la valeur forcée, quel que soit l'état ESP32.
+        if ($forceMode === 1) {
+            $this->batchUpdateStatesSingleQuery([self::AQUARIUM_PUMP_GPIO => 1], 'server-force', 0);
+        } elseif ($forceMode === 2) {
+            $this->batchUpdateStatesSingleQuery([self::AQUARIUM_PUMP_GPIO => 0], 'server-force', 0);
         }
 
         // GPIO 110 (reset) : synchronisation avec priorité web temporaire.
@@ -450,18 +455,36 @@ class OutputRepository extends AbstractRepository
         $this->execute($sql, $execParams);
     }
 
-    public function getAquariumPumpForceState(): bool
+    /**
+     * Mode de forçage de la pompe aquarium (GPIO 117) :
+     *   0 = Auto (la pompe suit l'état renvoyé par l'ESP32),
+     *   1 = Forcer ON  (serveur épingle GPIO 16 à 1),
+     *   2 = Forcer OFF (serveur épingle GPIO 16 à 0).
+     */
+    public function getAquariumPumpForceMode(): int
     {
         $this->ensureAquariumPumpForceRowExists();
 
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
-        // Toute ligne GPIO 117 exploitable avec state=1 active le forçage (évite un faux 0 si doublons sans ORDER BY).
-        $sql = "SELECT 1 AS ok FROM `{$table}`
-                WHERE gpio = :gpio AND state = 1
-                  AND name IS NOT NULL AND name != ''
+        // Post-nettoyage : une seule ligne 117. En cas de doublon résiduel, la valeur la plus
+        // haute l'emporte (2=OFF prioritaire sur 1=ON : choix conservateur pour un actionneur).
+        $sql = "SELECT state FROM `{$table}`
+                WHERE gpio = :gpio AND name IS NOT NULL AND name != ''
+                ORDER BY state DESC
                 LIMIT 1";
 
-        return $this->fetchOne($sql, [':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO]) !== null;
+        $row = $this->fetchOne($sql, [':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO]);
+        $mode = (is_array($row) && isset($row['state']) && is_numeric($row['state'])) ? (int) $row['state'] : 0;
+
+        return in_array($mode, [1, 2], true) ? $mode : 0;
+    }
+
+    /**
+     * Compat : « forçage ON actif ? ». Conserve la sémantique historique (mode 1).
+     */
+    public function getAquariumPumpForceState(): bool
+    {
+        return $this->getAquariumPumpForceMode() === 1;
     }
 
     /**
