@@ -43,6 +43,13 @@ class OutputSyncServiceTest extends TestCase
         114 => 'limFlood',
         115 => 'WakeUp',
         116 => 'FreqWakeUp',
+        // Angles servo nourrissage (GPIO 118-123, exposés au firmware via getOutputsState)
+        118 => 'angleReposGros',
+        119 => 'angleDistribGros',
+        120 => 'angleInterGros',
+        121 => 'angleReposPetits',
+        122 => 'angleDistribPetits',
+        123 => 'angleInterPetits',
     ];
 
     public function testGpioMappingMatchesCanonicalContract(): void
@@ -74,7 +81,7 @@ class OutputSyncServiceTest extends TestCase
     public function testMappingIntegrity(): void
     {
         $m = OutputSyncService::getGpioMapping();
-        $this->assertCount(21, $m);
+        $this->assertCount(27, $m);
         // Noms uniques (pas de collision de champ POST).
         $this->assertSame(count($m), count(array_unique($m)));
         // Toutes les clés sont des GPIO entiers, toutes les valeurs des chaînes non vides.

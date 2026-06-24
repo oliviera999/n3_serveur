@@ -21,6 +21,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - **`UserAdminController`** : `nav_active = 'users'` sur les pages de gestion (liste, création, édition) pour surligner l'entrée de navigation.
 - Étape transitoire vers le retrait du système d'authentification mono-compte (`.env`) une fois le gestionnaire pleinement opérationnel.
 
+### Correctif - Tests préexistants désynchronisés (feature angles servo v5.3.8-5.3.10)
+- **`tests/Service/OutputSyncServiceTest`** : contrat GPIO canonique mis à jour avec les angles servo 118-123 (déjà présents dans `Ffp3GpioMap` et exposés au firmware via `getOutputsState()`) — comptage 21 → 27.
+- **`tests/Controller/Ffp3PostDataControllerTest`** : le mock `OutputRepository` stubbe désormais `ensureServoAngleRowsExist()` (appelée dans `insertData()` depuis v5.3.10) — sans ce stub, la vraie méthode s'exécutait sans connexion PDO (constructeur désactivé) → 500.
+- ⚠️ Côté contrat firmware↔serveur : à confirmer que `GPIOMap::ALL_MAPPINGS` (repo `n3_firmwires`) porte bien les GPIO 118-123 (non vérifiable depuis ce dépôt).
+
 ## [5.3.10] - 2026-06-23
 
 ### Correctif - Erreur 500 sur GET outputs/state et page contrôle (prod sans colonne `description`)
