@@ -5,7 +5,11 @@ declare(strict_types=1);
 namespace App\Command;
 
 use App\Config\Database;
+use App\Notification\NotificationCategory;
+use App\Notification\Severity;
+use App\Repository\HeartbeatMonitorRepository;
 use App\Repository\SensorReadRepository;
+use App\Service\DeviceHealthService;
 use App\Service\LogService;
 use App\Service\NotificationService;
 use App\Service\PumpService;
@@ -33,6 +37,7 @@ class CronOrchestrator
     private NotificationService $notifier;
     private SensorReadRepository $sensorReadRepo;
     private SystemHealthService $healthService;
+    private DeviceHealthService $deviceHealthService;
     private RestartPumpCommand $restartPumpCommand;
 
     private float $aquaLowThreshold;
@@ -51,6 +56,7 @@ class CronOrchestrator
         ?NotificationService $notifier = null,
         ?SensorReadRepository $sensorReadRepo = null,
         ?SystemHealthService $healthService = null,
+        ?DeviceHealthService $deviceHealthService = null,
         ?RestartPumpCommand $restartPumpCommand = null,
         ?string $lockDir = null,
         ?string $stateDir = null,
@@ -63,6 +69,7 @@ class CronOrchestrator
             || $notifier === null
             || $sensorReadRepo === null
             || $healthService === null
+            || $deviceHealthService === null
             || $restartPumpCommand === null;
 
         $pdo = $needsDatabase ? Database::getConnection() : null;
@@ -75,6 +82,11 @@ class CronOrchestrator
         $this->sensorReadRepo = $sensorReadRepo ?? new SensorReadRepository($pdo);
         $this->healthService = $healthService ?? new SystemHealthService(
             $this->sensorReadRepo,
+            $this->notifier,
+            $this->logger
+        );
+        $this->deviceHealthService = $deviceHealthService ?? new DeviceHealthService(
+            new HeartbeatMonitorRepository($pdo ?? Database::getConnection()),
             $this->notifier,
             $this->logger
         );
@@ -205,6 +217,10 @@ class CronOrchestrator
         $this->logger->info('Lancement des tâches horaires CRON...');
         $this->healthService->checkOnlineStatus();
         $this->healthService->checkTankLevel();
+        // Supervision « appareil silencieux » généralisée à toutes les familles (FFP3/N3PP/MSP1).
+        $this->deviceHealthService->checkAllFamilies();
+        // Envoie un unique e-mail regroupant les alertes de faible sévérité accumulées.
+        $this->notifier->flushDigest();
         $this->logger->info('Tâches horaires CRON terminées.');
     }
 
@@ -244,7 +260,14 @@ class CronOrchestrator
             $lastWaterLevel,
             $this->aquaLowThreshold
         );
-        $this->notifier->sendCustomAlert('Alerte niveau d\'eau aquarium', $message);
+        $this->notifier->sendAlert(
+            Severity::Critical,
+            NotificationCategory::Hydraulic,
+            'FFP3',
+            "Niveau d'eau aquarium bas",
+            $message,
+            'ffp3:water-low'
+        );
     }
 
     private function checkTideSystem(): void

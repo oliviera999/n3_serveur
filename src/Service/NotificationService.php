@@ -4,57 +4,169 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use App\Notification\AlertThrottler;
+use App\Notification\DigestQueue;
+use App\Notification\EmailRenderer;
+use App\Notification\MailTransport;
+use App\Notification\MailTransportFactory;
+use App\Notification\NotificationCategory;
+use App\Notification\NotificationDigest;
+use App\Notification\NotificationPolicy;
+use App\Notification\Severity;
+
 /**
  * Service responsable de l'envoi de notifications par e-mail.
- * Permet d'alerter l'utilisateur ou l'administrateur en cas d'événements critiques (inondation, panne, etc.).
- * Utilise la fonction mail() de PHP et logge chaque tentative d'envoi.
+ *
+ * Chaque notification porte une SÉVÉRITÉ (P1..P4) et une CATÉGORIE (domaine).
+ * Avant l'envoi, plusieurs filtres s'appliquent :
+ *   1. la POLITIQUE (NotificationPolicy) — mode de verbosité configurable
+ *      (none/important/partial/full) + catégories coupées ;
+ *   2. l'ANTI-SPAM (AlertThrottler) — cooldown par clé d'alerte, persisté en base ;
+ *   3. le DIGEST (NotificationDigest) — les alertes de faible sévérité (P3/P4) issues
+ *      de sendAlert() sont accumulées et envoyées groupées (flushDigest()), tandis que
+ *      les P1/P2 partent immédiatement.
+ *
+ * Le transport est abstrait ({@see MailTransport}) : SMTP via symfony/mailer lorsqu'un
+ * DSN est configuré (SMTP_DSN / SMTP_HOST…), sinon repli gracieux sur mail() (dev/CI).
+ * Le corps est rendu via des gabarits Twig HTML + texte ({@see EmailRenderer}).
+ *
+ * Le sujet est préfixé « [FAMILLE][Pn] » pour permettre le tri côté boîte mail.
  */
 class NotificationService
 {
-    /**
-     * Adresse e-mail du destinataire principal (configurable via .env)
-     */
+    /** Adresse e-mail du destinataire principal (configurable via .env). */
     private string $recipient;
-    /**
-     * Adresse e-mail d'expéditeur (configurable via .env)
-     */
+    /** Adresse e-mail d'expéditeur (configurable via .env). */
     private string $from;
+    private NotificationPolicy $policy;
+    private AlertThrottler $throttler;
+    private MailTransport $transport;
+    private EmailRenderer $renderer;
+    private DigestQueue $digest;
 
     /**
-     * @param LogService $logger Service de log pour tracer les notifications
+     * @param LogService              $logger    Service de log pour tracer les notifications
+     * @param NotificationPolicy|null $policy    Politique de verbosité (défaut : depuis l'env)
+     * @param AlertThrottler|null     $throttler Anti-spam + historique (défaut : auto)
+     * @param MailTransport|null      $transport Transport e-mail (défaut : choisi selon l'env)
+     * @param EmailRenderer|null      $renderer  Rendu Twig HTML/texte (défaut : auto)
+     * @param DigestQueue|null        $digest    File de synthèse P3/P4 (défaut : NotificationDigest)
      */
-    public function __construct(private LogService $logger)
-    {
-        // Chargement des paramètres d'envoi depuis l'environnement
+    public function __construct(
+        private LogService $logger,
+        ?NotificationPolicy $policy = null,
+        ?AlertThrottler $throttler = null,
+        ?MailTransport $transport = null,
+        ?EmailRenderer $renderer = null,
+        ?DigestQueue $digest = null
+    ) {
         $this->recipient = $_ENV['NOTIF_EMAIL_RECIPIENT'] ?? 'user@example.com';
         $this->from = $_ENV['MAIL_FROM'] ?? 'Aquaponie <noreply@example.com>';
+        $this->policy = $policy ?? NotificationPolicy::fromEnv();
+        $this->throttler = $throttler ?? new AlertThrottler($logger);
+        $this->transport = $transport ?? MailTransportFactory::fromEnv($logger);
+        $this->renderer = $renderer ?? new EmailRenderer();
+        $this->digest = $digest ?? new NotificationDigest($logger);
+    }
+
+    // ------------------------------------------------------------------
+    // Cœur : politique + anti-spam + digest + formatage + envoi
+    // ------------------------------------------------------------------
+
+    /**
+     * Applique la politique, l'anti-spam et le routage digest, formate, envoie et journalise.
+     *
+     * @param string      $subject     Objet de l'alerte (sert de titre et de corps texte source)
+     * @param string      $message     Corps de l'alerte (texte brut, sans HTML)
+     * @param string|null $throttleKey Clé d'anti-spam (null = pas de cooldown)
+     * @param string|null $family      Famille d'appareils (FFP3, N3PP, MSP1…) pour le préfixe
+     * @param int|null    $cooldown    Cooldown en secondes (défaut : selon la sévérité)
+     * @param bool        $digestable  Si vrai, une P3/P4 est mise en file de synthèse au lieu d'un envoi immédiat
+     *
+     * @return bool Vrai si remis au transport (ou mis en file digest) ; faux si filtré/cooldown/échec
+     */
+    private function dispatch(
+        Severity $severity,
+        NotificationCategory $category,
+        string $subject,
+        string $message,
+        ?string $throttleKey = null,
+        ?string $family = null,
+        ?int $cooldown = null,
+        bool $digestable = false
+    ): bool {
+        if (!$this->policy->shouldSend($severity, $category)) {
+            $this->logger->info('Notification filtrée par la politique de notification', [
+                'mode' => $this->policy->mode->value,
+                'severity' => $severity->value,
+                'category' => $category->value,
+                'subject' => $subject,
+            ]);
+
+            return false;
+        }
+
+        if ($throttleKey !== null) {
+            $cooldownSeconds = $cooldown ?? $severity->defaultCooldownSeconds();
+            if (!$this->throttler->allow($throttleKey, $cooldownSeconds)) {
+                $this->logger->info('Notification en cooldown anti-spam', [
+                    'key' => $throttleKey,
+                    'cooldown' => $cooldownSeconds,
+                    'subject' => $subject,
+                ]);
+
+                return false;
+            }
+        }
+
+        // Faible sévérité (P3/P4) et flux digestable : on accumule au lieu d'envoyer.
+        if ($digestable && $severity->priority() >= Severity::Info->priority()) {
+            $queued = $this->digest->queue($severity, $category, $family, $subject, $message);
+            if ($queued) {
+                $this->logger->info('Notification mise en file de synthèse (digest)', [
+                    'severity' => $severity->value,
+                    'subject' => $subject,
+                ]);
+                if ($throttleKey !== null) {
+                    $this->throttler->record($throttleKey, $severity, $category, $this->recipient, $subject);
+                }
+
+                return true;
+            }
+            // Si la mise en file échoue (base indisponible), on bascule sur un envoi direct.
+        }
+
+        $formattedSubject = $this->formatSubject($severity, $subject, $family);
+        $html = $this->renderer->renderAlertHtml($severity, $category, $family, $subject, $message);
+        $text = $this->renderer->renderAlertText($severity, $category, $family, $subject, $message);
+        $isSuccess = $this->sendMail($this->recipient, $formattedSubject, $html, $text);
+
+        if ($isSuccess && $throttleKey !== null) {
+            $this->throttler->record($throttleKey, $severity, $category, $this->recipient, $formattedSubject);
+        }
+
+        return $isSuccess;
+    }
+
+    /** Construit le sujet préfixé « [FAMILLE][Pn] objet ». */
+    private function formatSubject(Severity $severity, string $subject, ?string $family): string
+    {
+        $prefix = '';
+        if ($family !== null && $family !== '') {
+            $prefix .= '[' . strtoupper($family) . ']';
+        }
+        $prefix .= '[' . $severity->code() . ']';
+
+        return trim($prefix . ' ' . $subject);
     }
 
     /**
-     * Envoie une notification simple par e-mail (privé, utilisé par les méthodes publiques).
-     *
-     * @param string $recipient Destinataire
-     * @param string $subject   Sujet du mail
-     * @param string $message   Corps du message (HTML)
-     * @return bool             Succès de l'envoi
-     *
-     * Utilise la fonction mail() de PHP. Logge le résultat (succès ou échec).
+     * Envoie un e-mail multipart (HTML + texte) via le transport configuré et journalise.
      */
-    private function sendMail(string $recipient, string $subject, string $message): bool
+    private function sendMail(string $recipient, string $subject, string $htmlBody, string $textBody): bool
     {
-        // Construction de l'en-tête sous forme de chaîne car mail() n'accepte pas un tableau
-        $headersArray = [
-            'MIME-Version: 1.0',
-            'Content-type: text/html; charset=utf-8',
-            'From: ' . $this->from,
-        ];
+        $isSuccess = $this->transport->send($recipient, $this->from, $subject, $htmlBody, $textBody);
 
-        $headersString = implode("\r\n", $headersArray);
-
-        // Envoi du mail (attention : la fonction mail() peut être désactivée sur certains serveurs)
-        $isSuccess = mail($recipient, $subject, $message, $headersString);
-
-        // Log du résultat
         if ($isSuccess) {
             $this->logger->info("E-mail envoyé à {$recipient} avec le sujet : {$subject}");
         } else {
@@ -64,17 +176,95 @@ class NotificationService
         return $isSuccess;
     }
 
+    // ------------------------------------------------------------------
+    // API de haut niveau (sévérité + catégorie + anti-spam)
+    // ------------------------------------------------------------------
+
+    /**
+     * Envoie une alerte typée. Entrée privilégiée pour les nouveaux appels.
+     *
+     * Les alertes de faible sévérité (P3 Info / P4 Diagnostic) sont mises en file de
+     * synthèse (digest) et regroupées lors du prochain flush ; les P1/P2 partent
+     * immédiatement.
+     */
+    public function sendAlert(
+        Severity $severity,
+        NotificationCategory $category,
+        string $family,
+        string $subject,
+        string $message,
+        ?string $throttleKey = null
+    ): bool {
+        return $this->dispatch(
+            $severity,
+            $category,
+            $subject,
+            $message,
+            $throttleKey,
+            $family,
+            null,
+            true
+        );
+    }
+
+    /**
+     * Alerte personnalisée (rétro-compatibilité). Sévérité P2/Alerte, catégorie Système,
+     * sans anti-spam dédié : l'appelant gère son propre throttling (ex. ErrorAlertService).
+     */
+    public function sendCustomAlert(string $subject, string $message): bool
+    {
+        return $this->dispatch(Severity::Alert, NotificationCategory::System, $subject, $message);
+    }
+
+    /**
+     * Vide la file de synthèse : envoie un unique e-mail regroupant les alertes P3/P4
+     * accumulées. À appeler sur un tick CRON ou en fin de run. No-op si la file est vide.
+     *
+     * @return bool Vrai si un e-mail de synthèse a été envoyé ; faux si rien à envoyer ou échec
+     */
+    public function flushDigest(): bool
+    {
+        $items = $this->digest->flush();
+        if ($items === []) {
+            return false;
+        }
+
+        $count = count($items);
+        $subject = $this->formatDigestSubject($count);
+        $html = $this->renderer->renderDigestHtml($items);
+        $text = $this->renderer->renderDigestText($items);
+
+        $isSuccess = $this->sendMail($this->recipient, $subject, $html, $text);
+        if ($isSuccess) {
+            $this->logger->info('E-mail de synthèse (digest) envoyé', ['groupes' => $count]);
+        }
+
+        return $isSuccess;
+    }
+
+    /** Sujet de l'e-mail de synthèse : « [SYNTHÈSE] N notification(s) ». */
+    private function formatDigestSubject(int $count): string
+    {
+        return sprintf('[SYNTHÈSE] %d notification(s) de faible sévérité', $count);
+    }
+
     /**
      * Notification pour le problème de marées (écart-type faible sur les mesures).
      * Appelée automatiquement par le système de surveillance.
      */
     public function notifyMareesProblem(): void
     {
-        $subject = 'Alerte système : problème de marées';
         $message = "Le système a détecté une déviation standard anormalement faible sur les mesures de niveau d'eau de l'aquarium, " .
                    'suggérant un problème avec les marées. La pompe a été mise en pause puis redémarrée.';
 
-        $this->sendMail($this->recipient, $subject, $message);
+        $this->dispatch(
+            Severity::Critical,
+            NotificationCategory::Hydraulic,
+            'Problème de marées',
+            $message,
+            'ffp3:tide-problem',
+            'FFP3'
+        );
     }
 
     /**
@@ -83,18 +273,16 @@ class NotificationService
      */
     public function notifyFloodRisk(): void
     {
-        $subject = "Alerte système : risque d'inondation";
         $message = "Le niveau d'eau dans l'aquarium est dangereusement haut. La pompe de la réserve a été coupée pour éviter un débordement.";
 
-        $this->sendMail($this->recipient, $subject, $message);
-    }
-
-    /**
-     * Envoie une alerte personnalisée (texte libre) via email.
-     */
-    public function sendCustomAlert(string $subject, string $message): bool
-    {
-        return $this->sendMail($this->recipient, $subject, nl2br($message));
+        $this->dispatch(
+            Severity::Critical,
+            NotificationCategory::Hydraulic,
+            "Risque d'inondation",
+            $message,
+            'ffp3:flood-risk',
+            'FFP3'
+        );
     }
 
     /**
@@ -102,10 +290,16 @@ class NotificationService
      */
     public function notifyNoSensorData(): void
     {
-        $subject = 'Alerte système : aucune donnée capteur disponible';
         $message = "Le système n'a enregistré aucune nouvelle donnée de capteur récemment. Veuillez vérifier la connexion ou le capteur.";
 
-        $this->sendMail($this->recipient, $subject, $message);
+        $this->dispatch(
+            Severity::Alert,
+            NotificationCategory::Availability,
+            'Aucune donnée capteur disponible',
+            $message,
+            'ffp3:no-sensor-data',
+            'FFP3'
+        );
     }
 
     /**
@@ -113,9 +307,15 @@ class NotificationService
      */
     public function notifySystemOffline(): void
     {
-        $subject = 'Alerte système : système hors ligne';
         $message = 'Le système ne semble plus transmettre de données depuis la période définie. Veuillez intervenir.';
 
-        $this->sendMail($this->recipient, $subject, $message);
+        $this->dispatch(
+            Severity::Critical,
+            NotificationCategory::Availability,
+            'Système hors ligne',
+            $message,
+            'ffp3:offline',
+            'FFP3'
+        );
     }
 }

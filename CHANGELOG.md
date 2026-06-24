@@ -11,6 +11,49 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.7.0] - 2026-06-24
+
+### Ajout - Supervision « appareil silencieux » (heartbeat) généralisée à toutes les familles
+- **Avant** : seul FFP3 alertait quand un appareil cessait d'émettre (via `SystemHealthService`, sur la table de données). N3PP et MSP1 n'étaient pas couverts.
+- **`src/Repository/HeartbeatMonitorRepository`** : lecture transverse de la dernière date de heartbeat (`MAX(reading_time)`) d'une table donnée, avec **whitelist stricte** de toutes les tables heartbeat (FFP3 + N3PP + MSP1, variantes de test incluses) — garde-fou anti-injection (le nom vient de `TableConfig`).
+- **`src/Service/DeviceHealthService`** : logique **paramétrique par famille** (factorisée, non dupliquée). Interroge les tables `ffp3Heartbeat` / `n3ppHeartbeat` / `msp1Heartbeat` (résolues via `TableConfig::getHeartbeatTable()` / `getN3ppHeartbeatTable()` / `getMspHeartbeatTable()`). Si le dernier battement dépasse le seuil d'inactivité, route une alerte **P1 / Disponibilité** via `NotificationService::sendAlert()`.
+  - **Anti-spam** : une clé de throttle par famille (`heartbeat:offline:<family>`) ⇒ l'`AlertThrottler` dé-duplique, jamais de spam à chaque cycle CRON.
+  - **Anti-bruit** : une table sans aucun heartbeat (famille non déployée) est ignorée ; on n'alerte que sur un historique devenu obsolète. Lecture en échec = fail-safe (log, pas d'alerte).
+  - Seuil configurable via `HEARTBEAT_OFFLINE_THRESHOLD_SECONDS` (défaut 3600 s).
+- **`CronOrchestrator`** : `DeviceHealthService::checkAllFamilies()` câblé dans les tâches horaires (exécuté à chaque cycle dû), routant via le `NotificationService` (transport SMTP/digest de la 5.6.0). Câblage explicite dans `config/dependencies.php`.
+- **Tests** : `DeviceHealthServiceTest` (silencieux/en ligne/jamais vu, 3 familles, fail-safe, seuil env) + `HeartbeatMonitorRepositoryTest` (lecture SQLite, whitelist) ; `CronOrchestratorTest` aligné sur la nouvelle dépendance.
+
+## [5.6.0] - 2026-06-24
+
+### Ajout - Transport e-mail fiable (SMTP via symfony/mailer) + e-mails HTML Twig + digest P3/P4
+- **`src/Notification/MailTransport`** : abstraction de transport e-mail (découple `NotificationService` du mécanisme d'envoi).
+  - `SymfonyMailTransport` : envoi SMTP via **symfony/mailer** (DSN issu de l'environnement), corps multipart HTML + texte ; échec capturé et journalisé.
+  - `NativeMailTransport` : **repli gracieux** sur la fonction PHP `mail()` (multipart) quand aucun SMTP n'est configuré — dev / CI / hôtes mutualisés continuent de fonctionner.
+  - `MailTransportFactory::fromEnv()` : choisit le transport (SMTP si `SMTP_DSN` ou `SMTP_HOST…`, sinon `mail()`) et reconstruit un DSN depuis `SMTP_HOST/PORT/USER/PASS/ENCRYPTION` (identifiants percent-encodés, jamais loggés).
+- **E-mails HTML via Twig** : `EmailRenderer` rend `templates/emails/alert.html.twig` (alerte) et `templates/emails/digest.html.twig` (synthèse) avec **repli texte brut**, en remplacement de la concaténation de chaînes.
+- **Digest des alertes de faible sévérité (P3/P4)** : `NotificationDigest` (interface `DigestQueue`) accumule les alertes mineures issues de `sendAlert()` dans la table auto-créée `notification_digest`, puis `NotificationService::flushDigest()` envoie **un unique e-mail groupé** (déclenché sur le tick horaire CRON). Les **P1/P2 restent immédiates**. Repli en envoi direct si la file est indisponible.
+- **`NotificationService`** : refactor du transport (plus de `mail()` direct), API publique conservée (`sendAlert`, `sendCustomAlert`, `notify*`) ; nouvelle méthode `flushDigest()`. Dépendances injectables (transport, renderer, digest) pour la testabilité.
+- **`CronOrchestrator`** : appel de `flushDigest()` dans les tâches horaires.
+- **`.env.example`** : documentation des variables `SMTP_DSN` / `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` / `SMTP_ENCRYPTION` (repli `mail()` si absentes).
+- **`config/dependencies.php`** : câblage explicite du transport (via factory), du renderer et de la file de synthèse.
+- **Dépendance** : ajout de `symfony/mailer:^6.4` (LTS, PHP 8.1+) — `composer audit` reste propre.
+- **Tests** : `tests/Notification/` (`MailTransportFactoryTest`, `NativeMailTransportTest`, `EmailRendererTest`, doubles `FakeMailTransport` / `FakeDigestQueue`) ; `NotificationServiceTest` réécrit sur transport factice (rendu HTML/texte, routage digest, flush groupé).
+
+## [5.5.0] - 2026-06-24
+
+### Ajout - Système de notifications par sévérité + mode de verbosité configurable (Phase 0)
+- **`src/Notification/`** : nouveau socle de notification.
+  - `Severity` (P1 Critique / P2 Alerte / P3 Info / P4 Diagnostic) avec code, priorité et cooldown anti-spam par défaut (P1 = 15 min, P2 = 1 h, P3 = 6 h, P4 = 24 h).
+  - `NotificationCategory` (domaines : hydraulic, energy, environment, feeding, availability, lifecycle, camera, system).
+  - `NotificationMode` (`none` / `important` / `partial` / `full`) : seuil de verbosité par sévérité.
+  - `NotificationPolicy` : combine le mode et les catégories coupées ; construite depuis `NOTIF_MODE` + `NOTIF_DISABLED_CATEGORIES`.
+  - `AlertThrottler` : anti-spam transversal + **historique unifié** (table auto-créée `notification_log`), généralise le cooldown de `ErrorAlertService` à toutes les alertes (fail-open si base indisponible).
+- **`NotificationService`** : chaque envoi passe désormais par la politique (mode + catégorie) puis l'anti-spam ; sujets préfixés `[FAMILLE][Pn]` (tri/filtre côté boîte mail). Nouvelle méthode `sendAlert(severity, category, family, subject, message, throttleKey)`. API existante conservée.
+- **Correctif anti-spam CRON** : les alertes « niveau d'eau bas » (`ffp3:water-low`) et « problème de marées » (`ffp3:tide-problem`) étaient envoyées **à chaque passe CRON (toutes les 5 min)** tant que la cause persistait → désormais throttlées (cooldown P1 = 15 min). Idem pour « hors ligne » et « aucune donnée capteur ».
+- **`.env.example`** : ajout de `NOTIF_MODE` (défaut recommandé `important`) et `NOTIF_DISABLED_CATEGORIES` ; suppression de la variable morte `ALERT_EMAIL`.
+- **`config/dependencies.php`** : câblage explicite de `NotificationService` (politique depuis l'env + throttler).
+- **Tests** : `tests/Notification/` (Severity, NotificationMode, NotificationPolicy, AlertThrottler) + `NotificationServiceTest` étendu (modes, catégories coupées, anti-spam). `CronOrchestratorTest` aligné sur `sendAlert`.
+
 ## [5.4.2] - 2026-06-24
 
 ### Correctif - Auto-création outputs FFP3 résistante aux requêtes concurrentes
