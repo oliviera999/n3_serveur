@@ -1465,8 +1465,98 @@ small {
     cursor: not-allowed;
 }
 
-.feed-status {
+.feed-live-panel {
     flex: 1 1 100%;
+    width: 100%;
+    margin-bottom: var(--control-padding-sm);
+    padding: var(--control-padding-sm) var(--control-padding-md);
+    border-radius: var(--control-radius-sm);
+    border: 1px solid color-mix(in srgb, var(--control-border) 80%, transparent);
+    background: color-mix(in srgb, var(--control-surface) 92%, transparent);
+    min-height: 2.5rem;
+    transition: border-color var(--control-transition-fast), box-shadow var(--control-transition-fast);
+}
+
+.feed-live-panel.feed-live-active {
+    border-color: color-mix(in srgb, var(--status-warning-text, #b7791f) 45%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--status-warning-text, #b7791f) 15%, transparent);
+}
+
+.feed-live-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--control-padding-sm);
+    margin-bottom: 0.35rem;
+}
+
+.feed-elapsed {
+    flex-shrink: 0;
+    font-size: var(--control-font-size-xs, 0.75rem);
+    font-variant-numeric: tabular-nums;
+    font-weight: var(--control-font-weight-semibold);
+    color: var(--text-muted);
+    padding: 0.1rem 0.45rem;
+    border-radius: var(--control-radius-xs, 4px);
+    background: color-mix(in srgb, var(--control-border) 35%, transparent);
+}
+
+.feed-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 7.5rem;
+    overflow-y: auto;
+    font-size: var(--control-font-size-xs, 0.75rem);
+    line-height: 1.35;
+}
+
+.feed-timeline:empty {
+    display: none;
+}
+
+.feed-timeline-item {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--control-border) 40%, transparent);
+}
+
+.feed-timeline-item:last-child {
+    border-bottom: none;
+}
+
+.feed-timeline-time {
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
+    min-width: 4.5rem;
+}
+
+.feed-timeline-text {
+    flex: 1;
+    color: var(--text-primary);
+}
+
+.feed-timeline-info .feed-timeline-text {
+    color: var(--text-muted);
+}
+
+.feed-timeline-ok .feed-timeline-text {
+    color: var(--status-success-text, #27ae60);
+}
+
+.feed-timeline-warn .feed-timeline-text {
+    color: var(--status-warning-text, #b7791f);
+}
+
+.feed-timeline-error .feed-timeline-text {
+    color: var(--status-error-text, #c0392b);
+    font-weight: var(--control-font-weight-medium);
+}
+
+.feed-status {
+    flex: 1 1 auto;
     font-size: var(--control-font-size-sm);
     font-weight: var(--control-font-weight-medium);
     color: var(--text-muted);

@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.10.1] - 2026-06-24
+
+### Amélioration - Suivi en direct du nourrissage manuel (page contrôle FFP3)
+- **Panneau live** par sortie (GPIO 108/109) : statut, chronomètre, timeline horodatée (reset → impulsion → lecture ESP32 → trace capteur → acquittement).
+- **`control-sync.js`** : polling accéléré (~2 s) pendant un cycle en cours ; notification unifiée `onFeedStatesPolled` (GPIO + `dataStates`).
+- **`control-actions.js`** : détection fine des phases (lecture commande, distribution enregistrée, ACK GPIO→0) ; correction faux acquittement prématuré.
+
 ## [5.10.0] - 2026-06-24
 
 ### Ajout - Nourrissage manuel FFP3 : bouton impulsion, suivi UI et traçabilité

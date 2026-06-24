@@ -13,6 +13,7 @@ class ControlSync {
         // Configuration
         this.apiBase = options.apiBase || '/ffp3/api/outputs';
         this.pollInterval = (options.pollInterval || 10) * 1000; // 10 secondes par défaut
+        this.basePollInterval = this.pollInterval;
         this.maxRetries = options.maxRetries || 5;
         this.useFresh = options.useFresh === true; // ?fresh=1 pour ignorer le cache (valeurs BDD à jour)
         
@@ -219,13 +220,23 @@ class ControlSync {
             
             // Mettre à jour le cache
             this.lastStates[gpioNum] = newState;
-
-            // Suivi nourrissage manuel (GPIO 108/109) : acquittement = retour à 0 en BDD
-            if ((gpioNum === 108 || gpioNum === 109) && window.controlActions?.handleFeedGpioPoll) {
-                window.controlActions.handleFeedGpioPoll(gpioNum, newState);
-            }
         }
-        
+
+        // Suivi nourrissage manuel en direct (GPIO 108/109)
+        if (window.controlActions?.onFeedStatesPolled) {
+            const feedOutputs = {};
+            for (const g of [108, 109]) {
+                if (this.lastStates[g] !== undefined) {
+                    feedOutputs[g] = this.lastStates[g];
+                }
+            }
+            window.controlActions.onFeedStatesPolled({
+                outputs: feedOutputs,
+                dataStates: states.dataStates || {},
+                dataReadingTime: states.dataStatesReadingTime ?? null,
+            });
+        }
+
         // Toujours synchroniser les switches avec la réponse serveur (changements distants pris en compte)
         const switchSyncList = [];
         for (const [gpioStr, newState] of Object.entries(this.lastStates)) {
@@ -480,6 +491,32 @@ class ControlSync {
             clearTimeout(this.pollTimer);
         }
         this.poll();
+    }
+
+    /**
+     * Polling accéléré pendant un nourrissage manuel en cours (ex. 2 s).
+     */
+    boostPollingForFeed(intervalMs) {
+        if (typeof intervalMs === 'number' && intervalMs > 0) {
+            this.basePollInterval = this.basePollInterval || this.pollInterval;
+            this.pollInterval = intervalMs;
+            this.log(`Feed boost: poll every ${intervalMs}ms`);
+            if (this.pollTimer) {
+                clearTimeout(this.pollTimer);
+                this.schedulePoll();
+            }
+        }
+    }
+
+    restorePollInterval() {
+        if (this.basePollInterval && this.pollInterval !== this.basePollInterval) {
+            this.pollInterval = this.basePollInterval;
+            this.log(`Feed boost ended: poll every ${this.pollInterval}ms`);
+            if (this.pollTimer) {
+                clearTimeout(this.pollTimer);
+                this.schedulePoll();
+            }
+        }
     }
     
     /**

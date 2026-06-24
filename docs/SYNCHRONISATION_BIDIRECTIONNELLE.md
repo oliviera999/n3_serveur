@@ -98,7 +98,7 @@ Le badge est piloté exclusivement par la méthode `updateBadgeStatus(status)` :
 | `offline` | `offline` | `HORS LIGNE` | `stop()` (arrêt manuel ou après `error`) |
 | `paused` | `paused` | `PAUSE` | onglet masqué (`visibilitychange` → `document.hidden`) ; le polling reprend (`connecting` puis `online`) au retour |
 
-> ℹ️ **Badge global vs nourrissage manuel** : `#control-sync-badge` reflète uniquement le polling HTTP (`SYNC`, `RECONNEXION…`, etc.). Depuis v5.10.0, chaque carte **Nourrissage** (GPIO 108/109) affiche un libellé `[data-feed-status]` : `Prêt` → `En attente ESP32…` → `Exécuté` ou `Timeout — réessayer`, plus une **réf. commande** (`feed_cmd_id`) dans l'info-bulle pour le diagnostic (logs `[control-audit]`).
+> ℹ️ **Badge global vs nourrissage manuel** : `#control-sync-badge` reflète uniquement le polling HTTP (`SYNC`, `RECONNEXION…`, etc.). Depuis v5.10.0, chaque carte **Nourrissage** (GPIO 108/109) affiche un libellé `[data-feed-status]` : `Prêt` → `En attente ESP32…` → `Exécuté` ou `Timeout — réessayer`, plus une **réf. commande** (`feed_cmd_id`) dans l'info-bulle pour le diagnostic (logs `[control-audit]`). Depuis v5.10.1 : **panneau live** avec chronomètre, timeline des étapes (reset, impulsion, lecture ESP32, trace capteur, acquittement) et **polling accéléré** (~2 s) pendant le cycle.
 
 #### Retour visuel par actionneur
 
