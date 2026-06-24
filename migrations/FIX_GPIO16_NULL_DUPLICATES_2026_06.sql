@@ -1,7 +1,7 @@
 -- ============================================================================
 -- Migration : Nettoyage des lignes fantomes / doublons GPIO dans ffp3Outputs*
 -- Date      : 2026-06-24
--- Version   : 5.3.11
+-- Version   : 5.4.1
 -- ----------------------------------------------------------------------------
 -- CONTEXTE
 --   La prod `oliviera_iot` presente ~403 lignes fantomes gpio=16

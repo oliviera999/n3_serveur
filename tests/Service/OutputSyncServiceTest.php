@@ -43,7 +43,7 @@ class OutputSyncServiceTest extends TestCase
         114 => 'limFlood',
         115 => 'WakeUp',
         116 => 'FreqWakeUp',
-        // Angles servo nourrissage (ajoutés v5.3.8) — dbvars firmware FFP5CS.
+        // Angles servo nourrissage (GPIO 118-123, exposés au firmware via getOutputsState)
         118 => 'angleReposGros',
         119 => 'angleDistribGros',
         120 => 'angleInterGros',

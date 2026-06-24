@@ -9,6 +9,11 @@
 
     var STORAGE_KEY = 'n3_nav_pages';
 
+    // Clés de pages devenues permanentes (lien de nav toujours présent) :
+    // leur ancien toggle n'existe plus, on purge l'état localStorage résiduel
+    // pour éviter un doublon dans la barre de navigation.
+    var DEPRECATED_KEYS = ['admin-users'];
+
     function getState() {
         try {
             return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
@@ -21,6 +26,24 @@
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
         } catch (e) {}
+    }
+
+    /**
+     * Supprime de localStorage les clés de pages devenues permanentes.
+     */
+    function purgeDeprecatedKeys() {
+        var state = getState();
+        var changed = false;
+        for (var i = 0; i < DEPRECATED_KEYS.length; i++) {
+            var key = DEPRECATED_KEYS[i];
+            if (Object.prototype.hasOwnProperty.call(state, key)) {
+                delete state[key];
+                changed = true;
+            }
+        }
+        if (changed) {
+            setState(state);
+        }
     }
 
     /**
@@ -172,6 +195,7 @@
     }
 
     onReady(function () {
+        purgeDeprecatedKeys();
         blockToggleNavigation();
         renderNavItems();
         initToggles();

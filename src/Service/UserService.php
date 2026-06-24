@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use App\Config\Env;
 use App\Domain\User;
 use App\Repository\UserRepository;
 use App\Security\AuthService;
+use PDOException;
 use RuntimeException;
 
 /**
@@ -25,6 +27,49 @@ class UserService
     public function listUsers(): array
     {
         return $this->userRepository->findAll();
+    }
+
+    /**
+     * Matérialise le compte administrateur « historique » (issu du .env :
+     * ADMIN_USERNAME / ADMIN_PASSWORD_HASH) dans la table n3_users s'il n'y
+     * figure pas déjà, afin qu'il apparaisse et soit gérable dans le
+     * gestionnaire d'utilisateurs.
+     *
+     * Idempotent : ne fait rien si les variables .env sont absentes, si la
+     * table n3_users n'existe pas, ou si un compte portant ce nom existe déjà.
+     *
+     * Étape transitoire : une fois le gestionnaire pleinement opérationnel, le
+     * système d'authentification mono-compte (.env) pourra être retiré.
+     */
+    public function ensureLegacyAdminMaterialized(): void
+    {
+        Env::load();
+
+        $username = trim((string) ($_ENV['ADMIN_USERNAME'] ?? ''));
+        $passwordHash = trim((string) ($_ENV['ADMIN_PASSWORD_HASH'] ?? ''));
+        if ($username === '' || $passwordHash === '') {
+            return;
+        }
+
+        try {
+            if (!$this->userRepository->tableExists()) {
+                return;
+            }
+            if ($this->userRepository->findByUsername($username) !== null) {
+                return;
+            }
+
+            $this->userRepository->create(
+                username: $username,
+                passwordHash: $passwordHash,
+                role: User::ROLE_ADMIN,
+                email: null,
+                displayName: 'Administrateur (compte initial)',
+                isActive: true,
+            );
+        } catch (PDOException) {
+            // Base indisponible : ne pas empêcher l'affichage de la page.
+        }
     }
 
     public function getUser(int $id): ?User

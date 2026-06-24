@@ -19,6 +19,9 @@
         {% if is_admin|default(false) %}
         <li class="{{ nav_active == 'supervision' ? 'active' }}"><a href="{{ bp }}/supervision" title="Supervision et administration"><i class="fas fa-cog" aria-hidden="true"></i> Admin</a></li>
         {% endif %}
+        {% if can_manage_users|default(false) %}
+        <li class="{{ nav_active == 'users' ? 'active' }}"><a href="{{ bp }}/admin/users" title="Gestion des utilisateurs"><i class="fas fa-users-cog" aria-hidden="true"></i> Utilisateurs</a></li>
+        {% endif %}
         <li class="nav-theme-toggle">
             <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Basculer le mode sombre" title="Mode sombre / clair">
                 <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
