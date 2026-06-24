@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Tests\Repository;
 
 use App\Repository\OutputRepository;
+use PDO;
+use PDOException;
+use PDOStatement;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -88,5 +91,55 @@ class OutputRepositoryTest extends TestCase
         $this->assertArrayNotHasKey('aquariumPumpForce', $map);
         $this->assertContains(117, self::FIRMWARE_STATE_GPIOS);
         $this->assertContains(117, self::CONTROL_TWIG_ACTUATOR_GPIOS);
+    }
+
+    public function testEnsureServoAngleRowsIgnoresConcurrentDuplicateInsert(): void
+    {
+        $pdo = $this->createMock(PDO::class);
+        $stmt = $this->createMock(PDOStatement::class);
+        $duplicate = new PDOException('SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry');
+        $duplicate->errorInfo = ['23000', 1062, 'Duplicate entry'];
+
+        $pdo->method('prepare')->willReturn($stmt);
+        $stmt->method('execute')->willThrowException($duplicate);
+
+        $repository = new class ($pdo) extends OutputRepository {
+            protected function fetchOne(string $sql, array $params = []): ?array
+            {
+                if (($params[':gpio'] ?? null) === 16) {
+                    return ['board' => '1'];
+                }
+
+                return null;
+            }
+        };
+
+        $repository->ensureServoAngleRowsExist();
+        $this->addToAssertionCount(1);
+    }
+
+    public function testEnsureServoAngleRowsRethrowsNonDuplicateInsertError(): void
+    {
+        $pdo = $this->createMock(PDO::class);
+        $stmt = $this->createMock(PDOStatement::class);
+        $exception = new PDOException('SQLSTATE[42S22]: Column not found: 1054 Unknown column');
+        $exception->errorInfo = ['42S22', 1054, 'Unknown column'];
+
+        $pdo->method('prepare')->willReturn($stmt);
+        $stmt->method('execute')->willThrowException($exception);
+
+        $repository = new class ($pdo) extends OutputRepository {
+            protected function fetchOne(string $sql, array $params = []): ?array
+            {
+                if (($params[':gpio'] ?? null) === 16) {
+                    return ['board' => '1'];
+                }
+
+                return null;
+            }
+        };
+
+        $this->expectException(PDOException::class);
+        $repository->ensureServoAngleRowsExist();
     }
 }

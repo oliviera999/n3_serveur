@@ -117,22 +117,33 @@ class OutputCacheServiceTest extends TestCase
     }
 
     /**
-     * La réponse JSON dbvars doit rester sous la limite de buffer du firmware ESP32-WROOM
-     * (le serveur vise <1024 o, compact, sans PRETTY_PRINT). Valeurs réalistes (email long).
+     * La réponse JSON dbvars doit rester sous la limite dédiée du firmware ESP32-WROOM
+     * (outputs/state = 2048 o depuis GPIO 118-123, compact, sans PRETTY_PRINT).
+     * Valeurs réalistes (email long).
      * Garde-fou contre un ajout de champ qui ferait silencieusement tronquer côté firmware.
      */
     public function testGetOutputsStateJsonStaysUnderFirmwareBuffer(): void
     {
         // Email réaliste relativement long sur GPIO 100.
         $this->pdo->exec("INSERT INTO ffp3Outputs (gpio, state) VALUES (100, 'aquaponie.ferme.exploitation@example.com')");
-        $result = $this->service->getOutputsState($this->pdo, range(100, 116), true, false);
+        $firmwareGpios = [
+            2, 15, 16, 18,
+            100, 101, 102, 103, 104, 105, 106, 107,
+            108, 109, 110,
+            111, 112, 113, 114, 115, 116,
+            118, 119, 120, 121, 122, 123,
+            117,
+        ];
+        $result = $this->service->getOutputsState($this->pdo, $firmwareGpios, true, false);
 
         $json = json_encode($result, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         $this->assertNotFalse($json);
+        $this->assertArrayHasKey('118', $result);
+        $this->assertArrayHasKey('angleReposGros', $result);
         $this->assertLessThan(
-            1024,
+            2048,
             strlen($json),
-            'Réponse dbvars >= 1024 o : risque de troncature sur buffer ESP32-WROOM (' . strlen($json) . ' o)'
+            'Réponse dbvars >= 2048 o : risque de troncature sur buffer ESP32-WROOM (' . strlen($json) . ' o)'
         );
     }
 }

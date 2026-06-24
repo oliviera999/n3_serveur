@@ -9,6 +9,7 @@ use App\Config\TableConfig;
 use App\Domain\SensorData;
 use App\Util\StateNormalizer;
 use App\Util\TableValidator;
+use PDOException;
 
 /**
  * Repository pour gérer les outputs (GPIO/relais) en base de données
@@ -500,18 +501,25 @@ class OutputRepository extends AbstractRepository
             return;
         }
 
-        $sql = "INSERT INTO `{$table}` (board, gpio, name, state)
-                VALUES (:board, :gpio, :name, :state)";
-        $stmt = $this->pdo->prepare($sql);
-        $ok = $stmt->execute([
-            ':board' => $board,
-            ':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO,
-            ':name' => $forceName,
-            ':state' => '0',
-        ]);
-        if (!$ok) {
-            error_log('[OutputRepository] ensureAquariumPumpForceRowExists INSERT failed: '
-                . json_encode($stmt->errorInfo(), JSON_UNESCAPED_UNICODE));
+        try {
+            $sql = "INSERT INTO `{$table}` (board, gpio, name, state)
+                    VALUES (:board, :gpio, :name, :state)";
+            $stmt = $this->pdo->prepare($sql);
+            $ok = $stmt->execute([
+                ':board' => $board,
+                ':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO,
+                ':name' => $forceName,
+                ':state' => '0',
+            ]);
+            if (!$ok) {
+                error_log('[OutputRepository] ensureAquariumPumpForceRowExists INSERT failed: '
+                    . json_encode($stmt->errorInfo(), JSON_UNESCAPED_UNICODE));
+            }
+        } catch (PDOException $e) {
+            if ($this->isDuplicateOutputRowException($e)) {
+                return;
+            }
+            throw $e;
         }
     }
 
@@ -548,19 +556,35 @@ class OutputRepository extends AbstractRepository
                 continue;
             }
 
-            $sql = "INSERT INTO `{$table}` (board, gpio, name, state)
-                    VALUES (:board, :gpio, :name, :state)";
-            $stmt = $this->pdo->prepare($sql);
-            if (!$stmt->execute([
-                ':board' => $board,
-                ':gpio' => $gpio,
-                ':name' => $meta['name'],
-                ':state' => $meta['state'],
-            ])) {
-                error_log('[OutputRepository] ensureServoAngleRowsExist INSERT failed: '
-                    . json_encode($stmt->errorInfo(), JSON_UNESCAPED_UNICODE));
+            try {
+                $sql = "INSERT INTO `{$table}` (board, gpio, name, state)
+                        VALUES (:board, :gpio, :name, :state)";
+                $stmt = $this->pdo->prepare($sql);
+                if (!$stmt->execute([
+                    ':board' => $board,
+                    ':gpio' => $gpio,
+                    ':name' => $meta['name'],
+                    ':state' => $meta['state'],
+                ])) {
+                    error_log('[OutputRepository] ensureServoAngleRowsExist INSERT failed: '
+                        . json_encode($stmt->errorInfo(), JSON_UNESCAPED_UNICODE));
+                }
+            } catch (PDOException $e) {
+                if ($this->isDuplicateOutputRowException($e)) {
+                    continue;
+                }
+                throw $e;
             }
         }
+    }
+
+    private function isDuplicateOutputRowException(PDOException $e): bool
+    {
+        $state = (string) ($e->errorInfo[0] ?? '');
+        $message = strtolower($e->getMessage());
+
+        return $state === '23000'
+            && (str_contains($message, 'duplicate') || str_contains($message, 'unique'));
     }
 
     private function resolveDefaultBoardForNewRows(string $table): string
