@@ -138,7 +138,15 @@ class OutputController
         $state = RequestHelper::getInt($params, 'state', -1);
         $gpio = RequestHelper::getInt($params, 'gpio', 0);
 
-        if ($id === 0 || ($state !== 0 && $state !== 1)) {
+        // GPIO 117 (forçage pompe aquarium) : sélecteur tri-état 0=auto / 1=forcer ON / 2=forcer OFF,
+        // persisté par GPIO (id HTML non requis). Les autres GPIO restent booléens (0/1) + id requis.
+        $isPumpForce = ($gpio === self::AQUARIUM_PUMP_FORCE_GPIO);
+        $stateValid = $isPumpForce
+            ? in_array($state, [0, 1, 2], true)
+            : ($state === 0 || $state === 1);
+        $idValid = $isPumpForce || $id !== 0;
+
+        if (!$idValid || !$stateValid) {
             $this->auditLogger->logAction(
                 $request,
                 'ffp3',
@@ -163,30 +171,55 @@ class OutputController
             return ResponseHelper::error($response, 'Unauthorized GPIO', 400);
         }
 
-        if ($gpio === self::AQUARIUM_PUMP_GPIO && $state === 0 && $this->outputService->isAquariumPumpForceEnabled()) {
-            $state = 1;
+        // Toggle de la pompe (GPIO 16) en conflit avec un mode de forçage actif (GPIO 117) :
+        // on ne ment plus au client (faux « Commande envoyée »). On maintient l'état BDD
+        // cohérent avec le forçage et on signale le blocage pour inviter à repasser en Auto.
+        $blockMessage = null;
+        if ($gpio === self::AQUARIUM_PUMP_GPIO) {
+            $forceMode = $this->outputService->getAquariumPumpForceMode();
+            if ($forceMode === 1 && $state === 0) {
+                $state = 1;
+                $blockMessage = 'Arrêt ignoré : le mode « forcer pompe aquarium ON » (GPIO 117) est actif. '
+                    . "Repassez la pompe en mode Auto pour pouvoir l'arrêter.";
+            } elseif ($forceMode === 2 && $state === 1) {
+                $state = 0;
+                $blockMessage = 'Démarrage ignoré : le mode « forcer pompe aquarium OFF » (GPIO 117) est actif. '
+                    . 'Repassez la pompe en mode Auto pour pouvoir la démarrer.';
+            }
         }
+        $blockedByForce = $blockMessage !== null;
 
-        // GPIO 117 : persistance par numéro GPIO (toutes les lignes board) plutôt que par id,
-        // pour éviter un faux succès si l'id HTML est obsolète (0 ligne mise à jour).
-        if ($gpio === self::AQUARIUM_PUMP_FORCE_GPIO) {
-            $success = $this->outputService->updateStateByGpio($gpio, $state);
+        // GPIO 117 : persistance par numéro GPIO (toutes les lignes) plutôt que par id, pour
+        // éviter un faux succès si l'id HTML est obsolète. Tri-état 0/1/2 via updatePumpForceMode.
+        if ($isPumpForce) {
+            $success = $this->outputService->updatePumpForceMode($state);
         } else {
             $success = $this->outputService->updateStateById($id, $state, 'web');
         }
 
         if ($success) {
-            if ($gpio === self::AQUARIUM_PUMP_FORCE_GPIO && $state === 1) {
-                $this->outputService->updateStateByGpio(self::AQUARIUM_PUMP_GPIO, 1);
+            if ($isPumpForce) {
+                // Reflet immédiat sur GPIO 16 selon le mode ; Auto (0) laisse l'ESP32 reprendre la main.
+                if ($state === 1) {
+                    $this->outputService->updateStateByGpio(self::AQUARIUM_PUMP_GPIO, 1);
+                } elseif ($state === 2) {
+                    $this->outputService->updateStateByGpio(self::AQUARIUM_PUMP_GPIO, 0);
+                }
             }
             $this->auditLogger->logAction(
                 $request,
                 'ffp3',
                 'toggle',
-                ['id' => $id, 'gpio' => $gpio, 'state' => $state],
-                true
+                ['id' => $id, 'gpio' => $gpio, 'state' => $state, 'blocked_by_force' => $blockedByForce],
+                true,
+                $blockMessage
             );
-            return ResponseHelper::success($response, ['id' => $id, 'state' => $state]);
+            $payload = ['id' => $id, 'state' => $state];
+            if ($blockedByForce) {
+                $payload['blocked'] = true;
+                $payload['message'] = $blockMessage;
+            }
+            return ResponseHelper::success($response, $payload);
         }
 
         $this->auditLogger->logAction(

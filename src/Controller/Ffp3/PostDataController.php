@@ -28,6 +28,9 @@ class PostDataController extends AbstractPostDataController
     /** POST minimal ack_command (firmware) — pas d'INSERT ligne capteur. */
     private bool $ackOnlyPost = false;
 
+    /** Valeur de `ack_command` (ex. bouffePetits/bouffeGros) si POST d'acquittement. */
+    private ?string $ackCommand = null;
+
     /** @var array{timestamp: string, nonce: string, signature: string, body: string, body_source?: string}|null */
     private ?array $hmacHeaderAuth = null;
 
@@ -262,6 +265,7 @@ class PostDataController extends AbstractPostDataController
     public function handle(Request $request, Response $response): Response
     {
         $this->ackOnlyPost = false;
+        $this->ackCommand = null;
         $this->hmacHeaderAuth = null;
         set_time_limit(30);  // Marge vs timeout client 18 s — évite kill PHP si traitement BDD lent
         $tReceived = microtime(true);
@@ -316,6 +320,7 @@ class PostDataController extends AbstractPostDataController
 
         $this->ackOnlyPost = isset($params['ack_command']) && is_scalar($params['ack_command'])
             && trim((string) $params['ack_command']) !== '';
+        $this->ackCommand = $this->ackOnlyPost ? trim((string) $params['ack_command']) : null;
 
         return new SensorData(
             sensor: substr($sanitize('sensor') ?? '', 0, 30),
@@ -364,6 +369,7 @@ class PostDataController extends AbstractPostDataController
     {
         if ($this->ackOnlyPost) {
             $this->boardRepo->updateLastRequest(TableConfig::getPostDataBoardId());
+            $this->resetFeedingFlagFromAck();
             $this->logger->info('PostData: ACK-only enregistre (pas INSERT capteur)');
 
             return;
@@ -397,5 +403,35 @@ class PostDataController extends AbstractPostDataController
                 'totalMs' => round(($t3 - $t0) * 1000),
             ]
         );
+    }
+
+    /**
+     * Acquittement de nourrissage (firmware FFP5CS `sendCommandAck`) : remet le flag
+     * GPIO 108 (bouffePetits) / 109 (bouffeGros) à 0 dès que le firmware confirme
+     * l'exécution, sans attendre le POST périodique `configSynced` (fenêtre 20 s).
+     *
+     * Ferme le handshake one-shot : le firmware déclenche sur front montant 0→1 et
+     * dépend du serveur pour revoir un 0 avant de pouvoir redéclencher. Sans ce reset
+     * immédiat, le flag pouvait rester à 1 (cooldown long, voire blocage) et les
+     * commandes de nourrissage manuel n'étaient plus prises.
+     *
+     * Priorité 0 (pas de fenêtre de protection web) : le firmware a déjà consommé la
+     * commande, on doit donc l'effacer même si elle vient d'être posée côté web.
+     */
+    private function resetFeedingFlagFromAck(): void
+    {
+        if ($this->ackCommand === null) {
+            return;
+        }
+
+        $gpio = array_search($this->ackCommand, \App\Config\Ffp3GpioMap::gpioToProperty(), true);
+        // Ne traite que les commandes de nourrissage one-shot (108/109).
+        if ($gpio === 108 || $gpio === 109) {
+            $this->outputRepo->batchUpdateStatesSingleQuery([$gpio => 0], 'esp32', 0);
+            $this->logger->info('PostData: ACK nourrissage {cmd} -> reset GPIO {gpio}=0', [
+                'cmd' => $this->ackCommand,
+                'gpio' => (string) $gpio,
+            ]);
+        }
     }
 }

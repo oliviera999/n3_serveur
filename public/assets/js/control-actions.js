@@ -119,6 +119,24 @@ class ControlActions {
         this.enqueueAction(() => this.sendToggleRequest(payload, element));
     }
 
+    /**
+     * Sélecteur tri-état du forçage pompe aquarium (GPIO 117) : 0=Auto, 1=Forcer ON, 2=Forcer OFF.
+     * Envoyé sur le même endpoint /toggle (persistance par GPIO côté serveur).
+     */
+    setPumpForceMode(element) {
+        if (!(element instanceof HTMLSelectElement)) {
+            return;
+        }
+        const gpio = parseInt(element.dataset.gpio, 10);
+        const id = parseInt(element.dataset.id, 10) || 0;
+        const mode = parseInt(element.value, 10);
+        if (Number.isNaN(gpio) || ![0, 1, 2].includes(mode)) {
+            console.warn('[ControlActions] Mode de forçage pompe invalide');
+            return;
+        }
+        this.enqueueAction(() => this.sendPumpForceRequest({ gpio, id, state: mode }, element));
+    }
+
     enqueueAction(action) {
         this.queue.push(action);
         if (!this.isProcessing) {
@@ -200,14 +218,25 @@ class ControlActions {
                 this.updateCardState(element, shouldBeChecked);
             }
 
-            if (typeof toastManager !== 'undefined') {
-                toastManager.showSuccess('Commande envoyée', 2500);
-            }
-
-            // Indicateur visuel de succès transitoire.
-            if (card) {
-                card.classList.add('is-success');
-                setTimeout(() => card.classList.remove('is-success'), 1500);
+            if (data?.blocked) {
+                // Arrêt ignoré par le serveur (ex. forçage pompe aquarium GPIO 117 actif) :
+                // message explicite plutôt qu'un faux « Commande envoyée ».
+                if (typeof toastManager !== 'undefined') {
+                    toastManager.showWarning(data.message || 'Commande ignorée par le serveur.', 7000);
+                }
+                if (card) {
+                    card.classList.add('is-error');
+                    setTimeout(() => card.classList.remove('is-error'), 2500);
+                }
+            } else {
+                if (typeof toastManager !== 'undefined') {
+                    toastManager.showSuccess('Commande envoyée', 2500);
+                }
+                // Indicateur visuel de succès transitoire.
+                if (card) {
+                    card.classList.add('is-success');
+                    setTimeout(() => card.classList.remove('is-success'), 1500);
+                }
             }
 
             if (window.controlSync) {
@@ -229,6 +258,79 @@ class ControlActions {
             element.disabled = false;
             card?.classList.remove('is-updating');
             this.inFlight.delete(controlKey);
+        }
+    }
+
+    async sendPumpForceRequest(payload, element) {
+        const endpoint = this.withCurrentToken(`${this.apiBase}/toggle`);
+        const card = element.closest('.action-card');
+        const applyMode = (mode) => {
+            element.value = String(mode);
+            if (card) {
+                card.setAttribute('data-state', String(mode));
+                const label = card.querySelector('[data-pump-force-label]');
+                if (label) {
+                    label.textContent = mode === 1 ? 'Forcé ON' : (mode === 2 ? 'Forcé OFF' : 'Auto');
+                }
+            }
+        };
+
+        element.disabled = true;
+        card?.classList.remove('is-success', 'is-error');
+        card?.classList.add('is-updating');
+
+        const fetchWithRetry = window.fetchWithRetry || fetch;
+
+        try {
+            const response = await fetchWithRetry(endpoint, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'fetch',
+                    'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
+                },
+                credentials: 'include',
+                body: JSON.stringify({ id: payload.id, gpio: payload.gpio, state: payload.state }),
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`HTTP ${response.status} ${response.statusText} ${errorText}`);
+            }
+
+            const data = await response.json();
+            const mode = (data && data.state !== undefined) ? Number(data.state) : payload.state;
+            applyMode(mode);
+
+            if (typeof toastManager !== 'undefined') {
+                const msg = mode === 1 ? 'Pompe aquarium forcée ON'
+                    : (mode === 2 ? 'Pompe aquarium forcée OFF' : 'Pompe aquarium en mode Auto');
+                toastManager.showSuccess(msg, 2500);
+            }
+            if (card) {
+                card.classList.add('is-success');
+                setTimeout(() => card.classList.remove('is-success'), 1500);
+            }
+            if (window.controlSync) {
+                window.controlSync.forceSync();
+            }
+        } catch (error) {
+            console.error('[ControlActions] Pump force mode error', error);
+            if (card) {
+                card.classList.add('is-error');
+                setTimeout(() => card.classList.remove('is-error'), 2500);
+            }
+            if (typeof toastManager !== 'undefined') {
+                toastManager.showError('Changement de mode refusé', 4000);
+            }
+            // Re-synchronise le sélecteur sur l'état réel du serveur après échec.
+            if (window.controlSync) {
+                window.controlSync.forceSync();
+            }
+        } finally {
+            element.disabled = false;
+            card?.classList.remove('is-updating');
         }
     }
 
@@ -271,11 +373,17 @@ class ControlActions {
 }
 
 window.ControlActions = ControlActions;
-window.updateOutput = function(element) {
+function ensureControlActions() {
     if (!window.controlActions) {
         const apiBase = typeof window.CONTROL_API_BASE !== 'undefined' ? window.CONTROL_API_BASE : '/api/outputs';
         window.controlActions = new ControlActions({ apiBase });
     }
-    window.controlActions.toggleOutput(element);
+    return window.controlActions;
+}
+window.updateOutput = function(element) {
+    ensureControlActions().toggleOutput(element);
+};
+window.setPumpForceMode = function(element) {
+    ensureControlActions().setPumpForceMode(element);
 };
 
