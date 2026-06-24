@@ -163,8 +163,13 @@ class OutputController
             return ResponseHelper::error($response, 'Unauthorized GPIO', 400);
         }
 
+        // Arrêt pompe aquarium bloqué par le forçage serveur (GPIO 117) : on ne ment plus
+        // au client (faux « Commande envoyée »). On maintient l'état BDD cohérent (1) mais on
+        // signale explicitement le blocage pour que l'UI invite à désactiver le forçage.
+        $blockedByForce = false;
         if ($gpio === self::AQUARIUM_PUMP_GPIO && $state === 0 && $this->outputService->isAquariumPumpForceEnabled()) {
             $state = 1;
+            $blockedByForce = true;
         }
 
         // GPIO 117 : persistance par numéro GPIO (toutes les lignes board) plutôt que par id,
@@ -183,10 +188,17 @@ class OutputController
                 $request,
                 'ffp3',
                 'toggle',
-                ['id' => $id, 'gpio' => $gpio, 'state' => $state],
-                true
+                ['id' => $id, 'gpio' => $gpio, 'state' => $state, 'blocked_by_force' => $blockedByForce],
+                true,
+                $blockedByForce ? 'Arrêt pompe ignoré: forçage GPIO 117 actif' : null
             );
-            return ResponseHelper::success($response, ['id' => $id, 'state' => $state]);
+            $payload = ['id' => $id, 'state' => $state];
+            if ($blockedByForce) {
+                $payload['blocked'] = true;
+                $payload['message'] = 'Arrêt ignoré : le forçage « pompe aquarium ON » (GPIO 117) est actif. '
+                    . 'Désactivez ce forçage pour pouvoir arrêter la pompe.';
+            }
+            return ResponseHelper::success($response, $payload);
         }
 
         $this->auditLogger->logAction(

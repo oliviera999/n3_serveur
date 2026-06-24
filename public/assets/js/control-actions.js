@@ -200,14 +200,25 @@ class ControlActions {
                 this.updateCardState(element, shouldBeChecked);
             }
 
-            if (typeof toastManager !== 'undefined') {
-                toastManager.showSuccess('Commande envoyée', 2500);
-            }
-
-            // Indicateur visuel de succès transitoire.
-            if (card) {
-                card.classList.add('is-success');
-                setTimeout(() => card.classList.remove('is-success'), 1500);
+            if (data?.blocked) {
+                // Arrêt ignoré par le serveur (ex. forçage pompe aquarium GPIO 117 actif) :
+                // message explicite plutôt qu'un faux « Commande envoyée ».
+                if (typeof toastManager !== 'undefined') {
+                    toastManager.showWarning(data.message || 'Commande ignorée par le serveur.', 7000);
+                }
+                if (card) {
+                    card.classList.add('is-error');
+                    setTimeout(() => card.classList.remove('is-error'), 2500);
+                }
+            } else {
+                if (typeof toastManager !== 'undefined') {
+                    toastManager.showSuccess('Commande envoyée', 2500);
+                }
+                // Indicateur visuel de succès transitoire.
+                if (card) {
+                    card.classList.add('is-success');
+                    setTimeout(() => card.classList.remove('is-success'), 1500);
+                }
             }
 
             if (window.controlSync) {

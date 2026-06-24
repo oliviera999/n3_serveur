@@ -105,4 +105,71 @@ final class Ffp3PostDataControllerTest extends TestCase
             }
         }
     }
+
+    /**
+     * POST d'acquittement nourrissage (firmware `sendCommandAck`) : le serveur remet le
+     * flag GPIO 108 (bouffePetits) à 0 immédiatement, sans insertion capteur ni attente
+     * de la fenêtre de protection web. Ferme le handshake one-shot du nourrissage.
+     */
+    public function testFeedingAckResetsFlagWithoutSensorInsert(): void
+    {
+        $oldApiKey = $_ENV['API_KEY'] ?? null;
+        $_ENV['API_KEY'] = 'unit-test-key';
+
+        try {
+            /** @var SensorRepository&MockObject $sensorRepo */
+            $sensorRepo = $this->getMockBuilder(SensorRepository::class)
+                ->disableOriginalConstructor()
+                ->onlyMethods(['existsByPostId', 'insertAtomically'])
+                ->getMock();
+            // ACK-only : aucune insertion de ligne capteur.
+            $sensorRepo->expects($this->never())->method('insertAtomically');
+
+            /** @var OutputRepository&MockObject $outputRepo */
+            $outputRepo = $this->getMockBuilder(OutputRepository::class)
+                ->disableOriginalConstructor()
+                ->onlyMethods(['batchUpdateStatesSingleQuery'])
+                ->getMock();
+            // GPIO 108 remis à 0, source esp32, priorité 0 (pas de fenêtre de protection web).
+            $outputRepo->expects($this->once())
+                ->method('batchUpdateStatesSingleQuery')
+                ->with([108 => 0], 'esp32', 0);
+
+            /** @var BoardRepository&MockObject $boardRepo */
+            $boardRepo = $this->getMockBuilder(BoardRepository::class)
+                ->disableOriginalConstructor()
+                ->onlyMethods(['updateLastRequest'])
+                ->getMock();
+            $boardRepo->expects($this->once())->method('updateLastRequest')->willReturn(true);
+
+            $controller = new PostDataController(
+                $this->createMock(LogService::class),
+                $this->createMock(ErrorAlertService::class),
+                $sensorRepo,
+                $outputRepo,
+                $boardRepo
+            );
+
+            $request = (new ServerRequestFactory())
+                ->createServerRequest('POST', '/post-data')
+                ->withParsedBody([
+                    'api_key' => 'unit-test-key',
+                    'sensor' => 'n3-ffp-serre',
+                    'version' => '14.23',
+                    'ack_command' => 'bouffePetits',
+                    'ack_status' => 'executed',
+                ]);
+
+            $response = $controller->handle($request, (new ResponseFactory())->createResponse());
+
+            $this->assertSame(200, $response->getStatusCode());
+            $this->assertStringContainsString('Donnees enregistrees', (string) $response->getBody());
+        } finally {
+            if ($oldApiKey !== null) {
+                $_ENV['API_KEY'] = $oldApiKey;
+            } else {
+                unset($_ENV['API_KEY']);
+            }
+        }
+    }
 }

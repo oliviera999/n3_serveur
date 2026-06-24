@@ -11,6 +11,25 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.4.0] - 2026-06-24
+
+### Correctif - Arrêt pompe aquarium « rejeté » : transparence du forçage GPIO 117
+- **`OutputController::toggleOutput`** : quand le forçage « pompe aquarium ON » (GPIO 117) est
+  actif, une demande d'arrêt (GPIO 16 → 0) ne renvoie plus un faux « Commande envoyée ». La
+  réponse JSON porte désormais `blocked: true` + `message` explicite ; l'audit trace la raison.
+- **`public/assets/js/control-actions.js`** : affiche un avertissement clair (toast) au lieu d'un
+  succès trompeur lorsque le serveur signale `blocked`.
+
+### Correctif - Nourrissage manuel non pris : handshake d'acquittement fermé côté serveur
+- **`PostDataController`** : les POST d'acquittement firmware (`ack_command=bouffePetits`/`bouffeGros`,
+  `sendCommandAck`) remettent immédiatement le flag GPIO 108/109 à 0 (priorité 0, hors fenêtre de
+  protection web), sans attendre le POST périodique `configSynced`. Le firmware déclenche sur front
+  montant 0→1 et dépend du serveur pour revoir un 0 : sans ce reset, le flag pouvait rester à 1
+  (cooldown long voire blocage) et les commandes de nourrissage manuel n'étaient plus prises.
+- Aucun changement firmware requis : le serveur exploite un signal déjà émis par FFP5CS.
+
+> ⚠️ À valider sur l'environnement **TEST** (firmware réel) avant bascule prod.
+
 ## [5.3.11] - 2026-06-24
 
 ### Correctif - Purge des lignes fantômes/doublons GPIO + contrainte anti-récidive

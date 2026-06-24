@@ -220,6 +220,58 @@ class OutputControllerToggleTest extends TestCase
         $this->assertSame(200, $response->getStatusCode());
     }
 
+    /**
+     * Arrêt pompe aquarium (16→0) avec forçage GPIO 117 actif : le serveur ne ment plus.
+     * Il maintient l'état BDD à 1 (cohérent avec le forçage) MAIS répond blocked=true + message,
+     * pour que l'UI explique pourquoi l'arrêt est ignoré au lieu d'un faux « Commande envoyée ».
+     */
+    public function testToggleAquariumPumpStopBlockedByForceIsTransparent(): void
+    {
+        TableConfig::setEnvironment('test');
+
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isGpioAllowed')->willReturn(true);
+        $outputService->method('isAquariumPumpForceEnabled')->willReturn(true);
+        // L'état 0 demandé est réécrit en 1 (forçage), persisté par id.
+        $outputService->expects($this->once())
+            ->method('updateStateById')
+            ->with(7, 1, 'web')
+            ->willReturn(true);
+
+        $controller = $this->makeController($outputService);
+        $response = $controller->toggleOutput($this->postToggle(7, 0, 16), new Response());
+
+        $this->assertSame(200, $response->getStatusCode());
+        $payload = json_decode((string) $response->getBody(), true);
+        $this->assertSame('ok', $payload['status']);
+        $this->assertSame(1, $payload['state']);
+        $this->assertTrue($payload['blocked']);
+        $this->assertArrayHasKey('message', $payload);
+    }
+
+    /** Sans forçage, l'arrêt pompe (16→0) reste un succès normal sans drapeau blocked. */
+    public function testToggleAquariumPumpStopNotBlockedWhenForceOff(): void
+    {
+        TableConfig::setEnvironment('test');
+
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isGpioAllowed')->willReturn(true);
+        $outputService->method('isAquariumPumpForceEnabled')->willReturn(false);
+        $outputService->expects($this->once())
+            ->method('updateStateById')
+            ->with(7, 0, 'web')
+            ->willReturn(true);
+
+        $controller = $this->makeController($outputService);
+        $response = $controller->toggleOutput($this->postToggle(7, 0, 16), new Response());
+
+        $this->assertSame(200, $response->getStatusCode());
+        $payload = json_decode((string) $response->getBody(), true);
+        $this->assertSame('ok', $payload['status']);
+        $this->assertSame(0, $payload['state']);
+        $this->assertArrayNotHasKey('blocked', $payload);
+    }
+
     /** @return array<string, array{0:string}> */
     public static function environmentProvider(): array
     {
