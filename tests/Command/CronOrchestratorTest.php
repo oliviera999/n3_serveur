@@ -7,6 +7,7 @@ namespace Tests\Command;
 use App\Command\CronOrchestrator;
 use App\Command\RestartPumpCommand;
 use App\Repository\SensorReadRepository;
+use App\Service\DeviceHealthService;
 use App\Service\LogService;
 use App\Service\NotificationService;
 use App\Service\PumpService;
@@ -133,7 +134,7 @@ class CronOrchestratorTest extends TestCase
         $repo->method('getLastReadings')->willReturn(['EauAquarium' => 210.0]);
 
         $notifier = $this->createMock(NotificationService::class);
-        $notifier->expects($this->once())->method('sendCustomAlert');
+        $notifier->expects($this->once())->method('sendAlert');
 
         $orchestrator = $this->buildOrchestrator(
             pumpService: $pump,
@@ -157,7 +158,7 @@ class CronOrchestratorTest extends TestCase
         $repo->method('getLastReadings')->willReturn(['EauAquarium' => 150.0]);
 
         $notifier = $this->createMock(NotificationService::class);
-        $notifier->expects($this->never())->method('sendCustomAlert');
+        $notifier->expects($this->never())->method('sendAlert');
 
         $orchestrator = $this->buildOrchestrator(
             pumpService: $pump,
@@ -191,6 +192,7 @@ class CronOrchestratorTest extends TestCase
         ?NotificationService $notifier = null,
         ?SensorReadRepository $sensorReadRepo = null,
         ?SystemHealthService $healthService = null,
+        ?DeviceHealthService $deviceHealthService = null,
         ?RestartPumpCommand $restartPumpCommand = null,
     ): CronOrchestrator {
         $logger ??= $this->createMock(LogService::class);
@@ -204,6 +206,7 @@ class CronOrchestratorTest extends TestCase
         $notifier ??= $this->createMock(NotificationService::class);
         $sensorReadRepo ??= $this->defaultRepoMock();
         $healthService ??= $this->createMock(SystemHealthService::class);
+        $deviceHealthService ??= $this->createMock(DeviceHealthService::class);
         $restartPumpCommand ??= $this->createMock(RestartPumpCommand::class);
 
         return new CronOrchestrator(
@@ -214,6 +217,7 @@ class CronOrchestratorTest extends TestCase
             notifier: $notifier,
             sensorReadRepo: $sensorReadRepo,
             healthService: $healthService,
+            deviceHealthService: $deviceHealthService,
             restartPumpCommand: $restartPumpCommand,
             lockDir: $this->tempDir,
             stateDir: $this->tempDir,
