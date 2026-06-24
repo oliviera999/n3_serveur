@@ -140,6 +140,61 @@ class OutputController
         return $this->handleToggle($request, $response);
     }
 
+    /**
+     * API : impulsion nourrissage manuel (GPIO 108/109).
+     *
+     * Corps JSON : { "id": int, "gpio": 108|109, "step": "reset"|"trigger" }
+     * Le front enchaîne reset puis trigger (pause intermédiaire) pour garantir un front 0→1 côté firmware.
+     */
+    public function triggerManualFeed(Request $request, Response $response): Response
+    {
+        $params = RequestHelper::extractParams($request);
+        $id = RequestHelper::getInt($params, 'id', 0);
+        $gpio = RequestHelper::getInt($params, 'gpio', 0);
+        $step = isset($params['step']) && is_string($params['step']) ? trim($params['step']) : '';
+
+        if ($id === 0 || !$this->outputService->isManualFeedGpio($gpio) || !in_array($step, ['reset', 'trigger'], true)) {
+            $this->auditLogger->logAction(
+                $request,
+                'ffp3',
+                'trigger_manual_feed',
+                ['id' => $id, 'gpio' => $gpio, 'step' => $step],
+                false,
+                'Invalid parameters'
+            );
+
+            return ResponseHelper::error($response, 'Invalid parameters', 400);
+        }
+
+        $result = $this->outputService->triggerManualFeedStep($id, $gpio, $step);
+
+        if (!$result['success']) {
+            $this->auditLogger->logAction(
+                $request,
+                'ffp3',
+                'trigger_manual_feed',
+                ['id' => $id, 'gpio' => $gpio, 'step' => $step],
+                false,
+                $result['error'] ?? 'Échec persistance'
+            );
+
+            return ResponseHelper::error($response, $result['error'] ?? 'Failed to trigger feed', 500);
+        }
+
+        $auditTarget = [
+            'id' => $id,
+            'gpio' => $gpio,
+            'step' => $step,
+            'state' => $result['state'],
+        ];
+        if (isset($result['feed_cmd_id'])) {
+            $auditTarget['feed_cmd_id'] = $result['feed_cmd_id'];
+        }
+        $this->auditLogger->logAction($request, 'ffp3', 'trigger_manual_feed', $auditTarget, true);
+
+        return ResponseHelper::success($response, $result);
+    }
+
     private function handleToggle(Request $request, Response $response): Response
     {
         $params = RequestHelper::extractParams($request);

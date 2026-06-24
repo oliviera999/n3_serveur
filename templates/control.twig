@@ -234,7 +234,7 @@
                                     {% endif %}
                                 {% endfor %}
                                 {% for output in feedingOutputs %}
-                                    <article class="action-card" data-state="{{ output.state }}" data-gpio="{{ output.gpio }}">
+                                    <article class="action-card action-card-feed" data-state="0" data-gpio="{{ output.gpio }}">
                                         <header>
                                             <div class="action-icon"><i class="fas fa-fish"></i></div>
                                             <div>
@@ -242,12 +242,19 @@
                                             </div>
                                         </header>
                                         <footer>
-                                            <span data-state-label>{{ output.state == 1 ? 'Activé' : 'Désactivé' }}</span>
+                                            <span class="feed-status" data-feed-status data-gpio="{{ output.gpio }}" data-state="idle" title="État de la dernière commande de nourrissage">
+                                                Prêt
+                                            </span>
                                             <span class="data-indicator data-indicator-{{ (lastDataStates[output.gpio] is defined and lastDataStates[output.gpio] is not null) ? (lastDataStates[output.gpio] == 1 ? 'on' : 'off') : 'unknown' }}" data-data-indicator data-gpio="{{ output.gpio }}" title="Dernier état enregistré (table data)"></span>
-                                            <label class="modern-switch" title="{{ output.gpio == 108 ? 'Nourrissage petits poissons' : 'Nourrissage gros poissons' }}">
-                                                <input type="checkbox" onchange="updateOutput(this)" data-id="{{ output.id }}" data-gpio="{{ output.gpio }}" {{ output.state == 1 ? 'checked' : '' }} role="switch" aria-checked="{{ output.state == 1 ? 'true' : 'false' }}" aria-label="{{ output.gpio == 108 ? 'Petits poissons' : 'Gros poissons' }}">
-                                                <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
-                                            </label>
+                                            <button type="button"
+                                                    class="feed-trigger-btn"
+                                                    data-feed-trigger
+                                                    data-id="{{ output.id }}"
+                                                    data-gpio="{{ output.gpio }}"
+                                                    aria-label="{{ output.gpio == 108 ? 'Nourrir les petits poissons' : 'Nourrir les gros poissons' }}">
+                                                <i class="fas fa-bowl-food" aria-hidden="true"></i>
+                                                Nourrir
+                                            </button>
                                         </footer>
                                     </article>
                                 {% endfor %}

@@ -73,6 +73,9 @@ function registerFfp3ProtectedRoutes($app, array $routes, string $env, $applyAut
         $group->map(['GET', 'POST'], $routes['tide_stats'], [TideStatsController::class, 'show']);
         $group->get($routes['control'], [OutputController::class, 'showInterface']);
         $group->post($routes['toggle'], [OutputController::class, 'toggleOutput']);
+        if (isset($routes['trigger_feed'])) {
+            $group->post($routes['trigger_feed'], [OutputController::class, 'triggerManualFeed']);
+        }
         $group->post($routes['parameters'], [OutputController::class, 'updateParameters']);
         $group->post(str_replace('/parameters', '/notification-policy', $routes['parameters']), [OutputController::class, 'saveNotificationPolicy']);
         $group->post($routes['trigger_ota'], [OutputController::class, 'triggerOtaCheck']);
@@ -208,6 +211,7 @@ function registerFfp3ControlRoutes($app, string $outputsPrefix, string $toggleMe
 {
     $app->group('/ffp3', function ($group) use ($outputsPrefix, $toggleMethod) {
         $group->post($outputsPrefix . '/toggle', [OutputController::class, $toggleMethod]);
+        $group->post($outputsPrefix . '/trigger-feed', [OutputController::class, 'triggerManualFeed']);
         $group->post($outputsPrefix . '/parameters', [OutputController::class, 'updateParameters']);
         $group->post($outputsPrefix . '/notification-policy', [OutputController::class, 'saveNotificationPolicy']);
         $group->post($outputsPrefix . '/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);

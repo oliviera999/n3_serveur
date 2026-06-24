@@ -1433,6 +1433,62 @@ small {
     color: var(--text-primary);
 }
 
+/* Nourrissage manuel FFP3 — bouton impulsion + statut de suivi */
+.action-card-feed footer {
+    flex-wrap: wrap;
+}
+
+.feed-trigger-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: var(--control-radius-sm);
+    background: linear-gradient(135deg, var(--control-primary), var(--control-primary-light));
+    color: #fff;
+    font-family: var(--control-font-family);
+    font-size: var(--control-font-size-sm);
+    font-weight: var(--control-font-weight-semibold);
+    cursor: pointer;
+    box-shadow: var(--control-shadow-primary);
+    transition: transform var(--control-transition-fast), box-shadow var(--control-transition-fast), opacity var(--control-transition-fast);
+}
+
+.feed-trigger-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: var(--control-shadow-primary-lg);
+}
+
+.feed-trigger-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.feed-status {
+    flex: 1 1 100%;
+    font-size: var(--control-font-size-sm);
+    font-weight: var(--control-font-weight-medium);
+    color: var(--text-muted);
+    min-height: 1.25em;
+}
+
+.feed-status[data-state="pending"],
+.feed-status[data-state="waiting"] {
+    color: var(--status-warning-text, #b7791f);
+}
+
+.feed-status[data-state="executed"] {
+    color: var(--status-success-text, #27ae60);
+    font-weight: var(--control-font-weight-semibold);
+}
+
+.feed-status[data-state="timeout"],
+.feed-status[data-state="error"] {
+    color: var(--status-error-text, #c0392b);
+    font-weight: var(--control-font-weight-semibold);
+}
+
 .action-card.warning {
     border-color: color-mix(in srgb, var(--status-error-text) 35%, transparent);
     background: color-mix(in srgb, var(--status-error-bg) 70%, transparent);

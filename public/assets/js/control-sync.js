@@ -219,6 +219,11 @@ class ControlSync {
             
             // Mettre à jour le cache
             this.lastStates[gpioNum] = newState;
+
+            // Suivi nourrissage manuel (GPIO 108/109) : acquittement = retour à 0 en BDD
+            if ((gpioNum === 108 || gpioNum === 109) && window.controlActions?.handleFeedGpioPoll) {
+                window.controlActions.handleFeedGpioPoll(gpioNum, newState);
+            }
         }
         
         // Toujours synchroniser les switches avec la réponse serveur (changements distants pris en compte)

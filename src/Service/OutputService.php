@@ -15,6 +15,9 @@ use App\Repository\SensorReadRepository;
  */
 class OutputService
 {
+    /** GPIO de commande nourrissage manuel distant (impulsion 0→1, contrat FFP5CS). */
+    public const MANUAL_FEED_GPIOS = [108, 109];
+
     /** GPIOs affichés comme indicateurs booléens (0/1) sur la page de contrôle */
     private const BOOLEAN_GPIOS_FOR_INDICATOR = [2, 15, 16, 18, 101, 108, 109, 110, 115];
 
@@ -269,6 +272,55 @@ class OutputService
     public function isGpioAllowed(int $gpio): bool
     {
         return in_array($gpio, $this->getAllowedGpios(), true);
+    }
+
+    public function isManualFeedGpio(int $gpio): bool
+    {
+        return in_array($gpio, self::MANUAL_FEED_GPIOS, true);
+    }
+
+    /**
+     * Étape d'une impulsion nourrissage manuel : reset (0) ou trigger (1).
+     *
+     * Le client enchaîne reset → pause (~800 ms) → trigger pour laisser à l'ESP32
+     * le temps de lire un 0 avant le front montant (déblocage flag BDD bloqué).
+     *
+     * @return array{success: bool, gpio: int, state: int, step: string, feed_cmd_id?: string, error?: string}
+     */
+    public function triggerManualFeedStep(int $id, int $gpio, string $step): array
+    {
+        if (!$this->isManualFeedGpio($gpio)) {
+            return ['success' => false, 'gpio' => $gpio, 'state' => 0, 'step' => $step, 'error' => 'GPIO non autorisé pour nourrissage'];
+        }
+        if ($id === 0) {
+            return ['success' => false, 'gpio' => $gpio, 'state' => 0, 'step' => $step, 'error' => 'Identifiant output requis'];
+        }
+
+        if ($step === 'reset') {
+            $ok = $this->updateStateByGpio($gpio, 0);
+
+            return [
+                'success' => $ok,
+                'gpio' => $gpio,
+                'state' => 0,
+                'step' => 'reset',
+            ];
+        }
+
+        if ($step === 'trigger') {
+            $feedCmdId = bin2hex(random_bytes(8));
+            $ok = $this->outputRepository->updateStateById($id, 1, 'web');
+
+            return [
+                'success' => $ok,
+                'gpio' => $gpio,
+                'state' => 1,
+                'step' => 'trigger',
+                'feed_cmd_id' => $feedCmdId,
+            ];
+        }
+
+        return ['success' => false, 'gpio' => $gpio, 'state' => 0, 'step' => $step, 'error' => 'Étape invalide'];
     }
 
     /**

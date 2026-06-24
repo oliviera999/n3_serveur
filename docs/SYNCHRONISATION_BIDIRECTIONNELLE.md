@@ -98,7 +98,7 @@ Le badge est piloté exclusivement par la méthode `updateBadgeStatus(status)` :
 | `offline` | `offline` | `HORS LIGNE` | `stop()` (arrêt manuel ou après `error`) |
 | `paused` | `paused` | `PAUSE` | onglet masqué (`visibilitychange` → `document.hidden`) ; le polling reprend (`connecting` puis `online`) au retour |
 
-> ℹ️ **Il n'existe pas de badge global « EN ATTENTE ESP32 » ni « ESP32 SYNC »** sur `#control-sync-badge`. Le code prévoit un hook optionnel `window.updateSyncBadge(gpio, état, libellé)` (appelé avec les libellés `ESP32 SYNC` / `SYNC` lors d'un changement distant détecté), mais cette fonction **n'est définie nulle part** dans le projet : les appels sont gardés par `if (window.updateSyncBadge)` et restent donc sans effet. Les libellés « EN ATTENTE ESP32 » / « ESP32 SYNC » décrits dans les anciennes versions de ce document ne correspondent à aucun état réellement affiché.
+> ℹ️ **Badge global vs nourrissage manuel** : `#control-sync-badge` reflète uniquement le polling HTTP (`SYNC`, `RECONNEXION…`, etc.). Depuis v5.10.0, chaque carte **Nourrissage** (GPIO 108/109) affiche un libellé `[data-feed-status]` : `Prêt` → `En attente ESP32…` → `Exécuté` ou `Timeout — réessayer`, plus une **réf. commande** (`feed_cmd_id`) dans l'info-bulle pour le diagnostic (logs `[control-audit]`).
 
 #### Retour visuel par actionneur
 
@@ -109,6 +109,39 @@ Le feedback « changement distant » par GPIO ne passe pas par un badge texte ma
 - **Dernière sync ESP32**: Timestamp de la dernière communication
 - **Délai de synchronisation**: 2-3 minutes (incompressible)
 - **Protection changements web**: 10 s (actionneurs/config), 20 s (nourrissage 108/109) — pendant cette fenêtre, le POST ESP n'écrase pas les valeurs écrites par l'interface
+
+---
+
+## 🐟 Nourrissage manuel (GPIO 108 / 109) — contrat FFP3 vs MSP/N3PP
+
+### Sémantique par famille (même numéro GPIO, usages différents)
+
+| Famille | GPIO 108 | GPIO 109 | Rôle |
+|---------|----------|----------|------|
+| **FFP3** (aquaponie) | `bouffePetits` | `bouffeGros` | Commande **impulsionnelle** : nourrir petits / gros poissons (servos) |
+| **MSP1 / N3PP** | `notifMode` | `notifCategories` | Paramètres **server-only** de politique de notifications (pas de servo) |
+
+Ne pas extrapoler le comportement MSP/N3PP aux cartes nourrissage FFP3 : les numéros GPIO sont réutilisés avec une sémantique distincte.
+
+### Deux patterns « one-shot » côté serveur
+
+| Pattern | Où | Comportement GET `outputs/state` |
+|---------|-----|----------------------------------|
+| **Pulse à la lecture** | `AbstractOutputRepository` (MSP/N3PP) | Si GPIO one-shot vaut `1`, le JSON renvoie `1` puis la BDD repasse à `0` **dans la même requête** (consommation immédiate). |
+| **Niveau + edge firmware** | FFP3 (`OutputCacheService`) | Le GET renvoie le **niveau** courant en BDD (`0` ou `1`) sans acquittement automatique. Le firmware FFP5CS ne déclenche que sur **front montant 0→1** (`GPIOParser` / `FeedingCommandResolver`). Le reset à `0` est assuré par l'ESP32 (`ack_command` + POST `bouffePetits=0&108=0`) et par le serveur (`PostDataController::resetFeedingFlagFromAck`). |
+
+**Pourquoi FFP3 ne fait pas l'ack au GET** : en cas d'échec de parsing JSON côté ESP32, garder le flag à `1` en BDD permet un **nouveau poll** sans perdre la commande. L'ack au GET consommerait l'impulsion même si le firmware n'a pas appliqué la commande.
+
+**Évolution possible** (non implémentée) : ack au GET FFP3 uniquement pour 108/109, après validation firmware réelle — à évaluer si les flags bloqués persistent en production.
+
+### Interface web (v5.10.0+)
+
+- Bouton **« Nourrir »** (plus d'interrupteur ON/OFF) sur `/aquaponie-control*`.
+- Endpoint `POST /api/outputs*/trigger-feed` : enchaînement **`reset`** (GPIO→0) puis **`trigger`** (GPIO→1) avec pause ~800 ms côté navigateur (fenêtre pour un GET firmware sur `0` avant le front montant).
+- Chaque impulsion reçoit un `feed_cmd_id` (16 car. hex) journalisé dans `[control-audit] action=trigger_manual_feed`.
+- Suivi UI : `En attente ESP32…` jusqu'à ce que le poll `?fresh=1` observe GPIO 108/109 repasser à `0` (acquittement), ou **timeout ~45 s**.
+
+Voir aussi `docs/ENDPOINTS_ESP32_SERVEUR.md` (section nourrissage) et `docs/SERVEUR_DISTANT_GUIDE.md` (flux firmware).
 
 ---
 
@@ -297,6 +330,6 @@ tail -f /path/to/ffp3/cronlog.txt | grep "Données capteurs insérées"
 
 ---
 
-**Dernière mise à jour**: 2026-06-14  
-**Version du document**: 1.1  
+**Dernière mise à jour**: 2026-06-24  
+**Version du document**: 1.2  
 **Auteur**: Système FFP3 IoT

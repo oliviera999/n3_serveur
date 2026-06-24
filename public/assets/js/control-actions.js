@@ -75,6 +75,10 @@ class ControlActions {
         this.queue = [];
         // Anti-double-clic : ensemble des contrôles ayant une requête toggle en vol.
         this.inFlight = new Set();
+        /** @type {Map<number, { feedCmdId: string, startedAt: number, timeoutId: number|null }>} */
+        this.pendingFeeds = new Map();
+        this.feedPulseGapMs = 800;
+        this.feedAckTimeoutMs = 45000;
     }
 
     toggleOutput(element) {
@@ -117,6 +121,171 @@ class ControlActions {
         }
 
         this.enqueueAction(() => this.sendToggleRequest(payload, element));
+    }
+
+    /**
+     * Nourrissage manuel FFP3 (GPIO 108/109) : impulsion reset → pause → trigger + suivi jusqu'à acquittement (GPIO→0).
+     */
+    triggerManualFeed(button) {
+        if (!(button instanceof HTMLButtonElement)) {
+            return;
+        }
+        const gpio = parseInt(button.dataset.gpio, 10);
+        const outputId = parseInt(button.dataset.id, 10);
+        if (Number.isNaN(gpio) || Number.isNaN(outputId)) {
+            console.warn('[ControlActions] Invalid feed GPIO or output id');
+            return;
+        }
+        if (this.pendingFeeds.has(gpio)) {
+            if (typeof toastManager !== 'undefined') {
+                toastManager.showWarning('Nourrissage déjà en cours pour cette sortie.', 4000);
+            }
+            return;
+        }
+        this.enqueueAction(() => this.sendManualFeedPulse(button, gpio, outputId));
+    }
+
+    /**
+     * Appelé par control-sync.js quand l'état GPIO 108/109 change (poll ?fresh=1).
+     */
+    handleFeedGpioPoll(gpio, state) {
+        const pending = this.pendingFeeds.get(gpio);
+        if (!pending || state !== 0) {
+            return;
+        }
+        this.completeFeedPending(gpio, 'executed');
+    }
+
+    async sendManualFeedPulse(button, gpio, outputId) {
+        const controlKey = `feed:${gpio}`;
+        if (this.inFlight.has(controlKey)) {
+            return;
+        }
+        this.inFlight.add(controlKey);
+
+        const card = button.closest('.action-card');
+        const fetchWithRetry = window.fetchWithRetry || fetch;
+        const endpoint = this.withCurrentToken(`${this.apiBase}/trigger-feed`);
+
+        button.disabled = true;
+        card?.classList.remove('is-success', 'is-error');
+        card?.classList.add('is-updating');
+        this.setFeedStatus(gpio, 'pending', 'Envoi de la commande…');
+
+        try {
+            const resetResponse = await fetchWithRetry(endpoint, {
+                method: 'POST',
+                headers: this.buildJsonHeaders(),
+                credentials: 'include',
+                body: JSON.stringify({ id: outputId, gpio, step: 'reset' }),
+            });
+            if (!resetResponse.ok) {
+                const errorText = await resetResponse.text();
+                throw new Error(`Reset HTTP ${resetResponse.status}: ${errorText}`);
+            }
+
+            await new Promise(resolve => setTimeout(resolve, this.feedPulseGapMs));
+
+            const triggerResponse = await fetchWithRetry(endpoint, {
+                method: 'POST',
+                headers: this.buildJsonHeaders(),
+                credentials: 'include',
+                body: JSON.stringify({ id: outputId, gpio, step: 'trigger' }),
+            });
+            if (!triggerResponse.ok) {
+                const errorText = await triggerResponse.text();
+                throw new Error(`Trigger HTTP ${triggerResponse.status}: ${errorText}`);
+            }
+
+            const data = await triggerResponse.json();
+            const feedCmdId = data?.feed_cmd_id || data?.data?.feed_cmd_id || '';
+
+            this.setFeedStatus(gpio, 'waiting', 'En attente ESP32…', feedCmdId);
+            if (typeof toastManager !== 'undefined') {
+                toastManager.showInfo('Commande envoyée — en attente de l\'ESP32 (jusqu\'à ~45 s).', 5000);
+            }
+
+            const timeoutId = window.setTimeout(() => {
+                if (this.pendingFeeds.has(gpio)) {
+                    this.completeFeedPending(gpio, 'timeout');
+                }
+            }, this.feedAckTimeoutMs);
+
+            this.pendingFeeds.set(gpio, {
+                feedCmdId,
+                startedAt: Date.now(),
+                timeoutId,
+            });
+
+            if (window.controlSync) {
+                window.controlSync.forceSync();
+            }
+
+            card?.classList.add('is-success');
+            setTimeout(() => card?.classList.remove('is-success'), 1500);
+        } catch (error) {
+            console.error('[ControlActions] Manual feed error', error);
+            this.setFeedStatus(gpio, 'error', 'Échec — réessayer');
+            card?.classList.add('is-error');
+            setTimeout(() => card?.classList.remove('is-error'), 2500);
+            if (typeof toastManager !== 'undefined') {
+                toastManager.showError('Nourrissage refusé ou erreur réseau.', 5000);
+            }
+        } finally {
+            button.disabled = false;
+            card?.classList.remove('is-updating');
+            this.inFlight.delete(controlKey);
+        }
+    }
+
+    completeFeedPending(gpio, outcome) {
+        const pending = this.pendingFeeds.get(gpio);
+        if (!pending) {
+            return;
+        }
+        if (pending.timeoutId !== null) {
+            window.clearTimeout(pending.timeoutId);
+        }
+        this.pendingFeeds.delete(gpio);
+
+        const shortId = pending.feedCmdId ? pending.feedCmdId.slice(0, 8) : '';
+        if (outcome === 'executed') {
+            this.setFeedStatus(gpio, 'executed', 'Exécuté', pending.feedCmdId);
+            if (typeof toastManager !== 'undefined') {
+                const ref = shortId ? ` (ref. ${shortId})` : '';
+                toastManager.showSuccess(`Nourrissage confirmé${ref}`, 4000);
+            }
+        } else if (outcome === 'timeout') {
+            this.setFeedStatus(gpio, 'timeout', 'Timeout — réessayer', pending.feedCmdId);
+            if (typeof toastManager !== 'undefined') {
+                toastManager.showWarning('Pas de confirmation ESP32 — vérifiez la connexion ou réessayez.', 7000);
+            }
+        }
+    }
+
+    setFeedStatus(gpio, state, label, feedCmdId) {
+        const el = document.querySelector(`[data-feed-status][data-gpio="${gpio}"]`);
+        if (!el) {
+            return;
+        }
+        el.dataset.state = state;
+        el.textContent = label;
+        if (feedCmdId) {
+            el.dataset.feedCmdId = feedCmdId;
+            el.title = `Réf. commande : ${feedCmdId}`;
+        } else {
+            delete el.dataset.feedCmdId;
+            el.title = 'État de la dernière commande de nourrissage';
+        }
+    }
+
+    buildJsonHeaders() {
+        return {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'fetch',
+            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
+        };
     }
 
     /**
@@ -386,4 +555,12 @@ window.updateOutput = function(element) {
 window.setPumpForceMode = function(element) {
     ensureControlActions().setPumpForceMode(element);
 };
+window.triggerManualFeed = function(button) {
+    ensureControlActions().triggerManualFeed(button);
+};
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-feed-trigger]').forEach((btn) => {
+        btn.addEventListener('click', () => window.triggerManualFeed(btn));
+    });
+});

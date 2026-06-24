@@ -39,6 +39,7 @@ class CsrfMiddleware implements MiddlewareInterface
      */
     private const DEFAULT_PROTECTED_PATTERNS = [
         '#/api/outputs[0-9]*(-test)?/toggle(-test)?$#',
+        '#/api/outputs[0-9]*(-test)?/trigger-feed$#',
         '#/api/outputs[0-9]*(-test)?/parameters$#',
         '#/api/outputs[0-9]*(-test)?/trigger-ota-check$#',
     ];

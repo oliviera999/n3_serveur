@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [5.10.0] - 2026-06-24
+
+### Ajout - Nourrissage manuel FFP3 : bouton impulsion, suivi UI et traçabilité
+- **Page contrôle aquaponie** : les interrupteurs GPIO 108/109 sont remplacés par un bouton **« Nourrir »** (impulsion, plus un état ON/OFF trompeur).
+- **`POST /api/outputs*/trigger-feed`** : étapes `reset` (GPIO→0) puis `trigger` (GPIO→1) ; génération d'un **`feed_cmd_id`** journalisé dans `[control-audit]`.
+- **`control-actions.js` / `control-sync.js`** : statuts `En attente ESP32…`, `Exécuté` (GPIO repasse à 0 au poll), `Timeout — réessayer` (~45 s).
+- **`docs/SYNCHRONISATION_BIDIRECTIONNELLE.md`** : section **Nourrissage manuel** — différences FFP3 (edge firmware) vs MSP/N3PP (ack au GET, GPIO homonymes).
+
 ## [5.9.1] - 2026-06-24
 
 ### Correctif - Migration GPIO politique notifications (prod)

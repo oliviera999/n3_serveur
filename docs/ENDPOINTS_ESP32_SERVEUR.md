@@ -250,6 +250,8 @@ Pour isoler latence réseau/infra vs traitement PHP :
 
 **Protection des changements web** : Les changements faits depuis l'interface web sont protégés pendant 10 s (20 s pour nourrissage) contre l'écrasement par le POST ESP ; voir `SYNCHRONISATION_BIDIRECTIONNELLE.md`.
 
+**Nourrissage manuel (page contrôle FFP3, v5.10.0+)** : `POST /api/outputs*/trigger-feed` (auth session, CSRF) — corps JSON `{ "id": <output_id>, "gpio": 108|109, "step": "reset"|"trigger" }`. Le navigateur enchaîne `reset` (GPIO→0) puis `trigger` (GPIO→1) et reçoit un `feed_cmd_id` pour l'audit. L'ESP32 consomme l'impulsion via GET `outputs/state` (front montant 0→1) ; voir section nourrissage dans `SYNCHRONISATION_BIDIRECTIONNELLE.md`.
+
 **Pour que l'ESP32 applique ces commandes**, il doit **lire la même table** en faisant un GET sur le **même environnement** :
 
 - Si vous pilotez depuis **aquaponie-control-test** : l’ESP32 doit faire `GET /ffp3/api/outputs-test/state` (table ffp3Outputs2).
