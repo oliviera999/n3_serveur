@@ -141,10 +141,16 @@ class OutputController
     }
 
     /**
-     * API : impulsion nourrissage manuel (GPIO 108/109).
+     * API : nourrissage manuel (GPIO 108/109) — contrat « compteur monotone ».
      *
-     * Corps JSON : { "id": int, "gpio": 108|109, "step": "reset"|"trigger" }
-     * Le front enchaîne reset puis trigger (pause intermédiaire) pour garantir un front 0→1 côté firmware.
+     * Corps JSON : { "id": int, "gpio": 108|109 }
+     * Un appel = +1 sur le compteur de la sortie. Cliquer N fois = nourrir N fois.
+     * Le firmware rattrape l'écart (un repas par poll, plafonné). Plus de séquence
+     * reset→trigger ni de front 0→1.
+     *
+     * Rétrocompatibilité : un client encore en cache peut envoyer `step:"reset"` puis
+     * `step:"trigger"`. On ignore l'étape `reset` (no-op) pour ne pas compter deux fois ;
+     * `trigger` ou l'absence d'étape déclenche l'unique incrément.
      */
     public function triggerManualFeed(Request $request, Response $response): Response
     {
@@ -153,7 +159,7 @@ class OutputController
         $gpio = RequestHelper::getInt($params, 'gpio', 0);
         $step = isset($params['step']) && is_string($params['step']) ? trim($params['step']) : '';
 
-        if ($id === 0 || !$this->outputService->isManualFeedGpio($gpio) || !in_array($step, ['reset', 'trigger'], true)) {
+        if ($id === 0 || !$this->outputService->isManualFeedGpio($gpio)) {
             $this->auditLogger->logAction(
                 $request,
                 'ffp3',
@@ -166,14 +172,19 @@ class OutputController
             return ResponseHelper::error($response, 'Invalid parameters', 400);
         }
 
-        $result = $this->outputService->triggerManualFeedStep($id, $gpio, $step);
+        // Étape legacy « reset » : no-op (le compteur monotone n'est jamais remis à zéro).
+        if ($step === 'reset') {
+            return ResponseHelper::success($response, ['success' => true, 'gpio' => $gpio, 'step' => 'reset', 'noop' => true]);
+        }
+
+        $result = $this->outputService->triggerManualFeed($id, $gpio);
 
         if (!$result['success']) {
             $this->auditLogger->logAction(
                 $request,
                 'ffp3',
                 'trigger_manual_feed',
-                ['id' => $id, 'gpio' => $gpio, 'step' => $step],
+                ['id' => $id, 'gpio' => $gpio],
                 false,
                 $result['error'] ?? 'Échec persistance'
             );
@@ -181,16 +192,12 @@ class OutputController
             return ResponseHelper::error($response, $result['error'] ?? 'Failed to trigger feed', 500);
         }
 
-        $auditTarget = [
+        $this->auditLogger->logAction($request, 'ffp3', 'trigger_manual_feed', [
             'id' => $id,
             'gpio' => $gpio,
-            'step' => $step,
-            'state' => $result['state'],
-        ];
-        if (isset($result['feed_cmd_id'])) {
-            $auditTarget['feed_cmd_id'] = $result['feed_cmd_id'];
-        }
-        $this->auditLogger->logAction($request, 'ffp3', 'trigger_manual_feed', $auditTarget, true);
+            'counter' => $result['counter'],
+            'feed_cmd_id' => $result['feed_cmd_id'],
+        ], true);
 
         return ResponseHelper::success($response, $result);
     }

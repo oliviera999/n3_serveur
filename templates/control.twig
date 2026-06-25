@@ -242,14 +242,10 @@
                                             </div>
                                         </header>
                                         <footer>
-                                            <div class="feed-live-panel" data-feed-live data-gpio="{{ output.gpio }}" aria-live="polite" aria-atomic="false">
-                                                <div class="feed-live-header">
-                                                    <span class="feed-status" data-feed-status data-state="idle">Prêt</span>
-                                                    <span class="feed-elapsed" data-feed-elapsed hidden aria-hidden="true"></span>
-                                                </div>
-                                                <ol class="feed-timeline" data-feed-timeline></ol>
-                                            </div>
-                                            <span class="data-indicator data-indicator-{{ (lastDataStates[output.gpio] is defined and lastDataStates[output.gpio] is not null) ? (lastDataStates[output.gpio] == 1 ? 'on' : 'off') : 'unknown' }}" data-data-indicator data-gpio="{{ output.gpio }}" title="Dernier état enregistré (table data)"></span>
+                                            <span class="feed-counter" title="Nombre total de repas demandés (compteur)">
+                                                compteur&nbsp;: <strong data-feed-counter data-gpio="{{ output.gpio }}">{{ output.state|default(0) }}</strong>
+                                            </span>
+                                            <span class="feed-flash" data-feed-flash aria-live="polite"></span>
                                             <button type="button"
                                                     class="feed-trigger-btn"
                                                     data-feed-trigger

@@ -280,47 +280,37 @@ class OutputService
     }
 
     /**
-     * Étape d'une impulsion nourrissage manuel : reset (0) ou trigger (1).
+     * Déclenche un nourrissage manuel (GPIO 108/109) — contrat « compteur monotone ».
      *
-     * Le client enchaîne reset → pause (~800 ms) → trigger pour laisser à l'ESP32
-     * le temps de lire un 0 avant le front montant (déblocage flag BDD bloqué).
+     * Chaque appel incrémente de 1 le compteur de la sortie (`state = state + 1`). Le
+     * firmware (ffp5cs 15.0+) lit ce compteur au poll, le compare à son propre compteur
+     * exécuté persisté en NVS et rattrape l'écart (un repas par poll, plafonné à 5 côté
+     * firmware pour la sécurité des poissons). Plus de séquence reset→trigger, plus de
+     * front 0→1, plus d'acquittement firmware : web n'écrit que le compteur, le firmware
+     * ne l'écrit jamais. Cliquer plusieurs fois = nourrir plusieurs fois (compteur += n).
      *
-     * @return array{success: bool, gpio: int, state: int, step: string, feed_cmd_id?: string, error?: string}
+     * @return array{success: bool, gpio: int, counter: int, feed_cmd_id: string, error?: string}
      */
-    public function triggerManualFeedStep(int $id, int $gpio, string $step): array
+    public function triggerManualFeed(int $id, int $gpio): array
     {
         if (!$this->isManualFeedGpio($gpio)) {
-            return ['success' => false, 'gpio' => $gpio, 'state' => 0, 'step' => $step, 'error' => 'GPIO non autorisé pour nourrissage'];
+            return ['success' => false, 'gpio' => $gpio, 'counter' => 0, 'feed_cmd_id' => '', 'error' => 'GPIO non autorisé pour nourrissage'];
         }
         if ($id === 0) {
-            return ['success' => false, 'gpio' => $gpio, 'state' => 0, 'step' => $step, 'error' => 'Identifiant output requis'];
+            return ['success' => false, 'gpio' => $gpio, 'counter' => 0, 'feed_cmd_id' => '', 'error' => 'Identifiant output requis'];
         }
 
-        if ($step === 'reset') {
-            $ok = $this->updateStateByGpio($gpio, 0);
-
-            return [
-                'success' => $ok,
-                'gpio' => $gpio,
-                'state' => 0,
-                'step' => 'reset',
-            ];
+        $counter = $this->outputRepository->incrementFeedCounter($id);
+        if ($counter === null) {
+            return ['success' => false, 'gpio' => $gpio, 'counter' => 0, 'feed_cmd_id' => '', 'error' => 'Sortie introuvable'];
         }
 
-        if ($step === 'trigger') {
-            $feedCmdId = bin2hex(random_bytes(8));
-            $ok = $this->outputRepository->updateStateById($id, 1, 'web');
-
-            return [
-                'success' => $ok,
-                'gpio' => $gpio,
-                'state' => 1,
-                'step' => 'trigger',
-                'feed_cmd_id' => $feedCmdId,
-            ];
-        }
-
-        return ['success' => false, 'gpio' => $gpio, 'state' => 0, 'step' => $step, 'error' => 'Étape invalide'];
+        return [
+            'success' => true,
+            'gpio' => $gpio,
+            'counter' => $counter,
+            'feed_cmd_id' => bin2hex(random_bytes(8)),
+        ];
     }
 
     /**

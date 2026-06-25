@@ -123,23 +123,38 @@ Le feedback « changement distant » par GPIO ne passe pas par un badge texte ma
 
 Ne pas extrapoler le comportement MSP/N3PP aux cartes nourrissage FFP3 : les numéros GPIO sont réutilisés avec une sémantique distincte.
 
-### Deux patterns « one-shot » côté serveur
+### Pattern FFP3 : compteur monotone (serveur 6.0.0 / firmware ffp5cs 15.0)
+
+> ⚠️ **Changement de contrat (BREAKING)** vs v5.10.x. L'ancien schéma « niveau + front 0→1 »
+> (séquence reset/trigger, acquittement firmware, fenêtre 20 s) est **supprimé** : trop de
+> pièces mobiles, flags bloqués à `1`, commandes perdues. Remplacé par un compteur simple.
 
 | Pattern | Où | Comportement GET `outputs/state` |
 |---------|-----|----------------------------------|
 | **Pulse à la lecture** | `AbstractOutputRepository` (MSP/N3PP) | Si GPIO one-shot vaut `1`, le JSON renvoie `1` puis la BDD repasse à `0` **dans la même requête** (consommation immédiate). |
-| **Niveau + edge firmware** | FFP3 (`OutputCacheService`) | Le GET renvoie le **niveau** courant en BDD (`0` ou `1`) sans acquittement automatique. Le firmware FFP5CS ne déclenche que sur **front montant 0→1** (`GPIOParser` / `FeedingCommandResolver`). Le reset à `0` est assuré par l'ESP32 (`ack_command` + POST `bouffePetits=0&108=0`) et par le serveur (`PostDataController::resetFeedingFlagFromAck`). |
+| **Compteur monotone** | FFP3 (`OutputCacheService`) | Le GET renvoie un **entier croissant** pour 108/109 (= nombre total de repas demandés). Le serveur ne le remet **jamais** à zéro. |
 
-**Pourquoi FFP3 ne fait pas l'ack au GET** : en cas d'échec de parsing JSON côté ESP32, garder le flag à `1` en BDD permet un **nouveau poll** sans perdre la commande. L'ack au GET consommerait l'impulsion même si le firmware n'a pas appliqué la commande.
+**Principe** : web n'écrit que le compteur (incrément), le firmware ne fait que le lire. Le
+firmware ffp5cs mémorise son propre **compteur exécuté** en NVS (`feedExecP`/`feedExecG` + flag
+`feedSeed`) et rattrape l'écart : un repas par poll, **plafonné à 5** (`MAX_FEED_CATCHUP`,
+sécurité des poissons). Au premier poll après un flash neuf, il **adopte** la valeur courante
+sans nourrir (évite des repas parasites). Aucune écriture firmware sur 108/109 ⇒ **aucune course
+bidirectionnelle**, robustesse aux reboots et aux polls manqués.
 
-**Évolution possible** (non implémentée) : ack au GET FFP3 uniquement pour 108/109, après validation firmware réelle — à évaluer si les flags bloqués persistent en production.
+**Pourquoi un compteur** : un entier croissant + un compteur exécuté persistant est idempotent et
+sans état partagé. Plus besoin de fabriquer un front, d'acquitter, ni de protéger une fenêtre
+d'écriture : cliquer N fois = nourrir N fois (le firmware rattrape), sans jamais « bloquer ».
 
-### Interface web (v5.10.0+)
+### Interface web (v6.0.0+)
 
-- Bouton **« Nourrir »** (plus d'interrupteur ON/OFF) sur `/aquaponie-control*`.
-- Endpoint `POST /api/outputs*/trigger-feed` : enchaînement **`reset`** (GPIO→0) puis **`trigger`** (GPIO→1) avec pause ~800 ms côté navigateur (fenêtre pour un GET firmware sur `0` avant le front montant).
-- Chaque impulsion reçoit un `feed_cmd_id` (16 car. hex) journalisé dans `[control-audit] action=trigger_manual_feed`.
-- Suivi UI : `En attente ESP32…` jusqu'à ce que le poll `?fresh=1` observe GPIO 108/109 repasser à `0` (acquittement), ou **timeout ~45 s**.
+- Bouton **« Nourrir »** (impulsion unique) sur `/aquaponie-control*`.
+- Endpoint `POST /api/outputs*/trigger-feed`, corps `{ id, gpio }` (plus de `step`) : fait
+  `state = state + 1` ; réponse `{ success, gpio, counter, feed_cmd_id }`. Le `feed_cmd_id`
+  (16 car. hex) est journalisé dans `[control-audit] action=trigger_manual_feed`.
+- Suivi UI : toast `Repas demandé (#N)` + affichage du compteur. Pas d'attente d'acquittement,
+  pas de timeout, pas de polling accéléré (le firmware rattrape de lui-même).
+- Rétrocompat : un client encore en cache peut envoyer `step:"reset"` → traité en **no-op**
+  (le compteur monotone n'est jamais remis à zéro), donc pas de double comptage.
 
 Voir aussi `docs/ENDPOINTS_ESP32_SERVEUR.md` (section nourrissage) et `docs/SERVEUR_DISTANT_GUIDE.md` (flux firmware).
 
@@ -154,7 +169,8 @@ Voir aussi `docs/ENDPOINTS_ESP32_SERVEUR.md` (section nourrissage) et `docs/SERV
    - Vos changements web sont appliqués au prochain GET par l'ESP32
 
 2. **Protection contre écrasement par le POST**:
-   - Les écritures web (`lastModifiedBy = 'web'`, `requestTime = NOW()`) sont protégées pendant 10 s (ou 20 s pour nourrissage) : le POST ESP ne met pas à jour ces lignes tant que la fenêtre n'est pas expirée
+   - Les écritures web (`lastModifiedBy = 'web'`, `requestTime = NOW()`) sont protégées pendant 10 s : le POST ESP ne met pas à jour ces lignes tant que la fenêtre n'est pas expirée
+   - Le nourrissage (108/109) n'a **plus** de fenêtre dédiée : ce sont des compteurs détenus par le serveur, jamais écrits par le POST firmware (cf. compteur monotone ci-dessus)
    - Comportement simple et prévisible
 
 ### Limitations Techniques

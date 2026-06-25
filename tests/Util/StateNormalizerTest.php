@@ -28,9 +28,22 @@ class StateNormalizerTest extends TestCase
 
     public function testIsBooleanGpioConfigBooleans(): void
     {
-        foreach ([101, 108, 109, 110, 115] as $gpio) {
+        foreach ([101, 110, 115] as $gpio) {
             $this->assertTrue(StateNormalizer::isBooleanGpio($gpio), "GPIO {$gpio} doit être booléen");
         }
+    }
+
+    /**
+     * GPIO 108/109 (nourrissage petits/gros) ne sont PLUS booléens : contrat
+     * « compteur monotone » (serveur 6.0.0 / firmware 15.0). Leur `state` est un
+     * entier croissant qui doit être préservé tel quel, jamais réduit à 0/1.
+     */
+    public function testFeedCounterGpiosAreNotBoolean(): void
+    {
+        $this->assertFalse(StateNormalizer::isBooleanGpio(108));
+        $this->assertFalse(StateNormalizer::isBooleanGpio(109));
+        $this->assertSame('42', StateNormalizer::normalize(108, '42'));
+        $this->assertSame(7, StateNormalizer::normalize(109, 7));
     }
 
     /** GPIO 117 (forçage pompe aquarium) est un tri-état, pas un booléen. */

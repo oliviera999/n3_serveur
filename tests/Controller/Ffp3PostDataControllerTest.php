@@ -107,11 +107,12 @@ final class Ffp3PostDataControllerTest extends TestCase
     }
 
     /**
-     * POST d'acquittement nourrissage (firmware `sendCommandAck`) : le serveur remet le
-     * flag GPIO 108 (bouffePetits) à 0 immédiatement, sans insertion capteur ni attente
-     * de la fenêtre de protection web. Ferme le handshake one-shot du nourrissage.
+     * POST d'acquittement nourrissage (firmware antérieur `sendCommandAck`) : contrat
+     * « compteur monotone » — le serveur NE remet PLUS le GPIO 108 à 0 (ce serait effacer
+     * les repas en attente). L'ack est accepté comme un no-op bénin (200, pas d'insertion
+     * capteur, aucune écriture sur les compteurs 108/109).
      */
-    public function testFeedingAckResetsFlagWithoutSensorInsert(): void
+    public function testFeedingAckIsBenignNoOp(): void
     {
         $oldApiKey = $_ENV['API_KEY'] ?? null;
         $_ENV['API_KEY'] = 'unit-test-key';
@@ -130,10 +131,9 @@ final class Ffp3PostDataControllerTest extends TestCase
                 ->disableOriginalConstructor()
                 ->onlyMethods(['batchUpdateStatesSingleQuery'])
                 ->getMock();
-            // GPIO 108 remis à 0, source esp32, priorité 0 (pas de fenêtre de protection web).
-            $outputRepo->expects($this->once())
-                ->method('batchUpdateStatesSingleQuery')
-                ->with([108 => 0], 'esp32', 0);
+            // Le compteur de nourrissage ne doit JAMAIS être écrit par un POST firmware.
+            $outputRepo->expects($this->never())
+                ->method('batchUpdateStatesSingleQuery');
 
             /** @var BoardRepository&MockObject $boardRepo */
             $boardRepo = $this->getMockBuilder(BoardRepository::class)
