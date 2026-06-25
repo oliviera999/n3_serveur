@@ -194,6 +194,47 @@ class OutputRepository extends AbstractRepository
     }
 
     /**
+     * Incrémente de 1 le compteur de nourrissage d'une sortie (GPIO 108/109).
+     *
+     * Contrat « compteur monotone » (serveur 6.0.0 / firmware 15.0) : chaque clic
+     * « Nourrir » fait `state = state + 1`. Le serveur ne remet JAMAIS ce compteur à
+     * zéro ; le firmware mémorise son propre compteur exécuté (NVS) et rattrape l'écart
+     * (un repas par poll, plafonné). Web n'écrit que ce compteur, le firmware ne l'écrit
+     * jamais → aucune course bidirectionnelle, robuste aux reboots et aux polls manqués.
+     *
+     * @param int $id Identifiant de la ligne outputs (PK)
+     * @return int|null Nouvelle valeur du compteur, ou null si la ligne est introuvable
+     */
+    public function incrementFeedCounter(int $id): ?int
+    {
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+        $sql = "UPDATE `{$table}`
+                SET state = CAST(state AS UNSIGNED) + 1,
+                    requestTime = NOW(),
+                    lastModifiedBy = 'web'
+                WHERE id = :id";
+        if ($this->executeWithRowCount($sql, [':id' => $id]) <= 0) {
+            return null;
+        }
+
+        return $this->getStateById($id);
+    }
+
+    /**
+     * Lit l'état (entier) d'une sortie par son ID, ou null si introuvable.
+     */
+    public function getStateById(int $id): ?int
+    {
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+        $row = $this->fetchOne("SELECT state FROM `{$table}` WHERE id = :id", [':id' => $id]);
+        if ($row === null || !isset($row['state'])) {
+            return null;
+        }
+
+        return (int) $row['state'];
+    }
+
+    /**
      * Met à jour plusieurs paramètres depuis un formulaire.
      *
      * @param array<string, mixed> $params
@@ -414,11 +455,11 @@ class OutputRepository extends AbstractRepository
             );
         }
 
-        // 108/109 (acks nourrissage) : toujours forcer 0 ; priorité 20 s pour éviter
-        // qu'un POST n'écrase une commande web récente avant que l'ESP32 ne la voie
-        if ($data->configSynced === 1) {
-            $this->batchUpdateStatesSingleQuery([108 => 0, 109 => 0], 'esp32', 20);
-        }
+        // 108/109 (nourrissage) : NE PLUS écrire depuis le POST firmware.
+        // Contrat « compteur monotone » (serveur 6.0.0 / firmware 15.0) : ces sorties
+        // sont des compteurs croissants détenus exclusivement par le serveur (le web
+        // incrémente, le firmware ne fait que lire et mémorise son propre compteur
+        // exécuté en NVS). Les remettre à 0 ici effacerait les repas en attente.
     }
 
     /**

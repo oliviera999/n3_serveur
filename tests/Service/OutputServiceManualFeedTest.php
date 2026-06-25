@@ -25,13 +25,13 @@ class OutputServiceManualFeedTest extends TestCase
         $this->assertFalse($service->isManualFeedGpio(16));
     }
 
-    public function testTriggerResetCallsUpdateByGpio(): void
+    public function testTriggerManualFeedIncrementsCounterAndReturnsCmdId(): void
     {
         $repo = $this->createMock(OutputRepository::class);
         $repo->expects($this->once())
-            ->method('updateState')
-            ->with(108, 0, 'web')
-            ->willReturn(true);
+            ->method('incrementFeedCounter')
+            ->with(3)
+            ->willReturn(42);
 
         $service = new OutputService(
             $repo,
@@ -39,19 +39,18 @@ class OutputServiceManualFeedTest extends TestCase
             $this->createMock(SensorReadRepository::class),
         );
 
-        $result = $service->triggerManualFeedStep(3, 108, 'reset');
+        $result = $service->triggerManualFeed(3, 109);
 
         $this->assertTrue($result['success']);
-        $this->assertSame(0, $result['state']);
+        $this->assertSame(109, $result['gpio']);
+        $this->assertSame(42, $result['counter']);
+        $this->assertMatchesRegularExpression('/^[a-f0-9]{16}$/', $result['feed_cmd_id']);
     }
 
-    public function testTriggerStepReturnsFeedCmdId(): void
+    public function testTriggerManualFeedRejectsNonFeedGpio(): void
     {
         $repo = $this->createMock(OutputRepository::class);
-        $repo->expects($this->once())
-            ->method('updateStateById')
-            ->with(3, 1, 'web')
-            ->willReturn(true);
+        $repo->expects($this->never())->method('incrementFeedCounter');
 
         $service = new OutputService(
             $repo,
@@ -59,10 +58,29 @@ class OutputServiceManualFeedTest extends TestCase
             $this->createMock(SensorReadRepository::class),
         );
 
-        $result = $service->triggerManualFeedStep(3, 109, 'trigger');
+        $result = $service->triggerManualFeed(3, 16);
 
-        $this->assertTrue($result['success']);
-        $this->assertSame(1, $result['state']);
-        $this->assertMatchesRegularExpression('/^[a-f0-9]{16}$/', $result['feed_cmd_id'] ?? '');
+        $this->assertFalse($result['success']);
+        $this->assertArrayHasKey('error', $result);
+    }
+
+    public function testTriggerManualFeedFailsWhenRowMissing(): void
+    {
+        $repo = $this->createMock(OutputRepository::class);
+        $repo->expects($this->once())
+            ->method('incrementFeedCounter')
+            ->with(999)
+            ->willReturn(null);
+
+        $service = new OutputService(
+            $repo,
+            $this->createMock(BoardRepository::class),
+            $this->createMock(SensorReadRepository::class),
+        );
+
+        $result = $service->triggerManualFeed(999, 108);
+
+        $this->assertFalse($result['success']);
+        $this->assertSame(0, $result['counter']);
     }
 }

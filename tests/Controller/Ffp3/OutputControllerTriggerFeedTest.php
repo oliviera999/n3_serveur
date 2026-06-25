@@ -14,7 +14,6 @@ use App\Service\OutputCacheService;
 use App\Service\OutputService;
 use App\Service\TemplateRenderer;
 use PHPUnit\Framework\TestCase;
-use Slim\Psr7\Factory\ResponseFactory;
 use Slim\Psr7\Factory\ServerRequestFactory;
 use Slim\Psr7\Response;
 
@@ -33,16 +32,44 @@ class OutputControllerTriggerFeedTest extends TestCase
         );
     }
 
-    public function testTriggerResetStepReturnsStateZero(): void
+    public function testTriggerManualFeedIncrementsAndReturnsCounter(): void
     {
         TableConfig::setEnvironment('test');
 
         $outputService = $this->createMock(OutputService::class);
         $outputService->method('isManualFeedGpio')->willReturn(true);
         $outputService->expects($this->once())
-            ->method('triggerManualFeedStep')
-            ->with(5, 108, 'reset')
-            ->willReturn(['success' => true, 'gpio' => 108, 'state' => 0, 'step' => 'reset']);
+            ->method('triggerManualFeed')
+            ->with(7, 109)
+            ->willReturn([
+                'success' => true,
+                'gpio' => 109,
+                'counter' => 12,
+                'feed_cmd_id' => 'aabbccddeeff0011',
+            ]);
+
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('POST', 'http://localhost/api/outputs-test/trigger-feed')
+            ->withHeader('Content-Type', 'application/json')
+            ->withParsedBody(['id' => 7, 'gpio' => 109]);
+
+        $response = $this->makeController($outputService)->triggerManualFeed($request, new Response());
+        $body = json_decode((string) $response->getBody(), true);
+
+        $this->assertSame(200, $response->getStatusCode());
+        $this->assertSame('ok', $body['status'] ?? null);
+        $this->assertSame(12, $body['counter'] ?? null);
+        $this->assertSame('aabbccddeeff0011', $body['feed_cmd_id'] ?? null);
+    }
+
+    public function testLegacyResetStepIsNoOp(): void
+    {
+        TableConfig::setEnvironment('test');
+
+        // Un client encore en cache peut envoyer step:"reset" : ne doit PAS incrémenter.
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isManualFeedGpio')->willReturn(true);
+        $outputService->expects($this->never())->method('triggerManualFeed');
 
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', 'http://localhost/api/outputs-test/trigger-feed')
@@ -53,38 +80,7 @@ class OutputControllerTriggerFeedTest extends TestCase
         $body = json_decode((string) $response->getBody(), true);
 
         $this->assertSame(200, $response->getStatusCode());
-        $this->assertSame('ok', $body['status'] ?? null);
-        $this->assertSame(0, $body['state'] ?? null);
-        $this->assertSame('reset', $body['step'] ?? null);
-    }
-
-    public function testTriggerStepReturnsFeedCmdId(): void
-    {
-        TableConfig::setEnvironment('test');
-
-        $outputService = $this->createMock(OutputService::class);
-        $outputService->method('isManualFeedGpio')->willReturn(true);
-        $outputService->expects($this->once())
-            ->method('triggerManualFeedStep')
-            ->with(7, 109, 'trigger')
-            ->willReturn([
-                'success' => true,
-                'gpio' => 109,
-                'state' => 1,
-                'step' => 'trigger',
-                'feed_cmd_id' => 'aabbccddeeff0011',
-            ]);
-
-        $request = (new ServerRequestFactory())
-            ->createServerRequest('POST', 'http://localhost/api/outputs-test/trigger-feed')
-            ->withHeader('Content-Type', 'application/json')
-            ->withParsedBody(['id' => 7, 'gpio' => 109, 'step' => 'trigger']);
-
-        $response = $this->makeController($outputService)->triggerManualFeed($request, new Response());
-        $body = json_decode((string) $response->getBody(), true);
-
-        $this->assertSame(200, $response->getStatusCode());
-        $this->assertSame('aabbccddeeff0011', $body['feed_cmd_id'] ?? null);
+        $this->assertTrue($body['noop'] ?? false);
     }
 
     public function testInvalidGpioReturns400(): void
@@ -94,7 +90,7 @@ class OutputControllerTriggerFeedTest extends TestCase
 
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', 'http://localhost/api/outputs/trigger-feed')
-            ->withParsedBody(['id' => 1, 'gpio' => 16, 'step' => 'trigger']);
+            ->withParsedBody(['id' => 1, 'gpio' => 16]);
 
         $response = $this->makeController($outputService)->triggerManualFeed($request, new Response());
 

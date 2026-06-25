@@ -73,14 +73,8 @@ class ControlActions {
         this.apiBase = options.apiBase || (typeof window.CONTROL_API_BASE !== 'undefined' ? window.CONTROL_API_BASE : '/api/outputs');
         this.isProcessing = false;
         this.queue = [];
-        // Anti-double-clic : ensemble des contrôles ayant une requête toggle en vol.
+        // Anti-double-clic : ensemble des contrôles ayant une requête (toggle/feed) en vol.
         this.inFlight = new Set();
-        /** @type {Map<number, { feedCmdId: string, startedAt: number, timeoutId: number|null, elapsedTimerId: number|null, phase: string, lastOutputState: number|null, lastDataState: number|null }>} */
-        this.pendingFeeds = new Map();
-        this.feedPulseGapMs = 800;
-        this.feedAckTimeoutMs = 45000;
-        this.feedBoostPollMs = 2000;
-        this._feedBoostCount = 0;
     }
 
     toggleOutput(element) {
@@ -126,7 +120,11 @@ class ControlActions {
     }
 
     /**
-     * Nourrissage manuel FFP3 (GPIO 108/109) : impulsion reset → pause → trigger + suivi jusqu'à acquittement (GPIO→0).
+     * Nourrissage manuel FFP3 (GPIO 108/109) — contrat « compteur monotone » :
+     * un seul POST /trigger-feed { id, gpio } incrémente le compteur de repas (state 108/109).
+     * Le firmware rattrape un repas par poll ; aucun acquittement GPIO→0 n'est attendu.
+     * Recliquer redemande un repas : on ne garde donc PAS de verrou persistant, seulement
+     * un anti-double-clic pendant que la requête est en vol.
      */
     triggerManualFeed(button) {
         if (!(button instanceof HTMLButtonElement)) {
@@ -138,75 +136,12 @@ class ControlActions {
             console.warn('[ControlActions] Invalid feed GPIO or output id');
             return;
         }
-        if (this.pendingFeeds.has(gpio)) {
-            if (typeof toastManager !== 'undefined') {
-                toastManager.showWarning('Nourrissage déjà en cours pour cette sortie.', 4000);
-            }
-            return;
-        }
-        this.enqueueAction(() => this.sendManualFeedPulse(button, gpio, outputId));
+        this.enqueueAction(() => this.sendManualFeed(button, gpio, outputId));
     }
 
-    /**
-     * Appelé par control-sync.js après chaque poll (?fresh=1) pendant le suivi nourrissage.
-     */
-    onFeedStatesPolled(snapshot) {
-        const outputs = snapshot.outputs || {};
-        const dataStates = snapshot.dataStates || {};
-        for (const gpio of [108, 109]) {
-            if (!this.pendingFeeds.has(gpio)) {
-                continue;
-            }
-            const outputState = this.normalizeFeedState(outputs[gpio] ?? outputs[String(gpio)]);
-            const dataState = this.normalizeFeedState(dataStates[gpio] ?? dataStates[String(gpio)]);
-            this.handleFeedStateSnapshot(gpio, outputState, dataState, snapshot.dataReadingTime);
-        }
-    }
-
-    normalizeFeedState(value) {
-        if (value === null || value === undefined || value === '') {
-            return null;
-        }
-        return Number(value) === 1 ? 1 : 0;
-    }
-
-    handleFeedStateSnapshot(gpio, outputState, dataState, dataReadingTime) {
-        const pending = this.pendingFeeds.get(gpio);
-        if (!pending) {
-            return;
-        }
-
-        const prevOut = pending.lastOutputState;
-        const prevData = pending.lastDataState;
-
-        if (outputState === 1 && pending.phase === 'waiting_read') {
-            pending.phase = 'command_read';
-            this.setFeedStatus(gpio, 'waiting', 'ESP32 a lu la commande');
-            this.appendFeedStep(gpio, 'Commande visible côté ESP32 (GPIO=1)', 'ok');
-        }
-
-        if (dataState === 1 && prevData !== 1) {
-            const suffix = dataReadingTime ? ` — ${dataReadingTime}` : '';
-            this.appendFeedStep(gpio, `Trace capteur : distribution enregistrée${suffix}`, 'ok');
-            this.setFeedStatus(gpio, 'waiting', 'Distribution enregistrée — attente acquittement');
-        }
-
-        if (outputState === 0 && (prevOut === 1 || pending.phase === 'command_read')) {
-            this.appendFeedStep(gpio, 'Acquittement reçu (GPIO repassé à 0)', 'ok');
-            this.completeFeedPending(gpio, 'executed');
-        }
-
-        pending.lastOutputState = outputState;
-        pending.lastDataState = dataState;
-    }
-
-    /** @deprecated use onFeedStatesPolled */
-    handleFeedGpioPoll(gpio, state) {
-        this.handleFeedStateSnapshot(gpio, this.normalizeFeedState(state), null, null);
-    }
-
-    async sendManualFeedPulse(button, gpio, outputId) {
+    async sendManualFeed(button, gpio, outputId) {
         const controlKey = `feed:${gpio}`;
+        // Anti-double-clic : uniquement le temps de la requête en vol (les repas répétés sont permis).
         if (this.inFlight.has(controlKey)) {
             return;
         }
@@ -219,65 +154,28 @@ class ControlActions {
         button.disabled = true;
         card?.classList.remove('is-success', 'is-error');
         card?.classList.add('is-updating');
-        this.clearFeedTimeline(gpio);
-        this.setFeedStatus(gpio, 'pending', 'Réinitialisation…');
-        this.appendFeedStep(gpio, 'Réinitialisation BDD (GPIO→0)', 'info');
-        this.startFeedBoostPolling();
 
         try {
-            const resetResponse = await fetchWithRetry(endpoint, {
+            const response = await fetchWithRetry(endpoint, {
                 method: 'POST',
                 headers: this.buildJsonHeaders(),
                 credentials: 'include',
-                body: JSON.stringify({ id: outputId, gpio, step: 'reset' }),
+                body: JSON.stringify({ id: outputId, gpio }),
             });
-            if (!resetResponse.ok) {
-                const errorText = await resetResponse.text();
-                throw new Error(`Reset HTTP ${resetResponse.status}: ${errorText}`);
-            }
-            this.appendFeedStep(gpio, 'Reset enregistré', 'ok');
-
-            this.setFeedStatus(gpio, 'pending', 'Préparation impulsion…');
-            this.appendFeedStep(gpio, `Pause ${this.feedPulseGapMs} ms (fenêtre lecture ESP32)`, 'info');
-            await new Promise(resolve => setTimeout(resolve, this.feedPulseGapMs));
-
-            const triggerResponse = await fetchWithRetry(endpoint, {
-                method: 'POST',
-                headers: this.buildJsonHeaders(),
-                credentials: 'include',
-                body: JSON.stringify({ id: outputId, gpio, step: 'trigger' }),
-            });
-            if (!triggerResponse.ok) {
-                const errorText = await triggerResponse.text();
-                throw new Error(`Trigger HTTP ${triggerResponse.status}: ${errorText}`);
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Trigger HTTP ${response.status}: ${errorText}`);
             }
 
-            const data = await triggerResponse.json();
-            const feedCmdId = data?.feed_cmd_id || data?.data?.feed_cmd_id || '';
+            const data = await response.json().catch(() => ({}));
+            const counter = data?.counter ?? data?.data?.counter ?? null;
 
-            this.appendFeedStep(gpio, `Impulsion envoyée (GPIO→1) — ref. ${feedCmdId ? feedCmdId.slice(0, 8) : '?'}`, 'ok');
-            this.setFeedStatus(gpio, 'waiting', 'En attente lecture ESP32…', feedCmdId);
+            this.updateFeedCounter(gpio, counter);
+            this.flashFeedRequested(card);
 
-            const timeoutId = window.setTimeout(() => {
-                if (this.pendingFeeds.has(gpio)) {
-                    this.appendFeedStep(gpio, 'Délai dépassé sans acquittement GPIO', 'warn');
-                    this.completeFeedPending(gpio, 'timeout');
-                }
-            }, this.feedAckTimeoutMs);
-
-            this.pendingFeeds.set(gpio, {
-                feedCmdId,
-                startedAt: Date.now(),
-                timeoutId,
-                elapsedTimerId: null,
-                phase: 'waiting_read',
-                lastOutputState: 1,
-                lastDataState: null,
-            });
-            this.startFeedElapsedTimer(gpio);
-
-            if (typeof toastManager !== 'undefined') {
-                toastManager.showInfo('Suivi en direct activé — polling accéléré.', 4000);
+            if (window.toastManager) {
+                const suffix = counter !== null && counter !== undefined ? ` (#${counter})` : '';
+                window.toastManager.showSuccess(`Repas demandé${suffix}`, 3000);
             }
 
             if (window.controlSync) {
@@ -288,13 +186,10 @@ class ControlActions {
             setTimeout(() => card?.classList.remove('is-success'), 1500);
         } catch (error) {
             console.error('[ControlActions] Manual feed error', error);
-            this.appendFeedStep(gpio, `Erreur : ${error.message || 'inconnue'}`, 'error');
-            this.setFeedStatus(gpio, 'error', 'Échec — réessayer');
-            this.stopFeedBoostPolling();
             card?.classList.add('is-error');
             setTimeout(() => card?.classList.remove('is-error'), 2500);
-            if (typeof toastManager !== 'undefined') {
-                toastManager.showError('Nourrissage refusé ou erreur réseau.', 5000);
+            if (window.toastManager) {
+                window.toastManager.showError('Échec — réessayer', 5000);
             }
         } finally {
             button.disabled = false;
@@ -303,146 +198,32 @@ class ControlActions {
         }
     }
 
-    completeFeedPending(gpio, outcome) {
-        const pending = this.pendingFeeds.get(gpio);
-        if (!pending) {
+    /** Met à jour l'affichage du compteur de repas (108/109) si présent dans la carte. */
+    updateFeedCounter(gpio, counter) {
+        if (counter === null || counter === undefined) {
             return;
         }
-        if (pending.timeoutId !== null) {
-            window.clearTimeout(pending.timeoutId);
-        }
-        this.stopFeedElapsedTimer(gpio);
-        this.pendingFeeds.delete(gpio);
-        this.stopFeedBoostPolling();
-
-        const shortId = pending.feedCmdId ? pending.feedCmdId.slice(0, 8) : '';
-        if (outcome === 'executed') {
-            this.appendFeedStep(gpio, 'Cycle terminé avec succès', 'ok');
-            this.setFeedStatus(gpio, 'executed', 'Terminé', pending.feedCmdId);
-            if (typeof toastManager !== 'undefined') {
-                const ref = shortId ? ` (ref. ${shortId})` : '';
-                toastManager.showSuccess(`Nourrissage confirmé${ref}`, 4000);
-            }
-        } else if (outcome === 'timeout') {
-            this.setFeedStatus(gpio, 'timeout', 'Timeout — réessayer', pending.feedCmdId);
-            if (typeof toastManager !== 'undefined') {
-                toastManager.showWarning('Pas de confirmation ESP32 — vérifiez la connexion ou réessayez.', 7000);
-            }
-        }
-    }
-
-    startFeedBoostPolling() {
-        this._feedBoostCount += 1;
-        if (this._feedBoostCount === 1 && window.controlSync?.boostPollingForFeed) {
-            window.controlSync.boostPollingForFeed(this.feedBoostPollMs);
-        }
-    }
-
-    stopFeedBoostPolling() {
-        if (this._feedBoostCount <= 0) {
-            return;
-        }
-        this._feedBoostCount -= 1;
-        if (this._feedBoostCount === 0 && window.controlSync?.restorePollInterval) {
-            window.controlSync.restorePollInterval();
-        }
-    }
-
-    startFeedElapsedTimer(gpio) {
-        const pending = this.pendingFeeds.get(gpio);
-        if (!pending) {
-            return;
-        }
-        const el = this.getFeedElapsedEl(gpio);
-        if (!el) {
-            return;
-        }
-        el.hidden = false;
-        el.removeAttribute('aria-hidden');
-        const tick = () => {
-            if (!this.pendingFeeds.has(gpio)) {
-                return;
-            }
-            const sec = Math.floor((Date.now() - pending.startedAt) / 1000);
-            el.textContent = `${sec} s`;
-        };
-        tick();
-        pending.elapsedTimerId = window.setInterval(tick, 1000);
-    }
-
-    stopFeedElapsedTimer(gpio) {
-        const pending = this.pendingFeeds.get(gpio);
-        if (pending?.elapsedTimerId) {
-            window.clearInterval(pending.elapsedTimerId);
-        }
-        const el = this.getFeedElapsedEl(gpio);
+        const el = document.querySelector(`[data-feed-counter][data-gpio="${gpio}"]`);
         if (el) {
-            el.hidden = true;
-            el.setAttribute('aria-hidden', 'true');
-            el.textContent = '';
+            el.textContent = String(counter);
         }
     }
 
-    getFeedPanel(gpio) {
-        return document.querySelector(`[data-feed-live][data-gpio="${gpio}"]`);
-    }
-
-    getFeedElapsedEl(gpio) {
-        return this.getFeedPanel(gpio)?.querySelector('[data-feed-elapsed]') ?? null;
-    }
-
-    getFeedTimelineEl(gpio) {
-        return this.getFeedPanel(gpio)?.querySelector('[data-feed-timeline]') ?? null;
-    }
-
-    clearFeedTimeline(gpio) {
-        const list = this.getFeedTimelineEl(gpio);
-        if (list) {
-            list.innerHTML = '';
-        }
-        const panel = this.getFeedPanel(gpio);
-        panel?.classList.remove('feed-live-active');
-    }
-
-    appendFeedStep(gpio, message, level = 'info') {
-        const list = this.getFeedTimelineEl(gpio);
-        const panel = this.getFeedPanel(gpio);
-        if (!list || !panel) {
+    /** Affiche brièvement un label « Demandé ✓ » sur la carte de nourrissage. */
+    flashFeedRequested(card) {
+        if (!card) {
             return;
         }
-        panel.classList.add('feed-live-active');
-        const li = document.createElement('li');
-        li.className = `feed-timeline-item feed-timeline-${level}`;
-        const time = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        li.innerHTML = `<span class="feed-timeline-time">${time}</span><span class="feed-timeline-text">${this.escapeHtml(message)}</span>`;
-        list.appendChild(li);
-        while (list.children.length > 12) {
-            list.removeChild(list.firstElementChild);
-        }
-        list.scrollTop = list.scrollHeight;
-    }
-
-    escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-
-    setFeedStatus(gpio, state, label, feedCmdId) {
-        const panel = this.getFeedPanel(gpio);
-        const el = panel?.querySelector('[data-feed-status]');
-        if (!el) {
+        const flash = card.querySelector('[data-feed-flash]');
+        if (!flash) {
             return;
         }
-        el.dataset.state = state;
-        el.textContent = label;
-        if (feedCmdId) {
-            el.dataset.feedCmdId = feedCmdId;
-            panel?.setAttribute('title', `Réf. commande : ${feedCmdId}`);
-        } else {
-            delete el.dataset.feedCmdId;
-            panel?.removeAttribute('title');
-        }
+        flash.textContent = 'Demandé ✓';
+        flash.classList.add('is-visible');
+        setTimeout(() => {
+            flash.classList.remove('is-visible');
+            flash.textContent = '';
+        }, 2000);
     }
 
     buildJsonHeaders() {

@@ -406,17 +406,13 @@ class PostDataController extends AbstractPostDataController
     }
 
     /**
-     * Acquittement de nourrissage (firmware FFP5CS `sendCommandAck`) : remet le flag
-     * GPIO 108 (bouffePetits) / 109 (bouffeGros) à 0 dès que le firmware confirme
-     * l'exécution, sans attendre le POST périodique `configSynced` (fenêtre 20 s).
+     * Acquittement de nourrissage (firmware FFP5CS `sendCommandAck`).
      *
-     * Ferme le handshake one-shot : le firmware déclenche sur front montant 0→1 et
-     * dépend du serveur pour revoir un 0 avant de pouvoir redéclencher. Sans ce reset
-     * immédiat, le flag pouvait rester à 1 (cooldown long, voire blocage) et les
-     * commandes de nourrissage manuel n'étaient plus prises.
-     *
-     * Priorité 0 (pas de fenêtre de protection web) : le firmware a déjà consommé la
-     * commande, on doit donc l'effacer même si elle vient d'être posée côté web.
+     * DÉPRÉCIÉ depuis le contrat « compteur monotone » (serveur 6.0.0 / firmware 15.0) :
+     * les GPIO 108/109 sont désormais des compteurs croissants détenus par le serveur.
+     * On ne doit JAMAIS les remettre à 0 ici — cela effacerait les repas en attente.
+     * Le firmware 15.0+ n'envoie plus d'ack nourrissage ; on conserve ce no-op défensif
+     * pour qu'un firmware antérieur encore en service ne puisse pas corrompre le compteur.
      */
     private function resetFeedingFlagFromAck(): void
     {
@@ -425,10 +421,9 @@ class PostDataController extends AbstractPostDataController
         }
 
         $gpio = array_search($this->ackCommand, \App\Config\Ffp3GpioMap::gpioToProperty(), true);
-        // Ne traite que les commandes de nourrissage one-shot (108/109).
         if ($gpio === 108 || $gpio === 109) {
-            $this->outputRepo->batchUpdateStatesSingleQuery([$gpio => 0], 'esp32', 0);
-            $this->logger->info('PostData: ACK nourrissage {cmd} -> reset GPIO {gpio}=0', [
+            // No-op volontaire : compteur monotone, ne pas écrire 108/109 depuis le firmware.
+            $this->logger->info('PostData: ACK nourrissage {cmd} ignoré (compteur monotone, pas de reset GPIO {gpio})', [
                 'cmd' => $this->ackCommand,
                 'gpio' => (string) $gpio,
             ]);

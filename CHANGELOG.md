@@ -11,6 +11,20 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.0.0] - 2026-06-25
+
+### Changement de contrat (BREAKING) - Nourrissage manuel : compteur monotone simple et robuste
+- **Problème** : le nourrissage manuel (v5.10.x) reposait sur un front montant 0→1 détecté par le firmware sur un *niveau* sondé toutes les 6 s. Pour fabriquer ce front, le navigateur enchaînait `reset(0)` → pause 800 ms → `trigger(1)`, puis attendait l'acquittement (retour à 0) avec timeout 45 s ; le firmware renvoyait un POST de reset, protégé par une fenêtre de priorité de 20 s. Beaucoup de pièces mobiles → flags bloqués à `1`, commandes perdues, faux « Timeout ».
+- **Nouveau contrat « compteur monotone »** (aligné firmware ffp5cs **15.0**) :
+  - Le `state` des GPIO **108** (`bouffePetits`) / **109** (`bouffeGros`) est désormais un **entier croissant** = nombre total de repas demandés sur le canal. Le serveur ne le remet **jamais** à zéro.
+  - `POST /api/outputs*/trigger-feed` prend `{ id, gpio }` (plus de `step`) et fait simplement `state = state + 1` ; réponse `{ success, gpio, counter, feed_cmd_id }`. Cliquer N fois = nourrir N fois.
+  - Le firmware mémorise son propre compteur exécuté en NVS et rattrape l'écart (un repas par poll, plafonné à 5 côté firmware pour la sécurité des poissons). Web n'écrit que le compteur, le firmware ne l'écrit jamais → **aucune course bidirectionnelle**, robuste aux reboots et aux polls manqués.
+- **Sécurité allégée (assumé)** : suppression de l'acquittement firmware (`ack_command` nourrissage → no-op défensif), de la séquence reset/trigger, du front 0→1 et de la fenêtre de priorité 20 s sur 108/109. Le bouton web reste protégé (session + CSRF) ; le GET d'état firmware reste public.
+- **`StateNormalizer`** : 108/109 retirés des GPIO booléens (préservés en entier, plus de réduction 0/1) ; 110 (reset) reste booléen.
+- **`PostDataController` / `OutputRepository`** : le POST firmware n'écrit plus 108/109 (ni via `configSynced`, ni via ack) — sinon les repas en attente seraient effacés.
+- **UI contrôle** (`control.twig`, `control-actions.js`, `control-sync.js`) : bouton **« Nourrir »** à impulsion unique (un seul POST), toast `Repas demandé (#N)`, affichage du compteur ; suppression de la timeline live, du chronomètre, des phases d'acquittement, du timeout 45 s et du polling accéléré.
+- **Docs** : `docs/SYNCHRONISATION_BIDIRECTIONNELLE.md` et `docs/ENDPOINTS_ESP32_SERVEUR.md` mis à jour (section nourrissage = compteur monotone).
+
 ## [5.10.1] - 2026-06-24
 
 ### Amélioration - Suivi en direct du nourrissage manuel (page contrôle FFP3)

@@ -13,7 +13,6 @@ class ControlSync {
         // Configuration
         this.apiBase = options.apiBase || '/ffp3/api/outputs';
         this.pollInterval = (options.pollInterval || 10) * 1000; // 10 secondes par défaut
-        this.basePollInterval = this.pollInterval;
         this.maxRetries = options.maxRetries || 5;
         this.useFresh = options.useFresh === true; // ?fresh=1 pour ignorer le cache (valeurs BDD à jour)
         
@@ -222,19 +221,12 @@ class ControlSync {
             this.lastStates[gpioNum] = newState;
         }
 
-        // Suivi nourrissage manuel en direct (GPIO 108/109)
-        if (window.controlActions?.onFeedStatesPolled) {
-            const feedOutputs = {};
-            for (const g of [108, 109]) {
-                if (this.lastStates[g] !== undefined) {
-                    feedOutputs[g] = this.lastStates[g];
-                }
+        // Nourrissage manuel (GPIO 108/109) : state = compteur monotone de repas demandés.
+        // Simple reflet en lecture seule du compteur, sans aucune logique de phase/acquittement.
+        for (const g of [108, 109]) {
+            if (this.lastStates[g] !== undefined) {
+                this.updateFeedCounterLabel(g, this.lastStates[g]);
             }
-            window.controlActions.onFeedStatesPolled({
-                outputs: feedOutputs,
-                dataStates: states.dataStates || {},
-                dataReadingTime: states.dataStatesReadingTime ?? null,
-            });
         }
 
         // Toujours synchroniser les switches avec la réponse serveur (changements distants pris en compte)
@@ -494,31 +486,20 @@ class ControlSync {
     }
 
     /**
-     * Polling accéléré pendant un nourrissage manuel en cours (ex. 2 s).
+     * Reflète le compteur de repas (GPIO 108/109) dans la carte de nourrissage, si présent.
+     * Lecture seule : aucune logique de phase/acquittement.
      */
-    boostPollingForFeed(intervalMs) {
-        if (typeof intervalMs === 'number' && intervalMs > 0) {
-            this.basePollInterval = this.basePollInterval || this.pollInterval;
-            this.pollInterval = intervalMs;
-            this.log(`Feed boost: poll every ${intervalMs}ms`);
-            if (this.pollTimer) {
-                clearTimeout(this.pollTimer);
-                this.schedulePoll();
-            }
+    updateFeedCounterLabel(gpio, value) {
+        const el = document.querySelector(`[data-feed-counter][data-gpio="${gpio}"]`);
+        if (!el) {
+            return;
+        }
+        const num = parseInt(value, 10);
+        if (!isNaN(num)) {
+            el.textContent = String(num);
         }
     }
 
-    restorePollInterval() {
-        if (this.basePollInterval && this.pollInterval !== this.basePollInterval) {
-            this.pollInterval = this.basePollInterval;
-            this.log(`Feed boost ended: poll every ${this.pollInterval}ms`);
-            if (this.pollTimer) {
-                clearTimeout(this.pollTimer);
-                this.schedulePoll();
-            }
-        }
-    }
-    
     /**
      * Log avec préfixe
      */

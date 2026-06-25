@@ -248,9 +248,9 @@ Pour isoler latence réseau/infra vs traitement PHP :
 - **Page `/aquamobile-control-test` (TEST3, ex. ESP32-S3 test)** → toggle/paramètres → table **ffp3Outputs3** (TEST3).
 - **Page `/aquamobile-control` (S3 PROD)** → toggle/paramètres → table **ffp3Outputs4** (S3 PROD).
 
-**Protection des changements web** : Les changements faits depuis l'interface web sont protégés pendant 10 s (20 s pour nourrissage) contre l'écrasement par le POST ESP ; voir `SYNCHRONISATION_BIDIRECTIONNELLE.md`.
+**Protection des changements web** : Les changements faits depuis l'interface web sont protégés pendant 10 s contre l'écrasement par le POST ESP ; voir `SYNCHRONISATION_BIDIRECTIONNELLE.md`. Les compteurs de nourrissage 108/109 ne sont jamais écrits par le POST firmware (cf. ci-dessous).
 
-**Nourrissage manuel (page contrôle FFP3, v5.10.0+)** : `POST /api/outputs*/trigger-feed` (auth session, CSRF) — corps JSON `{ "id": <output_id>, "gpio": 108|109, "step": "reset"|"trigger" }`. Le navigateur enchaîne `reset` (GPIO→0) puis `trigger` (GPIO→1) et reçoit un `feed_cmd_id` pour l'audit. L'ESP32 consomme l'impulsion via GET `outputs/state` (front montant 0→1) ; voir section nourrissage dans `SYNCHRONISATION_BIDIRECTIONNELLE.md`.
+**Nourrissage manuel (page contrôle FFP3, v6.0.0+ — compteur monotone)** : `POST /api/outputs*/trigger-feed` (auth session, CSRF) — corps JSON `{ "id": <output_id>, "gpio": 108|109 }` (plus de `step`). L'appel fait `state = state + 1` ; réponse `{ success, gpio, counter, feed_cmd_id }`. Le `state` de 108/109 est un **entier croissant** (= nombre total de repas demandés), jamais remis à zéro par le serveur. L'ESP32 lit ce compteur via GET `outputs/state`, le compare à son propre compteur exécuté (NVS) et rattrape l'écart (un repas par poll, plafonné à 5). Plus de séquence reset/trigger, plus de front 0→1, plus d'acquittement firmware. Un client legacy envoyant `step:"reset"` est traité en no-op. Voir section nourrissage dans `SYNCHRONISATION_BIDIRECTIONNELLE.md`.
 
 **Pour que l'ESP32 applique ces commandes**, il doit **lire la même table** en faisant un GET sur le **même environnement** :
 

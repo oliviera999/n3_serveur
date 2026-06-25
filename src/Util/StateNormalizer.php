@@ -16,13 +16,19 @@ class StateNormalizer
      * Liste des GPIOs qui doivent être traités comme des booléens (0/1)
      * - GPIOs < 100 : actionneurs physiques (chauffage, lumière, pompes)
      * - 101 : Notifications (checkbox)
-     * - 108, 109, 110 : Commandes nourrissage
+     * - 110 : Commande reset (one-shot booléen)
      * - 115 : Forçage réveil (checkbox)
+     *
+     * NB : GPIO 108/109 (nourrissage petits/gros) ne sont PLUS booléens depuis le
+     * contrat « compteur monotone » (serveur 6.0.0 / firmware 15.0) : leur `state`
+     * est un ENTIER croissant = nombre total de repas demandés sur le canal. Le
+     * firmware rattrape l'écart avec son propre compteur exécuté (NVS) ; il ne faut
+     * donc surtout pas réduire la valeur à 0/1. Voir docs/SYNCHRONISATION_BIDIRECTIONNELLE.md.
      *
      * NB : GPIO 117 (forçage pompe aquarium) n'est PAS booléen : c'est un tri-état
      * 0=auto / 1=forcer ON / 2=forcer OFF (voir {@see normalize()}).
      */
-    private const BOOLEAN_GPIOS = [101, 108, 109, 110, 115];
+    private const BOOLEAN_GPIOS = [101, 110, 115];
 
     /** GPIO 117 : sélecteur de mode forçage pompe aquarium (0=auto, 1=ON, 2=OFF). */
     private const AQUARIUM_PUMP_FORCE_GPIO = 117;
