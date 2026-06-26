@@ -6,6 +6,7 @@ namespace App\Controller\Gallery;
 
 use App\Config\GalleryConfig;
 use App\Config\Paths;
+use App\Repository\GallerySyncRepository;
 use App\Security\DeviceApiKeyValidator;
 use App\Service\GalleryTrashService;
 use App\Service\LogService;
@@ -30,6 +31,7 @@ class GalleryUploadController
     public function __construct(
         private LogService $logger,
         private GalleryTrashService $trashService,
+        private GallerySyncRepository $syncRepository,
     ) {
     }
 
@@ -92,7 +94,8 @@ class GalleryUploadController
             return ResponseHelper::text($response, $body, 400);
         }
 
-        if ($imageFile->getSize() > self::MAX_FILE_SIZE) {
+        $imageSize = (int) $imageFile->getSize();
+        if ($imageSize > self::MAX_FILE_SIZE) {
             return ResponseHelper::text($response, 'Fichier trop volumineux', 413);
         }
 
@@ -125,6 +128,10 @@ class GalleryUploadController
                 ]);
                 return ResponseHelper::text($response, 'Contenu du fichier non valide (JPEG attendu)', 415);
             }
+
+            // La photo est arrivee : on compte la progression de la session de sync hors-ligne
+            // (si l'en-tete X-Sync-Session est present), y compris pour une mise en corbeille auto.
+            $this->recordSyncProgress($request, $imageSize);
 
             $analysis = $this->trashService->analyzeImage($targetPath);
             if ($analysis['quality'] !== 'ok') {
@@ -161,6 +168,24 @@ class GalleryUploadController
             UPLOAD_ERR_EXTENSION => 'Erreur serveur: extension PHP a bloque l upload',
             default => 'Erreur upload inconnue (code ' . $code . ')',
         };
+    }
+
+    /**
+     * Incremente le compteur de la session de sync hors-ligne si l'upload en fait partie.
+     * L'en-tete X-Sync-Session porte l'identifiant de session renvoye par /sync/start.
+     * Best-effort : ne jamais faire echouer un upload pour un probleme de comptage.
+     */
+    private function recordSyncProgress(Request $request, int $bytes): void
+    {
+        $sessionHeader = trim($request->getHeaderLine('X-Sync-Session'));
+        if ($sessionHeader === '' || !ctype_digit($sessionHeader)) {
+            return;
+        }
+        try {
+            $this->syncRepository->incrementReceived((int) $sessionHeader, $bytes);
+        } catch (\Throwable $e) {
+            $this->logger->warning('GalleryUpload: increment session de sync echoue', ['error' => $e->getMessage()]);
+        }
     }
 
     private function isAuthorizedRequest(Request $request, string $gallery): bool

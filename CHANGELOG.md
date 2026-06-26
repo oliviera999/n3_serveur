@@ -11,6 +11,21 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.1.0] - 2026-06-26
+
+### Fonctionnalité - Synchronisation hors-ligne des galeries photo (uploadphotosserver)
+- **Contexte** : renforcement du mode hors-ligne des firmwares ESP32-CAM (msp1/n3pp/ffp3). La carte SD de la caméra sert de file d'attente locale ; au retour du WiFi, le firmware pousse au serveur les photos qui n'y sont pas encore. Côté serveur : indicateur de connexion, jauge de progression (X/Y) et mail récapitulatif de fin de transfert.
+- **Nouveau contrat firmware ↔ serveur (sessions de sync)** :
+  - `POST .../sync/start` (auth `api_key` device) : ouvre une session en annonçant `total` photos en attente ; renvoie l'identifiant `session`.
+  - `POST upload.php` avec en-tête `X-Sync-Session: <id>` : chaque photo reçue incrémente le compteur de la session (y compris les mises en corbeille auto, code 202).
+  - `POST .../sync/finish` (auth `api_key` device) : clôture la session (`sent`/`failed`/`bytes`), déclenche le mail récap.
+  - `GET .../sync/status` (auth utilisateur) : état JSON pour l'indicateur + la jauge (poll navigateur).
+  - Routes unifiées `/gallery/{slug}/api/sync/*` + alias legacy `.php` par cible (compat firmware).
+- **Stockage** : nouvelle table `gallerySyncSessions` (migration `migrations/CREATE_GALLERY_SYNC_SESSIONS_TABLE.sql`), une ligne par session, idempotente sur `(slug, device_session)`. Accès via `GallerySyncRepository`.
+- **Mail récap** : `NotificationService::sendGalleryTransferReport()` — envoi immédiat (jamais en digest), catégorie **Camera**, sévérité P3/Info si complet, P2/Alerte en cas d'échecs/transfert incomplet ; anti-spam par session. Reste soumis à la politique de notification de la famille `GALLERY_*`.
+- **UI** : page de contrôle de galerie (`/gallery/{slug}/control`) enrichie d'un panneau « Transfert hors-ligne » (point de connexion + jauge X/Y + compteur d'échecs), rafraîchi par poll (`gallery_control.twig`).
+- **Config** : `GALLERY_SYNC_ONLINE_WINDOW_SECONDS` (défaut 1500 s) pour la fenêtre « en ligne ».
+
 ## [6.0.0] - 2026-06-25
 
 ### Changement de contrat (BREAKING) - Nourrissage manuel : compteur monotone simple et robuste

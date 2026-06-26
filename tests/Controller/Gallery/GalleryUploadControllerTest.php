@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Controller\Gallery;
 
 use App\Controller\Gallery\GalleryUploadController;
+use App\Repository\GallerySyncRepository;
 use App\Service\GalleryTrashService;
 use App\Service\LogService;
 use PHPUnit\Framework\TestCase;
@@ -38,7 +39,7 @@ final class GalleryUploadControllerTest extends TestCase
     {
         $logger = $this->createMock(LogService::class);
         $trash = $this->createMock(GalleryTrashService::class);
-        $controller = new GalleryUploadController($logger, $trash);
+        $controller = new GalleryUploadController($logger, $trash, $this->createMock(GallerySyncRepository::class));
 
         $response = (new ResponseFactory())->createResponse();
         $request = (new ServerRequestFactory())
@@ -58,7 +59,7 @@ final class GalleryUploadControllerTest extends TestCase
         $trash->expects($this->once())
             ->method('moveToTrash');
 
-        $controller = new GalleryUploadController($logger, $trash);
+        $controller = new GalleryUploadController($logger, $trash, $this->createMock(GallerySyncRepository::class));
         $response = (new ResponseFactory())->createResponse();
 
         $jpeg = tempnam(sys_get_temp_dir(), 'cam') . '.jpg';

@@ -53,8 +53,61 @@
                 </div>
             </div>
         </div>
+
+        {% set s = sync_status|default({}) %}
+        <div class="controls-group" id="sync-panel"
+             data-sync-status-url="{{ base_path|default('') }}{{ sync_api_base|default('/gallery/' ~ gallery_slug ~ '/api/sync') }}/status">
+            <header>
+                <h2><i class="fas fa-cloud-arrow-up"></i> Transfert hors-ligne</h2>
+            </header>
+            <div class="parameters-panel">
+                <p class="context-description">
+                    Les photos sont stockées sur la carte SD de la caméra et envoyées au serveur dès le retour du WiFi.
+                    Cet indicateur reflète la dernière session de synchronisation.
+                </p>
+                <div class="sync-indicator-row">
+                    <span class="sync-conn-dot" data-sync-conn="{{ s.connection|default('offline') }}" id="sync-conn-dot"></span>
+                    <span class="sync-conn-label" id="sync-conn-label">
+                        {% set c = s.connection|default('offline') %}
+                        {{ c == 'transferring' ? 'Transfert en cours…' : (c == 'online' ? 'Connectée' : 'Hors ligne') }}
+                    </span>
+                    <span class="sync-conn-meta" id="sync-conn-meta">{{ s.updated_at|default('') }}</span>
+                </div>
+
+                <div class="sync-gauge" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                     aria-valuenow="{{ s.percent|default(0) }}">
+                    <div class="sync-gauge-track">
+                        <div class="sync-gauge-fill" id="sync-gauge-fill" style="width: {{ s.percent|default(0) }}%;"></div>
+                    </div>
+                    <div class="sync-gauge-legend">
+                        <span id="sync-gauge-count">{{ s.received|default(0) }} / {{ s.total|default(0) }}</span>
+                        <span id="sync-gauge-percent">{{ s.percent|default(0) }} %</span>
+                    </div>
+                </div>
+
+                <div class="sync-failed" id="sync-failed" {% if (s.failed|default(0)) == 0 %}hidden{% endif %}>
+                    <i class="fas fa-triangle-exclamation"></i>
+                    <span id="sync-failed-count">{{ s.failed|default(0) }}</span> échec(s) au dernier transfert
+                </div>
+            </div>
+        </div>
     </section>
     </div>
+
+    <style>
+        .sync-indicator-row { display: flex; align-items: center; gap: .5rem; margin-bottom: .9rem; flex-wrap: wrap; }
+        .sync-conn-dot { width: 12px; height: 12px; border-radius: 50%; background: #9aa3ab; box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+        .sync-conn-dot[data-sync-conn="online"] { background: #2ecc71; }
+        .sync-conn-dot[data-sync-conn="transferring"] { background: #3498db; animation: sync-pulse 1.2s ease-in-out infinite; }
+        .sync-conn-dot[data-sync-conn="offline"] { background: #b0b6bc; }
+        @keyframes sync-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(52,152,219,.6); } 50% { box-shadow: 0 0 0 6px rgba(52,152,219,0); } }
+        .sync-conn-label { font-weight: 600; }
+        .sync-conn-meta { color: #8a9199; font-size: .85em; }
+        .sync-gauge-track { width: 100%; height: 14px; background: rgba(127,127,127,.18); border-radius: 8px; overflow: hidden; }
+        .sync-gauge-fill { height: 100%; width: 0; background: linear-gradient(90deg, #3498db, #2ecc71); border-radius: 8px; transition: width .6s ease; }
+        .sync-gauge-legend { display: flex; justify-content: space-between; margin-top: .35rem; font-size: .9em; color: #6b7280; }
+        .sync-failed { margin-top: .7rem; color: #e67e22; font-size: .9em; }
+    </style>
 {% endblock %}
 
 {% block quick_actions_links %}
@@ -158,6 +211,55 @@ document.addEventListener('DOMContentLoaded', function() {
         pollInterval: 15000,
         enabled: false
     });
+
+    // --- Jauge de transfert hors-ligne : poll de l'etat de session de sync ---
+    (function initSyncGauge() {
+        var panel = document.getElementById('sync-panel');
+        if (!panel) return;
+        var url = panel.getAttribute('data-sync-status-url');
+        if (!url) return;
+
+        var dot = document.getElementById('sync-conn-dot');
+        var label = document.getElementById('sync-conn-label');
+        var meta = document.getElementById('sync-conn-meta');
+        var fill = document.getElementById('sync-gauge-fill');
+        var count = document.getElementById('sync-gauge-count');
+        var percent = document.getElementById('sync-gauge-percent');
+        var failedBox = document.getElementById('sync-failed');
+        var failedCount = document.getElementById('sync-failed-count');
+
+        var LABELS = { transferring: 'Transfert en cours…', online: 'Connectée', offline: 'Hors ligne' };
+
+        function render(s) {
+            if (!s || typeof s !== 'object') return;
+            var conn = s.connection || 'offline';
+            if (dot) dot.setAttribute('data-sync-conn', conn);
+            if (label) label.textContent = LABELS[conn] || 'Hors ligne';
+            if (meta) meta.textContent = s.updated_at || '';
+            var pct = Math.max(0, Math.min(100, parseInt(s.percent, 10) || 0));
+            if (fill) fill.style.width = pct + '%';
+            if (percent) percent.textContent = pct + ' %';
+            if (count) count.textContent = (s.received || 0) + ' / ' + (s.total || 0);
+            var failed = parseInt(s.failed, 10) || 0;
+            if (failedBox) failedBox.hidden = failed === 0;
+            if (failedCount) failedCount.textContent = failed;
+        }
+
+        function poll() {
+            fetch(url, { credentials: 'include', headers: { 'Accept': 'application/json' } })
+                .then(function(r) { return r.ok ? r.json() : null; })
+                .then(function(data) { if (data) render(data); })
+                .catch(function() { /* silencieux : reseau momentane */ });
+        }
+
+        // Cadence : plus rapide pendant un transfert actif, plus lente au repos.
+        function tick() {
+            poll();
+            var active = dot && dot.getAttribute('data-sync-conn') === 'transferring';
+            setTimeout(tick, active ? 5000 : 20000);
+        }
+        setTimeout(tick, 4000);
+    })();
 });
 </script>
 {% endblock %}

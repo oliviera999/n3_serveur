@@ -262,6 +262,39 @@ class NotificationService
     }
 
     /**
+     * Rapport de fin de transfert d'une galerie photo (uploadphotosserver).
+     *
+     * Envoi IMMEDIAT (jamais mis en file de synthèse, contrairement à sendAlert pour les P3) :
+     * le résumé d'une session de sync est attendu dès la clôture du transfert. Catégorie Camera.
+     * La sévérité reflète le résultat : P3/Info si tout est passé, P2/Alerte s'il y a eu des échecs.
+     *
+     * Reste soumis à la POLITIQUE de notification de la famille (GALLERY_*) et à l'anti-spam
+     * (clé par session → un seul mail par session, les rejeux de clôture sont dédupliqués).
+     *
+     * @param string $family Famille de notification (GALLERY_MSP1 / GALLERY_N3PP / GALLERY_FFP3)
+     *
+     * @return bool Vrai si remis au transport ; faux si filtré/cooldown/échec
+     */
+    public function sendGalleryTransferReport(
+        Severity $severity,
+        string $family,
+        string $subject,
+        string $message,
+        ?string $throttleKey = null
+    ): bool {
+        return $this->dispatch(
+            $severity,
+            NotificationCategory::Camera,
+            $subject,
+            $message,
+            $throttleKey,
+            $family,
+            null,
+            false
+        );
+    }
+
+    /**
      * Notification pour le problème de marées (écart-type faible sur les mesures).
      * Appelée automatiquement par le système de surveillance.
      */
