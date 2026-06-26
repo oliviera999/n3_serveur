@@ -21,6 +21,7 @@ class OutputRepository extends AbstractRepository
     private const RESET_COMMAND_GPIO = 110;
     private const AQUARIUM_PUMP_GPIO = 16;
     private const AQUARIUM_PUMP_FORCE_GPIO = 117;
+    private const MANUAL_FEED_GPIOS = [108, 109];
     private const RESET_COMMAND_WEB_PRIORITY_SECONDS = 20;
     private const PHYSICAL_COMMAND_WEB_PRIORITY_SECONDS = 12;
 
@@ -177,15 +178,20 @@ class OutputRepository extends AbstractRepository
 
     /**
      * Met à jour l'état d'un output par son ID.
+     *
+     * Les GPIO 108/109 sont des compteurs monotones de nourrissage : ils ne doivent
+     * jamais passer par le toggle booléen, même si un ancien client omet le champ gpio.
      */
     public function updateStateById(int $id, int $state, string $modifiedBy = 'web'): bool
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+        $protectedGpios = implode(',', self::MANUAL_FEED_GPIOS);
         $sql = "UPDATE `{$table}`
                 SET state = :state,
                     requestTime = NOW(),
                     lastModifiedBy = :modifiedBy
-                WHERE id = :id";
+                WHERE id = :id
+                  AND gpio NOT IN ({$protectedGpios})";
         return $this->executeWithRowCount($sql, [
             ':state' => $state,
             ':id' => $id,
@@ -203,17 +209,19 @@ class OutputRepository extends AbstractRepository
      * jamais → aucune course bidirectionnelle, robuste aux reboots et aux polls manqués.
      *
      * @param int $id Identifiant de la ligne outputs (PK)
+     * @param int $gpio GPIO de nourrissage attendu (108/109)
      * @return int|null Nouvelle valeur du compteur, ou null si la ligne est introuvable
      */
-    public function incrementFeedCounter(int $id): ?int
+    public function incrementFeedCounter(int $id, int $gpio): ?int
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
         $sql = "UPDATE `{$table}`
                 SET state = CAST(state AS UNSIGNED) + 1,
                     requestTime = NOW(),
                     lastModifiedBy = 'web'
-                WHERE id = :id";
-        if ($this->executeWithRowCount($sql, [':id' => $id]) <= 0) {
+                WHERE id = :id
+                  AND gpio = :gpio";
+        if ($this->executeWithRowCount($sql, [':id' => $id, ':gpio' => $gpio]) <= 0) {
             return null;
         }
 

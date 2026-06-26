@@ -46,7 +46,8 @@ Interface Web (control.twig)
 
 **Solution Implémentée**: **Protection par fenêtre de priorité**
 - L'ESP32 récupère les états toutes les **6 secondes** (firmware : `REMOTE_FETCH_INTERVAL_MS`)
-- Les changements faits depuis l'interface web ne sont **pas écrasés** par le POST ESP pendant une fenêtre de priorité : **10 s** (actionneurs/config) ou **20 s** (GPIO 108/109 nourrissage)
+- Les changements faits depuis l'interface web ne sont **pas écrasés** par le POST ESP pendant une fenêtre de priorité : **10 s** pour les actionneurs physiques et **20 s** pour la commande reset GPIO 110.
+- Les compteurs de nourrissage **108/109** ne passent plus par cette fenêtre : depuis le contrat monotone, le POST firmware ne les écrit jamais et seul `trigger-feed` peut les incrémenter.
 - Colonnes `lastModifiedBy` et `requestTime` : le serveur n'applique l'UPDATE du POST que si `lastModifiedBy != 'web'` ou si `requestTime` est antérieur à cette fenêtre
 
 ```sql
@@ -98,7 +99,7 @@ Le badge est piloté exclusivement par la méthode `updateBadgeStatus(status)` :
 | `offline` | `offline` | `HORS LIGNE` | `stop()` (arrêt manuel ou après `error`) |
 | `paused` | `paused` | `PAUSE` | onglet masqué (`visibilitychange` → `document.hidden`) ; le polling reprend (`connecting` puis `online`) au retour |
 
-> ℹ️ **Badge global vs nourrissage manuel** : `#control-sync-badge` reflète uniquement le polling HTTP (`SYNC`, `RECONNEXION…`, etc.). Depuis v5.10.0, chaque carte **Nourrissage** (GPIO 108/109) affiche un libellé `[data-feed-status]` : `Prêt` → `En attente ESP32…` → `Exécuté` ou `Timeout — réessayer`, plus une **réf. commande** (`feed_cmd_id`) dans l'info-bulle pour le diagnostic (logs `[control-audit]`). Depuis v5.10.1 : **panneau live** avec chronomètre, timeline des étapes (reset, impulsion, lecture ESP32, trace capteur, acquittement) et **polling accéléré** (~2 s) pendant le cycle.
+> ℹ️ **Badge global vs nourrissage manuel** : `#control-sync-badge` reflète uniquement le polling HTTP (`SYNC`, `RECONNEXION…`, etc.). Depuis v6.0.0, chaque carte **Nourrissage** (GPIO 108/109) affiche un bouton `Nourrir`, le compteur courant et la dernière **réf. commande** (`feed_cmd_id`) dans l'info-bulle pour le diagnostic (logs `[control-audit]`). Il n'y a plus de timeline d'acquittement ni de polling accéléré : le firmware rattrape le compteur au prochain poll.
 
 #### Retour visuel par actionneur
 
@@ -108,7 +109,7 @@ Le feedback « changement distant » par GPIO ne passe pas par un badge texte ma
 
 - **Dernière sync ESP32**: Timestamp de la dernière communication
 - **Délai de synchronisation**: 2-3 minutes (incompressible)
-- **Protection changements web**: 10 s (actionneurs/config), 20 s (nourrissage 108/109) — pendant cette fenêtre, le POST ESP n'écrase pas les valeurs écrites par l'interface
+- **Protection changements web**: 10 s pour les actionneurs physiques, 20 s pour le reset GPIO 110 ; les compteurs 108/109 sont exclus des écritures POST firmware.
 
 ---
 
@@ -149,8 +150,11 @@ d'écriture : cliquer N fois = nourrir N fois (le firmware rattrape), sans jamai
 
 - Bouton **« Nourrir »** (impulsion unique) sur `/aquaponie-control*`.
 - Endpoint `POST /api/outputs*/trigger-feed`, corps `{ id, gpio }` (plus de `step`) : fait
-  `state = state + 1` ; réponse `{ success, gpio, counter, feed_cmd_id }`. Le `feed_cmd_id`
+  `state = state + 1` uniquement si `id` et `gpio` correspondent à la même ligne de nourrissage ;
+  réponse `{ success, gpio, counter, feed_cmd_id }`. Le `feed_cmd_id`
   (16 car. hex) est journalisé dans `[control-audit] action=trigger_manual_feed`.
+- `POST /api/outputs*/toggle` refuse les GPIO 108/109 : un toggle booléen `0/1` casserait
+  le compteur monotone et pourrait effacer des repas en attente.
 - Suivi UI : toast `Repas demandé (#N)` + affichage du compteur. Pas d'attente d'acquittement,
   pas de timeout, pas de polling accéléré (le firmware rattrape de lui-même).
 - Rétrocompat : un client encore en cache peut envoyer `step:"reset"` → traité en **no-op**
@@ -221,7 +225,7 @@ ALTER TABLE ffp3Outputs2 ADD COLUMN lastModifiedBy ENUM('web', 'esp32') NULL;
    - ✅ ESP32 POST dans les 10 s → Vérifier que l'état n'est PAS écrasé
 
 2. **Expiration protection → Écrasement**
-   - ✅ Attendre > 10 s (ou > 20 s pour GPIO 108/109) après changement web
+   - ✅ Attendre > 10 s après changement web sur un actionneur physique (ou > 20 s pour le reset GPIO 110)
    - ✅ ESP32 POST → Vérifier que l'état est maintenant écrasé
 
 3. **GPIO 18 cohérence**
@@ -319,7 +323,7 @@ tail -f /path/to/ffp3/cronlog.txt | grep "Données capteurs insérées"
 ## 🔮 Améliorations Futures
 
 ### Court Terme
-- [ ] Configuration de la fenêtre de protection (10 s / 20 s → configurable via .env)
+- [ ] Configuration de la fenêtre de protection actionneurs/reset (10 s / 20 s → configurable via .env)
 - [ ] Notifications push pour conflits de synchronisation
 - [ ] Historique des changements d'état
 

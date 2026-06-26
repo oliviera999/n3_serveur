@@ -144,6 +144,27 @@ class OutputControllerToggleTest extends TestCase
     }
 
     /**
+     * GPIO 108/109 : compteurs monotones de nourrissage. Le toggle booléen les corromprait
+     * en les remettant à 0/1 ; seul POST trigger-feed peut les incrémenter.
+     */
+    public function testToggleManualFeedGpioReturns400(): void
+    {
+        TableConfig::setEnvironment('test');
+
+        $outputService = $this->createMock(OutputService::class);
+        $outputService->method('isGpioAllowed')->willReturn(true);
+        $outputService->method('isManualFeedGpio')->with(108)->willReturn(true);
+        $outputService->expects($this->never())->method('updateStateById');
+
+        $controller = $this->makeController($outputService);
+        $response = $controller->toggleOutput($this->postToggle(42, 1, 108), new Response());
+
+        $this->assertSame(400, $response->getStatusCode());
+        $payload = json_decode((string) $response->getBody(), true);
+        $this->assertSame('error', $payload['status']);
+    }
+
+    /**
      * Validation stricte (Phase 2) : un GPIO appartenant à l'ensemble canonique autorisé
      * (ici 16, pompe aquarium) est accepté et persisté (contrat de succès inchangé).
      */

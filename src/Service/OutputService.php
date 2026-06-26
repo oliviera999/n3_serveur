@@ -15,7 +15,7 @@ use App\Repository\SensorReadRepository;
  */
 class OutputService
 {
-    /** GPIO de commande nourrissage manuel distant (impulsion 0→1, contrat FFP5CS). */
+    /** GPIO de commande nourrissage manuel distant (compteur monotone, contrat FFP5CS 15.0+). */
     public const MANUAL_FEED_GPIOS = [108, 109];
 
     /** GPIOs affichés comme indicateurs booléens (0/1) sur la page de contrôle */
@@ -300,7 +300,7 @@ class OutputService
             return ['success' => false, 'gpio' => $gpio, 'counter' => 0, 'feed_cmd_id' => '', 'error' => 'Identifiant output requis'];
         }
 
-        $counter = $this->outputRepository->incrementFeedCounter($id);
+        $counter = $this->outputRepository->incrementFeedCounter($id, $gpio);
         if ($counter === null) {
             return ['success' => false, 'gpio' => $gpio, 'counter' => 0, 'feed_cmd_id' => '', 'error' => 'Sortie introuvable'];
         }

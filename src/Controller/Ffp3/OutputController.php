@@ -243,6 +243,19 @@ class OutputController
             return ResponseHelper::error($response, 'Unauthorized GPIO', 400);
         }
 
+        // Les GPIO 108/109 sont des compteurs monotones : seul trigger-feed peut les incrémenter.
+        if ($gpio !== 0 && $this->outputService->isManualFeedGpio($gpio)) {
+            $this->auditLogger->logAction(
+                $request,
+                'ffp3',
+                'toggle',
+                ['id' => $id, 'gpio' => $gpio, 'state' => $state],
+                false,
+                'GPIO nourrissage manuel protégé'
+            );
+            return ResponseHelper::error($response, 'Manual feed GPIO must use trigger-feed', 400);
+        }
+
         // Toggle de la pompe (GPIO 16) en conflit avec un mode de forçage actif (GPIO 117) :
         // on ne ment plus au client (faux « Commande envoyée »). On maintient l'état BDD
         // cohérent avec le forçage et on signale le blocage pour inviter à repasser en Auto.

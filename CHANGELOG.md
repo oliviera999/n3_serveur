@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.0.1] - 2026-06-26
+
+### Correctif critique - Protection du compteur monotone de nourrissage
+- **`POST /api/outputs*/toggle`** rejette désormais explicitement les GPIO **108/109** : ces lignes sont des compteurs monotones et ne doivent jamais être écrasées par un état booléen `0/1`.
+- **`OutputRepository::updateStateById()`** protège aussi 108/109 côté SQL, même si un ancien client omet le champ `gpio`.
+- **`POST /api/outputs*/trigger-feed`** incrémente uniquement si le couple `{ id, gpio }` correspond à une vraie ligne de nourrissage, afin d'éviter l'incrément d'une autre sortie avec une réponse de succès trompeuse.
+
 ## [6.0.0] - 2026-06-25
 
 ### Changement de contrat (BREAKING) - Nourrissage manuel : compteur monotone simple et robuste

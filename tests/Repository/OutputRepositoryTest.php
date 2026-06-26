@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Repository;
 
+use App\Config\TableConfig;
 use App\Repository\OutputRepository;
 use PDO;
 use PDOException;
@@ -156,5 +157,64 @@ class OutputRepositoryTest extends TestCase
 
         $this->expectException(PDOException::class);
         $repository->ensureServoAngleRowsExist();
+    }
+
+    public function testUpdateStateByIdDoesNotOverwriteManualFeedCounter(): void
+    {
+        $pdo = $this->makeSqliteOutputsPdo();
+        $repo = new OutputRepository($pdo);
+
+        $updated = $repo->updateStateById(1, 0, 'web');
+
+        $this->assertFalse($updated);
+        $this->assertSame('12', (string) $pdo->query('SELECT state FROM ffp3Outputs WHERE id = 1')->fetchColumn());
+    }
+
+    public function testIncrementFeedCounterRequiresMatchingGpio(): void
+    {
+        $pdo = $this->makeSqliteOutputsPdo();
+        $repo = new OutputRepository($pdo);
+
+        $counter = $repo->incrementFeedCounter(2, 108);
+
+        $this->assertNull($counter);
+        $this->assertSame('1', (string) $pdo->query('SELECT state FROM ffp3Outputs WHERE id = 2')->fetchColumn());
+    }
+
+    public function testIncrementFeedCounterUpdatesMatchingManualFeedGpioOnly(): void
+    {
+        $pdo = $this->makeSqliteOutputsPdo();
+        $repo = new OutputRepository($pdo);
+
+        $counter = $repo->incrementFeedCounter(1, 108);
+
+        $this->assertSame(13, $counter);
+        $this->assertSame('13', (string) $pdo->query('SELECT state FROM ffp3Outputs WHERE id = 1')->fetchColumn());
+    }
+
+    private function makeSqliteOutputsPdo(): PDO
+    {
+        if (!in_array('sqlite', PDO::getAvailableDrivers(), true)) {
+            $this->markTestSkipped('PDO sqlite driver not available');
+        }
+
+        TableConfig::setEnvironment('prod');
+        $pdo = new PDO('sqlite::memory:');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->sqliteCreateFunction('NOW', static fn (): string => '2026-06-26 11:00:00');
+        $pdo->exec('CREATE TABLE ffp3Outputs (
+            id INTEGER PRIMARY KEY,
+            board TEXT,
+            gpio INTEGER,
+            name TEXT,
+            state TEXT,
+            requestTime TEXT,
+            lastModifiedBy TEXT
+        )');
+        $pdo->exec("INSERT INTO ffp3Outputs (id, board, gpio, name, state, lastModifiedBy) VALUES
+            (1, '1', 108, 'Nourrir petits poissons', '12', 'web'),
+            (2, '1', 16, 'Pompe aquarium', '1', 'web')");
+
+        return $pdo;
     }
 }
