@@ -30,7 +30,7 @@ class OutputServiceManualFeedTest extends TestCase
         $repo = $this->createMock(OutputRepository::class);
         $repo->expects($this->once())
             ->method('incrementFeedCounter')
-            ->with(3)
+            ->with(3, 109)
             ->willReturn(42);
 
         $service = new OutputService(
@@ -69,7 +69,7 @@ class OutputServiceManualFeedTest extends TestCase
         $repo = $this->createMock(OutputRepository::class);
         $repo->expects($this->once())
             ->method('incrementFeedCounter')
-            ->with(999)
+            ->with(999, 108)
             ->willReturn(null);
 
         $service = new OutputService(

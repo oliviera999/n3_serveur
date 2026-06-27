@@ -108,6 +108,35 @@ class OutputRepositoryTest extends TestCase
         $this->assertContains(117, self::CONTROL_TWIG_ACTUATOR_GPIOS);
     }
 
+    public function testIncrementFeedCounterRequiresMatchingIdAndGpio(): void
+    {
+        $pdo = $this->createMock(PDO::class);
+
+        $repository = new class ($pdo, $this) extends OutputRepository {
+            public function __construct(PDO $pdo, private TestCase $test)
+            {
+                parent::__construct($pdo);
+            }
+
+            protected function executeWithRowCount(string $sql, array $params = []): int
+            {
+                $this->test->assertStringContainsString('WHERE id = :id', $sql);
+                $this->test->assertStringContainsString('AND gpio = :gpio', $sql);
+                $this->test->assertSame([':id' => 7, ':gpio' => 109], $params);
+
+                return 0;
+            }
+
+            protected function fetchOne(string $sql, array $params = []): ?array
+            {
+                $this->test->fail('Le compteur ne doit pas être relu si aucun couple ID/GPIO ne matche.');
+                return null;
+            }
+        };
+
+        $this->assertNull($repository->incrementFeedCounter(7, 109));
+    }
+
     public function testEnsureServoAngleRowsIgnoresConcurrentDuplicateInsert(): void
     {
         $pdo = $this->createMock(PDO::class);

@@ -46,7 +46,8 @@ Interface Web (control.twig)
 
 **Solution Implémentée**: **Protection par fenêtre de priorité**
 - L'ESP32 récupère les états toutes les **6 secondes** (firmware : `REMOTE_FETCH_INTERVAL_MS`)
-- Les changements faits depuis l'interface web ne sont **pas écrasés** par le POST ESP pendant une fenêtre de priorité : **10 s** (actionneurs/config) ou **20 s** (GPIO 108/109 nourrissage)
+- Les changements faits depuis l'interface web ne sont **pas écrasés** par le POST ESP pendant une fenêtre de priorité : **10 s** pour les actionneurs/config synchronisés
+- Les compteurs de nourrissage GPIO 108/109 ne sont plus écrits par le POST ESP : ils sont détenus par le serveur (voir « compteur monotone »)
 - Colonnes `lastModifiedBy` et `requestTime` : le serveur n'applique l'UPDATE du POST que si `lastModifiedBy != 'web'` ou si `requestTime` est antérieur à cette fenêtre
 
 ```sql
@@ -108,7 +109,7 @@ Le feedback « changement distant » par GPIO ne passe pas par un badge texte ma
 
 - **Dernière sync ESP32**: Timestamp de la dernière communication
 - **Délai de synchronisation**: 2-3 minutes (incompressible)
-- **Protection changements web**: 10 s (actionneurs/config), 20 s (nourrissage 108/109) — pendant cette fenêtre, le POST ESP n'écrase pas les valeurs écrites par l'interface
+- **Protection changements web**: 10 s pour les actionneurs/config synchronisés — pendant cette fenêtre, le POST ESP n'écrase pas les valeurs écrites par l'interface. Les compteurs nourrissage 108/109 sont exclus de cette logique car le POST ESP ne les écrit plus.
 
 ---
 
@@ -149,7 +150,7 @@ d'écriture : cliquer N fois = nourrir N fois (le firmware rattrape), sans jamai
 
 - Bouton **« Nourrir »** (impulsion unique) sur `/aquaponie-control*`.
 - Endpoint `POST /api/outputs*/trigger-feed`, corps `{ id, gpio }` (plus de `step`) : fait
-  `state = state + 1` ; réponse `{ success, gpio, counter, feed_cmd_id }`. Le `feed_cmd_id`
+  `state = state + 1` seulement si la ligne `id` correspond au GPIO demandé ; réponse `{ success, gpio, counter, feed_cmd_id }`. Le `feed_cmd_id`
   (16 car. hex) est journalisé dans `[control-audit] action=trigger_manual_feed`.
 - Suivi UI : toast `Repas demandé (#N)` + affichage du compteur. Pas d'attente d'acquittement,
   pas de timeout, pas de polling accéléré (le firmware rattrape de lui-même).
@@ -221,7 +222,7 @@ ALTER TABLE ffp3Outputs2 ADD COLUMN lastModifiedBy ENUM('web', 'esp32') NULL;
    - ✅ ESP32 POST dans les 10 s → Vérifier que l'état n'est PAS écrasé
 
 2. **Expiration protection → Écrasement**
-   - ✅ Attendre > 10 s (ou > 20 s pour GPIO 108/109) après changement web
+   - ✅ Attendre > 10 s après changement web
    - ✅ ESP32 POST → Vérifier que l'état est maintenant écrasé
 
 3. **GPIO 18 cohérence**

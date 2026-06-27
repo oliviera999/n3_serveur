@@ -203,21 +203,23 @@ class OutputRepository extends AbstractRepository
      * jamais → aucune course bidirectionnelle, robuste aux reboots et aux polls manqués.
      *
      * @param int $id Identifiant de la ligne outputs (PK)
+     * @param int $gpio GPIO de nourrissage attendu (108/109)
      * @return int|null Nouvelle valeur du compteur, ou null si la ligne est introuvable
      */
-    public function incrementFeedCounter(int $id): ?int
+    public function incrementFeedCounter(int $id, int $gpio): ?int
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
         $sql = "UPDATE `{$table}`
                 SET state = CAST(state AS UNSIGNED) + 1,
                     requestTime = NOW(),
                     lastModifiedBy = 'web'
-                WHERE id = :id";
-        if ($this->executeWithRowCount($sql, [':id' => $id]) <= 0) {
+                WHERE id = :id
+                  AND gpio = :gpio";
+        if ($this->executeWithRowCount($sql, [':id' => $id, ':gpio' => $gpio]) <= 0) {
             return null;
         }
 
-        return $this->getStateById($id);
+        return $this->getStateByIdAndGpio($id, $gpio);
     }
 
     /**
@@ -227,6 +229,23 @@ class OutputRepository extends AbstractRepository
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
         $row = $this->fetchOne("SELECT state FROM `{$table}` WHERE id = :id", [':id' => $id]);
+        if ($row === null || !isset($row['state'])) {
+            return null;
+        }
+
+        return (int) $row['state'];
+    }
+
+    /**
+     * Lit l'état (entier) d'une sortie par son couple ID/GPIO, ou null si introuvable.
+     */
+    public function getStateByIdAndGpio(int $id, int $gpio): ?int
+    {
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+        $row = $this->fetchOne(
+            "SELECT state FROM `{$table}` WHERE id = :id AND gpio = :gpio",
+            [':id' => $id, ':gpio' => $gpio]
+        );
         if ($row === null || !isset($row['state'])) {
             return null;
         }

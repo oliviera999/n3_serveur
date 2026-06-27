@@ -300,9 +300,9 @@ class OutputService
             return ['success' => false, 'gpio' => $gpio, 'counter' => 0, 'feed_cmd_id' => '', 'error' => 'Identifiant output requis'];
         }
 
-        $counter = $this->outputRepository->incrementFeedCounter($id);
+        $counter = $this->outputRepository->incrementFeedCounter($id, $gpio);
         if ($counter === null) {
-            return ['success' => false, 'gpio' => $gpio, 'counter' => 0, 'feed_cmd_id' => '', 'error' => 'Sortie introuvable'];
+            return ['success' => false, 'gpio' => $gpio, 'counter' => 0, 'feed_cmd_id' => '', 'error' => 'Sortie de nourrissage introuvable ou GPIO incohérent'];
         }
 
         return [
