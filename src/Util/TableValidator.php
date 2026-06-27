@@ -15,7 +15,11 @@ class TableValidator
     public const DATA_TABLES = ['ffp3Data', 'ffp3Data2', 'ffp3Data3', 'ffp3DataS3', 'ffp3DataS3Test'];
 
     /** Tables d'outputs (GPIO) autorisées */
-    public const OUTPUT_TABLES = ['ffp3Outputs', 'ffp3Outputs2', 'ffp3Outputs3', 'ffp3OutputsS3', 'ffp3OutputsS3Test'];
+    public const OUTPUT_TABLES = [
+        'ffp3Outputs', 'ffp3Outputs2', 'ffp3Outputs3', 'ffp3OutputsS3', 'ffp3OutputsS3Test',
+        'msp1Outputs', 'msp1OutputsTest',
+        'n3ppOutputs', 'n3ppOutputsTest',
+    ];
 
     /** Tables de boards autorisées */
     public const BOARD_TABLES = ['ffp3Boards', 'ffp3Boards2'];
