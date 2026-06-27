@@ -214,7 +214,9 @@ class ChartDataServiceTest extends TestCase
 
     public function testPrepareGenericSeriesCapAndCoherence(): void
     {
-        // makeReadingsDesc -> contrôleur passe array_reverse(readings) (ASC).
+        // Le service attend des lectures en ordre chronologique (ASC), tel que
+        // fetchBetween() les renvoie. makeReadingsDesc produit du DESC : on inverse
+        // pour reproduire l'ASC fourni par le contrôleur.
         $readings = array_reverse($this->makeReadingsDesc(4900));
         $columns = ['EauAquarium', 'TempAir'];
 

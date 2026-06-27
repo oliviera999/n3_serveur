@@ -108,8 +108,13 @@ abstract class AbstractDataController
         }
 
         $chartColumns = $this->getChartColumns();
+        // fetchBetween() renvoie déjà les lectures en ordre chronologique (ASC) et
+        // prepareGenericSeries() conserve cet ordre. Highstock exige un axe X
+        // croissant : inverser ici produirait des timestamps décroissants et
+        // déclencherait l'avertissement Highcharts #15 (« data not sorted in
+        // ascending X order »).
         $series = $this->chartDataService->prepareGenericSeries(
-            array_reverse($readings),
+            $readings,
             $chartColumns
         );
 

@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.2.2] - 2026-06-27
+
+### Correctif - CSP bloquant la feuille de style Google Fonts + avertissement Highcharts #15 (potager)
+- **CSP / Google Fonts** : la `Content-Security-Policy` par défaut (`SecurityHeadersMiddleware`) n'autorisait que `style-src 'self' 'unsafe-inline'` et `font-src 'self' data:`, ce qui bloquait la feuille de style Google Fonts (`https://fonts.googleapis.com/css2?...`) chargée par `layout.twig` (erreur navigateur « Loading the stylesheet ... violates the following Content Security Policy directive »). Ajout de `https://fonts.googleapis.com` à `style-src` et de `https://fonts.gstatic.com` (fichiers de police) à `font-src`. La directive `SECURITY_CSP` (`.env`) reste prioritaire ; le `.env.example` rappelle les origines à conserver en cas d'override.
+- **Highcharts #15 (pages données N3PP / MSP1)** : `AbstractDataController` appliquait `array_reverse()` aux lectures avant `ChartDataService::prepareGenericSeries()`, alors que `AbstractSensorRepository::fetchBetween()` les renvoie déjà en ordre chronologique (ASC) et que `prepareGenericSeries()` préserve l'ordre. Résultat : timestamps décroissants transmis à Highstock → avertissement #15 (« data not sorted in ascending X order ») sur la page de données du potager (et de la station météo). Suppression du `array_reverse()` superflu : l'axe X redevient strictement croissant.
+- **Tests** : `SecurityHeadersMiddlewareTest` couvre désormais les origines Google Fonts (`style-src`/`font-src`) ; nouveau `N3ppDataControllerTest` garde-fou sur l'ordre croissant des timestamps transmis au template (anti-régression Highcharts #15).
+
 ## [6.2.1] - 2026-06-27
 
 ### Correctif - Fichier VERSION malformé après merge
