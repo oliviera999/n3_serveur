@@ -152,6 +152,30 @@ final class SecurityHeadersMiddlewareTest extends TestCase
         );
     }
 
+    public function testDefaultCspAllowsGoogleFonts(): void
+    {
+        unset($_ENV['SECURITY_CSP']);
+        $middleware = new SecurityHeadersMiddleware();
+        $response = $middleware->process(
+            $this->makeRequest('http://localhost/'),
+            $this->passthroughHandler
+        );
+        $csp = $response->getHeaderLine('Content-Security-Policy');
+
+        // La feuille de style Google Fonts (layout.twig) est chargee depuis
+        // fonts.googleapis.com ; sans cette origine dans style-src elle est bloquee.
+        $this->assertMatchesRegularExpression(
+            '/style-src[^;]*https:\/\/fonts\.googleapis\.com/',
+            $csp
+        );
+        // Les fichiers de police viennent de fonts.gstatic.com : ils doivent etre
+        // autorises dans font-src.
+        $this->assertMatchesRegularExpression(
+            '/font-src[^;]*https:\/\/fonts\.gstatic\.com/',
+            $csp
+        );
+    }
+
     public function testCustomCspOverridesDefault(): void
     {
         $_ENV['SECURITY_CSP'] = "default-src 'none'";

@@ -34,9 +34,12 @@ class SecurityHeadersMiddleware implements MiddlewareInterface
      */
     private const DEFAULT_CSP = "default-src 'self'; "
         . "script-src 'self' 'unsafe-inline' https://code.highcharts.com https://cdn.jsdelivr.net https://code.jquery.com; "
-        . "style-src 'self' 'unsafe-inline'; "
+        // Google Fonts : la feuille de style est servie par fonts.googleapis.com et
+        // les fichiers de police par fonts.gstatic.com (cf. layout.twig). Sans ces
+        // origines, la CSP bloque le <link rel="stylesheet"> Google Fonts.
+        . "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
         . "img-src 'self' data: blob:; "
-        . "font-src 'self' data:; "
+        . "font-src 'self' data: https://fonts.gstatic.com; "
         . "connect-src 'self'; "
         // Graphiques Google Sheets publies (pubchart) embarques en <iframe> sur
         // les pages aquaponie/MSP. Sans frame-src explicite, le fallback default-src
