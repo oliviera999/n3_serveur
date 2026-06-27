@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.2.1] - 2026-06-27
+
+### Correctif - Fichier VERSION malformé après merge
+- Le merge de la PR #52 a résolu un conflit sur `VERSION` en **conservant les deux lignes** (`6.2.0` issu de #52 et `6.0.1` issu de #51), produisant un fichier `VERSION` à deux lignes. `App\Config\Version::get()` applique `trim()` mais pas sur le saut de ligne interne → la version exposée devenait `6.2.0\n6.0.1` (affichée `v6.2.0\n6.0.1` sur les pages).
+- `VERSION` ramené à une seule valeur propre. Aucune modification de code applicatif.
+
 ## [6.2.0] - 2026-06-27
 
 ### Fonctionnalité - Horodatage de capture des photos de galerie (mode offline) + classement N-first
