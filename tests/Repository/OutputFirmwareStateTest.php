@@ -68,6 +68,15 @@ final class OutputFirmwareStateTest extends TestCase
             {
                 return [];
             }
+
+            // Ce double caractérise le mécanisme one-shot générique sur GPIO 108.
+            // Le défaut de la base exclut 108/109 (server-only MSP/N3PP : notifMode /
+            // notifCategories, depuis v5.9.1) ; on neutralise ce filtre ici pour
+            // tester l'acquittement one-shot lui-même, sans la politique de notifs.
+            protected function getServerOnlyGpios(): array
+            {
+                return [];
+            }
         };
     }
 
