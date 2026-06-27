@@ -32,6 +32,24 @@ class GalleryControlRepository extends AbstractRepository
         'notifCategories' => 108,
     ];
 
+    /**
+     * Valeurs par défaut quand le paramètre n'est pas encore en base.
+     *
+     * `sleepTime` doit retomber sur 600 s (défaut firmware FreqWakeSec), pas 0 :
+     * la refonte v5.9.1 avait collapsé ces défauts spécifiques en un `'0'` générique.
+     *
+     * @var array<string, string>
+     */
+    private const PARAM_DEFAULTS = [
+        'mail' => '',
+        'mailNotif' => 'false',
+        'forceWakeUp' => '0',
+        'sleepTime' => '600',
+        'resetMode' => '0',
+        'notifMode' => '0',
+        'notifCategories' => '0',
+    ];
+
     /** @var int[] */
     private const SERVER_ONLY_GPIOS = [107, 108];
 
@@ -112,7 +130,7 @@ class GalleryControlRepository extends AbstractRepository
 
         $params = [];
         foreach (self::PARAM_GPIO_MAP as $name => $gpio) {
-            $params[$name] = $byGpio[$gpio] ?? ($name === 'mail' ? '' : ($name === 'mailNotif' ? 'false' : '0'));
+            $params[$name] = $byGpio[$gpio] ?? self::PARAM_DEFAULTS[$name];
         }
 
         return $params;

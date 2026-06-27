@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.0.1] - 2026-06-25
+
+### Correctif - Tests obsolètes et défaut `sleepTime` galerie (suites de la politique de notifications v5.9.1)
+- **Régression `GalleryControlRepository`** : la refonte v5.9.1 avait collapsé les défauts par paramètre en un `'0'` générique, perdant `sleepTime → '600'` (défaut firmware FreqWakeSec). Rétabli via une table `PARAM_DEFAULTS` explicite — la page contrôle galerie réaffiche 600 s quand le paramètre est absent en base.
+- **Tests de caractérisation one-shot** mis à jour pour le contrat « GPIO 108/109 server-only MSP/N3PP » introduit en v5.9.1 (`notifMode` / `notifCategories`, exclus des réponses firmware) :
+  - `MspOutputRepositoryTest::testGetStateForFirmwareAcksOneShotGpio` : utilise le GPIO **110** (reset, one-shot non server-only) au lieu de 108.
+  - `OutputFirmwareStateTest` : le double générique surcharge `getServerOnlyGpios()` → `[]` pour tester le mécanisme one-shot lui-même (GPIO 108) sans la politique de notifications.
+- Ces 4 tests échouaient déjà sur `master` (sans rapport avec le nourrissage) ; la CI Unit repasse au vert.
+
 ## [6.0.0] - 2026-06-25
 
 ### Changement de contrat (BREAKING) - Nourrissage manuel : compteur monotone simple et robuste

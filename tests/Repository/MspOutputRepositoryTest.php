@@ -94,22 +94,25 @@ class MspOutputRepositoryTest extends TestCase
 
     public function testGetStateForFirmwareAcksOneShotGpio(): void
     {
-        // 108 = GPIO one-shot : doit etre repasse a 0 apres lecture.
-        $this->insertOutput('oneShot', 1, 108, '1');
+        // 110 = GPIO one-shot (reset) : doit etre repasse a 0 apres lecture.
+        // NB : 108/109 ne conviennent plus pour ce test — depuis la politique de
+        // notifications (v5.9.1) ils sont server-only pour MSP/N3PP (notifMode /
+        // notifCategories) et donc exclus des reponses firmware.
+        $this->insertOutput('oneShot', 1, 110, '1');
         // 2 = GPIO classique : reste a 1.
         $this->insertOutput('classique', 1, 2, '1');
 
         $state = $this->repo->getStateForFirmware(1);
 
         // La reponse renvoyee au firmware contient encore l'etat actif.
-        $this->assertEquals(['108' => '1', '2' => '1'], $state);
+        $this->assertEquals(['110' => '1', '2' => '1'], $state);
 
         // En base, le one-shot est acquitte (remis a 0), le classique inchange.
         $after = $this->pdo
             ->query("SELECT gpio, state FROM `{$this->table}` ORDER BY gpio ASC")
             ->fetchAll(PDO::FETCH_KEY_PAIR);
         $this->assertSame('1', $after[2]);
-        $this->assertSame('0', $after[108]);
+        $this->assertSame('0', $after[110]);
     }
 
     public function testUpdateByGpioChangesState(): void
