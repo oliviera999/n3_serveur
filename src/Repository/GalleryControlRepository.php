@@ -112,7 +112,15 @@ class GalleryControlRepository extends AbstractRepository
 
         $params = [];
         foreach (self::PARAM_GPIO_MAP as $name => $gpio) {
-            $params[$name] = $byGpio[$gpio] ?? ($name === 'mail' ? '' : ($name === 'mailNotif' ? 'false' : '0'));
+            // Défauts alignés sur le firmware quand aucune valeur n'est stockée :
+            // sleepTime = 600 s (TIME_TO_SLEEP), mail vide, mailNotif désactivé, le reste à 0.
+            $default = match ($name) {
+                'mail' => '',
+                'mailNotif' => 'false',
+                'sleepTime' => '600',
+                default => '0',
+            };
+            $params[$name] = $byGpio[$gpio] ?? $default;
         }
 
         return $params;

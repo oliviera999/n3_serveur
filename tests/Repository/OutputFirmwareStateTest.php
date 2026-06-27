@@ -40,9 +40,11 @@ final class OutputFirmwareStateTest extends TestCase
             gpio INTEGER,
             state TEXT
         )');
-        // 108 = commande one-shot active ; 18 = sortie normale active.
+        // 110 = commande one-shot active (reset) ; 18 = sortie normale active.
+        // NB : 108/109 sont désormais server-only (notifMode/notifCategories) côté MSP/N3PP
+        // et exclus de la réponse firmware ; 110 reste le one-shot acquitté.
         $this->pdo->exec("INSERT INTO outputs_test (name, board, gpio, state) VALUES
-            ('feedNow', 3, 108, '1'),
+            ('resetEsp', 3, 110, '1'),
             ('pump', 3, 18, '1')");
 
         // Faux BoardRepository : neutralise updateLastRequest() (NOW() non supporté SQLite).
@@ -74,7 +76,7 @@ final class OutputFirmwareStateTest extends TestCase
     public function testFirstReadReturnsActiveOneShotState(): void
     {
         $state = $this->repo->getStateForFirmware(3);
-        $this->assertSame('1', $state['108'], 'Le firmware doit recevoir la commande one-shot active une fois.');
+        $this->assertSame('1', $state['110'], 'Le firmware doit recevoir la commande one-shot active une fois.');
         $this->assertSame('1', $state['18']);
     }
 
@@ -83,14 +85,14 @@ final class OutputFirmwareStateTest extends TestCase
         $this->repo->getStateForFirmware(3);
 
         // En BDD, la commande one-shot est repassée à 0 (ack), pas la sortie normale.
-        $row108 = $this->pdo->query('SELECT state FROM outputs_test WHERE gpio = 108')->fetchColumn();
+        $row110 = $this->pdo->query('SELECT state FROM outputs_test WHERE gpio = 110')->fetchColumn();
         $row18 = $this->pdo->query('SELECT state FROM outputs_test WHERE gpio = 18')->fetchColumn();
-        $this->assertSame('0', (string) $row108);
+        $this->assertSame('0', (string) $row110);
         $this->assertSame('1', (string) $row18);
 
         // Une seconde lecture ne renvoie plus la commande active.
         $second = $this->repo->getStateForFirmware(3);
-        $this->assertSame('0', $second['108']);
+        $this->assertSame('0', $second['110']);
         $this->assertSame('1', $second['18']);
     }
 }

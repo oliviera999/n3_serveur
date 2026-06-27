@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.0.1] - 2026-06-27
+
+### Correctif - Tests de caractérisation one-shot GPIO périmés (CI rouge) + défaut sleepTime galerie
+- **CI verte** : la suite unitaire échouait sur 4 tests pré-existants (rouges aussi sur `master`), sans rapport avec une régression du code applicatif.
+- **One-shot GPIO** (`OutputFirmwareStateTest`, `MspOutputRepositoryTest::testGetStateForFirmwareAcksOneShotGpio`) : ces tests de caractérisation utilisaient le **GPIO 108** comme exemple de commande one-shot. Or depuis la v6.0.0, **108/109 sont devenus server-only** (notifMode/notifCategories MSP/N3PP) et sont exclus de la réponse firmware par `AbstractOutputRepository::getStateForFirmware()`. Tests mis à jour pour le **GPIO 110 (reset)**, seul one-shot encore acquitté pour MSP/N3PP — le comportement applicatif est inchangé.
+- **`GalleryControlRepository::getParametersForControlPage()`** : le défaut de `sleepTime` (aucune valeur en base) était `'0'` alors que le défaut firmware est **600 s** (le template le corrigeait déjà via `|default('600')`). Le repository renvoie désormais `'600'` directement — aucun impact UI, cohérence repo/template/firmware.
+
 ## [6.0.0] - 2026-06-25
 
 ### Changement de contrat (BREAKING) - Nourrissage manuel : compteur monotone simple et robuste
