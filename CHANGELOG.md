@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.2.2] - 2026-06-27
+
+### Correctif - Erreur 500 sur /meteo-control (et /serre-control)
+- **Symptôme** : `GET /meteo-control` (station météo MSP1) renvoyait une **erreur 500**. La page `/serre-control` (N3PP) était touchée de la même façon.
+- **Cause racine** : la whitelist `App\Util\TableValidator::OUTPUT_TABLES` ne contenait que les tables FFP3. Au chargement de la page de contrôle, `MspOutputController::buildControlPageData()` appelle `notificationPolicyTwigData()` → `NotificationPolicyRepository::ensurePolicyRows()` → `validateTable()` → `validateOutputsTable('msp1Outputs')`, qui levait une `InvalidArgumentException` (`msp1Outputs` absent de la whitelist). Cet appel n'étant pas protégé par le `try/catch` de `buildControlPageData()`, l'exception remontait jusqu'à `AbstractOutputController::showControlPage()` → 500. Même chemin pour N3PP (`n3ppOutputs`).
+- **Correctif** : ajout des tables d'outputs MSP1 et N3PP (`msp1Outputs`, `msp1OutputsTest`, `n3ppOutputs`, `n3ppOutputsTest`) à la whitelist `OUTPUT_TABLES`. La sauvegarde de la politique de notifications de ces familles fonctionne désormais également (même validation).
+- **Tests** : nouveau `tests/Util/TableValidatorTest.php` (tables autorisées FFP3/MSP1/N3PP + rejet des noms inconnus/injection).
+
 ## [6.2.1] - 2026-06-27
 
 ### Correctif - Fichier VERSION malformé après merge
