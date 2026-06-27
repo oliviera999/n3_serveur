@@ -11,6 +11,17 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.2.0] - 2026-06-27
+
+### Fonctionnalité - Horodatage de capture des photos de galerie (mode offline) + classement N-first
+- **Problème** : le serveur horodatait chaque photo avec l'**heure de réception** (`date('Y-m-d_H-i-s')`), et ce nom de fichier sert de clé de tri et d'heure affichée. Conséquence du mode offline (v6.1.0) : une photo capturée hors-ligne et drainée plus tard était classée/datée à l'heure d'upload, pas de capture.
+- **Nouveau nom de fichier** : `<seq10>_<Y-m-d_H-i-s>_<hex>.jpg` quand le firmware fournit les en-têtes, sinon legacy `<Y-m-d_H-i-s>_<hex>.jpg`.
+  - `X-Capture-Seq` : compteur monotone du firmware, placé **en tête** (zéro-paddé sur 10) → **classement robuste même si l'heure est fausse/inconnue**.
+  - `X-Captured-At` : heure de **capture** (format `Y-m-d_H-i-s`, heure locale appareil), validée + bornée (2020–2100) ; utilisée pour le segment date à la place de l'heure de réception. Fallback réception si absente/invalide.
+- **`GalleryUploadController`** : lecture/validation des en-têtes (`buildFilename` / `resolveCaptureDate` / `resolveCaptureSeq`).
+- **`GalleryViewController`** : `extractTimestampFromFilename` tolère le préfixe `<N>_` ; nouveau tri `sortNewestFirst` (par compteur décroissant, N-first avant legacy) en remplacement du `rsort` brut → ordre de capture respecté, transition douce ancien/nouveau format sans renommage.
+- **Compat** : rétro-compatible (sans en-têtes = comportement historique) ; aucune migration des photos existantes requise. Contrat couplé au firmware uploadphotosserver ≥ 2.41.
+
 ## [6.1.0] - 2026-06-26
 
 ### Fonctionnalité - Synchronisation hors-ligne des galeries photo (uploadphotosserver)

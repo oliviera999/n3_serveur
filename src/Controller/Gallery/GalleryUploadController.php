@@ -112,7 +112,7 @@ class GalleryUploadController
             mkdir($targetDir, 0755, true);
         }
 
-        $filename = date('Y-m-d_H-i-s') . '_' . bin2hex(random_bytes(4)) . '.jpg';
+        $filename = $this->buildFilename($request);
         $targetPath = $targetDir . '/' . $filename;
 
         try {
@@ -186,6 +186,64 @@ class GalleryUploadController
         } catch (\Throwable $e) {
             $this->logger->warning('GalleryUpload: increment session de sync echoue', ['error' => $e->getMessage()]);
         }
+    }
+
+    /**
+     * Construit le nom de fichier de la photo.
+     *
+     * Renforcement offline : le firmware peut fournir l'heure de CAPTURE (en-tête X-Captured-At,
+     * format Y-m-d_H-i-s local appareil) et un compteur monotone (en-tete X-Capture-Seq). Le
+     * compteur est place EN TETE (zero-padde) pour un classement robuste meme si l'heure est
+     * fausse/inconnue ; l'heure de capture (et non l'heure de reception) est utilisee pour le
+     * segment date. En l'absence d'en-tetes (photo live sans SD, firmware ancien), on retombe sur
+     * le format historique date-first avec l'heure de reception.
+     *
+     * Formats : `<seq10>_<Y-m-d_H-i-s>_<hex>.jpg`  ou (legacy) `<Y-m-d_H-i-s>_<hex>.jpg`.
+     */
+    private function buildFilename(Request $request): string
+    {
+        $rand = bin2hex(random_bytes(4));
+        $dateSeg = $this->resolveCaptureDate($request);
+        $seq = $this->resolveCaptureSeq($request);
+        if ($seq !== null) {
+            return sprintf('%010d', $seq) . '_' . $dateSeg . '_' . $rand . '.jpg';
+        }
+
+        return $dateSeg . '_' . $rand . '.jpg';
+    }
+
+    /**
+     * Heure de capture fournie par le firmware (X-Captured-At, format Y-m-d_H-i-s), validee et
+     * bornee a une plage plausible ; sinon heure de reception serveur.
+     */
+    private function resolveCaptureDate(Request $request): string
+    {
+        $raw = trim($request->getHeaderLine('X-Captured-At'));
+        if ($raw !== '' && preg_match('/^\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}$/', $raw) === 1) {
+            $dt = \DateTimeImmutable::createFromFormat('Y-m-d_H-i-s', $raw);
+            if ($dt !== false) {
+                $year = (int) $dt->format('Y');
+                if ($year >= 2020 && $year <= 2100) {
+                    return $raw;
+                }
+            }
+        }
+
+        return date('Y-m-d_H-i-s');
+    }
+
+    /**
+     * Compteur de capture monotone fourni par le firmware (X-Capture-Seq), ou null.
+     */
+    private function resolveCaptureSeq(Request $request): ?int
+    {
+        $raw = trim($request->getHeaderLine('X-Capture-Seq'));
+        if ($raw === '' || ctype_digit($raw) === false) {
+            return null;
+        }
+        $seq = (int) $raw;
+
+        return ($seq > 0 && $seq <= 9999999999) ? $seq : null;
     }
 
     private function isAuthorizedRequest(Request $request, string $gallery): bool
