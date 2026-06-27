@@ -11,6 +11,31 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.2.0] - 2026-06-27
+
+### Fonctionnalité - Horodatage de capture des photos de galerie (mode offline) + classement N-first
+- **Problème** : le serveur horodatait chaque photo avec l'**heure de réception** (`date('Y-m-d_H-i-s')`), et ce nom de fichier sert de clé de tri et d'heure affichée. Conséquence du mode offline (v6.1.0) : une photo capturée hors-ligne et drainée plus tard était classée/datée à l'heure d'upload, pas de capture.
+- **Nouveau nom de fichier** : `<seq10>_<Y-m-d_H-i-s>_<hex>.jpg` quand le firmware fournit les en-têtes, sinon legacy `<Y-m-d_H-i-s>_<hex>.jpg`.
+  - `X-Capture-Seq` : compteur monotone du firmware, placé **en tête** (zéro-paddé sur 10) → **classement robuste même si l'heure est fausse/inconnue**.
+  - `X-Captured-At` : heure de **capture** (format `Y-m-d_H-i-s`, heure locale appareil), validée + bornée (2020–2100) ; utilisée pour le segment date à la place de l'heure de réception. Fallback réception si absente/invalide.
+- **`GalleryUploadController`** : lecture/validation des en-têtes (`buildFilename` / `resolveCaptureDate` / `resolveCaptureSeq`).
+- **`GalleryViewController`** : `extractTimestampFromFilename` tolère le préfixe `<N>_` ; nouveau tri `sortNewestFirst` (par compteur décroissant, N-first avant legacy) en remplacement du `rsort` brut → ordre de capture respecté, transition douce ancien/nouveau format sans renommage.
+- **Compat** : rétro-compatible (sans en-têtes = comportement historique) ; aucune migration des photos existantes requise. Contrat couplé au firmware uploadphotosserver ≥ 2.41.
+
+## [6.1.0] - 2026-06-26
+
+### Fonctionnalité - Synchronisation hors-ligne des galeries photo (uploadphotosserver)
+- **Contexte** : renforcement du mode hors-ligne des firmwares ESP32-CAM (msp1/n3pp/ffp3). La carte SD de la caméra sert de file d'attente locale ; au retour du WiFi, le firmware pousse au serveur les photos qui n'y sont pas encore. Côté serveur : indicateur de connexion, jauge de progression (X/Y) et mail récapitulatif de fin de transfert.
+- **Nouveau contrat firmware ↔ serveur (sessions de sync)** :
+  - `POST .../sync/start` (auth `api_key` device) : ouvre une session en annonçant `total` photos en attente ; renvoie l'identifiant `session`.
+  - `POST upload.php` avec en-tête `X-Sync-Session: <id>` : chaque photo reçue incrémente le compteur de la session (y compris les mises en corbeille auto, code 202).
+  - `POST .../sync/finish` (auth `api_key` device) : clôture la session (`sent`/`failed`/`bytes`), déclenche le mail récap.
+  - `GET .../sync/status` (auth utilisateur) : état JSON pour l'indicateur + la jauge (poll navigateur).
+  - Routes unifiées `/gallery/{slug}/api/sync/*` + alias legacy `.php` par cible (compat firmware).
+- **Stockage** : nouvelle table `gallerySyncSessions` (migration `migrations/CREATE_GALLERY_SYNC_SESSIONS_TABLE.sql`), une ligne par session, idempotente sur `(slug, device_session)`. Accès via `GallerySyncRepository`.
+- **Mail récap** : `NotificationService::sendGalleryTransferReport()` — envoi immédiat (jamais en digest), catégorie **Camera**, sévérité P3/Info si complet, P2/Alerte en cas d'échecs/transfert incomplet ; anti-spam par session. Reste soumis à la politique de notification de la famille `GALLERY_*`.
+- **UI** : page de contrôle de galerie (`/gallery/{slug}/control`) enrichie d'un panneau « Transfert hors-ligne » (point de connexion + jauge X/Y + compteur d'échecs), rafraîchi par poll (`gallery_control.twig`).
+- **Config** : `GALLERY_SYNC_ONLINE_WINDOW_SECONDS` (défaut 1500 s) pour la fenêtre « en ligne ».
 ## [6.0.1] - 2026-06-25
 
 ### Correctif - Tests obsolètes et défaut `sleepTime` galerie (suites de la politique de notifications v5.9.1)

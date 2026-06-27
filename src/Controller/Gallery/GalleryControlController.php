@@ -8,6 +8,7 @@ use App\Config\Version;
 use App\Controller\Traits\HandlesNotificationPolicy;
 use App\Notification\NotificationFamily;
 use App\Repository\GalleryControlRepository;
+use App\Repository\GallerySyncRepository;
 use App\Repository\NotificationPolicyRepository;
 use App\Security\AuthService;
 use App\Security\DeviceApiKeyValidator;
@@ -34,6 +35,7 @@ class GalleryControlController
         private readonly AuthService $authService,
         private readonly LogService $logger,
         private readonly NotificationPolicyRepository $notificationPolicyRepo,
+        private readonly GallerySyncRepository $syncRepository,
     ) {
     }
 
@@ -66,6 +68,8 @@ class GalleryControlController
                 'environment' => $_ENV['ENV'] ?? 'prod',
                 'nav_active' => 'gallery_control',
                 'outputs_api_base' => '/gallery/' . $slug . '/api/outputs',
+                'sync_api_base' => '/gallery/' . $slug . '/api/sync',
+                'sync_status' => $this->syncRepository->getStatus($slug),
                 'control_config' => $this->buildControlConfig($slug, $module['label'], count($outputs)),
             ], $this->notificationPolicyTwigDataForSlug($slug));
 

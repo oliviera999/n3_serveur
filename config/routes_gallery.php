@@ -7,6 +7,7 @@
  */
 
 use App\Controller\Gallery\GalleryControlController;
+use App\Controller\Gallery\GallerySyncController;
 use App\Controller\Gallery\GalleryTrashController;
 use App\Controller\Gallery\GalleryUploadController;
 use App\Controller\Gallery\GalleryViewController;
@@ -56,6 +57,28 @@ $app->get('/ffp3gallery/uploadphotoserver-outputs-action.php', [GalleryControlCo
 $app->get('/ffp3/ffp3gallery/uploadphotoserver-outputs-action.php', [GalleryControlController::class, 'getFfp3State']);
 $app->post('/ffp3gallery/post-uploadphotoserver-version.php', [GalleryControlController::class, 'postFfp3FirmwareVersion']);
 $app->post('/ffp3/ffp3gallery/post-uploadphotoserver-version.php', [GalleryControlController::class, 'postFfp3FirmwareVersion']);
+
+// Synchronisation hors-ligne des galeries (uploadphotosserver) — routes REST unifiees
+// start/finish : auth device api_key (firmware) ; status : auth utilisateur (page de controle).
+$app->post('/gallery/{slug}/api/sync/start', [GallerySyncController::class, 'startBySlug']);
+$app->post('/gallery/{slug}/api/sync/finish', [GallerySyncController::class, 'finishBySlug']);
+$app->get('/gallery/{slug}/api/sync/status', [GallerySyncController::class, 'statusBySlug']);
+
+// Synchronisation hors-ligne — alias legacy .php (URLs fixes par cible appelees par les firmwares)
+$app->post('/msp1gallery/uploadphotoserver-sync-start.php', [GallerySyncController::class, 'startMsp1']);
+$app->post('/msp1/msp1gallery/uploadphotoserver-sync-start.php', [GallerySyncController::class, 'startMsp1']);
+$app->post('/msp1gallery/uploadphotoserver-sync-finish.php', [GallerySyncController::class, 'finishMsp1']);
+$app->post('/msp1/msp1gallery/uploadphotoserver-sync-finish.php', [GallerySyncController::class, 'finishMsp1']);
+
+$app->post('/n3ppgallery/uploadphotoserver-sync-start.php', [GallerySyncController::class, 'startN3pp']);
+$app->post('/n3pp/n3ppgallery/uploadphotoserver-sync-start.php', [GallerySyncController::class, 'startN3pp']);
+$app->post('/n3ppgallery/uploadphotoserver-sync-finish.php', [GallerySyncController::class, 'finishN3pp']);
+$app->post('/n3pp/n3ppgallery/uploadphotoserver-sync-finish.php', [GallerySyncController::class, 'finishN3pp']);
+
+$app->post('/ffp3gallery/uploadphotoserver-sync-start.php', [GallerySyncController::class, 'startFfp3']);
+$app->post('/ffp3/ffp3gallery/uploadphotoserver-sync-start.php', [GallerySyncController::class, 'startFfp3']);
+$app->post('/ffp3gallery/uploadphotoserver-sync-finish.php', [GallerySyncController::class, 'finishFfp3']);
+$app->post('/ffp3/ffp3gallery/uploadphotoserver-sync-finish.php', [GallerySyncController::class, 'finishFfp3']);
 
 // Galerie photo (grille paginée) — accès admin uniquement (/admin/ protégé par middleware)
 $app->get('/admin/gallery/{slug}', [GalleryViewController::class, 'showGalleryAdmin']);

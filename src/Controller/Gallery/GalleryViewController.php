@@ -110,8 +110,46 @@ class GalleryViewController
                 $files[] = $name;
             }
         }
-        rsort($files);
+        $this->sortNewestFirst($files);
         return $files;
+    }
+
+    /**
+     * Trie les noms du plus récent au plus ancien, robuste à un horodatage faux.
+     *
+     * Clé primaire : le compteur monotone `<N>` en tête de nom (format N-first), décroissant.
+     * Les fichiers N-first passent avant les fichiers legacy (date-first), eux triés par nom
+     * décroissant. Ainsi l'ordre de capture est respecté même si la date embarquée est erronée
+     * et même en cas de mélange ancien/nouveau format pendant la transition.
+     *
+     * @param array<int, string> $files
+     */
+    private function sortNewestFirst(array &$files): void
+    {
+        usort($files, function (string $a, string $b): int {
+            [$groupA, $seqA] = $this->filenameSortKey($a);
+            [$groupB, $seqB] = $this->filenameSortKey($b);
+            if ($groupA !== $groupB) {
+                return $groupB <=> $groupA; // N-first (1) avant legacy (0)
+            }
+            if ($groupA === 1) {
+                return $seqB <=> $seqA; // par compteur décroissant
+            }
+
+            return strcmp($b, $a); // legacy : par nom (date) décroissant
+        });
+    }
+
+    /**
+     * @return array{0:int, 1:int} [groupe (1 = N-first, 0 = legacy), compteur]
+     */
+    private function filenameSortKey(string $filename): array
+    {
+        if (preg_match('/^(\d+)_/', $filename, $m) === 1) {
+            return [1, (int) $m[1]];
+        }
+
+        return [0, 0];
     }
 
     /** Page index : landing avec 3 blocs (aquaponie, potager, élevage) + dernière photo de chaque galerie. */
@@ -406,7 +444,8 @@ class GalleryViewController
     private function extractTimestampFromFilename(string $fullPath, string $filename): \DateTimeImmutable
     {
         $match = [];
-        if (preg_match('/^(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})_/', $filename, $match)) {
+        // Tolère un préfixe compteur optionnel `<N>_` (format N-first), puis la date de capture.
+        if (preg_match('/^(?:\d+_)?(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})_/', $filename, $match)) {
             try {
                 return new \DateTimeImmutable($match[1] . ' ' . $match[2] . ':' . $match[3] . ':' . $match[4]);
             } catch (\Throwable) {
