@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.2.3] - 2026-06-27
+
+### Correctif - Token CSRF manquant sur les interrupteurs de contrôle (mise en veille, etc.) + durcissement du système de mailing
+- **Symptôme** : sur `/serre-control` (et `/meteo-control`), basculer un interrupteur — notamment la **mise en veille** (WakeUp), le mode servo ou l'éco d'énergie — échouait avec « Token CSRF invalide ou manquant » (403). Les commandes à distance étaient refusées de manière générale dès qu'on agissait via un interrupteur.
+- **Cause racine** : la fonction JS `saveParamSwitch()` (partagée par les pages de contrôle) faisait un `POST .../parameters` **sans** l'en-tête `X-CSRF-Token`, alors que cet endpoint est protégé par `CsrfMiddleware` pour les sessions cookie. Les autres écritures (toggles via `control-actions.js`, champs texte via `control-auto-save.js`) envoyaient déjà le token ; seuls les interrupteurs ne le faisaient pas. Même bug dans la version galerie de `saveParamSwitch()`.
+- **Correctif (front)** :
+  - `templates/partials/_control_init_js.twig` (MSP1/N3PP) et `templates/gallery_control.twig` : `saveParamSwitch()` envoie désormais l'en-tête `X-CSRF-Token` (lu depuis `<meta name="csrf-token">`).
+  - `public/assets/js/notification-policy.js` (nouveau système de mailing) : envoie l'en-tête `X-CSRF-Token` **et** propage le `?token=` de l'URL (parité avec les autres écritures), corrigeant aussi l'échec d'authentification (401) en accès par token.
+- **Durcissement (back)** : l'endpoint `.../notification-policy` (sauvegarde de la politique de notifications) était authentifié par session mais **absent** de la liste CSRF → faille CSRF. Ajout du motif `#/api/outputs[0-9]*(-test)?/notification-policy$#` à `CsrfMiddleware`. Le mailing reste fonctionnel (la politique enregistrée est bien relue et respectée par `NotificationService` / `NotificationPolicyResolver`).
+- **Audit** : les pages FFP3 (`/aquaponie-control`) étaient déjà correctes (toggles + auto-save envoient le token). Aucune autre page (PGL) concernée.
+- **Tests** : `tests/Middleware/CsrfMiddlewareTest.php` étendu (protection des endpoints `notification-policy` + passage avec token valide).
+
 ## [6.2.2] - 2026-06-27
 
 ### Correctif - Erreur 500 sur /meteo-control (et /serre-control)
