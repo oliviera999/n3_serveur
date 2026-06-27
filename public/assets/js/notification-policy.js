@@ -15,7 +15,26 @@
     }
 
     function policyUrl() {
-        return apiBase().replace(/\/$/, '') + '/notification-policy';
+        return withCurrentToken(apiBase().replace(/\/$/, '') + '/notification-policy');
+    }
+
+    // Propage le ?token= de l'URL courante vers la requête (parité avec les autres
+    // écritures de contrôle) : une requête portant un token explicite est authentifiée
+    // et exemptée de CSRF côté serveur.
+    function withCurrentToken(endpoint) {
+        try {
+            var token = new URL(window.location.href).searchParams.get('token');
+            if (!token) {
+                return endpoint;
+            }
+            var target = new URL(endpoint, window.location.origin);
+            if (!target.searchParams.has('token')) {
+                target.searchParams.set('token', token);
+            }
+            return target.pathname + target.search;
+        } catch (e) {
+            return endpoint;
+        }
     }
 
     function getPanel() {
@@ -72,7 +91,12 @@
         setSaveIndicator('saving', 'Enregistrement…');
         return fetch(policyUrl(), {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                // Écriture navigateur protégée par CSRF (cookie de session).
+                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
+            },
             credentials: 'same-origin',
             body: JSON.stringify({ mode: mode, categories: categories }),
         })
