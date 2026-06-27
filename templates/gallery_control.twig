@@ -188,7 +188,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         fetch(controlApiBase + '/parameters', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                // Écriture protégée par CSRF (cookie de session) : sans ce header,
+                // la bascule des interrupteurs renvoie 403.
+                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
+            },
             body: JSON.stringify({ param: paramName, value: value }),
             credentials: 'include'
         })

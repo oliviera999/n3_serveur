@@ -187,4 +187,49 @@ final class CsrfMiddlewareTest extends TestCase
         );
         $this->assertSame(403, $result->getStatusCode());
     }
+
+    /**
+     * Régression : la sauvegarde de la politique de notifications (nouveau système
+     * de mailing) est une écriture navigateur authentifiée par session → doit exiger
+     * un token CSRF, comme /parameters et /toggle.
+     *
+     * @dataProvider notificationPolicyPaths
+     */
+    public function testNotificationPolicyEndpointIsProtected(string $path): void
+    {
+        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+
+        $result = $middleware->process(
+            $this->makeRequest('POST', $path),
+            $this->expectBlocked()
+        );
+        $this->assertSame(403, $result->getStatusCode());
+        $this->assertStringContainsString('CSRF', (string) $result->getBody());
+    }
+
+    public function testNotificationPolicyWithValidTokenPasses(): void
+    {
+        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+        $passed = $this->createMock(ResponseInterface::class);
+
+        $result = $middleware->process(
+            $this->makeRequest('POST', '/msp1/api/outputs/notification-policy', ['X-CSRF-Token' => $this->validToken]),
+            $this->expectPass($passed)
+        );
+        $this->assertSame($passed, $result);
+    }
+
+    /**
+     * @return array<string, array{string}>
+     */
+    public static function notificationPolicyPaths(): array
+    {
+        return [
+            'ffp3 prod' => ['/api/outputs/notification-policy'],
+            'msp1 prod' => ['/msp1/api/outputs/notification-policy'],
+            'msp1 test' => ['/msp1-test/api/outputs/notification-policy'],
+            'n3pp prod' => ['/n3pp/api/outputs/notification-policy'],
+            'gallery' => ['/gallery/msp1/api/outputs/notification-policy'],
+        ];
+    }
 }

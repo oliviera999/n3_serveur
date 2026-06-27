@@ -11,12 +11,32 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
-## [6.2.2] - 2026-06-27
+## [6.2.4] - 2026-06-27
 
 ### Correctif - CSP bloquant la feuille de style Google Fonts + avertissement Highcharts #15 (potager)
 - **CSP / Google Fonts** : la `Content-Security-Policy` par défaut (`SecurityHeadersMiddleware`) n'autorisait que `style-src 'self' 'unsafe-inline'` et `font-src 'self' data:`, ce qui bloquait la feuille de style Google Fonts (`https://fonts.googleapis.com/css2?...`) chargée par `layout.twig` (erreur navigateur « Loading the stylesheet ... violates the following Content Security Policy directive »). Ajout de `https://fonts.googleapis.com` à `style-src` et de `https://fonts.gstatic.com` (fichiers de police) à `font-src`. La directive `SECURITY_CSP` (`.env`) reste prioritaire ; le `.env.example` rappelle les origines à conserver en cas d'override.
 - **Highcharts #15 (pages données N3PP / MSP1)** : `AbstractDataController` appliquait `array_reverse()` aux lectures avant `ChartDataService::prepareGenericSeries()`, alors que `AbstractSensorRepository::fetchBetween()` les renvoie déjà en ordre chronologique (ASC) et que `prepareGenericSeries()` préserve l'ordre. Résultat : timestamps décroissants transmis à Highstock → avertissement #15 (« data not sorted in ascending X order ») sur la page de données du potager (et de la station météo). Suppression du `array_reverse()` superflu : l'axe X redevient strictement croissant.
 - **Tests** : `SecurityHeadersMiddlewareTest` couvre désormais les origines Google Fonts (`style-src`/`font-src`) ; nouveau `N3ppDataControllerTest` garde-fou sur l'ordre croissant des timestamps transmis au template (anti-régression Highcharts #15).
+
+## [6.2.3] - 2026-06-27
+
+### Correctif - Token CSRF manquant sur les interrupteurs de contrôle (mise en veille, etc.) + durcissement du système de mailing
+- **Symptôme** : sur `/serre-control` (et `/meteo-control`), basculer un interrupteur — notamment la **mise en veille** (WakeUp), le mode servo ou l'éco d'énergie — échouait avec « Token CSRF invalide ou manquant » (403). Les commandes à distance étaient refusées de manière générale dès qu'on agissait via un interrupteur.
+- **Cause racine** : la fonction JS `saveParamSwitch()` (partagée par les pages de contrôle) faisait un `POST .../parameters` **sans** l'en-tête `X-CSRF-Token`, alors que cet endpoint est protégé par `CsrfMiddleware` pour les sessions cookie. Les autres écritures (toggles via `control-actions.js`, champs texte via `control-auto-save.js`) envoyaient déjà le token ; seuls les interrupteurs ne le faisaient pas. Même bug dans la version galerie de `saveParamSwitch()`.
+- **Correctif (front)** :
+  - `templates/partials/_control_init_js.twig` (MSP1/N3PP) et `templates/gallery_control.twig` : `saveParamSwitch()` envoie désormais l'en-tête `X-CSRF-Token` (lu depuis `<meta name="csrf-token">`).
+  - `public/assets/js/notification-policy.js` (nouveau système de mailing) : envoie l'en-tête `X-CSRF-Token` **et** propage le `?token=` de l'URL (parité avec les autres écritures), corrigeant aussi l'échec d'authentification (401) en accès par token.
+- **Durcissement (back)** : l'endpoint `.../notification-policy` (sauvegarde de la politique de notifications) était authentifié par session mais **absent** de la liste CSRF → faille CSRF. Ajout du motif `#/api/outputs[0-9]*(-test)?/notification-policy$#` à `CsrfMiddleware`. Le mailing reste fonctionnel (la politique enregistrée est bien relue et respectée par `NotificationService` / `NotificationPolicyResolver`).
+- **Audit** : les pages FFP3 (`/aquaponie-control`) étaient déjà correctes (toggles + auto-save envoient le token). Aucune autre page (PGL) concernée.
+- **Tests** : `tests/Middleware/CsrfMiddlewareTest.php` étendu (protection des endpoints `notification-policy` + passage avec token valide).
+
+## [6.2.2] - 2026-06-27
+
+### Correctif - Erreur 500 sur /meteo-control (et /serre-control)
+- **Symptôme** : `GET /meteo-control` (station météo MSP1) renvoyait une **erreur 500**. La page `/serre-control` (N3PP) était touchée de la même façon.
+- **Cause racine** : la whitelist `App\Util\TableValidator::OUTPUT_TABLES` ne contenait que les tables FFP3. Au chargement de la page de contrôle, `MspOutputController::buildControlPageData()` appelle `notificationPolicyTwigData()` → `NotificationPolicyRepository::ensurePolicyRows()` → `validateTable()` → `validateOutputsTable('msp1Outputs')`, qui levait une `InvalidArgumentException` (`msp1Outputs` absent de la whitelist). Cet appel n'étant pas protégé par le `try/catch` de `buildControlPageData()`, l'exception remontait jusqu'à `AbstractOutputController::showControlPage()` → 500. Même chemin pour N3PP (`n3ppOutputs`).
+- **Correctif** : ajout des tables d'outputs MSP1 et N3PP (`msp1Outputs`, `msp1OutputsTest`, `n3ppOutputs`, `n3ppOutputsTest`) à la whitelist `OUTPUT_TABLES`. La sauvegarde de la politique de notifications de ces familles fonctionne désormais également (même validation).
+- **Tests** : nouveau `tests/Util/TableValidatorTest.php` (tables autorisées FFP3/MSP1/N3PP + rejet des noms inconnus/injection).
 
 ## [6.2.1] - 2026-06-27
 
