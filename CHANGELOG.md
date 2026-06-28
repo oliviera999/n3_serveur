@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.0.1] - 2026-06-28
+
+### Correctif - Nourrissage manuel : validation stricte du couple id/GPIO
+- **Bug critique** : `POST /api/outputs*/trigger-feed` validait le `gpio` nourrissage (108/109) mais incrémentait ensuite le compteur uniquement par `id`. Une paire incohérente `{id: ligne 108, gpio: 109}` pouvait donc incrémenter le mauvais canal tout en répondant comme si le canal demandé avait été nourri.
+- **Correction** : `OutputRepository::incrementFeedCounter()` exige désormais `WHERE id = :id AND gpio = :gpio`; une incohérence échoue sans modifier la base.
+- **Tests** : ajout d'un test repository SQLite couvrant la non-modification sur paire incohérente, et mise à jour des tests service.
+
 ## [6.0.0] - 2026-06-25
 
 ### Changement de contrat (BREAKING) - Nourrissage manuel : compteur monotone simple et robuste

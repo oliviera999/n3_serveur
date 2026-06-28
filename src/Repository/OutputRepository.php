@@ -203,17 +203,18 @@ class OutputRepository extends AbstractRepository
      * jamais → aucune course bidirectionnelle, robuste aux reboots et aux polls manqués.
      *
      * @param int $id Identifiant de la ligne outputs (PK)
+     * @param int $gpio GPIO attendu (108/109), validé avec l'id pour éviter de nourrir le mauvais canal
      * @return int|null Nouvelle valeur du compteur, ou null si la ligne est introuvable
      */
-    public function incrementFeedCounter(int $id): ?int
+    public function incrementFeedCounter(int $id, int $gpio): ?int
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
         $sql = "UPDATE `{$table}`
                 SET state = CAST(state AS UNSIGNED) + 1,
                     requestTime = NOW(),
                     lastModifiedBy = 'web'
-                WHERE id = :id";
-        if ($this->executeWithRowCount($sql, [':id' => $id]) <= 0) {
+                WHERE id = :id AND gpio = :gpio";
+        if ($this->executeWithRowCount($sql, [':id' => $id, ':gpio' => $gpio]) <= 0) {
             return null;
         }
 
