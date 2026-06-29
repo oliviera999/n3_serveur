@@ -50,7 +50,8 @@ class PglRepositoryTest extends TestCase
         $this->pdo->exec('CREATE TABLE pglHeartbeat (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             uptime INTEGER, freeHeap INTEGER, minHeap INTEGER, reboots INTEGER,
-            rssi INTEGER, sensor TEXT, version TEXT, reading_time TEXT
+            rssi INTEGER, sensor TEXT, version TEXT, sensors_present INTEGER,
+            reading_time TEXT
         )');
 
         $this->repo = new PglRepository($this->pdo);
@@ -185,7 +186,7 @@ class PglRepositoryTest extends TestCase
 
         // insertHeartbeat ne renseigne pas reading_time (DEFAULT en BDD reelle) :
         // on verifie simplement qu'une ligne est ajoutee.
-        $this->repo->insertHeartbeat(100, 2000, 1000, 1, -55, 'esp', 'fw1');
+        $this->repo->insertHeartbeat(100, 2000, 1000, 1, -55, 'esp', 'fw1', 7);
         $this->assertSame(3, (int) $this->pdo->query('SELECT COUNT(*) FROM pglHeartbeat')->fetchColumn());
     }
 

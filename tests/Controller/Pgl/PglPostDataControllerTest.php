@@ -154,4 +154,35 @@ final class PglPostDataControllerTest extends TestCase
         $this->assertStringContainsString('"inserted": 2', $body);
         $this->assertStringContainsString('"last_acked_event_id": 55', $body);
     }
+
+    public function testMapsModeBitmaskPirAndIr(): void
+    {
+        $repo = $this->createMock(PglRepository::class);
+        $repo->expects($this->once())
+            ->method('insertEvent')
+            ->with(
+                'poissonglouton',
+                $this->anything(),
+                1,
+                'ir_pir',
+                false,
+                $this->anything(),
+                $this->anything(),
+                '0.2.0'
+            );
+
+        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('POST', '/pgl/post-data')
+            ->withParsedBody([
+                'api_key' => 'test-pgl-key',
+                'sensor' => 'poissonglouton',
+                'version' => '0.2.0',
+                'events' => '1716123000:1:5:0:4020:-60',
+            ]);
+        $response = (new ResponseFactory())->createResponse();
+
+        $result = $controller->handle($request, $response);
+        $this->assertSame(200, $result->getStatusCode());
+    }
 }

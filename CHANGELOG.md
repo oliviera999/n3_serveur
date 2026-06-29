@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.2.6] - 2026-06-29
+
+### Ajout - Capteurs heartbeat PGL (post-data)
+- **API PGL** : extension `PglPostDataController` et `PglHeartbeatController` pour champs capteurs additionnels ; migration `2026_06_pgl_heartbeat_sensors.sql` ; tests PHPUnit associés.
+
 ## [6.2.5] - 2026-06-29
 
 ### Correctif - GET `outputs_state` caméra FFP3 (301 Apache sur `/ffp3/*`)
