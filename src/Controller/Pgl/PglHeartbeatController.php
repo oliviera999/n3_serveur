@@ -59,6 +59,7 @@ final class PglHeartbeatController
         $sensor = substr($get('sensor'), 0, 30) ?: null;
         $version = substr($get('version'), 0, 30) ?: null;
         $rssi = $get('rssi') !== '' ? (int) $get('rssi') : null;
+        $sensorsPresent = $get('sensors_present') !== '' ? (int) $get('sensors_present') : null;
 
         try {
             $this->repository->insertHeartbeat(
@@ -68,7 +69,8 @@ final class PglHeartbeatController
                 (int) $reboots,
                 $rssi,
                 $sensor,
-                $version
+                $version,
+                $sensorsPresent
             );
 
             $this->logger->info('PglHeartbeat OK', [
@@ -76,6 +78,7 @@ final class PglHeartbeatController
                 'version' => $version,
                 'uptime' => $uptime,
                 'reboots' => $reboots,
+                'sensors_present' => $sensorsPresent,
             ]);
 
             return ResponseHelper::textClose($response, 'OK', 200);

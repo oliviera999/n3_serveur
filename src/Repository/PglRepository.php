@@ -226,10 +226,11 @@ class PglRepository extends AbstractRepository
         int $reboots,
         ?int $rssi,
         ?string $sensor,
-        ?string $version
+        ?string $version,
+        ?int $sensorsPresent = null
     ): void {
-        $sql = 'INSERT INTO pglHeartbeat (uptime, freeHeap, minHeap, reboots, rssi, sensor, version)
-                VALUES (:uptime, :free, :min, :reboots, :rssi, :sensor, :version)';
+        $sql = 'INSERT INTO pglHeartbeat (uptime, freeHeap, minHeap, reboots, rssi, sensor, version, sensors_present)
+                VALUES (:uptime, :free, :min, :reboots, :rssi, :sensor, :version, :sensors_present)';
 
         $this->execute($sql, [
             ':uptime' => $uptime,
@@ -239,6 +240,7 @@ class PglRepository extends AbstractRepository
             ':rssi' => $rssi,
             ':sensor' => $sensor,
             ':version' => $version,
+            ':sensors_present' => $sensorsPresent,
         ]);
     }
 

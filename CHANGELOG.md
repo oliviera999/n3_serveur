@@ -23,6 +23,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
   - API temps réel `system/health` : nouveau champ `last_reading_ts` (epoch Unix) ; `realtime-updater.js` formate la « dernière réception » en heure de Casablanca via `Intl` (robuste, sans dépendance moment, gère le DST) sur toutes les pages (y compris `control`/`dashboard` qui ne chargent pas moment-timezone).
 - **Tests** : nouveau `DisplayTimeTest` (conversions été/hiver, round-trip, formats, valeurs nulles) ; `BoardRepositoryTest` mis à jour pour l'affichage Casablanca.
 - **Note** : `reading_time` reste écrit par MySQL (`CURRENT_TIMESTAMP`) en heure de session (souvent `SYSTEM`) ; la connexion PDO ne verrouille pas `time_zone`. La justesse repose donc sur l'OS du serveur DB (= Paris aujourd'hui, confirmé via `SELECT @@session.time_zone, NOW();`). À vérifier après toute migration d'hébergement (cf. `docs/TIMEZONE_MANAGEMENT.md`).
+## [6.2.6] - 2026-06-29
+
+### Ajout - Capteurs heartbeat PGL (post-data)
+- **API PGL** : extension `PglPostDataController` et `PglHeartbeatController` pour champs capteurs additionnels ; migration `2026_06_pgl_heartbeat_sensors.sql` ; tests PHPUnit associés.
+
+## [6.2.5] - 2026-06-29
+
+### Correctif - GET `outputs_state` caméra FFP3 (301 Apache sur `/ffp3/*`)
+- **Symptôme** : firmware `uploadphotosserver` env `ffp3` recevait HTTP 301 sur `GET /ffp3/ffp3gallery/uploadphotoserver-outputs-action.php` (page HTML « Moved Permanently ») alors que le `POST` version sur le même préfixe passait (rewrite interne POST).
+- **Cause** : `.htaccess` racine — GET `/ffp3/*` → 301 vers `/*` ; POST `/ffp3/*` → rewrite interne sans redirection.
+- **Correctif** : exception GET pour `uploadphotoserver-outputs-action.php` (rewrite interne, comme POST) ; rétrocompatibilité firmwares encore sur l’ancien chemin.
+- **Firmware** : chemins canoniques `/ffp3gallery/...` sans préfixe `/ffp3/` (`uploadphotosserver` v2.43).
 
 ## [6.2.4] - 2026-06-27
 

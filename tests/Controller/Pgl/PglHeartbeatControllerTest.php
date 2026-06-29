@@ -69,7 +69,7 @@ final class PglHeartbeatControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->once())
             ->method('insertHeartbeat')
-            ->with(3600, 120000, 80000, 3, -65, 'poissonglouton', '0.1.2');
+            ->with(3600, 120000, 80000, 3, -65, 'poissonglouton', '0.1.2', null);
 
         $controller = new PglHeartbeatController($this->createMock(LogService::class), $repo);
         $request = (new ServerRequestFactory())
@@ -89,5 +89,29 @@ final class PglHeartbeatControllerTest extends TestCase
         $result = $controller->handle($request, $response);
         $this->assertSame(200, $result->getStatusCode());
         $this->assertStringContainsString('OK', (string) $result->getBody());
+    }
+
+    public function testStoresSensorsPresentWhenProvided(): void
+    {
+        $repo = $this->createMock(PglRepository::class);
+        $repo->expects($this->once())
+            ->method('insertHeartbeat')
+            ->with(100, 50000, 40000, 1, null, null, null, 7);
+
+        $controller = new PglHeartbeatController($this->createMock(LogService::class), $repo);
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('POST', '/pgl/heartbeat')
+            ->withParsedBody([
+                'api_key' => 'test-pgl-key',
+                'uptime' => '100',
+                'free' => '50000',
+                'min' => '40000',
+                'reboots' => '1',
+                'sensors_present' => '7',
+            ]);
+        $response = (new ResponseFactory())->createResponse();
+
+        $result = $controller->handle($request, $response);
+        $this->assertSame(200, $result->getStatusCode());
     }
 }

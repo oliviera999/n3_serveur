@@ -6,6 +6,10 @@
     RewriteBase /
 
     # Liens externes (GET) : redirection 301 /ffp3/* -> /* (nouveaux chemins)
+    # Exception GET : API device uploadphotoserver (JSON), rewrite interne
+    RewriteCond %{REQUEST_METHOD} GET
+    RewriteCond %{REQUEST_URI} uploadphotoserver-outputs-action\.php [NC]
+    RewriteRule ^ffp3/(.*)$ $1 [L]
     RewriteCond %{REQUEST_METHOD} GET
     RewriteRule ^ffp3/(.*)$ /$1 [R=301,L]
     # Firmware (POST) : reecriture interne sans redirection (conserver le corps de la requete)

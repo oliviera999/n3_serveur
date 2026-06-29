@@ -69,7 +69,12 @@ RewriteRule ^\.git - [F,L]
 # Retrocompatibilite : anciennes URLs /ffp3/* -> routes racine
 # GET : redirection 301 (navigateurs, liens)
 # POST : rewrite interne (firmwares ESP32, corps de requete preserve)
+# Exception GET : API device uploadphotoserver (JSON + X-Api-Key), pas de 301
 # ====================================================================
+# GET device API (firmware ESP32-CAM outputs_state) : rewrite interne comme POST
+RewriteCond %{REQUEST_METHOD} GET
+RewriteCond %{REQUEST_URI} uploadphotoserver-outputs-action\.php [NC]
+RewriteRule ^ffp3/(.*)$ /$1 [L,DPI]
 # /ffp3 et /ffp3/ -> / (explicite pour éviter 403)
 RewriteCond %{REQUEST_METHOD} GET
 RewriteRule ^ffp3/?$ / [R=301,L]

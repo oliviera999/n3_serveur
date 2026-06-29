@@ -18,6 +18,33 @@ final class PglPostDataController
     ) {
     }
 
+    /** Bitmask firmware PGL_SENS_* (1=IR, 2=US, 4=PIR) ou legacy 1/2/3. */
+    private function modeBitmaskToLabel(string $raw): string
+    {
+        if (!ctype_digit($raw)) {
+            return 'unknown';
+        }
+        $mask = (int) $raw;
+        if ($mask === 0) {
+            return 'none';
+        }
+        if ($mask === 3) {
+            return 'tandem';
+        }
+        $parts = [];
+        if (($mask & 1) !== 0) {
+            $parts[] = 'ir';
+        }
+        if (($mask & 2) !== 0) {
+            $parts[] = 'us';
+        }
+        if (($mask & 4) !== 0) {
+            $parts[] = 'pir';
+        }
+
+        return $parts !== [] ? implode('_', $parts) : 'unknown';
+    }
+
     public function handle(Request $request, Response $response): Response
     {
         $params = (array) ($request->getParsedBody() ?? []);
@@ -53,12 +80,7 @@ final class PglPostDataController
 
             $ts = ctype_digit($parts[0]) ? (int) $parts[0] : 0;
             $countDelta = ctype_digit($parts[1]) ? (int) $parts[1] : 0;
-            $mode = match ($parts[2]) {
-                '1' => 'ir',
-                '2' => 'us',
-                '3' => 'tandem',
-                default => 'unknown',
-            };
+            $mode = $this->modeBitmaskToLabel($parts[2]);
             $tandem = ((int) $parts[3]) === 1;
             $batteryMv = (int) $parts[4];
             $rssi = (int) $parts[5];
