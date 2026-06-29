@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.3.2] - 2026-06-29
+
+### Correctif - Erreur 500 sur /meteo et /serre (filtre Twig `localdt`)
+- **Symptôme** : `GET /meteo` et `GET /serre` renvoyaient une erreur 500 après le déploiement de l'affichage Casablanca (6.3.0). `/aquaponie` restait fonctionnelle.
+- **Cause** : le filtre Twig `localdt` (`DisplayTime::toDisplay`) n'acceptait que des chaînes, alors que `AbstractDataController` (MSP1/N3PP) passe `start_date`/`end_date` en `DateTimeImmutable`. PHP levait une `TypeError` au rendu du template. Aquaponie passait des chaînes → pas d'erreur.
+- **Correctif** : `DisplayTime::toDisplay()` accepte désormais `string|DateTimeInterface|null` ; le filtre Twig tolère les deux types.
+- **Tests** : `DisplayTimeTest` couvre le cas `DateTimeImmutable`.
+
 ## [6.3.1] - 2026-06-29
 
 ### Durcissement - Verrouillage du fuseau de session MySQL (heure serveur garantie)

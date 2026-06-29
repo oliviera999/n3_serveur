@@ -48,7 +48,10 @@ class TemplateRenderer
         // convertit pour rester cohérent avec les graphiques et stats temps réel.
         $this->twig->addFilter(new TwigFilter(
             'localdt',
-            static fn (?string $value, string $format = 'd/m/Y H:i:s'): string => DisplayTime::toDisplay($value, $format)
+            static fn (mixed $value, string $format = 'd/m/Y H:i:s'): string => DisplayTime::toDisplay(
+                is_string($value) || $value instanceof \DateTimeInterface ? $value : null,
+                $format
+            )
         ));
     }
 

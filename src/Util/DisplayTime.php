@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Util;
 
 use DateTimeImmutable;
+use DateTimeInterface;
 use DateTimeZone;
 
 /**
@@ -37,13 +38,24 @@ final class DisplayTime
      * Convertit un horodatage stocké en heure serveur vers l'heure d'affichage (Casablanca)
      * et le formate. Utilisé comme filtre Twig `localdt`.
      *
-     * @param string|null $serverDateTime Horodatage en heure serveur (ex. 'Y-m-d H:i:s')
-     * @param string      $format         Format de sortie (syntaxe date() PHP)
+     * @param string|DateTimeInterface|null $serverDateTime Horodatage en heure serveur (ex. 'Y-m-d H:i:s')
+     *                                                      ou objet DateTime (AbstractDataController)
+     * @param string                        $format         Format de sortie (syntaxe date() PHP)
      * @return string Chaîne formatée en heure de Casablanca, ou '' si entrée vide/illisible
      */
-    public static function toDisplay(?string $serverDateTime, string $format = 'd/m/Y H:i:s'): string
+    public static function toDisplay(string|DateTimeInterface|null $serverDateTime, string $format = 'd/m/Y H:i:s'): string
     {
-        if ($serverDateTime === null || trim($serverDateTime) === '') {
+        if ($serverDateTime === null) {
+            return '';
+        }
+
+        if ($serverDateTime instanceof DateTimeInterface) {
+            return DateTimeImmutable::createFromInterface($serverDateTime)
+                ->setTimezone(self::displayTimezone())
+                ->format($format);
+        }
+
+        if (trim($serverDateTime) === '') {
             return '';
         }
 

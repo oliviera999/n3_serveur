@@ -65,4 +65,15 @@ final class DisplayTimeTest extends TestCase
         $display = DisplayTime::toDisplay($server, 'Y-m-d H:i:s');
         $this->assertSame($server, DisplayTime::toServer($display));
     }
+
+    public function testToDisplayAcceptsDateTimeImmutableFromAbstractDataController(): void
+    {
+        // AbstractDataController passe start_date/end_date en DateTimeImmutable (heure serveur).
+        $dt = new \DateTimeImmutable('2024-07-15 08:30:00', new \DateTimeZone('Europe/Paris'));
+
+        $this->assertSame(
+            '15/07/2024 07:30:00',
+            DisplayTime::toDisplay($dt)
+        );
+    }
 }
