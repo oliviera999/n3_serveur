@@ -38,6 +38,16 @@ class Database
                 if (defined('PDO::MYSQL_ATTR_CONNECT_TIMEOUT')) {
                     $options[PDO::MYSQL_ATTR_CONNECT_TIMEOUT] = 5;
                 }
+                // Verrouille le fuseau de session MySQL sur APP_TIMEZONE (heure serveur).
+                // Sans cela, `time_zone` vaut souvent `SYSTEM` (dépend de l'OS du serveur DB) :
+                // `reading_time`/`last_request` (CURRENT_TIMESTAMP / NOW()) seraient alors écrits
+                // dans un fuseau non maîtrisé. On force l'offset UTC courant d'APP_TIMEZONE
+                // (ex. '+02:00') : robuste, sans dépendre des tables de fuseaux MySQL, et
+                // recalculé à chaque connexion donc correct été comme hiver (DST).
+                if (defined('PDO::MYSQL_ATTR_INIT_COMMAND')) {
+                    $options[PDO::MYSQL_ATTR_INIT_COMMAND] =
+                        "SET time_zone = '" . self::currentUtcOffset() . "'";
+                }
                 self::$instance = new PDO($dsn, $user, $pass, $options);
             } catch (PDOException $e) {
                 throw new \RuntimeException('DB connection failed: ' . $e->getMessage());
@@ -45,5 +55,24 @@ class Database
         }
 
         return self::$instance;
+    }
+
+    /**
+     * Offset UTC courant d'APP_TIMEZONE au format MySQL ('+HH:MM' / '-HH:MM').
+     * Défaut prudent '+00:00' (UTC) si le fuseau est invalide.
+     */
+    private static function currentUtcOffset(): string
+    {
+        $tzName = $_ENV['APP_TIMEZONE'] ?? 'Europe/Paris';
+        try {
+            $offset = (new \DateTimeZone($tzName))->getOffset(new \DateTimeImmutable('now'));
+        } catch (\Exception) {
+            return '+00:00';
+        }
+
+        $sign = $offset < 0 ? '-' : '+';
+        $abs = abs($offset);
+
+        return sprintf('%s%02d:%02d', $sign, intdiv($abs, 3600), intdiv($abs % 3600, 60));
     }
 }

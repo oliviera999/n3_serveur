@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.3.1] - 2026-06-29
+
+### Durcissement - Verrouillage du fuseau de session MySQL (heure serveur garantie)
+- **Problème** : la connexion PDO (`App\Config\Database`) ne fixait pas `time_zone` ; la session MySQL valait donc souvent `SYSTEM` (dépendant de l'OS du serveur DB). Les horodatages écrits par MySQL (`reading_time`, `last_request` via `CURRENT_TIMESTAMP`/`NOW()`) reposaient sur une hypothèse non garantie (« le serveur DB est à l'heure de Paris »), fragile en cas de migration d'hébergement.
+- **Correctif** : la connexion force désormais `SET time_zone = '<offset>'` (via `MYSQL_ATTR_INIT_COMMAND`), où `<offset>` est l'offset UTC courant d'`APP_TIMEZONE` (ex. `+02:00` en été, `+01:00` en hiver). Recalculé à chaque connexion → correct été comme hiver (DST), sans dépendre des tables de fuseaux MySQL. Repli prudent `+00:00` si le fuseau est invalide.
+- **Impact** : aucun changement sur un hébergement déjà à l'heure de Paris (cas actuel) ; rend l'hypothèse explicite et corrige les hébergements dont l'OS serait en UTC ou autre. Complète l'affichage Casablanca (6.3.0).
+
 ## [6.3.0] - 2026-06-29
 
 ### Amélioration - Affichage de l'heure unifié en heure de Casablanca (cohérence des décalages)
