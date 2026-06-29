@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Util\DisplayTime;
 use App\Util\TableValidator;
 
 /**
@@ -100,11 +101,12 @@ class BoardRepository extends AbstractRepository
     }
 
     /**
-     * Formate un timestamp (heure serveur, APP_TIMEZONE) en date lisible
-     * last_request est stocké avec NOW() donc déjà en heure serveur.
+     * Formate un timestamp (heure serveur, APP_TIMEZONE) en date lisible, en heure
+     * de Casablanca (heure locale réelle du projet, cohérente avec l'UI temps réel).
+     * last_request est stocké avec NOW() donc en heure serveur.
      *
      * @param string|null $timestamp Timestamp en heure serveur (APP_TIMEZONE)
-     * @return string|null Timestamp formaté ou null
+     * @return string|null Timestamp formaté en heure de Casablanca, ou null
      */
     private function formatTimestamp(?string $timestamp): ?string
     {
@@ -112,11 +114,6 @@ class BoardRepository extends AbstractRepository
             return null;
         }
 
-        try {
-            $tz = new \DateTimeZone($_ENV['APP_TIMEZONE'] ?? 'Europe/Paris');
-            return (new \DateTimeImmutable($timestamp, $tz))->format('d/m/Y H:i:s');
-        } catch (\Exception $e) {
-            return $timestamp;
-        }
+        return DisplayTime::toDisplay($timestamp, 'd/m/Y H:i:s');
     }
 }

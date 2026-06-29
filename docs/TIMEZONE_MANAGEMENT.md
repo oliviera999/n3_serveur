@@ -67,11 +67,21 @@ APP_TIMEZONE=Europe/Paris  # Stockage serveur
 
 ### 1. Affichage Web
 
-Les données affichées sur le dashboard web sont en **heure de Paris**.
+Tout l'affichage web est unifié en **heure de Casablanca** (heure locale réelle du projet) :
+graphiques Highcharts, stats temps réel, en-têtes de période, champs `datetime-local`,
+« dernière réception » et `last_request` des boards.
 
-**Exemple :**
+La conversion est centralisée :
+- **PHP** : `App\Util\DisplayTime` (`toDisplay()` serveur→Casablanca, `toServer()` Casablanca→serveur)
+  et le filtre Twig `localdt` (ex. `{{ start_date|localdt('d/m/Y H:i') }}`).
+- **JS** : `realtime-updater.js` formate l'epoch serveur `last_reading_ts` via `Intl`
+  (`timeZone: 'Africa/Casablanca'`) ; Highcharts/stats-updater via moment-timezone.
+- **Saisie de période** : les champs sont saisis en heure de Casablanca puis reconvertis
+  en heure serveur par `DateRangeExtractor` avant le requêtage SQL.
+
+**Exemple (été) :**
 - L'ESP32 à Casablanca envoie une mesure à **14h00 locale** (Casablanca)
-- Le serveur l'enregistre et l'affiche comme **15h00** (Paris, en été)
+- Le serveur l'enregistre en heure serveur **15h00** (Paris) et l'affiche en **14h00** (Casablanca)
 
 ### 2. ESP32 et Envoi des Données
 
@@ -111,17 +121,19 @@ tzset();
 
 ### 3. Graphiques et Visualisations
 
-Les graphiques Highcharts utilisent `moment-timezone` pour afficher l'heure de Paris :
+Les graphiques Highcharts affichent l'heure de **Casablanca** (cohérent avec le reste de l'UI) :
 
 ```javascript
-moment.tz.setDefault('Europe/Paris');
-```
-
-Si vous souhaitez afficher l'heure de Casablanca dans les graphiques, modifiez dans `aquaponie.twig` :
-
-```javascript
+// highcharts-defaults.js
+time: { useUTC: false, timezone: 'Africa/Casablanca' }
+// aquaponie.twig
 moment.tz.setDefault('Africa/Casablanca');
 ```
+
+⚠️ **Dépendance critique** : `reading_time` est écrit par MySQL (`DEFAULT CURRENT_TIMESTAMP`),
+donc en heure de session MySQL. La connexion PDO ne verrouille pas `time_zone` (souvent
+`SYSTEM`) : la justesse repose sur l'OS du serveur DB (= Paris aujourd'hui). À vérifier via
+`SELECT @@session.time_zone, NOW();` après toute migration d'hébergement.
 
 ---
 

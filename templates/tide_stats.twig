@@ -30,7 +30,7 @@
         <div class="info-banner" data-aos="fade-up">
             <div class="info-banner-title">📊 Période analysée</div>
             <div class="info-banner-value">
-                Du {{ start_date|date('d/m/Y H:i:s') }} au {{ end_date|date('d/m/Y H:i:s') }}
+                Du {{ start_date|localdt('d/m/Y H:i:s') }} au {{ end_date|localdt('d/m/Y H:i:s') }}
             </div>
         </div>
         <p class="tide-stats-definitions"><strong>Définitions :</strong> <em>Marnage</em> = amplitude de variation du niveau d'eau sur un cycle (distance max − min, en cm). <em>DiffMaree</em> = variation de la distance capteur → surface de l'aquarium sur une fenêtre temporelle (mm, valeur brute firmware) ; positif = eau qui monte.</p>
@@ -206,11 +206,11 @@
                 <div class="datetime-grid">
                     <div class="datetime-field">
                         <label for="tide_stats_start_datetime">Début</label>
-                        <input type="datetime-local" id="tide_stats_start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d') }}T{{ start_date|date('H:i') }}" required step="60">
+                        <input type="datetime-local" id="tide_stats_start_datetime" name="start_datetime" value="{{ start_date|localdt('Y-m-d') }}T{{ start_date|localdt('H:i') }}" required step="60">
                     </div>
                     <div class="datetime-field">
                         <label for="tide_stats_end_datetime">Fin</label>
-                        <input type="datetime-local" id="tide_stats_end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d') }}T{{ end_date|date('H:i') }}" required step="60">
+                        <input type="datetime-local" id="tide_stats_end_datetime" name="end_datetime" value="{{ end_date|localdt('Y-m-d') }}T{{ end_date|localdt('H:i') }}" required step="60">
                     </div>
                 </div>
                 <button type="submit" class="btn-primary">

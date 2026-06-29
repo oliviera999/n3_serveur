@@ -81,6 +81,7 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
             return [
                 'online' => false,
                 'last_reading' => null,
+                'last_reading_ts' => null,
                 'last_reading_ago_seconds' => null,
                 'uptime_percentage' => 0.0,
                 'readings_today' => 0,
@@ -90,7 +91,8 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
             ];
         }
 
-        $secondsSinceLastReading = time() - strtotime($lastReadingDateStr);
+        $lastReadingTs = strtotime($lastReadingDateStr);
+        $secondsSinceLastReading = time() - $lastReadingTs;
         // Seuil = temps de veille prévu en BDD (FreqWakeUp) + marge : le badge reste LIVE pendant toute la veille
         $thresholdSeconds = min(86400, $this->resolveOnlineThresholdSeconds() + self::ONLINE_THRESHOLD_MARGIN_SECONDS);
         $isOnline = $secondsSinceLastReading < $thresholdSeconds;
@@ -103,6 +105,7 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         return [
             'online' => $isOnline,
             'last_reading' => $lastReadingDateStr,
+            'last_reading_ts' => $lastReadingTs !== false ? $lastReadingTs : null,
             'last_reading_ago_seconds' => $secondsSinceLastReading,
             'uptime_percentage' => $this->calculateUptime(self::DEFAULT_UPTIME_DAYS),
             'readings_today' => $this->countReadingsToday(),

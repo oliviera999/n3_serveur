@@ -39,7 +39,7 @@
                     hero_subtitle: 'Tout ce que la ferme aquaponique mesure et fait, en direct : capteurs, pompes, marées et chimie de l\'eau.',
                     hero_more_url: '/aquaponie-description',
                     hero_more_label: 'En savoir plus sur le module',
-                    hero_synthesis: '📊 Synthèse du <span id="summary-start-date">' ~ start_date|date('d/m/Y H:i') ~ '</span> au <span id="summary-end-date">' ~ end_date|date('d/m/Y H:i') ~ '</span> — ' ~ measure_count ~ ' mesures — ' ~ duration_str
+                    hero_synthesis: '📊 Synthèse du <span id="summary-start-date">' ~ start_date|localdt('d/m/Y H:i') ~ '</span> au <span id="summary-end-date">' ~ end_date|localdt('d/m/Y H:i') ~ '</span> — ' ~ measure_count ~ ' mesures — ' ~ duration_str
                 } %}
 
                 <!-- Featured Post : ordre des sections = Hero, Niveaux d'eau, Paramètres physiques, Bilan hydrique (révélable), Graphiques eau/temp, Chimie, Filtrage + État système + Contrôles live -->
@@ -505,7 +505,7 @@
                             </div>
                             <div class="period-info-dates">
                                 <i class="far fa-calendar-alt"></i>
-                                Du <span id="period-start-date">{{ start_date|date('d/m/Y H:i') }}</span> au <span id="period-end-date">{{ end_date|date('d/m/Y H:i') }}</span>
+                                Du <span id="period-start-date">{{ start_date|localdt('d/m/Y H:i') }}</span> au <span id="period-end-date">{{ end_date|localdt('d/m/Y H:i') }}</span>
                                 <small class="period-tz-hint">(heure Casablanca)</small>
                             </div>
                             <div class="period-info-stats">
@@ -569,7 +569,7 @@
                                         <input type="datetime-local" 
                                                id="start_datetime" 
                                                name="start_datetime" 
-                                               value="{{ start_date|date('Y-m-d\\TH:i') }}" 
+                                               value="{{ start_date|localdt('Y-m-d\\TH:i') }}" 
                                                required>
                                     </div>
 
@@ -580,7 +580,7 @@
                                         <input type="datetime-local" 
                                                id="end_datetime" 
                                                name="end_datetime" 
-                                               value="{{ end_date|date('Y-m-d\\TH:i') }}" 
+                                               value="{{ end_date|localdt('Y-m-d\\TH:i') }}" 
                                                required>
                                     </div>
                                 </div>

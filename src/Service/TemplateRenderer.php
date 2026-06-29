@@ -7,8 +7,10 @@ namespace App\Service;
 use App\Config\Version;
 use App\Security\AuthService;
 use App\Security\CsrfService;
+use App\Util\DisplayTime;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+use Twig\TwigFilter;
 
 class TemplateRenderer
 {
@@ -40,6 +42,14 @@ class TemplateRenderer
             'cache' => $cacheConfig,
             'autoescape' => 'html',
         ]);
+
+        // Filtre d'affichage en heure de Casablanca (heure locale réelle du projet).
+        // Les horodatages sont stockés en heure serveur (APP_TIMEZONE) ; ce filtre les
+        // convertit pour rester cohérent avec les graphiques et stats temps réel.
+        $this->twig->addFilter(new TwigFilter(
+            'localdt',
+            static fn (?string $value, string $format = 'd/m/Y H:i:s'): string => DisplayTime::toDisplay($value, $format)
+        ));
     }
 
     /**
