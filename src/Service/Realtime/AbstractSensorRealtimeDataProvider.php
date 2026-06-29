@@ -67,6 +67,7 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
             return [
                 'online' => false,
                 'last_reading' => null,
+                'last_reading_ts' => null,
                 'last_reading_ago_seconds' => null,
                 'uptime_percentage' => 0.0,
                 'readings_today' => 0,
@@ -84,6 +85,7 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
         return [
             'online' => $isOnline,
             'last_reading' => $lastReadingDate,
+            'last_reading_ts' => $lastTs !== false ? $lastTs : null,
             'last_reading_ago_seconds' => $secondsAgo,
             'uptime_percentage' => $this->calculateUptime(self::DEFAULT_UPTIME_DAYS),
             'readings_today' => $this->sensorRepo->countReadingsToday(),

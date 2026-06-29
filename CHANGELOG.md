@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.3.0] - 2026-06-29
+
+### Amélioration - Affichage de l'heure unifié en heure de Casablanca (cohérence des décalages)
+- **Contexte** : le projet est physiquement à **Casablanca** mais les horodatages sont stockés en heure serveur (`APP_TIMEZONE=Europe/Paris`, `NOW()`/`CURRENT_TIMESTAMP`). L'UI mélangeait deux conventions : les graphiques Highcharts et les stats temps réel affichaient correctement l'heure de **Casablanca**, tandis que les en-têtes de période, les champs `datetime-local`, la « dernière réception » du live et le `last_request` des boards affichaient l'heure de **Paris** (décalage **+1 h en été**, nul en hiver — d'où un bug invisible la moitié de l'année).
+- **Correctif (centralisé)** :
+  - Nouveau `App\Util\DisplayTime` : `toDisplay()` (serveur→Casablanca) et `toServer()` (Casablanca→serveur), source unique du fuseau d'affichage (`Africa/Casablanca`).
+  - Nouveau filtre Twig `localdt` (enregistré dans `TemplateRenderer`) : tous les `start_date|date(...)`/`end_date|date(...)` (en-têtes de synthèse, périodes, champs `datetime-local`) des pages aquaponie, MSP1, N3PP, données génériques, marées et PGL passent à `|localdt(...)` → affichage en heure de Casablanca.
+  - `DateRangeExtractor` : les plages saisies (en heure de Casablanca, via `setPeriod`/`datetime-local`) sont reconverties en heure serveur avant le requêtage SQL → la fenêtre interrogée n'est plus décalée d'1 h.
+  - `BoardRepository::formatTimestamp` : `last_request` affiché en heure de Casablanca.
+  - API temps réel `system/health` : nouveau champ `last_reading_ts` (epoch Unix) ; `realtime-updater.js` formate la « dernière réception » en heure de Casablanca via `Intl` (robuste, sans dépendance moment, gère le DST) sur toutes les pages (y compris `control`/`dashboard` qui ne chargent pas moment-timezone).
+- **Tests** : nouveau `DisplayTimeTest` (conversions été/hiver, round-trip, formats, valeurs nulles) ; `BoardRepositoryTest` mis à jour pour l'affichage Casablanca.
+- **Note** : `reading_time` reste écrit par MySQL (`CURRENT_TIMESTAMP`) en heure de session (souvent `SYSTEM`) ; la connexion PDO ne verrouille pas `time_zone`. La justesse repose donc sur l'OS du serveur DB (= Paris aujourd'hui, confirmé via `SELECT @@session.time_zone, NOW();`). À vérifier après toute migration d'hébergement (cf. `docs/TIMEZONE_MANAGEMENT.md`).
 ## [6.2.6] - 2026-06-29
 
 ### Ajout - Capteurs heartbeat PGL (post-data)

@@ -26,7 +26,7 @@
         hero_title: 'Poissonglouton',
         hero_icon: 'fa-fish',
         hero_subtitle: 'Statistiques d’absorption des bouteilles plastique recyclées — mise à jour en direct',
-        hero_synthesis: '📊 Synthèse du ' ~ start_date|date('d/m/Y H:i') ~ ' au ' ~ end_date|date('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' événements — fenêtre fixe 72h'
+        hero_synthesis: '📊 Synthèse du ' ~ start_date|localdt('d/m/Y H:i') ~ ' au ' ~ end_date|localdt('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' événements — fenêtre fixe 72h'
     } %}
 
     <article class="post featured">

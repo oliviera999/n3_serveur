@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Security\CsrfService;
+use App\Util\DisplayTime;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
@@ -51,17 +52,19 @@ class DateRangeExtractor
             }
         }
 
-        // Format datetime-local (prioritaire)
+        // Format datetime-local (prioritaire).
+        // Les champs sont saisis/affichés en heure de Casablanca (cf. filtre Twig `localdt`
+        // et setPeriod) : on reconvertit en heure serveur pour le requêtage SQL.
         $sd = $body['start_datetime'] ?? null;
         $ed = $body['end_datetime'] ?? null;
         if ($sd && $ed) {
             return [
-                str_replace('T', ' ', $sd) . ':00',
-                str_replace('T', ' ', $ed) . ':00',
+                DisplayTime::toServer(str_replace('T', ' ', $sd) . ':00'),
+                DisplayTime::toServer(str_replace('T', ' ', $ed) . ':00'),
             ];
         }
 
-        // Format date + time séparés (legacy)
+        // Format date + time séparés (legacy), également saisis en heure de Casablanca.
         $startDate = $body['start_date'] ?? null;
         $endDate = $body['end_date'] ?? null;
         $startTime = $body['start_time'] ?? '00:00:00';
@@ -69,8 +72,8 @@ class DateRangeExtractor
 
         if ($startDate && $endDate) {
             return [
-                $startDate . ' ' . $startTime,
-                $endDate . ' ' . $endTime,
+                DisplayTime::toServer($startDate . ' ' . $startTime),
+                DisplayTime::toServer($endDate . ' ' . $endTime),
             ];
         }
 

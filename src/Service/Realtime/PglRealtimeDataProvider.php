@@ -89,10 +89,12 @@ class PglRealtimeDataProvider implements RealtimeDataProviderInterface
         $lastReading = $base['last_reading'] ?? null;
         $secondsAgo = $base['last_reading_ago_seconds'] ?? null;
         $isOnline = (bool) ($base['online'] ?? false);
+        $lastReadingTs = $lastReading !== null ? strtotime((string) $lastReading) : false;
 
         return [
             'online' => $isOnline,
             'last_reading' => $lastReading,
+            'last_reading_ts' => $lastReadingTs !== false ? $lastReadingTs : null,
             'last_reading_ago_seconds' => $secondsAgo,
             'uptime_percentage' => $this->calculateUptime(),
             'readings_today' => $this->repository->countEventsToday(),

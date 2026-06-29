@@ -28,7 +28,7 @@
         hero_subtitle: data_config.hero_subtitle,
         hero_more_url: data_config.hero_more_url|default(''),
         hero_more_label: data_config.hero_more_label|default(''),
-        hero_synthesis: '📊 Synthèse du ' ~ start_date|date('d/m/Y H:i') ~ ' au ' ~ end_date|date('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' mesures — ' ~ duration_str
+        hero_synthesis: '📊 Synthèse du ' ~ start_date|localdt('d/m/Y H:i') ~ ' au ' ~ end_date|localdt('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' mesures — ' ~ duration_str
     } %}
 
     {# Ordre des sections : Hero, Luminosité, Paramètres du sol, Paramètres physiques, Système, filter-health-row (filtrage + état), Mesures manuelles #}

@@ -23,7 +23,7 @@
         </div>
         <div class="period-info-dates">
             <i class="far fa-calendar-alt"></i>
-            Du <span id="period-start-date">{{ start_date|date('d/m/Y H:i') }}</span> au <span id="period-end-date">{{ end_date|date('d/m/Y H:i') }}</span>
+            Du <span id="period-start-date">{{ start_date|localdt('d/m/Y H:i') }}</span> au <span id="period-end-date">{{ end_date|localdt('d/m/Y H:i') }}</span>
             <small class="period-tz-hint">(heure Casablanca)</small>
         </div>
         <div class="period-info-stats">
@@ -87,7 +87,7 @@
                         <input type="datetime-local"
                                id="start_datetime"
                                name="start_datetime"
-                               value="{{ start_date|date('Y-m-d\\TH:i') }}"
+                               value="{{ start_date|localdt('Y-m-d\\TH:i') }}"
                                required>
                     </div>
 
@@ -98,7 +98,7 @@
                         <input type="datetime-local"
                                id="end_datetime"
                                name="end_datetime"
-                               value="{{ end_date|date('Y-m-d\\TH:i') }}"
+                               value="{{ end_date|localdt('Y-m-d\\TH:i') }}"
                                required>
                     </div>
                 </div>

@@ -29,7 +29,7 @@
         hero_more_url: data_config.hero_more_url|default(''),
         hero_more_label: data_config.hero_more_label|default(''),
         hero_synthesis: data_config.hero_synthesis|default(
-            '📊 Synthèse du ' ~ start_date|date('d/m/Y H:i') ~ ' au ' ~ end_date|date('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' mesures — ' ~ duration_str
+            '📊 Synthèse du ' ~ start_date|localdt('d/m/Y H:i') ~ ' au ' ~ end_date|localdt('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' mesures — ' ~ duration_str
         )
     } %}
 
@@ -105,11 +105,11 @@
                 {{ csrf_field|raw }}
                 <div>
                     <label for="start_datetime">debut</label>
-                    <input type="datetime-local" id="start_datetime" name="start_datetime" value="{{ start_date|date('Y-m-d\\TH:i') }}">
+                    <input type="datetime-local" id="start_datetime" name="start_datetime" value="{{ start_date|localdt('Y-m-d\\TH:i') }}">
                 </div>
                 <div>
                     <label for="end_datetime">fin</label>
-                    <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|date('Y-m-d\\TH:i') }}">
+                    <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|localdt('Y-m-d\\TH:i') }}">
                 </div>
                 <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Afficher</button>
                 <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-download"></i> CSV</button>

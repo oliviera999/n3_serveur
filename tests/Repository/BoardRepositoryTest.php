@@ -64,10 +64,14 @@ class BoardRepositoryTest extends TestCase
 
     public function testFormatTimestampViaFindByName(): void
     {
-        $this->pdo->exec("INSERT INTO Boards (board, last_request) VALUES ('esp32-c', '2024-03-15 08:30:00')");
+        // last_request est stocké en heure serveur (Europe/Paris) et affiché en heure
+        // de Casablanca (heure locale réelle du projet). En été : Paris UTC+2,
+        // Casablanca UTC+1 → -1 h (08:30 Paris = 07:30 Casablanca).
+        $_ENV['APP_TIMEZONE'] = 'Europe/Paris';
+        $this->pdo->exec("INSERT INTO Boards (board, last_request) VALUES ('esp32-c', '2024-07-15 08:30:00')");
 
         $row = $this->repo->findByName('esp32-c');
-        $this->assertSame('15/03/2024 08:30:00', $row['last_request']);
+        $this->assertSame('15/07/2024 07:30:00', $row['last_request']);
     }
 
     public function testFindActiveForEnvironmentReturnsOnlyBoardsWithNamedOutputs(): void

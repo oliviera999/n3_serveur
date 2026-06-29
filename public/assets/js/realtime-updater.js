@@ -207,7 +207,12 @@ class RealtimeUpdater {
 
             if (health.last_reading_ago_seconds !== null && health.last_reading_ago_seconds !== undefined) {
                 const ago = this.formatTimeSince(health.last_reading_ago_seconds);
-                const at = health.last_reading ? this.formatTimestamp(health.last_reading) : null;
+                // Priorité à l'epoch serveur (last_reading_ts) : formaté en heure de
+                // Casablanca via Intl (robuste, sans dépendance moment, gère le DST).
+                // Repli sur la chaîne brute si l'epoch est absent (ancien serveur).
+                const at = (health.last_reading_ts !== null && health.last_reading_ts !== undefined)
+                    ? this.formatTimestampFromEpoch(health.last_reading_ts)
+                    : (health.last_reading ? this.formatTimestamp(health.last_reading) : null);
 
                 if (agoSpan) {
                     agoSpan.textContent = ago;
@@ -340,7 +345,30 @@ class RealtimeUpdater {
     }
 
     /**
-     * Formate un timestamp ISO en heure locale lisible
+     * Formate un epoch Unix (secondes) en heure de Casablanca, heure locale réelle
+     * du projet. Utilise Intl/timeZone : natif, sans dépendance, gère le DST.
+     * @param {number} epochSeconds Epoch Unix en secondes (fourni par le serveur)
+     */
+    formatTimestampFromEpoch(epochSeconds) {
+        try {
+            return new Date(epochSeconds * 1000).toLocaleString('fr-FR', {
+                timeZone: 'Africa/Casablanca',
+                day: '2-digit',
+                month: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+        } catch (error) {
+            console.warn('[RealtimeUpdater] Unable to format epoch', epochSeconds, error);
+            return String(epochSeconds);
+        }
+    }
+
+    /**
+     * Formate un timestamp ISO/SQL en heure locale lisible (repli legacy).
+     * Note : interprète la chaîne en heure du navigateur ; préférer
+     * formatTimestampFromEpoch() avec l'epoch serveur quand il est disponible.
      */
     formatTimestamp(timestamp) {
         try {

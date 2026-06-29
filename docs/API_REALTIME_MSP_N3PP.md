@@ -32,7 +32,9 @@ Les pages données MSP1 (station météo) et N3PP (serre) utilisent le même scr
 
 - **sensors/latest** : `{ "timestamp": number, "reading_time": string|null, "sensors": { ... } }`
 - **sensors/since** : `{ "count": number, "readings": [ { "timestamp", "reading_time", "sensors" }, ... ] }`
-- **system/health** : `{ "online", "last_reading", "last_reading_ago_seconds", "uptime_percentage", "readings_today", "average_latency_seconds", "device_ip" }`
+- **system/health** : `{ "online", "last_reading", "last_reading_ts", "last_reading_ago_seconds", "uptime_percentage", "readings_today", "average_latency_seconds", "device_ip" }`
+  - `last_reading` : chaîne SQL en heure serveur (`APP_TIMEZONE`).
+  - `last_reading_ts` : epoch Unix (secondes) de la dernière lecture ; le front l'affiche en heure de Casablanca via `Intl`. `null` si aucune lecture.
 - **outputs/state** : `{ "timestamp", "outputs": [ { "id", "gpio", "name", "state", "board" }, ... ] }`
 
 Implémentation : v5.0.58 (contrôleurs créés, repositories `countReadingsToday` ajouté).
