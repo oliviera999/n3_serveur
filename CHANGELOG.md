@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.2.5] - 2026-06-29
+
+### Correctif - GET `outputs_state` caméra FFP3 (301 Apache sur `/ffp3/*`)
+- **Symptôme** : firmware `uploadphotosserver` env `ffp3` recevait HTTP 301 sur `GET /ffp3/ffp3gallery/uploadphotoserver-outputs-action.php` (page HTML « Moved Permanently ») alors que le `POST` version sur le même préfixe passait (rewrite interne POST).
+- **Cause** : `.htaccess` racine — GET `/ffp3/*` → 301 vers `/*` ; POST `/ffp3/*` → rewrite interne sans redirection.
+- **Correctif** : exception GET pour `uploadphotoserver-outputs-action.php` (rewrite interne, comme POST) ; rétrocompatibilité firmwares encore sur l’ancien chemin.
+- **Firmware** : chemins canoniques `/ffp3gallery/...` sans préfixe `/ffp3/` (`uploadphotosserver` v2.43).
+
 ## [6.2.4] - 2026-06-27
 
 ### Correctif - CSP bloquant la feuille de style Google Fonts + avertissement Highcharts #15 (potager)
