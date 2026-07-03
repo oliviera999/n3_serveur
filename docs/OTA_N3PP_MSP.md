@@ -118,6 +118,14 @@ Le script :
 5. Copie `firmware.bin` vers `serveur/ota/<target>/firmware.bin` et écrit le `serveur/ota/<target>/metadata.json`.
 6. Git commit + push (déclenche le cron déploiement, voir [`.cursor/rules/git-et-versionnement.mdc`](../../.cursor/rules/git-et-versionnement.mdc)).
 
+### Dépannage publication Windows
+
+| Symptôme | Cause | Action |
+|----------|-------|--------|
+| `firmware.bin introuvable` après build | Redirection `C:\pio-builds\<slug>\<env>\` active (`pio_redirect_build_dir.py`) alors que le script cherche uniquement `.pio/build/` | Résolu depuis 2026-07 : `publish_ota.ps1` charge `firmwires/scripts/Get-PioBuildHelpers.ps1` (`Get-N3PioFirmwareBin`). Vérifier `C:\pio-builds\n3pp\esp32dev\firmware.bin` ou désactiver la redirection (`$env:N3_PIO_BUILD_REDIRECT='0'`). |
+| `signature .NET echouee … ImportFromPem` | Windows PowerShell 5.1 + .NET Framework (`ECDsaCng`) sans `ImportFromPem` ; OpenSSL absent du PATH | Installer [Win64 OpenSSL](https://slproweb.com/products/Win32OpenSSL.html) **ou** laisser le script basculer sur **pwsh** (.NET 6+) **ou** publier via le workflow GitHub `firmware-ota-deploy.yml`. Sans signature, la MAJ OTA reste possible si `sha256` est présent (champ `signature` optionnel). |
+| Production encore sur l'ancienne version après push | Délai cron `git pull` (~1 min) sur `iot.olution.info` | Attendre 1–2 min puis vérifier `http://iot.olution.info/ota/n3pp/metadata.json`. |
+
 ---
 
 ## 6. Sécurité
