@@ -119,6 +119,12 @@ tzset();
 ❌ **Inconvénients** :
 - Les logs locaux de l'ESP32 sont en heure de Paris (confusion sur site)
 
+#### Galeries caméra (`uploadphotosserver`, firmware ≥ 2.47)
+
+- Le firmware applique **Option A** (`TZ=Africa/Casablanca` via `setenv`/`tzset` après `configTime`).
+- Horloge **offline-first** : epoch restaurée depuis NVS au réveil deep sleep, puis correction NTP si WiFi disponible.
+- À l'upload, l'en-tête HTTP **`X-Captured-At`** transporte l'heure locale appareil (`Y-m-d_H-i-s`). Le serveur **ne convertit pas** cette valeur (`GalleryUploadController::resolveCaptureDate`) : elle sert de segment date dans le nom de fichier et au tri galerie. En cas d'en-tête absent ou invalide, fallback = heure de réception serveur (`Europe/Paris`).
+
 ### 3. Graphiques et Visualisations
 
 Les graphiques Highcharts affichent l'heure de **Casablanca** (cohérent avec le reste de l'UI) :
