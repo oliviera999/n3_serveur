@@ -33,6 +33,7 @@ class MspPostDataController extends AbstractHmacPostDataController
     protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object
     {
         $mail = $this->sanitizeFirmwareEmail($params, $sanitize);
+        $mailNotif = $this->sanitizeFirmwareMailNotif($params, $sanitize);
 
         return new MspSensorData(
             sensor: substr($sanitize('sensor') ?? '', 0, 30),
@@ -57,7 +58,7 @@ class MspPostDataController extends AbstractHmacPostDataController
             freqWakeUp: $toInt('FreqWakeUp'),
             seuilPontDiv: $toInt('SeuilPontDiv'),
             mail: $mail,
-            mailNotif: $sanitize('mailNotif'),
+            mailNotif: $mailNotif,
             resetMode: $toInt('resetMode'),
             bootCount: $toInt('bootCount'),
         );

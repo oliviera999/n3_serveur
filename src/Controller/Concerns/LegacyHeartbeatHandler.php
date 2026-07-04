@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Concerns;
 
+use App\Security\RateLimiter;
 use App\Security\SignatureValidator;
 use App\Service\LogService;
 use App\Util\RequestHelper;
@@ -63,6 +64,29 @@ final class LegacyHeartbeatHandler
     {
         if ($request->getMethod() !== 'POST') {
             return ResponseHelper::text($response, 'POST requis', 405);
+        }
+
+        // Rate-limiting optionnel par IP (defaut off) : actif si
+        // FIRMWARE_RATE_LIMIT_MAX > 0. Meme politique que /post-data.
+        $max = (int) ($_ENV['FIRMWARE_RATE_LIMIT_MAX'] ?? 0);
+        if ($max > 0) {
+            $window = (int) ($_ENV['FIRMWARE_RATE_LIMIT_WINDOW'] ?? 60);
+            if ($window <= 0) {
+                $window = 60;
+            }
+            $server = $request->getServerParams();
+            $ip = isset($server['REMOTE_ADDR']) && is_string($server['REMOTE_ADDR']) ? $server['REMOTE_ADDR'] : 'unknown';
+            $xff = $request->getHeaderLine('X-Forwarded-For');
+            if ($xff !== '') {
+                $first = trim(explode(',', $xff)[0]);
+                if ($first !== '') {
+                    $ip = $first;
+                }
+            }
+            if ((new RateLimiter())->hit("firmware:{$this->componentName}:{$ip}", $window) > $max) {
+                $this->logger->warning("{$this->componentName}: rejet rate limit code=429", ['ip' => $ip]);
+                return ResponseHelper::text($response, 'Trop de requetes', 429);
+            }
         }
 
         $params = RequestHelper::extractParams($request);
@@ -163,6 +187,17 @@ final class LegacyHeartbeatHandler
 
         if ($timestamp !== null || $signature !== null) {
             return ResponseHelper::text($response, 'Signature incomplete', 401);
+        }
+
+        // Parite avec HmacAuthTrait (post-data) : en mode strict, l'absence de
+        // signature HMAC est refusee au lieu de retomber sur l'api_key. Sans cela
+        // le heartbeat restait laxiste meme quand /post-data etait durci.
+        $strict = filter_var($_ENV['HMAC_STRICT_MODE'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
+        if ($strict) {
+            $this->logger->warning("{$this->componentName}: rejet auth HMAC absent (strict) code=401", [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            ]);
+            return ResponseHelper::text($response, 'Signature HMAC requise (strict mode)', 401);
         }
 
         // Fallback API_KEY

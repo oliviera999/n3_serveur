@@ -183,6 +183,11 @@ abstract class AbstractOutputController
      */
     public function getState(Request $request, Response $response): Response
     {
+        $keyError = $this->enforceFirmwareStateKey($request, $response);
+        if ($keyError !== null) {
+            return $keyError;
+        }
+
         $queryParams = $request->getQueryParams();
         $action = $queryParams['action'] ?? '';
 
@@ -199,6 +204,41 @@ abstract class AbstractOutputController
             $this->logger->error("{$this->componentName()}: erreur getState — {msg}", ['msg' => $e->getMessage()]);
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
+    }
+
+    /**
+     * Auth optionnelle du GET d'état firmware (défaut DÉSACTIVÉE). Si
+     * `FIRMWARE_STATE_REQUIRE_KEY` est vrai, exige un `X-Api-Key` (ou `?api_key=`)
+     * valide — sans quoi ce GET public écrit en base (ack one-shot 110,
+     * `updateLastRequest`) et un tiers pouvait consommer une commande de reset.
+     * Le firmware envoie déjà l'en-tête ; laisser à `false` tant que toute la
+     * flotte n'a pas été flashée avec cette version.
+     */
+    private function enforceFirmwareStateKey(Request $request, Response $response): ?Response
+    {
+        if (!filter_var($_ENV['FIRMWARE_STATE_REQUIRE_KEY'] ?? 'false', FILTER_VALIDATE_BOOLEAN)) {
+            return null;
+        }
+
+        $expected = $_ENV['API_KEY'] ?? '';
+        if (!is_string($expected) || $expected === '') {
+            return ResponseHelper::json($response, ['error' => 'Configuration serveur manquante'], 500);
+        }
+
+        $provided = $request->getHeaderLine('X-Api-Key');
+        if ($provided === '') {
+            $qp = $request->getQueryParams();
+            $provided = isset($qp['api_key']) ? trim((string) $qp['api_key']) : '';
+        }
+
+        if (!hash_equals($expected, $provided)) {
+            $this->logger->warning("{$this->componentName()}: rejet getState cle API code=401", [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            ]);
+            return ResponseHelper::json($response, ['error' => 'Cle API invalide'], 401);
+        }
+
+        return null;
     }
 
     /**

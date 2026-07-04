@@ -11,6 +11,22 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.5.0] - 2026-07-04
+
+### Sécurité - Durcissement contrat d'ingestion N3PP/MSP1 (additif, rétro-compatible)
+Tous les ajouts ci-dessous sont **détectés par présence** ou **désactivés par défaut** : le contrat existant (api_key, timestamp+signature dans le body) continue de fonctionner tel quel tant que la flotte n'est pas flashée / les flags activés.
+- **Signature HMAC couvrant le corps** : si le firmware envoie les en-têtes `X-Sig-Timestamp` / `X-Sig-Nonce` / `X-Sig-Hmac`, l'auth (`HmacAuthTrait`) valide via `SignatureValidator::isValidForBody` (`HMAC(ts . "\n" . nonce . "\n" . body)`) → intégrité de **tout le corps** (plus seulement le timestamp) + fenêtre temporelle. En l'absence des en-têtes, comportement inchangé. `AbstractHmacPostDataController::prepareParamsForAuth` expose le corps brut + en-têtes.
+- **Auth optionnelle du GET d'état firmware** : flag `FIRMWARE_STATE_REQUIRE_KEY` (défaut `false`). Activé, `AbstractOutputController::getState` exige un `X-Api-Key` (ou `?api_key=`) valide — ce GET écrit en base (ack one-shot GPIO 110, `updateLastRequest`), un tiers pouvait donc consommer une commande de reset. Le firmware envoie déjà l'en-tête.
+- **Rate-limiting optionnel** des endpoints firmware (`/post-data`, `/heartbeat`) : flag `FIRMWARE_RATE_LIMIT_MAX` (défaut `0` = désactivé), fenêtre `FIRMWARE_RATE_LIMIT_WINDOW` (défaut 60 s), par IP (`RateLimiter`, fail-open).
+
+## [6.4.0] - 2026-07-04
+
+### Sécurité & robustesse - Audit ingestion N3PP / MSP1
+- **CSRF (toggle GET → POST)** : la route `/{n3pp|msp1}/api/outputs/toggle` acceptait `GET` ; `CsrfMiddleware` traite `GET` comme méthode sûre, donc un `GET` inter-site (ex. `<img src=".../api/outputs/toggle?gpio=16&state=1">`) pouvait basculer un GPIO sur une session admin. Route restreinte à **POST** (aligné FFP3 ; l'UI `control-actions.js` émet déjà un POST + jeton CSRF).
+- **Fuite d'information** : les endpoints temps réel publics (`AbstractRealtimeApiController`) renvoyaient `detail => $e->getMessage()` en 500 (texte d'exception SQL exposé). Message générique désormais ; détail journalisé côté serveur uniquement.
+- **Perte de mesure** : `mail`/`mailNotif` reçus du firmware n'étaient pas tronqués (N3PP/MSP1), contrairement à FFP3 (255). Une valeur trop longue faisait échouer l'INSERT → 500 → **toute la ligne de mesure perdue**. Troncature à 255 sur les deux champs (`sanitizeFirmwareEmail` + nouveau `sanitizeFirmwareMailNotif`).
+- **Parité auth heartbeat** : `LegacyHeartbeatHandler` ignorait `HMAC_STRICT_MODE` (heartbeat restait laxiste même quand `/post-data` était en mode strict). Le mode strict rejette désormais l'absence de signature HMAC, comme `HmacAuthTrait`.
+
 ## [6.3.2] - 2026-06-29
 
 ### Correctif - Erreur 500 sur /meteo et /serre (filtre Twig `localdt`)

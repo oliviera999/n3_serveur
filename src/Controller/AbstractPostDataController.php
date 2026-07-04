@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Middleware\RawPostBodyMiddleware;
+use App\Security\RateLimiter;
 use App\Service\LogService;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
@@ -48,6 +49,43 @@ abstract class AbstractPostDataController
      */
     protected function afterValidatedParams(Request $request, Response $response, array $params): ?Response
     {
+        return null;
+    }
+
+    /**
+     * Rate-limiting optionnel par IP (défaut DÉSACTIVÉ). Actif uniquement si
+     * `FIRMWARE_RATE_LIMIT_MAX` > 0 dans l'environnement (fenêtre
+     * `FIRMWARE_RATE_LIMIT_WINDOW`, défaut 60 s). Généreux : un capteur POST
+     * ~1×/5 min, un flood est borné. Fail-open (RateLimiter ne bloque jamais
+     * si le stockage est indisponible).
+     */
+    private function enforceFirmwareRateLimit(Request $request, Response $response, string $component): ?Response
+    {
+        $max = (int) ($_ENV['FIRMWARE_RATE_LIMIT_MAX'] ?? 0);
+        if ($max <= 0) {
+            return null;
+        }
+        $window = (int) ($_ENV['FIRMWARE_RATE_LIMIT_WINDOW'] ?? 60);
+        if ($window <= 0) {
+            $window = 60;
+        }
+
+        $server = $request->getServerParams();
+        $ip = isset($server['REMOTE_ADDR']) && is_string($server['REMOTE_ADDR']) ? $server['REMOTE_ADDR'] : 'unknown';
+        $xff = $request->getHeaderLine('X-Forwarded-For');
+        if ($xff !== '') {
+            $first = trim(explode(',', $xff)[0]);
+            if ($first !== '') {
+                $ip = $first;
+            }
+        }
+
+        $limiter = new RateLimiter();
+        if ($limiter->hit("firmware:{$component}:{$ip}", $window) > $max) {
+            $this->logger->warning("{$component}: rejet rate limit code=429", ['ip' => $ip]);
+            return ResponseHelper::text($response, 'Trop de requetes', 429);
+        }
+
         return null;
     }
 
@@ -96,6 +134,11 @@ abstract class AbstractPostDataController
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
             ]);
             return ResponseHelper::text($response, 'POST requis', 405);
+        }
+
+        $rlError = $this->enforceFirmwareRateLimit($request, $response, $component);
+        if ($rlError !== null) {
+            return $rlError;
         }
 
         $rawBody = $request->getAttribute(RawPostBodyMiddleware::ATTRIBUTE);

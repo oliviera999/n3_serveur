@@ -188,7 +188,11 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
         $group->get("/{$pathPrefix}/api/realtime/system/health", [$realtimeController, 'getSystemHealth']);
         $group->get("/{$pathPrefix}/api/realtime/alerts/active", [$realtimeController, 'getActiveAlerts']);
         $group->get("/{$pathPrefix}/api/outputs/state", [$realtimeController, 'getOutputsState']);
-        $group->map(['GET', 'POST'], "/{$pathPrefix}/api/outputs/toggle", [$outputController, 'toggleOutput']);
+        // POST uniquement : toggle est une ecriture d'etat. En GET, CsrfMiddleware
+        // considere la methode comme sure et laisse passer -> CSRF possible sur une
+        // session admin (ex. <img src=".../api/outputs/toggle?gpio=16&state=1">).
+        // L'UI (control-actions.js) emet deja un POST + jeton CSRF. Aligne sur FFP3.
+        $group->post("/{$pathPrefix}/api/outputs/toggle", [$outputController, 'toggleOutput']);
         if ($hasParameters) {
             $group->post("/{$pathPrefix}/api/outputs/parameters", [$outputController, 'updateParameters']);
             $group->post("/{$pathPrefix}/api/outputs/notification-policy", [$outputController, 'saveNotificationPolicy']);

@@ -33,6 +33,7 @@ class N3ppPostDataController extends AbstractHmacPostDataController
     protected function buildSensorData(array $params, \Closure $sanitize, \Closure $toFloat, \Closure $toInt): object
     {
         $mail = $this->sanitizeFirmwareEmail($params, $sanitize);
+        $mailNotif = $this->sanitizeFirmwareMailNotif($params, $sanitize);
 
         return new N3ppSensorData(
             sensor: substr($sanitize('sensor') ?? '', 0, 30),
@@ -52,7 +53,7 @@ class N3ppPostDataController extends AbstractHmacPostDataController
             freqWakeUp: $toInt('FreqWakeUp'),
             seuilPontDiv: $toInt('SeuilPontDiv'),
             mail: $mail,
-            mailNotif: $sanitize('mailNotif'),
+            mailNotif: $mailNotif,
             heureArrosage: $toInt('HeureArrosage'),
             resetMode: $toInt('resetMode'),
             etatPompe: $toInt('etatPompe'),

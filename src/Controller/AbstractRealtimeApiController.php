@@ -26,7 +26,8 @@ abstract class AbstractRealtimeApiController
             $data = $this->provider->getLatestReadings();
             return ResponseHelper::json($response, $data);
         } catch (\Throwable $e) {
-            return ResponseHelper::json($response, ['error' => 'Erreur serveur', 'detail' => $e->getMessage()], 500);
+            error_log('[realtime] ' . $e->getMessage());
+            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }
 
@@ -45,7 +46,8 @@ abstract class AbstractRealtimeApiController
                 'readings' => $data,
             ]);
         } catch (\Throwable $e) {
-            return ResponseHelper::json($response, ['error' => 'Erreur serveur', 'detail' => $e->getMessage()], 500);
+            error_log('[realtime] ' . $e->getMessage());
+            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }
 
@@ -55,7 +57,8 @@ abstract class AbstractRealtimeApiController
             $data = $this->provider->getSystemHealth();
             return ResponseHelper::json($response, $data);
         } catch (\Throwable $e) {
-            return ResponseHelper::json($response, ['error' => 'Erreur serveur', 'detail' => $e->getMessage()], 500);
+            error_log('[realtime] ' . $e->getMessage());
+            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }
 
@@ -68,7 +71,8 @@ abstract class AbstractRealtimeApiController
                 'outputs' => $data,
             ]);
         } catch (\Throwable $e) {
-            return ResponseHelper::json($response, ['error' => 'Erreur serveur', 'detail' => $e->getMessage()], 500);
+            error_log('[realtime] ' . $e->getMessage());
+            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }
 
@@ -82,7 +86,8 @@ abstract class AbstractRealtimeApiController
                 'alerts' => $data,
             ]);
         } catch (\Throwable $e) {
-            return ResponseHelper::json($response, ['error' => 'Erreur serveur', 'detail' => $e->getMessage()], 500);
+            error_log('[realtime] ' . $e->getMessage());
+            return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
     }
 }
