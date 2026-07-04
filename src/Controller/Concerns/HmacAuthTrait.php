@@ -45,6 +45,48 @@ trait HmacAuthTrait
      */
     protected function validateHmacOrFallback(array $params, Response $response): ?Response
     {
+        // Body-signing (en-tetes X-Sig-*, exposes par prepareParamsForAuth) :
+        // PRIORITAIRE si present. Signe le corps COMPLET via isValidForBody
+        // (HMAC(ts . "\n" . nonce . "\n" . body)) -> integrite du corps + fenetre
+        // temps, contrairement au contrat legacy qui ne signe que le timestamp.
+        // Additif : absent -> on continue sur le contrat existant ci-dessous.
+        if (isset($params['__sig_hmac']) && is_string($params['__sig_hmac']) && $params['__sig_hmac'] !== '') {
+            $sigSecret = $_ENV['API_SIG_SECRET'] ?? null;
+            if (!is_string($sigSecret) || $sigSecret === '') {
+                $this->logger->error("{$this->componentName()}: rejet config API_SIG_SECRET manquante code=500");
+                return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
+            }
+            $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+            if ($sigWindow <= 0) {
+                $sigWindow = 300;
+            }
+            $bodyTs = (string) ($params['__sig_ts'] ?? '');
+            $bodyNonce = (string) ($params['__sig_nonce'] ?? '');
+            $bodyRaw = (string) ($params['__sig_body'] ?? '');
+            if (!SignatureValidator::isValidForBody(
+                $bodyTs,
+                $bodyNonce,
+                $bodyRaw,
+                (string) $params['__sig_hmac'],
+                $sigSecret,
+                $sigWindow
+            )) {
+                $this->logger->warning("{$this->componentName()}: rejet auth HMAC body invalide code=401", [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                    'sensor' => trim((string) ($params['sensor'] ?? '')),
+                    'ts_received' => $bodyTs,
+                    'window_s' => $sigWindow,
+                ]);
+                return ResponseHelper::text($response, 'Signature incorrecte', 401);
+            }
+            $this->authenticatedByHmac = true;
+            $this->logger->info("{$this->componentName()}: auth HMAC body OK", [
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+            ]);
+
+            return null;
+        }
+
         $timestamp = $params['timestamp'] ?? null;
         $signature = $params['signature'] ?? null;
         $strict = filter_var($_ENV['HMAC_STRICT_MODE'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
