@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.4.0] - 2026-07-04
+
+### Sécurité & robustesse - Audit ingestion N3PP / MSP1
+- **CSRF (toggle GET → POST)** : la route `/{n3pp|msp1}/api/outputs/toggle` acceptait `GET` ; `CsrfMiddleware` traite `GET` comme méthode sûre, donc un `GET` inter-site (ex. `<img src=".../api/outputs/toggle?gpio=16&state=1">`) pouvait basculer un GPIO sur une session admin. Route restreinte à **POST** (aligné FFP3 ; l'UI `control-actions.js` émet déjà un POST + jeton CSRF).
+- **Fuite d'information** : les endpoints temps réel publics (`AbstractRealtimeApiController`) renvoyaient `detail => $e->getMessage()` en 500 (texte d'exception SQL exposé). Message générique désormais ; détail journalisé côté serveur uniquement.
+- **Perte de mesure** : `mail`/`mailNotif` reçus du firmware n'étaient pas tronqués (N3PP/MSP1), contrairement à FFP3 (255). Une valeur trop longue faisait échouer l'INSERT → 500 → **toute la ligne de mesure perdue**. Troncature à 255 sur les deux champs (`sanitizeFirmwareEmail` + nouveau `sanitizeFirmwareMailNotif`).
+- **Parité auth heartbeat** : `LegacyHeartbeatHandler` ignorait `HMAC_STRICT_MODE` (heartbeat restait laxiste même quand `/post-data` était en mode strict). Le mode strict rejette désormais l'absence de signature HMAC, comme `HmacAuthTrait`.
+
 ## [6.3.2] - 2026-06-29
 
 ### Correctif - Erreur 500 sur /meteo et /serre (filtre Twig `localdt`)

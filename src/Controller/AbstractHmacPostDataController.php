@@ -51,6 +51,28 @@ abstract class AbstractHmacPostDataController extends AbstractPostDataController
             $mail = '';
         }
 
+        // Troncature 255 (comme FFP3) : une valeur trop longue faisait echouer
+        // l'INSERT -> 500 et perte de TOUTE la ligne de mesure, pas juste du mail.
+        if ($mail !== null && strlen($mail) > 255) {
+            $mail = substr($mail, 0, 255);
+        }
+
         return $mail;
+    }
+
+    /**
+     * Normalise le champ `mailNotif` du firmware : tronque a 255 caracteres pour
+     * eviter qu'une valeur trop longue ne fasse echouer l'INSERT (perte de mesure).
+     *
+     * @param array<string, mixed> $params
+     */
+    protected function sanitizeFirmwareMailNotif(array $params, \Closure $sanitize): ?string
+    {
+        $mailNotif = $sanitize('mailNotif');
+        if ($mailNotif !== null && strlen($mailNotif) > 255) {
+            $mailNotif = substr($mailNotif, 0, 255);
+        }
+
+        return $mailNotif;
     }
 }

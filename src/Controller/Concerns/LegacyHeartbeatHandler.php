@@ -165,6 +165,17 @@ final class LegacyHeartbeatHandler
             return ResponseHelper::text($response, 'Signature incomplete', 401);
         }
 
+        // Parite avec HmacAuthTrait (post-data) : en mode strict, l'absence de
+        // signature HMAC est refusee au lieu de retomber sur l'api_key. Sans cela
+        // le heartbeat restait laxiste meme quand /post-data etait durci.
+        $strict = filter_var($_ENV['HMAC_STRICT_MODE'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
+        if ($strict) {
+            $this->logger->warning("{$this->componentName}: rejet auth HMAC absent (strict) code=401", [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            ]);
+            return ResponseHelper::text($response, 'Signature HMAC requise (strict mode)', 401);
+        }
+
         // Fallback API_KEY
         $apiKey = isset($params['api_key']) ? trim((string) $params['api_key']) : '';
         $expected = $_ENV['API_KEY'] ?? '';
