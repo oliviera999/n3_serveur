@@ -22,7 +22,7 @@ Comparaison dump prod vs serveur **5.1.3** : voir le plan d'audit dans le dépô
 | Doublons GPIO | `FIX_DUPLICATE_GPIO_ROWS.sql` puis `INIT_GPIO_BASE_ROWS.sql` | Si diagnostic le signale |
 | Lignes fantômes gpio 16 + `UNIQUE(gpio)` | `FIX_GPIO16_NULL_DUPLICATES_2026_06.sql` | **Critique** si doublons `name=NULL` (purge + anti-récidive) |
 | GPIO actionneurs N3PP (12 pompe, 13 arrosage) | `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` | **Recommandé** si prod utilise encore gpio=2 pour la pompe |
-| **Bundle audit juillet 2026** | `2026_07_PROD_01` (+ `01a` S3 si `ffp3Data4` existe) → `02` → `03` (+ `04` indexes) | **Recommandé** post-backup |
+| **Bundle audit juillet 2026** | `2026_07_PROD_01` (+ `01a` S3 si `ffp3Data4` existe) → `02` → `03` → **`03b`** → **`03c`** (+ `04` indexes) | **Recommandé** post-backup |
 | Angles servo FFP3 (GPIO 118-123) | `tools/sql/migrate-gpio118-123-servo-angles-ffp3.sql` | Si prod antérieure à 5.3.9 (auto-créé depuis 5.3.9) |
 | Validation post-migration | `99_validate_prod.sql` | Après migration |
 
@@ -44,6 +44,22 @@ Comparaison dump prod vs serveur **5.1.3** : voir le plan d'audit dans le dépô
 **Erreurs attendues si migration partielle** : `Duplicate column name`, `Duplicate key name` — ignorer le bloc concerné.
 
 **Attention** : `ALTER TABLE ffp3Data` (~1 M lignes) peut prendre plusieurs minutes.
+
+**Élagage N3PP (`03`)** : ne pas exécuter le DELETE monolithique niveau 1a dans phpMyAdmin
+(~1,8 M lignes → `#2006 MySQL server has gone away`). Utiliser `2026_07_PROD_03b_prune_n3pp_double_post_batched.sql`
+(blocs INSERT B.01–B.19 un par un, puis répéter le bloc C jusqu'à `reste_a_supprimer = 0`), puis `03c`.
+
+**Automatisation SSH** (recommandé) :
+
+```bash
+cd /home4/oliviera/iot.olution.info   # racine dépôt serveur
+git pull                              # récupère le script + migrations
+bash tools/run-prod-prune-n3pp.sh --confirm --with-indexes --with-validate
+```
+
+Simulation sans écriture : `bash tools/run-prod-prune-n3pp.sh --dry-run`
+
+Journal : `var/log/prune-n3pp-*.log`
 
 ### Procédure CLI (SSH)
 

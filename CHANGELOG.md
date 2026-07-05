@@ -11,6 +11,17 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.8.3] - 2026-07-05
+
+### Script prod — élagage N3PP automatique
+- **`tools/run-prod-prune-n3pp.sh`** : collecte LEAD par fenêtres d'id, boucle DELETE jusqu'à épuisement, niveaux 2a–2b ; options `--with-indexes`, `--with-validate`, `--dry-run`.
+
+## [6.8.2] - 2026-07-05
+
+### Migrations prod — élagage N3PP par lots
+- **SQL** : `2026_07_PROD_03b_prune_n3pp_double_post_batched.sql` (double-POST N3PP en fenêtres LEAD + DELETE par lots de 3000) ; `2026_07_PROD_03c_prune_level2.sql` (niveaux 2a–2b).
+- **03** : requête monolithique 1a commentée (évite #2006 « MySQL server has gone away » sur ~1,8 M lignes via phpMyAdmin).
+
 ## [6.8.1] - 2026-07-05
 
 ### Compléments plan BDD — exécution locale et doc

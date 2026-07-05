@@ -8,10 +8,33 @@ param(
     [string]$AdminUsername = "admin",
     [string]$AdminPassword = "",
     [string]$ApiKey = "local_api_key_change_me",
+    [string]$PglApiKey = "local_pgl_api_key_change_me",
     [switch]$RunNegativeAuthChecks
 )
 
 $ErrorActionPreference = "Stop"
+
+# Cles API : Docker local monte .env.docker.example dans le conteneur (pas le .env hote).
+$serveurRoot = Split-Path -Parent $PSScriptRoot
+$envFiles = if ($BaseUrl -match '127\.0\.0\.1|localhost') {
+    @(".env.docker.example")
+} else {
+    @(".env.docker.example", ".env")
+}
+foreach ($envFile in $envFiles) {
+    $envPath = Join-Path $serveurRoot $envFile
+    if (-not (Test-Path -LiteralPath $envPath)) { continue }
+    Get-Content -LiteralPath $envPath | ForEach-Object {
+        if ($_ -match '^\s*API_KEY=(.+)$') {
+            $val = $matches[1].Trim().Trim('"').Trim("'")
+            if ($val -ne '') { $ApiKey = $val }
+        }
+        if ($_ -match '^\s*PGL_API_KEY=(.+)$') {
+            $val = $matches[1].Trim().Trim('"').Trim("'")
+            if ($val -ne '') { $PglApiKey = $val }
+        }
+    }
+}
 $protectedPath = "/aquaponie-control"
 $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
 
@@ -308,7 +331,7 @@ if ($RunNegativeAuthChecks) {
 Assert-Status -Url "$BaseUrl/api/outputs/state" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/msp1/api/outputs/state" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/n3pp/api/outputs/state" -AllowedStatus @(200)
-Assert-Status -Url "$BaseUrl/gallery/ffp3/api/outputs/state" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
+Assert-Status -Url "$BaseUrl/gallery/ffp3/api/outputs/state?board=5" -Headers @{ "X-Api-Key" = $ApiKey } -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/pgl" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/pgl/api/system/health" -AllowedStatus @(200)
 Assert-Status -Url "$BaseUrl/pgl/api/realtime/sensors/latest" -AllowedStatus @(200)
@@ -373,7 +396,7 @@ Assert-Status -Url "$BaseUrl/post-data" -Method "POST" -Body $postData -AllowedS
 
 # POST data Poissonglouton (contrat firmware 0.2.x)
 $pglPostData = @{
-    api_key = $ApiKey
+    api_key = $PglApiKey
     sensor = "poissonglouton"
     version = "0.2.3-smoke"
     location = "n3-recyclage"
@@ -400,7 +423,7 @@ $pglBadAuth.api_key = "wrong-key"
 Assert-Status -Url "$BaseUrl/pgl/post-data" -Method "POST" -Body $pglBadAuth -AllowedStatus @(401)
 
 $pglHeartbeat = @{
-    api_key = $ApiKey
+    api_key = $PglApiKey
     sensor = "poissonglouton"
     version = "0.1.2-smoke"
     uptime = "1200"

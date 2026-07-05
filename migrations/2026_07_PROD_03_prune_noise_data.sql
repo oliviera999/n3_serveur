@@ -23,27 +23,26 @@ DELETE FROM `n3ppDataTest` WHERE `sensor` = 'msp1';
 DELETE FROM `ffp3Outputs3`
 WHERE `gpio` = 16 AND (`name` IS NULL OR `name` = '');
 
--- Niveau 1a — double-POST N3PP (supprime la 2e ligne de chaque paire identique Δt ≤ 2 s)
-DELETE d2 FROM `n3ppData` d1
-INNER JOIN `n3ppData` d2
-  ON d2.`id` = (
-    SELECT MIN(x.`id`) FROM `n3ppData` x
-    WHERE x.`id` > d1.`id`
-      AND x.`reading_time` BETWEEN d1.`reading_time` AND DATE_ADD(d1.`reading_time`, INTERVAL 2 SECOND)
-      AND x.`TempAir` <=> d1.`TempAir`
-      AND x.`Humidite` <=> d1.`Humidite`
-      AND x.`Luminosite` <=> d1.`Luminosite`
-      AND x.`HumidMoy` <=> d1.`HumidMoy`
-      AND x.`etatPompe` <=> d1.`etatPompe`
-      AND x.`sensor` <=> d1.`sensor`
-      AND x.`version` <=> d1.`version`
-  )
-WHERE d1.`id` < d2.`id`;
+-- Niveau 1a — double-POST N3PP
+-- ⚠️ NE PAS exécuter la requête monolithique ci-dessous sur prod (~1,8 M lignes) :
+--    erreur #2006 "MySQL server has gone away" (timeout phpMyAdmin / mémoire).
+--    Utiliser à la place : 2026_07_PROD_03b_prune_n3pp_double_post_batched.sql
+--    puis : 2026_07_PROD_03c_prune_level2.sql
+--
+-- DELETE d2 FROM `n3ppData` d1
+-- INNER JOIN `n3ppData` d2
+--   ON d2.`id` = (
+--     SELECT MIN(x.`id`) FROM `n3ppData` x
+--     WHERE x.`id` > d1.`id`
+--       AND x.`reading_time` BETWEEN d1.`reading_time` AND DATE_ADD(d1.`reading_time`, INTERVAL 2 SECOND)
+--       AND x.`TempAir` <=> d1.`TempAir`
+--       AND x.`Humidite` <=> d1.`Humidite`
+--       AND x.`Luminosite` <=> d1.`Luminosite`
+--       AND x.`HumidMoy` <=> d1.`HumidMoy`
+--       AND x.`etatPompe` <=> d1.`etatPompe`
+--       AND x.`sensor` <=> d1.`sensor`
+--       AND x.`version` <=> d1.`version`
+--   )
+-- WHERE d1.`id` < d2.`id`;
 
--- Niveau 2a — lectures DHT invalides N3PP (0/0)
-DELETE FROM `n3ppData` WHERE `TempAir` = 0 AND `Humidite` = 0;
-DELETE FROM `n3ppDataTest` WHERE `TempAir` = 0 AND `Humidite` = 0;
-
--- Niveau 2b — emails historiques aberrants N3PP
-DELETE FROM `n3ppData` WHERE `mail` LIKE '%gmailsdfg%';
-DELETE FROM `n3ppDataTest` WHERE `mail` LIKE '%gmailsdfg%';
+-- Niveaux 2a–2b : voir 2026_07_PROD_03c_prune_level2.sql
