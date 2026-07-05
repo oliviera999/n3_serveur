@@ -152,6 +152,122 @@ final class GallerySyncControllerTest extends TestCase
         $this->assertSame(200, $result->getStatusCode());
     }
 
+    public function testFinishSkipsReportWhenNotFinalAndPartial(): void
+    {
+        // A2 : clôture non finale (backlog non vidé, received < total, pas de final=1) -> pas de mail.
+        $sync = $this->createMock(GallerySyncRepository::class);
+        $sync->method('finishSession')->willReturn([
+            'id' => 99,
+            'slug' => 'ffp3',
+            'total' => 90,
+            'received' => 16,
+            'failed' => 0,
+            'bytes_received' => 123,
+            'status' => 'completed',
+        ]);
+
+        $notif = $this->createMock(NotificationService::class);
+        $notif->expects($this->never())->method('sendGalleryTransferReport');
+
+        $controller = $this->createController(['sync' => $sync, 'notif' => $notif]);
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('POST', '/gallery/ffp3/api/sync/finish?session=99&sent=16&failed=0&bytes=123')
+            ->withHeader('X-Api-Key', $this->apiKey());
+        $result = $controller->finishBySlug($request, (new ResponseFactory())->createResponse(), ['slug' => 'ffp3']);
+
+        $this->assertSame(200, $result->getStatusCode());
+    }
+
+    public function testFinishSendsReportWhenFinalFlagSet(): void
+    {
+        // A2 : final=1 (backlog vidé) déclenche le récap même si received < total (dernier lot).
+        $control = $this->createMock(GalleryControlRepository::class);
+        $control->method('getModule')->willReturn(['board' => 5, 'table' => 'UploadPhoto1Outputs', 'label' => 'FFP3']);
+
+        $sync = $this->createMock(GallerySyncRepository::class);
+        $sync->method('finishSession')->willReturn([
+            'id' => 99,
+            'slug' => 'ffp3',
+            'total' => 90,
+            'received' => 16,
+            'failed' => 0,
+            'bytes_received' => 123,
+            'status' => 'completed',
+        ]);
+
+        $notif = $this->createMock(NotificationService::class);
+        $notif->expects($this->once())->method('sendGalleryTransferReport')->willReturn(true);
+
+        $controller = $this->createController(['control' => $control, 'sync' => $sync, 'notif' => $notif]);
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('POST', '/gallery/ffp3/api/sync/finish?session=99&sent=16&failed=0&bytes=123&final=1')
+            ->withHeader('X-Api-Key', $this->apiKey());
+        $result = $controller->finishBySlug($request, (new ResponseFactory())->createResponse(), ['slug' => 'ffp3']);
+
+        $this->assertSame(200, $result->getStatusCode());
+    }
+
+    public function testStartRejectsInvalidSignature(): void
+    {
+        // A4 : signature HMAC présente mais invalide -> 401 (la clé API seule ne suffit plus).
+        $previousSecret = $_ENV['API_SIG_SECRET'] ?? '';
+        $_ENV['API_SIG_SECRET'] = 'sig-secret-xyz';
+        putenv('API_SIG_SECRET=sig-secret-xyz');
+
+        try {
+            $control = $this->createMock(GalleryControlRepository::class);
+            $control->method('getModule')->willReturn(['board' => 5, 'table' => 'UploadPhoto1Outputs', 'label' => 'FFP3']);
+
+            $controller = $this->createController(['control' => $control]);
+            $request = (new ServerRequestFactory())
+                ->createServerRequest('POST', '/gallery/ffp3/api/sync/start?device_session=boot-1&total=3&board=5')
+                ->withHeader('X-Api-Key', $this->apiKey())
+                ->withHeader('X-Sig-Timestamp', (string) time())
+                ->withHeader('X-Sig-Nonce', 'nonce-1')
+                ->withHeader('X-Sig-Hmac', str_repeat('0', 64));
+            $result = $controller->startBySlug($request, (new ResponseFactory())->createResponse(), ['slug' => 'ffp3']);
+
+            $this->assertSame(401, $result->getStatusCode());
+        } finally {
+            $_ENV['API_SIG_SECRET'] = $previousSecret;
+            putenv('API_SIG_SECRET=' . $previousSecret);
+        }
+    }
+
+    public function testStartAcceptsValidSignature(): void
+    {
+        // A4 : signature HMAC valide sur le corps brut (vide ici) -> la requête est acceptée.
+        $previousSecret = $_ENV['API_SIG_SECRET'] ?? '';
+        $_ENV['API_SIG_SECRET'] = 'sig-secret-xyz';
+        putenv('API_SIG_SECRET=sig-secret-xyz');
+
+        try {
+            $control = $this->createMock(GalleryControlRepository::class);
+            $control->method('getModule')->willReturn(['board' => 5, 'table' => 'UploadPhoto1Outputs', 'label' => 'FFP3']);
+
+            $sync = $this->createMock(GallerySyncRepository::class);
+            $sync->method('startSession')->willReturn(['id' => 7, 'total' => 3]);
+
+            $ts = (string) time();
+            $nonce = $ts . '-1';
+            $sig = \App\Security\SignatureValidator::createSignatureForBody((int) $ts, $nonce, '', 'sig-secret-xyz');
+
+            $controller = $this->createController(['control' => $control, 'sync' => $sync]);
+            $request = (new ServerRequestFactory())
+                ->createServerRequest('POST', '/gallery/ffp3/api/sync/start?device_session=boot-1&total=3&board=5')
+                ->withHeader('X-Api-Key', $this->apiKey())
+                ->withHeader('X-Sig-Timestamp', $ts)
+                ->withHeader('X-Sig-Nonce', $nonce)
+                ->withHeader('X-Sig-Hmac', $sig);
+            $result = $controller->startBySlug($request, (new ResponseFactory())->createResponse(), ['slug' => 'ffp3']);
+
+            $this->assertSame(200, $result->getStatusCode());
+        } finally {
+            $_ENV['API_SIG_SECRET'] = $previousSecret;
+            putenv('API_SIG_SECRET=' . $previousSecret);
+        }
+    }
+
     public function testFinishRejectsSessionFromAnotherGallery(): void
     {
         $sync = $this->createMock(GallerySyncRepository::class);

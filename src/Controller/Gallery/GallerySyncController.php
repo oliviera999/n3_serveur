@@ -10,6 +10,7 @@ use App\Repository\GalleryControlRepository;
 use App\Repository\GallerySyncRepository;
 use App\Security\AuthService;
 use App\Security\DeviceApiKeyValidator;
+use App\Security\DeviceSignatureValidator;
 use App\Service\LogService;
 use App\Service\NotificationService;
 use App\Util\RequestHelper;
@@ -159,6 +160,11 @@ class GallerySyncController
         $bytes = array_key_exists('bytes', $params) ? RequestHelper::getInt($params, 'bytes', 0) : null;
         $statusParam = RequestHelper::getString($params, 'status', 'completed');
         $status = $statusParam === 'aborted' ? 'aborted' : 'completed';
+        // A2 (audit 2026-07-05) : le firmware annonce le VRAI backlog comme `total` et pose `final=1`
+        // uniquement quand le backlog est réellement vidé après le drain. On ne déclenche donc le mail
+        // récapitulatif que sur une clôture finale — sinon un gros backlog drainé en plusieurs réveils
+        // générait un récap par réveil. `final` absent (firmware ancien) => on retombe sur received>=total.
+        $final = array_key_exists('final', $params) && RequestHelper::getInt($params, 'final', 0) === 1;
 
         try {
             $finished = $this->syncRepository->finishSession($sessionId, $sent, $failed, $bytes, $status);
@@ -170,7 +176,17 @@ class GallerySyncController
                 return ResponseHelper::json($response, ['error' => 'Session incompatible avec la galerie'], 400);
             }
 
-            $this->sendTransferReport($slug, $finished);
+            $reportTotal = (int) ($finished['total'] ?? 0);
+            $reportReceived = (int) ($finished['received'] ?? 0);
+            if ($final || ($reportTotal > 0 && $reportReceived >= $reportTotal)) {
+                $this->sendTransferReport($slug, $finished);
+            } else {
+                $this->logger->info('GallerySync [' . $slug . ']: clôture non finale, récap différé', [
+                    'session' => $sessionId,
+                    'received' => $reportReceived,
+                    'total' => $reportTotal,
+                ]);
+            }
 
             return ResponseHelper::json($response, [
                 'success' => true,
@@ -322,16 +338,28 @@ class GallerySyncController
     private function requireDeviceApiKey(Request $request, Response $response): ?Response
     {
         $params = array_merge($request->getQueryParams(), RequestHelper::extractParams($request));
-        if (DeviceApiKeyValidator::isValidRequest($request, $params)) {
-            return null;
+        if (!DeviceApiKeyValidator::isValidRequest($request, $params)) {
+            $this->logger->warning('GallerySync: rejet auth device api_key', [
+                'path' => $request->getUri()->getPath(),
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            ]);
+
+            return ResponseHelper::json($response, ['error' => 'Cle API invalide'], 401);
         }
 
-        $this->logger->warning('GallerySync: rejet auth device api_key', [
-            'path' => $request->getUri()->getPath(),
-            'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
-        ]);
+        // A4 : signature HMAC additive sur le corps form-urlencoded (X-Sig-*). Présente => doit être
+        // valide ; absente => on reste sur la clé API (rétro-compatible).
+        $signatureCheck = DeviceSignatureValidator::verify($request, DeviceSignatureValidator::rawBody($request));
+        if ($signatureCheck === false) {
+            $this->logger->warning('GallerySync: rejet signature HMAC invalide (X-Sig-*)', [
+                'path' => $request->getUri()->getPath(),
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            ]);
 
-        return ResponseHelper::json($response, ['error' => 'Cle API invalide'], 401);
+            return ResponseHelper::json($response, ['error' => 'Signature invalide'], 401);
+        }
+
+        return null;
     }
 
     private function requireAuth(Request $request, Response $response): ?Response

@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.6.0] - 2026-07-05
+
+### Sécurité & contrat - Audit `uploadphotosserver` (galeries msp1/n3pp/ffp3), côté serveur
+Volet serveur de l'audit firmware `uploadphotosserver` 2026-07-05 (findings A2, A4). Additif et **rétro-compatible** : un firmware qui n'envoie pas de signature reste authentifié par la seule clé API.
+- **A4 — Signature HMAC additive des endpoints galerie** (`DeviceSignatureValidator`) : si le firmware envoie `X-Sig-Timestamp` / `X-Sig-Nonce` / `X-Sig-Hmac`, la signature est validée (`SignatureValidator::isValidForBody`) sur l'upload multipart (corps signé = clé API, le JPEG n'étant pas signable en streaming), sur les POST sync `start`/`finish` et sur le POST version (corps signé = corps brut form-urlencoded). Présente et invalide → 401 ; absente ou `API_SIG_SECRET` non configuré → repli sur la clé API (inchangé). Appliqué à `GalleryUploadController`, `GallerySyncController`, `GalleryControlController`.
+- **A2 — Récap de transfert galerie déclenché uniquement à la clôture finale** : le firmware annonce désormais le VRAI backlog comme `total` et pose `final=1` quand le backlog est réellement vidé. `GallerySyncController::finishInternal` n'envoie le mail récapitulatif que si `final` (ou `received >= total`) — supprime le spam d'un récap par réveil pour un gros backlog drainé en plusieurs passes. La clôture de session en base reste inchangée.
+
 ## [6.5.0] - 2026-07-04
 
 ### Sécurité - Durcissement contrat d'ingestion N3PP/MSP1 (additif, rétro-compatible)

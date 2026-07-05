@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Controller\Gallery;
 
+use App\Config\Env;
 use App\Config\GalleryConfig;
 use App\Config\Paths;
 use App\Repository\GallerySyncRepository;
 use App\Security\DeviceApiKeyValidator;
+use App\Security\DeviceSignatureValidator;
 use App\Service\GalleryTrashService;
 use App\Service\LogService;
 use App\Util\ResponseHelper;
@@ -248,12 +250,23 @@ class GalleryUploadController
 
     private function isAuthorizedRequest(Request $request, string $gallery): bool
     {
-        if (DeviceApiKeyValidator::isValidRequest($request)) {
-            return true;
+        if (!DeviceApiKeyValidator::isValidRequest($request)) {
+            $this->logger->warning("GalleryUpload [{$gallery}]: cle API device absente ou invalide");
+            return false;
         }
 
-        $this->logger->warning("GalleryUpload [{$gallery}]: cle API device absente ou invalide");
-        return false;
+        // A4 (audit 2026-07-05) : signature HMAC additive. Le corps multipart (JPEG) n'étant pas
+        // signable en streaming, le firmware signe un condensé stable = la clé API (X-Sig-*). Si la
+        // signature est présente elle DOIT être valide ; absente, on reste sur la seule clé API.
+        Env::load();
+        $expectedApiKey = trim((string) ($_ENV['API_KEY'] ?? ''));
+        $signatureCheck = DeviceSignatureValidator::verify($request, $expectedApiKey);
+        if ($signatureCheck === false) {
+            $this->logger->warning("GalleryUpload [{$gallery}]: signature HMAC invalide (X-Sig-*)");
+            return false;
+        }
+
+        return true;
     }
 
     /**

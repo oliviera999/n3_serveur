@@ -49,6 +49,65 @@ final class GalleryUploadControllerTest extends TestCase
         $this->assertSame(401, $result->getStatusCode());
     }
 
+    public function testRejectsUploadWithInvalidSignature(): void
+    {
+        // A4 : signature HMAC présente mais invalide -> 401 même avec une clé API valide.
+        $previousSecret = $_ENV['API_SIG_SECRET'] ?? '';
+        $_ENV['API_SIG_SECRET'] = 'sig-secret-xyz';
+        putenv('API_SIG_SECRET=sig-secret-xyz');
+
+        try {
+            $logger = $this->createMock(LogService::class);
+            $trash = $this->createMock(GalleryTrashService::class);
+            $controller = new GalleryUploadController($logger, $trash, $this->createMock(GallerySyncRepository::class));
+
+            $request = (new ServerRequestFactory())
+                ->createServerRequest('POST', '/gallery/ffp3/upload')
+                ->withHeader('X-Api-Key', 'test-device-key')
+                ->withHeader('X-Sig-Timestamp', (string) time())
+                ->withHeader('X-Sig-Nonce', 'nonce-1')
+                ->withHeader('X-Sig-Hmac', str_repeat('0', 64));
+
+            $result = $controller->handleBySlug($request, (new ResponseFactory())->createResponse(), ['slug' => 'ffp3']);
+            $this->assertSame(401, $result->getStatusCode());
+        } finally {
+            $_ENV['API_SIG_SECRET'] = $previousSecret;
+            putenv('API_SIG_SECRET=' . $previousSecret);
+        }
+    }
+
+    public function testValidSignaturePassesAuth(): void
+    {
+        // A4 : signature valide sur le condensé (= clé API) -> l'auth passe (échec ensuite faute de
+        // fichier => 400, et non 401). Le corps signé côté firmware est la clé API.
+        $previousSecret = $_ENV['API_SIG_SECRET'] ?? '';
+        $_ENV['API_SIG_SECRET'] = 'sig-secret-xyz';
+        putenv('API_SIG_SECRET=sig-secret-xyz');
+
+        try {
+            $logger = $this->createMock(LogService::class);
+            $trash = $this->createMock(GalleryTrashService::class);
+            $controller = new GalleryUploadController($logger, $trash, $this->createMock(GallerySyncRepository::class));
+
+            $ts = (string) time();
+            $nonce = $ts . '-1';
+            $sig = \App\Security\SignatureValidator::createSignatureForBody((int) $ts, $nonce, 'test-device-key', 'sig-secret-xyz');
+
+            $request = (new ServerRequestFactory())
+                ->createServerRequest('POST', '/gallery/ffp3/upload')
+                ->withHeader('X-Api-Key', 'test-device-key')
+                ->withHeader('X-Sig-Timestamp', $ts)
+                ->withHeader('X-Sig-Nonce', $nonce)
+                ->withHeader('X-Sig-Hmac', $sig);
+
+            $result = $controller->handleBySlug($request, (new ResponseFactory())->createResponse(), ['slug' => 'ffp3']);
+            $this->assertSame(400, $result->getStatusCode());
+        } finally {
+            $_ENV['API_SIG_SECRET'] = $previousSecret;
+            putenv('API_SIG_SECRET=' . $previousSecret);
+        }
+    }
+
     public function testReturns202WhenPhotoMovedToTrash(): void
     {
         $logger = $this->createMock(LogService::class);
