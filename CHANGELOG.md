@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.6.2] - 2026-07-05
+
+### Documentation - Guide d'activation pas-à-pas
+- **Nouveau `docs/GUIDE_ACTIVATION_CONFIG.md`** : checklist opérationnelle pour vérifier que les fonctionnalités « workflow / mails / OTA » sont réellement effectives en prod (quoi vérifier → comment → attendu → sinon). Couvre mails/SMTP/`NOTIF_MODE`, crontab + `cronlog`, hook `post-merge`, OTA serveur + pipeline firmware (secrets GitHub, env `prod`), activation dédiée de l'OTA poissonglouton (`pgl`), et la CI des deux dépôts. Complément « comment vérifier » de `docs/ETAT_CONFIG_NON_EFFECTIVE.md`.
+
 ## [6.6.1] - 2026-07-05
 
 ### Documentation & config - Recensement des configs « non effectives »
