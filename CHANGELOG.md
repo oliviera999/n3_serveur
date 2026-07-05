@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.6.1] - 2026-07-05
+
+### Documentation & config - Recensement des configs « non effectives »
+Suite de l'audit transverse (workflow / mails) côté serveur et firmware. Aucun changement de comportement runtime.
+- **Nouveau `docs/ETAT_CONFIG_NON_EFFECTIVE.md`** : recense les fonctionnalités présentes dans le code mais inactives par défaut (SMTP commenté → repli `mail()`, `NOTIF_MODE=important` qui coupe le digest P3/P4, `checkTankLevel()` placeholder, `notifyFloodRisk()` jamais appelé, CRON/hook à installer à la main, auth OTA off) avec, pour chacune, l'action d'activation.
+- **`.env.docker.example`** : suppression de la variable morte `ALERT_EMAIL` (jamais lue par le code, qui utilise `NOTIF_EMAIL_RECIPIENT`) + note explicative.
+
 ## [6.6.0] - 2026-07-05
 
 ### Sécurité & contrat - Audit `uploadphotosserver` (galeries msp1/n3pp/ffp3), côté serveur
