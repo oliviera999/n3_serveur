@@ -1,6 +1,7 @@
 {
-  "version": "2.17",
-  "min_version": "2.17",
-  "url": "https://iot.olution.info/ota/msp-test/firmware.bin",
-  "sha256": "8061d08aec1fa5b971b990eb2703b62bee2ba0d1cd8cb6bec74ca09fd95fd01a"
+  "version": "2.49",
+  "min_version": "2.49",
+  "url": "http://iot.olution.info/ota/msp-test/firmware.bin",
+  "sha256": "1b763475ae36ee9ffa63c609df6600900373ffc66d01481c9ae90e9618005e03",
+  "signature": "MIGIAkIBFj51bpwEH198W1PBcf8ayumw6MwxYIztLXhvcsdesdU9BWt8a+TeQYtT7rgqzbCJ6bZW2cJgJ3KqS/eguXnpv7cCQgG8ez304aXOVZWGL8IROdfy5xoKslR4tcIofWzs3LcHL4zbkJPHb9jjZEDxR3eE7X0gT15YPPCiHOEF5T+jj5/6cQ=="
 }
