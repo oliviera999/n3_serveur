@@ -54,6 +54,7 @@ Comparaison dump prod vs serveur **5.1.3** : voir le plan d'audit dans le dépô
 ```bash
 cd /home4/oliviera/iot.olution.info   # racine dépôt serveur
 git pull                              # récupère le script + migrations
+php tools/run-prod-prune-n3pp.php --test-connection
 bash tools/run-prod-prune-n3pp.sh --confirm --with-indexes --with-validate
 ```
 

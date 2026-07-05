@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.8.4] - 2026-07-05
+
+### Correctif — script élagage N3PP prod (connexion BDD)
+- **`tools/run-prod-prune-n3pp.php`** : exécution via PDO + `Env::load()` (Dotenv) au lieu du parsing bash du `.env` ; option `--test-connection`.
+
 ## [6.8.3] - 2026-07-05
 
 ### Script prod — élagage N3PP automatique
