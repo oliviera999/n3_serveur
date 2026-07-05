@@ -65,7 +65,7 @@ Codes de reponse upload galerie :
 
 Firmware `firmwires/poissonglouton/` (mode ecran tactile ou headless).
 
-- `POST /pgl/post-data` — **auth device**: `api_key` dans le body, validee cote serveur (`PGL_API_KEY`, fallback `API_KEY`).
+- `POST /pgl/post-data` — **auth device**: `api_key` dans le body, validee cote serveur (`PGL_API_KEY`, fallback `API_KEY`). HMAC (`PGL_API_SIG_SECRET` firmware) **non valide** cote serveur a ce jour.
 - `POST /pgl/heartbeat` — **auth device**: meme `api_key` ; champs `uptime`, `free`, `min`, `reboots` (obligatoires), `sensor`, `version`, `rssi`, **`sensors_present`** (optionnel, bitmask capteurs **presents** sur le board — stocke en BDD depuis v serveur 2026-06). Champs supervision supplementaires encore ignores : `pending`, `journal_pending`, `nvs_pending`, `sd_ok`, `battery_mv`. Table `pglHeartbeat`.
 - `GET /pgl` — page statistiques publique (compteurs horaires / journaliers + bandeau LIVE si active).
 - `GET /pgl/api/system/health` — JSON `{ online, last_reading, last_reading_ago_seconds, source }` ; seuil 5 min (`PglConfig::ONLINE_THRESHOLD_SECONDS`).

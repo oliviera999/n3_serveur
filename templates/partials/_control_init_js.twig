@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (var k in states) {
             var v = states[k];
             if (k === '101') out[k] = (v === 'checked' || v === 1 || v === '1') ? 1 : 0;
-            else if (k === '106') out[k] = (v === 1 || v === '1') ? 1 : 0;
+            else if (k === '106') out[k] = (v === 0 || v === '0') ? 1 : 0;
             else if (k === '111') out[k] = (v === 1 || v === '1' || v === true || v === 'true') ? 1 : 0;
             else out[k] = v;
         }
@@ -55,7 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (states['106'] !== undefined) {
             var h2 = document.getElementById('WakeUp-hint');
-            if (h2) h2.textContent = (states['106'] === 1 || states['106'] === '1') ? 'Activé' : 'Désactivé';
+            var economyOn = states['106'] === 0 || states['106'] === '0';
+            if (h2) h2.textContent = economyOn ? 'Activé' : 'Désactivé';
         }
         if (states['111'] !== undefined) {
             var h3 = document.getElementById('ServoModeAuto-hint');
@@ -86,9 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
         var value = checked ? valOn : valOff;
         var hintEl = document.getElementById(paramName + '-hint');
         if (hintEl) {
-            hintEl.textContent = paramName === 'ServoModeAuto'
-                ? (checked ? 'Auto' : 'Manuel')
-                : (checked ? 'Activé' : 'Désactivé');
+            if (paramName === 'ServoModeAuto') {
+                hintEl.textContent = checked ? 'Auto' : 'Manuel';
+            } else if (paramName === 'WakeUp') {
+                hintEl.textContent = checked ? 'Activé' : 'Désactivé';
+            } else {
+                hintEl.textContent = checked ? 'Activé' : 'Désactivé';
+            }
         }
         if (paramName === 'ServoModeAuto') {
             syncServoModeFields({ '111': checked ? 1 : 0 });

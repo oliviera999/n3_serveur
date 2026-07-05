@@ -110,7 +110,8 @@ ON DUPLICATE KEY UPDATE
 `requestTime` = VALUES(`requestTime`);
 
 INSERT INTO `n3ppOutputs` (`board`, `gpio`, `name`, `state`, `requestTime`) VALUES
-('3', 2, 'Pompe irrigation', '0', NOW()),
+('3', 12, 'Pompe irrigation', '0', NOW()),
+('3', 13, 'Arrosage manuel', '0', NOW()),
 ('3', 15, 'Lampe', '0', NOW()),
 ('3', 16, 'Ventilation', '0', NOW()),
 ('3', 100, 'mail', 'dev@local.test', NOW()),

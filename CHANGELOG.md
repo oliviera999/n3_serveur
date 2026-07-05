@@ -11,6 +11,33 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.7.2] - 2026-07-05
+
+### Correctif — Pages meteo-control / serre-control
+- **N3PP GPIO actionneurs** : alignement BDD/UI sur GPIO 12 (pompe) et 13 (arrosage manuel) ; whitelist `allowedGpios` étendue ; acquittement one-shot GPIO 13 ; migration `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` + seed Docker.
+- **WakeUp (GPIO 106)** : inversion UI « Mode économie » (coché → `0` = veille) sur MSP et N3PP.
+- **Validation paramètres** : bornes `SeuilSec` 0–4095, `HeureArrosage` 0–23, `tempsArrosage` 1–20 s, `FreqWakeUp` 1–86400.
+- **UX** : callouts contextualisés MSP/N3PP, hints sync firmware, sorties MSP non pilotées, toasts polling limités aux GPIO actionneurs ; robustesse chargement MSP (`getAllForBoard` dans try/catch).
+- **Doc** : section GPIO actionneurs N3PP dans `docs/API_MSP1_N3PP.md`.
+- **Tests** : toggle GPIO 12 N3PP, ack GPIO 13, validations paramètres MSP/N3PP.
+
+## [6.7.1] - 2026-07-05
+
+### Documentation & config — Alignement secrets / exemples / doc
+Suite à l'audit des fichiers non versionnés (`secrets.h`, `secrets_config.h`, `credentials.h`, `.env`) :
+- **`.env.example`** : chemins HMAC corrigés (FFP5CS → `secrets_config.h`, n3pp/msp/CAM → `credentials.h`) ; note auth PGL (`api_key` seule) ; variables optionnelles documentées (`LOG_*`, rate-limit firmware, sync galerie).
+- **`.env.docker.example`** : aligné sur les clés critiques (`PGL_API_KEY`, `NOTIF_MODE`, HMAC, CRON, OTA, sécurité HTTP).
+- **`env.test.example`** : réécrit en gabarit minimal pointant vers `.env.example` ; retrait de `CACHE_ENABLED` (non lu par le runtime).
+- **`docs/SECURITE_ROTATION_API_KEY.md`**, **`docs/GUIDE_ACTIVATION_CONFIG.md`**, **`docs/ETAT_CONFIG_NON_EFFECTIVE.md`**, **`docs/API_MSP1_N3PP.md`**, **`docs/ENDPOINTS_ESP32_SERVEUR.md`** : chemins secrets corrigés ; recensement HMAC n3pp/msp, HMAC PGL non implémenté serveur, variables legacy `REALTIME_*`/`PWA_*`/`PGL_STATS_TOKEN`.
+- **Submodule firmwires** (doc alignée) : `poissonglouton/README.md`, `poissonglouton/include/secrets.h.example`, `credentials.h.example`, `firmwires/CLAUDE.md`, `firmwires/docs/ETAT_CONFIG_NON_EFFECTIVE.md`.
+
+## [6.7.0] - 2026-07-05
+
+### Ajout - Alerte réserve basse opt-in (CRON horaire)
+- **`SystemHealthService::checkTankLevel()`** : implémentation réelle (remplace le placeholder). Lecture de `EauReserve` via `SensorReadRepository::getLastReadings()` ; alerte si distance > seuil (`RESERVE_LOW_LEVEL_THRESHOLD`, mm). **Dormant par défaut** (variable absente/vide → log informatif uniquement). Sévérité P2/Hydraulic via `sendAlert`, clé `ffp3:reserve-low` ; aucune action pompe.
+- **`.env.example`**, **`docs/deployment/CRON.md`**, **`docs/ETAT_CONFIG_NON_EFFECTIVE.md`** : documentation de la variable et statut ⚠️ (implémenté, conditionné). `notifyFloodRisk()` documenté comme code mort volontaire (doublon firmware `limFlood`).
+- **Tests** : `tests/Service/SystemHealthServiceTest.php` (seuil absent, alerte, pas d'alerte).
+
 ## [6.6.2] - 2026-07-05
 
 ### Documentation - Guide d'activation pas-à-pas

@@ -13,8 +13,8 @@ use PDO;
  */
 abstract class AbstractOutputRepository extends AbstractRepository
 {
-    /** @var int[] GPIO de commande one-shot FFP3 (envoyés puis acquittés à 0) */
-    private const FFP3_ONE_SHOT_GPIOS = [108, 109, 110];
+    /** @var int[] GPIO de commande one-shot (envoyés puis acquittés à 0) */
+    private const FFP3_ONE_SHOT_GPIOS = [13, 108, 109, 110];
 
     public function __construct(
         PDO $pdo,

@@ -21,6 +21,7 @@ Comparaison dump prod vs serveur **5.1.3** : voir le plan d'audit dans le dépô
 | Colonnes marée `tide*` | `002_add_tide_event_columns.sql` | Déjà OK sur prod (2026-05) |
 | Doublons GPIO | `FIX_DUPLICATE_GPIO_ROWS.sql` puis `INIT_GPIO_BASE_ROWS.sql` | Si diagnostic le signale |
 | Lignes fantômes gpio 16 + `UNIQUE(gpio)` | `FIX_GPIO16_NULL_DUPLICATES_2026_06.sql` | **Critique** si doublons `name=NULL` (purge + anti-récidive) |
+| GPIO actionneurs N3PP (12 pompe, 13 arrosage) | `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` | **Recommandé** si prod utilise encore gpio=2 pour la pompe |
 | Angles servo FFP3 (GPIO 118-123) | `tools/sql/migrate-gpio118-123-servo-angles-ffp3.sql` | Si prod antérieure à 5.3.9 (auto-créé depuis 5.3.9) |
 | Validation post-migration | `99_validate_prod.sql` | Après migration |
 
@@ -124,6 +125,7 @@ SHOW INDEXES FROM ffp3Outputs WHERE Key_name = 'unique_gpio';
 | `CREATE_ERROR_ALERTS_TABLE.sql` | Alertes (auto-créée aussi par le code) |
 | `CREATE_TEST_TABLES.sql` | ffp3Data2 / Outputs2 / Heartbeat2 legacy |
 | `FIX_DUPLICATE_GPIO_ROWS.sql` | Nettoyage doublons GPIO |
+| `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` | GPIO 12/13 N3PP (pompe, arrosage manuel) prod + test |
 | `INIT_GPIO_BASE_ROWS.sql` | Lignes GPIO de base |
 | `CLEAN_NULL_OUTPUTS_v11.38.sql` | Nettoyage outputs NULL |
 
@@ -131,6 +133,7 @@ SHOW INDEXES FROM ffp3Outputs WHERE Key_name = 'unique_gpio';
 
 ## Changelog migrations
 
+- **2026-07-05** : `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` — migration GPIO 12/13 N3PP (pompe, arrosage manuel), seed Docker `10-seed.sql` aligné
 - **2026-05-30** : Audit prod oliviera_iot3 — `APPLY_PROD_AUDIT_2026.sql`, `001b`, `ADD_MISSING_COLUMNS` consolidé, `00_diagnostic_prod`, `99_validate_prod`, init Docker 85/95
 - **2026-05-25** : `002_add_tide_event_columns.sql`
 - **2026-05** : `CREATE_LEGACY_HEARTBEAT_TABLES.sql`, `CREATE_PGL_TABLES.sql`

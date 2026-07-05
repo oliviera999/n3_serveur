@@ -26,6 +26,7 @@
                 {% endif %}
                 {% endfor %}
             </div>
+            <p class="parameter-item-hint">Le firmware MSP ne pilote pas ces sorties à distance ; réglez les servos et la veille via les paramètres ci-dessous.</p>
         </div>
 
         <div class="controls-group">
@@ -34,9 +35,9 @@
             </header>
             <div class="parameters-panel">
                 <div class="parameters-grid">
-                    <label class="parameter-item" data-parameter-wrapper title="En dessous de ce niveau d'humidité, le système déclenche une alerte">
+                    <label class="parameter-item" data-parameter-wrapper title="Seuil ADC brut (0–4095), comparé à HumidSol côté firmware — en dessous, le système déclenche une alerte">
                         <span>Seuil de sécheresse</span>
-                        <input type="number" data-parameter="SeuilSec" data-parameter-gpio="102" id="SeuilSec" min="0" value="{{ params.SeuilSec|default('0') }}">
+                        <input type="number" data-parameter="SeuilSec" data-parameter-gpio="102" id="SeuilSec" min="0" max="4095" value="{{ params.SeuilSec|default('0') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="SeuilSec" data-state="idle"></small>
                     </label>
                 </div>
@@ -86,17 +87,17 @@
             </header>
             <div class="parameters-panel">
                 <div class="parameters-grid">
-                    <label class="parameter-item parameter-item-switch" title="Met le système en veille entre les mesures pour économiser la batterie">
+                    <label class="parameter-item parameter-item-switch" title="Coché = veille entre les mesures (WakeUp=0). Décoché = module toujours éveillé.">
                         <span>Mode économie d'énergie</span>
                         <label class="modern-switch" title="Activer/désactiver l'éco d'énergie">
-                            <input type="checkbox" data-parameter-gpio="106" id="WakeUp" {{ params.WakeUp|default('0') == '1' ? 'checked' : '' }} role="switch" aria-label="Mode économie d'énergie" onchange="saveParamSwitch('WakeUp', this.checked, '1', '0')">
+                            <input type="checkbox" data-parameter-gpio="106" id="WakeUp" {{ params.WakeUp|default('0') == '0' ? 'checked' : '' }} role="switch" aria-label="Mode économie d'énergie" onchange="saveParamSwitch('WakeUp', this.checked, '0', '1')">
                             <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
                         </label>
-                        <span class="parameter-item-hint" id="WakeUp-hint">{{ params.WakeUp|default('0') == '1' ? 'Activé' : 'Désactivé' }}</span>
+                        <span class="parameter-item-hint" id="WakeUp-hint">{{ params.WakeUp|default('0') == '0' ? 'Activé' : 'Désactivé' }}</span>
                     </label>
-                    <label class="parameter-item" data-parameter-wrapper title="Intervalle entre les réveils du système pour prendre les mesures (secondes)">
+                    <label class="parameter-item" data-parameter-wrapper title="Intervalle entre les réveils du système pour prendre les mesures (secondes, 1–86400)">
                         <span>Fréquence de réveil (s)</span>
-                        <input type="number" data-parameter="FreqWakeUp" data-parameter-gpio="107" id="FreqWakeUp" min="0" value="{{ params.FreqWakeUp|default('0') }}">
+                        <input type="number" data-parameter="FreqWakeUp" data-parameter-gpio="107" id="FreqWakeUp" min="1" max="86400" value="{{ params.FreqWakeUp|default('0') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="FreqWakeUp" data-state="idle"></small>
                     </label>
                     <label class="parameter-item" data-parameter-wrapper title="Seuil de tension batterie en dessous duquel le système se met en veille">

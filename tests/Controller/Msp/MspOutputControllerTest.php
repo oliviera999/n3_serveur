@@ -258,4 +258,16 @@ final class MspOutputControllerTest extends TestCase
         $result = $controller->updateParameters($request, $this->response());
         $this->assertSame(400, $result->getStatusCode());
     }
+
+    public function testUpdateParametersRejectsInvalidSeuilSec(): void
+    {
+        $repo = $this->createMock(MspOutputRepository::class);
+        $repo->expects($this->never())->method('updateParameterByName');
+
+        $controller = $this->createController($repo);
+        $request = $this->postRequest(['param' => 'SeuilSec', 'value' => '5000']);
+
+        $result = $controller->updateParameters($request, $this->response());
+        $this->assertSame(400, $result->getStatusCode());
+    }
 }

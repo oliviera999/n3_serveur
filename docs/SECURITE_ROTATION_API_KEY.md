@@ -31,10 +31,9 @@ La nouvelle cle doit etre deployee **simultanement** :
 
 - **Serveur** : mise a jour de `API_KEY` dans `serveur/.env` (production : `iot.olution.info`).
 - **Firmwares ESP32** :
-  - FFP5CS : `firmwires/ffp5cs/include/secrets.h` (champ `API_KEY` ou equivalent — non versionne).
-  - N3PP : `firmwires/n3pp/credentials.h` (a externaliser si encore en dur).
-  - MSP1 : `firmwires/msp/credentials.h` (idem).
-  - ESP32-CAM (`uploadphotosserver_*`) : `credentials.h` de chaque environnement msp1/n3pp/ffp3.
+  - FFP5CS : `firmwires/ffp5cs/include/secrets_config.h` (`Secrets::API_KEY` et, si HMAC actif, `Secrets::API_SIG_SECRET` + `SECRETS_INCLUDE_API_SIG_SECRET`) — non versionne. WiFi/SMTP restent dans `include/secrets.h`.
+  - N3PP / MSP1 / ESP32-CAM : fichier partage `firmwires/credentials.h` (copier `credentials.h.example`) — macros `API_KEY` et optionnellement `API_SIG_SECRET`.
+  - Poissonglouton : `firmwires/poissonglouton/include/secrets.h` (`PGL_API_KEY`, distinct de `API_KEY` sauf fallback volontaire).
 
 ### 3. Plan de bascule (firmwares deployes sur le terrain)
 
