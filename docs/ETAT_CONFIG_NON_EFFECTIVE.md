@@ -16,8 +16,8 @@ Légende : ✅ actif · ⚠️ implémenté mais conditionné · ❌ implément�
 | Transport SMTP (symfony/mailer) | `src/Notification/MailTransportFactory.php` | ⚠️ Tous les `SMTP_*` sont commentés dans `.env.example` → repli sur `mail()` PHP (souvent muet en mutualisé). | Renseigner `SMTP_DSN=` **ou** `SMTP_HOST/PORT/USER/PASS/ENCRYPTION` dans `.env`. |
 | Mode de verbosité `NOTIF_MODE` | `src/Notification/NotificationPolicy.php` | ⚠️ Défaut recommandé `important` → seules P1/P2 passent ; **toutes les P3/P4 sont coupées**, donc le **digest de synthèse** (`NotificationDigest` / `flushDigest`) et les rapports galerie « succès » ne partent jamais. | `NOTIF_MODE=partial` (P3) ou `full` (P3+P4), global ou par famille via les pages de contrôle. |
 | Destinataire / expéditeur | `src/Service/NotificationService.php` | ⚠️ Sans config, fallback interne `user@example.com` / `noreply@example.com` → alertes vers une adresse factice. | Renseigner `NOTIF_EMAIL_RECIPIENT` et `MAIL_FROM`. |
-| `checkTankLevel()` (niveau réservoir) | `src/Service/SystemHealthService.php:67` | ❌ Placeholder appelé à chaque cycle horaire du CRON : ne fait qu'un `log('logique à définir')`, aucune alerte émise. `notifyLowTankLevel()` n'existe pas. | **Décision métier requise** : champ capteur réservoir (`EauReserve` ?), seuil, sévérité, création de la notification. |
-| `notifyFloodRisk()` (niveau trop haut) | `src/Service/NotificationService.php` | ❌ Code mort : jamais appelé en prod (seul le niveau *bas* est géré par `CronOrchestrator::checkLowWaterLevel()`). | **Décision métier requise** : ajouter une détection « niveau haut » qui l'appelle. |
+| `checkTankLevel()` (niveau réservoir) | `src/Service/SystemHealthService.php` | ⚠️ Implémenté, **dormant** tant que `RESERVE_LOW_LEVEL_THRESHOLD` n'est pas défini dans `.env` (log informatif uniquement). Alerte P2/Hydraulic via `sendAlert` si `EauReserve > seuil` ; aucune action pompe. | Définir `RESERVE_LOW_LEVEL_THRESHOLD` (mm) dans `.env` prod, calibré selon la géométrie du réservoir. |
+| `notifyFloodRisk()` (niveau trop haut) | `src/Service/NotificationService.php` | ⚠️ Code mort **volontaire** côté serveur : le trop-plein aquarium est déjà géré par le firmware FFP5CS (`limFlood`, `FloodOrchestrator`, mail ESP32). Une détection CRON dupliquerait les alertes. | Régler `limFlood` via la page de contrôle / firmware ; ne pas activer côté serveur. |
 | `ALERT_EMAIL` (exemple Docker) | `.env.docker.example` | ✅ **Corrigé** : variable morte (jamais lue) retirée ; le code lit `NOTIF_EMAIL_RECIPIENT`. | — |
 
 Notifications réellement actives (sous réserve du transport + mode ci-dessus) : marée figée,
@@ -36,5 +36,5 @@ niveau eau bas, heartbeat silencieux (`DeviceHealthService`), système hors lign
 
 - **Crontab & hook de déploiement** : accès serveur requis.
 - **SMTP réel** : identifiants (hors dépôt, `.env` non versionné).
-- **`checkTankLevel()` / `notifyFloodRisk()`** : seuils et sémantique métier à trancher.
+- **`RESERVE_LOW_LEVEL_THRESHOLD`** : seuil réserve à calibrer manuellement en prod (opt-in).
 - **CD via GitHub Actions** : secrets de déploiement à provisionner.

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use App\Notification\NotificationCategory;
+use App\Notification\Severity;
 use App\Repository\SensorReadRepository;
 
 /**
@@ -60,23 +62,61 @@ class SystemHealthService
     }
 
     /**
-     * Vérifie le niveau du réservoir et envoie une alerte si le niveau est bas.
-     * Note : la logique exacte de "niveau bas" est à définir selon les besoins métier.
-     * Cette méthode est un exemple de point d'extension pour la supervision.
+     * Vérifie le niveau de la réserve et envoie une alerte si la distance capteur→surface
+     * dépasse le seuil configuré (réserve basse = surface loin du capteur).
+     *
+     * Opt-in : sans `RESERVE_LOW_LEVEL_THRESHOLD` dans `.env`, seul un log informatif est émis.
+     * Aucune action physique (pompe) n'est déclenchée.
      */
     public function checkTankLevel(): void
     {
-        // Cette fonction est un placeholder. La logique de `checkTankLevel`
-        // dans ffp3-config.php semble incomplète ou redondante avec d'autres vérifications.
-        // À implémenter si un besoin spécifique est clarifié.
-        $this->logger->info('Vérification du niveau du réservoir (logique à définir).');
+        $threshold = $this->resolveReserveLowThreshold();
+        if ($threshold === null) {
+            $this->logger->info(
+                'Vérification du niveau du réservoir : seuil non configuré (RESERVE_LOW_LEVEL_THRESHOLD), alerte désactivée.'
+            );
 
-        // Exemple de ce que ça pourrait être :
-        /*
-        $lastReading = $this->sensorReadRepo->getLastReadings();
-        if ($lastReading && $lastReading['EauReserve'] < 15) {
-             $this->notifier->notifyLowTankLevel();
+            return;
         }
-        */
+
+        $lastReading = $this->sensorReadRepo->getLastReadings();
+        $lastReserveLevel = $lastReading['EauReserve'] ?? null;
+
+        $this->logger->info('Vérification du niveau du réservoir', [
+            'EauReserve' => $lastReserveLevel,
+            'threshold' => $threshold,
+        ]);
+
+        if ($lastReserveLevel === null || (float) $lastReserveLevel <= $threshold) {
+            return;
+        }
+
+        $message = sprintf(
+            "La distance capteur→surface de la réserve a atteint %.0f mm (seuil %.0f mm).\n"
+            . "La réserve est considérée basse. Aucune action automatique n'a été déclenchée.",
+            (float) $lastReserveLevel,
+            $threshold
+        );
+
+        $this->notifier->sendAlert(
+            Severity::Alert,
+            NotificationCategory::Hydraulic,
+            'FFP3',
+            'Niveau de réserve bas',
+            $message,
+            'ffp3:reserve-low'
+        );
+    }
+
+    /**
+     * Seuil opt-in (mm) : réserve basse si EauReserve > seuil. Null si non configuré.
+     */
+    private function resolveReserveLowThreshold(): ?float
+    {
+        if (!isset($_ENV['RESERVE_LOW_LEVEL_THRESHOLD']) || (string) $_ENV['RESERVE_LOW_LEVEL_THRESHOLD'] === '') {
+            return null;
+        }
+
+        return (float) $_ENV['RESERVE_LOW_LEVEL_THRESHOLD'];
     }
 }

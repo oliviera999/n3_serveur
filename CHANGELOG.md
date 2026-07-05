@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.7.0] - 2026-07-05
+
+### Ajout - Alerte réserve basse opt-in (CRON horaire)
+- **`SystemHealthService::checkTankLevel()`** : implémentation réelle (remplace le placeholder). Lecture de `EauReserve` via `SensorReadRepository::getLastReadings()` ; alerte si distance > seuil (`RESERVE_LOW_LEVEL_THRESHOLD`, mm). **Dormant par défaut** (variable absente/vide → log informatif uniquement). Sévérité P2/Hydraulic via `sendAlert`, clé `ffp3:reserve-low` ; aucune action pompe.
+- **`.env.example`**, **`docs/deployment/CRON.md`**, **`docs/ETAT_CONFIG_NON_EFFECTIVE.md`** : documentation de la variable et statut ⚠️ (implémenté, conditionné). `notifyFloodRisk()` documenté comme code mort volontaire (doublon firmware `limFlood`).
+- **Tests** : `tests/Service/SystemHealthServiceTest.php` (seuil absent, alerte, pas d'alerte).
+
 ## [6.6.2] - 2026-07-05
 
 ### Documentation - Guide d'activation pas-à-pas
