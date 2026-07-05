@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.8.6] - 2026-07-05
+
+### Correctif CI — tri des imports (cs:check)
+- **`src/Controller/Concerns/LegacyHeartbeatHandler.php`** : `use App\Middleware\RawPostBodyMiddleware;` remonté avant les `use App\Security\*` pour respecter la règle `ordered_imports` (tri alpha) de `.php-cs-fixer.php`. Débloque le job « Tests & qualité » (`cs:check`) rouge depuis la v6.8.1, qui masquait les étapes PHPStan et PHPUnit.
+
 ## [6.8.5] - 2026-07-05
 
 ### Validation prod — script tolerant aux tables absentes
