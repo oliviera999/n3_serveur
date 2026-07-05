@@ -56,14 +56,14 @@ abstract class AbstractOutputController
      * configuration + commandes one-shot). Validé AVANT toute persistance.
      *
      * Construit sans dépendre des repos (non modifiables) : actionneurs physiques communs
-     * (2/15/16/18), GPIO de configuration (100..116) et commandes one-shot (108/109/110)
+     * (2/12/13/15/16/18), GPIO de configuration (100..116) et commandes one-shot (108/109/110)
      * couvrent l'intégralité des cibles légitimes des modules MSP/N3pp.
      *
      * @return list<int>
      */
     protected function allowedGpios(): array
     {
-        $gpios = [2, 15, 16, 18];
+        $gpios = [2, 12, 13, 15, 16, 18];
         for ($gpio = 100; $gpio <= 116; $gpio++) {
             $gpios[] = $gpio;
         }
@@ -95,7 +95,8 @@ abstract class AbstractOutputController
         string $icon,
         string $mainTitle,
         string $mainDescription,
-        string $defaultApiBase
+        string $defaultApiBase,
+        ?string $warningText = null
     ): array {
         return [
             'test_env' => $testEnv,
@@ -106,6 +107,7 @@ abstract class AbstractOutputController
             'main_title' => $mainTitle,
             'main_description' => $mainDescription,
             'default_api_base' => $defaultApiBase,
+            'warning_text' => $warningText,
         ];
     }
 
@@ -545,6 +547,50 @@ abstract class AbstractOutputController
                 return ['ok' => false, 'error' => 'ServoHB hors limites (40-145)'];
             }
             return ['ok' => true, 'value' => (string) $servoHb];
+        }
+
+        if ($paramName === 'SeuilSec') {
+            if (!is_numeric($value)) {
+                return ['ok' => false, 'error' => 'SeuilSec doit être un nombre entre 0 et 4095'];
+            }
+            $seuil = (int) round((float) $value);
+            if ($seuil < 0 || $seuil > 4095) {
+                return ['ok' => false, 'error' => 'SeuilSec hors limites (0-4095)'];
+            }
+            return ['ok' => true, 'value' => (string) $seuil];
+        }
+
+        if ($paramName === 'HeureArrosage') {
+            if (!is_numeric($value)) {
+                return ['ok' => false, 'error' => 'HeureArrosage doit être un nombre entre 0 et 23'];
+            }
+            $heure = (int) round((float) $value);
+            if ($heure < 0 || $heure > 23) {
+                return ['ok' => false, 'error' => 'HeureArrosage hors limites (0-23)'];
+            }
+            return ['ok' => true, 'value' => (string) $heure];
+        }
+
+        if ($paramName === 'tempsArrosage') {
+            if (!is_numeric($value)) {
+                return ['ok' => false, 'error' => 'tempsArrosage doit être un nombre entre 1 et 20'];
+            }
+            $duree = (int) round((float) $value);
+            if ($duree < 1 || $duree > 20) {
+                return ['ok' => false, 'error' => 'tempsArrosage hors limites (1-20 s)'];
+            }
+            return ['ok' => true, 'value' => (string) $duree];
+        }
+
+        if ($paramName === 'FreqWakeUp') {
+            if (!is_numeric($value)) {
+                return ['ok' => false, 'error' => 'FreqWakeUp doit être un nombre entre 1 et 86400'];
+            }
+            $freq = (int) round((float) $value);
+            if ($freq < 1 || $freq > 86400) {
+                return ['ok' => false, 'error' => 'FreqWakeUp hors limites (1-86400 s)'];
+            }
+            return ['ok' => true, 'value' => (string) $freq];
         }
 
         return ['ok' => true, 'value' => $value];

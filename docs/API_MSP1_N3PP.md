@@ -105,6 +105,30 @@ GET /msp1/msp1control/msp1-outputs-action.php?action=outputs_state&board=2
 
 > Comportement **one-shot** GPIO 110 : si le serveur renvoie `"110": "1"`, le firmware tente OTA puis `ESP.restart()`. Le serveur remet automatiquement à `0` après lecture (cf. [`AbstractOutputRepository`](../src/Repository/AbstractOutputRepository.php)).
 
+> Comportement **one-shot** GPIO 13 (n3pp uniquement) : arrosage manuel déclenché au prochain poll firmware ; le serveur remet à `0` après lecture (comme GPIO 110).
+
+**GPIO actionneurs physiques N3PP** (table `n3ppOutputs`, board 3) :
+
+| GPIO | Rôle | Comportement firmware |
+|------|------|----------------------|
+| 12 | Pompe irrigation | État persistant (`digitalWrite`) |
+| 13 | Arrosage manuel | One-shot (ack serveur → 0) |
+| 15, 16 | Lampe / Ventilation (legacy UI) | Non lus par le firmware actuel — commande enregistrée en BDD uniquement |
+
+Le firmware lit la pompe via la clé JSON `"12"` et l'arrosage manuel via `"13"` (cf. `n3pp_config.h`, `n3pp_network.cpp`). Les GPIO 2 (ancien seed) ne sont plus utilisés côté firmware.
+
+**Paramètres virtuels — bornes serveur (pages contrôle)** :
+
+| Paramètre | n3pp | msp |
+|-----------|------|-----|
+| `SeuilSec` | 0–4095 (ADC brut) | 0–4095 |
+| `HeureArrosage` | 0–23 | — |
+| `tempsArrosage` | 1–20 s | — |
+| `FreqWakeUp` | 1–86400 s | 1–86400 s |
+| `WakeUp` | 0 = veille / 1 = éveillé | idem |
+
+**MSP — sorties GPIO &lt; 100** : le firmware MSP ne lit aucun GPIO actionneur depuis le serveur (params 100–111 uniquement). La carte « Pompe arrosage » en UI n'a pas d'effet sur l'ESP32.
+
 ### 2.3 POST heartbeat (Phase 4 audit 2026-05)
 
 ```
@@ -163,7 +187,7 @@ Mêmes routes pour `/msp1/`. Le toggle MSP1 accepte `gpio` **ou** `name` (`gpio`
 
 | Variable | Description | Défaut |
 |----------|-------------|--------|
-| `API_KEY` | Clé API legacy partagée avec credentials.h firmware | — (obligatoire) |
+| `API_KEY` | Clé API legacy partagée avec `firmwires/credentials.h` (n3pp/msp/CAM) ou `Secrets::API_KEY` (ffp5cs) | — (obligatoire) |
 | `API_SIG_SECRET` | Secret HMAC partagé pour POST/heartbeat | vide = HMAC désactivé |
 | `SIG_VALID_WINDOW` | Fenêtre temporelle HMAC (s) | 300 |
 | `ENV` | `prod` / `msp_test` / `n3pp_test` | `prod` |

@@ -251,8 +251,9 @@ class ControlSync {
 
         if (changes.length > 0) {
             if (this.onStateChange) this.onStateChange(changes);
-            if (window.toastManager) {
-                const gpioList = changes.map(c => `GPIO ${c.gpio}`).join(', ');
+            const actuatorChanges = changes.filter(c => c.gpio < 100);
+            if (window.toastManager && actuatorChanges.length > 0) {
+                const gpioList = actuatorChanges.map(c => `GPIO ${c.gpio}`).join(', ');
                 window.toastManager.showInfo(`Changement détecté: ${gpioList}`, 5000);
             }
         }

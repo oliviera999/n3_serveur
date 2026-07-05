@@ -137,7 +137,7 @@ Légende cases : `[ ]` à vérifier · cocher `[x]` une fois validé.
 
 ## 7. Mails / OTA — côté firmwares (flotte)
 
-- [ ] **7.1 Secrets de compilation** : les binaires de prod sont bâtis avec un **vrai** `credentials.h` (WiFi + `SMTP_*` + destinataire) — pas les placeholders CI. Idem `ffp5cs/include/secrets.h`. Sinon les mails firmware partent vers un compte inexistant.
+- [ ] **7.1 Secrets de compilation** : les binaires de prod sont bâtis avec un **vrai** `firmwires/credentials.h` (WiFi + `SMTP_*` + `API_KEY` / `API_SIG_SECRET`) — pas les placeholders CI. FFP5CS : `include/secrets.h` (WiFi/SMTP) **et** `include/secrets_config.h` (`API_KEY`, destinataire mail, HMAC). Sinon les mails firmware partent vers un compte inexistant ou les POST échouent en 401.
 - [ ] **7.2 Interrupteur mail distant** : la clé serveur `101` (config appareil) est sur `checked`/`full` pour les appareils qui doivent alerter (n3pp/msp). `none`/`unchecked` = mails coupés.
 - [ ] **7.3 OTA embarqué** : `PGL_ENABLE_OTA`, OTA n3pp/msp/cam/ffp5cs actifs (déjà `=1` par défaut). `OTA_CA_CERT` reste non défini → OTA en `setInsecure()` (chiffré, certif non vérifié ; authenticité par ECDSA). Définir `OTA_CA_CERT` si on veut la validation TLS complète (Phase 2).
 

@@ -242,4 +242,75 @@ final class N3ppOutputControllerTest extends TestCase
         $payload = json_decode((string) $result->getBody(), true);
         $this->assertSame('Paramètre inconnu', $payload['error']);
     }
+
+    public function testToggleOutputByGpio12(): void
+    {
+        $repo = $this->createMock(N3ppOutputRepository::class);
+        $repo->expects($this->once())
+            ->method('updateByGpio')
+            ->with(12, '1', 3);
+
+        $controller = $this->createController($repo);
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('POST', '/n3pp/api/outputs/toggle')
+            ->withParsedBody(['gpio' => '12', 'state' => '1']);
+
+        $result = $controller->toggleOutput($request, $this->response());
+        $this->assertSame(200, $result->getStatusCode());
+        $payload = json_decode((string) $result->getBody(), true);
+        $this->assertTrue($payload['success']);
+        $this->assertSame(12, $payload['gpio']);
+    }
+
+    public function testToggleOutputRejectsUnauthorizedGpio(): void
+    {
+        $repo = $this->createMock(N3ppOutputRepository::class);
+        $repo->expects($this->never())->method('updateByGpio');
+
+        $controller = $this->createController($repo);
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('POST', '/n3pp/api/outputs/toggle')
+            ->withParsedBody(['gpio' => '99', 'state' => '1']);
+
+        $result = $controller->toggleOutput($request, $this->response());
+        $this->assertSame(400, $result->getStatusCode());
+        $payload = json_decode((string) $result->getBody(), true);
+        $this->assertSame('GPIO non autorisé', $payload['error']);
+    }
+
+    public function testUpdateParametersRejectsInvalidSeuilSec(): void
+    {
+        $repo = $this->createMock(N3ppOutputRepository::class);
+        $repo->expects($this->never())->method('updateParameterByName');
+
+        $controller = $this->createController($repo);
+        $request = $this->postRequest(['param' => 'SeuilSec', 'value' => '5000']);
+
+        $result = $controller->updateParameters($request, $this->response());
+        $this->assertSame(400, $result->getStatusCode());
+    }
+
+    public function testUpdateParametersRejectsInvalidTempsArrosage(): void
+    {
+        $repo = $this->createMock(N3ppOutputRepository::class);
+        $repo->expects($this->never())->method('updateParameterByName');
+
+        $controller = $this->createController($repo);
+        $request = $this->postRequest(['param' => 'tempsArrosage', 'value' => '60']);
+
+        $result = $controller->updateParameters($request, $this->response());
+        $this->assertSame(400, $result->getStatusCode());
+    }
+
+    public function testUpdateParametersRejectsInvalidFreqWakeUp(): void
+    {
+        $repo = $this->createMock(N3ppOutputRepository::class);
+        $repo->expects($this->never())->method('updateParameterByName');
+
+        $controller = $this->createController($repo);
+        $request = $this->postRequest(['param' => 'FreqWakeUp', 'value' => '0']);
+
+        $result = $controller->updateParameters($request, $this->response());
+        $this->assertSame(400, $result->getStatusCode());
+    }
 }

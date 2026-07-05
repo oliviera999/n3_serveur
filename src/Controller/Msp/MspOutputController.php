@@ -48,18 +48,26 @@ class MspOutputController extends AbstractOutputController
     {
         $env = TableConfig::getEnvironment();
         $isTest = $env === 'msp_test';
-        $outputs = $this->outputRepo->getAllForBoard($board);
         $outputsApiBase = $isTest ? '/msp1-test/api/outputs' : '/msp1/api/outputs';
         $realtimeApiBase = $isTest ? '/msp1-test/api/realtime' : '/msp1/api/realtime';
 
         try {
+            $outputs = $this->outputRepo->getAllForBoard($board);
             $params = $this->outputRepo->getParametersForBoard($board);
             $resetOutput = $this->outputRepo->getOutputByGpioAndBoard($board, 110);
+            $lastBoardRequest = $this->outputRepo->getLastBoardRequest($board);
         } catch (\Throwable $e) {
-            $this->logger->warning('MspOutputController: erreur lecture params (table manquante?) — {msg}', ['msg' => $e->getMessage()]);
+            $this->logger->warning('MspOutputController: erreur lecture outputs (table manquante?) — {msg}', ['msg' => $e->getMessage()]);
+            $outputs = [];
             $params = $this->getDefaultParams();
             $resetOutput = null;
+            $lastBoardRequest = null;
         }
+
+        $actuatorCount = count(array_filter(
+            $outputs,
+            static fn (array $output): bool => (int) ($output['gpio'] ?? 0) < 100
+        ));
 
         return array_merge([
             'page_title' => 'Contrôle station météo - Le potager',
@@ -67,7 +75,7 @@ class MspOutputController extends AbstractOutputController
             'params' => $params,
             'reset_output' => $resetOutput,
             'board' => $board,
-            'last_board_request' => $this->outputRepo->getLastBoardRequest($board),
+            'last_board_request' => $lastBoardRequest,
             'version' => Version::getWithPrefix(),
             'firmware_version' => $this->sensorRepo->getFirmwareVersion(),
             'environment' => $env,
@@ -77,12 +85,13 @@ class MspOutputController extends AbstractOutputController
             'control_config' => $this->makeControlConfig(
                 'msp_test',
                 'Station Météo',
-                'Contrôle des sorties et paramètres de la station météo (MSP). Les commandes sont transmises à l\'ESP32 au prochain cycle.',
-                count($outputs),
+                'Contrôle des paramètres de la station météo (MSP). L\'ESP32 applique les changements au prochain cycle (typ. FreqWakeUp secondes).',
+                $actuatorCount,
                 'fa-cloud-sun',
                 'Contrôle de la station météo',
-                'Activez ou coupez les sorties, et réglez les paramètres du potager. Vos commandes sont envoyées au module au cycle suivant — elles ne sont donc pas instantanées.',
-                '/msp1/api/outputs'
+                'Réglez les servos, la veille et les alertes. Vos commandes sont transmises au module au prochain cycle (délai typique = Fréquence de réveil).',
+                '/msp1/api/outputs',
+                'Ces commandes agissent sur du matériel réel (servos, tracker solaire). Vérifiez toujours sur place avant de modifier les angles.'
             ),
         ], $this->notificationPolicyTwigData($this->notificationPolicyRepo));
     }

@@ -102,4 +102,18 @@ final class OutputFirmwareStateTest extends TestCase
         $this->assertSame('0', $second['108']);
         $this->assertSame('1', $second['18']);
     }
+
+    public function testN3ppManualWateringGpio13IsAcknowledgedAfterRead(): void
+    {
+        $this->pdo->exec("INSERT INTO outputs_test (name, board, gpio, state) VALUES ('arrosageManu', 3, 13, '1')");
+
+        $first = $this->repo->getStateForFirmware(3);
+        $this->assertSame('1', $first['13']);
+
+        $row13 = $this->pdo->query('SELECT state FROM outputs_test WHERE gpio = 13')->fetchColumn();
+        $this->assertSame('0', (string) $row13);
+
+        $second = $this->repo->getStateForFirmware(3);
+        $this->assertSame('0', $second['13']);
+    }
 }

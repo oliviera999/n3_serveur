@@ -53,23 +53,25 @@ class N3ppOutputController extends AbstractOutputController
         $realtimeApiBase = $isTest ? '/n3pp-test/api/realtime' : '/n3pp/api/realtime';
 
         try {
-            $partOutputs = $this->outputRepo->getPartOutputs($board, 3);
+            $allOutputs = $this->outputRepo->getAllForBoard($board);
             $params = $this->outputRepo->getParametersForBoard($board);
             $resetOutput = $this->outputRepo->getOutputByGpioAndBoard($board, 110);
             $lastBoardRequest = $this->outputRepo->getLastBoardRequest($board);
             $firmwareVersion = $this->sensorRepo->getFirmwareVersion();
         } catch (\Throwable $e) {
             $this->logger->warning('N3ppOutputController: erreur lecture outputs (table manquante?) — {msg}', ['msg' => $e->getMessage()]);
-            $partOutputs = [];
+            $allOutputs = [];
             $params = $this->getDefaultParams();
             $resetOutput = null;
             $lastBoardRequest = null;
             $firmwareVersion = 'N/A';
         }
 
+        $actuatorOutputs = $this->filterActuatorOutputs($allOutputs);
+
         return array_merge([
             'page_title' => 'Contrôle serre / élevage - n3 iot',
-            'part_outputs' => $partOutputs,
+            'outputs' => $actuatorOutputs,
             'params' => $params,
             'reset_output' => $resetOutput,
             'board' => $board,
@@ -83,14 +85,28 @@ class N3ppOutputController extends AbstractOutputController
             'control_config' => $this->makeControlConfig(
                 'n3pp_test',
                 'Serre / Élevage',
-                'Contrôle des sorties et paramètres de la serre et de l\'élevage d\'insectes (n3pp). Les commandes sont transmises à l\'ESP32 au prochain cycle.',
-                count($partOutputs),
+                'Contrôle des sorties et paramètres de la serre et de l\'élevage d\'insectes (n3pp). L\'ESP32 applique les changements au prochain cycle (typ. FreqWakeUp secondes).',
+                count($actuatorOutputs),
                 'fa-seedling',
                 'Contrôle de la serre',
-                'Pilotez l\'eau (pompe, arrosage), l\'énergie et les alertes de la serre. Vos commandes sont transmises au module au prochain cycle.',
-                '/n3pp/api/outputs'
+                'Pilotez l\'eau (pompe, arrosage), l\'énergie et les alertes de la serre. Vos commandes sont transmises au module au prochain cycle (délai typique = Fréquence de réveil).',
+                '/n3pp/api/outputs',
+                'Ces commandes agissent sur du matériel réel (pompe d\'arrosage, relais). Vérifiez toujours sur place avant d\'activer une sortie.'
             ),
         ], $this->notificationPolicyTwigData($this->notificationPolicyRepo));
+    }
+
+    /**
+     * @param array<int, array<string, mixed>> $outputs
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    private function filterActuatorOutputs(array $outputs): array
+    {
+        return array_values(array_filter(
+            $outputs,
+            static fn (array $output): bool => (int) ($output['gpio'] ?? 0) < 100
+        ));
     }
 
     protected function notificationFamily(): NotificationFamily
