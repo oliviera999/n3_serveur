@@ -12,6 +12,7 @@ use App\Repository\GallerySyncRepository;
 use App\Repository\NotificationPolicyRepository;
 use App\Security\AuthService;
 use App\Security\DeviceApiKeyValidator;
+use App\Security\DeviceSignatureValidator;
 use App\Service\LogService;
 use App\Service\NotificationPolicySaveService;
 use App\Service\TemplateRenderer;
@@ -336,16 +337,28 @@ class GalleryControlController
     private function requireDeviceApiKey(Request $request, Response $response): ?Response
     {
         $params = array_merge($request->getQueryParams(), RequestHelper::extractParams($request));
-        if (DeviceApiKeyValidator::isValidRequest($request, $params)) {
-            return null;
+        if (!DeviceApiKeyValidator::isValidRequest($request, $params)) {
+            $this->logger->warning('GalleryControl: rejet auth device api_key', [
+                'path' => $request->getUri()->getPath(),
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            ]);
+
+            return ResponseHelper::json($response, ['error' => 'Cle API invalide'], 401);
         }
 
-        $this->logger->warning('GalleryControl: rejet auth device api_key', [
-            'path' => $request->getUri()->getPath(),
-            'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
-        ]);
+        // A4 : signature HMAC additive sur les POST firmware (version). Présente => doit être valide ;
+        // absente (ex. GET poll état) => on reste sur la clé API (rétro-compatible).
+        $signatureCheck = DeviceSignatureValidator::verify($request, DeviceSignatureValidator::rawBody($request));
+        if ($signatureCheck === false) {
+            $this->logger->warning('GalleryControl: rejet signature HMAC invalide (X-Sig-*)', [
+                'path' => $request->getUri()->getPath(),
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            ]);
 
-        return ResponseHelper::json($response, ['error' => 'Cle API invalide'], 401);
+            return ResponseHelper::json($response, ['error' => 'Signature invalide'], 401);
+        }
+
+        return null;
     }
 
     /**
