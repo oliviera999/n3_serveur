@@ -14,6 +14,8 @@ cronlog*.txt
 # Fichiers temporaires / exports
 *.csv
 /tmp/
+# Dumps BDD locaux (import Docker, sauvegardes phpMyAdmin — ne pas versionner)
+/dump_bdd/
 
 # IDE / OS
 .DS_Store
