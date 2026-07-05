@@ -1,4 +1,10 @@
--- Migration production: Poissonglouton
+-- Migration production : Poissonglouton (schema complet juillet 2026)
+-- Idempotent : CREATE TABLE IF NOT EXISTS + INSERT IGNORE board.
+--
+-- Apres execution :
+--   1) Remplacer le token placeholder (voir README migrations)
+--   2) Configurer PGL_API_KEY dans .env prod
+--   3) Relancer migrations/99_validate_prod.sql (section PGL = 3 tables)
 
 CREATE TABLE IF NOT EXISTS pglBoards (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -8,7 +14,7 @@ CREATE TABLE IF NOT EXISTS pglBoards (
     api_key_hash VARCHAR(255) DEFAULT NULL,
     secret_url_token VARCHAR(64) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS pglEvents (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -20,10 +26,12 @@ CREATE TABLE IF NOT EXISTS pglEvents (
     rssi INT DEFAULT NULL,
     sensor_mode ENUM('ir', 'us', 'tandem', 'unknown') NOT NULL DEFAULT 'unknown',
     is_tandem_validated TINYINT(1) NOT NULL DEFAULT 0,
+    device_event_id INT UNSIGNED DEFAULT NULL COMMENT 'Identifiant monotone assigne par le firmware (NULL = ancien firmware sans event_id)',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_pgl_event_time (event_time),
-    INDEX idx_pgl_board (board)
-);
+    INDEX idx_pgl_board (board),
+    UNIQUE KEY uq_pgl_board_event_id (board, device_event_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS pglHeartbeat (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -34,6 +42,7 @@ CREATE TABLE IF NOT EXISTS pglHeartbeat (
     rssi INT NULL,
     sensor VARCHAR(30) NULL,
     version VARCHAR(30) NULL,
+    sensors_present TINYINT UNSIGNED NULL COMMENT 'Bitmask PGL_SENS_* : 1=IR, 2=US, 4=PIR',
     reading_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_pgl_heartbeat_time (reading_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -42,3 +51,7 @@ CREATE TABLE IF NOT EXISTS pglHeartbeat (
 -- UPDATE pglBoards SET secret_url_token = '<token_fort_64_chars>' WHERE board_id = 'poissonglouton';
 INSERT IGNORE INTO pglBoards (board_id, label, location, secret_url_token)
 VALUES ('poissonglouton', 'Poissonglouton principal', 'Salle aeree n3', 'a1b2c3d4e5f6a7b8');
+
+-- Si tables creees par une version anterieure de ce script (sans device_event_id / sensors_present) :
+--   migrations/2026_06_pgl_device_event_id.sql
+--   migrations/2026_06_pgl_heartbeat_sensors.sql

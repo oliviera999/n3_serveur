@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.8.5] - 2026-07-05
+
+### Validation prod — script tolerant aux tables absentes
+- **`99_validate_prod.sql`** : plus de `SHOW COLUMNS FROM ffp3Data` ni `SELECT` directs sur tables optionnelles ; inventaire via `INFORMATION_SCHEMA` + requêtes préparées conditionnelles (PGL, GPIO, échantillon données).
+
 ## [6.8.4] - 2026-07-05
 
 ### Correctif — script élagage N3PP prod (connexion BDD)
