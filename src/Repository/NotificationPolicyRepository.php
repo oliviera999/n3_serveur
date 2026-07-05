@@ -311,11 +311,9 @@ class NotificationPolicyRepository extends AbstractRepository
 
     private function mailNotifValueForFirmware(NotificationFamily $family, NotificationMode $mode): string
     {
-        $on = $mode !== NotificationMode::None;
-
         return match ($family) {
-            NotificationFamily::Ffp3 => $on ? '1' : '0',
-            default => $on ? 'checked' : 'false',
+            NotificationFamily::Ffp3 => $mode !== NotificationMode::None ? '1' : '0',
+            default => $mode->value,
         };
     }
 }

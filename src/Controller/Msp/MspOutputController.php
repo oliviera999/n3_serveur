@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Msp;
 
+use App\Config\MspGpioMap;
 use App\Config\TableConfig;
 use App\Config\Version;
 use App\Controller\AbstractOutputController;
@@ -181,5 +182,10 @@ class MspOutputController extends AbstractOutputController
     protected function batchUpdateParameters(int $board, array $params): void
     {
         $this->outputRepo->batchUpdateParameters($board, $params);
+    }
+
+    protected function allowedGpios(): array
+    {
+        return array_map('intval', array_keys(MspGpioMap::paramGpioMap()));
     }
 }

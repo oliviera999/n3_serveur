@@ -7,6 +7,7 @@ namespace App\Controller\Concerns;
 use App\Security\RateLimiter;
 use App\Security\SignatureValidator;
 use App\Service\LogService;
+use App\Middleware\RawPostBodyMiddleware;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use PDO;
@@ -94,7 +95,7 @@ final class LegacyHeartbeatHandler
             return ResponseHelper::text($response, 'Donnees manquantes', 400);
         }
 
-        $authError = $this->validateAuth($params, $response);
+        $authError = $this->validateAuth($request, $params, $response);
         if ($authError !== null) {
             return $authError;
         }
@@ -160,12 +161,20 @@ final class LegacyHeartbeatHandler
     }
 
     /**
-     * Auth : HMAC FFP3 prioritaire si timestamp+signature, sinon API_KEY.
+     * Auth : X-Sig-* prioritaire si présent, sinon HMAC body params, sinon API_KEY.
      *
      * @param array<string, mixed> $params
      */
-    private function validateAuth(array $params, Response $response): ?Response
+    private function validateAuth(Request $request, array $params, Response $response): ?Response
     {
+        $headerError = $this->verifyOptionalHeaderHmac($request, $response);
+        if ($headerError !== null) {
+            return $headerError;
+        }
+        if (trim($request->getHeaderLine('X-Sig-Hmac')) !== '') {
+            return null;
+        }
+
         $timestamp = $params['timestamp'] ?? null;
         $signature = $params['signature'] ?? null;
 
@@ -211,6 +220,47 @@ final class LegacyHeartbeatHandler
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
             ]);
             return ResponseHelper::text($response, 'Cle API invalide', 401);
+        }
+
+        return null;
+    }
+
+    /**
+     * Vérifie les en-têtes X-Sig-* si présents (parité FFP3 / post-data body-signing).
+     */
+    private function verifyOptionalHeaderHmac(Request $request, Response $response): ?Response
+    {
+        $timestamp = trim($request->getHeaderLine('X-Sig-Timestamp'));
+        $nonce = trim($request->getHeaderLine('X-Sig-Nonce'));
+        $signature = trim($request->getHeaderLine('X-Sig-Hmac'));
+
+        if ($timestamp === '' && $nonce === '' && $signature === '') {
+            return null;
+        }
+
+        if ($timestamp === '' || $nonce === '' || $signature === '') {
+            $this->logger->warning("{$this->componentName}: rejet auth X-Sig incomplete code=401");
+            return ResponseHelper::text($response, 'Signature incomplete', 401);
+        }
+
+        $sigSecret = $_ENV['API_SIG_SECRET'] ?? null;
+        if (!is_string($sigSecret) || $sigSecret === '') {
+            return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
+        }
+
+        $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+        if ($sigWindow <= 0) {
+            $sigWindow = 300;
+        }
+
+        $body = $request->getAttribute(RawPostBodyMiddleware::ATTRIBUTE);
+        if (!is_string($body) || $body === '') {
+            $body = (string) $request->getBody();
+        }
+
+        if (!SignatureValidator::isValidForBody($timestamp, $nonce, $body, $signature, $sigSecret, $sigWindow)) {
+            $this->logger->warning("{$this->componentName}: rejet auth X-Sig invalide code=401");
+            return ResponseHelper::text($response, 'Signature incorrecte', 401);
         }
 
         return null;

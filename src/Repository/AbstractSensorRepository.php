@@ -41,6 +41,15 @@ abstract class AbstractSensorRepository extends AbstractRepository
     }
 
     /**
+     * Clause SQL optionnelle pour exclure le bruit qualitatif des graphiques/stats (P0-U06).
+     * Les données restent en BDD ; seul l'affichage est filtré.
+     */
+    protected function qualityFilterSql(): string
+    {
+        return '';
+    }
+
+    /**
      * Retourne les mesures entre deux dates (incluses).
      *
      * @return array<int, array<string, mixed>>
@@ -48,7 +57,9 @@ abstract class AbstractSensorRepository extends AbstractRepository
     public function fetchBetween(string $start, string $end): array
     {
         $table = $this->getTableName();
-        $sql = "SELECT * FROM `{$table}` WHERE reading_time BETWEEN :start AND :end ORDER BY reading_time ASC";
+        $filter = $this->qualityFilterSql();
+        $whereFilter = $filter !== '' ? " AND ({$filter})" : '';
+        $sql = "SELECT * FROM `{$table}` WHERE reading_time BETWEEN :start AND :end{$whereFilter} ORDER BY reading_time ASC";
         return $this->fetchAll($sql, [':start' => $start, ':end' => $end]);
     }
 

@@ -47,11 +47,15 @@ class SensorReadRepository extends AbstractRepository
 
         // Requête SQL multi-colonnes, triée par date selon $order
         $table = TableValidator::validateDataTable(TableConfig::getDataTable());
+        $fallbackFilter = '';
+        if (filter_var($_ENV['STATS_EXCLUDE_DHT_FALLBACK'] ?? 'false', FILTER_VALIDATE_BOOLEAN)) {
+            $fallbackFilter = ' AND NOT (TempAir = 20 AND Humidite = 50)';
+        }
         $sql = <<<SQL
             SELECT id, TempAir, Humidite, TempEau, EauPotager, EauAquarium, EauReserve, diffMaree, Luminosite,
                    etatPompeAqua, etatPompeTank, etatHeat, etatUV, bouffePetits, bouffeGros, reading_time
             FROM `{$table}`
-            WHERE reading_time BETWEEN :start AND :end
+            WHERE reading_time BETWEEN :start AND :end{$fallbackFilter}
             ORDER BY reading_time {$order}
         SQL;
 

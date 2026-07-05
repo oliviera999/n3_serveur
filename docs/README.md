@@ -1,7 +1,7 @@
 # 📚 Index de la documentation — Serveur unifié n³ IoT
 
-**Version du projet** : voir [`VERSION`](../VERSION) (actuellement **5.1.15**)
-**Dernière mise à jour de l’index** : 9 juin 2026
+**Version du projet** : voir [`VERSION`](../VERSION) (actuellement **6.7.4**)
+**Dernière mise à jour de l’index** : 5 juillet 2026
 
 Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collecte des
 données (msp1, n3pp, ffp3, poissonglouton), contrôle des sorties, galeries photo.
@@ -58,6 +58,7 @@ données (msp1, n3pp, ffp3, poissonglouton), contrôle des sorties, galeries pho
 | Fichier | Description |
 |---------|-------------|
 | [AUDIT_SIMPLIFICATION_BACKEND.md](AUDIT_SIMPLIFICATION_BACKEND.md) | Audit de simplification du backend. |
+| [PLAN_ACTION_BDD_2026_07.md](PLAN_ACTION_BDD_2026_07.md) | Plan d'action BDD (audits 05/07/2026) : 41 actions, arbitrages verrouillés, **Annexe B élagage qualitatif** (rétention temporelle annulée). |
 
 ## 🚀 Déploiement (`deployment/`)
 

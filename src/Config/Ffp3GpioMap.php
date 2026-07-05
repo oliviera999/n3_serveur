@@ -105,6 +105,7 @@ final class Ffp3GpioMap
     private const SERVER_ONLY_PARAM_GPIO = [
         'notifMode' => 124,
         'notifCategories' => 125,
+        'forcePompeAqua' => 117,
     ];
 
     /**

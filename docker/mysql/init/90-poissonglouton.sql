@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS pglHeartbeat (
     sensor VARCHAR(30) NULL,
     version VARCHAR(30) NULL,
     reading_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    sensors_present TINYINT UNSIGNED NULL COMMENT 'Bitmask PGL_SENS_* : 1=IR, 2=US, 4=PIR',
     INDEX idx_pgl_heartbeat_time (reading_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

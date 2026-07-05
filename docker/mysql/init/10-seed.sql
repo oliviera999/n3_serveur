@@ -85,7 +85,6 @@ ON DUPLICATE KEY UPDATE
 `lastModifiedBy` = VALUES(`lastModifiedBy`);
 
 INSERT INTO `msp1Outputs` (`board`, `gpio`, `name`, `state`, `requestTime`) VALUES
-('2', 2, 'Pompe arrosage', '0', NOW()),
 ('2', 100, 'mail', 'dev@local.test', NOW()),
 ('2', 101, 'mailNotif', 'checked', NOW()),
 ('2', 102, 'SeuilSec', '35', NOW()),

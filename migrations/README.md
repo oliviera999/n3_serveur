@@ -22,6 +22,7 @@ Comparaison dump prod vs serveur **5.1.3** : voir le plan d'audit dans le dépô
 | Doublons GPIO | `FIX_DUPLICATE_GPIO_ROWS.sql` puis `INIT_GPIO_BASE_ROWS.sql` | Si diagnostic le signale |
 | Lignes fantômes gpio 16 + `UNIQUE(gpio)` | `FIX_GPIO16_NULL_DUPLICATES_2026_06.sql` | **Critique** si doublons `name=NULL` (purge + anti-récidive) |
 | GPIO actionneurs N3PP (12 pompe, 13 arrosage) | `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` | **Recommandé** si prod utilise encore gpio=2 pour la pompe |
+| **Bundle audit juillet 2026** | `2026_07_PROD_01` (+ `01a` S3 si `ffp3Data4` existe) → `02` → `03` (+ `04` indexes) | **Recommandé** post-backup |
 | Angles servo FFP3 (GPIO 118-123) | `tools/sql/migrate-gpio118-123-servo-angles-ffp3.sql` | Si prod antérieure à 5.3.9 (auto-créé depuis 5.3.9) |
 | Validation post-migration | `99_validate_prod.sql` | Après migration |
 
@@ -58,6 +59,7 @@ mysql -u oliviera_iot -p oliviera_iot < migrations/99_validate_prod.sql
 Les init scripts `docker/mysql/init/` incluent désormais :
 
 - `85-legacy-heartbeats.sql` — `msp1Heartbeat`, `n3ppHeartbeat`
+- `88-gallery-sync.sql` — `gallerySyncSessions`
 - `95-ffp3-ota-trigger.sql` — `ffp3OtaTrigger`
 - `90-poissonglouton.sql` — `pglBoards`, `pglEvents`
 - `00-schema.sql` — schéma `ffp3Data*` avec `tide*`, config et `post_id`
@@ -133,6 +135,7 @@ SHOW INDEXES FROM ffp3Outputs WHERE Key_name = 'unique_gpio';
 
 ## Changelog migrations
 
+- **2026-07-05** : bundle `2026_07_PROD_01/02/03/04` — migration S3, GPIO, élagage qualitatif ; serveur **6.8.0** ; firmwares n3pp 4.50 / msp 2.49
 - **2026-07-05** : `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` — migration GPIO 12/13 N3PP (pompe, arrosage manuel), seed Docker `10-seed.sql` aligné
 - **2026-05-30** : Audit prod oliviera_iot3 — `APPLY_PROD_AUDIT_2026.sql`, `001b`, `ADD_MISSING_COLUMNS` consolidé, `00_diagnostic_prod`, `99_validate_prod`, init Docker 85/95
 - **2026-05-25** : `002_add_tide_event_columns.sql`

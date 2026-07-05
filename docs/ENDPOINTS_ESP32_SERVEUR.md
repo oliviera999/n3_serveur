@@ -1,12 +1,41 @@
 # 🌐 Endpoints ESP32 ↔ Serveur - Configuration Complète
 
-**Version FFP5CS (ESP32)** : 13.81 (compat ESP32 et ESP32-S3)
-**Version Serveur** : 5.1.3
-**Dernière mise à jour** : 30 Mai 2026
+**Version FFP5CS (ESP32)** : 15.01  
+**Version N3PP** : 4.50  
+**Version MSP** : 2.49  
+**Version Serveur** : 6.8.0  
+**Dernière mise à jour** : 05 Juillet 2026
 
-> Audit complet 2026-05 : durcissement sécurité (CSP, HSTS, OTA opt-in, masquage IP),
-> trait HMAC partagé FFP3/MSP/N3PP, validation board/sensor galeries, JSON Twig durci
-> (JSON_HEX_TAG), HMAC nonce (`isValidWithNonce`) prêt côté serveur.
+> Plan d'action BDD juillet 2026 : [`PLAN_ACTION_BDD_2026_07.md`](PLAN_ACTION_BDD_2026_07.md).  
+> Contrat détaillé MSP/N3PP : [`API_MSP1_N3PP.md`](API_MSP1_N3PP.md).
+
+---
+
+## N3PP (serre) et MSP1 (météo) — endpoints canoniques
+
+| Module | POST données | GET état | Heartbeat | Board |
+|--------|--------------|----------|-----------|-------|
+| **N3PP prod** | `POST /n3pp/post-data` | `GET /n3pp/api/outputs/state?board=3` | `POST /n3pp/heartbeat` | 3 |
+| **N3PP test** | `POST /n3pp-test/post-data` | `GET /n3pp-test/api/outputs/state?board=3` | `POST /n3pp-test/heartbeat` | 3 |
+| **MSP prod** | `POST /msp1/post-data` | `GET /msp1/api/outputs/state?board=2` | `POST /msp1/heartbeat` | 2 |
+| **MSP test** | `POST /msp1-test/post-data` | `GET /msp1-test/api/outputs/state?board=2` | `POST /msp1-test/heartbeat` | 2 |
+
+- Auth POST/heartbeat : HMAC `timestamp`+`signature` ou en-têtes `X-Sig-*` (parité FFP3), fallback `api_key`.
+- **Notifications Option B** : firmware lit GPIO **101** (`mailNotif` = `important`|`partial`|`full`|`none`) ; GPIO **108/109** server-only (UI web).
+- **GPIO actionneurs N3PP** : pompe **12**, arrosage manuel **13** ; pas de GPIO 2.
+- **GPIO MSP** : pas de pompe (GPIO 2 supprimé) ; **111** = `ServoModeAuto`.
+
+Alias legacy `.php` (`/n3ppdatas/post-n3pp-data.php`, etc.) : toujours routés par Slim, **dépréciés** — firmwares >= 4.50 / 2.49 utilisent les URLs ci-dessus.
+
+### Matrice GPIO 106 / 107 (collision inter-familles)
+
+| GPIO | FFP3 | MSP | N3PP |
+|------|------|-----|------|
+| **106** | `bouffeMidi` (heure nourrissage) | `WakeUp` (one-shot) | `WakeUp` (one-shot) |
+| **107** | `bouffeSoir` (heure nourrissage) | `FreqWakeUp` (heures) | `FreqWakeUp` (heures) |
+| **109** | `bouffeGros` (one-shot FFP3) | server-only `notifCategories` | server-only `notifCategories` |
+
+Les modules sont isolés par **table outputs** (`ffp3Outputs` vs `msp1Outputs` vs `n3ppOutputs`) — pas de collision runtime.
 
 ---
 
@@ -157,11 +186,11 @@ public/index.php (front controller Slim 4)  ← Route Slim Framework
 | **Endpoint GET** | `/ffp3/api/outputs-test/state` | `/ffp3/api/outputs3-test/state` | `/ffp3/api/outputs/state` | `/ffp3/api/outputs3/state` |
 | **Endpoint Heartbeat** | `/ffp3/heartbeat-test` | `/ffp3/heartbeat3-test` | `/ffp3/heartbeat` | `/ffp3/heartbeat3` |
 | **Table Data** | `ffp3Data2` | `ffp3Data3` | `ffp3Data` | `ffp3Data4` |
-| **Table Outputs** | `ffp3Outputs2` | `ffp3Outputs3` | `ffp3Outputs` | `ffp3Outputs4` |
+| **Table Outputs** | `ffp3Outputs2` | `ffp3Outputs3` | `ffp3Outputs` | `ffp3OutputsS3` |
 | **Page contrôle** | `/aquaponie-control-test` | `/aquamobile-control-test` | `/aquaponie-control` | `/aquamobile-control` |
 | **Page aquaponie** | `/aquaponie-test` | `/aquamobile-test` | `/aquaponie` | `/aquamobile` |
 
-**S3 PROD** : Environnement dédié aux ESP32-S3 en production (`wroom-s3-prod`). Routes serveur sans suffixe `-test` (`post-data3`, `api/outputs3/state`, `heartbeat3`). Configuration firmware dans `include/config.h` (condition `BOARD_S3 && PROFILE_PROD`). Middleware serveur `EnvironmentMiddleware('s3')` → tables `ffp3Data4`, `ffp3Outputs4`, board `5`, `ffp3Heartbeat4`.
+**S3 PROD** : Environnement dédié aux ESP32-S3 en production (`wroom-s3-prod`). Routes : `post-data3`, `api/outputs3/state`, `heartbeat3`. Tables **`ffp3DataS3`**, **`ffp3OutputsS3`**, **`ffp3HeartbeatS3`** (board **5**). Migration juillet 2026 : données historiques depuis `ffp3Data4` → `ffp3DataS3` puis DROP `ffp3Data4`.
 
 **Compatibilité base URL** : Le serveur accepte les deux formes d’URL (avec ou sans préfixe `/ffp3/`) pour que tous les firmwares fonctionnent quel que soit leur `serverBase` : `POST /post-data3-test` et `POST /ffp3/post-data3-test` pointent vers le même handler (env test3). Idem pour `GET /ffp3/api/outputs3-test/state` et les autres endpoints post-data / heartbeat.
 
@@ -247,7 +276,7 @@ Pour isoler latence réseau/infra vs traitement PHP :
 - **Page `/aquaponie-control` (PROD)** → toggle/paramètres → table **ffp3Outputs** (PROD).
 - **Page `/aquaponie-control-test` (TEST)** → toggle/paramètres → table **ffp3Outputs2** (TEST).
 - **Page `/aquamobile-control-test` (TEST3, ex. ESP32-S3 test)** → toggle/paramètres → table **ffp3Outputs3** (TEST3).
-- **Page `/aquamobile-control` (S3 PROD)** → toggle/paramètres → table **ffp3Outputs4** (S3 PROD).
+- **Page `/aquamobile-control` (S3 PROD)** → toggle/paramètres → table **ffp3OutputsS3** (S3 PROD, board 5).
 
 **Protection des changements web** : Les changements faits depuis l'interface web sont protégés pendant 10 s contre l'écrasement par le POST ESP ; voir `SYNCHRONISATION_BIDIRECTIONNELLE.md`. Les compteurs de nourrissage 108/109 ne sont jamais écrits par le POST firmware (cf. ci-dessous).
 
@@ -257,7 +286,7 @@ Pour isoler latence réseau/infra vs traitement PHP :
 
 - Si vous pilotez depuis **aquaponie-control-test** : l’ESP32 doit faire `GET /ffp3/api/outputs-test/state` (table ffp3Outputs2).
 - Si vous pilotez depuis **aquamobile-control-test** (profil wroom-s3-test) : l'ESP32 doit faire `GET /ffp3/api/outputs3-test/state` (table ffp3Outputs3).
-- Si vous pilotez depuis **aquamobile-control** (profil wroom-s3-prod) : l’ESP32 doit faire `GET /ffp3/api/outputs3/state` (table ffp3Outputs4).
+- Si vous pilotez depuis **aquamobile-control** (profil wroom-s3-prod) : l’ESP32 doit faire `GET /ffp3/api/outputs3/state` (table ffp3OutputsS3).
 - Si vous pilotez depuis **aquaponie-control** (prod) : l’ESP32 doit faire `GET /ffp3/api/outputs/state` (table ffp3Outputs).
 
 **À vérifier en priorité (côté ESP32)** :

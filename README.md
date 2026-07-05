@@ -18,6 +18,17 @@ Le serveur expose un nouveau flux firmware pour le compteur de bouteilles :
 
 Voir le contrat complet dans `docs/ENDPOINTS_ESP32_SERVEUR.md`.
 
+## Tableau firmware ↔ serveur (juillet 2026)
+
+| Firmware | Version | POST données | GET état | Heartbeat | GPIO clés |
+|----------|---------|--------------|----------|-----------|-----------|
+| **FFP5CS** | 15.01 | `/ffp3/post-data` | `/ffp3/api/outputs/state` | `/ffp3/heartbeat` | 16 pompe aqua, 108/109 nourrissage |
+| **n3pp** | 4.50 | `/n3pp/post-data` | `/n3pp/api/outputs/state?board=3` | `/n3pp/heartbeat` | 12 pompe, 13 arrosage, 101 notifs |
+| **msp** | 2.49 | `/msp1/post-data` | `/msp1/api/outputs/state?board=2` | `/msp1/heartbeat` | 111 ServoModeAuto, pas GPIO 2 |
+| **poissonglouton** | — | `/pgl/post-data` | — | `/pgl/heartbeat` | — |
+
+Plan d'action BDD : [`docs/PLAN_ACTION_BDD_2026_07.md`](docs/PLAN_ACTION_BDD_2026_07.md).
+
 ## Test local complet (Docker)
 
 Pour tester le site completement en local (pages, controle, APIs, upload photo, BDD), utiliser la stack Docker fournie:

@@ -11,6 +11,41 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.8.1] - 2026-07-05
+
+### Compléments plan BDD — exécution locale et doc
+- **SQL** : split S3 (`2026_07_PROD_01a_s3_migrate.sql`) / GPIO (`2026_07_PROD_01`) ; scripts exécutés sur Docker local (GPIO OK).
+- **Filtrage affichage** : `N3ppSensorRepository::qualityFilterSql()` (exclut `sensor=msp1`, DHT 0/0) ; `STATS_EXCLUDE_DHT_FALLBACK` pour graphiques FFP3.
+- **Doc** : `ENDPOINTS_ESP32_SERVEUR.md` (N3PP/MSP, S3 `*S3`, matrice GPIO 106/107), `INVENTAIRE_APPAREILS_IOT.md`, `ADR_DOUBLE_STOCKAGE_CONFIG.md`, tableau README.
+
+## [6.8.0] - 2026-07-05
+
+### Plan d'action BDD — exécution vagues 0–3 (serveur)
+- **Scripts SQL prod** : `2026_07_PROD_01` (migration S3 Option A + GPIO N3PP/MSP + align notifs 101←108), `02` (DROP orphelines), `03` (élagage qualitatif niv. 1–2), `04` (indexes).
+- **Contrat firmware** : `N3ppPostDataController` sync `etatPompe` → GPIO 12 ; `mailNotifValueForFirmware()` écrit le mode réel sur GPIO 101 (MSP/N3PP).
+- **Heartbeat legacy** : `LegacyHeartbeatHandler` supporte les en-têtes `X-Sig-*` (parité post-data).
+- **GPIO maps** : GPIO 110 `resetMode` (MSP/N3PP), GPIO 117 `forcePompeAqua` server-only (FFP3) ; `allowedGpios()` dérivé des `*GpioMap`.
+- **Docker** : seed MSP sans GPIO 2 ; init `gallerySyncSessions` ; `sensors_present` sur `pglHeartbeat`.
+- **Rapport** : `migrations/reports/diagnostic_2026_07.md`.
+
+### Firmwares alignés (submodule firmwires)
+- **n3pp 4.50** : URLs Slim, heartbeat, HTTPS par défaut.
+- **msp 2.49** : idem.
+
+## [6.7.4] - 2026-07-05
+
+### Documentation — Élagage qualitatif BDD (rejet rétention temporelle)
+- **`docs/PLAN_ACTION_BDD_2026_07.md`** : stratégie de rétention 12/24 mois **annulée** ; remplacée par **Annexe B — Élagage qualitatif** (chronologie intacte, suppression du bruit uniquement).
+- **Nouvelles actions** : P0-U07 (DROP `ffp3Data4` post-migration), P0-U08 (élagage niv. 0–1), P0-U09 (comptage double-POST), P2-11 (élagage niv. 2) ; P5-05 → **P5-05bis** (gouvernance élagage).
+- **Niveau 3 hors périmètre** : fallback FFP3 `TempAir=20` / `Humidite=50` **conservés** en BDD (filtrage affichage/stats, pas de DELETE). Phase D rétention temporelle marquée **ANNULÉE**.
+
+## [6.7.3] - 2026-07-05
+
+### Documentation — Plan d'action BDD juillet 2026
+- **`docs/PLAN_ACTION_BDD_2026_07.md`** : formalisation du plan consolidé (37 actions / 6 phases) issu des audits schéma serveur, firmware et dump prod du 05/07/2026.
+- **Arbitrages verrouillés** : migration S3 Option A (`ffp3Data4` → `ffp3DataS3`), GPIO N3PP pompe 12 / MSP sans pompe (GPIO 111 = ServoModeAuto), notifications Option B (GPIO 101 mode réel, 108/109 server-only) ; action P1-09 ajoutée.
+- **Annexe volumétrie** : analyse du dump `oliviera_iot` (719 Mo, ~3,74 M lignes) — pertinence pédagogique, ratio signal/bruit, politique de rétention 12/24 mois, tables à exclure de l'import local.
+
 ## [6.7.2] - 2026-07-05
 
 ### Correctif — Pages meteo-control / serre-control

@@ -28,6 +28,11 @@ class N3ppSensorRepository extends AbstractSensorRepository
         ];
     }
 
+    protected function qualityFilterSql(): string
+    {
+        return "sensor <> 'msp1' AND NOT (TempAir = 0 AND Humidite = 0)";
+    }
+
     public function insert(N3ppSensorData $data): void
     {
         $sql = 'INSERT INTO `' . $this->getTableName() . '` (

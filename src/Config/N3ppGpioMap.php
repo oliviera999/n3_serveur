@@ -39,6 +39,7 @@ final class N3ppGpioMap
         107 => 'FreqWakeUp',
         108 => 'notifMode',
         109 => 'notifCategories',
+        110 => 'resetMode',
     ];
 
     /**

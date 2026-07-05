@@ -3,6 +3,7 @@
 -- ffp3Data sans bootCount/mailSent côté local, post_id ajouté en NULL si absent en prod.
 -- Ne crée aucune table : tronque puis recopie vers les tables existantes de iot_n3_local.
 -- Prérequis : CREATE DATABASE iot_n3_import_staging; + import du fichier .sql dans cette base.
+-- Post-migration S3 (Option A) : ne pas importer ffp3Data4 — données migrées vers ffp3DataS3 en prod avant import.
 
 SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;
 SET FOREIGN_KEY_CHECKS = 0;

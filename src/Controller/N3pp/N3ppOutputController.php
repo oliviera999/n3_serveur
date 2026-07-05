@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\N3pp;
 
+use App\Config\N3ppGpioMap;
 use App\Config\TableConfig;
 use App\Config\Version;
 use App\Controller\AbstractOutputController;
@@ -236,5 +237,17 @@ class N3ppOutputController extends AbstractOutputController
     protected function batchUpdateParameters(int $board, array $params): void
     {
         $this->outputRepo->batchUpdateParameters($board, $params);
+    }
+
+    protected function allowedGpios(): array
+    {
+        $gpios = array_map('intval', array_keys(N3ppGpioMap::paramGpioMap()));
+        foreach ([12, 13, 15, 16] as $actuator) {
+            if (!in_array($actuator, $gpios, true)) {
+                $gpios[] = $actuator;
+            }
+        }
+
+        return $gpios;
     }
 }

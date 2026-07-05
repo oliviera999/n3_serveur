@@ -176,7 +176,7 @@ Mêmes routes pour `/msp1/`. Le toggle MSP1 accepte `gpio` **ou** `name` (`gpio`
 |--------|---------------|----------------|
 | Transport | HTTP (legacy) | Migrer HTTPS quand certificat dispo, MITM mitigé par HMAC body |
 | Authentification POST | HMAC ou API_KEY (cf. 2.1) | Activer HMAC en prod (`API_SIG_SECRET` non vide partout) |
-| Authentification GET outputs | publique | Accepter `X-Api-Key` optionnel pour limiter scrap |
+| Authentification GET outputs | publique par défaut | `FIRMWARE_STATE_REQUIRE_KEY=true` exige `X-Api-Key` (évite qu'un tiers consomme les one-shot GPIO 110) |
 | Rate limiting | aucun | Middleware par IP+api_key prévu Phase 5+ |
 | Logs accès | [`LogService`](../src/Service/LogService.php) Monolog | OK |
 | Validation `board` GET | `board` est passé en query mais le module est figé par préfixe URL | Restreindre côté `MspOutputController::getState()` à `2` et `N3ppOutputController::getState()` à `3` (Phase 5) |
@@ -190,6 +190,8 @@ Mêmes routes pour `/msp1/`. Le toggle MSP1 accepte `gpio` **ou** `name` (`gpio`
 | `API_KEY` | Clé API legacy partagée avec `firmwires/credentials.h` (n3pp/msp/CAM) ou `Secrets::API_KEY` (ffp5cs) | — (obligatoire) |
 | `API_SIG_SECRET` | Secret HMAC partagé pour POST/heartbeat | vide = HMAC désactivé |
 | `SIG_VALID_WINDOW` | Fenêtre temporelle HMAC (s) | 300 |
+| `FIRMWARE_STATE_REQUIRE_KEY` | Si `true`, GET `/api/outputs/state` exige `X-Api-Key` valide | `false` |
+| `FIRMWARE_RATE_LIMIT_MAX` | Limite requêtes firmware par IP (0 = désactivé) | 0 |
 | `ENV` | `prod` / `msp_test` / `n3pp_test` | `prod` |
 
 Voir [`.env.example`](../.env.example).

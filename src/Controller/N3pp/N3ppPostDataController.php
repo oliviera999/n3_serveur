@@ -6,6 +6,7 @@ namespace App\Controller\N3pp;
 
 use App\Controller\AbstractHmacPostDataController;
 use App\Domain\N3ppSensorData;
+use App\Repository\N3ppOutputRepository;
 use App\Repository\N3ppSensorRepository;
 use App\Service\LogService;
 
@@ -21,6 +22,7 @@ class N3ppPostDataController extends AbstractHmacPostDataController
     public function __construct(
         LogService $logger,
         private N3ppSensorRepository $sensorRepo,
+        private N3ppOutputRepository $outputRepo,
     ) {
         parent::__construct($logger);
     }
@@ -65,5 +67,9 @@ class N3ppPostDataController extends AbstractHmacPostDataController
     protected function insertData(object $data): void
     {
         $this->sensorRepo->insert($data);
+
+        if ($data instanceof N3ppSensorData && $data->etatPompe !== null) {
+            $this->outputRepo->updateByGpio(12, (string) $data->etatPompe, 3);
+        }
     }
 }

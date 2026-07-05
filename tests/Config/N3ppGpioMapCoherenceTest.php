@@ -37,6 +37,7 @@ class N3ppGpioMapCoherenceTest extends TestCase
         107 => 'FreqWakeUp',
         108 => 'notifMode',
         109 => 'notifCategories',
+        110 => 'resetMode',
     ];
 
     public function testCanonicalParamGpioMapValuesAreFrozen(): void
