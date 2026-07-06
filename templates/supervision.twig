@@ -453,7 +453,21 @@
     ];
     var POLL_INTERVAL_MS = 15000;
 
-    function formatDatetime(str) {
+    function formatHealthDatetime(health) {
+        if (!health) return '—';
+        // Priorité à l'epoch serveur (last_reading_ts) : formaté en heure de
+        // Casablanca via Intl (gère le DST, sans dépendance), cohérent avec le
+        // reste du site (DisplayTime / realtime-updater.js).
+        if (health.last_reading_ts !== null && health.last_reading_ts !== undefined) {
+            try {
+                return new Date(health.last_reading_ts * 1000).toLocaleString('fr-FR', {
+                    timeZone: 'Africa/Casablanca',
+                    day: '2-digit', month: '2-digit', year: 'numeric',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
+                });
+            } catch (e) { /* repli legacy ci-dessous */ }
+        }
+        var str = health.last_reading;
         if (!str) return '—';
         var d = new Date(str.replace(' ', 'T'));
         if (isNaN(d.getTime())) return str;
@@ -480,7 +494,7 @@
         card.className = 'live-card ' + (online ? 'live-online' : 'live-offline');
         badge.className = 'live-card-badge ' + (online ? 'online' : 'offline');
         badge.innerHTML = '<i class="fas fa-circle"></i> ' + (online ? 'LIVE' : 'HORS LIGNE');
-        datetimeEl.textContent = formatDatetime(health.last_reading || null) || '—';
+        datetimeEl.textContent = formatHealthDatetime(health) || '—';
     }
 
     function setLoading(moduleId) {
@@ -515,7 +529,13 @@
     setInterval(function() { pollAll(false); }, POLL_INTERVAL_MS);
 })();
 
-document.getElementById('clearAllCacheBtn').addEventListener('click', async function () {
+function csrfToken() {
+    var meta = document.querySelector('meta[name="csrf-token"]');
+    return meta ? meta.getAttribute('content') : '';
+}
+
+var clearAllCacheBtn = document.getElementById('clearAllCacheBtn');
+if (clearAllCacheBtn) clearAllCacheBtn.addEventListener('click', async function () {
     var btn = this;
     var resultEl = document.getElementById('clearCacheResult');
     var url = btn.getAttribute('data-clear-url');
@@ -536,7 +556,8 @@ document.getElementById('clearAllCacheBtn').addEventListener('click', async func
     }
 });
 
-document.getElementById('runGallerySortBtn').addEventListener('click', async function () {
+var runGallerySortBtn = document.getElementById('runGallerySortBtn');
+if (runGallerySortBtn) runGallerySortBtn.addEventListener('click', async function () {
     var btn = this;
     var resultEl = document.getElementById('runGallerySortResult');
     var url = btn.getAttribute('data-sort-url');
@@ -548,7 +569,10 @@ document.getElementById('runGallerySortBtn').addEventListener('click', async fun
     resultEl.textContent = 'Tri global en cours…';
     resultEl.style.display = 'block';
     try {
-        var response = await fetch(url, { method: 'POST' });
+        var response = await fetch(url, {
+            method: 'POST',
+            headers: { 'X-CSRF-Token': csrfToken() }
+        });
         var data = await response.json();
         if (data.success) {
             var r = data.data || {};
