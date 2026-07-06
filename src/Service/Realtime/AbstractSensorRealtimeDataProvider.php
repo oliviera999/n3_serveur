@@ -157,8 +157,8 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
         if ($expected == 0) {
             return 0.0;
         }
-        $rows = $this->sensorRepo->fetchBetween($start, $end);
-        return min(count($rows) / $expected * 100, 100.0);
+        $actual = $this->sensorRepo->countReadingsBetween($start, $end);
+        return min($actual / $expected * 100, 100.0);
     }
 
     /**

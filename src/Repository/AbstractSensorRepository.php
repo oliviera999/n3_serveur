@@ -97,4 +97,20 @@ abstract class AbstractSensorRepository extends AbstractRepository
         $result = $this->fetchOne($sql, [':start' => $start, ':end' => $end]);
         return (int) ($result['cnt'] ?? 0);
     }
+
+    /**
+     * Compte les mesures entre deux dates (incluses) en appliquant le même filtre
+     * qualité que {@see fetchBetween()}. Équivalent COUNT(*) : évite de rapatrier
+     * toutes les lignes en mémoire pour un simple comptage (ex. calcul d'uptime
+     * pollé toutes les 15 s par la grille de supervision).
+     */
+    public function countReadingsBetween(string $start, string $end): int
+    {
+        $table = $this->getTableName();
+        $filter = $this->qualityFilterSql();
+        $whereFilter = $filter !== '' ? " AND ({$filter})" : '';
+        $sql = "SELECT COUNT(*) AS cnt FROM `{$table}` WHERE reading_time BETWEEN :start AND :end{$whereFilter}";
+        $result = $this->fetchOne($sql, [':start' => $start, ':end' => $end]);
+        return (int) ($result['cnt'] ?? 0);
+    }
 }

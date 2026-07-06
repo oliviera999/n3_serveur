@@ -20,8 +20,8 @@ class CacheController
     /**
      * Vide tous les caches du site : Twig, DI Container, OpCache PHP.
      *
-     * Route: GET /admin/clear-cache
-     * Protection par middleware d'authentification ($applyAuth)
+     * Route: POST /admin/clear-cache (écriture d'état : jeton CSRF requis)
+     * Protection par middleware d'authentification ($applyAuth) — admin uniquement
      */
     public function clearCache(Request $request, Response $response): Response
     {
@@ -296,7 +296,11 @@ class CacheController
             result.style.display = 'none';
 
             try {
-                const response = await fetch(window.location.origin + '/admin/clear-cache');
+                const meta = document.querySelector('meta[name="csrf-token"]');
+                const response = await fetch(window.location.origin + '/admin/clear-cache', {
+                    method: 'POST',
+                    headers: { 'X-CSRF-Token': meta ? meta.getAttribute('content') : '' }
+                });
                 const data = await response.json();
 
                 loading.style.display = 'none';

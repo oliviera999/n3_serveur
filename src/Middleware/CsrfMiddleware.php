@@ -43,6 +43,13 @@ class CsrfMiddleware implements MiddlewareInterface
         '#/api/outputs[0-9]*(-test)?/parameters$#',
         '#/api/outputs[0-9]*(-test)?/trigger-ota-check$#',
         '#/api/outputs[0-9]*(-test)?/notification-policy$#',
+        // Action de maintenance déclenchée depuis la page supervision (session admin) :
+        // écriture d'état (déplacement de photos en corbeille) -> jeton CSRF exigé.
+        '#/admin/api/gallery/auto-sort-all$#',
+        // Vidage des caches (POST) : action d'écriture. Exclut clear-cache-page
+        // (page d'affichage en GET) via le negative lookahead. Couvre les variantes
+        // d'environnement (clear-cache, -test, 3, 3-test, -s3-test).
+        '#/admin/clear-cache(?!-page)[0-9a-z-]*$#',
     ];
 
     private const SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS'];

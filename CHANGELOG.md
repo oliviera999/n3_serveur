@@ -11,6 +11,24 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.10.3] - 2026-07-06
+
+### Supervision réservée aux admins + clear-cache en POST/CSRF
+
+- **`/supervision` réservée aux administrateurs** : ajout de `/supervision` (et des actions de maintenance qu'elle expose : `/admin/clear-cache*`, `/admin/api/gallery/auto-sort-all`, `/admin/deploy-script`) à `role_requirements['admin']` dans `config/routes_config.php`. Auparavant accessibles au rôle operator (défaut). Le lien « Admin » de la barre de navigation (`partials/_nav.twig`) est désormais conditionné à `can_manage_users` (admin) au lieu de `is_admin` (operator+).
+- **`/admin/clear-cache*` passe en POST + CSRF** : la route était un **GET à effet de bord** (falsifiable en cross-site). Elle est désormais **POST** (`config/routes_helpers.php`) protégée par `CsrfMiddleware` (motif `#/admin/clear-cache(?!-page)[0-9a-z-]*$#`, `clear-cache-page` reste un GET d'affichage). Les trois déclencheurs front envoient l'en-tête `X-CSRF-Token` : page supervision, page `admin/cache_admin.twig` et fallback HTML de `CacheController`. Ajout du `<meta name="csrf-token">` à `layout_base.twig` (utilisé par cache_admin). Le mode token (`?token=`) reste valable sur la requête POST (exempté de CSRF). Doc `docs/CLEAR_CACHE_OPTIONS.md` mise à jour (curl `-X POST`).
+- **Grille Live — anti-spam lecteurs d'écran** : `updateCard` (supervision) n'écrit dans le DOM que si la valeur change, pour que l'`aria-live` de la grille ne ré-annonce plus les 8 cartes à chaque poll (15 s).
+- **Tests** : `RoleAccessServiceTest` mis à jour (supervision + actions de maintenance = admin only).
+
+## [6.10.2] - 2026-07-06
+
+### Audit page de supervision — perf, fuseau horaire, CSRF
+
+- **Perf `getSystemHealth()` MSP1/N3PP** : `AbstractSensorRealtimeDataProvider::calculateUptime()` faisait `fetchBetween()` (`SELECT *` sur 30 jours) puis `count()` en PHP — soit ~20 000 lignes rapatriées en mémoire à **chaque** appel santé, alors que la grille Live de `/supervision` (et la home) polle ces endpoints toutes les 15 s. Ajout de `AbstractSensorRepository::countReadingsBetween()` (COUNT SQL, même filtre qualité que `fetchBetween`) et bascule de `calculateUptime()` dessus. Aligne le comportement sur FFP3 (qui utilisait déjà un COUNT). Semantique inchangée (le test d'intégration `countReadingsBetween == count(fetchBetween)` reste vrai).
+- **Fuseau horaire grille Live** (`templates/supervision.twig`) : `formatDatetime` interprétait `last_reading` (heure murale Europe/Paris, sans offset) dans le fuseau du **navigateur**, incohérent avec le reste du site (affichage Africa/Casablanca via `DisplayTime`). Désormais on privilégie l'epoch serveur `last_reading_ts` formaté en Africa/Casablanca via `Intl` (même pattern que `realtime-updater.js`, gère le DST, sans dépendance), avec repli legacy.
+- **CSRF `/admin/api/gallery/auto-sort-all`** : cette écriture d'état (déplacement de photos en corbeille), déclenchée depuis la page supervision, n'était pas couverte par `CsrfMiddleware`. Ajout du motif à la liste positive ; le bouton envoie désormais l'en-tête `X-CSRF-Token` (lu depuis `<meta name="csrf-token">`).
+- **Nettoyage / robustesse** : retrait de la variable `admin_cache_token` (passée par `SupervisionController` mais jamais lue par le template) ; gardes de nullité sur les handlers des boutons `clearAllCacheBtn` / `runGallerySortBtn`.
+
 ## [6.10.1] - 2026-07-06
 
 ### Notifications — bouton « Tester l'envoi » aussi sur les pages galerie
@@ -41,7 +59,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - **`migrations/2026_07_notification_log.sql`** + **`migrations/2026_07_notification_digest.sql`** : versionnent explicitement les tables `notification_log` (anti-spam / cooldown de `App\Notification\AlertThrottler`) et `notification_digest` (file du digest P3/P4 de `App\Notification\NotificationDigest`), jusqu'ici seulement créées à la volée par le code (`ensureTableExists()`). Schéma strictement identique, idempotent (`CREATE TABLE IF NOT EXISTS`).
 - **`docker/mysql/init/00-schema.sql`** : ajout des deux tables au schéma d'init Docker (à côté de `error_alerts`) pour l'aligner sur la prod / les tests d'intégration.
 - **`migrations/README.md`** : référencement des deux nouvelles migrations.
-
 ## [6.8.6] - 2026-07-05
 
 ### Correctif CI — tri des imports (cs:check)

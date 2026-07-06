@@ -50,33 +50,32 @@ php bin/clear-cache.php
 
 ---
 
-### Option 2 : Route API JSON (via navigateur ou curl)
+### Option 2 : Route API JSON (via curl / script)
 
-**URL** : 
+**URL** (méthode **POST** uniquement — écriture d'état) :
 - Production : `https://iot.olution.info/ffp3/admin/clear-cache`
 - Test : `https://iot.olution.info/ffp3/admin/clear-cache-test`
+
+> ⚠️ **Depuis la v6.8.8** : la route est en **POST** (plus de GET) et **réservée aux administrateurs**.
+> Une simple ouverture d'URL dans le navigateur ne vide plus le cache. Deux modes d'auth :
+> - **session admin** : depuis l'UI (page supervision ou `/admin/clear-cache-page`), le bouton envoie automatiquement l'en-tête CSRF `X-CSRF-Token` ;
+> - **token** : `?token=<ADMIN_CACHE_TOKEN>` sur la requête POST (exempté de CSRF car secret non-ambiant).
 
 **Avantages** :
 - ✅ Accessible depuis n'importe où (pas besoin de SSH)
 - ✅ Retour JSON structuré
 - ✅ Peut être appelée depuis un script ou un outil externe
-- ✅ Protection optionnelle par token
 
 **Utilisation** :
 
-**Avec navigateur** :
-```
-https://iot.olution.info/ffp3/admin/clear-cache?token=clear-cache-2025
-```
-
 **Avec curl** :
 ```bash
-curl "https://iot.olution.info/ffp3/admin/clear-cache?token=clear-cache-2025"
+curl -X POST "https://iot.olution.info/ffp3/admin/clear-cache?token=clear-cache-2025"
 ```
 
 **Avec PowerShell** :
 ```powershell
-Invoke-WebRequest -Uri "https://iot.olution.info/ffp3/admin/clear-cache?token=clear-cache-2025"
+Invoke-WebRequest -Method POST -Uri "https://iot.olution.info/ffp3/admin/clear-cache?token=clear-cache-2025"
 ```
 
 **Réponse JSON** :
