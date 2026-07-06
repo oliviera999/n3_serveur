@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.9.0] - 2026-07-06
+
+### Notifications — mode gradué poussé au firmware FFP3 (harmonisation flotte)
+- **`src/Repository/NotificationPolicyRepository.php`** (`mailNotifValueForFirmware`) : la famille **FFP3** reçoit désormais le **mode de notification gradué** (`none`/`important`/`partial`/`full`) sur le GPIO `mailNotif` (101), au lieu du booléen `'1'/'0'`. Elle s'aligne ainsi sur MSP1/N3PP (qui poussaient déjà le mode). Le firmware ffp5cs (≥ 15.04) parse ce mode via la lib partagée `n3_notify` et filtre chaque mail par sévérité P1-P4.
+- **`src/Config/NotificationPolicyGpioMap.php`** : commentaire mis à jour (le GPIO mailNotif porte le mode gradué pour toutes les familles).
+- ⚠️ **Déploiement** : mettre à jour le firmware **ffp5cs (OTA) AVANT** ce serveur. Un ffp5cs ≤ 15.03 interprète `important`/`partial`/`full` comme « faux » (booléen) et couperait ses alertes. Aucun impact MSP1/N3PP (déjà en mode gradué) ni sur les galeries.
+- Aucun changement de schéma ni de contrat pour les autres familles ; les tests d'`OutputParameters` (fixtures `'1'/'0'` directes) ne passent pas par cette dérivation et restent verts.
+
 ## [6.8.7] - 2026-07-06
 
 ### Notifications — migrations versionnées des tables auto-créées

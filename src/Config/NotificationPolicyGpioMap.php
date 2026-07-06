@@ -10,7 +10,9 @@ use App\Notification\NotificationFamily;
  * GPIO server-only pour la politique de notifications par famille d'appareil.
  *
  * Ces GPIO ne sont pas synchronisés vers le firmware (exclus des GET outputs).
- * Le GPIO mailNotif reste le booléen firmware (0/1 ou checked/false).
+ * Le GPIO mailNotif porte le mode de notification gradué poussé au firmware
+ * (`none`/`important`/`partial`/`full`) pour TOUTES les familles ; le firmware
+ * le parse via la lib partagée `n3_notify` (rétro-compat `checked`/`unchecked`).
  */
 final class NotificationPolicyGpioMap
 {
