@@ -31,7 +31,7 @@ final class MspOutputControllerTest extends TestCase
         $outputRepo ??= $this->createMock(MspOutputRepository::class);
         $sensorRepo = $this->createMock(MspSensorRepository::class);
 
-        return new MspOutputController($logger, $renderer, $authService, $outputRepo, $sensorRepo, $this->createMock(NotificationPolicyRepository::class));
+        return new MspOutputController($logger, $renderer, $authService, $outputRepo, $sensorRepo, $this->createMock(NotificationPolicyRepository::class), $this->createMock(\App\Service\NotificationPolicySaveService::class), $this->createMock(\App\Service\NotificationService::class));
     }
 
     private function authenticatedAuthService(): AuthService

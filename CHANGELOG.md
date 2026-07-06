@@ -11,6 +11,16 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.14.1] - 2026-07-06
+
+### Fix — « Erreur réseau » sur les réglages de notifications et le test d'envoi mail (pages de contrôle)
+- **Symptôme** : sur les pages de contrôle (aquaponie `/aquaponie-control`, aquaponie-test, ainsi que météo/serre et galeries), modifier le niveau/les catégories de notifications ou cliquer sur « Tester l'envoi » renvoyait systématiquement **« Erreur réseau »** dans l'indicateur d'état.
+- **Cause** : les handlers de route `saveNotificationPolicy` / `sendTestMail` (et leurs variantes `...BySlug`) déclaraient leurs services (`NotificationPolicySaveService`, `NotificationService`) comme **paramètres de méthode**. L'application utilise la stratégie d'invocation Slim par défaut (`RequestResponse`), **sans pont PHP-DI / ControllerInvoker** : Slim n'injecte que `($request, $response, $routeArguments)`. Le service recevait donc le tableau des arguments de route → `TypeError` → **HTTP 500** au corps non-JSON → le front (`notification-policy.js`) échouait sur `res.json()` et affichait « Erreur réseau ». Les autres écritures (toggle/parameters) n'étaient pas touchées car elles ne prennent que `(Request, Response)`.
+- **Correctif** : les services sont désormais fournis par **injection au constructeur** (comme partout ailleurs dans le code) et exposés au trait `HandlesNotificationPolicy` via des accesseurs. Les handlers de route ne prennent plus que `(Request, Response)` (`+ array $args` pour les variantes galerie).
+  - `src/Controller/Traits/HandlesNotificationPolicy.php` : accesseurs abstraits + handlers 2-args ; note d'architecture pour éviter la régression.
+  - `src/Controller/Ffp3/OutputController.php`, `src/Controller/Msp/MspOutputController.php`, `src/Controller/N3pp/N3ppOutputController.php`, `src/Controller/Gallery/GalleryControlController.php` : injection au constructeur + accesseurs.
+- **Tests** : instanciations de contrôleurs mises à jour (nouvelles dépendances) ; suite unitaire verte (830 tests).
+
 ## [6.14.0] - 2026-07-06
 
 ### Accueil — les tuiles suivent l'état des switchs de supervision

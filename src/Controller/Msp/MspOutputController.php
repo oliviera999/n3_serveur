@@ -15,6 +15,7 @@ use App\Repository\NotificationPolicyRepository;
 use App\Security\AuthService;
 use App\Service\LogService;
 use App\Service\NotificationPolicySaveService;
+use App\Service\NotificationService;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -28,6 +29,8 @@ class MspOutputController extends AbstractOutputController
         private MspOutputRepository $outputRepo,
         private MspSensorRepository $sensorRepo,
         private NotificationPolicyRepository $notificationPolicyRepo,
+        private NotificationPolicySaveService $notificationSaveService,
+        private NotificationService $notificationService,
     ) {
         parent::__construct($logger, $renderer, $authService);
     }
@@ -102,17 +105,24 @@ class MspOutputController extends AbstractOutputController
         return NotificationFamily::Msp1;
     }
 
-    public function saveNotificationPolicy(
-        Request $request,
-        Response $response,
-        NotificationPolicySaveService $saveService
-    ): Response {
-        return $this->updateNotificationPolicy(
-            $request,
-            $response,
-            $saveService,
-            $this->notificationPolicyRepo
-        );
+    protected function notificationSaveService(): NotificationPolicySaveService
+    {
+        return $this->notificationSaveService;
+    }
+
+    protected function notificationService(): NotificationService
+    {
+        return $this->notificationService;
+    }
+
+    protected function notificationPolicyRepository(): NotificationPolicyRepository
+    {
+        return $this->notificationPolicyRepo;
+    }
+
+    public function saveNotificationPolicy(Request $request, Response $response): Response
+    {
+        return $this->updateNotificationPolicy($request, $response);
     }
 
     protected function getDefaultParamKeys(): array

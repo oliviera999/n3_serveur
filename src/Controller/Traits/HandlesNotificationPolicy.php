@@ -15,10 +15,28 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Endpoint et données Twig partagés pour la politique de notifications (pages contrôle).
+ *
+ * ⚠️ Architecture (ne pas ré-introduire l'injection par paramètre de méthode) :
+ * l'application est câblée avec la stratégie d'invocation Slim par défaut
+ * (`RequestResponse`), SANS pont PHP-DI / ControllerInvoker. Slim appelle donc
+ * les handlers de route strictement en `($request, $response, $routeArguments)` :
+ * un service déclaré comme 3ᵉ/4ᵉ paramètre de méthode reçoit le tableau des
+ * arguments de route → `TypeError` → HTTP 500 → corps non-JSON → le front
+ * (`notification-policy.js`) échoue sur `res.json()` et affiche « Erreur réseau ».
+ *
+ * Les services requis sont donc fournis par le contrôleur via injection par
+ * CONSTRUCTEUR (comme partout ailleurs dans le code), exposée ici par des
+ * accesseurs abstraits. Les handlers de route ne prennent que `(Request, Response)`.
  */
 trait HandlesNotificationPolicy
 {
     abstract protected function notificationFamily(): NotificationFamily;
+
+    abstract protected function notificationSaveService(): NotificationPolicySaveService;
+
+    abstract protected function notificationService(): NotificationService;
+
+    abstract protected function notificationPolicyRepository(): NotificationPolicyRepository;
 
     /**
      * @return array<string, mixed>
@@ -38,16 +56,15 @@ trait HandlesNotificationPolicy
         ];
     }
 
-    public function updateNotificationPolicy(
-        Request $request,
-        Response $response,
-        NotificationPolicySaveService $saveService,
-        NotificationPolicyRepository $policyRepo
-    ): Response {
+    public function updateNotificationPolicy(Request $request, Response $response): Response
+    {
         $authError = $this->requireAuthForNotificationPolicy($request, $response);
         if ($authError !== null) {
             return $authError;
         }
+
+        $saveService = $this->notificationSaveService();
+        $policyRepo = $this->notificationPolicyRepository();
 
         $payload = RequestHelper::extractParams($request);
         $mode = trim((string) ($payload['mode'] ?? ''));
@@ -81,15 +98,14 @@ trait HandlesNotificationPolicy
      * Contourne la politique / l'anti-spam (cf. NotificationService::sendTestMail) : le
      * but est de vérifier la configuration d'envoi, quel que soit le mode courant.
      */
-    public function sendTestMail(
-        Request $request,
-        Response $response,
-        NotificationService $notificationService
-    ): Response {
+    public function sendTestMail(Request $request, Response $response): Response
+    {
         $authError = $this->requireAuthForNotificationPolicy($request, $response);
         if ($authError !== null) {
             return $authError;
         }
+
+        $notificationService = $this->notificationService();
 
         $recipient = $notificationService->recipient();
         if (trim($recipient) === '') {

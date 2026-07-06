@@ -40,7 +40,7 @@ final class GalleryControlControllerTest extends TestCase
         $authService = $this->createMock(AuthService::class);
         $logger = $this->createMock(LogService::class);
 
-        return new GalleryControlController($repository, $renderer, $authService, $logger, $this->createMock(NotificationPolicyRepository::class), $this->createMock(GallerySyncRepository::class));
+        return new GalleryControlController($repository, $renderer, $authService, $logger, $this->createMock(NotificationPolicyRepository::class), $this->createMock(GallerySyncRepository::class), $this->createMock(\App\Service\NotificationPolicySaveService::class), $this->createMock(\App\Service\NotificationService::class));
     }
 
     public function testRejectsMismatchedBoardOnStateEndpoint(): void

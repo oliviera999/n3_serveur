@@ -15,6 +15,7 @@ use App\Repository\SensorReadRepository;
 use App\Service\ControlAuditLogger;
 use App\Service\LogService;
 use App\Service\NotificationPolicySaveService;
+use App\Service\NotificationService;
 use App\Service\OutputCacheService;
 use App\Service\OutputService;
 use App\Service\TemplateRenderer;
@@ -44,6 +45,8 @@ class OutputController
         private LogService $logger,
         private ControlAuditLogger $auditLogger,
         private NotificationPolicyRepository $notificationPolicyRepo,
+        private NotificationPolicySaveService $notificationSaveService,
+        private NotificationService $notificationService,
     ) {
     }
 
@@ -483,17 +486,24 @@ class OutputController
         return NotificationFamily::Ffp3;
     }
 
-    public function saveNotificationPolicy(
-        Request $request,
-        Response $response,
-        NotificationPolicySaveService $saveService
-    ): Response {
-        return $this->updateNotificationPolicy(
-            $request,
-            $response,
-            $saveService,
-            $this->notificationPolicyRepo
-        );
+    protected function notificationSaveService(): NotificationPolicySaveService
+    {
+        return $this->notificationSaveService;
+    }
+
+    protected function notificationService(): NotificationService
+    {
+        return $this->notificationService;
+    }
+
+    protected function notificationPolicyRepository(): NotificationPolicyRepository
+    {
+        return $this->notificationPolicyRepo;
+    }
+
+    public function saveNotificationPolicy(Request $request, Response $response): Response
+    {
+        return $this->updateNotificationPolicy($request, $response);
     }
 
     protected function requireAuthForNotificationPolicy(Request $request, Response $response): ?Response

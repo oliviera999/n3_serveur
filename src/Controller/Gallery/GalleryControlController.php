@@ -38,6 +38,8 @@ class GalleryControlController
         private readonly LogService $logger,
         private readonly NotificationPolicyRepository $notificationPolicyRepo,
         private readonly GallerySyncRepository $syncRepository,
+        private readonly NotificationPolicySaveService $notificationSaveService,
+        private readonly NotificationService $notificationService,
     ) {
     }
 
@@ -404,11 +406,25 @@ class GalleryControlController
         return NotificationFamily::fromGallerySlug($slug) ?? NotificationFamily::GalleryFfp3;
     }
 
+    protected function notificationSaveService(): NotificationPolicySaveService
+    {
+        return $this->notificationSaveService;
+    }
+
+    protected function notificationService(): NotificationService
+    {
+        return $this->notificationService;
+    }
+
+    protected function notificationPolicyRepository(): NotificationPolicyRepository
+    {
+        return $this->notificationPolicyRepo;
+    }
+
     public function saveNotificationPolicyBySlug(
         Request $request,
         Response $response,
-        array $args,
-        NotificationPolicySaveService $saveService
+        array $args
     ): Response {
         $slug = (string) ($args['slug'] ?? '');
         if (!$this->isAllowedSlug($slug)) {
@@ -416,19 +432,13 @@ class GalleryControlController
         }
         $this->gallerySlugContext = $slug;
 
-        return $this->updateNotificationPolicy(
-            $request,
-            $response,
-            $saveService,
-            $this->notificationPolicyRepo
-        );
+        return $this->updateNotificationPolicy($request, $response);
     }
 
     public function sendTestMailBySlug(
         Request $request,
         Response $response,
-        array $args,
-        NotificationService $notificationService
+        array $args
     ): Response {
         $slug = (string) ($args['slug'] ?? '');
         if (!$this->isAllowedSlug($slug)) {
@@ -436,7 +446,7 @@ class GalleryControlController
         }
         $this->gallerySlugContext = $slug;
 
-        return $this->sendTestMail($request, $response, $notificationService);
+        return $this->sendTestMail($request, $response);
     }
 
     protected function requireAuthForNotificationPolicy(Request $request, Response $response): ?Response
