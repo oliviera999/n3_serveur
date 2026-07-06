@@ -142,6 +142,8 @@ SHOW INDEXES FROM ffp3Outputs WHERE Key_name = 'unique_gpio';
 | `CREATE_PGL_TABLES.sql` | Poissonglouton |
 | `CREATE_FFP3_OTA_TRIGGER_TABLE.sql` | Bouton « Vérifier OTA » |
 | `CREATE_ERROR_ALERTS_TABLE.sql` | Alertes (auto-créée aussi par le code) |
+| `2026_07_notification_log.sql` | Anti-spam notifications / cooldown (auto-créée aussi par `AlertThrottler`) |
+| `2026_07_notification_digest.sql` | File digest notifications P3/P4 (auto-créée aussi par `NotificationDigest`) |
 | `CREATE_TEST_TABLES.sql` | ffp3Data2 / Outputs2 / Heartbeat2 legacy |
 | `FIX_DUPLICATE_GPIO_ROWS.sql` | Nettoyage doublons GPIO |
 | `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` | GPIO 12/13 N3PP (pompe, arrosage manuel) prod + test |

@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.8.7] - 2026-07-06
+
+### Notifications — migrations versionnées des tables auto-créées
+- **`migrations/2026_07_notification_log.sql`** + **`migrations/2026_07_notification_digest.sql`** : versionnent explicitement les tables `notification_log` (anti-spam / cooldown de `App\Notification\AlertThrottler`) et `notification_digest` (file du digest P3/P4 de `App\Notification\NotificationDigest`), jusqu'ici seulement créées à la volée par le code (`ensureTableExists()`). Schéma strictement identique, idempotent (`CREATE TABLE IF NOT EXISTS`).
+- **`docker/mysql/init/00-schema.sql`** : ajout des deux tables au schéma d'init Docker (à côté de `error_alerts`) pour l'aligner sur la prod / les tests d'intégration.
+- **`migrations/README.md`** : référencement des deux nouvelles migrations.
+
 ## [6.8.6] - 2026-07-05
 
 ### Correctif CI — tri des imports (cs:check)
