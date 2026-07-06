@@ -98,16 +98,23 @@
             </label>
         </div>
         <div class="link-card-wrap">
-            <a href="{{ base_path|default('') }}/pgl" class="link-card"><i class="fas fa-recycle"></i><span class="label">Poissonglouton</span><div class="hint">Compteur de recyclage plastique</div></a>
-            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
-                <input type="checkbox" class="page-nav-cb" data-page-key="pgl" data-page-label="Poissonglouton" data-page-url="{{ base_path|default('') }}/pgl">
-                <span class="page-nav-slider"></span>
-            </label>
-        </div>
-        <div class="link-card-wrap">
             <a href="{{ base_path|default('') }}/gallery" class="link-card"><i class="fas fa-images"></i><span class="label">Galeries</span><div class="hint">Portail des galeries photo</div></a>
             <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
                 <input type="checkbox" class="page-nav-cb" data-page-key="gallery" data-page-label="Galeries" data-page-url="{{ base_path|default('') }}/gallery">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="section-header" data-aos="fade-up">
+        <i class="fas fa-recycle"></i>
+        <h2>Poissonglouton</h2>
+    </div>
+    <div class="links-grid" data-aos="fade-up">
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/pgl" class="link-card"><i class="fas fa-recycle"></i><span class="label">Compteur de recyclage</span><div class="hint">Poissonglouton — statistiques de recyclage plastique</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="pgl" data-page-label="Poissonglouton" data-page-url="{{ base_path|default('') }}/pgl">
                 <span class="page-nav-slider"></span>
             </label>
         </div>
@@ -334,45 +341,46 @@
         <i class="fas fa-images"></i>
         <h2>Galeries photo (ESP32-CAM)</h2>
     </div>
+    <p class="section-intro" data-aos="fade-up">Ces switchs pilotent l'affichage de chaque galerie (et de son lien de contrôle caméra) sur la <strong>page Galeries</strong> (<code>/gallery</code>) — pas dans le menu de navigation, qui ne garde qu'un lien unique « Galeries ».</p>
     <div class="links-grid" data-aos="fade-up">
         <div class="link-card-wrap">
             <a href="{{ base_path|default('') }}/gallery/msp1" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos du potager (MSP1)</span><div class="hint">Galerie photos station météo</div></a>
-            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+            <label class="page-nav-toggle" title="Afficher sur la page Galeries">
                 <input type="checkbox" class="page-nav-cb" data-page-key="gallery-msp1" data-page-label="Galerie potager" data-page-url="{{ base_path|default('') }}/gallery/msp1">
                 <span class="page-nav-slider"></span>
             </label>
         </div>
         <div class="link-card-wrap">
             <a href="{{ base_path|default('') }}/gallery/n3pp" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos de l'élevage (N3PP)</span><div class="hint">Galerie photos N3PP</div></a>
-            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+            <label class="page-nav-toggle" title="Afficher sur la page Galeries">
                 <input type="checkbox" class="page-nav-cb" data-page-key="gallery-n3pp" data-page-label="Galerie élevage" data-page-url="{{ base_path|default('') }}/gallery/n3pp">
                 <span class="page-nav-slider"></span>
             </label>
         </div>
         <div class="link-card-wrap">
             <a href="{{ base_path|default('') }}/gallery/ffp3" class="link-card"><i class="fas fa-camera"></i><span class="label">Photos aquaponie (FFP3)</span><div class="hint">Galerie photos FFP3</div></a>
-            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+            <label class="page-nav-toggle" title="Afficher sur la page Galeries">
                 <input type="checkbox" class="page-nav-cb" data-page-key="gallery-ffp3" data-page-label="Galerie FFP3" data-page-url="{{ base_path|default('') }}/gallery/ffp3">
                 <span class="page-nav-slider"></span>
             </label>
         </div>
         <div class="link-card-wrap">
-            <a href="{{ base_path|default('') }}/gallery/msp1/control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle caméra Potager (MSP1)</span><div class="hint">Paramètres uploadphotosserver MSP1</div></a>
-            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+            <a href="{{ base_path|default('') }}/gallery/msp1/control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle caméra Potager (MSP1)</span><div class="hint">Lien affiché sur la page Galeries (admins)</div></a>
+            <label class="page-nav-toggle" title="Afficher le lien de contrôle sur la page Galeries">
                 <input type="checkbox" class="page-nav-cb" data-page-key="gallery-control-msp1" data-page-label="Ctrl caméra potager" data-page-url="{{ base_path|default('') }}/gallery/msp1/control">
                 <span class="page-nav-slider"></span>
             </label>
         </div>
         <div class="link-card-wrap">
-            <a href="{{ base_path|default('') }}/gallery/n3pp/control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle caméra Élevage (N3PP)</span><div class="hint">Paramètres uploadphotosserver N3PP</div></a>
-            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+            <a href="{{ base_path|default('') }}/gallery/n3pp/control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle caméra Élevage (N3PP)</span><div class="hint">Lien affiché sur la page Galeries (admins)</div></a>
+            <label class="page-nav-toggle" title="Afficher le lien de contrôle sur la page Galeries">
                 <input type="checkbox" class="page-nav-cb" data-page-key="gallery-control-n3pp" data-page-label="Ctrl caméra élevage" data-page-url="{{ base_path|default('') }}/gallery/n3pp/control">
                 <span class="page-nav-slider"></span>
             </label>
         </div>
         <div class="link-card-wrap">
-            <a href="{{ base_path|default('') }}/gallery/ffp3/control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle caméra Aquaponie (FFP3)</span><div class="hint">Paramètres uploadphotosserver FFP3</div></a>
-            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+            <a href="{{ base_path|default('') }}/gallery/ffp3/control" class="link-card"><i class="fas fa-sliders-h"></i><span class="label">Contrôle caméra Aquaponie (FFP3)</span><div class="hint">Lien affiché sur la page Galeries (admins)</div></a>
+            <label class="page-nav-toggle" title="Afficher le lien de contrôle sur la page Galeries">
                 <input type="checkbox" class="page-nav-cb" data-page-key="gallery-control-ffp3" data-page-label="Ctrl caméra FFP3" data-page-url="{{ base_path|default('') }}/gallery/ffp3/control">
                 <span class="page-nav-slider"></span>
             </label>
@@ -415,14 +423,18 @@
             <button type="button" id="runGallerySortBtn" class="btn-cache" data-sort-url="{{ base_path }}/admin/api/gallery/auto-sort-all">Lancer le tri global</button>
             <div id="runGallerySortResult" class="cache-result" aria-live="polite"></div>
         </div>
+        {% if can_manage_users|default(false) %}
         <div class="link-card-wrap">
-            {% if can_manage_users|default(false) %}
             <a href="{{ base_path }}/admin/users" class="link-card">
                 <div><i class="fas fa-users-cog"></i><span class="label">Gestion des utilisateurs</span></div>
-                <div class="hint">Toujours accessible depuis le menu de navigation. Créer, modifier et gérer les comptes admin, opérateur et lecteur.</div>
+                <div class="hint">Créer, modifier et gérer les comptes admin, opérateur et lecteur. Le lien du menu reste réservé aux gestionnaires de comptes.</div>
             </a>
-            {% endif %}
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="admin-users" data-page-label="Utilisateurs" data-page-url="{{ base_path }}/admin/users">
+                <span class="page-nav-slider"></span>
+            </label>
         </div>
+        {% endif %}
         <div class="link-card-wrap">
             <a href="{{ base_path }}/admin/deploy-script" class="link-card">
                 <div><i class="fas fa-rocket"></i><span class="label">Script de déploiement</span></div>

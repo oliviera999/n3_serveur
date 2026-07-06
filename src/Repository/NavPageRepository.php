@@ -20,18 +20,39 @@ class NavPageRepository extends AbstractRepository
     private const TABLE = 'navPages';
 
     /**
-     * Pages historiquement présentes en dur dans le menu : activées par défaut
-     * pour préserver le menu existant. Format : [clé, label, url, ordre].
+     * Préfixe des clés qui NE pilotent PAS le menu de navigation mais
+     * l'affichage sur la page « toutes les galeries » (`/gallery`) :
+     * `gallery-<slug>` (afficher la galerie) et `gallery-control-<slug>`
+     * (afficher le lien de contrôle caméra). La clé générique `gallery`
+     * (sans tiret) reste, elle, le lien « Galeries » du menu.
+     */
+    private const GALLERY_PAGE_PREFIX = 'gallery-';
+
+    /**
+     * Pages activées par défaut. Format : [clé, label, url, ordre].
+     *
+     * - Les 6 premières entrées sont les liens historiques du menu.
+     * - `admin-users` est un lien de menu supplémentaire, filtré par la
+     *   permission `canManageUsers` (cf. TemplateRenderer).
+     * - Les clés `gallery-*` pilotent la page `/gallery` (pas le menu) et sont
+     *   seedées actives pour préserver l'affichage actuel des galeries.
      *
      * @var list<array{0:string,1:string,2:string,3:int}>
      */
     private const SEED = [
-        ['home',      'Accueil',        '/',          10],
-        ['aquaponie', 'Aquaponie',      '/aquaponie', 20],
-        ['potager',   'Potager',        '/meteo',     30],
-        ['elevage',   'Élevage',        '/serre',     40],
-        ['pgl',       'Poissonglouton', '/pgl',       50],
-        ['gallery',   'Galeries',       '/gallery',   60],
+        ['home',        'Accueil',        '/',            10],
+        ['aquaponie',   'Aquaponie',      '/aquaponie',   20],
+        ['potager',     'Potager',        '/meteo',       30],
+        ['elevage',     'Élevage',        '/serre',       40],
+        ['pgl',         'Poissonglouton', '/pgl',         50],
+        ['gallery',     'Galeries',       '/gallery',     60],
+        ['admin-users', 'Utilisateurs',   '/admin/users', 200],
+        ['gallery-msp1', 'Galerie potager', '/gallery/msp1', 900],
+        ['gallery-n3pp', 'Galerie élevage', '/gallery/n3pp', 910],
+        ['gallery-ffp3', 'Galerie FFP3',    '/gallery/ffp3', 920],
+        ['gallery-control-msp1', 'Contrôle caméra potager', '/gallery/msp1/control', 930],
+        ['gallery-control-n3pp', 'Contrôle caméra élevage', '/gallery/n3pp/control', 940],
+        ['gallery-control-ffp3', 'Contrôle caméra FFP3',    '/gallery/ffp3/control', 950],
     ];
 
     private bool $schemaEnsured = false;
@@ -55,8 +76,13 @@ class NavPageRepository extends AbstractRepository
 
         $pages = [];
         foreach ($rows as $row) {
+            $key = (string) $row['page_key'];
+            // Les clés de galerie pilotent la page /gallery, pas le menu.
+            if (str_starts_with($key, self::GALLERY_PAGE_PREFIX)) {
+                continue;
+            }
             $pages[] = [
-                'key' => (string) $row['page_key'],
+                'key' => $key,
                 'label' => (string) $row['label'],
                 'url' => (string) $row['url'],
             ];

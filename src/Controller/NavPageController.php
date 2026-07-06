@@ -80,9 +80,19 @@ class NavPageController
             ], 500);
         }
 
+        // Liste renvoyée pour la mise à jour live du menu. Le lien « Utilisateurs »
+        // (admin-users) reste filtré par la permission, comme dans TemplateRenderer.
+        $active = $this->navPageRepository->getActivePages();
+        if (!$this->authService->canManageUsers()) {
+            $active = array_values(array_filter(
+                $active,
+                static fn (array $page): bool => $page['key'] !== 'admin-users'
+            ));
+        }
+
         return $this->json($response, [
             'success' => true,
-            'active' => $this->navPageRepository->getActivePages(),
+            'active' => $active,
         ]);
     }
 

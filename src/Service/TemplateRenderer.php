@@ -118,10 +118,31 @@ class TemplateRenderer
             return [];
         }
         try {
-            return $this->navPageRepository->getActivePages();
+            $pages = $this->navPageRepository->getActivePages();
         } catch (\Throwable) {
             return [];
         }
+
+        // Certaines pages du menu sont soumises à permission : le lien
+        // « Utilisateurs » (`admin-users`) n'apparaît que pour les gestionnaires
+        // de comptes, même s'il est actif dans navPages.
+        $canManageUsers = false;
+        if ($this->authService !== null) {
+            try {
+                $canManageUsers = $this->authService->isAuthenticated()
+                    && $this->authService->canManageUsers();
+            } catch (\Throwable) {
+                $canManageUsers = false;
+            }
+        }
+        if (!$canManageUsers) {
+            $pages = array_values(array_filter(
+                $pages,
+                static fn (array $page): bool => $page['key'] !== 'admin-users'
+            ));
+        }
+
+        return $pages;
     }
 
     /**
