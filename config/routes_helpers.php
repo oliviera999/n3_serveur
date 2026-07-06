@@ -82,7 +82,9 @@ function registerFfp3ProtectedRoutes($app, array $routes, string $env, $applyAut
         $group->post($routes['trigger_ota'], [OutputController::class, 'triggerOtaCheck']);
         $group->get($routes['board_status'], [OutputController::class, 'getBoardStatus']);
         if (isset($routes['admin_clear'])) {
-            $group->get($routes['admin_clear'], [CacheController::class, 'clearCache']);
+            // POST (écriture d'état : vide les caches) protégé par CSRF, plus un GET
+            // en effet de bord. Voir CsrfMiddleware (motif clear-cache) + boutons front.
+            $group->post($routes['admin_clear'], [CacheController::class, 'clearCache']);
         }
         if (isset($routes['admin_clear_page'])) {
             $group->get($routes['admin_clear_page'], [CacheController::class, 'clearCachePage']);

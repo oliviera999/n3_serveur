@@ -16,7 +16,7 @@
         <li class="{{ nav_active == 'elevage' or nav_active == 'elevage_control' ? 'active' }}"><a href="{{ bp }}/serre" title="Élevage d'insectes — Serre">Élevage</a></li>
         <li class="{{ nav_active == 'pgl' ? 'active' }}"><a href="{{ bp }}/pgl" title="Poissonglouton — compteur de recyclage">Poissonglouton</a></li>
         <li class="{{ nav_active == 'gallery' ? 'active' }}"><a href="{{ bp }}/gallery" title="Galeries photos des projets">Galeries</a></li>
-        {% if is_admin|default(false) %}
+        {% if can_manage_users|default(false) %}
         <li class="{{ nav_active == 'supervision' ? 'active' }}"><a href="{{ bp }}/supervision" title="Supervision et administration"><i class="fas fa-cog" aria-hidden="true"></i> Admin</a></li>
         {% endif %}
         {% if can_manage_users|default(false) %}

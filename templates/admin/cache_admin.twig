@@ -94,7 +94,12 @@
         loading.style.display = 'block';
         result.style.display = 'none';
         result.innerHTML = '';
-        fetch(window.location.origin + '/admin/clear-cache', { credentials: 'same-origin' })
+        var meta = document.querySelector('meta[name="csrf-token"]');
+        fetch(window.location.origin + '/admin/clear-cache', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'X-CSRF-Token': meta ? meta.getAttribute('content') : '' }
+        })
             .then(function (r) { return r.json(); })
             .then(function (data) {
                 loading.style.display = 'none';
