@@ -35,6 +35,8 @@ class OutputControllerToggleTest extends TestCase
             $this->createMock(LogService::class),
             $this->createMock(ControlAuditLogger::class),
             $this->createMock(NotificationPolicyRepository::class),
+            $this->createMock(\App\Service\NotificationPolicySaveService::class),
+            $this->createMock(\App\Service\NotificationService::class),
         );
     }
 

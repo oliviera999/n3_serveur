@@ -31,7 +31,7 @@ final class N3ppOutputControllerTest extends TestCase
         $outputRepo ??= $this->createMock(N3ppOutputRepository::class);
         $sensorRepo = $this->createMock(N3ppSensorRepository::class);
 
-        return new N3ppOutputController($logger, $renderer, $authService, $outputRepo, $sensorRepo, $this->createMock(NotificationPolicyRepository::class));
+        return new N3ppOutputController($logger, $renderer, $authService, $outputRepo, $sensorRepo, $this->createMock(NotificationPolicyRepository::class), $this->createMock(\App\Service\NotificationPolicySaveService::class), $this->createMock(\App\Service\NotificationService::class));
     }
 
     private function authenticatedAuthService(): AuthService
