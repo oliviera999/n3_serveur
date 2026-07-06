@@ -43,6 +43,7 @@ class CsrfMiddleware implements MiddlewareInterface
         '#/api/outputs[0-9]*(-test)?/parameters$#',
         '#/api/outputs[0-9]*(-test)?/trigger-ota-check$#',
         '#/api/outputs[0-9]*(-test)?/notification-policy$#',
+        '#/api/nav-pages/toggle$#',
     ];
 
     private const SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS'];

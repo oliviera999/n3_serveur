@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.11.0] - 2026-07-06
+
+### Supervision — switchs du menu de navigation persistés côté serveur (état global)
+- **Contexte** : les switchs de la page de supervision (afficher/masquer une page dans la barre de navigation) étaient stockés en `localStorage` (par navigateur), donc invisibles pour les autres visiteurs et « off » par défaut alors que certaines pages figuraient en dur dans le menu. Désormais l'état est **serveur, global et permanent** : un changement s'applique à **tous** les visiteurs (y compris non connectés).
+- **`migrations/2026_07_nav_pages.sql`** + **`src/Repository/NavPageRepository.php`** : nouvelle table **globale** `navPages` (`page_key`, `label`, `url`, `active`, `sort_order`, `updated_at`, `updated_by`). Le repository crée/sème la table à la volée si absente (pages historiques du menu activées par défaut). Pas de suffixe d'environnement (menu commun).
+- **`src/Controller/NavPageController.php`** + **`public/index.php`** : endpoint `POST /api/nav-pages/toggle` (corps JSON `{key,label,url,active}`) qui active/désactive une page. **Réservé aux administrateurs** (`canAccessControl`) et protégé par **CSRF**.
+- **`src/Middleware/CsrfMiddleware.php`** : `/api/nav-pages/toggle` ajouté à la liste positive protégée.
+- **`src/Service/TemplateRenderer.php`** + **`config/dependencies.php`** : les pages actives sont injectées (`nav_pages`) dans **chaque** rendu (tolérant à l'absence de BDD → menu vide plutôt que 500).
+- **`templates/partials/_nav.twig`** : le menu est désormais rendu **côté serveur** à partir de `nav_pages` (entièrement pilotable par les switchs). Les liens Admin / Utilisateurs restent conditionnés aux permissions (jamais désactivables) pour ne pas verrouiller l'accès à la supervision.
+- **`templates/supervision.twig`** + **`src/Controller/SupervisionController.php`** : les switchs reflètent l'état serveur au chargement (`nav_states`) ; ajout des switchs Poissonglouton (`/pgl`) et Galeries (`/gallery`) ; switchs en lecture seule pour les non-admins.
+- **`public/assets/js/page-nav-toggles.js`** : réécrit — plus de `localStorage`. POST CSRF vers l'endpoint, reflet optimiste + revert en cas d'échec, mise à jour live du menu (desktop + panneau mobile).
+- **Note** : le lien « Aquaponie » du menu n'est plus dépendant de l'environnement courant (pointe vers `/aquaponie`).
+
 ## [6.10.1] - 2026-07-06
 
 ### Notifications — bouton « Tester l'envoi » aussi sur les pages galerie

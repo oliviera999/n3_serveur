@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Config\Version;
+use App\Repository\NavPageRepository;
 use App\Security\AuthService;
 use App\Security\CsrfService;
 use App\Util\DisplayTime;
@@ -17,15 +18,18 @@ class TemplateRenderer
     private Environment $twig;
     private ?CsrfService $csrfService;
     private ?AuthService $authService;
+    private ?NavPageRepository $navPageRepository;
 
     public function __construct(
         string $templatesPath,
         bool $useCache = true,
         ?CsrfService $csrfService = null,
-        ?AuthService $authService = null
+        ?AuthService $authService = null,
+        ?NavPageRepository $navPageRepository = null
     ) {
         $this->csrfService = $csrfService;
         $this->authService = $authService;
+        $this->navPageRepository = $navPageRepository;
 
         $loader = new FilesystemLoader($templatesPath);
 
@@ -95,7 +99,29 @@ class TemplateRenderer
             $context['csrf_token'] = $this->csrfService->getToken();
             $context['csrf_field'] = $this->csrfService->getHiddenField();
         }
+        // Pages du menu de navigation (état serveur global partagé par tous les
+        // visiteurs). Injecté sur chaque page pour un menu cohérent côté serveur.
+        if (!isset($context['nav_pages'])) {
+            $context['nav_pages'] = $this->loadNavPages();
+        }
         return $this->twig->render($template, $context);
+    }
+
+    /**
+     * Pages actives du menu, en tolérant l'absence de BDD (menu vide plutôt que 500).
+     *
+     * @return list<array{key: string, label: string, url: string}>
+     */
+    private function loadNavPages(): array
+    {
+        if ($this->navPageRepository === null) {
+            return [];
+        }
+        try {
+            return $this->navPageRepository->getActivePages();
+        } catch (\Throwable) {
+            return [];
+        }
     }
 
     /**
