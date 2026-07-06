@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.10.4] - 2026-07-06
+
+### Correctif — restriction admin des variantes clear-cache par environnement (CI rouge)
+
+- **`config/routes_config.php`** : les chemins `/admin/clear-cache-test`, `/admin/clear-cache3`, `/admin/clear-cache3-test` et `/admin/clear-cache-s3-test` n'étaient **pas** réellement réservés aux admins. `RoleAccessService::pathStartsWith()` exige une frontière (`/` ou fin) après le préfixe : `/admin/clear-cache` ne couvre donc pas les suffixes `-test`/`3`/… (caractère suivant `-` ou chiffre). Ces variantes retombaient sur le rôle operator par défaut. Chaque variante d'environnement est désormais listée explicitement (même schéma que les préfixes `reader` pour les dashboards). Corrige l'échec `RoleAccessServiceTest::testSupervisionMaintenanceActionsAreAdminOnly` introduit en 6.10.3 (CI rouge sur `master`). Les pages d'affichage `clear-cache-page*` restent volontairement operator (l'action POST `clear-cache` est, elle, admin + CSRF).
+
 ## [6.10.3] - 2026-07-06
 
 ### Supervision réservée aux admins + clear-cache en POST/CSRF
