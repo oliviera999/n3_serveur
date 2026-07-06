@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.10.3] - 2026-07-06
+
+### Supervision réservée aux admins + clear-cache en POST/CSRF
+
+- **`/supervision` réservée aux administrateurs** : ajout de `/supervision` (et des actions de maintenance qu'elle expose : `/admin/clear-cache*`, `/admin/api/gallery/auto-sort-all`, `/admin/deploy-script`) à `role_requirements['admin']` dans `config/routes_config.php`. Auparavant accessibles au rôle operator (défaut). Le lien « Admin » de la barre de navigation (`partials/_nav.twig`) est désormais conditionné à `can_manage_users` (admin) au lieu de `is_admin` (operator+).
+- **`/admin/clear-cache*` passe en POST + CSRF** : la route était un **GET à effet de bord** (falsifiable en cross-site). Elle est désormais **POST** (`config/routes_helpers.php`) protégée par `CsrfMiddleware` (motif `#/admin/clear-cache(?!-page)[0-9a-z-]*$#`, `clear-cache-page` reste un GET d'affichage). Les trois déclencheurs front envoient l'en-tête `X-CSRF-Token` : page supervision, page `admin/cache_admin.twig` et fallback HTML de `CacheController`. Ajout du `<meta name="csrf-token">` à `layout_base.twig` (utilisé par cache_admin). Le mode token (`?token=`) reste valable sur la requête POST (exempté de CSRF). Doc `docs/CLEAR_CACHE_OPTIONS.md` mise à jour (curl `-X POST`).
+- **Grille Live — anti-spam lecteurs d'écran** : `updateCard` (supervision) n'écrit dans le DOM que si la valeur change, pour que l'`aria-live` de la grille ne ré-annonce plus les 8 cartes à chaque poll (15 s).
+- **Tests** : `RoleAccessServiceTest` mis à jour (supervision + actions de maintenance = admin only).
+
 ## [6.10.2] - 2026-07-06
 
 ### Audit page de supervision — perf, fuseau horaire, CSRF

@@ -159,6 +159,13 @@ return [
     'role_requirements' => [
         'admin' => [
             '/admin/users',
+            // Page de supervision et actions de maintenance qu'elle expose :
+            // réservées aux administrateurs (vidage caches, tri galeries, script
+            // de déploiement). Les préfixes couvrent toutes les variantes d'env.
+            '/supervision',
+            '/admin/clear-cache',
+            '/admin/api/gallery/auto-sort-all',
+            '/admin/deploy-script',
         ],
         'reader' => [
             '/dashboard',

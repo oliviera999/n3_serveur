@@ -475,6 +475,12 @@
         return pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
     }
 
+    // N'écrit dans le DOM que si la valeur change : évite que l'aria-live de la
+    // grille ré-annonce les 8 cartes à chaque poll (15 s) aux lecteurs d'écran.
+    function setIfChanged(el, prop, value) {
+        if (el[prop] !== value) el[prop] = value;
+    }
+
     function updateCard(moduleId, health) {
         var card = document.querySelector('.live-card[data-module="' + moduleId + '"]');
         if (!card) return;
@@ -483,18 +489,18 @@
         if (!badge || !datetimeEl) return;
 
         if (health === null) {
-            card.className = 'live-card live-error';
-            badge.className = 'live-card-badge error';
-            badge.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erreur';
-            datetimeEl.textContent = '—';
+            setIfChanged(card, 'className', 'live-card live-error');
+            setIfChanged(badge, 'className', 'live-card-badge error');
+            setIfChanged(badge, 'innerHTML', '<i class="fas fa-exclamation-triangle"></i> Erreur');
+            setIfChanged(datetimeEl, 'textContent', '—');
             return;
         }
 
         var online = health.online === true;
-        card.className = 'live-card ' + (online ? 'live-online' : 'live-offline');
-        badge.className = 'live-card-badge ' + (online ? 'online' : 'offline');
-        badge.innerHTML = '<i class="fas fa-circle"></i> ' + (online ? 'LIVE' : 'HORS LIGNE');
-        datetimeEl.textContent = formatHealthDatetime(health) || '—';
+        setIfChanged(card, 'className', 'live-card ' + (online ? 'live-online' : 'live-offline'));
+        setIfChanged(badge, 'className', 'live-card-badge ' + (online ? 'online' : 'offline'));
+        setIfChanged(badge, 'innerHTML', '<i class="fas fa-circle"></i> ' + (online ? 'LIVE' : 'HORS LIGNE'));
+        setIfChanged(datetimeEl, 'textContent', formatHealthDatetime(health) || '—');
     }
 
     function setLoading(moduleId) {
@@ -544,7 +550,10 @@ if (clearAllCacheBtn) clearAllCacheBtn.addEventListener('click', async function 
     resultEl.textContent = 'Vidage en cours…';
     resultEl.style.display = 'block';
     try {
-        var response = await fetch(url);
+        var response = await fetch(url, {
+            method: 'POST',
+            headers: { 'X-CSRF-Token': csrfToken() }
+        });
         var data = await response.json();
         resultEl.className = 'cache-result ' + (data.success ? 'success' : 'error');
         resultEl.textContent = data.message || (data.errors && data.errors.join(' ; ')) || 'Erreur inconnue';
