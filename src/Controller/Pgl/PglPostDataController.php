@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Pgl;
 
+use App\Controller\Concerns\PglHmacAuthTrait;
 use App\Repository\PglRepository;
 use App\Service\LogService;
 use App\Util\ResponseHelper;
@@ -12,10 +13,17 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 final class PglPostDataController
 {
+    use PglHmacAuthTrait;
+
     public function __construct(
         private LogService $logger,
         private PglRepository $repository,
     ) {
+    }
+
+    private function componentName(): string
+    {
+        return 'PglPostData';
     }
 
     /** Bitmask firmware PGL_SENS_* (1=IR, 2=US, 4=PIR) ou legacy 1/2/3. */
@@ -48,11 +56,21 @@ final class PglPostDataController
     public function handle(Request $request, Response $response): Response
     {
         $params = (array) ($request->getParsedBody() ?? []);
-        $apiKey = (string) ($params['api_key'] ?? '');
-        $expected = (string) ($_ENV['PGL_API_KEY'] ?? $_ENV['API_KEY'] ?? '');
 
-        if ($expected === '' || !hash_equals($expected, $apiKey)) {
-            return ResponseHelper::text($response, 'API key invalide', 401);
+        // Auth : signature HMAC-SHA256 (contrat FFP3/N3PP/MSP) prioritaire,
+        // repli sur api_key legacy si le firmware n'envoie pas de signature.
+        $this->authenticatedByHmac = false;
+        $params = $this->prepareHmacParams($request, $params);
+        $authError = $this->validateHmacOrFallback($params, $response);
+        if ($authError !== null) {
+            return $authError;
+        }
+        if ($this->requiresApiKey()) {
+            $apiKey = (string) ($params['api_key'] ?? '');
+            $expected = (string) ($_ENV['PGL_API_KEY'] ?? $_ENV['API_KEY'] ?? '');
+            if ($expected === '' || !hash_equals($expected, $apiKey)) {
+                return ResponseHelper::text($response, 'API key invalide', 401);
+            }
         }
 
         $sensor = (string) ($params['sensor'] ?? 'poissonglouton');

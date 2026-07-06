@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.11.0] - 2026-07-06
+
+### Sécurité — validation HMAC-SHA256 des endpoints Poissonglouton
+- **`src/Controller/Concerns/PglHmacAuthTrait.php`** (nouveau) : trait d'authentification HMAC pour PGL. Compose `HmacAuthTrait` (contrat commun FFP3/N3PP/MSP : `timestamp`+`signature` dans le body **ou** en-têtes `X-Sig-*` signant le corps complet) et l'adapte à PGL — clé dédiée `PGL_API_SIG_SECRET` avec repli sur le secret commun `API_SIG_SECRET` (miroir de `PGL_API_KEY` / `API_KEY`), extraction du contexte de body-signing (en-têtes `X-Sig-*` + corps brut capté par `RawPostBodyMiddleware`), et `requiresApiKey()`.
+- **`src/Controller/Pgl/PglPostDataController.php`** et **`src/Controller/Pgl/PglHeartbeatController.php`** : valident désormais la signature HMAC (prioritaire), avec repli sur `api_key` legacy si le firmware n'envoie pas de signature. Respecte `HMAC_STRICT_MODE`. Comble la lacune structurelle où `/pgl/post-data` et `/pgl/heartbeat` n'acceptaient que `api_key` alors que le firmware pouvait déjà signer (`PGL_API_SIG_SECRET`).
+- **`src/Controller/Concerns/HmacAuthTrait.php`** : point d'extension `hmacSecret()` (par défaut `API_SIG_SECRET`) pour permettre à PGL de surcharger la source du secret. Comportement N3PP/MSP inchangé.
+- **`.env.example`** : documente `PGL_API_SIG_SECRET` (secret HMAC dédié optionnel, repli `API_SIG_SECRET`).
+- **`docs/ENDPOINTS_ESP32_SERVEUR.md`** : PGL passe de « HMAC non validé côté serveur » à « HMAC validé (contrat FFP3/N3PP/MSP), repli api_key ».
+- **Tests** : `tests/Controller/Pgl/PglPostDataControllerTest.php` (+6 cas : HMAC valide sans api_key, signature invalide → 401, secret serveur manquant → 500, clé PGL dédiée prioritaire, en-têtes `X-Sig-*`, mode strict) et `tests/Controller/Pgl/PglHeartbeatControllerTest.php` (+2 cas HMAC).
 ## [6.10.4] - 2026-07-06
 
 ### Correctif — restriction admin des variantes clear-cache par environnement (CI rouge)

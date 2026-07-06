@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Pgl;
 
+use App\Controller\Concerns\PglHmacAuthTrait;
 use App\Repository\PglRepository;
 use App\Service\LogService;
 use App\Util\RequestHelper;
@@ -15,13 +16,21 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  * Heartbeat firmware Poissonglouton — POST /pgl/heartbeat
  *
  * Contrat aligné MSP/N3PP : uptime, free, min, reboots (+ sensor, version, rssi optionnels).
+ * Auth : signature HMAC-SHA256 (contrat FFP3/N3PP/MSP) avec repli api_key.
  */
 final class PglHeartbeatController
 {
+    use PglHmacAuthTrait;
+
     public function __construct(
         private LogService $logger,
         private PglRepository $repository,
     ) {
+    }
+
+    private function componentName(): string
+    {
+        return 'PglHeartbeat';
     }
 
     public function handle(Request $request, Response $response): Response
@@ -35,13 +44,23 @@ final class PglHeartbeatController
             return ResponseHelper::text($response, 'Donnees manquantes', 400);
         }
 
-        $apiKey = isset($params['api_key']) ? trim((string) $params['api_key']) : '';
-        $expected = (string) ($_ENV['PGL_API_KEY'] ?? $_ENV['API_KEY'] ?? '');
-        if ($expected === '' || !hash_equals($expected, $apiKey)) {
-            $this->logger->warning('PglHeartbeat: cle API invalide', [
-                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
-            ]);
-            return ResponseHelper::text($response, 'API key invalide', 401);
+        // Auth : signature HMAC-SHA256 (contrat FFP3/N3PP/MSP) prioritaire,
+        // repli sur api_key legacy si le firmware n'envoie pas de signature.
+        $this->authenticatedByHmac = false;
+        $params = $this->prepareHmacParams($request, $params);
+        $authError = $this->validateHmacOrFallback($params, $response);
+        if ($authError !== null) {
+            return $authError;
+        }
+        if ($this->requiresApiKey()) {
+            $apiKey = isset($params['api_key']) ? trim((string) $params['api_key']) : '';
+            $expected = (string) ($_ENV['PGL_API_KEY'] ?? $_ENV['API_KEY'] ?? '');
+            if ($expected === '' || !hash_equals($expected, $apiKey)) {
+                $this->logger->warning('PglHeartbeat: cle API invalide', [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                ]);
+                return ResponseHelper::text($response, 'API key invalide', 401);
+            }
         }
 
         $get = static fn (string $k): string => isset($params[$k]) && is_scalar($params[$k])
