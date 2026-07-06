@@ -49,6 +49,7 @@
     </div>
 
     <div class="projects-grid">
+        {% if nav_states['aquaponie'] ?? true %}
         <!-- FFP3 - Aquaponie -->
         <div class="project-card" data-module="ffp3-wroom-prod" data-aos="fade-up" data-aos-delay="0">
             <i class="fas fa-fish project-icon"></i>
@@ -76,7 +77,9 @@
                 <i class="fas fa-info-circle"></i> Description
             </a>
         </div>
+        {% endif %}
 
+        {% if nav_states['potager'] ?? true %}
         <!-- MSP1 - Potager -->
         <div class="project-card" data-module="msp1-prod" data-aos="fade-up" data-aos-delay="100">
             <i class="fas fa-seedling project-icon"></i>
@@ -103,7 +106,9 @@
                 <i class="fas fa-info-circle"></i> Description
             </a>
         </div>
+        {% endif %}
 
+        {% if nav_states['elevage'] ?? true %}
         <!-- N3PP - Élevage d'insectes -->
         <div class="project-card" data-module="n3pp-prod" data-aos="fade-up" data-aos-delay="200">
             <i class="fas fa-bug project-icon"></i>
@@ -129,7 +134,9 @@
                 <i class="fas fa-info-circle"></i> Description
             </a>
         </div>
+        {% endif %}
 
+        {% if nav_states['pgl'] ?? true %}
         <!-- Poissonglouton - Recyclage -->
         <div class="project-card" data-module="pgl-prod" data-aos="fade-up" data-aos-delay="250">
             <i class="fas fa-recycle project-icon"></i>
@@ -149,7 +156,9 @@
                 <i class="fas fa-chart-line"></i> Voir les statistiques
             </a>
         </div>
+        {% endif %}
 
+        {% if nav_states['gallery'] ?? true %}
         <!-- Images et vidéos -->
         <div class="project-card" data-aos="fade-up" data-aos-delay="300">
             <i class="fas fa-images project-icon"></i>
@@ -166,6 +175,7 @@
                 <i class="fas fa-images"></i> Voir toutes les galeries
             </a>
         </div>
+        {% endif %}
     </div>
 
     <!-- Section Liens utiles -->

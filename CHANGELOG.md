@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.14.0] - 2026-07-06
+
+### Accueil — les tuiles suivent l'état des switchs de supervision
+- Les **tuiles projet de la page d'accueil** (Aquaponie, Potager, Élevage, Poissonglouton, Galeries) respectent désormais la visibilité définie par les switchs (table `navPages`) : désactiver un switch masque à la fois le lien du menu **et** la tuile correspondante sur la home.
+- **`src/Controller/HomeController.php`** : injecte `NavPageRepository` et passe `nav_states` (map clé → actif) au template (tolérant à l'absence de BDD → tuiles visibles).
+- **`templates/home.twig`** : chaque tuile est conditionnée par `{% if nav_states['<clé>'] ?? true %}` (clés `aquaponie`, `potager`, `elevage`, `pgl`, `gallery`). Défaut visible si la clé n'est pas renseignée ; l'opérateur `??` ne masque que sur un état explicitement désactivé.
+
 ## [6.13.0] - 2026-07-06
 
 ### Supervision & galeries — switch Utilisateurs, galeries pilotées sur la page /gallery
