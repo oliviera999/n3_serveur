@@ -11,6 +11,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.12.1] - 2026-07-06
+
+### Doc — secret HMAC PGL dans `.env.docker.example`
+- **`.env.docker.example`** : ajout de `PGL_API_SIG_SECRET` (optionnel, repli sur `API_SIG_SECRET`) pour les tests Docker locaux des endpoints Poissonglouton, aligné sur `firmwires/poissonglouton/include/secrets.h`.
+
 ## [6.12.0] - 2026-07-06
 
 ### Supervision — switchs du menu de navigation persistés côté serveur (état global)
