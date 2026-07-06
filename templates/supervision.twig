@@ -97,6 +97,20 @@
                 <span class="page-nav-slider"></span>
             </label>
         </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/pgl" class="link-card"><i class="fas fa-recycle"></i><span class="label">Poissonglouton</span><div class="hint">Compteur de recyclage plastique</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="pgl" data-page-label="Poissonglouton" data-page-url="{{ base_path|default('') }}/pgl">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/gallery" class="link-card"><i class="fas fa-images"></i><span class="label">Galeries</span><div class="hint">Portail des galeries photo</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="gallery" data-page-label="Galeries" data-page-url="{{ base_path|default('') }}/gallery">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
     </div>
 
     <div class="section-header" data-aos="fade-up">
@@ -438,6 +452,13 @@
 {% endblock %}
 
 {% block scripts %}
+<script>
+// Configuration des switchs de navigation (état serveur global, pilotage admin).
+// Lu par page-nav-toggles.js. Défini avant DOMContentLoaded.
+window.NAV_PAGES_API = '{{ base_path }}' + '/api/nav-pages/toggle';
+window.NAV_PAGES_CAN_EDIT = {{ can_access_control|default(false) ? 'true' : 'false' }};
+window.NAV_PAGES_STATE = {{ nav_states|default({})|json_encode|raw }};
+</script>
 <script>
 (function() {
     var BASE = '{{ base_path }}' || '';

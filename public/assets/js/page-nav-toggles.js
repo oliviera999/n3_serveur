@@ -1,143 +1,157 @@
 /**
- * page-nav-toggles.js — Gestion des pages visibles dans la barre de navigation
- * Les états sont persistés en localStorage sous la clé 'n3_nav_pages'.
- * Sur la page supervision, des toggles permettent d'activer/désactiver chaque page.
- * Les pages activées apparaissent dynamiquement dans le menu de navigation.
+ * page-nav-toggles.js — Pages visibles dans la barre de navigation.
+ *
+ * L'état est désormais PERSISTÉ CÔTÉ SERVEUR (table navPages) et GLOBAL : il
+ * s'applique à tous les visiteurs, y compris non connectés. Le menu est rendu
+ * côté serveur (partials/_nav.twig) ; ce script gère uniquement, sur la page de
+ * supervision, les switchs (réservés aux admins) et la mise à jour live du menu.
+ *
+ * Config injectée par la page supervision (avant DOMContentLoaded) :
+ *   window.NAV_PAGES_API      — URL POST de bascule
+ *   window.NAV_PAGES_CAN_EDIT — booléen : l'utilisateur peut-il modifier
+ *   window.NAV_PAGES_STATE    — map { clé: actif } pour l'état initial des switchs
  */
 (function () {
     'use strict';
 
-    var STORAGE_KEY = 'n3_nav_pages';
-
-    // Clés de pages devenues permanentes (lien de nav toujours présent) :
-    // leur ancien toggle n'existe plus, on purge l'état localStorage résiduel
-    // pour éviter un doublon dans la barre de navigation.
-    var DEPRECATED_KEYS = ['admin-users'];
-
-    function getState() {
-        try {
-            return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-        } catch (e) {
-            return {};
-        }
+    function canEdit() {
+        return window.NAV_PAGES_CAN_EDIT === true;
     }
 
-    function setState(state) {
-        try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-        } catch (e) {}
+    function csrfToken() {
+        var meta = document.querySelector('meta[name="csrf-token"]');
+        return meta ? meta.getAttribute('content') || '' : '';
     }
 
     /**
-     * Supprime de localStorage les clés de pages devenues permanentes.
+     * Listes de liens à mettre à jour : nav desktop (#nav) et panneau mobile
+     * (#navPanelNav, cloné par main.js).
      */
-    function purgeDeprecatedKeys() {
-        var state = getState();
-        var changed = false;
-        for (var i = 0; i < DEPRECATED_KEYS.length; i++) {
-            var key = DEPRECATED_KEYS[i];
-            if (Object.prototype.hasOwnProperty.call(state, key)) {
-                delete state[key];
-                changed = true;
+    function getNavLists() {
+        var lists = [];
+        var desktop = document.querySelector('#nav ul.links');
+        var mobile = document.querySelector('#navPanelNav ul.links');
+        if (desktop) { lists.push(desktop); }
+        if (mobile) { lists.push(mobile); }
+        return lists;
+    }
+
+    /**
+     * Reconstruit les <li> dynamiques du menu à partir de la liste active
+     * renvoyée par le serveur (mise à jour live sans rechargement).
+     */
+    function renderNavFromList(activeList) {
+        if (!Array.isArray(activeList)) { return; }
+        getNavLists().forEach(function (ul) {
+            var existing = ul.querySelectorAll('.nav-dyn-item');
+            for (var i = 0; i < existing.length; i++) {
+                existing[i].parentNode.removeChild(existing[i]);
             }
-        }
-        if (changed) {
-            setState(state);
-        }
-    }
-
-    /**
-     * Cible la liste de liens (desktop #nav ou mobile après déplacement dans #navPanelNav).
-     */
-    function getNavLinksUl() {
-        return document.querySelector('#nav ul.links') || document.querySelector('#navPanelNav ul.links');
-    }
-
-    /**
-     * Injecte les <li> dynamiques dans la barre de nav, avant le bouton thème.
-     */
-    function renderNavItems() {
-        var nav = getNavLinksUl();
-        if (!nav) return;
-
-        // Supprimer les items dynamiques existants
-        var existing = nav.querySelectorAll('.nav-dyn-item');
-        for (var i = 0; i < existing.length; i++) {
-            existing[i].parentNode.removeChild(existing[i]);
-        }
-
-        var state = getState();
-        var keys = Object.keys(state);
-        if (keys.length === 0) return;
-
-        var themeToggle = nav.querySelector('.nav-theme-toggle');
-
-        keys.forEach(function (key) {
-            var page = state[key];
-            if (!page || !page.active || !page.url || !page.label) return;
-
-            var li = document.createElement('li');
-            li.className = 'nav-dyn-item';
-
-            var a = document.createElement('a');
-            a.href = page.url;
-            a.textContent = page.label;
-            a.title = page.label;
-
-            li.appendChild(a);
-
-            if (themeToggle) {
-                nav.insertBefore(li, themeToggle);
-            } else {
-                nav.appendChild(li);
-            }
+            var anchor = ul.querySelector('.nav-perm-item') || ul.querySelector('.nav-theme-toggle');
+            activeList.forEach(function (page) {
+                if (!page || !page.url || !page.label) { return; }
+                var li = document.createElement('li');
+                li.className = 'nav-dyn-item';
+                li.setAttribute('data-nav-key', page.key || '');
+                var a = document.createElement('a');
+                a.href = page.url;
+                a.textContent = page.label;
+                a.title = page.label;
+                li.appendChild(a);
+                if (anchor) {
+                    ul.insertBefore(li, anchor);
+                } else {
+                    ul.appendChild(li);
+                }
+            });
         });
     }
 
     /**
-     * Applique localStorage à toutes les cases (y compris doublons Live + grille liens).
+     * Applique un état coché/visuel à toutes les cases d'une même clé
+     * (la clé peut apparaître plusieurs fois : section Live + grille de liens).
      */
-    function syncCheckboxesFromState() {
-        var state = getState();
+    function setCheckboxesByKey(key, checked) {
         var all = document.querySelectorAll('.page-nav-cb');
         for (var i = 0; i < all.length; i++) {
-            var cb = all[i];
-            var key = cb.getAttribute('data-page-key');
-            if (!key) continue;
-            var on = !!(state[key] && state[key].active);
-            cb.checked = on;
-            markWrapActive(cb, on);
+            if (all[i].getAttribute('data-page-key') === key) {
+                all[i].checked = checked;
+                markWrapActive(all[i], checked);
+            }
         }
     }
 
+    function postToggle(key, label, url, active) {
+        return fetch(window.NAV_PAGES_API, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-Requested-With': 'fetch',
+                'X-CSRF-Token': csrfToken()
+            },
+            credentials: 'include',
+            body: JSON.stringify({ key: key, label: label, url: url, active: active })
+        }).then(function (r) {
+            return r.json().then(function (d) {
+                return { ok: r.ok, data: d };
+            }).catch(function () {
+                return { ok: r.ok, data: null };
+            });
+        });
+    }
+
+    function onToggleChange(e) {
+        e.stopPropagation();
+        var cb = e.currentTarget;
+        var key = cb.getAttribute('data-page-key');
+        var label = cb.getAttribute('data-page-label');
+        var url = cb.getAttribute('data-page-url');
+        var desired = cb.checked;
+
+        // Reflet immédiat (optimiste) sur tous les doublons de la même page.
+        setCheckboxesByKey(key, desired);
+        cb.disabled = true;
+
+        postToggle(key, label, url, desired).then(function (res) {
+            if (!res.ok || !res.data || res.data.success !== true) {
+                setCheckboxesByKey(key, !desired);
+                window.alert((res.data && res.data.error) || 'Modification refusée.');
+                return;
+            }
+            renderNavFromList(res.data.active);
+        }).catch(function () {
+            setCheckboxesByKey(key, !desired);
+            window.alert('Erreur réseau — modification non enregistrée.');
+        }).then(function () {
+            cb.disabled = !canEdit();
+        });
+    }
+
     /**
-     * Initialise les checkboxes toggle sur la page supervision.
+     * Initialise les switchs sur la page supervision : état initial depuis le
+     * serveur, écoute des changements, verrouillage si l'utilisateur n'est pas admin.
      */
     function initToggles() {
         var checkboxes = document.querySelectorAll('.page-nav-cb');
-        if (checkboxes.length === 0) return;
+        if (checkboxes.length === 0) { return; }
+
+        var state = window.NAV_PAGES_STATE || {};
+        var editable = canEdit();
 
         for (var i = 0; i < checkboxes.length; i++) {
-            (function (cb) {
-                var key = cb.getAttribute('data-page-key');
-                var label = cb.getAttribute('data-page-label');
-                var url = cb.getAttribute('data-page-url');
-
-                cb.addEventListener('change', function (e) {
-                    e.stopPropagation();
-                    var s = getState();
-                    if (cb.checked) {
-                        s[key] = { active: true, label: label, url: url };
-                    } else {
-                        delete s[key];
-                    }
-                    setState(s);
-                    syncCheckboxesFromState();
-                    renderNavItems();
-                });
-            })(checkboxes[i]);
+            var cb = checkboxes[i];
+            var key = cb.getAttribute('data-page-key');
+            var on = !!state[key];
+            cb.checked = on;
+            markWrapActive(cb, on);
+            if (editable) {
+                cb.addEventListener('change', onToggleChange);
+            } else {
+                cb.disabled = true;
+                cb.title = 'Réservé aux administrateurs';
+            }
         }
-        syncCheckboxesFromState();
     }
 
     function markWrapActive(cb, active) {
@@ -158,12 +172,11 @@
     }
 
     /**
-     * Empêche le clic sur le toggle de suivre le lien parent.
+     * Empêche le clic sur le toggle de suivre le lien parent (carte cliquable).
      */
     function blockToggleNavigation() {
         document.addEventListener('click', function (e) {
             var el = e.target;
-            // Remonter jusqu'à un label.page-nav-toggle
             while (el && el !== document) {
                 if (el.classList && el.classList.contains('page-nav-toggle')) {
                     e.stopPropagation();
@@ -182,24 +195,8 @@
         }
     }
 
-    var resizeTimer = null;
-
-    function scheduleRenderNavItems() {
-        if (resizeTimer !== null) {
-            window.clearTimeout(resizeTimer);
-        }
-        resizeTimer = window.setTimeout(function () {
-            resizeTimer = null;
-            renderNavItems();
-        }, 150);
-    }
-
     onReady(function () {
-        purgeDeprecatedKeys();
         blockToggleNavigation();
-        renderNavItems();
         initToggles();
-        window.addEventListener('resize', scheduleRenderNavItems);
-        window.addEventListener('orientationchange', scheduleRenderNavItems);
     });
 })();

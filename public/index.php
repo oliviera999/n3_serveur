@@ -263,6 +263,14 @@ $app->post('/pgl/post-data', [PglPostDataController::class, 'handle']);
 $app->post('/pgl/heartbeat', [PglHeartbeatController::class, 'handle']);
 
 // ====================================================================
+// Menu de navigation — bascule des pages visibles (état serveur global).
+// Réservé aux administrateurs (contrôle dans NavPageController) + CSRF
+// (CsrfMiddleware). Auth de session appliquée au niveau de la route.
+// ====================================================================
+$app->post('/api/nav-pages/toggle', [\App\Controller\NavPageController::class, 'toggle'])
+    ->add($applyAuth);
+
+// ====================================================================
 // Routes FFP3 (aquaponie) — config/routes_ffp3.php
 // ====================================================================
 require __DIR__ . '/../config/routes_ffp3.php';

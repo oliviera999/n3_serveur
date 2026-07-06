@@ -1,26 +1,18 @@
-{# Barre de navigation — Accueil, Aquaponie, Potager, Élevage, Galeries, toggle dark mode #}
+{# Barre de navigation — pages pilotées par les switchs de la page supervision
+   (état serveur global : table navPages), + toggle dark mode.
+   Les liens Admin / Utilisateurs restent conditionnés par les permissions
+   (jamais désactivables) afin de ne jamais verrouiller l'accès à la supervision. #}
 {% set bp = base_path|default('') %}
-{% set aquaponie_path = 'aquaponie' %}
-{% if environment == 'test' %}
-    {% set aquaponie_path = 'aquaponie-test' %}
-{% elseif environment == 'test3' %}
-    {% set aquaponie_path = 'aquamobile-test' %}
-{% elseif environment == 's3' %}
-    {% set aquaponie_path = 'aquamobile' %}
-{% endif %}
 <nav id="nav" aria-label="Navigation principale">
     <ul class="links">
-        <li class="{{ nav_active == 'home' ? 'active' }}"><a href="{{ bp }}/">Accueil</a></li>
-        <li class="{{ nav_active == 'aquaponie' ? 'active' }}"><a href="{{ bp }}/{{ aquaponie_path }}">Aquaponie</a></li>
-        <li class="{{ nav_active == 'potager' or nav_active == 'potager_control' ? 'active' }}"><a href="{{ bp }}/meteo" title="Potager — Station météo">Potager</a></li>
-        <li class="{{ nav_active == 'elevage' or nav_active == 'elevage_control' ? 'active' }}"><a href="{{ bp }}/serre" title="Élevage d'insectes — Serre">Élevage</a></li>
-        <li class="{{ nav_active == 'pgl' ? 'active' }}"><a href="{{ bp }}/pgl" title="Poissonglouton — compteur de recyclage">Poissonglouton</a></li>
-        <li class="{{ nav_active == 'gallery' ? 'active' }}"><a href="{{ bp }}/gallery" title="Galeries photos des projets">Galeries</a></li>
+        {% for page in nav_pages|default([]) %}
+        <li class="nav-dyn-item{{ nav_active == page.key ? ' active' : '' }}" data-nav-key="{{ page.key }}"><a href="{{ page.url }}" title="{{ page.label }}">{{ page.label }}</a></li>
+        {% endfor %}
         {% if can_manage_users|default(false) %}
-        <li class="{{ nav_active == 'supervision' ? 'active' }}"><a href="{{ bp }}/supervision" title="Supervision et administration"><i class="fas fa-cog" aria-hidden="true"></i> Admin</a></li>
+        <li class="nav-perm-item {{ nav_active == 'supervision' ? 'active' }}"><a href="{{ bp }}/supervision" title="Supervision et administration"><i class="fas fa-cog" aria-hidden="true"></i> Admin</a></li>
         {% endif %}
         {% if can_manage_users|default(false) %}
-        <li class="{{ nav_active == 'users' ? 'active' }}"><a href="{{ bp }}/admin/users" title="Gestion des utilisateurs"><i class="fas fa-users-cog" aria-hidden="true"></i> Utilisateurs</a></li>
+        <li class="nav-perm-item {{ nav_active == 'users' ? 'active' }}"><a href="{{ bp }}/admin/users" title="Gestion des utilisateurs"><i class="fas fa-users-cog" aria-hidden="true"></i> Utilisateurs</a></li>
         {% endif %}
         <li class="nav-theme-toggle">
             <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Basculer le mode sombre" title="Mode sombre / clair">

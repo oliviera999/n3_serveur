@@ -72,7 +72,8 @@ return [
             $resolved !== false ? $resolved : $templatesPath,
             ($_ENV['ENV'] ?? 'prod') === 'prod',
             $c->get(\App\Security\CsrfService::class),
-            $c->get(\App\Security\AuthService::class)
+            $c->get(\App\Security\AuthService::class),
+            $c->get(\App\Repository\NavPageRepository::class)
         );
     },
 
