@@ -59,4 +59,23 @@
         >
         <small class="save-indicator" data-save-indicator data-parameter="mail" data-state="idle"></small>
     </label>
+
+    {% if test_mail|default(false) %}
+    <div class="parameter-item notification-test-item" data-notification-test>
+        <span>Test d'envoi</span>
+        <div class="notification-test-control">
+            <button
+                type="button"
+                class="notification-test-btn pump-force-select"
+                data-notification-test-btn
+                onclick="sendTestMail(this)"
+            >✉️ Tester l'envoi (mail serveur)</button>
+            <small class="save-indicator" data-notification-test-indicator data-state="idle"></small>
+        </div>
+        <p class="parameter-item-hint">
+            Envoie un e-mail de test au destinataire configuré du serveur,
+            quel que soit le mode de notification ci-dessus.
+        </p>
+    </div>
+    {% endif %}
 </div>

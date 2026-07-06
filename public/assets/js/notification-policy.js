@@ -18,6 +18,10 @@
         return withCurrentToken(apiBase().replace(/\/$/, '') + '/notification-policy');
     }
 
+    function testMailUrl() {
+        return withCurrentToken(apiBase().replace(/\/$/, '') + '/test-mail');
+    }
+
     // Propage le ?token= de l'URL courante vers la requête (parité avec les autres
     // écritures de contrôle) : une requête portant un token explicite est authentifiée
     // et exemptée de CSRF côté serveur.
@@ -129,5 +133,46 @@
             return;
         }
         postPolicy(mode, getCheckedCategories());
+    };
+
+    function setTestIndicator(state, message) {
+        const el = document.querySelector('[data-notification-test-indicator]');
+        if (!el) {
+            return;
+        }
+        el.dataset.state = state;
+        el.textContent = message || '';
+    }
+
+    window.sendTestMail = function (btn) {
+        if (btn) {
+            btn.disabled = true;
+        }
+        setTestIndicator('saving', 'Envoi…');
+        fetch(testMailUrl(), {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
+            },
+            credentials: 'same-origin',
+        })
+            .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+            .then(function (result) {
+                if (!result.ok || !result.data.success) {
+                    setTestIndicator('error', (result.data && result.data.error) || 'Échec de l\'envoi');
+                    return;
+                }
+                setTestIndicator('saved', result.data.message || 'E-mail de test envoyé');
+                setTimeout(function () { setTestIndicator('idle', ''); }, 6000);
+            })
+            .catch(function () {
+                setTestIndicator('error', 'Erreur réseau');
+            })
+            .finally(function () {
+                if (btn) {
+                    btn.disabled = false;
+                }
+            });
     };
 })();

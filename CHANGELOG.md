@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.10.0] - 2026-07-06
+
+### Notifications — bouton « Tester l'envoi (mail serveur) » sur les pages de supervision
+- **`src/Service/NotificationService.php`** : nouvelle méthode `sendTestMail(?string $family)` qui envoie un e-mail de test au destinataire configuré (`NOTIF_EMAIL_RECIPIENT`) en **contournant** la politique, l'anti-spam et le digest — le but est de vérifier la configuration d'envoi (SMTP ou repli `mail()`) quel que soit le mode courant. Ajout d'un getter `recipient()`.
+- **`src/Controller/Traits/HandlesNotificationPolicy.php`** : handler `sendTestMail()` (même auth/CSRF que la politique de notification) → JSON `{success, recipient, message}` ou `{error}` (400 si aucun destinataire, 502 si l'envoi échoue).
+- **`config/routes_helpers.php`** : routes POST `.../api/outputs/test-mail` pour FFP3, MSP1 et N3PP (parité avec `notification-policy`).
+- **`templates/partials/_notification_policy.twig`** + **`public/assets/js/notification-policy.js`** : bouton « ✉️ Tester l'envoi (mail serveur) » (affiché via le flag `test_mail`) avec indicateur d'état ; POST CSRF/token calqué sur la sauvegarde de politique. Activé sur `control.twig`, `msp1_control.twig`, `n3pp_control.twig` (pas les galeries).
+- **`tests/Service/NotificationServiceTest.php`** : couverture de `sendTestMail` (envoi + sujet `[FAMILLE][P3]`, contournement du mode `none`, getter `recipient()`).
+
 ## [6.9.0] - 2026-07-06
 
 ### Notifications — mode gradué poussé au firmware FFP3 (harmonisation flotte)

@@ -78,6 +78,7 @@ function registerFfp3ProtectedRoutes($app, array $routes, string $env, $applyAut
         }
         $group->post($routes['parameters'], [OutputController::class, 'updateParameters']);
         $group->post(str_replace('/parameters', '/notification-policy', $routes['parameters']), [OutputController::class, 'saveNotificationPolicy']);
+        $group->post(str_replace('/parameters', '/test-mail', $routes['parameters']), [OutputController::class, 'sendTestMail']);
         $group->post($routes['trigger_ota'], [OutputController::class, 'triggerOtaCheck']);
         $group->get($routes['board_status'], [OutputController::class, 'getBoardStatus']);
         if (isset($routes['admin_clear'])) {
@@ -196,6 +197,7 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
         if ($hasParameters) {
             $group->post("/{$pathPrefix}/api/outputs/parameters", [$outputController, 'updateParameters']);
             $group->post("/{$pathPrefix}/api/outputs/notification-policy", [$outputController, 'saveNotificationPolicy']);
+            $group->post("/{$pathPrefix}/api/outputs/test-mail", [$outputController, 'sendTestMail']);
         }
         // Heartbeat moderne (auth HMAC ou api_key) — table dediee msp1Heartbeat / n3ppHeartbeat.
         if ($heartbeatController !== null) {
@@ -218,6 +220,7 @@ function registerFfp3ControlRoutes($app, string $outputsPrefix, string $toggleMe
         $group->post($outputsPrefix . '/trigger-feed', [OutputController::class, 'triggerManualFeed']);
         $group->post($outputsPrefix . '/parameters', [OutputController::class, 'updateParameters']);
         $group->post($outputsPrefix . '/notification-policy', [OutputController::class, 'saveNotificationPolicy']);
+        $group->post($outputsPrefix . '/test-mail', [OutputController::class, 'sendTestMail']);
         $group->post($outputsPrefix . '/trigger-ota-check', [OutputController::class, 'triggerOtaCheck']);
         $group->get($outputsPrefix . '/board/{board}/status', [OutputController::class, 'getBoardStatus']);
     })->add(new EnvironmentMiddleware($env))

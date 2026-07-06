@@ -229,6 +229,39 @@ class NotificationService
         return $this->dispatch(Severity::Alert, NotificationCategory::System, $subject, $message);
     }
 
+    /** Adresse e-mail du destinataire principal (NOTIF_EMAIL_RECIPIENT). */
+    public function recipient(): string
+    {
+        return $this->recipient;
+    }
+
+    /**
+     * Envoie un e-mail de TEST au destinataire configuré.
+     *
+     * CONTOURNE volontairement la politique, l'anti-spam et le digest : le but est de
+     * vérifier de bout en bout la configuration d'envoi (SMTP ou repli mail()), quel que
+     * soit le mode de notification courant. Utilisé par le bouton « Tester l'envoi » des
+     * pages de supervision.
+     *
+     * @param string|null $family Famille d'appareils (pour le préfixe de sujet)
+     *
+     * @return bool Vrai si l'e-mail a été remis au transport
+     */
+    public function sendTestMail(?string $family = null): bool
+    {
+        $subject = 'Test de configuration e-mail';
+        $now = (new \DateTimeImmutable('now'))->format('d/m/Y H:i:s');
+        $message = 'Ceci est un e-mail de test envoyé depuis la page de supervision '
+            . '(FFP3 Datas v' . \App\Config\Version::get() . ') le ' . $now . ".\n\n"
+            . "Si vous recevez ce message, l'envoi d'e-mails du serveur est fonctionnel.";
+
+        $formattedSubject = $this->formatSubject(Severity::Info, $subject, $family);
+        $html = $this->renderer->renderAlertHtml(Severity::Info, NotificationCategory::System, $family, $subject, $message);
+        $text = $this->renderer->renderAlertText(Severity::Info, NotificationCategory::System, $family, $subject, $message);
+
+        return $this->sendMail($this->recipient, $formattedSubject, $html, $text);
+    }
+
     /**
      * Vide la file de synthèse : envoie un unique e-mail regroupant les alertes P3/P4
      * accumulées. À appeler sur un tick CRON ou en fin de run. No-op si la file est vide.
