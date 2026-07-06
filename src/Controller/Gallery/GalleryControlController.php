@@ -15,6 +15,7 @@ use App\Security\DeviceApiKeyValidator;
 use App\Security\DeviceSignatureValidator;
 use App\Service\LogService;
 use App\Service\NotificationPolicySaveService;
+use App\Service\NotificationService;
 use App\Service\TemplateRenderer;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
@@ -421,6 +422,21 @@ class GalleryControlController
             $saveService,
             $this->notificationPolicyRepo
         );
+    }
+
+    public function sendTestMailBySlug(
+        Request $request,
+        Response $response,
+        array $args,
+        NotificationService $notificationService
+    ): Response {
+        $slug = (string) ($args['slug'] ?? '');
+        if (!$this->isAllowedSlug($slug)) {
+            return ResponseHelper::json($response, ['error' => 'Galerie inconnue'], 404);
+        }
+        $this->gallerySlugContext = $slug;
+
+        return $this->sendTestMail($request, $response, $notificationService);
     }
 
     protected function requireAuthForNotificationPolicy(Request $request, Response $response): ?Response

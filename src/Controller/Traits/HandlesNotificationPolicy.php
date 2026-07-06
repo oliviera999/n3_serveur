@@ -7,6 +7,7 @@ namespace App\Controller\Traits;
 use App\Notification\NotificationFamily;
 use App\Repository\NotificationPolicyRepository;
 use App\Service\NotificationPolicySaveService;
+use App\Service\NotificationService;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -71,6 +72,45 @@ trait HandlesNotificationPolicy
             'mode' => $ui['mode'],
             'categories_enabled' => $ui['categories_enabled'],
             'from_env' => $ui['from_env'],
+        ]);
+    }
+
+    /**
+     * Envoie un e-mail de test au destinataire configuré (bouton « Tester l'envoi »).
+     *
+     * Contourne la politique / l'anti-spam (cf. NotificationService::sendTestMail) : le
+     * but est de vérifier la configuration d'envoi, quel que soit le mode courant.
+     */
+    public function sendTestMail(
+        Request $request,
+        Response $response,
+        NotificationService $notificationService
+    ): Response {
+        $authError = $this->requireAuthForNotificationPolicy($request, $response);
+        if ($authError !== null) {
+            return $authError;
+        }
+
+        $recipient = $notificationService->recipient();
+        if (trim($recipient) === '') {
+            return ResponseHelper::json($response, [
+                'error' => 'Aucun destinataire configuré (NOTIF_EMAIL_RECIPIENT).',
+            ], 400);
+        }
+
+        $family = $this->notificationFamily();
+        $ok = $notificationService->sendTestMail($family->value);
+        if (!$ok) {
+            return ResponseHelper::json($response, [
+                'error' => "Échec de l'envoi. Vérifiez la configuration SMTP / mail() (voir les logs).",
+                'recipient' => $recipient,
+            ], 502);
+        }
+
+        return ResponseHelper::json($response, [
+            'success' => true,
+            'recipient' => $recipient,
+            'message' => 'E-mail de test envoyé à ' . $recipient . '.',
         ]);
     }
 

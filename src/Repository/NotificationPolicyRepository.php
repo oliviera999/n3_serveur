@@ -309,11 +309,24 @@ class NotificationPolicyRepository extends AbstractRepository
         ];
     }
 
+    /**
+     * Valeur du GPIO mailNotif (101 / 103) poussée au firmware.
+     *
+     * Toutes les familles reçoivent désormais le MODE GRADUÉ
+     * (`none`/`important`/`partial`/`full`) : le firmware le parse via
+     * `n3NotifModeFromString` (lib partagée `n3_notify`) et filtre chaque mail
+     * par sévérité P1-P4. La rétro-compat legacy est assurée côté firmware
+     * (`checked`->Full, `unchecked`/`0`->None, valeur inconnue -> Full).
+     *
+     * ⚠️ FFP3/ffp5cs : jusqu'à la v6.8.7 cette famille recevait un booléen
+     * `'1'/'0'` car l'ancien firmware ffp5cs interprétait mailNotif en on/off.
+     * Le firmware ffp5cs sachant désormais parser le mode (harmonisation flotte),
+     * on aligne FFP3 sur les autres familles. DÉPLOIEMENT : mettre à jour le
+     * firmware ffp5cs (OTA) AVANT ce serveur — un ffp5cs non mis à jour lit
+     * `important`/`partial`/`full` comme "faux" et couperait ses alertes.
+     */
     private function mailNotifValueForFirmware(NotificationFamily $family, NotificationMode $mode): string
     {
-        return match ($family) {
-            NotificationFamily::Ffp3 => $mode !== NotificationMode::None ? '1' : '0',
-            default => $mode->value,
-        };
+        return $mode->value;
     }
 }

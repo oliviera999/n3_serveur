@@ -213,3 +213,30 @@ CREATE TABLE IF NOT EXISTS `error_alerts` (
   KEY `idx_error_alerts_created` (`created_at`),
   KEY `idx_error_alerts_alerted` (`alerted_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Anti-spam des notifications (cooldown par clé) — App\Notification\AlertThrottler
+CREATE TABLE IF NOT EXISTS `notification_log` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `alert_key` VARCHAR(191) NOT NULL,
+  `severity` VARCHAR(16) NOT NULL,
+  `category` VARCHAR(32) DEFAULT NULL,
+  `recipient` VARCHAR(255) DEFAULT NULL,
+  `subject` VARCHAR(255) DEFAULT NULL,
+  `sent_at` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_notification_log_key_sent` (`alert_key`, `sent_at`),
+  KEY `idx_notification_log_sent` (`sent_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- File d'attente du digest de notifications (P3/P4 regroupées) — App\Notification\NotificationDigest
+CREATE TABLE IF NOT EXISTS `notification_digest` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `severity` VARCHAR(16) NOT NULL,
+  `category` VARCHAR(32) DEFAULT NULL,
+  `family` VARCHAR(16) DEFAULT NULL,
+  `subject` VARCHAR(255) NOT NULL,
+  `message` TEXT DEFAULT NULL,
+  `queued_at` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_notification_digest_queued` (`queued_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

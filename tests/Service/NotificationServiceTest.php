@@ -389,4 +389,48 @@ final class NotificationServiceTest extends TestCase
         self::assertFalse($result);
         self::assertSame(0, $transport->count());
     }
+
+    // ------------------------------------------------------------------
+    // Mail de test (bouton « Tester l'envoi » des pages de supervision)
+    // ------------------------------------------------------------------
+
+    public function testSendTestMailSendsToConfiguredRecipientWithFamilyPrefix(): void
+    {
+        $transport = new FakeMailTransport();
+        $service = $this->makeService(transport: $transport);
+
+        $result = $service->sendTestMail('FFP3');
+
+        self::assertTrue($result);
+        self::assertSame(1, $transport->count());
+        $last = $transport->last();
+        self::assertNotNull($last);
+        self::assertSame('destinataire@test.local', $last['to']);
+        // Sévérité P3 (Info) + famille -> préfixe [FFP3][P3].
+        self::assertSame('[FFP3][P3] Test de configuration e-mail', $last['subject']);
+        self::assertStringContainsString('test', $last['text']);
+    }
+
+    public function testSendTestMailBypassesPolicyEvenInModeNone(): void
+    {
+        $transport = new FakeMailTransport();
+        // Mode None filtre toute alerte ; le mail de test doit néanmoins partir
+        // (le but du bouton est de vérifier la configuration d'envoi).
+        $service = $this->makeService(
+            policy: new NotificationPolicy(NotificationMode::None),
+            transport: $transport
+        );
+
+        $result = $service->sendTestMail('MSP1');
+
+        self::assertTrue($result, 'Le mail de test contourne la politique');
+        self::assertSame(1, $transport->count());
+    }
+
+    public function testRecipientGetterReflectsEnv(): void
+    {
+        $service = $this->makeService();
+
+        self::assertSame('destinataire@test.local', $service->recipient());
+    }
 }

@@ -11,6 +11,37 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.10.1] - 2026-07-06
+
+### Notifications — bouton « Tester l'envoi » aussi sur les pages galerie
+- **`src/Controller/Gallery/GalleryControlController.php`** : handler `sendTestMailBySlug()` (valide le slug, fixe le contexte, délègue au trait `sendTestMail`) — auth par slug identique à la politique de notification galerie.
+- **`config/routes_gallery.php`** : route `POST /gallery/{slug}/api/outputs/test-mail`.
+- **`templates/gallery_control.twig`** : bouton activé (`test_mail: true`). Le JS (`notification-policy.js`) et `window.CONTROL_API_BASE` (`/gallery/{slug}/api/outputs`) étaient déjà chargés via le layout `_control_base.twig` → l'URL de test se résout correctement par slug.
+
+## [6.10.0] - 2026-07-06
+
+### Notifications — bouton « Tester l'envoi (mail serveur) » sur les pages de supervision
+- **`src/Service/NotificationService.php`** : nouvelle méthode `sendTestMail(?string $family)` qui envoie un e-mail de test au destinataire configuré (`NOTIF_EMAIL_RECIPIENT`) en **contournant** la politique, l'anti-spam et le digest — le but est de vérifier la configuration d'envoi (SMTP ou repli `mail()`) quel que soit le mode courant. Ajout d'un getter `recipient()`.
+- **`src/Controller/Traits/HandlesNotificationPolicy.php`** : handler `sendTestMail()` (même auth/CSRF que la politique de notification) → JSON `{success, recipient, message}` ou `{error}` (400 si aucun destinataire, 502 si l'envoi échoue).
+- **`config/routes_helpers.php`** : routes POST `.../api/outputs/test-mail` pour FFP3, MSP1 et N3PP (parité avec `notification-policy`).
+- **`templates/partials/_notification_policy.twig`** + **`public/assets/js/notification-policy.js`** : bouton « ✉️ Tester l'envoi (mail serveur) » (affiché via le flag `test_mail`) avec indicateur d'état ; POST CSRF/token calqué sur la sauvegarde de politique. Activé sur `control.twig`, `msp1_control.twig`, `n3pp_control.twig` (pas les galeries).
+- **`tests/Service/NotificationServiceTest.php`** : couverture de `sendTestMail` (envoi + sujet `[FAMILLE][P3]`, contournement du mode `none`, getter `recipient()`).
+
+## [6.9.0] - 2026-07-06
+
+### Notifications — mode gradué poussé au firmware FFP3 (harmonisation flotte)
+- **`src/Repository/NotificationPolicyRepository.php`** (`mailNotifValueForFirmware`) : la famille **FFP3** reçoit désormais le **mode de notification gradué** (`none`/`important`/`partial`/`full`) sur le GPIO `mailNotif` (101), au lieu du booléen `'1'/'0'`. Elle s'aligne ainsi sur MSP1/N3PP (qui poussaient déjà le mode). Le firmware ffp5cs (≥ 15.04) parse ce mode via la lib partagée `n3_notify` et filtre chaque mail par sévérité P1-P4.
+- **`src/Config/NotificationPolicyGpioMap.php`** : commentaire mis à jour (le GPIO mailNotif porte le mode gradué pour toutes les familles).
+- ⚠️ **Déploiement** : mettre à jour le firmware **ffp5cs (OTA) AVANT** ce serveur. Un ffp5cs ≤ 15.03 interprète `important`/`partial`/`full` comme « faux » (booléen) et couperait ses alertes. Aucun impact MSP1/N3PP (déjà en mode gradué) ni sur les galeries.
+- Aucun changement de schéma ni de contrat pour les autres familles ; les tests d'`OutputParameters` (fixtures `'1'/'0'` directes) ne passent pas par cette dérivation et restent verts.
+
+## [6.8.7] - 2026-07-06
+
+### Notifications — migrations versionnées des tables auto-créées
+- **`migrations/2026_07_notification_log.sql`** + **`migrations/2026_07_notification_digest.sql`** : versionnent explicitement les tables `notification_log` (anti-spam / cooldown de `App\Notification\AlertThrottler`) et `notification_digest` (file du digest P3/P4 de `App\Notification\NotificationDigest`), jusqu'ici seulement créées à la volée par le code (`ensureTableExists()`). Schéma strictement identique, idempotent (`CREATE TABLE IF NOT EXISTS`).
+- **`docker/mysql/init/00-schema.sql`** : ajout des deux tables au schéma d'init Docker (à côté de `error_alerts`) pour l'aligner sur la prod / les tests d'intégration.
+- **`migrations/README.md`** : référencement des deux nouvelles migrations.
+
 ## [6.8.6] - 2026-07-05
 
 ### Correctif CI — tri des imports (cs:check)

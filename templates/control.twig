@@ -373,7 +373,7 @@
                                 <h2><i class="fas fa-envelope"></i> Notifications</h2>
                             </header>
                             <section class="parameters-panel">
-                                {% include 'partials/_notification_policy.twig' with { mail_gpio: parameter_gpio_map['mail']|default(100) } %}
+                                {% include 'partials/_notification_policy.twig' with { mail_gpio: parameter_gpio_map['mail']|default(100), test_mail: true } %}
                             </section>
                         </article>
 

@@ -40,6 +40,7 @@ $app->get('/gallery/{slug}/api/outputs/state', [GalleryControlController::class,
 $app->map(['GET', 'POST'], '/gallery/{slug}/api/outputs/toggle', [GalleryControlController::class, 'toggleOutputBySlug']);
 $app->post('/gallery/{slug}/api/outputs/parameters', [GalleryControlController::class, 'updateParametersBySlug']);
 $app->post('/gallery/{slug}/api/outputs/notification-policy', [GalleryControlController::class, 'saveNotificationPolicyBySlug']);
+$app->post('/gallery/{slug}/api/outputs/test-mail', [GalleryControlController::class, 'sendTestMailBySlug']);
 $app->post('/gallery/{slug}/api/firmware/version', [GalleryControlController::class, 'postFirmwareVersionBySlug']);
 
 // Controle distant cameras — alias legacy .php (3 envs)
