@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.8.6] - 2026-07-05
+
+### Correctif CI — tri des imports (cs:check)
+- **`src/Controller/Concerns/LegacyHeartbeatHandler.php`** : `use App\Middleware\RawPostBodyMiddleware;` remonté avant les `use App\Security\*` pour respecter la règle `ordered_imports` (tri alpha) de `.php-cs-fixer.php`. Débloque le job « Tests & qualité » (`cs:check`) rouge depuis la v6.8.1, qui masquait les étapes PHPStan et PHPUnit.
+
+### Outillage — hook SessionStart (Claude Code web)
+- **`.claude/hooks/session-start.sh`** + **`.claude/settings.json`** : lance `composer install` (dépendances dev incluses) au démarrage des sessions Claude Code sur le web, pour que `php-cs-fixer` / `phpstan` / `phpunit` soient disponibles et que le qa-gate soit jouable localement. Web-only, idempotent, non-interactif et tolérant aux échecs réseau (n'empêche jamais le démarrage de la session).
+
 ## [6.8.5] - 2026-07-05
 
 ### Validation prod — script tolerant aux tables absentes

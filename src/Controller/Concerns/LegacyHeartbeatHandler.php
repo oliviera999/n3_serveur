@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controller\Concerns;
 
+use App\Middleware\RawPostBodyMiddleware;
 use App\Security\RateLimiter;
 use App\Security\SignatureValidator;
 use App\Service\LogService;
-use App\Middleware\RawPostBodyMiddleware;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use PDO;
