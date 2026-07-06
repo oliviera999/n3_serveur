@@ -23,8 +23,6 @@ class SupervisionController
      */
     public function show(Request $request, Response $response): Response
     {
-        $adminCacheToken = $_ENV['ADMIN_CACHE_TOKEN'] ?? '';
-
         // État serveur des pages du menu, pour cocher chaque switch au chargement.
         $navStates = [];
         try {
@@ -36,7 +34,6 @@ class SupervisionController
         $html = $this->renderer->render('supervision.twig', [
             'page_title' => 'Supervision - n3 iot datas',
             'nav_active' => 'supervision',
-            'admin_cache_token' => $adminCacheToken,
             'version' => Version::getWithPrefix(),
             'nav_states' => $navStates,
         ]);

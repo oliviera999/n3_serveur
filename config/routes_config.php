@@ -159,6 +159,19 @@ return [
     'role_requirements' => [
         'admin' => [
             '/admin/users',
+            // Page de supervision et actions de maintenance qu'elle expose :
+            // réservées aux administrateurs (vidage caches, tri galeries, script
+            // de déploiement). NB : le matching (RoleAccessService::pathStartsWith)
+            // exige une frontière `/` ou fin après le préfixe → chaque variante
+            // d'environnement doit être listée explicitement (comme pour reader).
+            '/supervision',
+            '/admin/clear-cache',
+            '/admin/clear-cache-test',
+            '/admin/clear-cache3',
+            '/admin/clear-cache3-test',
+            '/admin/clear-cache-s3-test',
+            '/admin/api/gallery/auto-sort-all',
+            '/admin/deploy-script',
         ],
         'reader' => [
             '/dashboard',

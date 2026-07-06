@@ -474,12 +474,32 @@ window.NAV_PAGES_STATE = {{ nav_states|default({})|json_encode|raw }};
     ];
     var POLL_INTERVAL_MS = 15000;
 
-    function formatDatetime(str) {
+    function formatHealthDatetime(health) {
+        if (!health) return '—';
+        // Priorité à l'epoch serveur (last_reading_ts) : formaté en heure de
+        // Casablanca via Intl (gère le DST, sans dépendance), cohérent avec le
+        // reste du site (DisplayTime / realtime-updater.js).
+        if (health.last_reading_ts !== null && health.last_reading_ts !== undefined) {
+            try {
+                return new Date(health.last_reading_ts * 1000).toLocaleString('fr-FR', {
+                    timeZone: 'Africa/Casablanca',
+                    day: '2-digit', month: '2-digit', year: 'numeric',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
+                });
+            } catch (e) { /* repli legacy ci-dessous */ }
+        }
+        var str = health.last_reading;
         if (!str) return '—';
         var d = new Date(str.replace(' ', 'T'));
         if (isNaN(d.getTime())) return str;
         var pad = function(n) { return (n < 10 ? '0' : '') + n; };
         return pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    }
+
+    // N'écrit dans le DOM que si la valeur change : évite que l'aria-live de la
+    // grille ré-annonce les 8 cartes à chaque poll (15 s) aux lecteurs d'écran.
+    function setIfChanged(el, prop, value) {
+        if (el[prop] !== value) el[prop] = value;
     }
 
     function updateCard(moduleId, health) {
@@ -490,18 +510,18 @@ window.NAV_PAGES_STATE = {{ nav_states|default({})|json_encode|raw }};
         if (!badge || !datetimeEl) return;
 
         if (health === null) {
-            card.className = 'live-card live-error';
-            badge.className = 'live-card-badge error';
-            badge.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erreur';
-            datetimeEl.textContent = '—';
+            setIfChanged(card, 'className', 'live-card live-error');
+            setIfChanged(badge, 'className', 'live-card-badge error');
+            setIfChanged(badge, 'innerHTML', '<i class="fas fa-exclamation-triangle"></i> Erreur');
+            setIfChanged(datetimeEl, 'textContent', '—');
             return;
         }
 
         var online = health.online === true;
-        card.className = 'live-card ' + (online ? 'live-online' : 'live-offline');
-        badge.className = 'live-card-badge ' + (online ? 'online' : 'offline');
-        badge.innerHTML = '<i class="fas fa-circle"></i> ' + (online ? 'LIVE' : 'HORS LIGNE');
-        datetimeEl.textContent = formatDatetime(health.last_reading || null) || '—';
+        setIfChanged(card, 'className', 'live-card ' + (online ? 'live-online' : 'live-offline'));
+        setIfChanged(badge, 'className', 'live-card-badge ' + (online ? 'online' : 'offline'));
+        setIfChanged(badge, 'innerHTML', '<i class="fas fa-circle"></i> ' + (online ? 'LIVE' : 'HORS LIGNE'));
+        setIfChanged(datetimeEl, 'textContent', formatHealthDatetime(health) || '—');
     }
 
     function setLoading(moduleId) {
@@ -536,7 +556,13 @@ window.NAV_PAGES_STATE = {{ nav_states|default({})|json_encode|raw }};
     setInterval(function() { pollAll(false); }, POLL_INTERVAL_MS);
 })();
 
-document.getElementById('clearAllCacheBtn').addEventListener('click', async function () {
+function csrfToken() {
+    var meta = document.querySelector('meta[name="csrf-token"]');
+    return meta ? meta.getAttribute('content') : '';
+}
+
+var clearAllCacheBtn = document.getElementById('clearAllCacheBtn');
+if (clearAllCacheBtn) clearAllCacheBtn.addEventListener('click', async function () {
     var btn = this;
     var resultEl = document.getElementById('clearCacheResult');
     var url = btn.getAttribute('data-clear-url');
@@ -545,7 +571,10 @@ document.getElementById('clearAllCacheBtn').addEventListener('click', async func
     resultEl.textContent = 'Vidage en cours…';
     resultEl.style.display = 'block';
     try {
-        var response = await fetch(url);
+        var response = await fetch(url, {
+            method: 'POST',
+            headers: { 'X-CSRF-Token': csrfToken() }
+        });
         var data = await response.json();
         resultEl.className = 'cache-result ' + (data.success ? 'success' : 'error');
         resultEl.textContent = data.message || (data.errors && data.errors.join(' ; ')) || 'Erreur inconnue';
@@ -557,7 +586,8 @@ document.getElementById('clearAllCacheBtn').addEventListener('click', async func
     }
 });
 
-document.getElementById('runGallerySortBtn').addEventListener('click', async function () {
+var runGallerySortBtn = document.getElementById('runGallerySortBtn');
+if (runGallerySortBtn) runGallerySortBtn.addEventListener('click', async function () {
     var btn = this;
     var resultEl = document.getElementById('runGallerySortResult');
     var url = btn.getAttribute('data-sort-url');
@@ -569,7 +599,10 @@ document.getElementById('runGallerySortBtn').addEventListener('click', async fun
     resultEl.textContent = 'Tri global en cours…';
     resultEl.style.display = 'block';
     try {
-        var response = await fetch(url, { method: 'POST' });
+        var response = await fetch(url, {
+            method: 'POST',
+            headers: { 'X-CSRF-Token': csrfToken() }
+        });
         var data = await response.json();
         if (data.success) {
             var r = data.data || {};

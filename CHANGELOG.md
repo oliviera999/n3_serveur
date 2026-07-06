@@ -11,7 +11,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
-## [6.11.0] - 2026-07-06
+## [6.12.0] - 2026-07-06
 
 ### Supervision — switchs du menu de navigation persistés côté serveur (état global)
 - **Contexte** : les switchs de la page de supervision (afficher/masquer une page dans la barre de navigation) étaient stockés en `localStorage` (par navigateur), donc invisibles pour les autres visiteurs et « off » par défaut alors que certaines pages figuraient en dur dans le menu. Désormais l'état est **serveur, global et permanent** : un changement s'applique à **tous** les visiteurs (y compris non connectés).
@@ -23,6 +23,39 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - **`templates/supervision.twig`** + **`src/Controller/SupervisionController.php`** : les switchs reflètent l'état serveur au chargement (`nav_states`) ; ajout des switchs Poissonglouton (`/pgl`) et Galeries (`/gallery`) ; switchs en lecture seule pour les non-admins.
 - **`public/assets/js/page-nav-toggles.js`** : réécrit — plus de `localStorage`. POST CSRF vers l'endpoint, reflet optimiste + revert en cas d'échec, mise à jour live du menu (desktop + panneau mobile).
 - **Note** : le lien « Aquaponie » du menu n'est plus dépendant de l'environnement courant (pointe vers `/aquaponie`).
+
+## [6.11.0] - 2026-07-06
+
+### Sécurité — validation HMAC-SHA256 des endpoints Poissonglouton
+- **`src/Controller/Concerns/PglHmacAuthTrait.php`** (nouveau) : trait d'authentification HMAC pour PGL. Compose `HmacAuthTrait` (contrat commun FFP3/N3PP/MSP : `timestamp`+`signature` dans le body **ou** en-têtes `X-Sig-*` signant le corps complet) et l'adapte à PGL — clé dédiée `PGL_API_SIG_SECRET` avec repli sur le secret commun `API_SIG_SECRET` (miroir de `PGL_API_KEY` / `API_KEY`), extraction du contexte de body-signing (en-têtes `X-Sig-*` + corps brut capté par `RawPostBodyMiddleware`), et `requiresApiKey()`.
+- **`src/Controller/Pgl/PglPostDataController.php`** et **`src/Controller/Pgl/PglHeartbeatController.php`** : valident désormais la signature HMAC (prioritaire), avec repli sur `api_key` legacy si le firmware n'envoie pas de signature. Respecte `HMAC_STRICT_MODE`. Comble la lacune structurelle où `/pgl/post-data` et `/pgl/heartbeat` n'acceptaient que `api_key` alors que le firmware pouvait déjà signer (`PGL_API_SIG_SECRET`).
+- **`src/Controller/Concerns/HmacAuthTrait.php`** : point d'extension `hmacSecret()` (par défaut `API_SIG_SECRET`) pour permettre à PGL de surcharger la source du secret. Comportement N3PP/MSP inchangé.
+- **`.env.example`** : documente `PGL_API_SIG_SECRET` (secret HMAC dédié optionnel, repli `API_SIG_SECRET`).
+- **`docs/ENDPOINTS_ESP32_SERVEUR.md`** : PGL passe de « HMAC non validé côté serveur » à « HMAC validé (contrat FFP3/N3PP/MSP), repli api_key ».
+- **Tests** : `tests/Controller/Pgl/PglPostDataControllerTest.php` (+6 cas : HMAC valide sans api_key, signature invalide → 401, secret serveur manquant → 500, clé PGL dédiée prioritaire, en-têtes `X-Sig-*`, mode strict) et `tests/Controller/Pgl/PglHeartbeatControllerTest.php` (+2 cas HMAC).
+## [6.10.4] - 2026-07-06
+
+### Correctif — restriction admin des variantes clear-cache par environnement (CI rouge)
+
+- **`config/routes_config.php`** : les chemins `/admin/clear-cache-test`, `/admin/clear-cache3`, `/admin/clear-cache3-test` et `/admin/clear-cache-s3-test` n'étaient **pas** réellement réservés aux admins. `RoleAccessService::pathStartsWith()` exige une frontière (`/` ou fin) après le préfixe : `/admin/clear-cache` ne couvre donc pas les suffixes `-test`/`3`/… (caractère suivant `-` ou chiffre). Ces variantes retombaient sur le rôle operator par défaut. Chaque variante d'environnement est désormais listée explicitement (même schéma que les préfixes `reader` pour les dashboards). Corrige l'échec `RoleAccessServiceTest::testSupervisionMaintenanceActionsAreAdminOnly` introduit en 6.10.3 (CI rouge sur `master`). Les pages d'affichage `clear-cache-page*` restent volontairement operator (l'action POST `clear-cache` est, elle, admin + CSRF).
+
+## [6.10.3] - 2026-07-06
+
+### Supervision réservée aux admins + clear-cache en POST/CSRF
+
+- **`/supervision` réservée aux administrateurs** : ajout de `/supervision` (et des actions de maintenance qu'elle expose : `/admin/clear-cache*`, `/admin/api/gallery/auto-sort-all`, `/admin/deploy-script`) à `role_requirements['admin']` dans `config/routes_config.php`. Auparavant accessibles au rôle operator (défaut). Le lien « Admin » de la barre de navigation (`partials/_nav.twig`) est désormais conditionné à `can_manage_users` (admin) au lieu de `is_admin` (operator+).
+- **`/admin/clear-cache*` passe en POST + CSRF** : la route était un **GET à effet de bord** (falsifiable en cross-site). Elle est désormais **POST** (`config/routes_helpers.php`) protégée par `CsrfMiddleware` (motif `#/admin/clear-cache(?!-page)[0-9a-z-]*$#`, `clear-cache-page` reste un GET d'affichage). Les trois déclencheurs front envoient l'en-tête `X-CSRF-Token` : page supervision, page `admin/cache_admin.twig` et fallback HTML de `CacheController`. Ajout du `<meta name="csrf-token">` à `layout_base.twig` (utilisé par cache_admin). Le mode token (`?token=`) reste valable sur la requête POST (exempté de CSRF). Doc `docs/CLEAR_CACHE_OPTIONS.md` mise à jour (curl `-X POST`).
+- **Grille Live — anti-spam lecteurs d'écran** : `updateCard` (supervision) n'écrit dans le DOM que si la valeur change, pour que l'`aria-live` de la grille ne ré-annonce plus les 8 cartes à chaque poll (15 s).
+- **Tests** : `RoleAccessServiceTest` mis à jour (supervision + actions de maintenance = admin only).
+
+## [6.10.2] - 2026-07-06
+
+### Audit page de supervision — perf, fuseau horaire, CSRF
+
+- **Perf `getSystemHealth()` MSP1/N3PP** : `AbstractSensorRealtimeDataProvider::calculateUptime()` faisait `fetchBetween()` (`SELECT *` sur 30 jours) puis `count()` en PHP — soit ~20 000 lignes rapatriées en mémoire à **chaque** appel santé, alors que la grille Live de `/supervision` (et la home) polle ces endpoints toutes les 15 s. Ajout de `AbstractSensorRepository::countReadingsBetween()` (COUNT SQL, même filtre qualité que `fetchBetween`) et bascule de `calculateUptime()` dessus. Aligne le comportement sur FFP3 (qui utilisait déjà un COUNT). Semantique inchangée (le test d'intégration `countReadingsBetween == count(fetchBetween)` reste vrai).
+- **Fuseau horaire grille Live** (`templates/supervision.twig`) : `formatDatetime` interprétait `last_reading` (heure murale Europe/Paris, sans offset) dans le fuseau du **navigateur**, incohérent avec le reste du site (affichage Africa/Casablanca via `DisplayTime`). Désormais on privilégie l'epoch serveur `last_reading_ts` formaté en Africa/Casablanca via `Intl` (même pattern que `realtime-updater.js`, gère le DST, sans dépendance), avec repli legacy.
+- **CSRF `/admin/api/gallery/auto-sort-all`** : cette écriture d'état (déplacement de photos en corbeille), déclenchée depuis la page supervision, n'était pas couverte par `CsrfMiddleware`. Ajout du motif à la liste positive ; le bouton envoie désormais l'en-tête `X-CSRF-Token` (lu depuis `<meta name="csrf-token">`).
+- **Nettoyage / robustesse** : retrait de la variable `admin_cache_token` (passée par `SupervisionController` mais jamais lue par le template) ; gardes de nullité sur les handlers des boutons `clearAllCacheBtn` / `runGallerySortBtn`.
 
 ## [6.10.1] - 2026-07-06
 
@@ -54,7 +87,6 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - **`migrations/2026_07_notification_log.sql`** + **`migrations/2026_07_notification_digest.sql`** : versionnent explicitement les tables `notification_log` (anti-spam / cooldown de `App\Notification\AlertThrottler`) et `notification_digest` (file du digest P3/P4 de `App\Notification\NotificationDigest`), jusqu'ici seulement créées à la volée par le code (`ensureTableExists()`). Schéma strictement identique, idempotent (`CREATE TABLE IF NOT EXISTS`).
 - **`docker/mysql/init/00-schema.sql`** : ajout des deux tables au schéma d'init Docker (à côté de `error_alerts`) pour l'aligner sur la prod / les tests d'intégration.
 - **`migrations/README.md`** : référencement des deux nouvelles migrations.
-
 ## [6.8.6] - 2026-07-05
 
 ### Correctif CI — tri des imports (cs:check)

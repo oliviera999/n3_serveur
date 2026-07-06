@@ -51,7 +51,7 @@ trait HmacAuthTrait
         // temps, contrairement au contrat legacy qui ne signe que le timestamp.
         // Additif : absent -> on continue sur le contrat existant ci-dessous.
         if (isset($params['__sig_hmac']) && is_string($params['__sig_hmac']) && $params['__sig_hmac'] !== '') {
-            $sigSecret = $_ENV['API_SIG_SECRET'] ?? null;
+            $sigSecret = $this->hmacSecret();
             if (!is_string($sigSecret) || $sigSecret === '') {
                 $this->logger->error("{$this->componentName()}: rejet config API_SIG_SECRET manquante code=500");
                 return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
@@ -122,7 +122,7 @@ trait HmacAuthTrait
             return ResponseHelper::text($response, 'Signature incomplete', 401);
         }
 
-        $sigSecret = $_ENV['API_SIG_SECRET'] ?? null;
+        $sigSecret = $this->hmacSecret();
         if (!is_string($sigSecret) || $sigSecret === '') {
             $this->logger->error(
                 "{$this->componentName()}: rejet config API_SIG_SECRET manquante code=500"
@@ -186,5 +186,19 @@ trait HmacAuthTrait
         ]);
 
         return null;
+    }
+
+    /**
+     * Secret HMAC partagé firmware <-> serveur. Par défaut la clé commune
+     * `API_SIG_SECRET` (contrat FFP3/N3PP/MSP). Un controller peut surcharger
+     * pour accepter une clé dédiée (ex. PGL : `PGL_API_SIG_SECRET` avec repli
+     * `API_SIG_SECRET`). Une valeur vide/absente déclenche le rejet 500 côté
+     * appelant quand le firmware envoie une signature.
+     */
+    protected function hmacSecret(): ?string
+    {
+        $secret = $_ENV['API_SIG_SECRET'] ?? null;
+
+        return is_string($secret) ? $secret : null;
     }
 }

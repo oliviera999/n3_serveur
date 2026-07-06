@@ -8,7 +8,7 @@
         {% for page in nav_pages|default([]) %}
         <li class="nav-dyn-item{{ nav_active == page.key ? ' active' : '' }}" data-nav-key="{{ page.key }}"><a href="{{ page.url }}" title="{{ page.label }}">{{ page.label }}</a></li>
         {% endfor %}
-        {% if is_admin|default(false) %}
+        {% if can_manage_users|default(false) %}
         <li class="nav-perm-item {{ nav_active == 'supervision' ? 'active' }}"><a href="{{ bp }}/supervision" title="Supervision et administration"><i class="fas fa-cog" aria-hidden="true"></i> Admin</a></li>
         {% endif %}
         {% if can_manage_users|default(false) %}

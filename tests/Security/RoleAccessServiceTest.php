@@ -30,9 +30,19 @@ final class RoleAccessServiceTest extends TestCase
         $this->assertSame(User::ROLE_OPERATOR, $this->service->getMinimumRoleForPath('/aquaponie-control'));
     }
 
-    public function testOperatorCanAccessSupervision(): void
+    public function testSupervisionIsAdminOnly(): void
     {
-        $this->assertTrue($this->service->hasAccess('/supervision', User::ROLE_OPERATOR));
+        $this->assertSame(User::ROLE_ADMIN, $this->service->getMinimumRoleForPath('/supervision'));
+        $this->assertFalse($this->service->hasAccess('/supervision', User::ROLE_OPERATOR));
+        $this->assertTrue($this->service->hasAccess('/supervision', User::ROLE_ADMIN));
+    }
+
+    public function testSupervisionMaintenanceActionsAreAdminOnly(): void
+    {
+        foreach (['/admin/clear-cache', '/admin/clear-cache-test', '/admin/api/gallery/auto-sort-all', '/admin/deploy-script'] as $path) {
+            $this->assertSame(User::ROLE_ADMIN, $this->service->getMinimumRoleForPath($path), $path);
+            $this->assertFalse($this->service->hasAccess($path, User::ROLE_OPERATOR), $path);
+        }
     }
 
     public function testOperatorCannotAccessUserManagement(): void
