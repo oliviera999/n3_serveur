@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.13.0] - 2026-07-06
+
+### Supervision & galeries — switch Utilisateurs, galeries pilotées sur la page /gallery
+- **Switch « Utilisateurs »** : le lien `/admin/users` du menu est désormais piloté par un switch de supervision (clé `admin-users`, seedée active), tout en restant **filtré par la permission `canManageUsers`** (`src/Service/TemplateRenderer.php` + `src/Controller/NavPageController.php`). Le lien codé en dur a été retiré de `templates/partials/_nav.twig`.
+- **Galeries pilotées sur la page `/gallery` (et non le menu)** : les clés `gallery-<slug>` et `gallery-control-<slug>` sont **exclues du menu** (`NavPageRepository::getActivePages` ignore le préfixe `gallery-`) et pilotent l'affichage de chaque galerie et de son lien de contrôle caméra sur la page **`/gallery`** :
+  - **`src/Controller/Gallery/GalleryViewController.php`** : `showIndex` filtre les galeries selon `navPages` (masquée si `gallery-<slug>` désactivée) et expose `show_control`/`control_url` par galerie.
+  - **`templates/gallery_landing.twig`** : lien « Contrôle caméra » par galerie, affiché si le switch est actif **et** l'utilisateur a l'accès contrôle (`can_access_control`).
+- **Menu de navigation** : ne conserve qu'un **lien unique « Galeries »** (`/gallery`) ; plus aucun lien de galerie individuelle.
+- **Page d'accueil** (`templates/home.twig`) : les 3 liens de galeries individuelles sont remplacés par un **lien unique « Voir toutes les galeries »** vers `/gallery`.
+- **Page de supervision** (`templates/supervision.twig`) : nouvelle **section « Poissonglouton »** dédiée (extensible) regroupant le switch `/pgl` ; section « Galeries photo » reformulée (les switchs pilotent la page `/gallery`) ; ajout du switch `admin-users` dans « Administration ».
+- **`src/Repository/NavPageRepository.php`** + **`migrations/2026_07_nav_pages_gallery_users.sql`** : seed étendu (`admin-users`, `gallery-*`) et migration idempotente pour les installations existantes.
+
 ## [6.12.1] - 2026-07-06
 
 ### Doc — secret HMAC PGL dans `.env.docker.example`

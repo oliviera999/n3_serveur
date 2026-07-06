@@ -1,7 +1,9 @@
 {# Barre de navigation — pages pilotées par les switchs de la page supervision
    (état serveur global : table navPages), + toggle dark mode.
-   Les liens Admin / Utilisateurs restent conditionnés par les permissions
-   (jamais désactivables) afin de ne jamais verrouiller l'accès à la supervision. #}
+   Le lien « Utilisateurs » est piloté par le switch `admin-users` mais reste
+   filtré par la permission `canManageUsers` (cf. TemplateRenderer).
+   Le lien Admin/Supervision reste conditionné par la permission (jamais
+   désactivable) afin de ne jamais verrouiller l'accès à la supervision. #}
 {% set bp = base_path|default('') %}
 <nav id="nav" aria-label="Navigation principale">
     <ul class="links">
@@ -10,9 +12,6 @@
         {% endfor %}
         {% if can_manage_users|default(false) %}
         <li class="nav-perm-item {{ nav_active == 'supervision' ? 'active' }}"><a href="{{ bp }}/supervision" title="Supervision et administration"><i class="fas fa-cog" aria-hidden="true"></i> Admin</a></li>
-        {% endif %}
-        {% if can_manage_users|default(false) %}
-        <li class="nav-perm-item {{ nav_active == 'users' ? 'active' }}"><a href="{{ bp }}/admin/users" title="Gestion des utilisateurs"><i class="fas fa-users-cog" aria-hidden="true"></i> Utilisateurs</a></li>
         {% endif %}
         <li class="nav-theme-toggle">
             <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Basculer le mode sombre" title="Mode sombre / clair">

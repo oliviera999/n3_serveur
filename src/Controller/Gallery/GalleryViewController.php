@@ -6,6 +6,7 @@ namespace App\Controller\Gallery;
 
 use App\Config\Paths;
 use App\Repository\GalleryControlRepository;
+use App\Repository\NavPageRepository;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -25,6 +26,7 @@ class GalleryViewController
     public function __construct(
         private TemplateRenderer $renderer,
         private GalleryControlRepository $galleryControlRepository,
+        private NavPageRepository $navPageRepository,
     ) {
         $this->baseDir = Paths::getProjectRoot();
     }
@@ -182,26 +184,46 @@ class GalleryViewController
             ],
         ];
 
-        foreach ($galleries as &$g) {
+        // Visibilité pilotée par les switchs de la page supervision (table navPages).
+        // `gallery-<slug>` : afficher la galerie ; `gallery-control-<slug>` : afficher
+        // le lien de contrôle caméra (réservé aux admins côté template).
+        $navStates = [];
+        try {
+            $navStates = $this->navPageRepository->getAllStates();
+        } catch (\Throwable) {
+            $navStates = [];
+        }
+
+        $visibleGalleries = [];
+        foreach ($galleries as $g) {
+            $slug = $g['slug'];
+            // Absente de navStates => visible par défaut ; masquée seulement si explicitement désactivée.
+            if (($navStates['gallery-' . $slug] ?? true) === false) {
+                continue;
+            }
+            $g['show_control'] = ($navStates['gallery-control-' . $slug] ?? true) !== false;
+            $g['control_url'] = $pathPrefix . 'gallery/' . $slug . '/control';
+
             try {
-                $uploadDir = $this->getUploadDir($g['slug']);
+                $uploadDir = $this->getUploadDir($slug);
                 $files = $this->listImageFiles($uploadDir);
                 $g['last_photo'] = $files[0] ?? null;
                 $g['last_photo_url'] = $g['last_photo']
-                    ? $pathPrefix . 'gallery/' . $g['slug'] . '/files/' . $g['last_photo']
+                    ? $pathPrefix . 'gallery/' . $slug . '/files/' . $g['last_photo']
                     : null;
             } catch (\Throwable) {
                 $g['last_photo'] = null;
                 $g['last_photo_url'] = null;
             }
+
+            $visibleGalleries[] = $g;
         }
-        unset($g);
 
         $html = $this->renderer->render('gallery_landing.twig', [
             'page_title' => 'Galeries photos - n3 iot datas',
             'active_page' => 'gallery',
             'nav_active' => 'gallery',
-            'galleries' => $galleries,
+            'galleries' => $visibleGalleries,
             'base_path' => $basePath !== '' ? '/' . $basePath : '',
             'environment' => $_ENV['ENV'] ?? 'prod',
             'firmware_version' => '',
