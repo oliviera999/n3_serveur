@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.10.1] - 2026-07-06
+
+### Notifications — bouton « Tester l'envoi » aussi sur les pages galerie
+- **`src/Controller/Gallery/GalleryControlController.php`** : handler `sendTestMailBySlug()` (valide le slug, fixe le contexte, délègue au trait `sendTestMail`) — auth par slug identique à la politique de notification galerie.
+- **`config/routes_gallery.php`** : route `POST /gallery/{slug}/api/outputs/test-mail`.
+- **`templates/gallery_control.twig`** : bouton activé (`test_mail: true`). Le JS (`notification-policy.js`) et `window.CONTROL_API_BASE` (`/gallery/{slug}/api/outputs`) étaient déjà chargés via le layout `_control_base.twig` → l'URL de test se résout correctement par slug.
+
 ## [6.10.0] - 2026-07-06
 
 ### Notifications — bouton « Tester l'envoi (mail serveur) » sur les pages de supervision
