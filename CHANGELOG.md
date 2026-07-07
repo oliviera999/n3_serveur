@@ -11,6 +11,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.21.4] - 2026-07-07
+
+### Correctif test `HeartbeatControllerTest` (dette pré-existante révélée par la CI verte sur PHPStan)
+- **Contexte** : une fois PHPStan au vert (v6.21.3), la CI a enfin atteint `test:unit`, révélant des erreurs pré-existantes sans lien avec la nomenclature.
+- `tests/Controller/Ffp3/HeartbeatControllerTest.php` — `makeController()` instanciait `HeartbeatController` avec l'**ancien ordre d'arguments** (3 args), alors que le constructeur a depuis inséré `?HmacAuditLogger` en position 2. Ajout de `null` à cette position (paramètre nullable, `HmacAuditLogger` est `final` donc non mockable, et l'usage dans le contrôleur est null-safe `?->record(...)`). Corrige les 7 `TypeError`.
+- **Reste connu (non traité ici)** : ~23 `ContainerWiringTest` échouent encore sur `ServerSettingsRepository::ensureSchema()` (DDL MySQL `ON UPDATE CURRENT_TIMESTAMP`/`ENGINE=InnoDB` non parsable par SQLite du suite Unit) — problème de portabilité BDD pré-existant, suivi séparément.
+
 ## [6.21.3] - 2026-07-07
 
 ### Correctifs PHPStan (dette pré-existante — quota `Tests & qualité` remis au vert)
