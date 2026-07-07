@@ -28,12 +28,10 @@ class LogService
 
     private Logger $logger;
 
-    private bool $maskIp;
-
-    public function __construct()
-    {
+    public function __construct(
+        private ?OperationalSettingsService $operationalSettings = null,
+    ) {
         $this->logFile = (string) ($_ENV['LOG_FILE_PATH'] ?? self::DEFAULT_LOG_FILE);
-        $this->maskIp = filter_var($_ENV['LOG_MASK_IP'] ?? 'true', FILTER_VALIDATE_BOOLEAN);
 
         $this->logger = new Logger('n3-iot');
 
@@ -43,8 +41,12 @@ class LogService
         $lineFormatter = new LineFormatter("[%datetime%] [%level_name%] %message%%context%\n", 'Y-m-d H:i:s', true, true);
         $lineFormatter->ignoreEmptyContextAndExtra(true);
 
-        $logLevel = $this->parseLevel((string) ($_ENV['LOG_LEVEL'] ?? 'DEBUG'));
-        $rotateDays = (int) ($_ENV['LOG_ROTATE_DAYS'] ?? 14);
+        $logLevel = $this->parseLevel(
+            $this->operationalSettings?->string('LOG_LEVEL', 'DEBUG')
+            ?? (string) ($_ENV['LOG_LEVEL'] ?? 'DEBUG')
+        );
+        $rotateDays = $this->operationalSettings?->int('LOG_ROTATE_DAYS', 14)
+            ?? (int) ($_ENV['LOG_ROTATE_DAYS'] ?? 14);
 
         $handler = $rotateDays > 0
             ? new RotatingFileHandler($this->logFile, $rotateDays, $logLevel)
@@ -74,6 +76,12 @@ class LogService
             'CRITICAL', 'FATAL' => Logger::CRITICAL,
             default => Logger::DEBUG,
         };
+    }
+
+    private function shouldMaskIp(): bool
+    {
+        return $this->operationalSettings?->bool('LOG_MASK_IP', true)
+            ?? filter_var($_ENV['LOG_MASK_IP'] ?? 'true', FILTER_VALIDATE_BOOLEAN);
     }
 
     /**
@@ -108,8 +116,8 @@ class LogService
      */
     private function log(int|string $level, string $message, array $context = []): void
     {
-        // Masquer les IP du contexte si LOG_MASK_IP est actif
-        if ($this->maskIp) {
+        // Masquer les IP du contexte si LOG_MASK_IP est actif (lecture dynamique BDD > .env)
+        if ($this->shouldMaskIp()) {
             foreach (['ip', 'client_ip', 'remote_addr'] as $key) {
                 if (isset($context[$key]) && is_string($context[$key])) {
                     $context[$key] = $this->maskIp($context[$key]);

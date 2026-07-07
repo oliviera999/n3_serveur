@@ -11,6 +11,42 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.21.1] - 2026-07-07
+
+### Modifié — descriptifs des réglages supervision
+
+- Panneau **Réglages opérationnels** : nom `.env` (`code`), libellé et descriptif sur la même ligne pour chaque variable.
+- Carte **Sécurité HMAC** : descriptifs pour `HMAC_AUDIT_LOG`, `HMAC_STRICT_MODE` et `HMAC_NONCE_REQUIRED`.
+- Complément des textes d’aide (`hint`) pour les seuils `CLEAN_*`.
+
+## [6.21.0] - 2026-07-07
+
+### Ajout — réglages opérationnels pilotables depuis la supervision (~35 variables)
+
+- **`OperationalSettingsCatalog`** + **`OperationalSettingsService`** : override BDD (`op_<ENV_KEY>`) avec repli `.env` pour alertes, notifications, sécurité firmware, logs, qualité données et inondation FFP3.
+- **Supervision** : panneau « Réglages opérationnels » (groupes repliables, enregistrement groupé, réinitialisation par groupe ou globale).
+- **API** : `GET/POST /admin/api/operational-settings`, `POST /admin/api/operational-settings/reset` (CSRF, admin).
+- **Intégration** : CRON, alertes dérivées MSP/FFP3, heartbeat offline, galeries, OTA, rate limits, nettoyage capteurs, politique notif globale, logs.
+
+## [6.20.0] - 2026-07-07
+
+### Ajout — politique HMAC pilotable depuis la supervision
+
+- **`HmacPolicyService`** : centralise `HMAC_STRICT_MODE` et `HMAC_NONCE_REQUIRED` avec priorité BDD (`serverSettings`) puis repli `.env` — **sans modifier le fichier `.env`**.
+- **Supervision** et **`/admin/hmac-audit`** : switchs « Mode strict » et « Nonce requis », bouton « Revenir au .env » (supprime l'override BDD).
+- **API** : `POST /admin/api/hmac-audit/toggle-policy`, `POST /admin/api/hmac-audit/reset-policy`, `GET /admin/api/hmac-audit/policy`.
+- **Contrôleurs** : `HmacAuthTrait`, `PostDataController`, `LegacyHeartbeatHandler` et PGL lisent la politique via `HmacPolicyService` (trait `HmacPolicyTrait`).
+
+## [6.19.0] - 2026-07-07
+
+### Ajout — journal audit HMAC (supervision)
+
+- **`HmacAuditLogger`** : trace structurée des tentatives HMAC firmware (succès `ok` / rejet `reject`) dans un fichier dédié `hmac-audit.log` (préfixe `[hmac-audit]`), activable/désactivable sans redéploiement.
+- **`ServerSettingsRepository`** + table `serverSettings` : persistance du réglage `hmac_audit_enabled` (repli `.env` `HMAC_AUDIT_LOG`).
+- **Supervision** : switch « Journal audit HMAC » + aperçu des dernières lignes ; lien vers `/admin/hmac-audit`.
+- **`Admin\HmacAuditController`** : page de consultation (actualisation auto 30 s), API `GET /admin/api/hmac-audit/entries` et `POST /admin/api/hmac-audit/toggle` (CSRF, admin).
+- **Intégration** : enregistrement sur post-data FFP3/MSP/N3PP/PGL, heartbeats FFP3 et legacy, via `HmacAuthTrait` / `PostDataController` / `LegacyHeartbeatHandler`.
+
 ## [6.18.0] - 2026-07-07
 
 ### Arbitrage des e-mails — remplissage/arrosage/pompe continue migrés + alertes météo MSP1

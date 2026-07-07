@@ -21,6 +21,7 @@ use App\Service\DeviceHealthService;
 use App\Service\LogService;
 use App\Service\NotificationService;
 use App\Service\OfflineThresholdResolver;
+use App\Service\OperationalSettingsService;
 use App\Service\PumpService;
 use App\Service\SensorDataService;
 use App\Service\SensorStatisticsService;
@@ -93,6 +94,7 @@ class CronOrchestrator
         ?string $lockDir = null,
         ?string $stateDir = null,
         ?string $pumpRestartFlagFile = null,
+        ?OperationalSettingsService $operationalSettings = null,
     ) {
         $needsDatabase = $logger === null
             || $sensorDataService === null
@@ -123,7 +125,8 @@ class CronOrchestrator
             $this->sensorReadRepo,
             $this->notifier,
             $this->logger,
-            $this->outputRepo
+            $this->outputRepo,
+            $operationalSettings
         );
         $this->deviceHealthService = $deviceHealthService ?? new DeviceHealthService(
             new HeartbeatMonitorRepository($pdo ?? Database::getConnection()),
@@ -131,14 +134,20 @@ class CronOrchestrator
             $this->logger,
             null,
             null,
-            $this->offlineResolver
+            $this->offlineResolver,
+            $operationalSettings
         );
 
-        $this->aquaLowThreshold = (float) (
+        $this->aquaLowThreshold = $operationalSettings?->float(
+            'AQUA_LOW_LEVEL_THRESHOLD',
+            self::DEFAULT_AQUA_LOW_LEVEL_THRESHOLD_MM
+        ) ?? (float) (
             $_ENV['AQUA_LOW_LEVEL_THRESHOLD'] ?? self::DEFAULT_AQUA_LOW_LEVEL_THRESHOLD_MM
         );
-        $this->stddevThreshold = (float) ($_ENV['TIDE_STDDEV_THRESHOLD'] ?? 1.0);
-        $this->hourlyIntervalSeconds = (int) ($_ENV['CRON_HOURLY_INTERVAL_SECONDS'] ?? 3600);
+        $this->stddevThreshold = $operationalSettings?->float('TIDE_STDDEV_THRESHOLD', 1.0)
+            ?? (float) ($_ENV['TIDE_STDDEV_THRESHOLD'] ?? 1.0);
+        $this->hourlyIntervalSeconds = $operationalSettings?->int('CRON_HOURLY_INTERVAL_SECONDS', 3600)
+            ?? (int) ($_ENV['CRON_HOURLY_INTERVAL_SECONDS'] ?? 3600);
 
         $projectRoot = dirname(__DIR__, 2);
         $this->lockDir = $lockDir ?? sys_get_temp_dir();
@@ -161,7 +170,9 @@ class CronOrchestrator
                 $this->outputRepo,
                 $this->notifier,
                 $this->logger,
-                new DerivedAlertStateStore($this->stateDir . '/derived_alerts_ffp3.json')
+                new DerivedAlertStateStore($this->stateDir . '/derived_alerts_ffp3.json'),
+                null,
+                $operationalSettings
             ) : null);
         $this->n3ppDerivedAlerts = $n3ppDerivedAlerts
             ?? ($pdo !== null ? new N3ppDerivedAlertService(
@@ -175,7 +186,8 @@ class CronOrchestrator
                 new MspSensorRepository($pdo),
                 $this->notifier,
                 $this->logger,
-                new DerivedAlertStateStore($this->stateDir . '/derived_alerts_msp1.json')
+                new DerivedAlertStateStore($this->stateDir . '/derived_alerts_msp1.json'),
+                $operationalSettings
             ) : null);
     }
 

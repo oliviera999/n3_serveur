@@ -44,7 +44,7 @@ final class PglHeartbeatControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->never())->method('insertHeartbeat');
 
-        $controller = new PglHeartbeatController($this->createMock(LogService::class), $repo);
+        $controller = new PglHeartbeatController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/heartbeat')
             ->withParsedBody([
@@ -65,7 +65,7 @@ final class PglHeartbeatControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->never())->method('insertHeartbeat');
 
-        $controller = new PglHeartbeatController($this->createMock(LogService::class), $repo);
+        $controller = new PglHeartbeatController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/heartbeat')
             ->withParsedBody(['api_key' => 'test-pgl-key', 'uptime' => '100']);
@@ -82,7 +82,7 @@ final class PglHeartbeatControllerTest extends TestCase
             ->method('insertHeartbeat')
             ->with(3600, 120000, 80000, 3, -65, 'poissonglouton', '0.1.2', null);
 
-        $controller = new PglHeartbeatController($this->createMock(LogService::class), $repo);
+        $controller = new PglHeartbeatController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/heartbeat')
             ->withParsedBody([
@@ -109,7 +109,7 @@ final class PglHeartbeatControllerTest extends TestCase
             ->method('insertHeartbeat')
             ->with(100, 50000, 40000, 1, null, null, null, 7);
 
-        $controller = new PglHeartbeatController($this->createMock(LogService::class), $repo);
+        $controller = new PglHeartbeatController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/heartbeat')
             ->withParsedBody([
@@ -135,7 +135,7 @@ final class PglHeartbeatControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->once())->method('insertHeartbeat');
 
-        $controller = new PglHeartbeatController($this->createMock(LogService::class), $repo);
+        $controller = new PglHeartbeatController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/heartbeat')
             ->withParsedBody([
@@ -160,7 +160,7 @@ final class PglHeartbeatControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->never())->method('insertHeartbeat');
 
-        $controller = new PglHeartbeatController($this->createMock(LogService::class), $repo);
+        $controller = new PglHeartbeatController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/heartbeat')
             ->withParsedBody([

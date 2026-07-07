@@ -1,0 +1,336 @@
+{% extends 'layout_base.twig' %}
+
+{% block page_title %}n3 IoT — Journal audit HMAC{% endblock %}
+
+{% block content %}
+<style>
+    .hmac-audit-wrap {
+        background: var(--card-bg, #fff);
+        padding: 28px 30px;
+        border-radius: 12px;
+        box-shadow: var(--card-shadow, 0 2px 10px rgba(0,0,0,.1));
+        max-width: 1100px;
+        margin: 24px auto;
+    }
+    .hmac-audit-wrap h1 {
+        color: var(--accent-color, #008B74);
+        border-bottom: 3px solid var(--accent-color, #008B74);
+        padding-bottom: 10px;
+        margin-top: 0;
+    }
+    .hmac-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        align-items: center;
+        margin: 18px 0;
+        padding: 14px 16px;
+        background: #f8f9fa;
+        border-radius: 8px;
+    }
+    .hmac-toggle-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+    }
+    .hmac-meta { font-size: 13px; color: #555; }
+    .hmac-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
+    .hmac-actions .btn {
+        display: inline-block;
+        padding: 8px 18px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        font-size: 14px;
+    }
+    .hmac-actions .btn-primary {
+        background: linear-gradient(135deg, #008B74 0%, #00B794 100%);
+        color: #fff;
+    }
+    .hmac-actions .btn-secondary { background: #6c757d; color: #fff; }
+    .hmac-log-box {
+        margin-top: 16px;
+        max-height: 65vh;
+        overflow: auto;
+        background: #1e1e1e;
+        color: #d4d4d4;
+        border-radius: 8px;
+        padding: 12px 14px;
+        font-family: Consolas, 'Courier New', monospace;
+        font-size: 12px;
+        line-height: 1.45;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+    .hmac-log-line.ok { color: #98c379; }
+    .hmac-log-line.reject { color: #e06c75; }
+    .hmac-log-line.other { color: #d4d4d4; }
+    .hmac-empty { color: #888; font-style: italic; padding: 24px; text-align: center; }
+    .hmac-status-pill {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+    .hmac-status-pill.on { background: #d4edda; color: #155724; }
+    .hmac-status-pill.off { background: #f8d7da; color: #721c24; }
+</style>
+
+<div class="hmac-audit-wrap">
+    <h1><i class="fas fa-shield-alt"></i> Sécurité HMAC</h1>
+    <p>Journal des tentatives d'authentification HMAC et politique de validation (mode strict, nonce). Le fichier <code>.env</code> reste la valeur par défaut ; les switchs ci-dessous écrivent un override en base (sans modifier le fichier).</p>
+
+    <div class="hmac-toolbar">
+        <div style="font-weight:700;width:100%;margin-bottom:4px;">Politique de validation</div>
+        <div class="hmac-toggle-row" style="align-items:flex-start;gap:12px;">
+            <label class="page-nav-toggle" title="Refuser les POST sans signature HMAC">
+                <input type="checkbox" id="hmacStrictCb" {% if hmac_policy.strict %}checked{% endif %}>
+                <span class="page-nav-slider"></span>
+            </label>
+            <div style="flex:1;">
+                <div><code>HMAC_STRICT_MODE</code> — <strong>Mode strict</strong>
+                    <span id="hmacStrictPill" class="hmac-status-pill {{ hmac_policy.strict ? 'on' : 'off' }}">{{ hmac_policy.strict ? 'ACTIF' : 'INACTIF' }}</span>
+                </div>
+                <div class="hmac-meta">Refuse les POST sans signature HMAC (plus de repli <code>api_key</code>).</div>
+                <div class="hmac-meta" id="hmacStrictMeta">({{ hmac_policy.strict_source == 'database' ? 'supervision' : '.env' }} défaut {{ hmac_policy.env_strict ? 'true' : 'false' }})</div>
+            </div>
+        </div>
+        <div class="hmac-toggle-row" style="align-items:flex-start;gap:12px;">
+            <label class="page-nav-toggle" title="Exiger post_id dans la signature">
+                <input type="checkbox" id="hmacNonceCb" {% if hmac_policy.nonce_required %}checked{% endif %}>
+                <span class="page-nav-slider"></span>
+            </label>
+            <div style="flex:1;">
+                <div><code>HMAC_NONCE_REQUIRED</code> — <strong>Nonce requis</strong>
+                    <span id="hmacNoncePill" class="hmac-status-pill {{ hmac_policy.nonce_required ? 'on' : 'off' }}">{{ hmac_policy.nonce_required ? 'ACTIF' : 'INACTIF' }}</span>
+                </div>
+                <div class="hmac-meta">Exige <code>post_id</code> et signature avec nonce (<code>timestamp|post_id</code>).</div>
+                <div class="hmac-meta" id="hmacNonceMeta">({{ hmac_policy.nonce_source == 'database' ? 'supervision' : '.env' }} défaut {{ hmac_policy.env_nonce_required ? 'true' : 'false' }})</div>
+            </div>
+        </div>
+        <div class="hmac-actions">
+            <button type="button" id="hmacPolicyResetBtn" class="btn btn-secondary">Revenir au .env</button>
+        </div>
+    </div>
+
+    <div class="hmac-toolbar">
+        <div style="font-weight:700;width:100%;margin-bottom:4px;">Journal audit</div>
+        <div class="hmac-toggle-row" style="align-items:flex-start;gap:12px;">
+            <label class="page-nav-toggle" title="Activer ou désactiver le journal">
+                <input type="checkbox" id="hmacAuditEnabledCb" {% if audit_enabled %}checked{% endif %}>
+                <span class="page-nav-slider"></span>
+            </label>
+            <div style="flex:1;">
+                <div><code>HMAC_AUDIT_LOG</code> — <strong>Journal actif</strong>
+                    <span id="hmacAuditStatusPill" class="hmac-status-pill {{ audit_enabled ? 'on' : 'off' }}">
+                        {{ audit_enabled ? 'ACTIVÉ' : 'DÉSACTIVÉ' }}
+                    </span>
+                </div>
+                <div class="hmac-meta">Trace chaque tentative d’auth HMAC firmware (succès et échecs).</div>
+                <div class="hmac-meta">Fichier : <code>{{ log_path }}</code> — {{ entry_count }} entrée(s)</div>
+            </div>
+        </div>
+        <div class="hmac-actions">
+            <button type="button" id="hmacAuditRefreshBtn" class="btn btn-primary">Actualiser</button>
+            <a href="/supervision" class="btn btn-secondary">Supervision</a>
+        </div>
+    </div>
+
+    <div id="hmacAuditLogBox" class="hmac-log-box" aria-live="polite">
+        <div class="hmac-empty">Chargement…</div>
+    </div>
+</div>
+
+<script>
+(function () {
+    var BASE = '{{ base_path|default('') }}';
+    var API = BASE + '/admin/api/hmac-audit';
+    var enabledCb = document.getElementById('hmacAuditEnabledCb');
+    var strictCb = document.getElementById('hmacStrictCb');
+    var nonceCb = document.getElementById('hmacNonceCb');
+    var strictPill = document.getElementById('hmacStrictPill');
+    var noncePill = document.getElementById('hmacNoncePill');
+    var strictMeta = document.getElementById('hmacStrictMeta');
+    var nonceMeta = document.getElementById('hmacNonceMeta');
+    var policyResetBtn = document.getElementById('hmacPolicyResetBtn');
+    var statusPill = document.getElementById('hmacAuditStatusPill');
+    var logBox = document.getElementById('hmacAuditLogBox');
+    var refreshBtn = document.getElementById('hmacAuditRefreshBtn');
+    var csrfMeta = document.querySelector('meta[name="csrf-token"]');
+
+    function csrfHeader() {
+        return csrfMeta ? csrfMeta.getAttribute('content') : '';
+    }
+
+    function setPolicy(policy) {
+        if (!policy) return;
+        if (strictCb) strictCb.checked = !!policy.strict;
+        if (nonceCb) nonceCb.checked = !!policy.nonce_required;
+        if (strictPill) {
+            strictPill.textContent = policy.strict ? 'ACTIF' : 'INACTIF';
+            strictPill.className = 'hmac-status-pill ' + (policy.strict ? 'on' : 'off');
+        }
+        if (noncePill) {
+            noncePill.textContent = policy.nonce_required ? 'ACTIF' : 'INACTIF';
+            noncePill.className = 'hmac-status-pill ' + (policy.nonce_required ? 'on' : 'off');
+        }
+        if (strictMeta) {
+            strictMeta.textContent = '(' + (policy.strict_source === 'database' ? 'supervision' : '.env')
+                + ' défaut ' + (policy.env_strict ? 'true' : 'false') + ')';
+        }
+        if (nonceMeta) {
+            nonceMeta.textContent = '(' + (policy.nonce_source === 'database' ? 'supervision' : '.env')
+                + ' défaut ' + (policy.env_nonce_required ? 'true' : 'false') + ')';
+        }
+    }
+
+    function postPolicy(body) {
+        return fetch(API + '/toggle-policy', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': csrfHeader()
+            },
+            body: JSON.stringify(body)
+        }).then(function (r) { return r.json(); });
+    }
+
+    function bindPolicyToggle(el, field) {
+        if (!el) return;
+        el.addEventListener('change', function () {
+            var want = el.checked;
+            if (field === 'strict' && want && !confirm('Activer le mode strict ? Les firmwares sans HMAC recevront 401.')) {
+                el.checked = !want;
+                return;
+            }
+            var payload = {};
+            payload[field] = want;
+            postPolicy(payload)
+                .then(function (data) {
+                    if (data && data.success && data.policy) {
+                        setPolicy(data.policy);
+                    } else {
+                        el.checked = !want;
+                        alert((data && data.error) ? data.error : 'Échec de la bascule.');
+                    }
+                })
+                .catch(function () {
+                    el.checked = !want;
+                    alert('Erreur réseau.');
+                });
+        });
+    }
+
+    bindPolicyToggle(strictCb, 'strict');
+    bindPolicyToggle(nonceCb, 'nonce_required');
+
+    if (policyResetBtn) {
+        policyResetBtn.addEventListener('click', function () {
+            if (!confirm('Supprimer les overrides et revenir aux valeurs .env ?')) return;
+            fetch(API + '/reset-policy', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': csrfHeader()
+                },
+                body: JSON.stringify({ target: 'all' })
+            })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (data && data.success && data.policy) setPolicy(data.policy);
+                    else alert((data && data.error) ? data.error : 'Échec.');
+                })
+                .catch(function () { alert('Erreur réseau.'); });
+        });
+    }
+
+    function setStatus(enabled) {
+        if (!statusPill) return;
+        statusPill.textContent = enabled ? 'ACTIVÉ' : 'DÉSACTIVÉ';
+        statusPill.className = 'hmac-status-pill ' + (enabled ? 'on' : 'off');
+        if (enabledCb) enabledCb.checked = enabled;
+    }
+
+    function lineClass(line) {
+        if (line.indexOf('result=ok') !== -1) return 'ok';
+        if (line.indexOf('result=reject') !== -1) return 'reject';
+        return 'other';
+    }
+
+    function renderEntries(entries) {
+        if (!logBox) return;
+        if (!entries || entries.length === 0) {
+            logBox.innerHTML = '<div class="hmac-empty">Aucune entrée (journal vide ou désactivé).</div>';
+            return;
+        }
+        var html = '';
+        entries.forEach(function (e) {
+            var cls = lineClass(e.line || e.raw || '');
+            html += '<div class="hmac-log-line ' + cls + '">' + escapeHtml(e.line || e.raw || '') + '</div>';
+        });
+        logBox.innerHTML = html;
+        logBox.scrollTop = logBox.scrollHeight;
+    }
+
+    function escapeHtml(s) {
+        return String(s)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+
+    function loadEntries() {
+        fetch(API + '/entries?limit=300', { credentials: 'same-origin' })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                if (data && data.success) {
+                    setStatus(!!data.enabled);
+                    setPolicy(data.policy);
+                    renderEntries(data.entries || []);
+                }
+            })
+            .catch(function () {
+                if (logBox) logBox.innerHTML = '<div class="hmac-empty">Erreur de chargement.</div>';
+            });
+    }
+
+    if (enabledCb) {
+        enabledCb.addEventListener('change', function () {
+            var want = enabledCb.checked;
+            fetch(API + '/toggle', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': csrfHeader()
+                },
+                body: JSON.stringify({ enabled: want })
+            })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (data && data.success) {
+                        setStatus(!!data.enabled);
+                    } else {
+                        enabledCb.checked = !want;
+                        alert((data && data.error) ? data.error : 'Échec de la bascule.');
+                    }
+                })
+                .catch(function () {
+                    enabledCb.checked = !want;
+                    alert('Erreur réseau.');
+                });
+        });
+    }
+
+    if (refreshBtn) refreshBtn.addEventListener('click', loadEntries);
+    loadEntries();
+    setInterval(loadEntries, 30000);
+})();
+</script>
+{% endblock %}

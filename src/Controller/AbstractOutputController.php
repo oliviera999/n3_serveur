@@ -8,6 +8,7 @@ use App\Controller\Traits\HandlesNotificationPolicy;
 use App\Security\AuthService;
 use App\Service\ControlAuditLogger;
 use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 use App\Service\TemplateRenderer;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
@@ -24,15 +25,19 @@ abstract class AbstractOutputController
 
     protected ControlAuditLogger $auditLogger;
 
+    protected ?OperationalSettingsService $operationalSettings = null;
+
     public function __construct(
         protected LogService $logger,
         protected TemplateRenderer $renderer,
         protected AuthService $authService,
         ?ControlAuditLogger $auditLogger = null,
+        ?OperationalSettingsService $operationalSettings = null,
     ) {
         // Les sous-classes (MSP/N3pp) appellent parent::__construct() avec 3 arguments :
         // on construit alors l'audit logger à partir des dépendances déjà fournies.
         $this->auditLogger = $auditLogger ?? new ControlAuditLogger($logger, $authService);
+        $this->operationalSettings = $operationalSettings;
     }
 
     /**
@@ -218,7 +223,8 @@ abstract class AbstractOutputController
      */
     private function enforceFirmwareStateKey(Request $request, Response $response): ?Response
     {
-        if (!filter_var($_ENV['FIRMWARE_STATE_REQUIRE_KEY'] ?? 'false', FILTER_VALIDATE_BOOLEAN)) {
+        if (!($this->operationalSettings?->bool('FIRMWARE_STATE_REQUIRE_KEY', false)
+            ?? filter_var($_ENV['FIRMWARE_STATE_REQUIRE_KEY'] ?? 'false', FILTER_VALIDATE_BOOLEAN))) {
             return null;
         }
 

@@ -35,9 +35,9 @@ trait HmacAuthTrait
      * Valide la signature HMAC si présente. Active `authenticatedByHmac` en cas
      * de succès pour bypasser la vérification api_key.
      *
-     * Configurable via .env :
-     *   - HMAC_STRICT_MODE=true    : refuse l'absence de HMAC (au lieu de fallback api_key).
-     *   - HMAC_NONCE_REQUIRED=true : exige post_id et utilise isValidWithNonce.
+ * Configurable via supervision (BDD `serverSettings`) ou .env :
+ *   - HMAC_STRICT_MODE=true    : refuse l'absence de HMAC (au lieu de fallback api_key).
+ *   - HMAC_NONCE_REQUIRED=true : exige post_id et utilise isValidWithNonce.
      *
      * @param array<string, mixed> $params Paramètres POST déjà extraits.
      * @return Response|null null si OK ou si HMAC absent (fallback api_key) ;
@@ -56,7 +56,7 @@ trait HmacAuthTrait
                 $this->logger->error("{$this->componentName()}: rejet config API_SIG_SECRET manquante code=500");
                 return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
             }
-            $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+            $sigWindow = $this->opInt('SIG_VALID_WINDOW', 300);
             if ($sigWindow <= 0) {
                 $sigWindow = 300;
             }
@@ -77,11 +77,27 @@ trait HmacAuthTrait
                     'ts_received' => $bodyTs,
                     'window_s' => $sigWindow,
                 ]);
+                $this->recordHmacAudit('reject', 'x_sig_body', [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                    'sensor' => trim((string) ($params['sensor'] ?? '')),
+                    'version' => trim((string) ($params['version'] ?? '')),
+                    'ts_received' => $bodyTs,
+                    'window_s' => $sigWindow,
+                    'body_len' => strlen($bodyRaw),
+                ], 'signature_invalid');
                 return ResponseHelper::text($response, 'Signature incorrecte', 401);
             }
             $this->authenticatedByHmac = true;
             $this->logger->info("{$this->componentName()}: auth HMAC body OK", [
                 'sensor' => trim((string) ($params['sensor'] ?? '')),
+            ]);
+            $this->recordHmacAudit('ok', 'x_sig_body', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'ts_received' => $bodyTs,
+                'window_s' => $sigWindow,
+                'body_len' => strlen($bodyRaw),
             ]);
 
             return null;
@@ -89,8 +105,8 @@ trait HmacAuthTrait
 
         $timestamp = $params['timestamp'] ?? null;
         $signature = $params['signature'] ?? null;
-        $strict = filter_var($_ENV['HMAC_STRICT_MODE'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
-        $nonceRequired = filter_var($_ENV['HMAC_NONCE_REQUIRED'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
+        $strict = $this->isHmacStrictMode();
+        $nonceRequired = $this->isHmacNonceRequired();
 
         if ($timestamp === null && $signature === null) {
             if ($strict) {
@@ -102,6 +118,11 @@ trait HmacAuthTrait
                         'version' => trim((string) ($params['version'] ?? '')),
                     ]
                 );
+                $this->recordHmacAudit('reject', 'absent', [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                    'sensor' => trim((string) ($params['sensor'] ?? '')),
+                    'version' => trim((string) ($params['version'] ?? '')),
+                ], 'strict_mode');
                 return ResponseHelper::text($response, 'Signature HMAC requise (strict mode)', 401);
             }
             // Compat : fallback sur api_key (logique parent).
@@ -119,6 +140,13 @@ trait HmacAuthTrait
                     'has_signature' => $signature !== null,
                 ]
             );
+            $this->recordHmacAudit('reject', 'legacy_body', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'has_timestamp' => $timestamp !== null ? '1' : '0',
+                'has_signature' => $signature !== null ? '1' : '0',
+            ], 'signature_incomplete');
             return ResponseHelper::text($response, 'Signature incomplete', 401);
         }
 
@@ -130,7 +158,7 @@ trait HmacAuthTrait
             return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
         }
 
-        $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+        $sigWindow = $this->opInt('SIG_VALID_WINDOW', 300);
         if ($sigWindow <= 0) {
             $sigWindow = 300;
         }
@@ -177,12 +205,28 @@ trait HmacAuthTrait
                     'nonce_required' => $nonceRequired,
                 ]
             );
+            $this->recordHmacAudit('reject', $nonceRequired ? 'legacy_nonce' : 'legacy_timestamp', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'ts_received' => (string) $timestamp,
+                'window_s' => $sigWindow,
+                'post_id' => $postId !== '' ? $postId : null,
+            ], 'signature_invalid');
             return ResponseHelper::text($response, 'Signature incorrecte', 401);
         }
 
         $this->authenticatedByHmac = true;
         $this->logger->info("{$this->componentName()}: auth HMAC OK", [
             'sensor' => trim((string) ($params['sensor'] ?? '')),
+        ]);
+        $this->recordHmacAudit('ok', $nonceRequired ? 'legacy_nonce' : 'legacy_timestamp', [
+            'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            'sensor' => trim((string) ($params['sensor'] ?? '')),
+            'version' => trim((string) ($params['version'] ?? '')),
+            'ts_received' => (string) $timestamp,
+            'window_s' => $sigWindow,
+            'post_id' => $postId !== '' ? $postId : null,
         ]);
 
         return null;

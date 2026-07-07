@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Config\TableConfig;
+use App\Service\OperationalSettingsService;
 use App\Util\TableValidator;
 use DateTimeInterface;
 use PDO;
@@ -15,6 +16,13 @@ use PDO;
  */
 class SensorReadRepository extends AbstractRepository
 {
+    public function __construct(
+        PDO $pdo,
+        private ?OperationalSettingsService $operationalSettings = null,
+    ) {
+        parent::__construct($pdo);
+    }
+
     /**
      * Récupère tous les enregistrements de mesures entre deux dates (incluses).
      *
@@ -47,10 +55,7 @@ class SensorReadRepository extends AbstractRepository
 
         // Requête SQL multi-colonnes, triée par date selon $order
         $table = TableValidator::validateDataTable(TableConfig::getDataTable());
-        $fallbackFilter = '';
-        if (filter_var($_ENV['STATS_EXCLUDE_DHT_FALLBACK'] ?? 'false', FILTER_VALIDATE_BOOLEAN)) {
-            $fallbackFilter = ' AND NOT (TempAir = 20 AND Humidite = 50)';
-        }
+        $fallbackFilter = $this->excludeDhtFallbackFilter();
         $sql = <<<SQL
             SELECT id, TempAir, Humidite, TempEau, EauPotager, EauAquarium, EauReserve, diffMaree, Luminosite,
                    etatPompeAqua, etatPompeTank, etatHeat, etatUV, bouffePetits, bouffeGros, reading_time
@@ -264,5 +269,13 @@ class SensorReadRepository extends AbstractRepository
 
         $result = $this->fetchOne($sql);
         return $result['version'] ?? 'N/A';
+    }
+
+    private function excludeDhtFallbackFilter(): string
+    {
+        $exclude = $this->operationalSettings?->bool('STATS_EXCLUDE_DHT_FALLBACK', false)
+            ?? filter_var($_ENV['STATS_EXCLUDE_DHT_FALLBACK'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
+
+        return $exclude ? ' AND NOT (TempAir = 20 AND Humidite = 50)' : '';
     }
 }

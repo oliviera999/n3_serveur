@@ -7,7 +7,10 @@ namespace App\Controller\Concerns;
 use App\Middleware\RawPostBodyMiddleware;
 use App\Security\RateLimiter;
 use App\Security\SignatureValidator;
+use App\Service\HmacAuditLogger;
+use App\Service\HmacPolicyService;
 use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use PDO;
@@ -58,7 +61,16 @@ final class LegacyHeartbeatHandler
         private readonly PDO $pdo,
         private readonly string $componentName,
         private readonly array $allowedTables,
+        private readonly ?HmacAuditLogger $hmacAuditLogger = null,
+        private readonly ?HmacPolicyService $hmacPolicyService = null,
+        private readonly ?OperationalSettingsService $operationalSettings = null,
     ) {
+    }
+
+    private function opInt(string $envKey, int $default): int
+    {
+        return $this->operationalSettings?->int($envKey, $default)
+            ?? (isset($_ENV[$envKey]) && is_numeric($_ENV[$envKey]) ? (int) $_ENV[$envKey] : $default);
     }
 
     public function handle(Request $request, Response $response, string $tableName): Response
@@ -69,9 +81,9 @@ final class LegacyHeartbeatHandler
 
         // Rate-limiting optionnel par IP (defaut off) : actif si
         // FIRMWARE_RATE_LIMIT_MAX > 0. Meme politique que /post-data.
-        $max = (int) ($_ENV['FIRMWARE_RATE_LIMIT_MAX'] ?? 0);
+        $max = $this->opInt('FIRMWARE_RATE_LIMIT_MAX', 0);
         if ($max > 0) {
-            $window = (int) ($_ENV['FIRMWARE_RATE_LIMIT_WINDOW'] ?? 60);
+            $window = $this->opInt('FIRMWARE_RATE_LIMIT_WINDOW', 60);
             if ($window <= 0) {
                 $window = 60;
             }
@@ -183,14 +195,28 @@ final class LegacyHeartbeatHandler
             if (!is_string($sigSecret) || $sigSecret === '') {
                 return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
             }
-            $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+            $sigWindow = $this->opInt('SIG_VALID_WINDOW', 300);
             if ($sigWindow <= 0) {
                 $sigWindow = 300;
             }
             if (!SignatureValidator::isValid((string) $timestamp, (string) $signature, $sigSecret, $sigWindow)) {
                 $this->logger->warning("{$this->componentName}: rejet auth HMAC invalide code=401");
+                $this->hmacAuditLogger?->record($this->componentName, 'reject', 'legacy_timestamp', [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                    'sensor' => trim((string) ($params['sensor'] ?? '')),
+                    'version' => trim((string) ($params['version'] ?? '')),
+                    'ts_received' => (string) $timestamp,
+                    'window_s' => $sigWindow,
+                ], 'signature_invalid');
                 return ResponseHelper::text($response, 'Signature incorrecte', 401);
             }
+            $this->hmacAuditLogger?->record($this->componentName, 'ok', 'legacy_timestamp', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'ts_received' => (string) $timestamp,
+                'window_s' => $sigWindow,
+            ]);
             return null;
         }
 
@@ -201,11 +227,17 @@ final class LegacyHeartbeatHandler
         // Parite avec HmacAuthTrait (post-data) : en mode strict, l'absence de
         // signature HMAC est refusee au lieu de retomber sur l'api_key. Sans cela
         // le heartbeat restait laxiste meme quand /post-data etait durci.
-        $strict = filter_var($_ENV['HMAC_STRICT_MODE'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
+        $strict = $this->hmacPolicyService?->isStrictMode()
+            ?? filter_var($_ENV['HMAC_STRICT_MODE'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
         if ($strict) {
             $this->logger->warning("{$this->componentName}: rejet auth HMAC absent (strict) code=401", [
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
             ]);
+            $this->hmacAuditLogger?->record($this->componentName, 'reject', 'absent', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+            ], 'strict_mode');
             return ResponseHelper::text($response, 'Signature HMAC requise (strict mode)', 401);
         }
 
@@ -248,7 +280,7 @@ final class LegacyHeartbeatHandler
             return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
         }
 
-        $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+        $sigWindow = $this->opInt('SIG_VALID_WINDOW', 300);
         if ($sigWindow <= 0) {
             $sigWindow = 300;
         }
@@ -260,8 +292,23 @@ final class LegacyHeartbeatHandler
 
         if (!SignatureValidator::isValidForBody($timestamp, $nonce, $body, $signature, $sigSecret, $sigWindow)) {
             $this->logger->warning("{$this->componentName}: rejet auth X-Sig invalide code=401");
+            $this->hmacAuditLogger?->record($this->componentName, 'reject', 'x_sig_body', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'ts_received' => $timestamp,
+                'nonce_len' => strlen($nonce),
+                'window_s' => $sigWindow,
+                'body_len' => strlen($body),
+            ], 'signature_invalid');
             return ResponseHelper::text($response, 'Signature incorrecte', 401);
         }
+
+        $this->hmacAuditLogger?->record($this->componentName, 'ok', 'x_sig_body', [
+            'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            'ts_received' => $timestamp,
+            'nonce_len' => strlen($nonce),
+            'window_s' => $sigWindow,
+            'body_len' => strlen($body),
+        ]);
 
         return null;
     }

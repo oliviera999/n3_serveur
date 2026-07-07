@@ -87,7 +87,26 @@ return [
 
     \App\Notification\NotificationPolicyResolver::class => function (ContainerInterface $c): \App\Notification\NotificationPolicyResolver {
         return \App\Notification\NotificationPolicyResolver::fromEnv(
-            $c->get(\App\Repository\NotificationPolicyRepository::class)
+            $c->get(\App\Repository\NotificationPolicyRepository::class),
+            $c->get(\App\Service\OperationalSettingsService::class)
+        );
+    },
+
+    \App\Service\LogService::class => function (ContainerInterface $c): \App\Service\LogService {
+        return new \App\Service\LogService(
+            $c->get(\App\Service\OperationalSettingsService::class)
+        );
+    },
+
+    \App\Service\DeviceHealthService::class => function (ContainerInterface $c): \App\Service\DeviceHealthService {
+        return new \App\Service\DeviceHealthService(
+            $c->get(\App\Repository\HeartbeatMonitorRepository::class),
+            $c->get(\App\Service\NotificationService::class),
+            $c->get(\App\Service\LogService::class),
+            null,
+            null,
+            $c->get(\App\Service\OfflineThresholdResolver::class),
+            $c->get(\App\Service\OperationalSettingsService::class)
         );
     },
 
@@ -127,15 +146,16 @@ return [
 
     \App\Command\CronOrchestrator::class => function (ContainerInterface $c): \App\Command\CronOrchestrator {
         return new \App\Command\CronOrchestrator(
-            $c->get(\App\Service\LogService::class),
-            $c->get(\App\Service\SensorDataService::class),
-            $c->get(\App\Service\PumpService::class),
-            $c->get(\App\Service\SensorStatisticsService::class),
-            $c->get(\App\Service\NotificationService::class),
-            $c->get(\App\Repository\SensorReadRepository::class),
-            $c->get(\App\Service\SystemHealthService::class),
-            $c->get(\App\Service\DeviceHealthService::class),
-            $c->get(\App\Command\RestartPumpCommand::class)
+            logger: $c->get(\App\Service\LogService::class),
+            sensorDataService: $c->get(\App\Service\SensorDataService::class),
+            pumpService: $c->get(\App\Service\PumpService::class),
+            statsService: $c->get(\App\Service\SensorStatisticsService::class),
+            notifier: $c->get(\App\Service\NotificationService::class),
+            sensorReadRepo: $c->get(\App\Repository\SensorReadRepository::class),
+            healthService: $c->get(\App\Service\SystemHealthService::class),
+            deviceHealthService: $c->get(\App\Service\DeviceHealthService::class),
+            restartPumpCommand: $c->get(\App\Command\RestartPumpCommand::class),
+            operationalSettings: $c->get(\App\Service\OperationalSettingsService::class),
         );
     },
 ];

@@ -10,6 +10,8 @@ composer.phar
 error_log
 cronlog.txt
 cronlog*.txt
+hmac-audit.log
+hmac-audit*.log
 
 # Fichiers temporaires / exports
 *.csv

@@ -412,7 +412,53 @@
     </div>
     <div class="links-grid" data-aos="fade-up">
         <div class="link-card cache-card">
-            <div><i class="fas fa-broom"></i><span class="label">Vider tous les caches du site</span></div>
+            <div><i class="fas fa-shield-alt"></i><span class="label">Sécurité HMAC</span></div>
+            <div class="hint">Journal des tentatives et politique de validation. Le <code>.env</code> reste la valeur par défaut ; les switchs ci-dessous appliquent un override immédiat (BDD, sans modifier le fichier).</div>
+            <div class="hmac-audit-supervision-row" style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;margin-top:10px;">
+                <label class="page-nav-toggle" title="Activer ou désactiver le journal audit HMAC">
+                    <input type="checkbox" id="hmacAuditSupervisionCb" {% if hmac_audit_enabled|default(false) %}checked{% endif %}>
+                    <span class="page-nav-slider"></span>
+                </label>
+                <div style="flex:1;min-width:200px;">
+                    <div style="font-weight:600;font-size:13px;"><code style="font-size:11px;">HMAC_AUDIT_LOG</code> — Journal audit</div>
+                    <div style="font-size:12px;color:#555;margin-top:2px;">Trace chaque tentative d’auth HMAC firmware (succès et échecs) dans <code>hmac-audit.log</code>.</div>
+                </div>
+                <span id="hmacAuditSupervisionStatus" style="font-weight:600;font-size:13px;white-space:nowrap;">{{ hmac_audit_enabled|default(false) ? 'Actif' : 'Inactif' }}</span>
+                <span style="font-size:12px;color:#666;">{{ hmac_audit_entry_count|default(0) }} entrée(s)</span>
+                <a href="{{ base_path }}/admin/hmac-audit" class="btn-cache" style="text-decoration:none;display:inline-block;">Détail &amp; journal</a>
+            </div>
+            <div class="hmac-policy-supervision" style="margin-top:14px;padding-top:12px;border-top:1px solid #e9ecef;">
+                <div style="font-weight:600;font-size:13px;margin-bottom:8px;">Validation HMAC</div>
+                <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px 14px;margin-bottom:8px;">
+                    <label class="page-nav-toggle" title="Refuser les POST sans signature HMAC (plus de repli api_key)">
+                        <input type="checkbox" id="hmacStrictSupervisionCb" {% if hmac_policy.strict|default(false) %}checked{% endif %}>
+                        <span class="page-nav-slider"></span>
+                    </label>
+                    <div style="flex:1;min-width:200px;">
+                        <div style="font-weight:600;font-size:13px;"><code style="font-size:11px;">HMAC_STRICT_MODE</code> — Mode strict</div>
+                        <div style="font-size:12px;color:#555;margin-top:2px;">Refuse les POST sans signature HMAC (plus de repli <code>api_key</code>).</div>
+                    </div>
+                    <span id="hmacStrictSource" style="font-size:11px;color:#666;white-space:nowrap;">({{ hmac_policy.strict_source|default('env') == 'database' ? 'supervision' : '.env' }} : {{ hmac_policy.env_strict|default(false) ? 'true' : 'false' }})</span>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px 14px;">
+                    <label class="page-nav-toggle" title="Exiger post_id et signature avec nonce">
+                        <input type="checkbox" id="hmacNonceSupervisionCb" {% if hmac_policy.nonce_required|default(false) %}checked{% endif %}>
+                        <span class="page-nav-slider"></span>
+                    </label>
+                    <div style="flex:1;min-width:200px;">
+                        <div style="font-weight:600;font-size:13px;"><code style="font-size:11px;">HMAC_NONCE_REQUIRED</code> — Nonce requis</div>
+                        <div style="font-size:12px;color:#555;margin-top:2px;">Exige <code>post_id</code> et signature avec nonce (<code>timestamp|post_id</code>).</div>
+                    </div>
+                    <span id="hmacNonceSource" style="font-size:11px;color:#666;white-space:nowrap;">({{ hmac_policy.nonce_source|default('env') == 'database' ? 'supervision' : '.env' }} : {{ hmac_policy.env_nonce_required|default(false) ? 'true' : 'false' }})</span>
+                </div>
+                {% if can_access_control|default(false) %}
+                <button type="button" id="hmacPolicyResetBtn" class="btn-cache" style="margin-top:10px;font-size:12px;">Revenir aux valeurs .env</button>
+                {% endif %}
+                <div class="hint" style="margin-top:8px;font-size:12px;">⚠️ Mode strict : les firmwares sans HMAC recevront <strong>401</strong>. Activer le journal avant de basculer.</div>
+            </div>
+            <div id="hmacAuditSupervisionPreview" class="cache-result" style="margin-top:10px;max-height:140px;overflow:auto;font-family:monospace;font-size:11px;white-space:pre-wrap;" aria-live="polite"></div>
+        </div>
+        <div class="link-card cache-card">
             <div class="hint">Twig, DI, OpCache PHP, cache outputs (prod, test, S3, test3)</div>
             <button type="button" id="clearAllCacheBtn" class="btn-cache" data-clear-url="{{ base_path }}/admin/clear-cache">Vider tous les caches</button>
             <div id="clearCacheResult" class="cache-result" aria-live="polite"></div>
@@ -444,6 +490,28 @@
                 <input type="checkbox" class="page-nav-cb" data-page-key="deploy-script" data-page-label="Déploiement" data-page-url="{{ base_path }}/admin/deploy-script">
                 <span class="page-nav-slider"></span>
             </label>
+        </div>
+        <div class="link-card cache-card op-settings-card" style="grid-column:1/-1;">
+            <style>
+                .op-field { margin: 10px 0; padding: 10px 0; border-bottom: 1px solid #eee; }
+                .op-field:last-child { border-bottom: none; }
+                .op-field-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; margin-bottom: 8px; }
+                .op-env-key { font-size: 11px; background: #e9ecef; padding: 2px 7px; border-radius: 4px; color: #333; }
+                .op-label { font-weight: 600; font-size: 13px; color: #222; }
+                .op-desc { font-size: 12px; color: #555; font-weight: 400; flex: 1 1 220px; }
+                .op-src { font-size: 11px; color: #888; margin-left: auto; white-space: nowrap; }
+                .op-field-control { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-left: 2px; }
+            </style>
+            <div><i class="fas fa-sliders-h"></i><span class="label">Réglages opérationnels</span></div>
+            <div class="hint">Seuils d'alerte, notifications, rate limits, logs et qualité des données. Priorité : <strong>supervision</strong> &gt; <code>.env</code> (le fichier n'est pas modifié).</div>
+            <div id="opSettingsContent" class="op-settings-content" aria-live="polite"><em>Chargement…</em></div>
+            {% if can_access_control|default(false) %}
+            <div class="op-settings-actions" style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+                <button type="button" id="opSettingsSaveBtn" class="btn-cache">Enregistrer les modifications</button>
+                <button type="button" id="opSettingsResetAllBtn" class="btn-cache" style="background:#6c757d;">Tout réinitialiser (.env)</button>
+            </div>
+            <div id="opSettingsResult" class="cache-result" style="margin-top:10px;display:none;" aria-live="polite"></div>
+            {% endif %}
         </div>
     </div>
 </article>
@@ -631,5 +699,322 @@ if (runGallerySortBtn) runGallerySortBtn.addEventListener('click', async functio
         btn.disabled = false;
     }
 });
+
+(function () {
+    var BASE = '{{ base_path|default('') }}';
+    var API = BASE + '/admin/api/hmac-audit';
+    var cb = document.getElementById('hmacAuditSupervisionCb');
+    var statusEl = document.getElementById('hmacAuditSupervisionStatus');
+    var previewEl = document.getElementById('hmacAuditSupervisionPreview');
+    var strictCb = document.getElementById('hmacStrictSupervisionCb');
+    var nonceCb = document.getElementById('hmacNonceSupervisionCb');
+    var strictSourceEl = document.getElementById('hmacStrictSource');
+    var nonceSourceEl = document.getElementById('hmacNonceSource');
+    var policyResetBtn = document.getElementById('hmacPolicyResetBtn');
+    var CAN_EDIT_POLICY = {{ can_access_control|default(false) ? 'true' : 'false' }};
+
+    function setPolicyUi(policy) {
+        if (!policy) return;
+        if (strictCb) strictCb.checked = !!policy.strict;
+        if (nonceCb) nonceCb.checked = !!policy.nonce_required;
+        if (strictSourceEl) {
+            strictSourceEl.textContent = '(' + (policy.strict_source === 'database' ? 'supervision' : '.env')
+                + ' : ' + (policy.env_strict ? 'true' : 'false') + ')';
+        }
+        if (nonceSourceEl) {
+            nonceSourceEl.textContent = '(' + (policy.nonce_source === 'database' ? 'supervision' : '.env')
+                + ' : ' + (policy.env_nonce_required ? 'true' : 'false') + ')';
+        }
+    }
+
+    function postPolicy(body) {
+        return fetch(API + '/toggle-policy', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': csrfToken()
+            },
+            body: JSON.stringify(body)
+        }).then(function (r) { return r.json(); });
+    }
+
+    function bindPolicyToggle(el, field) {
+        if (!el || !CAN_EDIT_POLICY) return;
+        el.addEventListener('change', function () {
+            var want = el.checked;
+            var payload = {};
+            payload[field] = want;
+            if (field === 'strict' && want && !confirm('Activer le mode strict ? Les firmwares sans HMAC recevront 401.')) {
+                el.checked = !want;
+                return;
+            }
+            postPolicy(payload)
+                .then(function (data) {
+                    if (data && data.success && data.policy) {
+                        setPolicyUi(data.policy);
+                    } else {
+                        el.checked = !want;
+                        alert((data && data.error) ? data.error : 'Échec de la bascule.');
+                    }
+                })
+                .catch(function () {
+                    el.checked = !want;
+                    alert('Erreur réseau.');
+                });
+        });
+    }
+
+    bindPolicyToggle(strictCb, 'strict');
+    bindPolicyToggle(nonceCb, 'nonce_required');
+
+    if (policyResetBtn && CAN_EDIT_POLICY) {
+        policyResetBtn.addEventListener('click', function () {
+            if (!confirm('Supprimer les overrides supervision et revenir aux valeurs .env ?')) return;
+            fetch(API + '/reset-policy', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': csrfToken()
+                },
+                body: JSON.stringify({ target: 'all' })
+            })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (data && data.success && data.policy) {
+                        setPolicyUi(data.policy);
+                    } else {
+                        alert((data && data.error) ? data.error : 'Échec.');
+                    }
+                })
+                .catch(function () { alert('Erreur réseau.'); });
+        });
+    }
+
+    function setStatus(enabled) {
+        if (statusEl) statusEl.textContent = enabled ? 'Actif' : 'Inactif';
+        if (cb) cb.checked = enabled;
+    }
+
+    function renderPreview(entries) {
+        if (!previewEl) return;
+        if (!entries || entries.length === 0) {
+            previewEl.textContent = 'Aucune entrée récente.';
+            return;
+        }
+        var lines = entries.slice(-8).map(function (e) { return e.line || e.raw || ''; });
+        previewEl.textContent = lines.join('\n');
+    }
+
+    function loadPreview() {
+        fetch(API + '/entries?limit=20', { credentials: 'same-origin' })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                if (data && data.success) {
+                    setStatus(!!data.enabled);
+                    renderPreview(data.entries || []);
+                    if (data.policy) setPolicyUi(data.policy);
+                }
+            })
+            .catch(function () {
+                if (previewEl) previewEl.textContent = 'Aperçu indisponible.';
+            });
+    }
+
+    if (cb) {
+        cb.addEventListener('change', function () {
+            var want = cb.checked;
+            fetch(API + '/toggle', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': csrfToken()
+                },
+                body: JSON.stringify({ enabled: want })
+            })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (data && data.success) {
+                        setStatus(!!data.enabled);
+                    } else {
+                        cb.checked = !want;
+                        alert((data && data.error) ? data.error : 'Échec de la bascule.');
+                    }
+                })
+                .catch(function () {
+                    cb.checked = !want;
+                    alert('Erreur réseau.');
+                });
+        });
+    }
+
+    loadPreview();
+    setInterval(loadPreview, 30000);
+})();
+
+(function () {
+    var BASE = '{{ base_path|default('') }}';
+    var API = BASE + '/admin/api/operational-settings';
+    var CAN_EDIT = {{ can_access_control|default(false) ? 'true' : 'false' }};
+    var root = document.getElementById('opSettingsContent');
+    var saveBtn = document.getElementById('opSettingsSaveBtn');
+    var resetBtn = document.getElementById('opSettingsResetAllBtn');
+    var resultEl = document.getElementById('opSettingsResult');
+    var pending = {};
+
+    function showResult(msg, ok) {
+        if (!resultEl) return;
+        resultEl.style.display = 'block';
+        resultEl.className = 'cache-result ' + (ok ? 'success' : 'error');
+        resultEl.textContent = msg;
+    }
+
+    function fieldId(key) { return 'op_' + key; }
+
+    function renderField(s) {
+        var key = s.env_key;
+        var type = s.type;
+        var val = s.effective;
+        var src = s.source === 'database' ? 'supervision' : '.env';
+        var html = '<div class="op-field">';
+        html += '<div class="op-field-header">';
+        html += '<code class="op-env-key">' + escapeHtml(key) + '</code>';
+        html += '<span class="op-label">' + escapeHtml(s.label) + '</span>';
+        if (s.hint) html += '<span class="op-desc">— ' + escapeHtml(s.hint) + '</span>';
+        html += '<span class="op-src">(' + src + ')</span>';
+        html += '</div><div class="op-field-control">';
+        var disabled = CAN_EDIT ? '' : ' disabled';
+        if (type === 'bool') {
+            html += '<label class="page-nav-toggle"><input type="checkbox" data-key="' + key + '" id="' + fieldId(key) + '"' + (val ? ' checked' : '') + disabled + '><span class="page-nav-slider"></span></label>';
+        } else if (type === 'enum' && s.options) {
+            html += '<select data-key="' + key + '" id="' + fieldId(key) + '"' + disabled + ' style="max-width:220px;padding:4px;">';
+            s.options.forEach(function (o) {
+                html += '<option value="' + o + '"' + (String(val).toLowerCase() === String(o).toLowerCase() ? ' selected' : '') + '>' + o + '</option>';
+            });
+            html += '</select>';
+        } else if (type === 'optional_int' || type === 'optional_float') {
+            var ph = 'vide = désactivé';
+            var v = (val === null || val === undefined) ? '' : val;
+            html += '<input type="number" step="' + (type === 'optional_float' ? 'any' : '1') + '" data-key="' + key + '" id="' + fieldId(key) + '" value="' + escapeAttr(v) + '" placeholder="' + ph + '"' + disabled;
+            if (s.min != null) html += ' min="' + s.min + '"';
+            if (s.max != null) html += ' max="' + s.max + '"';
+            html += ' style="max-width:140px;padding:4px;">';
+            if (s.unit) html += ' <span style="font-size:12px;color:#666;">' + escapeHtml(s.unit) + '</span>';
+        } else if (type === 'string') {
+            html += '<input type="text" data-key="' + key + '" id="' + fieldId(key) + '" value="' + escapeAttr(val || '') + '"' + disabled + ' style="width:100%;max-width:480px;padding:4px;">';
+        } else {
+            html += '<input type="number" step="' + (type === 'float' ? 'any' : '1') + '" data-key="' + key + '" id="' + fieldId(key) + '" value="' + escapeAttr(val) + '"' + disabled;
+            if (s.min != null) html += ' min="' + s.min + '"';
+            if (s.max != null) html += ' max="' + s.max + '"';
+            html += ' style="max-width:140px;padding:4px;">';
+            if (s.unit) html += ' <span style="font-size:12px;color:#666;">' + escapeHtml(s.unit) + '</span>';
+        }
+        html += '</div></div>';
+        return html;
+    }
+
+    function escapeHtml(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function escapeAttr(s) { return escapeHtml(s).replace(/"/g, '&quot;'); }
+
+    function renderPanel(data) {
+        if (!root || !data || !data.settings) return;
+        var groups = data.groups || {};
+        var byGroup = {};
+        data.settings.forEach(function (s) {
+            if (!byGroup[s.group]) byGroup[s.group] = [];
+            byGroup[s.group].push(s);
+        });
+        var html = '';
+        Object.keys(groups).forEach(function (gid) {
+            var items = byGroup[gid] || [];
+            if (!items.length) return;
+            html += '<details class="op-group" style="margin:10px 0;background:#f8f9fa;border-radius:8px;padding:8px 12px;" open>';
+            html += '<summary style="cursor:pointer;font-weight:700;color:#008B74;">' + escapeHtml(groups[gid]) + ' (' + items.length + ')</summary>';
+            html += '<div style="margin-top:8px;">';
+            items.forEach(function (s) { html += renderField(s); });
+            if (CAN_EDIT) {
+                html += '<button type="button" class="btn-cache op-reset-group" data-group="' + gid + '" style="margin-top:8px;font-size:12px;background:#6c757d;">Réinitialiser ce groupe (.env)</button>';
+            }
+            html += '</div></details>';
+        });
+        root.innerHTML = html || '<em>Aucun réglage.</em>';
+        root.querySelectorAll('.op-reset-group').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var g = btn.getAttribute('data-group');
+                if (!g || !confirm('Réinitialiser le groupe « ' + g + ' » ?')) return;
+                fetch(API + '/reset', {
+                    method: 'POST', credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken() },
+                    body: JSON.stringify({ group: g })
+                }).then(function (r) { return r.json(); }).then(function (d) {
+                    if (d && d.success) { load(); showResult('Groupe réinitialisé.', true); }
+                    else showResult((d && d.error) || 'Échec', false);
+                }).catch(function () { showResult('Erreur réseau', false); });
+            });
+        });
+    }
+
+    function collectChanges() {
+        var out = {};
+        if (!root) return out;
+        root.querySelectorAll('[data-key]').forEach(function (el) {
+            var key = el.getAttribute('data-key');
+            if (!key) return;
+            if (el.type === 'checkbox') out[key] = el.checked;
+            else out[key] = el.value;
+        });
+        return out;
+    }
+
+    function load() {
+        fetch(API, { credentials: 'same-origin' })
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                if (d && d.success && d.data) renderPanel(d.data);
+                else if (root) root.innerHTML = '<em>Erreur de chargement.</em>';
+            })
+            .catch(function () { if (root) root.innerHTML = '<em>Erreur réseau.</em>'; });
+    }
+
+    if (saveBtn && CAN_EDIT) {
+        saveBtn.addEventListener('click', function () {
+            var settings = collectChanges();
+            saveBtn.disabled = true;
+            fetch(API, {
+                method: 'POST', credentials: 'same-origin',
+                headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken() },
+                body: JSON.stringify({ settings: settings })
+            }).then(function (r) { return r.json(); }).then(function (d) {
+                if (d && d.success) {
+                    renderPanel(d.data);
+                    showResult('Réglages enregistrés.', true);
+                } else {
+                    showResult((d && d.error) || 'Échec', false);
+                }
+            }).catch(function () { showResult('Erreur réseau', false); })
+              .finally(function () { saveBtn.disabled = false; });
+        });
+    }
+
+    if (resetBtn && CAN_EDIT) {
+        resetBtn.addEventListener('click', function () {
+            if (!confirm('Supprimer tous les overrides supervision et revenir au .env ?')) return;
+            fetch(API + '/reset', {
+                method: 'POST', credentials: 'same-origin',
+                headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken() },
+                body: JSON.stringify({})
+            }).then(function (r) { return r.json(); }).then(function (d) {
+                if (d && d.success) { load(); showResult('Tous les réglages réinitialisés.', true); }
+                else showResult((d && d.error) || 'Échec', false);
+            }).catch(function () { showResult('Erreur réseau', false); });
+        });
+    }
+
+    load();
+})();
 </script>
 {% endblock %}

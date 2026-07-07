@@ -88,6 +88,9 @@ class PostDataControllerHmacHeaderTest extends TestCase
     {
         return new PostDataController(
             $this->createMock(LogService::class),
+            null,
+            null,
+            null,
             $this->createMock(ErrorAlertService::class),
             $sensorRepo,
             $this->createMock(OutputRepository::class),

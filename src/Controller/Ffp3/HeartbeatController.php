@@ -6,11 +6,14 @@ namespace App\Controller\Ffp3;
 
 use App\Config\Paths;
 use App\Config\TableConfig;
+use App\Controller\Concerns\OperationalSettingsTrait;
 use App\Middleware\RawPostBodyMiddleware;
 use App\Repository\HeartbeatRepository;
 use App\Security\SignatureValidator;
 use App\Service\ErrorAlertService;
+use App\Service\HmacAuditLogger;
 use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -24,11 +27,16 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 class HeartbeatController
 {
+    use OperationalSettingsTrait;
+
     public function __construct(
         private LogService $logger,
+        private ?HmacAuditLogger $hmacAuditLogger,
         private ErrorAlertService $errorAlert,
         private HeartbeatRepository $heartbeatRepo,
+        ?OperationalSettingsService $operationalSettings = null,
     ) {
+        $this->operationalSettings = $operationalSettings;
     }
 
     /**
@@ -162,7 +170,7 @@ class HeartbeatController
             return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
         }
 
-        $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+        $sigWindow = $this->opInt('SIG_VALID_WINDOW', 300);
         if ($sigWindow <= 0) {
             $sigWindow = 300;
         }
@@ -190,10 +198,24 @@ class HeartbeatController
                 'window_s' => $sigWindow,
                 'body_len' => strlen($body),
             ]);
+            $this->hmacAuditLogger?->record('Heartbeat', 'reject', 'x_sig_body', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'ts_received' => $timestamp,
+                'nonce_len' => strlen($nonce),
+                'window_s' => $sigWindow,
+                'body_len' => strlen($body),
+            ], 'signature_invalid');
             return ResponseHelper::text($response, 'Signature incorrecte', 401);
         }
 
         $this->logger->info('Heartbeat: auth HMAC OK', ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a']);
+        $this->hmacAuditLogger?->record('Heartbeat', 'ok', 'x_sig_body', [
+            'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            'ts_received' => $timestamp,
+            'nonce_len' => strlen($nonce),
+            'window_s' => $sigWindow,
+            'body_len' => strlen($body),
+        ]);
 
         return null;
     }

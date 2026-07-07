@@ -16,6 +16,7 @@ use App\Security\AuthService;
 use App\Service\LogService;
 use App\Service\NotificationPolicySaveService;
 use App\Service\NotificationService;
+use App\Service\OperationalSettingsService;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -31,8 +32,9 @@ class MspOutputController extends AbstractOutputController
         private NotificationPolicyRepository $notificationPolicyRepo,
         private NotificationPolicySaveService $notificationSaveService,
         private NotificationService $notificationService,
+        ?OperationalSettingsService $operationalSettings = null,
     ) {
-        parent::__construct($logger, $renderer, $authService);
+        parent::__construct($logger, $renderer, $authService, null, $operationalSettings);
     }
 
     protected function defaultBoard(): int

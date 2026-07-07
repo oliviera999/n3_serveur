@@ -109,6 +109,9 @@ class PostDataHmacAuthTest extends TestCase
 
         $controller = new PostDataController(
             $logger,
+            null,
+            null,
+            null,
             $errorAlert,
             $sensorRepo,
             $outputRepo,
@@ -197,6 +200,9 @@ class PostDataHmacAuthTest extends TestCase
 
         $controller = new PostDataController(
             $this->createMock(LogService::class),
+            null,
+            null,
+            null,
             $this->createMock(ErrorAlertService::class),
             $sensorRepo,
             $outputRepo,
@@ -282,6 +288,9 @@ class PostDataHmacAuthTest extends TestCase
 
         $controller = new PostDataController(
             $this->createMock(LogService::class),
+            null,
+            null,
+            null,
             $this->createMock(ErrorAlertService::class),
             $sensorRepo,
             $outputRepo,

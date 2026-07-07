@@ -8,6 +8,7 @@ use App\Config\TableConfig;
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\HeartbeatMonitorRepository;
+use App\Service\OperationalSettingsService;
 
 /**
  * Supervision « appareil silencieux » (heartbeat) GÉNÉRALISÉE À TOUTES LES FAMILLES.
@@ -44,9 +45,11 @@ class DeviceHealthService
         private LogService $logger,
         ?int $offlineThresholdSeconds = null,
         private ?array $families = null,
-        private ?OfflineThresholdResolver $thresholdResolver = null
+        private ?OfflineThresholdResolver $thresholdResolver = null,
+        private ?OperationalSettingsService $operationalSettings = null,
     ) {
         $this->offlineThresholdSeconds = $offlineThresholdSeconds
+            ?? $this->operationalSettings?->int('HEARTBEAT_OFFLINE_THRESHOLD_SECONDS', self::DEFAULT_OFFLINE_THRESHOLD_SECONDS)
             ?? (int) ($_ENV['HEARTBEAT_OFFLINE_THRESHOLD_SECONDS'] ?? self::DEFAULT_OFFLINE_THRESHOLD_SECONDS);
         if ($this->offlineThresholdSeconds <= 0) {
             $this->offlineThresholdSeconds = self::DEFAULT_OFFLINE_THRESHOLD_SECONDS;

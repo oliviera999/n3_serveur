@@ -17,9 +17,15 @@ final class NotificationPolicyResolver
     ) {
     }
 
-    public static function fromEnv(\App\Repository\NotificationPolicyRepository $repository): self
-    {
-        return new self($repository, NotificationPolicy::fromEnv());
+    public static function fromEnv(
+        \App\Repository\NotificationPolicyRepository $repository,
+        ?\App\Service\OperationalSettingsService $operationalSettings = null,
+    ): self {
+        $envPolicy = $operationalSettings !== null
+            ? NotificationPolicy::fromOperationalSettings($operationalSettings)
+            : NotificationPolicy::fromEnv();
+
+        return new self($repository, $envPolicy);
     }
 
     /** Resolver de test : ignore la BDD et renvoie toujours la même politique. */

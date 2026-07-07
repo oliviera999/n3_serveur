@@ -7,6 +7,7 @@ namespace App\Controller\Msp;
 use App\Controller\AbstractHmacPostDataController;
 use App\Domain\MspSensorData;
 use App\Repository\MspSensorRepository;
+use App\Service\HmacAuditLogger;
 use App\Service\LogService;
 
 /**
@@ -20,9 +21,10 @@ class MspPostDataController extends AbstractHmacPostDataController
 {
     public function __construct(
         LogService $logger,
+        ?HmacAuditLogger $hmacAuditLogger,
         private MspSensorRepository $sensorRepo,
     ) {
-        parent::__construct($logger);
+        parent::__construct($logger, $hmacAuditLogger);
     }
 
     protected function componentName(): string

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Concerns;
 
 use App\Middleware\RawPostBodyMiddleware;
+use App\Service\HmacAuditLogger;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
@@ -27,9 +28,25 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 trait PglHmacAuthTrait
 {
     use HmacAuthTrait;
+    use HmacPolicyTrait;
+    use OperationalSettingsTrait;
 
     /** True si l'authentification HMAC a réussi (dispense de la clé API legacy). */
     protected bool $authenticatedByHmac = false;
+
+    protected ?HmacAuditLogger $hmacAuditLogger = null;
+
+    /**
+     * @param array<string, scalar|null> $context
+     */
+    protected function recordHmacAudit(
+        string $result,
+        string $authMode,
+        array $context = [],
+        ?string $reason = null
+    ): void {
+        $this->hmacAuditLogger?->record($this->componentName(), $result, $authMode, $context, $reason);
+    }
 
     /**
      * False si l'auth HMAC a réussi : la clé API legacy n'est alors plus exigée.

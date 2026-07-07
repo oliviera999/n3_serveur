@@ -6,6 +6,7 @@ namespace App\Service\DerivedAlert;
 
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
+use App\Service\OperationalSettingsService;
 
 /**
  * Alertes MSP1 dérivées du POST : batterie faible et redémarrage (socle
@@ -34,6 +35,16 @@ class MspDerivedAlertService extends AbstractVitalsDerivedAlertService
     /** Valeur sentinelle « sonde pluie déconnectée » (lecture brute ≤ 3 côté firmware). */
     private const RAIN_DISCONNECT_MAX = 3.0;
 
+    public function __construct(
+        \App\Repository\AbstractSensorRepository $sensorRepo,
+        \App\Service\NotificationService $notifier,
+        \App\Service\LogService $logger,
+        DerivedAlertStateStore $stateStore,
+        private ?OperationalSettingsService $operationalSettings = null,
+    ) {
+        parent::__construct($sensorRepo, $notifier, $logger, $stateStore);
+    }
+
     protected function family(): string
     {
         return 'MSP1';
@@ -55,9 +66,14 @@ class MspDerivedAlertService extends AbstractVitalsDerivedAlertService
         $this->checkRain($row, $state);
     }
 
-    /** Seuil `.env` opt-in : null (désactivé) si absent/vide/non numérique. */
+    /** Seuil opt-in : null (désactivé) si absent/vide/non numérique. */
     private function optInThreshold(string $envKey): ?float
     {
+        $fromOps = $this->operationalSettings?->optionalFloat($envKey);
+        if ($fromOps !== null) {
+            return $fromOps;
+        }
+
         if (!isset($_ENV[$envKey]) || (string) $_ENV[$envKey] === '' || !is_numeric($_ENV[$envKey])) {
             return null;
         }

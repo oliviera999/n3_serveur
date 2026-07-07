@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Controller\Concerns\LegacyHeartbeatHandler;
+use App\Service\HmacAuditLogger;
+use App\Service\HmacPolicyService;
 use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 use PDO;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -20,13 +23,21 @@ abstract class AbstractHeartbeatController
 {
     private LegacyHeartbeatHandler $handler;
 
-    public function __construct(LogService $logger, PDO $pdo)
-    {
+    public function __construct(
+        LogService $logger,
+        PDO $pdo,
+        ?HmacAuditLogger $hmacAuditLogger = null,
+        ?HmacPolicyService $hmacPolicyService = null,
+        ?OperationalSettingsService $operationalSettings = null,
+    ) {
         $this->handler = new LegacyHeartbeatHandler(
             logger: $logger,
             pdo: $pdo,
             componentName: $this->componentName(),
             allowedTables: $this->allowedTables(),
+            hmacAuditLogger: $hmacAuditLogger,
+            hmacPolicyService: $hmacPolicyService,
+            operationalSettings: $operationalSettings,
         );
     }
 

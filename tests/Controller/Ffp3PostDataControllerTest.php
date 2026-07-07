@@ -21,7 +21,9 @@ final class Ffp3PostDataControllerTest extends TestCase
     public function testPostDataEffectsAreExecutedInsideAtomicInsert(): void
     {
         $oldApiKey = $_ENV['API_KEY'] ?? null;
+        $oldStrict = $_ENV['HMAC_STRICT_MODE'] ?? null;
         $_ENV['API_KEY'] = 'unit-test-key';
+        $_ENV['HMAC_STRICT_MODE'] = 'false';
 
         try {
             /** @var SensorRepository&MockObject $sensorRepo */
@@ -71,7 +73,10 @@ final class Ffp3PostDataControllerTest extends TestCase
 
             $controller = new PostDataController(
                 $this->createMock(LogService::class),
-                $this->createMock(ErrorAlertService::class),
+            null,
+            null,
+            null,
+            $this->createMock(ErrorAlertService::class),
                 $sensorRepo,
                 $outputRepo,
                 $boardRepo
@@ -103,6 +108,11 @@ final class Ffp3PostDataControllerTest extends TestCase
             } else {
                 unset($_ENV['API_KEY']);
             }
+            if ($oldStrict !== null) {
+                $_ENV['HMAC_STRICT_MODE'] = $oldStrict;
+            } else {
+                unset($_ENV['HMAC_STRICT_MODE']);
+            }
         }
     }
 
@@ -115,7 +125,9 @@ final class Ffp3PostDataControllerTest extends TestCase
     public function testFeedingAckIsBenignNoOp(): void
     {
         $oldApiKey = $_ENV['API_KEY'] ?? null;
+        $oldStrict = $_ENV['HMAC_STRICT_MODE'] ?? null;
         $_ENV['API_KEY'] = 'unit-test-key';
+        $_ENV['HMAC_STRICT_MODE'] = 'false';
 
         try {
             /** @var SensorRepository&MockObject $sensorRepo */
@@ -144,7 +156,10 @@ final class Ffp3PostDataControllerTest extends TestCase
 
             $controller = new PostDataController(
                 $this->createMock(LogService::class),
-                $this->createMock(ErrorAlertService::class),
+            null,
+            null,
+            null,
+            $this->createMock(ErrorAlertService::class),
                 $sensorRepo,
                 $outputRepo,
                 $boardRepo
@@ -169,6 +184,11 @@ final class Ffp3PostDataControllerTest extends TestCase
                 $_ENV['API_KEY'] = $oldApiKey;
             } else {
                 unset($_ENV['API_KEY']);
+            }
+            if ($oldStrict !== null) {
+                $_ENV['HMAC_STRICT_MODE'] = $oldStrict;
+            } else {
+                unset($_ENV['HMAC_STRICT_MODE']);
             }
         }
     }

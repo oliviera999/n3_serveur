@@ -6,6 +6,10 @@ namespace App\Controller;
 
 use App\Controller\Concerns\HmacAuthTrait;
 use App\Middleware\RawPostBodyMiddleware;
+use App\Service\HmacAuditLogger;
+use App\Service\HmacPolicyService;
+use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -23,6 +27,15 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 abstract class AbstractHmacPostDataController extends AbstractPostDataController
 {
     use HmacAuthTrait;
+
+    public function __construct(
+        LogService $logger,
+        ?HmacAuditLogger $hmacAuditLogger = null,
+        ?HmacPolicyService $hmacPolicyService = null,
+        ?OperationalSettingsService $operationalSettings = null,
+    ) {
+        parent::__construct($logger, $hmacAuditLogger, $hmacPolicyService, $operationalSettings);
+    }
 
     /**
      * Auth HMAC optionnelle (timestamp+signature) avec fallback api_key.

@@ -10,6 +10,7 @@ use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
 use App\Service\LogService;
 use App\Service\NotificationService;
+use App\Service\OperationalSettingsService;
 
 /**
  * Alertes FFP3 dérivées des données reçues au POST (Phase 2 arbitrage mails).
@@ -65,6 +66,7 @@ class Ffp3DerivedAlertService
         private LogService $logger,
         private DerivedAlertStateStore $stateStore,
         private ?\Closure $clock = null,
+        private ?OperationalSettingsService $operationalSettings = null,
     ) {
     }
 
@@ -177,7 +179,8 @@ class Ffp3DerivedAlertService
 
         // Lecture trop ancienne : appareil silencieux → couvert par DeviceHealthService,
         // ne pas évaluer le trop-plein sur une donnée périmée.
-        $maxAge = (int) ($_ENV['FLOOD_MAX_READING_AGE_SEC'] ?? self::DEFAULT_MAX_READING_AGE_SEC);
+        $maxAge = $this->operationalSettings?->int('FLOOD_MAX_READING_AGE_SEC', self::DEFAULT_MAX_READING_AGE_SEC)
+            ?? (int) ($_ENV['FLOOD_MAX_READING_AGE_SEC'] ?? self::DEFAULT_MAX_READING_AGE_SEC);
         $readingTs = strtotime((string) ($reading['reading_time'] ?? ''));
         if ($readingTs === false || ($now - $readingTs) > $maxAge) {
             return;
@@ -189,7 +192,8 @@ class Ffp3DerivedAlertService
         }
 
         $limFloodMm = $limFloodCm * self::MM_PER_CM;
-        $hystCm = (float) ($_ENV['FLOOD_HYST_CM'] ?? self::DEFAULT_FLOOD_HYST_CM);
+        $hystCm = $this->operationalSettings?->float('FLOOD_HYST_CM', self::DEFAULT_FLOOD_HYST_CM)
+            ?? (float) ($_ENV['FLOOD_HYST_CM'] ?? self::DEFAULT_FLOOD_HYST_CM);
         $resetMm = ($limFloodCm + $hystCm) * self::MM_PER_CM;
 
         /** @var array{inFlood: bool, enterSinceTs: int, aboveResetSinceTs: int, lastEmailTs: int} $floodState */
@@ -201,9 +205,12 @@ class Ffp3DerivedAlertService
             $now,
             $limFloodMm,
             $resetMm,
-            (int) ($_ENV['FLOOD_DEBOUNCE_SEC'] ?? self::DEFAULT_FLOOD_DEBOUNCE_SEC),
-            (int) ($_ENV['FLOOD_COOLDOWN_SEC'] ?? self::DEFAULT_FLOOD_COOLDOWN_SEC),
-            (int) ($_ENV['FLOOD_RESET_STABLE_SEC'] ?? self::DEFAULT_FLOOD_RESET_STABLE_SEC),
+            (int) ($this->operationalSettings?->int('FLOOD_DEBOUNCE_SEC', self::DEFAULT_FLOOD_DEBOUNCE_SEC)
+                ?? (int) ($_ENV['FLOOD_DEBOUNCE_SEC'] ?? self::DEFAULT_FLOOD_DEBOUNCE_SEC)),
+            (int) ($this->operationalSettings?->int('FLOOD_COOLDOWN_SEC', self::DEFAULT_FLOOD_COOLDOWN_SEC)
+                ?? (int) ($_ENV['FLOOD_COOLDOWN_SEC'] ?? self::DEFAULT_FLOOD_COOLDOWN_SEC)),
+            (int) ($this->operationalSettings?->int('FLOOD_RESET_STABLE_SEC', self::DEFAULT_FLOOD_RESET_STABLE_SEC)
+                ?? (int) ($_ENV['FLOOD_RESET_STABLE_SEC'] ?? self::DEFAULT_FLOOD_RESET_STABLE_SEC)),
         );
 
         if ($decision === FloodStateMachine::DECISION_SEND_EMAIL) {

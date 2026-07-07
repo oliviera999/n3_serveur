@@ -8,6 +8,7 @@ use App\Controller\AbstractHmacPostDataController;
 use App\Domain\N3ppSensorData;
 use App\Repository\N3ppOutputRepository;
 use App\Repository\N3ppSensorRepository;
+use App\Service\HmacAuditLogger;
 use App\Service\LogService;
 
 /**
@@ -21,10 +22,11 @@ class N3ppPostDataController extends AbstractHmacPostDataController
 {
     public function __construct(
         LogService $logger,
+        ?HmacAuditLogger $hmacAuditLogger,
         private N3ppSensorRepository $sensorRepo,
         private N3ppOutputRepository $outputRepo,
     ) {
-        parent::__construct($logger);
+        parent::__construct($logger, $hmacAuditLogger);
     }
 
     protected function componentName(): string

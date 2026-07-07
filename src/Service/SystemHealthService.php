@@ -8,6 +8,7 @@ use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
+use App\Service\OperationalSettingsService;
 
 /**
  * Service de surveillance de l'état de santé du système.
@@ -29,7 +30,8 @@ class SystemHealthService
         private SensorReadRepository $sensorReadRepo,
         private NotificationService $notifier,
         private LogService $logger,
-        private ?OutputRepository $outputRepo = null
+        private ?OutputRepository $outputRepo = null,
+        private ?OperationalSettingsService $operationalSettings = null,
     ) {
     }
 
@@ -125,6 +127,11 @@ class SystemHealthService
         $dbThreshold = $this->readReserveThresholdFromDb();
         if ($dbThreshold !== null) {
             return $dbThreshold;
+        }
+
+        $envThreshold = $this->operationalSettings?->optionalFloat('RESERVE_LOW_LEVEL_THRESHOLD');
+        if ($envThreshold !== null) {
+            return $envThreshold;
         }
 
         if (!isset($_ENV['RESERVE_LOW_LEVEL_THRESHOLD']) || (string) $_ENV['RESERVE_LOW_LEVEL_THRESHOLD'] === '') {

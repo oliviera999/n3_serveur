@@ -12,6 +12,7 @@ use App\Security\DeviceApiKeyValidator;
 use App\Security\DeviceSignatureValidator;
 use App\Service\GalleryTrashService;
 use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -34,6 +35,7 @@ class GalleryUploadController
         private LogService $logger,
         private GalleryTrashService $trashService,
         private GallerySyncRepository $syncRepository,
+        private ?OperationalSettingsService $operationalSettings = null,
     ) {
     }
 
@@ -73,7 +75,8 @@ class GalleryUploadController
 
         // Rate limiting souple (par IP) — protege contre les rafales (firmware boucle, attaque DoS legere).
         // Defaut : 10 s entre 2 uploads. 0 ou absent = desactive.
-        $rateLimit = (int) ($_ENV['GALLERY_UPLOAD_RATE_LIMIT_SECONDS'] ?? 10);
+        $rateLimit = $this->operationalSettings?->int('GALLERY_UPLOAD_RATE_LIMIT_SECONDS', 10)
+            ?? (int) ($_ENV['GALLERY_UPLOAD_RATE_LIMIT_SECONDS'] ?? 10);
         if ($rateLimit > 0 && !$this->checkRateLimit($request, $gallery, $rateLimit)) {
             return ResponseHelper::text($response, 'Trop de requetes — veuillez patienter', 429);
         }

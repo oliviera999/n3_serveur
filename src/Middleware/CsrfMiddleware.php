@@ -51,6 +51,11 @@ class CsrfMiddleware implements MiddlewareInterface
         // (page d'affichage en GET) via le negative lookahead. Couvre les variantes
         // d'environnement (clear-cache, -test, 3, 3-test, -s3-test).
         '#/admin/clear-cache(?!-page)[0-9a-z-]*$#',
+        '#/admin/api/hmac-audit/toggle$#',
+        '#/admin/api/hmac-audit/toggle-policy$#',
+        '#/admin/api/hmac-audit/reset-policy$#',
+        '#/admin/api/operational-settings$#',
+        '#/admin/api/operational-settings/reset$#',
     ];
 
     private const SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS'];

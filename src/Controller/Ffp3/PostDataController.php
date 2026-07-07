@@ -14,7 +14,10 @@ use App\Repository\SensorRepository;
 use App\Security\Ffp3HmacPostBody;
 use App\Security\SignatureValidator;
 use App\Service\ErrorAlertService;
+use App\Service\HmacAuditLogger;
+use App\Service\HmacPolicyService;
 use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -36,12 +39,15 @@ class PostDataController extends AbstractPostDataController
 
     public function __construct(
         LogService $logger,
+        ?HmacAuditLogger $hmacAuditLogger,
+        ?HmacPolicyService $hmacPolicyService,
+        ?OperationalSettingsService $operationalSettings,
         private ErrorAlertService $errorAlert,
         private SensorRepository $sensorRepo,
         private OutputRepository $outputRepo,
         private BoardRepository $boardRepo
     ) {
-        parent::__construct($logger);
+        parent::__construct($logger, $hmacAuditLogger, $hmacPolicyService, $operationalSettings);
     }
 
     protected function componentName(): string
@@ -69,8 +75,8 @@ class PostDataController extends AbstractPostDataController
         $timestamp = $params['timestamp'] ?? null;
         $signature = $params['signature'] ?? null;
 
-        $strict = filter_var($_ENV['HMAC_STRICT_MODE'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
-        $nonceRequired = filter_var($_ENV['HMAC_NONCE_REQUIRED'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
+        $strict = $this->isHmacStrictMode();
+        $nonceRequired = $this->isHmacNonceRequired();
 
         if ($timestamp !== null || $signature !== null) {
             if ($timestamp === null || $signature === null) {
@@ -91,7 +97,7 @@ class PostDataController extends AbstractPostDataController
                 return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
             }
 
-            $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+            $sigWindow = $this->opInt('SIG_VALID_WINDOW', 300);
             if ($sigWindow <= 0) {
                 $sigWindow = 300;
             }
@@ -132,9 +138,25 @@ class PostDataController extends AbstractPostDataController
                     'post_id' => $postId !== '' ? $postId : null,
                     'nonce_required' => $nonceRequired,
                 ]);
+                $this->recordHmacAudit('reject', $nonceRequired ? 'legacy_nonce' : 'legacy_timestamp', [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                    'sensor' => trim((string) ($params['sensor'] ?? '')),
+                    'version' => trim((string) ($params['version'] ?? '')),
+                    'ts_received' => (string) $timestamp,
+                    'window_s' => $sigWindow,
+                    'post_id' => $postId !== '' ? $postId : null,
+                ], 'signature_invalid');
                 return ResponseHelper::text($response, 'Signature incorrecte', 401);
             }
             $this->authenticatedByHmac = true;
+            $this->recordHmacAudit('ok', $nonceRequired ? 'legacy_nonce' : 'legacy_timestamp', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'ts_received' => (string) $timestamp,
+                'window_s' => $sigWindow,
+                'post_id' => $postId !== '' ? $postId : null,
+            ]);
 
             return null;
         }
@@ -146,6 +168,11 @@ class PostDataController extends AbstractPostDataController
                 'sensor' => trim((string) ($params['sensor'] ?? '')),
                 'version' => trim((string) ($params['version'] ?? '')),
             ]);
+            $this->recordHmacAudit('reject', 'absent', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+            ], 'strict_mode');
             return ResponseHelper::text($response, 'Signature HMAC requise (strict mode)', 401);
         }
 
@@ -224,7 +251,7 @@ class PostDataController extends AbstractPostDataController
             return ResponseHelper::text($response, 'Configuration serveur manquante', 500);
         }
 
-        $sigWindow = (int) ($_ENV['SIG_VALID_WINDOW'] ?? 300);
+        $sigWindow = $this->opInt('SIG_VALID_WINDOW', 300);
         if ($sigWindow <= 0) {
             $sigWindow = 300;
         }
@@ -251,10 +278,33 @@ class PostDataController extends AbstractPostDataController
                 'body_len' => strlen($body),
                 'body_hash' => $body !== '' ? substr(hash('sha256', $body), 0, 16) : null,
             ]);
+            $this->recordHmacAudit('reject', 'x_sig_body', [
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'sensor' => trim((string) ($params['sensor'] ?? '')),
+                'version' => trim((string) ($params['version'] ?? '')),
+                'ts_received' => $headerAuth['timestamp'],
+                'nonce_len' => strlen($headerAuth['nonce']),
+                'window_s' => $sigWindow,
+                'body_source' => $headerAuth['body_source'] ?? 'unknown',
+                'body_len' => strlen($body),
+                'body_hash' => $body !== '' ? substr(hash('sha256', $body), 0, 16) : null,
+            ], 'signature_invalid');
             return ResponseHelper::text($response, 'Signature incorrecte', 401);
         }
 
         $this->authenticatedByHmac = true;
+        $body = $headerAuth['body'];
+        $this->recordHmacAudit('ok', 'x_sig_body', [
+            'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            'sensor' => trim((string) ($params['sensor'] ?? '')),
+            'version' => trim((string) ($params['version'] ?? '')),
+            'ts_received' => $headerAuth['timestamp'],
+            'nonce_len' => strlen($headerAuth['nonce']),
+            'window_s' => $sigWindow,
+            'body_source' => $headerAuth['body_source'] ?? 'unknown',
+            'body_len' => strlen($body),
+            'body_hash' => $body !== '' ? substr(hash('sha256', $body), 0, 16) : null,
+        ]);
 
         return null;
     }

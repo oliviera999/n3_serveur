@@ -16,6 +16,23 @@ use Slim\Psr7\Factory\ResponseFactory;
  */
 class AbstractHmacPostDataControllerTest extends TestCase
 {
+    private ?string $oldStrict = null;
+
+    protected function setUp(): void
+    {
+        $this->oldStrict = $_ENV['HMAC_STRICT_MODE'] ?? null;
+        $_ENV['HMAC_STRICT_MODE'] = 'false';
+    }
+
+    protected function tearDown(): void
+    {
+        if ($this->oldStrict === null) {
+            unset($_ENV['HMAC_STRICT_MODE']);
+        } else {
+            $_ENV['HMAC_STRICT_MODE'] = $this->oldStrict;
+        }
+    }
+
     private function sanitize(array $params): \Closure
     {
         return fn (string $key): ?string =>

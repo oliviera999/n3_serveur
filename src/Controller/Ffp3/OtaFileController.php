@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Ffp3;
 
+use App\Service\OperationalSettingsService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -29,8 +30,10 @@ final class OtaFileController
     private const CHUNK = 65536;
 
     /** @param string $otaDir Dossier racine des fichiers OTA (sans slash final requis). */
-    public function __construct(private string $otaDir)
-    {
+    public function __construct(
+        private string $otaDir,
+        private ?OperationalSettingsService $operationalSettings = null,
+    ) {
     }
 
     /**
@@ -169,7 +172,8 @@ final class OtaFileController
 
     private function enforceAuth(Request $request, Response $response, string $path): ?Response
     {
-        $requireAuth = filter_var($_ENV['OTA_REQUIRE_AUTH'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
+        $requireAuth = $this->operationalSettings?->bool('OTA_REQUIRE_AUTH', false)
+            ?? filter_var($_ENV['OTA_REQUIRE_AUTH'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
         if (!$requireAuth) {
             return null;
         }

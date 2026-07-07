@@ -172,6 +172,8 @@ return [
             '/admin/clear-cache-s3-test',
             '/admin/api/gallery/auto-sort-all',
             '/admin/deploy-script',
+            '/admin/hmac-audit',
+            '/admin/api/hmac-audit/toggle',
         ],
         'reader' => [
             '/dashboard',

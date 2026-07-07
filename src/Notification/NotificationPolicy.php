@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Notification;
 
+use App\Service\OperationalSettingsService;
+
 /**
  * Politique de notification : décide si une alerte donnée doit être envoyée.
  *
@@ -40,6 +42,28 @@ final class NotificationPolicy
         $disabled = [];
         $raw = $_ENV['NOTIF_DISABLED_CATEGORIES'] ?? '';
         if (is_string($raw) && trim($raw) !== '') {
+            foreach (explode(',', $raw) as $token) {
+                $category = NotificationCategory::fromString($token);
+                if ($category !== null) {
+                    $disabled[] = $category;
+                }
+            }
+        }
+
+        return new self($mode, $disabled);
+    }
+
+    /** Construit la politique depuis les réglages opérationnels (BDD > .env). */
+    public static function fromOperationalSettings(OperationalSettingsService $ops): self
+    {
+        $mode = NotificationMode::fromString(
+            $ops->string('NOTIF_MODE', 'full'),
+            NotificationMode::Full
+        );
+
+        $disabled = [];
+        $raw = $ops->string('NOTIF_DISABLED_CATEGORIES', '');
+        if (trim($raw) !== '') {
             foreach (explode(',', $raw) as $token) {
                 $category = NotificationCategory::fromString($token);
                 if ($category !== null) {

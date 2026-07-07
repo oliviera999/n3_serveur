@@ -46,7 +46,7 @@ final class PglPostDataControllerTest extends TestCase
         $repo->expects($this->never())->method('insertEvent');
         $repo->expects($this->never())->method('insertEventIdempotent');
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([
@@ -64,7 +64,7 @@ final class PglPostDataControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->exactly(2))->method('insertEvent');
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([
@@ -89,7 +89,7 @@ final class PglPostDataControllerTest extends TestCase
              ->method('insertEventIdempotent')
              ->willReturn(true);
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([
@@ -117,7 +117,7 @@ final class PglPostDataControllerTest extends TestCase
              ->method('insertEventIdempotent')
              ->willReturnOnConsecutiveCalls(true, false);
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([
@@ -147,7 +147,7 @@ final class PglPostDataControllerTest extends TestCase
              ->method('insertEventIdempotent')
              ->willReturn(true);
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([
@@ -183,7 +183,7 @@ final class PglPostDataControllerTest extends TestCase
                 '0.2.0'
             );
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([
@@ -207,7 +207,7 @@ final class PglPostDataControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->once())->method('insertEvent');
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([
@@ -232,7 +232,7 @@ final class PglPostDataControllerTest extends TestCase
         $repo->expects($this->never())->method('insertEvent');
         $repo->expects($this->never())->method('insertEventIdempotent');
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([
@@ -255,7 +255,7 @@ final class PglPostDataControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->never())->method('insertEvent');
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([
@@ -283,7 +283,7 @@ final class PglPostDataControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->once())->method('insertEvent');
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([
@@ -311,7 +311,7 @@ final class PglPostDataControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->once())->method('insertEvent');
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withAttribute(RawPostBodyMiddleware::ATTRIBUTE, $rawBody)
@@ -338,7 +338,7 @@ final class PglPostDataControllerTest extends TestCase
         $repo = $this->createMock(PglRepository::class);
         $repo->expects($this->never())->method('insertEvent');
 
-        $controller = new PglPostDataController($this->createMock(LogService::class), $repo);
+        $controller = new PglPostDataController($this->createMock(LogService::class), null, null, null, $repo);
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/pgl/post-data')
             ->withParsedBody([

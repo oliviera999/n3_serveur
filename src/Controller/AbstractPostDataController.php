@@ -4,9 +4,14 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Controller\Concerns\HmacPolicyTrait;
+use App\Controller\Concerns\OperationalSettingsTrait;
 use App\Middleware\RawPostBodyMiddleware;
 use App\Security\RateLimiter;
+use App\Service\HmacAuditLogger;
+use App\Service\HmacPolicyService;
 use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -19,12 +24,32 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 abstract class AbstractPostDataController
 {
+    use HmacPolicyTrait;
+    use OperationalSettingsTrait;
+
     /** True si l'authentification HMAC FFP3 a réussi (évite le double contrôle api_key). */
     protected bool $authenticatedByHmac = false;
 
     public function __construct(
-        protected LogService $logger
+        protected LogService $logger,
+        protected ?HmacAuditLogger $hmacAuditLogger = null,
+        ?HmacPolicyService $hmacPolicyService = null,
+        ?OperationalSettingsService $operationalSettings = null,
     ) {
+        $this->hmacPolicyService = $hmacPolicyService;
+        $this->operationalSettings = $operationalSettings;
+    }
+
+    /**
+     * @param array<string, scalar|null> $context
+     */
+    protected function recordHmacAudit(
+        string $result,
+        string $authMode,
+        array $context = [],
+        ?string $reason = null
+    ): void {
+        $this->hmacAuditLogger?->record($this->componentName(), $result, $authMode, $context, $reason);
     }
 
     abstract protected function componentName(): string;
@@ -61,11 +86,11 @@ abstract class AbstractPostDataController
      */
     private function enforceFirmwareRateLimit(Request $request, Response $response, string $component): ?Response
     {
-        $max = (int) ($_ENV['FIRMWARE_RATE_LIMIT_MAX'] ?? 0);
+        $max = $this->opInt('FIRMWARE_RATE_LIMIT_MAX', 0);
         if ($max <= 0) {
             return null;
         }
-        $window = (int) ($_ENV['FIRMWARE_RATE_LIMIT_WINDOW'] ?? 60);
+        $window = $this->opInt('FIRMWARE_RATE_LIMIT_WINDOW', 60);
         if ($window <= 0) {
             $window = 60;
         }

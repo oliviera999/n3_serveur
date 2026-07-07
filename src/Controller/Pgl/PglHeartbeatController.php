@@ -6,7 +6,10 @@ namespace App\Controller\Pgl;
 
 use App\Controller\Concerns\PglHmacAuthTrait;
 use App\Repository\PglRepository;
+use App\Service\HmacAuditLogger;
+use App\Service\HmacPolicyService;
 use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -24,11 +27,17 @@ final class PglHeartbeatController
 
     public function __construct(
         private LogService $logger,
+        ?HmacAuditLogger $hmacAuditLogger,
+        ?HmacPolicyService $hmacPolicyService,
+        ?OperationalSettingsService $operationalSettings,
         private PglRepository $repository,
     ) {
+        $this->hmacAuditLogger = $hmacAuditLogger;
+        $this->hmacPolicyService = $hmacPolicyService;
+        $this->operationalSettings = $operationalSettings;
     }
 
-    private function componentName(): string
+    protected function componentName(): string
     {
         return 'PglHeartbeat';
     }

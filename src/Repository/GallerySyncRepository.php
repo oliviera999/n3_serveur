@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Service\OperationalSettingsService;
 use InvalidArgumentException;
+use PDO;
 
 /**
  * Sessions de synchronisation des galeries photo (uploadphotosserver).
@@ -30,6 +32,13 @@ class GallerySyncRepository extends AbstractRepository
 
     /** Fenetre (secondes) au-dela de laquelle l'appareil est considere hors-ligne. */
     private const DEFAULT_ONLINE_WINDOW_SECONDS = 1500; // 25 min (deep sleep 10 min + marge)
+
+    public function __construct(
+        PDO $pdo,
+        private ?OperationalSettingsService $operationalSettings = null,
+    ) {
+        parent::__construct($pdo);
+    }
 
     private function assertSlug(string $slug): void
     {
@@ -256,7 +265,8 @@ class GallerySyncRepository extends AbstractRepository
         if ($ts === false) {
             return false;
         }
-        $window = (int) ($_ENV['GALLERY_SYNC_ONLINE_WINDOW_SECONDS'] ?? self::DEFAULT_ONLINE_WINDOW_SECONDS);
+        $window = $this->operationalSettings?->int('GALLERY_SYNC_ONLINE_WINDOW_SECONDS', self::DEFAULT_ONLINE_WINDOW_SECONDS)
+            ?? (int) ($_ENV['GALLERY_SYNC_ONLINE_WINDOW_SECONDS'] ?? self::DEFAULT_ONLINE_WINDOW_SECONDS);
         if ($window <= 0) {
             $window = self::DEFAULT_ONLINE_WINDOW_SECONDS;
         }
