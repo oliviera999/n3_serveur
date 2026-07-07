@@ -442,7 +442,7 @@ final class OperationalSettingsCatalog
     }
 
     /**
-     * @return array<string, array<string, mixed>>|null
+     * @return array<string, mixed>|null
      */
     public static function get(string $envKey): ?array
     {

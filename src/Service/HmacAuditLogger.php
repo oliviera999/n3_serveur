@@ -8,6 +8,7 @@ use App\Repository\ServerSettingsRepository;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
+use Monolog\Level;
 use Monolog\Logger;
 
 /**
@@ -121,7 +122,7 @@ final class HmacAuditLogger
             $message .= ' reason=' . $reason;
         }
 
-        $level = $result === 'ok' ? Logger::INFO : Logger::WARNING;
+        $level = $result === 'ok' ? Level::Info : Level::Warning;
         $this->logger->log($level, $message, $payload);
     }
 
@@ -191,7 +192,7 @@ final class HmacAuditLogger
         $dir = dirname($path);
         $base = pathinfo($path, PATHINFO_FILENAME);
         $ext = pathinfo($path, PATHINFO_EXTENSION) ?: 'log';
-        $pattern = $dir . DIRECTORY_SEPARATOR . $base . '*' . ($ext !== '' ? '.' . $ext : '');
+        $pattern = $dir . DIRECTORY_SEPARATOR . $base . '*.' . $ext;
         $files = glob($pattern);
         if ($files === false || $files === []) {
             return is_file($path) ? [$path] : [];
