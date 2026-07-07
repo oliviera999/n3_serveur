@@ -36,6 +36,7 @@ données (msp1, n3pp, ffp3, poissonglouton), contrôle des sorties, galeries pho
 | [LIVE_MODE_IMPLEMENTATION.md](LIVE_MODE_IMPLEMENTATION.md) | Implémentation du mode LIVE (polling temps réel). |
 | [TIMEZONE_MANAGEMENT.md](TIMEZONE_MANAGEMENT.md) | Gestion des fuseaux horaires (Europe/Paris). |
 | [ERROR_ALERT_SERVICE.md](ERROR_ALERT_SERVICE.md) | Service d’alerte sur erreurs (`ErrorAlertService`). |
+| [ARCHITECTURE_MAILS_ARBITRAGE.md](ARCHITECTURE_MAILS_ARBITRAGE.md) | Audit + plan cible d’arbitrage des e-mails (serveur primaire / ESP en relais), toutes familles (ffp5cs, n3pp, uploadphotosserver). |
 | [DEBUG_ERREURS_SERVEUR.md](DEBUG_ERREURS_SERVEUR.md) | Diagnostic d’erreurs serveur à partir d’une référence (HTTP 500). |
 | [CLEAR_CACHE_OPTIONS.md](CLEAR_CACHE_OPTIONS.md) | Options de vidage du cache. |
 | [SERVEUR_DISTANT_GUIDE.md](SERVEUR_DISTANT_GUIDE.md) | Guide du serveur distant. |
