@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.21.3] - 2026-07-07
+
+### Correctifs PHPStan (dette pré-existante — quota `Tests & qualité` remis au vert)
+- **Contexte** : la CI `analyse` (PHPStan niveau 6) était rouge sur 4 erreurs pré-existantes issues des features supervision 6.19–6.21 (latentes tant que `cs:check` échouait avant PHPStan). Aucun changement de comportement.
+- `src/Service/HmacAuditLogger.php:125` — **vrai correctif** : `Logger::log()` (Monolog 3) recevait un entier (`Logger::INFO`/`Logger::WARNING`, 200/300) au lieu d'un niveau typé → utilise l'enum `Monolog\Level::Info` / `Level::Warning`. Les niveaux passés aux **handlers** (lignes 47-48) restent `Logger::INFO` (acceptés en `int`, non signalés).
+- `src/Service/HmacAuditLogger.php:194` — comparaison toujours vraie supprimée : `$ext = pathinfo(...) ?: 'log'` est toujours non vide, donc `($ext !== '' ? '.'.$ext : '')` se simplifie en `'.'.$ext` (comportement identique).
+- `src/Config/OperationalSettingsCatalog.php:449` — annotation de retour corrigée : `get()` renvoie une entrée du catalogue (`array<string, mixed>|null`) et non un niveau de plus (`array<string, array<string, mixed>>|null`).
+- `src/Controller/SupervisionController.php:23` — dépendance injectée mais jamais lue supprimée (`OperationalSettingsService`, propriété promue + import). Contrôleur auto-câblé (autowiring), aucun changement de définition DI ; le panneau « Réglages opérationnels » passe par ses propres endpoints (`/admin/api/operational-settings`).
+
 ## [6.21.2] - 2026-07-07
 
 ### Nomenclature `ffp3` / `ffp5cs` — clarification (doc + fixtures de test)

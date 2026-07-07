@@ -8,7 +8,6 @@ use App\Config\Version;
 use App\Repository\NavPageRepository;
 use App\Service\HmacAuditLogger;
 use App\Service\HmacPolicyService;
-use App\Service\OperationalSettingsService;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -20,7 +19,6 @@ class SupervisionController
         private NavPageRepository $navPageRepository,
         private HmacAuditLogger $hmacAuditLogger,
         private HmacPolicyService $hmacPolicyService,
-        private OperationalSettingsService $operationalSettings,
     ) {
     }
 
