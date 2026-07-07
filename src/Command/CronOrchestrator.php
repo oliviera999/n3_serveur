@@ -8,10 +8,13 @@ use App\Config\Database;
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\HeartbeatMonitorRepository;
+use App\Repository\OutputMonitorRepository;
+use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
 use App\Service\DeviceHealthService;
 use App\Service\LogService;
 use App\Service\NotificationService;
+use App\Service\OfflineThresholdResolver;
 use App\Service\PumpService;
 use App\Service\SensorDataService;
 use App\Service\SensorStatisticsService;
@@ -26,6 +29,15 @@ class CronOrchestrator
     /** Distance capteur→surface (mm) au-delà de laquelle l'eau est considérée basse (aligné aqThreshold firmware, 18 cm). */
     private const DEFAULT_AQUA_LOW_LEVEL_THRESHOLD_MM = 180.0;
 
+    /** GPIO 102 (FFP3) : seuil aquarium firmware, exprimé en CENTIMÈTRES en BDD. */
+    private const AQ_THRESHOLD_GPIO = 102;
+    /** GPIO server-only 129 (FFP3) : seuil d'écart-type marées. */
+    private const TIDE_STDDEV_GPIO = 129;
+    /** Conversion cm→mm (EauAquarium est stocké en mm ; le seuil BDD GPIO 102 est en cm). */
+    private const MM_PER_CM = 10.0;
+    /** Forfait hors-ligne (s) de repli quand aucun résolveur dérivé n'est disponible. */
+    private const DEFAULT_OFFLINE_FALLBACK_SECONDS = 3600;
+
     private const LOCK_FILENAME = 'cron_orchestrator.lock';
     private const HOURLY_STATE_FILENAME = 'cron_last_hourly.timestamp';
     private const PUMP_RESTART_FLAG_FILENAME = 'pump_restart_scheduled.flag';
@@ -39,6 +51,8 @@ class CronOrchestrator
     private SystemHealthService $healthService;
     private DeviceHealthService $deviceHealthService;
     private RestartPumpCommand $restartPumpCommand;
+    private ?OutputRepository $outputRepo;
+    private ?OfflineThresholdResolver $offlineResolver;
 
     private float $aquaLowThreshold;
     private float $stddevThreshold;
@@ -58,6 +72,8 @@ class CronOrchestrator
         ?SystemHealthService $healthService = null,
         ?DeviceHealthService $deviceHealthService = null,
         ?RestartPumpCommand $restartPumpCommand = null,
+        ?OutputRepository $outputRepo = null,
+        ?OfflineThresholdResolver $offlineResolver = null,
         ?string $lockDir = null,
         ?string $stateDir = null,
         ?string $pumpRestartFlagFile = null,
@@ -80,15 +96,26 @@ class CronOrchestrator
         $this->statsService = $statsService ?? new SensorStatisticsService($pdo);
         $this->notifier = $notifier ?? new NotificationService($this->logger);
         $this->sensorReadRepo = $sensorReadRepo ?? new SensorReadRepository($pdo);
+
+        // Lecture des seuils pilotés en BDD. Restent null en contexte de test (toutes les
+        // dépendances injectées, pas de PDO) : les seuils retombent alors sur `.env` / défauts.
+        $this->outputRepo = $outputRepo ?? ($pdo !== null ? new OutputRepository($pdo) : null);
+        $this->offlineResolver = $offlineResolver
+            ?? ($pdo !== null ? new OfflineThresholdResolver(new OutputMonitorRepository($pdo)) : null);
+
         $this->healthService = $healthService ?? new SystemHealthService(
             $this->sensorReadRepo,
             $this->notifier,
-            $this->logger
+            $this->logger,
+            $this->outputRepo
         );
         $this->deviceHealthService = $deviceHealthService ?? new DeviceHealthService(
             new HeartbeatMonitorRepository($pdo ?? Database::getConnection()),
             $this->notifier,
-            $this->logger
+            $this->logger,
+            null,
+            null,
+            $this->offlineResolver
         );
 
         $this->aquaLowThreshold = (float) (
@@ -215,7 +242,7 @@ class CronOrchestrator
     protected function runHourlyTasks(): void
     {
         $this->logger->info('Lancement des tâches horaires CRON...');
-        $this->healthService->checkOnlineStatus();
+        $this->healthService->checkOnlineStatus($this->resolveFfp3OfflineThresholdSeconds());
         $this->healthService->checkTankLevel();
         // Supervision « appareil silencieux » généralisée à toutes les familles (FFP3/N3PP/MSP1).
         $this->deviceHealthService->checkAllFamilies();
@@ -241,11 +268,13 @@ class CronOrchestrator
         $lastReading = $this->sensorReadRepo->getLastReadings();
         $lastWaterLevel = $lastReading['EauAquarium'] ?? null;
 
+        $threshold = $this->resolveAquaLowThresholdMm();
+
         $this->logger->addName("Dernier niveau d'eau aquarium: ");
         $this->logger->addTask((string) $lastWaterLevel);
 
         // EauAquarium = distance capteur→surface en mm : valeur élevée = eau basse (comme côté firmware).
-        if ($lastWaterLevel === null || $lastWaterLevel <= $this->aquaLowThreshold) {
+        if ($lastWaterLevel === null || $lastWaterLevel <= $threshold) {
             return;
         }
 
@@ -258,7 +287,7 @@ class CronOrchestrator
             "La distance capteur→surface de l'aquarium a atteint %.0f mm (seuil %.0f mm).\n"
             . "L'eau est considérée trop basse. La pompe réservoir a été arrêtée automatiquement pour éviter une panne sèche.",
             $lastWaterLevel,
-            $this->aquaLowThreshold
+            $threshold
         );
         $this->notifier->sendAlert(
             Severity::Critical,
@@ -274,7 +303,7 @@ class CronOrchestrator
     {
         $stddev = $this->statsService->stddevOnLastReadings('EauAquarium');
 
-        if ($stddev === null || $stddev >= $this->stddevThreshold) {
+        if ($stddev === null || $stddev >= $this->resolveTideStddevThreshold()) {
             return;
         }
 
@@ -283,6 +312,65 @@ class CronOrchestrator
         file_put_contents($this->pumpRestartFlagFile, (string) time());
         $this->logger->info('Pompe aquarium arrêtée. Redémarrage programmé dans 5 minutes via prochain CRON.');
         $this->notifier->notifyMareesProblem();
+    }
+
+    /**
+     * Seuil aquarium bas (mm). Priorité BDD : GPIO 102 (seuil firmware en cm) × 10 = mm.
+     * Repli sur `.env` AQUA_LOW_LEVEL_THRESHOLD / défaut 180 mm si BDD absente/invalide.
+     */
+    private function resolveAquaLowThresholdMm(): float
+    {
+        $cm = $this->readPositiveOutputFloat(self::AQ_THRESHOLD_GPIO);
+        if ($cm !== null) {
+            return $cm * self::MM_PER_CM;
+        }
+
+        return $this->aquaLowThreshold;
+    }
+
+    /**
+     * Seuil d'écart-type marées. Priorité BDD : GPIO server-only 129. Repli `.env`
+     * TIDE_STDDEV_THRESHOLD / défaut 1.0.
+     */
+    private function resolveTideStddevThreshold(): float
+    {
+        return $this->readPositiveOutputFloat(self::TIDE_STDDEV_GPIO) ?? $this->stddevThreshold;
+    }
+
+    /**
+     * Seuil hors-ligne FFP3 (s) dérivé du temps de veille en BDD (facteur nuit compris),
+     * ou forfait 3600 s si aucun résolveur n'est disponible (contexte de test).
+     */
+    private function resolveFfp3OfflineThresholdSeconds(): int
+    {
+        return $this->offlineResolver?->resolveForFamily('FFP3') ?? self::DEFAULT_OFFLINE_FALLBACK_SECONDS;
+    }
+
+    /**
+     * Lit un output FFP3 (environnement courant) et retourne sa valeur flottante si > 0,
+     * sinon null (repo absent, ligne vide / non numérique, ou valeur ≤ 0).
+     */
+    private function readPositiveOutputFloat(int $gpio): ?float
+    {
+        if ($this->outputRepo === null) {
+            return null;
+        }
+
+        try {
+            $row = $this->outputRepo->findByGpio($gpio);
+        } catch (\Throwable $e) {
+            $this->logger->addEvent('Lecture output GPIO ' . $gpio . ' impossible: ' . $e->getMessage());
+
+            return null;
+        }
+
+        if ($row === null || !isset($row['state']) || $row['state'] === '' || !is_numeric($row['state'])) {
+            return null;
+        }
+
+        $value = (float) $row['state'];
+
+        return $value > 0 ? $value : null;
     }
 
     private function logHourlyStddev(): void

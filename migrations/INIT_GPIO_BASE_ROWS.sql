@@ -44,9 +44,10 @@ INSERT INTO ffp3Outputs (gpio, name, board, state, description)
 VALUES (101, 'Notif Mail', 'CONFIG', 1, 'Activation notifications email (0=off, 1=on)')
 ON DUPLICATE KEY UPDATE name='Notif Mail', board='CONFIG', description='Activation notifications email (0=off, 1=on)';
 
--- GPIO 102: Seuil aquarium
+-- GPIO 102: Seuil aquarium — défaut aligné firmware GPIODefaults::AQ_THRESHOLD_CM = 18 cm
+-- (le serveur lit GPIO 102 en cm puis × 10 = mm pour l'alerte niveau bas).
 INSERT INTO ffp3Outputs (gpio, name, board, state, description)
-VALUES (102, 'Seuil Aquarium', 'CONFIG', 7, 'Niveau eau minimal aquarium (cm)')
+VALUES (102, 'Seuil Aquarium', 'CONFIG', 18, 'Niveau eau minimal aquarium (cm)')
 ON DUPLICATE KEY UPDATE name='Seuil Aquarium', board='CONFIG', description='Niveau eau minimal aquarium (cm)';
 
 -- GPIO 103: Seuil réserve
@@ -114,9 +115,9 @@ INSERT INTO ffp3Outputs (gpio, name, board, state, description)
 VALUES (115, 'WakeUp', 'CONFIG', 0, 'Réveil forcé ESP32')
 ON DUPLICATE KEY UPDATE name='WakeUp', board='CONFIG', description='Réveil forcé ESP32';
 
--- GPIO 116: Fréquence réveil
+-- GPIO 116: Fréquence réveil — défaut aligné firmware GPIOMap::FREQ_WAKEUP = 600 s.
 INSERT INTO ffp3Outputs (gpio, name, board, state, description)
-VALUES (116, 'Freq WakeUp', 'CONFIG', 300, 'Fréquence réveil ESP32 (secondes)')
+VALUES (116, 'Freq WakeUp', 'CONFIG', 600, 'Fréquence réveil ESP32 (secondes)')
 ON DUPLICATE KEY UPDATE name='Freq WakeUp', board='CONFIG', description='Fréquence réveil ESP32 (secondes)';
 
 -- GPIO 117: Forçage pompe aquarium ON

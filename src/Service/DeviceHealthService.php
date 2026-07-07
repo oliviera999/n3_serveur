@@ -43,7 +43,8 @@ class DeviceHealthService
         private NotificationService $notifier,
         private LogService $logger,
         ?int $offlineThresholdSeconds = null,
-        private ?array $families = null
+        private ?array $families = null,
+        private ?OfflineThresholdResolver $thresholdResolver = null
     ) {
         $this->offlineThresholdSeconds = $offlineThresholdSeconds
             ?? (int) ($_ENV['HEARTBEAT_OFFLINE_THRESHOLD_SECONDS'] ?? self::DEFAULT_OFFLINE_THRESHOLD_SECONDS);
@@ -122,24 +123,40 @@ class DeviceHealthService
             return false;
         }
 
+        $threshold = $this->resolveThresholdSeconds($family);
         $ageSeconds = time() - $lastTs;
-        if ($ageSeconds <= $this->offlineThresholdSeconds) {
+        if ($ageSeconds <= $threshold) {
             $this->logger->info('DeviceHealthService: appareil en ligne', [
                 'family' => $family,
                 'age_seconds' => $ageSeconds,
+                'threshold_seconds' => $threshold,
             ]);
 
             return false;
         }
 
-        return $this->alertOffline($family, $ageSeconds);
+        return $this->alertOffline($family, $ageSeconds, $threshold);
+    }
+
+    /**
+     * Seuil d'inactivité (s) pour la famille : dérivé du temps de veille en BDD si un
+     * {@see OfflineThresholdResolver} est fourni (tient compte du facteur nuit FFP3),
+     * sinon le forfait historique ({@see $offlineThresholdSeconds}).
+     */
+    private function resolveThresholdSeconds(string $family): int
+    {
+        if ($this->thresholdResolver !== null) {
+            return $this->thresholdResolver->resolveForFamily($family);
+        }
+
+        return $this->offlineThresholdSeconds;
     }
 
     /**
      * Émet l'alerte « appareil silencieux » pour une famille. L'anti-spam (clé par famille)
      * empêche les doublons à chaque cycle CRON.
      */
-    private function alertOffline(string $family, int $ageSeconds): bool
+    private function alertOffline(string $family, int $ageSeconds, int $thresholdSeconds): bool
     {
         $minutes = (int) round($ageSeconds / 60);
         $this->logger->critical('DeviceHealthService: appareil silencieux', [
@@ -153,7 +170,7 @@ class DeviceHealthService
             . 'sa connexion réseau ou son firmware.',
             strtoupper($family),
             $minutes,
-            (int) round($this->offlineThresholdSeconds / 60)
+            (int) round($thresholdSeconds / 60)
         );
 
         return $this->notifier->sendAlert(
