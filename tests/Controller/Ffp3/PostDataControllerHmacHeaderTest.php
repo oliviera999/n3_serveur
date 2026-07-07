@@ -52,9 +52,9 @@ class PostDataControllerHmacHeaderTest extends TestCase
             ->willReturn(true);
 
         $controller = $this->createController($sensorRepo);
-        $payload = 'sensor=ffp5cs&version=13.80&post_id=post-hmac-1';
+        $payload = 'sensor=ffp3&version=13.80&post_id=post-hmac-1';
         $request = $this->signedRequest($payload, [
-            'sensor' => 'ffp5cs',
+            'sensor' => 'ffp3',
             'version' => '13.80',
             'post_id' => 'post-hmac-1',
         ]);
@@ -71,9 +71,9 @@ class PostDataControllerHmacHeaderTest extends TestCase
         $sensorRepo->expects($this->never())->method('existsByPostId');
 
         $controller = $this->createController($sensorRepo);
-        $payload = 'sensor=ffp5cs&version=13.80&post_id=post-hmac-2';
+        $payload = 'sensor=ffp3&version=13.80&post_id=post-hmac-2';
         $request = $this->signedRequest($payload, [
-            'sensor' => 'ffp5cs',
+            'sensor' => 'ffp3',
             'version' => '13.80',
             'post_id' => 'post-hmac-2',
         ], 'bad-signature');

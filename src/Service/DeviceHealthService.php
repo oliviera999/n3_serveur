@@ -8,7 +8,6 @@ use App\Config\TableConfig;
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\HeartbeatMonitorRepository;
-use App\Service\OperationalSettingsService;
 
 /**
  * Supervision « appareil silencieux » (heartbeat) GÉNÉRALISÉE À TOUTES LES FAMILLES.

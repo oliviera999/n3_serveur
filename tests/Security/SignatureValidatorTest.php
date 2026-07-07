@@ -122,7 +122,7 @@ class SignatureValidatorTest extends TestCase
         $secret = 'mysecret';
         $timestamp = time();
         $nonce = 'nonce-ffp5cs-v13-80';
-        $body = 'sensor=ffp5cs&version=13.80&TempAir=22.5';
+        $body = 'sensor=ffp3&version=13.80&TempAir=22.5';
         $sig = SignatureValidator::createSignatureForBody($timestamp, $nonce, $body, $secret);
 
         $this->assertTrue(SignatureValidator::isValidForBody(
@@ -140,12 +140,12 @@ class SignatureValidatorTest extends TestCase
         $secret = 'mysecret';
         $timestamp = time();
         $nonce = 'nonce-ffp5cs-v13-80';
-        $sig = SignatureValidator::createSignatureForBody($timestamp, $nonce, 'sensor=ffp5cs&TempAir=22.5', $secret);
+        $sig = SignatureValidator::createSignatureForBody($timestamp, $nonce, 'sensor=ffp3&TempAir=22.5', $secret);
 
         $this->assertFalse(SignatureValidator::isValidForBody(
             (string) $timestamp,
             $nonce,
-            'sensor=ffp5cs&TempAir=99.9',
+            'sensor=ffp3&TempAir=99.9',
             $sig,
             $secret,
             300

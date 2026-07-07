@@ -186,7 +186,7 @@ public/index.php (front controller Slim 4)  ← Route Slim Framework
 | **Endpoint POST** | `/ffp3/post-data-test` | `/ffp3/post-data3-test` | `/ffp3/post-data` | `/ffp3/post-data3` |
 | **Endpoint GET** | `/ffp3/api/outputs-test/state` | `/ffp3/api/outputs3-test/state` | `/ffp3/api/outputs/state` | `/ffp3/api/outputs3/state` |
 | **Endpoint Heartbeat** | `/ffp3/heartbeat-test` | `/ffp3/heartbeat3-test` | `/ffp3/heartbeat` | `/ffp3/heartbeat3` |
-| **Table Data** | `ffp3Data2` | `ffp3Data3` | `ffp3Data` | `ffp3Data4` |
+| **Table Data** | `ffp3Data2` | `ffp3Data3` | `ffp3Data` | `ffp3DataS3` |
 | **Table Outputs** | `ffp3Outputs2` | `ffp3Outputs3` | `ffp3Outputs` | `ffp3OutputsS3` |
 | **Page contrôle** | `/aquaponie-control-test` | `/aquamobile-control-test` | `/aquaponie-control` | `/aquamobile-control` |
 | **Page aquaponie** | `/aquaponie-test` | `/aquamobile-test` | `/aquaponie` | `/aquamobile` |
@@ -229,6 +229,11 @@ Pour isoler latence réseau/infra vs traitement PHP :
 
 ## 📏 Validation des champs POST (PostDataController)
 
+- **sensor** : identité **système** envoyée par le firmware. Depuis **FFP5CS v15.09**, vaut
+  `ffp3` (le système), et non plus le type de carte (`esp32-wroom`/`esp32-s3`). Le serveur le
+  **journalise et le stocke** (tronqué à 30 car.) mais **ne le valide pas** et **ne route pas**
+  dessus : l'environnement/table vient de la route (`/post-data` vs `/post-data3`…). Nomenclature
+  complète : [`NOMENCLATURE_FFP3.md`](NOMENCLATURE_FFP3.md).
 - **sensor**, **version** : tronqués à 30 caractères (taille colonne BDD).
 - **mail**, **mailNotif** : tronqués à 255 caractères avant insertion (évite erreur SQL si colonnes VARCHAR(255)).  
   Fichier : `src/Controller/Ffp3/PostDataController.php` (relatif à la racine du dépôt serveur).

@@ -212,13 +212,13 @@ final class Ffp3DerivedAlertServiceTest extends TestCase
         // Niveau haut (pas de flood) + chauffage constant : on isole la version.
         $readingV1 = $this->reading(200.0, 0);
         $readingV1['version'] = '15.09';
-        $readingV1['sensor'] = 'ffp5cs';
+        $readingV1['sensor'] = 'ffp3';
         $service = $this->buildService($readingV1, $notifier);
         $service->run(); // initialise sans notifier
 
         $readingV2 = $this->reading(200.0, 0);
         $readingV2['version'] = '15.10';
-        $readingV2['sensor'] = 'ffp5cs';
+        $readingV2['sensor'] = 'ffp3';
         $service = $this->buildService($readingV2, $notifier);
         $service->run(); // changement de version -> mail
         $service->run(); // même version -> pas de re-mail (expects once)
