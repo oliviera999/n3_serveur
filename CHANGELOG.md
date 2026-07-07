@@ -11,6 +11,22 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.15.0] - 2026-07-07
+
+### Supervision — seuils d'alerte pilotés par la BDD de contrôle + seuil « hors ligne » dérivé du temps de veille (facteur nuit)
+- **Problème** : le seuil « hors ligne » de la supervision était un **forfait fixe de 3600 s**, sans lien avec le temps de veille réel des modules (`FreqWakeUp`, piloté en BDD et **allongé la nuit** par le firmware ffp5cs, ×3). Résultat : fausses alertes « appareil silencieux » / « système hors ligne » dès que la veille approchait/dépassait l'heure. En parallèle, plusieurs seuils d'alerte FFP3 étaient dupliqués dans `.env` alors que la valeur de référence vivait déjà en BDD.
+- **Seuil hors-ligne dérivé** (`src/Service/OfflineThresholdResolver.php`, nouveau) : calcule, **par famille**, `seuil = veille × cycles_tolérés + marge` (borné 60 s–24 h) à partir de `FreqWakeUp` (FFP3 GPIO 116, N3PP/MSP GPIO 107). Pour FFP3, le **facteur nuit** est reflété en BDD par des lignes **server-only** (GPIO 126 multiplicateur, 127 début, 128 fin de nuit) — **miroir des constantes firmware, sans modifier le firmware**.
+- **Généralisé aux trois familles** : `DeviceHealthService` (heartbeat) accepte le résolveur et l'applique à FFP3/N3PP/MSP1 ; `SystemHealthService::checkOnlineStatus` reçoit le seuil FFP3 dérivé depuis `CronOrchestrator`.
+- **Seuils d'alerte lus en BDD** (repli `.env` conservé) :
+  - **Niveau aquarium bas** : lu depuis GPIO 102 (`aqThreshold`, cm) × 10 = mm — aligné firmware — au lieu de `AQUA_LOW_LEVEL_THRESHOLD`.
+  - **Écart-type marées** : nouvelle ligne server-only GPIO 129 (repli `TIDE_STDDEV_THRESHOLD`).
+  - **Réserve basse** : nouvelle ligne server-only GPIO 130 en mm, vide = désactivé (opt-in préservé, repli `RESERVE_LOW_LEVEL_THRESHOLD`).
+- **Lecture par table explicite** (`src/Repository/OutputMonitorRepository.php`, nouveau) : lit un GPIO dans n'importe quelle table outputs (whitelist stricte toutes familles/env), pour reconstituer la veille de N3PP/MSP hors de la table FFP3 courante.
+- **Migration** `migrations/2026_07_night_sleep_and_alert_gpio.sql` : seed des lignes server-only 126-130 sur toutes les tables FFP3 (prod + variantes). Réconciliation des défauts `INIT_GPIO_BASE_ROWS.sql` : GPIO 102 `7 → 18` cm et GPIO 116 `300 → 600` s (fresh installs uniquement ; `ON DUPLICATE` ne touche pas `state`, prod préservée).
+- **Rétro-compatibilité** : les nouvelles dépendances (résolveur, `OutputRepository`) sont **optionnelles** ; sans elles, le comportement `.env`/forfait historique est conservé (aucune régression des suites existantes).
+- **Tests** : `OfflineThresholdResolverTest` (formule jour/nuit, bornes, familles) + deux cas `DeviceHealthServiceTest` (le seuil dérivé prime sur le forfait).
+- **Note** : rendre ces lignes server-only éditables depuis l'UI de contrôle (widgets) reste un follow-up ; elles sont pour l'instant seedées avec les défauts firmware et modifiables en BDD.
+
 ## [6.14.1] - 2026-07-06
 
 ### Fix — « Erreur réseau » sur les réglages de notifications et le test d'envoi mail (pages de contrôle)

@@ -10,6 +10,7 @@ use App\Repository\HeartbeatMonitorRepository;
 use App\Service\DeviceHealthService;
 use App\Service\LogService;
 use App\Service\NotificationService;
+use App\Service\OfflineThresholdResolver;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -180,6 +181,54 @@ final class DeviceHealthServiceTest extends TestCase
                 $_ENV['HEARTBEAT_OFFLINE_THRESHOLD_SECONDS'] = $previous;
             }
         }
+    }
+
+    public function testResolverThresholdOverridesFixedThreshold(): void
+    {
+        // Le résolveur (dérivé du temps de veille BDD) prime sur le forfait fixe.
+        // Heartbeat vieux de 20 min (1200 s) : sous le forfait 3600 s (pas d'alerte),
+        // mais au-dessus du seuil dérivé 660 s -> alerte attendue.
+        $repo = $this->repoReturning(['n3ppHeartbeat' => date('Y-m-d H:i:s', strtotime('-20 minutes'))]);
+
+        $resolver = $this->createMock(OfflineThresholdResolver::class);
+        $resolver->method('resolveForFamily')->willReturn(660);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->once())->method('sendAlert')->willReturn(true);
+
+        $service = new DeviceHealthService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            3600,
+            [['family' => 'N3PP', 'table' => 'n3ppHeartbeat']],
+            $resolver
+        );
+
+        self::assertSame(1, $service->checkAllFamilies());
+    }
+
+    public function testResolverKeepsDeviceOnlineWithinDerivedThreshold(): void
+    {
+        // Heartbeat vieux de 5 min (300 s) < seuil dérivé 660 s -> pas d'alerte.
+        $repo = $this->repoReturning(['n3ppHeartbeat' => date('Y-m-d H:i:s', strtotime('-5 minutes'))]);
+
+        $resolver = $this->createMock(OfflineThresholdResolver::class);
+        $resolver->method('resolveForFamily')->willReturn(660);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendAlert');
+
+        $service = new DeviceHealthService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            60, // forfait volontairement petit : le résolveur doit primer
+            [['family' => 'N3PP', 'table' => 'n3ppHeartbeat']],
+            $resolver
+        );
+
+        self::assertSame(0, $service->checkAllFamilies());
     }
 
     public function testDefaultFamiliesCoverThreeFamilies(): void

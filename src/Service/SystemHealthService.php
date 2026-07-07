@@ -6,6 +6,7 @@ namespace App\Service;
 
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
+use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
 
 /**
@@ -15,15 +16,20 @@ use App\Repository\SensorReadRepository;
  */
 class SystemHealthService
 {
+    /** GPIO server-only (FFP3) : seuil réserve basse en mm (vide/0 = alerte désactivée). */
+    private const RESERVE_LOW_THRESHOLD_GPIO = 130;
+
     /**
-     * @param SensorReadRepository $sensorReadRepo Accès aux données capteurs
-     * @param NotificationService  $notifier       Service de notification (e-mail)
-     * @param LogService           $logger         Service de log
+     * @param SensorReadRepository  $sensorReadRepo Accès aux données capteurs
+     * @param NotificationService   $notifier       Service de notification (e-mail)
+     * @param LogService            $logger         Service de log
+     * @param OutputRepository|null $outputRepo     Lecture des seuils pilotés en BDD (optionnel)
      */
     public function __construct(
         private SensorReadRepository $sensorReadRepo,
         private NotificationService $notifier,
-        private LogService $logger
+        private LogService $logger,
+        private ?OutputRepository $outputRepo = null
     ) {
     }
 
@@ -110,13 +116,50 @@ class SystemHealthService
 
     /**
      * Seuil opt-in (mm) : réserve basse si EauReserve > seuil. Null si non configuré.
+     *
+     * Priorité à la BDD de contrôle (ligne server-only GPIO 130) ; à défaut (repo absent,
+     * ligne vide ou 0 = désactivé), repli sur `RESERVE_LOW_LEVEL_THRESHOLD` (`.env`).
      */
     private function resolveReserveLowThreshold(): ?float
     {
+        $dbThreshold = $this->readReserveThresholdFromDb();
+        if ($dbThreshold !== null) {
+            return $dbThreshold;
+        }
+
         if (!isset($_ENV['RESERVE_LOW_LEVEL_THRESHOLD']) || (string) $_ENV['RESERVE_LOW_LEVEL_THRESHOLD'] === '') {
             return null;
         }
 
         return (float) $_ENV['RESERVE_LOW_LEVEL_THRESHOLD'];
+    }
+
+    /**
+     * Lit le seuil réserve (mm) depuis la BDD (GPIO 130). Null si repo absent, ligne
+     * vide/non numérique, ou valeur ≤ 0 (0 = désactivé, opt-in préservé).
+     */
+    private function readReserveThresholdFromDb(): ?float
+    {
+        if ($this->outputRepo === null) {
+            return null;
+        }
+
+        try {
+            $row = $this->outputRepo->findByGpio(self::RESERVE_LOW_THRESHOLD_GPIO);
+        } catch (\Throwable $e) {
+            $this->logger->warning('SystemHealthService: lecture seuil réserve (GPIO 130) impossible', [
+                'error' => $e->getMessage(),
+            ]);
+
+            return null;
+        }
+
+        if ($row === null || !isset($row['state']) || $row['state'] === '' || !is_numeric($row['state'])) {
+            return null;
+        }
+
+        $value = (float) $row['state'];
+
+        return $value > 0 ? $value : null;
     }
 }
