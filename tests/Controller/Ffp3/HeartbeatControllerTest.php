@@ -64,6 +64,7 @@ class HeartbeatControllerTest extends TestCase
     {
         return new HeartbeatController(
             $this->createMock(LogService::class),
+            null, // hmacAuditLogger (?HmacAuditLogger, final class -> non mockable, usage null-safe)
             $this->createMock(ErrorAlertService::class),
             $this->repo,
         );
