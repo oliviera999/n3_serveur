@@ -262,3 +262,41 @@ redondant »** à **« un émetteur fiable unique + un relais ciblé et borné �
 `msp/src/msp_automation.cpp` (batterie P1 + rapport réseau P4), `msp/src/msp_network.cpp`
 (POST/GET, `n3DataPost` résultat ignoré), `uploadphotosserver/src/{main,camera_remote,camera_sync}.cpp`,
 `shared/n3_mail/src/n3_notify.h` (taxonomie `N3Severity`/`N3NotifMode`).
+
+## 8. État d'implémentation (2026-07-07)
+
+| Phase | Statut | Livraison |
+|---|---|---|
+| **0** — Fiabilité firmware (latch sur livraison SMTP confirmée) | ✅ implémentée | n3_firmwires PR #75 : ffp5cs 15.09, n3pp 4.52, msp 2.51, uploadphotosserver 2.61 |
+| **1** — CRON 1 min + réserve en fréquent + délais horodatés | ✅ implémentée | n3_serveur 6.16.0 (cette PR). ⚠️ crontab de prod à passer `*/5`→`*` au déploiement |
+| **2** — Alertes dérivées du POST côté serveur | ✅ implémentée (sauf nourrissage, voir plus bas) | n3_serveur 6.16.0, `src/Service/DerivedAlert/` |
+| **3** — ESP en relais + anti-congestion | ✅ implémentée | n3_firmwires PR #76 : ffp5cs 15.10, n3pp 4.53, msp 2.52, uploadphotosserver 2.62, n3_mail 1.3.0. ⚠️ à merger APRÈS déploiement 6.16.0 + crontab 1 min |
+| **4** — Non dérivable | ✅ actée (ce §) | batterie ffp5cs = ESP critique-only (décision utilisateur) ; crash/panic = ESP critique-only |
+
+### Alertes restant légitimement côté ESP (liste de référence)
+
+| Alerte | Firmware | Raison | Comportement |
+|---|---|---|---|
+| **Batterie faible ffp5cs** | ffp5cs | pas de champ tension au POST (décision : ne pas l'ajouter pour l'instant) | P1 critique-only : émise même en failover (passe le plafond P1/P2), jamais gatée |
+| **Crash / panic / reset-loop** | tous | intrinsèque à l'appareil (le serveur ne voit qu'un silence) | P1/P2, jamais gatée ; le filet « appareil silencieux » serveur complète |
+| **Nourrissage fait / manqué / plafond** | ffp5cs | **non dérivable du POST actuel** (contrat « compteur monotone » 15.0/6.0.0 : `bouffePetits/Gros` postés à 0, commandes 108/109 sans ack, seuls les horaires des créneaux échangés) | ESP primaire, NON gaté en Phase 3 ; migrer exigerait un nouveau champ POST (flags `bouffeOk` / cumul journalier) |
+| **Rapport réseau (P4)** | ffp5cs, n3pp, msp | diagnostic intrinsèque (RSSI/heap/uptime non reconstituables) | ESP ; reporté en failover (timer conservé), candidat à réduction future |
+| **Diagnostics CAM (boot, jour/nuit, OTA-échec)** | uploadphotosserver | pas encore calculés côté serveur (version CAM hors tables data) | ESP primaire (aucune suppression serveur-OK) ; failover P1/P2 only — migration = suite possible |
+
+> **Extension 6.18.0** : « Remplissage démarré/terminé » (FFP3, transition `etatPompeTank`),
+> « Arrosage effectué » et « Arrosage continu » (N3PP, `etatPompe`) sont désormais dérivés
+> côté serveur et gatés côté firmware (ffp5cs 15.11, n3pp 4.54) — retirés de la liste
+> ci-dessus. S'y ajoutent des **alertes météo MSP1 serveur-only opt-in** (gel/canicule/pluie,
+> variables `MSP_*` dans `.env`) sans équivalent firmware.
+>
+> **OTA réussie (6.17.0)** : le serveur émet désormais « Firmware mis à jour x → y » (P3,
+> Lifecycle) dérivé du changement de la colonne `version` au POST, pour **FFP3/N3PP/MSP1**
+> (`FirmwareUpdateDetector`). Pour n3pp/msp, ce mail remplace le « Redémarrage détecté » du
+> même cycle (reboot attendu). Le lancement d'OTA et l'échec restent notifiés par l'ESP.
+
+### Ordre de déploiement impératif
+
+1. Merger + déployer **n3_serveur 6.16.0** (PR n3_serveur#75) et passer la crontab à `* * * * *`.
+2. Vérifier quelques jours : alertes dérivées, volume SMTP, `notification_log`.
+3. Merger **n3_firmwires PR #75** (Phase 0, sans risque) puis **PR #76** (Phase 3) et flasher/OTA les firmwares.
+4. Ne jamais flasher la Phase 3 avant l'étape 1 (trou de couverture sinon).

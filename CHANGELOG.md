@@ -11,6 +11,99 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.18.0] - 2026-07-07
+
+### Arbitrage des e-mails — remplissage/arrosage/pompe continue migrés + alertes météo MSP1
+
+Vide quasi complètement le SMTP embarqué en régime normal : il ne reste côté ESP que le
+nourrissage (non dérivable), les P4 diagnostics, la batterie ffp5cs et le crash/panic.
+
+- **Remplissage démarré / terminé (FFP3)** : transition de `etatPompeTank` entre deux lectures
+  (P3/Info, Hydraulique) — reprend les confirmations du firmware ffp5cs.
+- **Arrosage effectué (N3PP)** : transition `etatPompe` 0→1 (P3/Info, Hydraulique).
+- **Arrosage continu (N3PP)** : `etatPompe = 1` sur ≥ 2 lignes consécutives = pompe maintenue ON
+  à travers un cycle de réveil (P1/Critical, latch + ré-armement au relâchement) — reprend
+  l'alerte « ATTENTION, arrosage continu » du firmware.
+- **Alertes météo MSP1 (serveur-only, opt-in `.env`)** : gel (`MSP_FROST_ALERT_THRESHOLD_C`,
+  P2, hystérésis +2 °C), canicule (`MSP_HEAT_ALERT_THRESHOLD_C`, P2, hystérésis -2 °C),
+  pluie (`MSP_RAIN_WET_THRESHOLD`, P3, capteur analogique 4095 = sec, garde sonde déconnectée).
+  Désactivées tant que la variable n'est pas définie ; le repli DHT (20 °C) est neutre pour des
+  seuils raisonnables. `.env.example` + `docs/deployment/CRON.md` documentés.
+- **Fix anti-spam transitions** : les mails de transition (chauffage ON/OFF, remplissage,
+  arrosage) n'ont plus de clé de throttle — la dédup vient de la détection de transition ;
+  le cooldown P3 de 6 h aurait avalé les bascules légitimes suivantes de la journée.
+- Tests : transitions remplissage, arrosage + pompe collée, gel (latch/ré-armement), pluie
+  (sentinelle déconnectée), météo désactivée sans opt-in.
+
+## [6.17.0] - 2026-07-07
+
+### Arbitrage des e-mails — mail « Firmware mis à jour » dérivé du POST (OTA réussie)
+
+- **Nouveau détecteur** `src/Service/DerivedAlert/FirmwareUpdateDetector.php` : changement de la
+  colonne `version` entre deux lignes du même capteur = mise à jour firmware (OTA réussie ou
+  reflash). Garde `sensor` (pas de faux positif si un autre appareil poste dans la même table),
+  premier passage silencieux.
+- **Trois familles couvertes** : FFP3 (seul signal serveur de fin d'OTA — pas de `bootCount` au
+  POST ffp5cs), N3PP et MSP1 (socle vitals). Mail P3/Info, catégorie Lifecycle, clé d'anti-spam
+  par version cible (`<fam>:fw-update:<version>`).
+- **Dédoublonnage reboot** : quand une mise à jour est détectée, le mail « Redémarrage détecté »
+  du même cycle est supprimé (le reset de `bootCount` est la conséquence attendue de l'OTA).
+- La CAM (uploadphotosserver) reste hors périmètre : sa version transite par un canal distinct
+  (POST version, hors tables data) — ses mails OTA restent côté ESP (échec = P2, retenté).
+- Tests : mise à jour → un seul mail (pas de doublon reboot), capteur différent → silencieux,
+  FFP3 version change → mail (suites `VitalsDerivedAlertServiceTest` / `Ffp3DerivedAlertServiceTest`).
+
+## [6.16.0] - 2026-07-07
+
+### Arbitrage des e-mails, Phases 1+2 — serveur émetteur primaire (CRON 1 min + alertes dérivées du POST)
+
+Implémente les Phases 1 et 2 du plan `docs/ARCHITECTURE_MAILS_ARBITRAGE.md` : le serveur devient
+la base d'envoi de toutes les alertes dérivables des données reçues au POST, avec une latence ≤ 1 min.
+(La bascule de l'ESP en simple relais — Phase 3 — viendra séparément, après validation.)
+
+**Phase 1 — CRON à 1 minute**
+- **Crontab applicative à 1 min** (`docs/deployment/CRON.md` mis à jour, `* * * * *`) ; le verrou
+  `flock` non bloquant ignore proprement les runs qui se chevauchent.
+- **Réserve basse déplacée dans le bucket fréquent** (chaque minute, comme aquarium bas / marées) ;
+  l'horaire garde : online, « appareil silencieux » toutes familles, digest.
+- **Correctif tick-based** : `CronOrchestrator::checkTideSystem` est sautée tant qu'un redémarrage
+  de pompe est programmé — à 1 min, la pompe coupée maintient l'écart-type bas et chaque tick
+  réécrivait le flag (redémarrage perpétuellement repoussé). `RestartPumpCommand` reste horodaté
+  (flag = epoch de programmation) : le délai de 5 min est indépendant de la cadence.
+- **Anti-spam inchangé mais documenté pour 1 min** : politique + `AlertThrottler` (cooldown par
+  sévérité : P1 15 min, P2 1 h, P3 6 h, P4 24 h) + digest P3/P4 + machines d'état à latch.
+
+**Phase 2 — alertes ESP-only migrées côté serveur** (`src/Service/DerivedAlert/`, appelées chaque minute)
+- **Trop-plein FFP3** : `EauAquarium < limFlood` (GPIO 114) via `FloodStateMachine`, port fidèle de la
+  machine anti-spam du firmware (debounce 5 min, cooldown 60 min, hystérésis de sortie 2 cm / 15 min
+  stables — surchargeables par env `FLOOD_*`). Latch sur envoi effectif uniquement (parité Phase 0
+  firmware) ; garde de fraîcheur des données (au-delà, l'alerte « appareil silencieux » couvre).
+- **Chauffage ON/OFF FFP3** : transition de `etatHeat` entre lectures, message avec `TempEau` et le
+  seuil GPIO 104 (P3/Info, digest).
+- **Sol sec N3PP** : `HumidMoy < SeuilSec` (les deux au POST) avec latch + hystérésis de ré-armement
+  +5 % (parité `seuilRetourNormal()` firmware) et mail de retour à la normale ; garde « au moins une
+  sonde Humid1..4 valide » (parité firmware).
+- **Batterie faible N3PP + MSP1** : `PontDiv < SeuilPontDiv` (au POST), P1/Critical, latch + ré-armement
+  silencieux à +5 % (`AbstractVitalsDerivedAlertService`, socle commun).
+- **Redémarrage N3PP + MSP1** : détection par **décrément** de `bootCount` (compteur RTC incrémenté à
+  chaque réveil, remis à zéro sur vrai reboot — un incrément est le rythme normal des réveils).
+- **État inter-runs** persisté en JSON (`var/cache/derived_alerts_*.json`, `DerivedAlertStateStore`) ;
+  curseur par ligne (`lastRowId`) pour ne traiter chaque POST qu'une fois.
+- **⚠️ Nourrissage (fait/manqué/plafond) : gap documenté** — non dérivable du POST actuel (contrat
+  « compteur monotone » 6.0.0/firmware 15.0 : `bouffePetits/Gros` postés à 0, pas d'ack de consommation,
+  seuls les horaires des créneaux sont échangés). Nécessite un nouveau champ au POST (phase firmware) ;
+  d'ici là l'ESP reste l'émetteur primaire du nourrissage (règle d'ordonnancement §4 du plan).
+- **Tests** : `FloodStateMachineTest` (parité firmware), `LowValueAlertEvaluatorTest`,
+  `Ffp3DerivedAlertServiceTest` (debounce, latch sur échec d'envoi, fraîcheur, transitions chauffage),
+  `VitalsDerivedAlertServiceTest` (batterie latch/ré-armement, reboot par reset compteur, sol sec,
+  curseur de ligne), + 2 cas `CronOrchestratorTest` (réserve en fréquent, garde du flag marées).
+- `.cursorrules` / `CLAUDE.md` synchronisés (cadence CRON, buckets, délai horodaté).
+- **Phase 4 (documentation)** : nouveau §8 « État d'implémentation » dans
+  `docs/ARCHITECTURE_MAILS_ARBITRAGE.md` — statut des phases, liste de référence des alertes
+  restant légitimement côté ESP (batterie ffp5cs critique-only, crash/panic, nourrissage,
+  diagnostics CAM…), et ordre de déploiement impératif (serveur 6.16.0 + crontab 1 min AVANT
+  le flash des firmwares Phase 3).
+
 ## [6.15.0] - 2026-07-07
 
 ### Supervision — seuils d'alerte pilotés par la BDD de contrôle + seuil « hors ligne » dérivé du temps de veille (facteur nuit)

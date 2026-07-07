@@ -8,9 +8,15 @@ use App\Config\Database;
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\HeartbeatMonitorRepository;
+use App\Repository\MspSensorRepository;
+use App\Repository\N3ppSensorRepository;
 use App\Repository\OutputMonitorRepository;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
+use App\Service\DerivedAlert\DerivedAlertStateStore;
+use App\Service\DerivedAlert\Ffp3DerivedAlertService;
+use App\Service\DerivedAlert\MspDerivedAlertService;
+use App\Service\DerivedAlert\N3ppDerivedAlertService;
 use App\Service\DeviceHealthService;
 use App\Service\LogService;
 use App\Service\NotificationService;
@@ -22,7 +28,11 @@ use App\Service\SystemHealthService;
 
 /**
  * Orchestrateur unique des tâches CRON applicatives FFP3.
- * Point d'entrée : run-cron.php (crontab toutes les 5 min).
+ * Point d'entrée : run-cron.php (crontab toutes les 1 min — Phase 1 arbitrage mails :
+ * le serveur est l'émetteur primaire des alertes, latence cible ≤ 1 min).
+ *
+ * Les runs qui se chevauchent sont ignorés proprement via un verrou flock non
+ * bloquant (LOCK_NB) : à cadence 1 min, un run lent ne s'empile pas.
  */
 class CronOrchestrator
 {
@@ -53,6 +63,9 @@ class CronOrchestrator
     private RestartPumpCommand $restartPumpCommand;
     private ?OutputRepository $outputRepo;
     private ?OfflineThresholdResolver $offlineResolver;
+    private ?Ffp3DerivedAlertService $ffp3DerivedAlerts;
+    private ?N3ppDerivedAlertService $n3ppDerivedAlerts;
+    private ?MspDerivedAlertService $mspDerivedAlerts;
 
     private float $aquaLowThreshold;
     private float $stddevThreshold;
@@ -74,6 +87,9 @@ class CronOrchestrator
         ?RestartPumpCommand $restartPumpCommand = null,
         ?OutputRepository $outputRepo = null,
         ?OfflineThresholdResolver $offlineResolver = null,
+        ?Ffp3DerivedAlertService $ffp3DerivedAlerts = null,
+        ?N3ppDerivedAlertService $n3ppDerivedAlerts = null,
+        ?MspDerivedAlertService $mspDerivedAlerts = null,
         ?string $lockDir = null,
         ?string $stateDir = null,
         ?string $pumpRestartFlagFile = null,
@@ -135,6 +151,32 @@ class CronOrchestrator
             $this->logger,
             $this->pumpRestartFlagFile
         );
+
+        // Phase 2 arbitrage mails : alertes dérivées du POST (serveur émetteur primaire).
+        // Construites uniquement quand une connexion BDD est disponible (comme le
+        // résolveur hors-ligne) : en contexte de test tout-mock, elles restent null.
+        $this->ffp3DerivedAlerts = $ffp3DerivedAlerts
+            ?? ($pdo !== null && $this->outputRepo !== null ? new Ffp3DerivedAlertService(
+                $this->sensorReadRepo,
+                $this->outputRepo,
+                $this->notifier,
+                $this->logger,
+                new DerivedAlertStateStore($this->stateDir . '/derived_alerts_ffp3.json')
+            ) : null);
+        $this->n3ppDerivedAlerts = $n3ppDerivedAlerts
+            ?? ($pdo !== null ? new N3ppDerivedAlertService(
+                new N3ppSensorRepository($pdo),
+                $this->notifier,
+                $this->logger,
+                new DerivedAlertStateStore($this->stateDir . '/derived_alerts_n3pp.json')
+            ) : null);
+        $this->mspDerivedAlerts = $mspDerivedAlerts
+            ?? ($pdo !== null ? new MspDerivedAlertService(
+                new MspSensorRepository($pdo),
+                $this->notifier,
+                $this->logger,
+                new DerivedAlertStateStore($this->stateDir . '/derived_alerts_msp1.json')
+            ) : null);
     }
 
     public function execute(): void
@@ -234,16 +276,47 @@ class CronOrchestrator
 
         $this->checkLowWaterLevel();
         $this->checkTideSystem();
+        // Phase 1 arbitrage mails : la réserve basse rejoint le bucket fréquent
+        // (latence ≤ 1 min comme aquarium bas / marées). L'anti-spam est assuré par
+        // AlertThrottler (clé ffp3:reserve-low, cooldown par sévérité).
+        $this->healthService->checkTankLevel();
+        // Phase 2 arbitrage mails : alertes dérivées du POST (trop-plein, chauffage,
+        // sol sec, batterie n3pp/msp, redémarrage) — serveur émetteur primaire.
+        $this->runDerivedAlerts();
         $this->logHourlyStddev();
 
         $this->logger->addEvent('Fin tâches fréquentes CRON');
+    }
+
+    /**
+     * Exécute les services d'alertes dérivées, chacun isolé : une famille en erreur
+     * (table absente, BDD partielle…) ne doit pas faire tomber le run CRON.
+     */
+    private function runDerivedAlerts(): void
+    {
+        $services = [
+            'FFP3' => $this->ffp3DerivedAlerts,
+            'N3PP' => $this->n3ppDerivedAlerts,
+            'MSP1' => $this->mspDerivedAlerts,
+        ];
+
+        foreach ($services as $family => $service) {
+            if ($service === null) {
+                continue;
+            }
+
+            try {
+                $service->run();
+            } catch (\Throwable $e) {
+                $this->logger->warning("Alertes dérivées {$family} en erreur : " . $e->getMessage());
+            }
+        }
     }
 
     protected function runHourlyTasks(): void
     {
         $this->logger->info('Lancement des tâches horaires CRON...');
         $this->healthService->checkOnlineStatus($this->resolveFfp3OfflineThresholdSeconds());
-        $this->healthService->checkTankLevel();
         // Supervision « appareil silencieux » généralisée à toutes les familles (FFP3/N3PP/MSP1).
         $this->deviceHealthService->checkAllFamilies();
         // Envoie un unique e-mail regroupant les alertes de faible sévérité accumulées.
@@ -301,6 +374,15 @@ class CronOrchestrator
 
     private function checkTideSystem(): void
     {
+        // Phase 1 (CRON 1 min) : si un redémarrage de pompe est déjà programmé, ne pas
+        // ré-évaluer. La pompe étant coupée, l'écart-type reste faible : chaque tick
+        // réécrirait le flag avec un nouvel horodatage et repousserait le redémarrage
+        // à l'infini (comportement sûr à 5 min par ordonnancement, cassé à 1 min).
+        if (file_exists($this->pumpRestartFlagFile)) {
+            $this->logger->info('Marée : redémarrage pompe déjà programmé, évaluation sautée.');
+            return;
+        }
+
         $stddev = $this->statsService->stddevOnLastReadings('EauAquarium');
 
         if ($stddev === null || $stddev >= $this->resolveTideStddevThreshold()) {
@@ -310,7 +392,7 @@ class CronOrchestrator
         $this->logger->warning("Problème de marée détecté (stddev: {$stddev}). Arrêt de la pompe de l'aquarium.");
         $this->pumpService->stopPompeAqua();
         file_put_contents($this->pumpRestartFlagFile, (string) time());
-        $this->logger->info('Pompe aquarium arrêtée. Redémarrage programmé dans 5 minutes via prochain CRON.');
+        $this->logger->info('Pompe aquarium arrêtée. Redémarrage programmé dans 5 minutes (délai horodaté, indépendant de la cadence CRON).');
         $this->notifier->notifyMareesProblem();
     }
 
