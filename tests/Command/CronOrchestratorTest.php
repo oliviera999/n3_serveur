@@ -170,6 +170,61 @@ class CronOrchestratorTest extends TestCase
         $orchestrator->execute();
     }
 
+    public function testTankLevelCheckedEvenWhenHourlySkipped(): void
+    {
+        // Phase 1 arbitrage mails : la réserve basse est dans le bucket fréquent
+        // (chaque minute), plus dans le bucket horaire.
+        file_put_contents($this->tempDir . '/cron_last_hourly.timestamp', (string) time());
+
+        $health = $this->createMock(SystemHealthService::class);
+        $health->expects($this->never())->method('checkOnlineStatus');
+        $health->expects($this->once())->method('checkTankLevel');
+
+        $orchestrator = $this->buildOrchestrator(
+            healthService: $health,
+            statsService: $this->defaultStatsMock(),
+            sensorReadRepo: $this->defaultRepoMock(),
+        );
+
+        $orchestrator->execute();
+    }
+
+    public function testTideCheckSkippedWhileRestartFlagPending(): void
+    {
+        // Phase 1 (CRON 1 min) : tant qu'un redémarrage pompe est programmé, la
+        // détection de marée ne doit ni re-couper la pompe ni réécrire le flag
+        // (sinon le délai horodaté repartirait de zéro à chaque tick).
+        $flagFile = $this->tempDir . '/pump_restart_scheduled.flag';
+        $scheduledAt = time() - 100;
+        file_put_contents($flagFile, (string) $scheduledAt);
+
+        $pump = $this->createMock(PumpService::class);
+        $pump->expects($this->never())->method('stopPompeAqua');
+        $pump->method('getAquaPumpState')->willReturn(0);
+        $pump->method('getTankPumpState')->willReturn(1);
+        $pump->method('getResetModeState')->willReturn(0);
+
+        // Écart-type sous le seuil : déclencherait normalement l'arrêt + le flag.
+        $stats = $this->createMock(SensorStatisticsService::class);
+        $stats->method('stddevOnLastReadings')->willReturn(0.2);
+        $stats->method('stddev')->willReturn(0.2);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('notifyMareesProblem');
+
+        $orchestrator = $this->buildOrchestrator(
+            pumpService: $pump,
+            statsService: $stats,
+            notifier: $notifier,
+            sensorReadRepo: $this->defaultRepoMock(),
+        );
+
+        $orchestrator->execute();
+
+        $this->assertSame((string) $scheduledAt, file_get_contents($flagFile), 'Le flag ne doit pas être réécrit');
+        unlink($flagFile);
+    }
+
     public function testCleaningCalledOncePerRun(): void
     {
         $sensorData = $this->createMock(SensorDataService::class);

@@ -152,9 +152,9 @@ php -S localhost:8080 -t public
 ## 🤖 Tâches CRON
 
 - **Point d'entrée unique** : `run-cron.php` (CLI) → `App\Command\CronOrchestrator`
-- **Fréquence crontab** : toutes les 5 min (`*/5 * * * * php run-cron.php`)
-- **Cadences internes** : tâches fréquentes à chaque run ; tâches horaires (online, réservoir) selon `CRON_HOURLY_INTERVAL_SECONDS` (défaut 3600 s)
-- **Sous-commande** : `App\Command\RestartPumpCommand` (redémarrage pompe aqua différé 5 min)
+- **Fréquence crontab** : toutes les minutes (`* * * * * php run-cron.php`) — Phase 1 arbitrage mails, le serveur est l'émetteur primaire des alertes (latence ≤ 1 min)
+- **Cadences internes** : tâches fréquentes à chaque run (aquarium bas, marées, réserve, alertes dérivées du POST — trop-plein, chauffage, sol sec, batterie, redémarrage) ; tâches horaires (online, silencieux, digest) selon `CRON_HOURLY_INTERVAL_SECONDS` (défaut 3600 s)
+- **Sous-commande** : `App\Command\RestartPumpCommand` (redémarrage pompe aqua différé 5 min, délai HORODATÉ — indépendant de la cadence crontab)
 - Verrouillage global par `flock` (`cron_orchestrator.lock`)
 - Doc : `docs/deployment/CRON.md`
 - Déploiement séparé : cron `git pull` + hook `post-merge` (voir `docs/deployment/INSTALL_HOOKS.md`)

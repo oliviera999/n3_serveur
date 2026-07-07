@@ -11,6 +11,14 @@ use App\Service\PumpService;
 /**
  * Redémarre la pompe aquarium après un délai programmé (flag file).
  * Appelée en première phase par CronOrchestrator.
+ *
+ * Le délai est HORODATÉ (le flag contient l'epoch de programmation ; on redémarre
+ * quand `now - epoch >= RESTART_DELAY`), pas « au prochain tick » : le passage de la
+ * crontab de 5 min à 1 min (Phase 1 arbitrage mails) ne change pas le délai effectif
+ * de 5 minutes — seule la granularité de vérification s'affine.
+ * Prérequis à cadence 1 min : le flag ne doit pas être réécrit tant qu'il est en
+ * attente (garde dans CronOrchestrator::checkTideSystem), sinon le délai repartirait
+ * de zéro à chaque tick.
  */
 class RestartPumpCommand
 {

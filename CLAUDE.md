@@ -100,8 +100,10 @@ Authentification par `api_key` (legacy) ET/OU signature **HMAC-SHA256**
 
 ## CRON
 
-Point d'entrée unique `run-cron.php` → `App\Command\CronOrchestrator` (crontab toutes les 5 min),
-verrou `flock`. Sous-commande `RestartPumpCommand` (redémarrage pompe différé). Voir `docs/deployment/CRON.md`.
+Point d'entrée unique `run-cron.php` → `App\Command\CronOrchestrator` (crontab **toutes les minutes** —
+le serveur est l'émetteur primaire des alertes, latence ≤ 1 min), verrou `flock` (runs chevauchés ignorés).
+Sous-commande `RestartPumpCommand` (redémarrage pompe différé 5 min, délai horodaté). Alertes dérivées du
+POST chaque minute (`src/Service/DerivedAlert/`). Voir `docs/deployment/CRON.md`.
 
 ## Workflow recommandé
 
