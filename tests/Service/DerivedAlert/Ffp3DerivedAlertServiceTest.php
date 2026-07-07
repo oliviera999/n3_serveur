@@ -152,8 +152,7 @@ final class Ffp3DerivedAlertServiceTest extends TestCase
                 NotificationCategory::Environment,
                 'FFP3',
                 'Chauffage ON',
-                $this->stringContains('21.5'),
-                'ffp3:heater-on'
+                $this->stringContains('21.5')
             )
             ->willReturn(true);
 
@@ -163,6 +162,36 @@ final class Ffp3DerivedAlertServiceTest extends TestCase
 
         $service = $this->buildService($this->reading(200.0, 1), $notifier);
         $service->run(); // transition OFF→ON → notification
+    }
+
+    public function testTankPumpTransitionsSendRefillMails(): void
+    {
+        $notifier = $this->createMock(NotificationService::class);
+        $subjects = [];
+        $notifier->method('sendAlert')->willReturnCallback(
+            static function (Severity $severity, NotificationCategory $category, string $family, string $subject) use (&$subjects): bool {
+                $subjects[] = $subject;
+
+                return true;
+            }
+        );
+
+        $off = $this->reading(200.0);
+        $off['etatPompeTank'] = 0;
+        $on = $this->reading(200.0);
+        $on['etatPompeTank'] = 1;
+
+        $service = $this->buildService($off, $notifier);
+        $service->run(); // init silencieuse
+
+        $service = $this->buildService($on, $notifier);
+        $service->run(); // OFF→ON → « Remplissage démarré »
+        $service->run(); // même état → rien
+
+        $service = $this->buildService($off, $notifier);
+        $service->run(); // ON→OFF → « Remplissage terminé »
+
+        $this->assertSame(['Remplissage démarré', 'Remplissage terminé'], $subjects);
     }
 
     public function testFirmwareUpdateSendsInfo(): void

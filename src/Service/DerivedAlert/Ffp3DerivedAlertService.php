@@ -22,7 +22,9 @@ use App\Service\NotificationService;
  *  - CHAUFFAGE ON/OFF : transition de `etatHeat` entre deux lectures, avec
  *    `TempEau` et le seuil (GPIO 104) dans le message ;
  *  - MISE À JOUR FIRMWARE (OTA réussie / reflash) : changement de la colonne
- *    `version` entre deux lectures ({@see FirmwareUpdateDetector}).
+ *    `version` entre deux lectures ({@see FirmwareUpdateDetector}) ;
+ *  - REMPLISSAGE DÉMARRÉ / TERMINÉ : transition de `etatPompeTank` (pompe
+ *    réserve) entre deux lectures — remplace les confirmations P3 du firmware.
  *
  * NOURRISSAGE (fait / manqué / plafond) — GAP DOCUMENTÉ : non dérivable du POST
  * actuel. Depuis le contrat « compteur monotone » (serveur 6.0.0 / firmware 15.0),
@@ -79,9 +81,56 @@ class Ffp3DerivedAlertService
 
         $this->checkFlood($reading, $state, $now);
         $this->checkHeaterTransition($reading, $state);
+        $this->checkTankPumpTransition($reading, $state);
         $this->checkFirmwareUpdate($reading, $state);
 
         $this->stateStore->save($state);
+    }
+
+    /**
+     * Remplissage (pompe réserve) : transition de `etatPompeTank` entre lectures.
+     * Reprend les confirmations « Remplissage démarré/terminé » du firmware (P3).
+     *
+     * @param array<string, mixed> $reading
+     * @param array<string, mixed> $state
+     */
+    private function checkTankPumpTransition(array $reading, array &$state): void
+    {
+        $raw = $reading['etatPompeTank'] ?? null;
+        if ($raw === null || !is_numeric($raw)) {
+            return;
+        }
+        $running = ((int) $raw) === 1;
+
+        $previous = $state['tankPump']['lastState'] ?? null;
+        $state['tankPump']['lastState'] = $running;
+
+        // Premier passage : initialiser sans notifier (pas de transition observable).
+        if (!is_bool($previous) || $previous === $running) {
+            return;
+        }
+
+        $levelMm = $this->toFloatOrNull($reading['EauAquarium'] ?? null);
+        $levelTxt = $levelMm !== null ? sprintf('%.0f mm', $levelMm) : 'inconnu';
+
+        if ($running) {
+            $subject = 'Remplissage démarré';
+            $message = "La pompe de la réserve vient de démarrer (remplissage de l'aquarium).\n"
+                . "Niveau aquarium (distance capteur→surface) : {$levelTxt}.";
+        } else {
+            $subject = 'Remplissage terminé';
+            $message = "La pompe de la réserve vient de s'arrêter (fin de remplissage).\n"
+                . "Niveau aquarium (distance capteur→surface) : {$levelTxt}.";
+        }
+
+        // Pas de clé d'anti-spam : dédup par transition (cf. checkHeaterTransition).
+        $this->notifier->sendAlert(
+            Severity::Info,
+            NotificationCategory::Hydraulic,
+            'FFP3',
+            $subject,
+            $message
+        );
     }
 
     /**
@@ -216,13 +265,15 @@ class Ffp3DerivedAlertService
             $threshold !== null ? sprintf('%.1f', $threshold) : 'inconnu'
         );
 
+        // Pas de clé d'anti-spam : la déduplication vient de la détection de
+        // transition (un mail par bascule). Un cooldown P3 (6 h) avalerait les
+        // bascules légitimes suivantes de la journée.
         $this->notifier->sendAlert(
             Severity::Info,
             NotificationCategory::Environment,
             'FFP3',
             "Chauffage {$label}",
-            $message,
-            'ffp3:heater-' . strtolower($label)
+            $message
         );
     }
 

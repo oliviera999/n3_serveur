@@ -11,6 +11,30 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.18.0] - 2026-07-07
+
+### Arbitrage des e-mails — remplissage/arrosage/pompe continue migrés + alertes météo MSP1
+
+Vide quasi complètement le SMTP embarqué en régime normal : il ne reste côté ESP que le
+nourrissage (non dérivable), les P4 diagnostics, la batterie ffp5cs et le crash/panic.
+
+- **Remplissage démarré / terminé (FFP3)** : transition de `etatPompeTank` entre deux lectures
+  (P3/Info, Hydraulique) — reprend les confirmations du firmware ffp5cs.
+- **Arrosage effectué (N3PP)** : transition `etatPompe` 0→1 (P3/Info, Hydraulique).
+- **Arrosage continu (N3PP)** : `etatPompe = 1` sur ≥ 2 lignes consécutives = pompe maintenue ON
+  à travers un cycle de réveil (P1/Critical, latch + ré-armement au relâchement) — reprend
+  l'alerte « ATTENTION, arrosage continu » du firmware.
+- **Alertes météo MSP1 (serveur-only, opt-in `.env`)** : gel (`MSP_FROST_ALERT_THRESHOLD_C`,
+  P2, hystérésis +2 °C), canicule (`MSP_HEAT_ALERT_THRESHOLD_C`, P2, hystérésis -2 °C),
+  pluie (`MSP_RAIN_WET_THRESHOLD`, P3, capteur analogique 4095 = sec, garde sonde déconnectée).
+  Désactivées tant que la variable n'est pas définie ; le repli DHT (20 °C) est neutre pour des
+  seuils raisonnables. `.env.example` + `docs/deployment/CRON.md` documentés.
+- **Fix anti-spam transitions** : les mails de transition (chauffage ON/OFF, remplissage,
+  arrosage) n'ont plus de clé de throttle — la dédup vient de la détection de transition ;
+  le cooldown P3 de 6 h aurait avalé les bascules légitimes suivantes de la journée.
+- Tests : transitions remplissage, arrosage + pompe collée, gel (latch/ré-armement), pluie
+  (sentinelle déconnectée), météo désactivée sans opt-in.
+
 ## [6.17.0] - 2026-07-07
 
 ### Arbitrage des e-mails — mail « Firmware mis à jour » dérivé du POST (OTA réussie)

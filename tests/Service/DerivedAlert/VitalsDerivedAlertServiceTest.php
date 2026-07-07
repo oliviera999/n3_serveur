@@ -26,6 +26,7 @@ final class VitalsDerivedAlertServiceTest extends TestCase
     {
         putenv('LOG_FILE_PATH=php://memory');
         $this->stateFile = sys_get_temp_dir() . '/derived_vitals_test_' . uniqid('', true) . '.json';
+        unset($_ENV['MSP_FROST_ALERT_THRESHOLD_C'], $_ENV['MSP_HEAT_ALERT_THRESHOLD_C'], $_ENV['MSP_RAIN_WET_THRESHOLD']);
     }
 
     protected function tearDown(): void
@@ -235,6 +236,135 @@ final class VitalsDerivedAlertServiceTest extends TestCase
         $notifier->expects($this->never())->method('sendAlert');
 
         $service = $this->buildN3pp($notifier, $repo);
+        $service->run();
+        $service->run();
+    }
+
+    public function testWateringPumpTransitionAndStuckAlert(): void
+    {
+        $rowOff = $this->n3ppRow(1);
+        $rowOff['etatPompe'] = 0;
+        $rowOn1 = $this->n3ppRow(2);
+        $rowOn1['etatPompe'] = 1;
+        $rowOn2 = $this->n3ppRow(3);
+        $rowOn2['etatPompe'] = 1;
+        $rowOff2 = $this->n3ppRow(4);
+        $rowOff2['etatPompe'] = 0;
+
+        $repo = $this->createMock(N3ppSensorRepository::class);
+        $repo->method('getLatest')->willReturnOnConsecutiveCalls($rowOff, $rowOn1, $rowOn2, $rowOff2);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $calls = [];
+        $notifier->method('sendAlert')->willReturnCallback(
+            static function (Severity $severity, NotificationCategory $category, string $family, string $subject) use (&$calls): bool {
+                $calls[] = [$severity, $subject];
+
+                return true;
+            }
+        );
+
+        $service = $this->buildN3pp($notifier, $repo);
+        $service->run(); // OFF : init silencieuse
+        $service->run(); // OFF→ON : « Arrosage effectué » (P3)
+        $service->run(); // ON persistant (2 lignes) : « Arrosage continu » (P1)
+        $service->run(); // OFF : ré-armement silencieux
+
+        $this->assertSame([
+            [Severity::Info, 'Arrosage effectué'],
+            [Severity::Critical, 'Arrosage continu en cours'],
+        ], $calls);
+    }
+
+    public function testMspFrostAlertLatchesAndRearms(): void
+    {
+        $_ENV['MSP_FROST_ALERT_THRESHOLD_C'] = '1';
+
+        $mkRow = static function (int $id, float $temp): array {
+            return ['id' => $id, 'TempAirExt' => $temp, 'bootCount' => 5];
+        };
+        $repo = $this->createMock(MspSensorRepository::class);
+        $repo->method('getLatest')->willReturnOnConsecutiveCalls(
+            $mkRow(1, -2.0),  // < 1 °C → alerte gel
+            $mkRow(2, -3.0),  // toujours gelé, latché → rien
+            $mkRow(3, 2.0),   // sous seuil+2 (hystérésis) → toujours latché
+            $mkRow(4, 4.0),   // > 3 °C → ré-armement silencieux
+            $mkRow(5, 0.0),   // regel → nouvelle alerte
+        );
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->exactly(2))
+            ->method('sendAlert')
+            ->with(
+                Severity::Alert,
+                NotificationCategory::Environment,
+                'MSP1',
+                'Risque de gel',
+                $this->anything(),
+                'msp1:frost'
+            )
+            ->willReturn(true);
+
+        $service = new MspDerivedAlertService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            new DerivedAlertStateStore($this->stateFile),
+        );
+        for ($i = 0; $i < 5; ++$i) {
+            $service->run();
+        }
+    }
+
+    public function testMspWeatherAlertsDisabledWithoutEnvThresholds(): void
+    {
+        // Ni gel, ni canicule, ni pluie sans opt-in .env — même par -10 °C.
+        $repo = $this->createMock(MspSensorRepository::class);
+        $repo->method('getLatest')->willReturn(
+            ['id' => 1, 'TempAirExt' => -10.0, 'Pluie' => 500.0, 'bootCount' => 5]
+        );
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendAlert');
+
+        $service = new MspDerivedAlertService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            new DerivedAlertStateStore($this->stateFile),
+        );
+        $service->run();
+    }
+
+    public function testMspRainDetectedButNotWhenSensorDisconnected(): void
+    {
+        $_ENV['MSP_RAIN_WET_THRESHOLD'] = '3000';
+
+        $repo = $this->createMock(MspSensorRepository::class);
+        $repo->method('getLatest')->willReturnOnConsecutiveCalls(
+            ['id' => 1, 'Pluie' => 1.0, 'bootCount' => 5],     // sentinelle déconnecté → rien
+            ['id' => 2, 'Pluie' => 1500.0, 'bootCount' => 5],  // mouillé → « Pluie détectée »
+        );
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->once())
+            ->method('sendAlert')
+            ->with(
+                Severity::Info,
+                NotificationCategory::Environment,
+                'MSP1',
+                'Pluie détectée',
+                $this->anything(),
+                'msp1:rain'
+            )
+            ->willReturn(true);
+
+        $service = new MspDerivedAlertService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            new DerivedAlertStateStore($this->stateFile),
+        );
         $service->run();
         $service->run();
     }

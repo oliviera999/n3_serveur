@@ -64,10 +64,15 @@ run-cron.php (CLI uniquement)
    ⚠️ Sautée tant qu'un redémarrage est déjà programmé (sinon, à 1 min, le flag serait
    réécrit à chaque tick et le redémarrage perpétuellement repoussé)
 6. **Alerte réserve basse** (`SystemHealthService::checkTankLevel`, opt-in) — déplacée du bucket horaire
-7. **Alertes dérivées du POST** (Phase 2, `src/Service/DerivedAlert/`) :
-   - FFP3 : trop-plein (machine debounce/cooldown portée du firmware), chauffage ON/OFF
-   - N3PP : sol sec (hystérésis +5 %), batterie faible, redémarrage (reset `bootCount`)
-   - MSP1 : batterie faible, redémarrage
+7. **Alertes dérivées du POST** (Phases 2+, `src/Service/DerivedAlert/`) :
+   - FFP3 : trop-plein (machine debounce/cooldown portée du firmware), chauffage ON/OFF,
+     remplissage démarré/terminé (`etatPompeTank`), firmware mis à jour (OTA réussie)
+   - N3PP : sol sec (hystérésis +5 %), batterie faible, redémarrage (reset `bootCount`),
+     arrosage effectué (`etatPompe`), arrosage continu (pompe ON sur ≥ 2 lignes),
+     firmware mis à jour
+   - MSP1 : batterie faible, redémarrage, firmware mis à jour + **alertes météo opt-in**
+     (gel `MSP_FROST_ALERT_THRESHOLD_C`, canicule `MSP_HEAT_ALERT_THRESHOLD_C`,
+     pluie `MSP_RAIN_WET_THRESHOLD` — désactivées si non définies dans `.env`)
    État inter-runs persisté dans `var/cache/derived_alerts_*.json`
 8. Log écart-type sur la dernière heure (informatif)
 
