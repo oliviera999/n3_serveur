@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.21.2] - 2026-07-07
+
+### Nomenclature `ffp3` / `ffp5cs` — clarification (doc + fixtures de test)
+- **Problème** : le radical `ffp3` est surchargé (données serveur, galerie caméra `/ffp3gallery/`, sous-module firmware `ffp5cs/ffp3`, contrat HMAC générique), et le nom du firmware (`ffp5cs`) n'apparaît dans aucun identifiant de code serveur. Le champ POST `sensor` était incohérent : le firmware envoyait le type de carte (`esp32-wroom`/`esp32-s3`), les tests serveur utilisaient `ffp5cs`, le test firmware `ffp3`.
+- **Convention `sensor`** : unifiée sur **`ffp3`** (identité système). Côté serveur, `sensor` reste **journalisé/stocké sans validation** (l'environnement/table vient de la route) — aucun changement de comportement runtime. Fixtures de test alignées : `PostDataControllerHmacHeaderTest`, `SignatureValidatorTest`, `Ffp3DerivedAlertServiceTest` (`sensor=ffp5cs` → `sensor=ffp3` ; signatures recalculées dynamiquement, pas de vecteur en dur).
+- **Documentation** : nouveau glossaire [`docs/NOMENCLATURE_FFP3.md`](docs/NOMENCLATURE_FFP3.md) (les sens de « ffp3 », correspondance firmware↔serveur, chantiers différés dont la validation `sensor↔env` en *log-only*). `CLAUDE.md` + `.cursorrules` : note de nomenclature. `docs/ENDPOINTS_ESP32_SERVEUR.md` : convention `sensor` documentée et correction de la table S3 PROD (`ffp3Data4` → `ffp3DataS3`, cohérent avec la migration juillet 2026).
+- **Périmètre** : cœur de la PR = doc + fixtures de test. Contrepartie firmware : n3_firmwires `ffp5cs` v15.09 (`ProjectConfig::SYSTEM_ID="ffp3"`).
+- **Déblocage CI** : correction de 3 violations `cs:check` **pré-existantes** sur `master` (sans lien avec la nomenclature, sans changement de comportement) — imports redondants même-namespace `use App\Service\OperationalSettingsService;` dans `SystemHealthService`/`DeviceHealthService` (le type-hint résout via le namespace), et indentation dans `tests/Controller/Ffp3PostDataControllerTest.php` (`php-cs-fixer`).
+
 ## [6.21.1] - 2026-07-07
 
 ### Modifié — descriptifs des réglages supervision

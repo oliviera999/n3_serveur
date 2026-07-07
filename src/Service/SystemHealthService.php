@@ -8,7 +8,6 @@ use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
-use App\Service\OperationalSettingsService;
 
 /**
  * Service de surveillance de l'état de santé du système.

@@ -73,10 +73,10 @@ final class Ffp3PostDataControllerTest extends TestCase
 
             $controller = new PostDataController(
                 $this->createMock(LogService::class),
-            null,
-            null,
-            null,
-            $this->createMock(ErrorAlertService::class),
+                null,
+                null,
+                null,
+                $this->createMock(ErrorAlertService::class),
                 $sensorRepo,
                 $outputRepo,
                 $boardRepo
@@ -156,10 +156,10 @@ final class Ffp3PostDataControllerTest extends TestCase
 
             $controller = new PostDataController(
                 $this->createMock(LogService::class),
-            null,
-            null,
-            null,
-            $this->createMock(ErrorAlertService::class),
+                null,
+                null,
+                null,
+                $this->createMock(ErrorAlertService::class),
                 $sensorRepo,
                 $outputRepo,
                 $boardRepo

@@ -52,6 +52,13 @@ Le projet supervise **3 familles d'appareils**, chacune avec ses tables :
 - **N3PP** (serre / élevage) : `n3ppData`, `n3ppOutputs`, `n3ppHeartbeat`
 - **MSP1** (station météo) : `msp1Data`, `msp1Outputs`, `msp1Heartbeat`
 
+> 🏷️ **Nomenclature `ffp3` vs `ffp5cs`** : la famille aquaponie s'appelle **`ffp3`** ici (tables,
+> routes `/post-data*`, dossier `Ffp3/`) ; **`ffp5cs`** est le nom du *firmware* qui l'alimente
+> (dépôt n3_firmwires), absent des identifiants de code serveur. Le firmware est identifié par la
+> **route**, pas par le champ `sensor` (seulement journalisé ; `sensor="ffp3"` depuis firmware
+> v15.09). « ffp3 » recouvre aussi la galerie caméra (`/ffp3gallery/`) et le sous-module firmware
+> `ffp5cs/ffp3` (= ce dépôt). Détails : `docs/NOMENCLATURE_FFP3.md`.
+
 ### Environnements (`ENV`)
 La constante `TableConfig::ENVIRONMENTS` définit les valeurs valides :
 `prod`, `test`, `test3`, `s3`, `s3test`, `n3pp_test`, `msp_test`.
