@@ -56,6 +56,11 @@ la base d'envoi de toutes les alertes dérivables des données reçues au POST, 
   `VitalsDerivedAlertServiceTest` (batterie latch/ré-armement, reboot par reset compteur, sol sec,
   curseur de ligne), + 2 cas `CronOrchestratorTest` (réserve en fréquent, garde du flag marées).
 - `.cursorrules` / `CLAUDE.md` synchronisés (cadence CRON, buckets, délai horodaté).
+- **Phase 4 (documentation)** : nouveau §8 « État d'implémentation » dans
+  `docs/ARCHITECTURE_MAILS_ARBITRAGE.md` — statut des phases, liste de référence des alertes
+  restant légitimement côté ESP (batterie ffp5cs critique-only, crash/panic, nourrissage,
+  diagnostics CAM…), et ordre de déploiement impératif (serveur 6.16.0 + crontab 1 min AVANT
+  le flash des firmwares Phase 3).
 
 ## [6.15.0] - 2026-07-07
 
