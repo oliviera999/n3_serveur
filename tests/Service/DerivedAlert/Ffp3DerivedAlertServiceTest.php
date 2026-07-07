@@ -165,6 +165,36 @@ final class Ffp3DerivedAlertServiceTest extends TestCase
         $service->run(); // transition OFF→ON → notification
     }
 
+    public function testFirmwareUpdateSendsInfo(): void
+    {
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->once())
+            ->method('sendAlert')
+            ->with(
+                Severity::Info,
+                NotificationCategory::Lifecycle,
+                'FFP3',
+                'Firmware mis à jour',
+                $this->stringContains('15.09'),
+                'ffp3:fw-update:15.10'
+            )
+            ->willReturn(true);
+
+        // Niveau haut (pas de flood) + chauffage constant : on isole la version.
+        $readingV1 = $this->reading(200.0, 0);
+        $readingV1['version'] = '15.09';
+        $readingV1['sensor'] = 'ffp5cs';
+        $service = $this->buildService($readingV1, $notifier);
+        $service->run(); // initialise sans notifier
+
+        $readingV2 = $this->reading(200.0, 0);
+        $readingV2['version'] = '15.10';
+        $readingV2['sensor'] = 'ffp5cs';
+        $service = $this->buildService($readingV2, $notifier);
+        $service->run(); // changement de version -> mail
+        $service->run(); // même version -> pas de re-mail (expects once)
+    }
+
     public function testHeaterNoMailWithoutTransition(): void
     {
         $notifier = $this->createMock(NotificationService::class);

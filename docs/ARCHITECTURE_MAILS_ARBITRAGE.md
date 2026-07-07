@@ -283,7 +283,12 @@ redondant »** à **« un émetteur fiable unique + un relais ciblé et borné �
 | **Remplissage démarré/terminé** | ffp5cs | confirmations locales (P3), non couvertes serveur | ESP primaire ; supprimées en failover (P3) |
 | **Pompe continue / arrosages (confirmations)** | n3pp | `etatPompe` au POST mais non calculé côté serveur (hors périmètre Phase 2) | ESP primaire ; P3 supprimées en failover, P1 pompe continue passe |
 | **Rapport réseau (P4)** | ffp5cs, n3pp, msp | diagnostic intrinsèque (RSSI/heap/uptime non reconstituables) | ESP ; reporté en failover (timer conservé), candidat à réduction future |
-| **Diagnostics CAM (boot, jour/nuit, OTA-échec)** | uploadphotosserver | pas encore calculés côté serveur | ESP primaire (aucune suppression serveur-OK) ; failover P1/P2 only — migration = suite possible |
+| **Diagnostics CAM (boot, jour/nuit, OTA-échec)** | uploadphotosserver | pas encore calculés côté serveur (version CAM hors tables data) | ESP primaire (aucune suppression serveur-OK) ; failover P1/P2 only — migration = suite possible |
+
+> **OTA réussie (6.17.0)** : le serveur émet désormais « Firmware mis à jour x → y » (P3,
+> Lifecycle) dérivé du changement de la colonne `version` au POST, pour **FFP3/N3PP/MSP1**
+> (`FirmwareUpdateDetector`). Pour n3pp/msp, ce mail remplace le « Redémarrage détecté » du
+> même cycle (reboot attendu). Le lancement d'OTA et l'échec restent notifiés par l'ESP.
 
 ### Ordre de déploiement impératif
 

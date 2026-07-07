@@ -11,6 +11,24 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.17.0] - 2026-07-07
+
+### Arbitrage des e-mails — mail « Firmware mis à jour » dérivé du POST (OTA réussie)
+
+- **Nouveau détecteur** `src/Service/DerivedAlert/FirmwareUpdateDetector.php` : changement de la
+  colonne `version` entre deux lignes du même capteur = mise à jour firmware (OTA réussie ou
+  reflash). Garde `sensor` (pas de faux positif si un autre appareil poste dans la même table),
+  premier passage silencieux.
+- **Trois familles couvertes** : FFP3 (seul signal serveur de fin d'OTA — pas de `bootCount` au
+  POST ffp5cs), N3PP et MSP1 (socle vitals). Mail P3/Info, catégorie Lifecycle, clé d'anti-spam
+  par version cible (`<fam>:fw-update:<version>`).
+- **Dédoublonnage reboot** : quand une mise à jour est détectée, le mail « Redémarrage détecté »
+  du même cycle est supprimé (le reset de `bootCount` est la conséquence attendue de l'OTA).
+- La CAM (uploadphotosserver) reste hors périmètre : sa version transite par un canal distinct
+  (POST version, hors tables data) — ses mails OTA restent côté ESP (échec = P2, retenté).
+- Tests : mise à jour → un seul mail (pas de doublon reboot), capteur différent → silencieux,
+  FFP3 version change → mail (suites `VitalsDerivedAlertServiceTest` / `Ffp3DerivedAlertServiceTest`).
+
 ## [6.16.0] - 2026-07-07
 
 ### Arbitrage des e-mails, Phases 1+2 — serveur émetteur primaire (CRON 1 min + alertes dérivées du POST)

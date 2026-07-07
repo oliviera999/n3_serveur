@@ -20,7 +20,9 @@ use App\Service\NotificationService;
  *    anti-spam du firmware portée côté serveur ({@see FloodStateMachine} :
  *    debounce, cooldown, hystérésis de sortie) ;
  *  - CHAUFFAGE ON/OFF : transition de `etatHeat` entre deux lectures, avec
- *    `TempEau` et le seuil (GPIO 104) dans le message.
+ *    `TempEau` et le seuil (GPIO 104) dans le message ;
+ *  - MISE À JOUR FIRMWARE (OTA réussie / reflash) : changement de la colonne
+ *    `version` entre deux lectures ({@see FirmwareUpdateDetector}).
  *
  * NOURRISSAGE (fait / manqué / plafond) — GAP DOCUMENTÉ : non dérivable du POST
  * actuel. Depuis le contrat « compteur monotone » (serveur 6.0.0 / firmware 15.0),
@@ -77,8 +79,40 @@ class Ffp3DerivedAlertService
 
         $this->checkFlood($reading, $state, $now);
         $this->checkHeaterTransition($reading, $state);
+        $this->checkFirmwareUpdate($reading, $state);
 
         $this->stateStore->save($state);
+    }
+
+    /**
+     * Mise à jour firmware (OTA réussie / reflash) dérivée de la colonne `version`.
+     * ffp5cs n'a pas de bootCount au POST : ce mail est le seul signal serveur de
+     * fin d'OTA pour la famille FFP3.
+     *
+     * @param array<string, mixed> $reading
+     * @param array<string, mixed> $state
+     */
+    private function checkFirmwareUpdate(array $reading, array &$state): void
+    {
+        $update = FirmwareUpdateDetector::detect($reading, $state);
+        if ($update === null) {
+            return;
+        }
+
+        $message = sprintf(
+            "Le firmware de l'appareil FFP3 est passé de la version %s à la version %s.\n"
+            . 'Mise à jour OTA réussie (ou reflash manuel) — le redémarrage associé est normal.',
+            $update['from'],
+            $update['to']
+        );
+        $this->notifier->sendAlert(
+            Severity::Info,
+            NotificationCategory::Lifecycle,
+            'FFP3',
+            'Firmware mis à jour',
+            $message,
+            'ffp3:fw-update:' . $update['to']
+        );
     }
 
     /**

@@ -21,7 +21,11 @@ use App\Service\NotificationService;
  *  - REDÉMARRAGE : `bootCount` est un compteur RTC incrémenté à CHAQUE réveil et
  *    remis à zéro sur un vrai redémarrage (mémoire RTC effacée). Un redémarrage se
  *    détecte donc par un DÉCRÉMENT du compteur (valeur < précédente), pas par un
- *    incrément (qui est le rythme normal des réveils).
+ *    incrément (qui est le rythme normal des réveils) ;
+ *  - MISE À JOUR FIRMWARE (OTA réussie / reflash) : changement de la colonne
+ *    `version` entre deux lignes du même capteur. Quand une mise à jour est
+ *    détectée, le mail « Redémarrage détecté » du même cycle est remplacé (le
+ *    reboot est la conséquence attendue de l'OTA, pas une anomalie).
  *
  * Chaque run ne traite que les NOUVELLES lignes (curseur `lastRowId` persisté) :
  * les latches ne bougent qu'à l'arrivée de données fraîches.
@@ -69,7 +73,8 @@ abstract class AbstractVitalsDerivedAlertService
         }
 
         $this->checkBattery($row, $state);
-        $this->checkReboot($row, $state);
+        $firmwareUpdated = $this->checkFirmwareUpdate($row, $state);
+        $this->checkReboot($row, $state, $firmwareUpdated);
         $this->checkFamilySpecific($row, $state);
 
         $state['lastRowId'] = $rowId;
@@ -116,10 +121,52 @@ abstract class AbstractVitalsDerivedAlertService
     }
 
     /**
+     * Détecte une mise à jour de firmware (OTA réussie / reflash) : changement de
+     * la colonne `version` entre deux lignes du MÊME capteur. Garde `sensor` :
+     * si un autre appareil poste dans la même table, on ré-initialise en silence
+     * (comparer les versions de deux appareils produirait des faux positifs).
+     *
      * @param array<string, mixed> $row
      * @param array<string, mixed> $state
+     *
+     * @return bool Vrai si une mise à jour vient d'être notifiée (ce cycle)
      */
-    private function checkReboot(array $row, array &$state): void
+    private function checkFirmwareUpdate(array $row, array &$state): bool
+    {
+        $update = FirmwareUpdateDetector::detect($row, $state);
+        if ($update === null) {
+            return false;
+        }
+
+        $message = sprintf(
+            "Le firmware de l'appareil %s est passé de la version %s à la version %s.\n"
+            . 'Mise à jour OTA réussie (ou reflash manuel) — le redémarrage associé est normal.',
+            $this->family(),
+            $update['from'],
+            $update['to']
+        );
+        $this->notifier->sendAlert(
+            Severity::Info,
+            NotificationCategory::Lifecycle,
+            $this->family(),
+            'Firmware mis à jour',
+            $message,
+            // Clé par version cible : dédoublonne les re-POST, sans masquer une
+            // seconde mise à jour rapprochée (cooldown P3 = 6 h sinon).
+            $this->throttleKeyPrefix() . ':fw-update:' . $update['to']
+        );
+
+        return true;
+    }
+
+    /**
+     * @param array<string, mixed> $row
+     * @param array<string, mixed> $state
+     * @param bool                 $firmwareUpdated Une mise à jour firmware vient d'être
+     *                                              notifiée : le reset de bootCount est
+     *                                              attendu, ne pas doubler d'un mail reboot
+     */
+    private function checkReboot(array $row, array &$state, bool $firmwareUpdated = false): void
     {
         $bootCount = isset($row['bootCount']) && is_numeric($row['bootCount'])
             ? (int) $row['bootCount']
@@ -133,6 +180,10 @@ abstract class AbstractVitalsDerivedAlertService
 
         if (!is_int($previous)) {
             return; // premier passage : initialiser sans notifier
+        }
+
+        if ($firmwareUpdated) {
+            return; // reboot expliqué par la mise à jour (déjà notifiée)
         }
 
         if ($bootCount < $previous) {

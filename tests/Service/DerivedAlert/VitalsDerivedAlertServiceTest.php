@@ -186,6 +186,59 @@ final class VitalsDerivedAlertServiceTest extends TestCase
         $service->run();
     }
 
+    public function testFirmwareUpdateSendsInfoAndSuppressesRebootMail(): void
+    {
+        $rowV1 = $this->n3ppRow(1, bootCount: 40);
+        $rowV1['version'] = '4.52';
+        $rowV1['sensor'] = 'n3pp';
+        // Mise à jour OTA : version change ET bootCount repart de 1 (reset RTC).
+        $rowV2 = $this->n3ppRow(2, bootCount: 1);
+        $rowV2['version'] = '4.53';
+        $rowV2['sensor'] = 'n3pp';
+
+        $repo = $this->createMock(N3ppSensorRepository::class);
+        $repo->method('getLatest')->willReturnOnConsecutiveCalls($rowV1, $rowV2);
+
+        $notifier = $this->createMock(NotificationService::class);
+        // Un SEUL mail : « Firmware mis à jour » (le reboot est la conséquence
+        // attendue de l'OTA, pas de doublon « Redémarrage détecté »).
+        $notifier->expects($this->once())
+            ->method('sendAlert')
+            ->with(
+                Severity::Info,
+                NotificationCategory::Lifecycle,
+                'N3PP',
+                'Firmware mis à jour',
+                $this->stringContains('4.52'),
+                'n3pp:fw-update:4.53'
+            )
+            ->willReturn(true);
+
+        $service = $this->buildN3pp($notifier, $repo);
+        $service->run();
+        $service->run();
+    }
+
+    public function testFirmwareVersionFromDifferentSensorIsSilent(): void
+    {
+        $rowA = $this->n3ppRow(1);
+        $rowA['version'] = '4.52';
+        $rowA['sensor'] = 'n3pp';
+        $rowB = $this->n3ppRow(2);
+        $rowB['version'] = '9.99';
+        $rowB['sensor'] = 'autre-appareil';
+
+        $repo = $this->createMock(N3ppSensorRepository::class);
+        $repo->method('getLatest')->willReturnOnConsecutiveCalls($rowA, $rowB);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendAlert');
+
+        $service = $this->buildN3pp($notifier, $repo);
+        $service->run();
+        $service->run();
+    }
+
     public function testMspBatteryLowUsesMsp1Family(): void
     {
         $repo = $this->createMock(MspSensorRepository::class);
