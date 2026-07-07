@@ -3,7 +3,8 @@
 > **Statut** : audit + plan de conception (cible). Le socle « seuils pilotés en BDD »
 > (PR supervision 6.15.0) est déjà mergé ; ce document définit la suite.
 > **Portée** : écosystème n³ — firmwares `ffp5cs` (aquaponie), `n3pp` (serre/élevage),
-> `uploadphotosserver` (CAM) et le serveur **FFP3 Datas** (`n3_serveur`).
+> `msp` (station météo), `uploadphotosserver` (CAM) et le serveur **FFP3 Datas** (`n3_serveur`).
+> Familles supervisées côté serveur : **FFP3, N3PP, MSP1** (tables + heartbeat + résolveur hors-ligne).
 
 ## 1. Objectif
 
@@ -35,11 +36,15 @@ Deux invariants :
 | Chauffage ON/OFF | ffp5cs | ❌ | `TempEau` + `etatHeat` + `chauffageThreshold` ✅ |
 | Nourrissage fait/manqué/plafond | ffp5cs | ❌ | compteurs `bouffePetits/Gros` + créneaux ✅ |
 | Sol sec | n3pp | ❌ | `HumidMoy` + `SeuilSec` ✅ |
-| Batterie faible | n3pp | ❌ | **absent du POST** ❌ |
-| Appareil hors-ligne / silencieux | ❌ | ✅ | heartbeat / cadence données |
-| Boot / OTA / veille-réveil / rapport réseau | ffp5cs, n3pp | partiel (OTA piloté serveur) | `bootCount` (n3pp), état OTA |
+| Batterie faible (P1) | n3pp, msp | ❌ | **n3pp/msp** : `PontDiv` + `SeuilPontDiv` ✅ · **ffp5cs** : absent ❌ |
+| Appareil hors-ligne / silencieux | ❌ | ✅ | heartbeat / cadence données (les 3 familles) |
+| Boot / OTA / veille-réveil / rapport réseau (P4) | ffp5cs, n3pp, msp | partiel (OTA piloté serveur) | `bootCount`, état OTA ; rapport réseau = diagnostic intrinsèque |
 | CAM : boot, bascule jour/nuit, échec OTA | uploadphotosserver | ❌ | POST version/heartbeat |
 | CAM : récap transfert galerie | ❌ (déjà délégué) | ✅ `sendGalleryTransferReport` | session sync start/finish |
+
+> **MSP (station météo)** n'a que **2 mails** : batterie faible (P1) et rapport réseau (P4, 6 h).
+> Aucune alerte sur les capteurs météo (temp/humidité/pluie/luminosité) aujourd'hui — mais tous
+> ces champs sont au POST, donc de futures alertes météo seraient calculables côté serveur.
 
 ### 2.2 Comportement hors-ligne du firmware — **fragile, pertes réelles**
 
@@ -56,13 +61,20 @@ Deux invariants :
 | Switch mail distant | GPIO **101** `mailNotif` (mode gradué) | GPIO **101** (idem) | clé **103** (bool binaire) |
 | Taxonomie sévérité | `N3Severity`/`N3NotifMode` (P1-P4) | idem | **non** (bool custom) |
 
+> **MSP (deep sleep)** = profil **quasi identique à n3pp** : `n3_mail` one-shot, **aucune queue**,
+> **0 retry**, flags anti-spam en **RTC** (`s_mspBatteryMailSent`), taxonomie `N3Severity/N3NotifMode`,
+> switch **GPIO 101** `mailNotif`, `FreqWakeUp` **GPIO 107**, **pas d'`isServerOk`**, et **même bug de
+> latching** (`s_mspBatteryMailSent = true` posé inconditionnellement après un envoi non vérifié —
+> `msp/src/msp_automation.cpp:203-204`).
+
 **Bug central à corriger :** le flag anti-spam (« déjà alerté ») est posé au **moment de
-l'enqueue** (ffp5cs) ou **inconditionnellement** (n3pp/ffp5cs alertes niveau, uploadphotosserver
+l'enqueue** (ffp5cs) ou **inconditionnellement** (n3pp/msp/ffp5cs alertes niveau, uploadphotosserver
 OTA), **pas à la livraison SMTP confirmée**. Un envoi qui échoue hors ligne est donc considéré
 « fait » : l'alerte est **perdue** jusqu'à ce que la grandeur repasse l'hystérésis. Références :
 `ffp5cs/include/automatism/level_alert_orchestrator.h:38-43`,
 `ffp5cs/include/automatism/flood_orchestrator.h:44-49`,
-`n3pp/src/n3pp_automation.cpp:137-146` (`emailHumidSent` en `RTC_DATA_ATTR`).
+`n3pp/src/n3pp_automation.cpp:137-146` (`emailHumidSent` en `RTC_DATA_ATTR`),
+`msp/src/msp_automation.cpp:198-205` (batterie, `s_mspBatteryMailSent`).
 
 ### 2.3 Rouages déjà en place (réutilisables)
 
@@ -106,9 +118,11 @@ OTA), **pas à la livraison SMTP confirmée**. Un envoi qui échoue hors ligne e
 | Aquarium bas, réserve, marées | **Serveur** (déjà) | ffp5cs si `!isServerOk()` | fin des doublons |
 | Trop-plein, chauffage, nourrissage | **Serveur** (à implémenter) | ffp5cs si `!isServerOk()` | données présentes au POST |
 | Sol sec | **Serveur** (à implémenter) | n3pp si POST échoué | `HumidMoy`/`SeuilSec` présents |
+| Batterie faible **n3pp / msp** | **Serveur** (à implémenter) | n3pp/msp si POST échoué | `PontDiv`+`SeuilPontDiv` **présents au POST** ✅ |
+| Batterie faible **ffp5cs** | **ESP** (critique) | — | pas de champ batterie au POST → §Phase 4 |
 | Boot / redémarrage | **Serveur** (via `bootCount`) | — | dérivable ; diag ESP supprimé |
-| Appareil hors-ligne | **Serveur** (déjà, 6.15.0) | — | filet de sécurité de tout le reste |
-| Batterie faible | **ESP** (critique) | — | pas de champ au POST → §Phase 4 |
+| Rapport réseau (P4) ffp5cs/n3pp/msp | **ESP** (diagnostic intrinsèque) | — | RSSI/heap/uptime non fidèlement reconstituables ; candidat à réduire/supprimer |
+| Appareil hors-ligne | **Serveur** (déjà, 6.15.0) | — | filet de sécurité de tout le reste, les 3 familles |
 | Crash / panic | **ESP** (critique) | — | intrinsèque à l'appareil |
 | CAM boot / jour-nuit / OTA-fail | **Serveur** si dérivable, sinon ESP critique | uploadphotosserver | adopter taxonomie |
 | CAM récap galerie | **Serveur** (déjà) | — | aucune duplication |
@@ -122,6 +136,11 @@ OTA), **pas à la livraison SMTP confirmée**. Un envoi qui échoue hors ligne e
 - **n3pp** — **net-new** : pas de `isServerOk`. Il POST sur wake ; capturer le **succès du POST
   de ce wake** (code retour HTTP) dans un flag RTC `postOkThisWake`. Si OK → suppression des
   alertes partagées ; sinon → failover. Deep sleep : le flag est recalculé chaque wake.
+- **msp** — **net-new, identique à n3pp** : pas d'`isServerOk` (le compteur d'échec GET
+  `s_outputsGetFailureCount` n'est pas `RTC_DATA_ATTR` → inutilisable entre cycles). Ajouter un flag
+  RTC `postOkThisWake` sur le code retour du POST (`n3DataPost` dont le résultat est aujourd'hui
+  ignoré, `msp_network.cpp:149`). Seule alerte partagée à arbitrer : **batterie** (le rapport réseau
+  P4 reste ESP, cf. §3.4-2 il est supprimé en failover de toute façon).
 - **uploadphotosserver** — proxy « serveur OK » = GET config 200 **et** POST version OK. Adopter
   le même gate pour ses 4 diagnostics ; migrer d'abord ceux dérivables côté serveur (boot via
   version POST, OTA via le pilotage OTA serveur).
@@ -152,10 +171,11 @@ Quand le failover est actif (`!isServerOk()`), l'ESP **ne doit pas se saturer** 
 > l'ESP sur cette alerte** — sinon trou de couverture. On monte donc le serveur d'abord, puis on
 > bascule l'ESP.
 
-### Phase 0 — Fiabilité (firmware, tous) — *indépendant, prioritaire*
+### Phase 0 — Fiabilité (firmware, tous : ffp5cs, n3pp, msp, uploadphotosserver) — *indépendant, prioritaire*
 - Latcher le flag « envoyé » sur la **livraison SMTP confirmée**, pas sur l'enqueue ni
   inconditionnellement (`ffp5cs` level/flood orchestrators ; `n3pp` `automatismes()` ;
-  `uploadphotosserver` OTA-fail).
+  `msp` `sommeil()` batterie `msp_automation.cpp:203-204` ; `uploadphotosserver` OTA-fail).
+  → `sendEmailNotification()` (n3pp/msp) doit **renvoyer un booléen de succès** au lieu de `void`.
 - Relire les cooldowns anti-spam en NVS au boot (ex. `lastFloodEmailEpoch` : écrit mais jamais
   relu) pour ne pas re-spammer / perdre après reboot.
 - Bénéfice immédiat même avant l'arbitrage : plus de pertes d'alertes hors ligne.
@@ -176,21 +196,27 @@ Nouvelles tâches CRON dans `CronOrchestrator` (ou services dédiés), sur donn�
 - **Nourrissage fait/manqué/plafond** : compteurs `bouffePetits/Gros(108/109)` + créneaux
   `bouffeMatin/Midi/Soir(105-107)` (le serveur détient déjà les compteurs).
 - **Sol sec (n3pp)** : `HumidMoy` vs `SeuilSec(102 n3pp)` + hystérésis +5 %.
-- **Boot / redémarrage** : détecter l'incrément de `bootCount` (n3pp) / nouvelle session.
+- **Batterie (n3pp + msp)** : `PontDiv` vs `SeuilPontDiv` (les deux au POST) + hystérésis de
+  ré-armement. (ffp5cs n'a pas de champ batterie → Phase 4.)
+- **Boot / redémarrage** : détecter l'incrément de `bootCount` (n3pp/msp) / nouvelle session.
 - Réutiliser `NotificationService` (throttle, digest, catégories, destinataire, mm/cm).
-- À l'issue : le serveur couvre **toutes** les alertes partagées.
+- À l'issue : le serveur couvre **toutes** les alertes partagées des 3 familles capteurs.
 
 ### Phase 3 — Bascule ESP en relais + anti-congestion (firmware, tous)
 - **ffp5cs** : gate `isServerOk() && postFrais` → suppression des alertes partagées ; sinon
   failover §3.4 (P1/P2 only, SMTP seulement si Internet, budget borné).
 - **n3pp** : ajouter `postOkThisWake` (RTC) ; même gate.
+- **msp** : idem n3pp — ajouter `postOkThisWake` (RTC, sur le résultat de `n3DataPost`
+  aujourd'hui ignoré) ; arbitrer la batterie ; le rapport réseau P4 est de toute façon supprimé
+  en failover (§3.4-2).
 - **uploadphotosserver** : adopter `N3Severity/N3NotifMode` (aujourd'hui bool clé 103), gate sur
   proxy « serveur OK », failover critique-only.
 - Garder le kill-switch manuel GPIO 101 (override).
 
 ### Phase 4 — Alertes non dérivables (firmware + serveur)
-- **Batterie** : soit ajouter le champ tension/`%` au POST ffp5cs/n3pp (→ serveur primaire),
-  soit la laisser **ESP critique-only** (P1, hors gate failover car non couverte serveur).
+- **Batterie ffp5cs uniquement** : soit ajouter le champ tension/`%` au POST ffp5cs (→ serveur
+  primaire, comme n3pp/msp), soit la laisser **ESP critique-only** (P1, hors gate failover car non
+  couverte serveur). *(n3pp/msp sont déjà couverts en Phase 2.)*
 - **Crash / panic** : rester **ESP critique-only**.
 - Documenter explicitement la courte liste d'alertes qui restent légitimement côté ESP.
 
@@ -218,7 +244,7 @@ redondant »** à **« un émetteur fiable unique + un relais ciblé et borné �
 - **Ordonnancement** : ne jamais activer la suppression ESP d'une alerte avant que le serveur ne
   la calcule (respecter l'ordre des phases par classe d'alerte).
 - **Charge SMTP serveur à 1 min** : throttle/digest à recalibrer ; surveiller les quotas Gmail.
-- **n3pp / uploadphotosserver** : pas de `isServerOk` natif → coût net-new (flag POST par wake).
+- **n3pp / msp / uploadphotosserver** : pas d'`isServerOk` natif → coût net-new (flag POST par wake).
 - **Latching (Phase 0)** à corriger avant toute bascule, sinon le failover perd des alertes.
 
 ## 7. Références code
@@ -233,5 +259,6 @@ redondant »** à **« un émetteur fiable unique + un relais ciblé et borné �
 `ffp5cs/include/automatism/{level_alert_orchestrator,flood_orchestrator}.h`,
 `ffp5cs/src/automatism/automatism_sync.{h,cpp}` (`isServerOk`),
 `n3pp/src/n3pp_automation.cpp`, `n3pp/src/n3pp_network.cpp`,
-`uploadphotosserver/src/{main,camera_remote,camera_sync}.cpp`,
+`msp/src/msp_automation.cpp` (batterie P1 + rapport réseau P4), `msp/src/msp_network.cpp`
+(POST/GET, `n3DataPost` résultat ignoré), `uploadphotosserver/src/{main,camera_remote,camera_sync}.cpp`,
 `shared/n3_mail/src/n3_notify.h` (taxonomie `N3Severity`/`N3NotifMode`).
