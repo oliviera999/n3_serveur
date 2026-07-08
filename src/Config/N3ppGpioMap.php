@@ -40,6 +40,7 @@ final class N3ppGpioMap
         108 => 'notifMode',
         109 => 'notifCategories',
         110 => 'resetMode',
+        112 => 'veilleInfinie',
     ];
 
     /**

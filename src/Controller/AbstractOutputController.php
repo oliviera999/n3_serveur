@@ -529,7 +529,7 @@ abstract class AbstractOutputController
             return ['ok' => true, 'value' => in_array(strtolower($value), ['1', 'true', 'checked', 'on', 'oui'], true) ? 'checked' : 'false'];
         }
 
-        if ($paramName === 'WakeUp' || $paramName === 'ServoModeAuto') {
+        if ($paramName === 'WakeUp' || $paramName === 'ServoModeAuto' || $paramName === 'veilleInfinie') {
             return ['ok' => true, 'value' => in_array(strtolower($value), ['1', 'true', 'on', 'oui'], true) ? '1' : '0'];
         }
 

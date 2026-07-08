@@ -95,6 +95,7 @@ INSERT INTO `msp1Outputs` (`board`, `gpio`, `name`, `state`, `requestTime`) VALU
 ('2', 107, 'FreqWakeUp', '10', NOW()),
 ('2', 110, 'resetMode', '0', NOW()),
 ('2', 111, 'ServoModeAuto', '1', NOW()),
+('2', 112, 'veilleInfinie', '1', NOW()),
 ('2', 108, 'notifMode', 'important', NOW()),
 ('2', 109, 'notifCategories', '', NOW())
 ON DUPLICATE KEY UPDATE
@@ -122,6 +123,7 @@ INSERT INTO `n3ppOutputs` (`board`, `gpio`, `name`, `state`, `requestTime`) VALU
 ('3', 106, 'WakeUp', '0', NOW()),
 ('3', 107, 'FreqWakeUp', '8', NOW()),
 ('3', 110, 'resetMode', '0', NOW()),
+('3', 112, 'veilleInfinie', '1', NOW()),
 ('3', 108, 'notifMode', 'important', NOW()),
 ('3', 109, 'notifCategories', '', NOW())
 ON DUPLICATE KEY UPDATE

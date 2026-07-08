@@ -38,6 +38,7 @@ class N3ppGpioMapCoherenceTest extends TestCase
         108 => 'notifMode',
         109 => 'notifCategories',
         110 => 'resetMode',
+        112 => 'veilleInfinie',
     ];
 
     public function testCanonicalParamGpioMapValuesAreFrozen(): void

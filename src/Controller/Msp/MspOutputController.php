@@ -129,7 +129,7 @@ class MspOutputController extends AbstractOutputController
 
     protected function getDefaultParamKeys(): array
     {
-        return ['mail', 'mailNotif', 'notifMode', 'notifCategories', 'SeuilSec', 'SeuilPontDiv', 'ServoHB', 'ServoGD', 'WakeUp', 'FreqWakeUp', 'ServoModeAuto'];
+        return ['mail', 'mailNotif', 'notifMode', 'notifCategories', 'SeuilSec', 'SeuilPontDiv', 'ServoHB', 'ServoGD', 'WakeUp', 'FreqWakeUp', 'ServoModeAuto', 'veilleInfinie'];
     }
 
     /** @return array<string, string> */
@@ -137,6 +137,9 @@ class MspOutputController extends AbstractOutputController
     {
         $params = parent::getDefaultParams();
         $params['ServoModeAuto'] = '1';
+        // Veille infinie sous seuil batterie : active par defaut (comportement
+        // historique du firmware). GPIO virtuel 112.
+        $params['veilleInfinie'] = '1';
         return $params;
     }
 

@@ -105,6 +105,14 @@
                         <input type="number" data-parameter="SeuilPontDiv" data-parameter-gpio="103" id="SeuilPontDiv" min="0" value="{{ params.SeuilPontDiv|default('0') }}">
                         <small class="save-indicator" data-save-indicator data-parameter="SeuilPontDiv" data-state="idle"></small>
                     </label>
+                    <label class="parameter-item parameter-item-switch" title="Coché = sous le seuil batterie, le module entre en veille infinie (réveil bouton uniquement) pour préserver la batterie. Décoché = il continue son cycle de réveil normal malgré la batterie basse.">
+                        <span>Veille infinie batterie faible</span>
+                        <label class="modern-switch" title="Activer/désactiver la mise en veille infinie sous le seuil batterie">
+                            <input type="checkbox" data-parameter-gpio="112" id="veilleInfinie" {{ params.veilleInfinie|default('1') == '1' ? 'checked' : '' }} role="switch" aria-label="Veille infinie batterie faible" onchange="saveParamSwitch('veilleInfinie', this.checked, '1', '0')">
+                            <span class="modern-switch-slider"><span class="modern-switch-button"></span></span>
+                        </label>
+                        <span class="parameter-item-hint" id="veilleInfinie-hint">{{ params.veilleInfinie|default('1') == '1' ? 'Activée' : 'Désactivée' }}</span>
+                    </label>
                 </div>
             </div>
             {% if reset_output is defined and reset_output is not null %}

@@ -41,6 +41,7 @@ final class MspGpioMap
         109 => 'notifCategories',
         110 => 'resetMode',
         111 => 'ServoModeAuto',
+        112 => 'veilleInfinie',
     ];
 
     /**

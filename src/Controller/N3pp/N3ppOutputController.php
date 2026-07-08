@@ -142,7 +142,17 @@ class N3ppOutputController extends AbstractOutputController
 
     protected function getDefaultParamKeys(): array
     {
-        return ['mail', 'mailNotif', 'notifMode', 'notifCategories', 'SeuilSec', 'SeuilPontDiv', 'HeureArrosage', 'tempsArrosage', 'WakeUp', 'FreqWakeUp'];
+        return ['mail', 'mailNotif', 'notifMode', 'notifCategories', 'SeuilSec', 'SeuilPontDiv', 'HeureArrosage', 'tempsArrosage', 'WakeUp', 'FreqWakeUp', 'veilleInfinie'];
+    }
+
+    /** @return array<string, string> */
+    protected function getDefaultParams(): array
+    {
+        $params = parent::getDefaultParams();
+        // Veille infinie sous seuil batterie : active par defaut (comportement
+        // historique du firmware). GPIO virtuel 112.
+        $params['veilleInfinie'] = '1';
+        return $params;
     }
 
     protected function getStateData(int $board): array

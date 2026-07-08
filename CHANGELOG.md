@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.22.0] - 2026-07-08
+
+### Interrupteur « veille infinie sous seuil batterie » télécommandable (N3PP + MSP1)
+- **Fonctionnalité** : nouvelle option dans les pages de contrôle serre/élevage (N3PP) et station météo (MSP1), section « Énergie », pour **activer/désactiver la mise en veille infinie** que le firmware déclenche quand la batterie passe sous le seuil du pont diviseur (`SeuilPontDiv`). Désactivée, l'ESP retombe sur son cycle de réveil normal (`FreqWakeUp`) malgré la batterie basse ; l'alerte batterie reste émise.
+- **Contrat** : nouveau GPIO virtuel **112 → `veilleInfinie`** (persistant, défaut `1` = comportement historique), ajouté à `N3ppGpioMap` et `MspGpioMap`. Il est renvoyé au firmware par `getStateForFirmware()` (non server-only) ; le firmware (n3pp ≥ 4.55, msp ≥ 2.53) le lit sur la clé `112`.
+- `src/Config/N3ppGpioMap.php`, `src/Config/MspGpioMap.php` — ajout de `112 => 'veilleInfinie'`.
+- `src/Controller/N3pp/N3ppOutputController.php`, `src/Controller/Msp/MspOutputController.php` — `veilleInfinie` ajouté à `getDefaultParamKeys()` et défaut `'1'` dans `getDefaultParams()`.
+- `src/Controller/AbstractOutputController.php` — validation booléenne de `veilleInfinie` (`normalizeAndValidateParameterValue`, comme `WakeUp`/`ServoModeAuto`).
+- `templates/n3pp_control.twig`, `templates/msp1_control.twig` — nouveau `modern-switch` « Veille infinie batterie faible » (`saveParamSwitch('veilleInfinie', …)`, `data-parameter-gpio="112"`).
+- `migrations/2026_07_veille_infinie_gpio.sql` — insertion des lignes GPIO 112 (`ON DUPLICATE KEY UPDATE`) pour `n3ppOutputs`/`n3ppOutputsTest` (board 3) et `msp1Outputs`/`msp1OutputsTest` (board 2). Seed dev mis à jour (`docker/mysql/init/10-seed.sql`).
+- `docs/API_MSP1_N3PP.md` — table du contrat GPIO virtuels enrichie (clé 112).
+
 ## [6.21.4] - 2026-07-07
 
 ### Correctif test `HeartbeatControllerTest` (dette pré-existante révélée par la CI verte sur PHPStan)
