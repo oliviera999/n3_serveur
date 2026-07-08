@@ -102,6 +102,9 @@ GET /msp1/msp1control/msp1-outputs-action.php?action=outputs_state&board=2
 | 107 | `FreqWakeUp` (s) | `FreqWakeUp` (s) |
 | 110 | `resetMode` (one-shot 0/1) | `resetMode` (one-shot 0/1) |
 | 111 | — | `ServoModeAuto` (0/1) |
+| 112 | `veilleInfinie` (0/1) | `veilleInfinie` (0/1) |
+
+> **GPIO 112 `veilleInfinie`** (persistant, défaut `1`) : autorise la mise en veille infinie (sommeil GPIO-only, `sleepSeconds=0`) quand `PontDiv < SeuilPontDiv`. Réglé à `0`, le firmware retombe sur le sommeil timer normal (`FreqWakeUp`) malgré la batterie basse ; l'alerte batterie reste émise. Absent de la réponse → le firmware conserve sa valeur locale (défaut `1`). Firmwares : n3pp ≥ 4.55, msp ≥ 2.53.
 
 > Comportement **one-shot** GPIO 110 : si le serveur renvoie `"110": "1"`, le firmware tente OTA puis `ESP.restart()`. Le serveur remet automatiquement à `0` après lecture (cf. [`AbstractOutputRepository`](../src/Repository/AbstractOutputRepository.php)).
 

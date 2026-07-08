@@ -39,6 +39,7 @@ class MspGpioMapCoherenceTest extends TestCase
         109 => 'notifCategories',
         110 => 'resetMode',
         111 => 'ServoModeAuto',
+        112 => 'veilleInfinie',
     ];
 
     public function testCanonicalParamGpioMapValuesAreFrozen(): void
