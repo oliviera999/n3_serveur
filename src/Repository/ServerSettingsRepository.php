@@ -129,14 +129,25 @@ class ServerSettingsRepository extends AbstractRepository
         }
         $this->schemaEnsured = true;
 
+        // DDL adapté au driver PDO : MySQL/MariaDB en prod, mais le suite Unit
+        // s'exécute sur SQLite qui ne parse ni `ON UPDATE CURRENT_TIMESTAMP` ni
+        // la clause `ENGINE=… CHARSET=… COLLATE=…`. On émet alors une DDL portable
+        // (même colonnes / clé primaire) pour rester résolvable hors MySQL.
+        $isMysql = $this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME) === 'mysql';
+
+        $updatedAt = $isMysql
+            ? '`updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,'
+            : '`updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,';
+        $tableOptions = $isMysql ? ' ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci' : '';
+
         $this->pdo->exec(
             'CREATE TABLE IF NOT EXISTS `' . self::TABLE . '` ('
             . ' `setting_key` VARCHAR(64) NOT NULL,'
             . ' `setting_value` VARCHAR(255) NOT NULL,'
-            . ' `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,'
+            . ' ' . $updatedAt
             . ' `updated_by` VARCHAR(64) DEFAULT NULL,'
             . ' PRIMARY KEY (`setting_key`)'
-            . ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci'
+            . ')' . $tableOptions
         );
     }
 }

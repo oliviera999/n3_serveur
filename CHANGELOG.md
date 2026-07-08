@@ -23,6 +23,9 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - `migrations/2026_07_veille_infinie_gpio.sql` — insertion des lignes GPIO 112 (`ON DUPLICATE KEY UPDATE`) pour `n3ppOutputs`/`n3ppOutputsTest` (board 3) et `msp1Outputs`/`msp1OutputsTest` (board 2). Seed dev mis à jour (`docker/mysql/init/10-seed.sql`).
 - `docs/API_MSP1_N3PP.md` — table du contrat GPIO virtuels enrichie (clé 112).
 
+### Correctif portabilité BDD (dette pré-existante — CI `test:unit` remise au vert)
+- `src/Repository/ServerSettingsRepository.php` — `ensureSchema()` émettait une DDL MySQL (`ON UPDATE CURRENT_TIMESTAMP`, `ENGINE=InnoDB DEFAULT CHARSET…`) non parsable par SQLite, faisant échouer les 23 `ContainerWiringTest::testServiceIsResolvable` du suite unitaire (dette signalée « suivie séparément » en 6.21.4). La DDL est désormais **adaptée au driver PDO** (`PDO::ATTR_DRIVER_NAME`, idiome déjà utilisé par `OutputCacheService`) : MySQL conserve sa clause complète, les autres drivers (SQLite en test) reçoivent une DDL portable équivalente (mêmes colonnes / clé primaire). Aucun changement de comportement en production.
+
 ## [6.21.4] - 2026-07-07
 
 ### Correctif test `HeartbeatControllerTest` (dette pré-existante révélée par la CI verte sur PHPStan)
