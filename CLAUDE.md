@@ -119,6 +119,33 @@ POST chaque minute (`src/Service/DerivedAlert/`). Voir `docs/deployment/CRON.md`
 3. Lancer le **qa-gate** (cs:check, analyse, tests, audit) — tout doit être vert.
 4. Commit / PR. La PROD partage routes et code.
 
+## Cohérence inter-PR — anti-conflit de merge (OBLIGATOIRE)
+
+> Le bump de version touche **toujours les mêmes lignes** (`VERSION`, haut de `CHANGELOG.md`).
+> Deux PR ouvertes en parallèle qui bumpent chacune → **conflit de merge garanti**. Cette règle
+> l'évite en imposant une vérification croisée à **chaque publication ou mise à jour d'une PR**.
+
+**À chaque fois que tu ouvres, mets à jour (push) ou réactualises une PR de ce dépôt :**
+
+1. **Lister les autres PR ouvertes** du dépôt (`mcp__github__list_pull_requests`, state `open`) et
+   repérer celles qui touchent les **fichiers de versionnage sensibles** :
+   - `VERSION` (racine)
+   - `CHANGELOG.md` (surtout l'entrée en tête / section `[Non publié]`)
+   - toute migration `migrations/NNN_*.sql` (collision de **numéro** `NNN`)
+2. **Détecter les collisions** : même numéro de version cible, même ligne de `CHANGELOG.md`
+   modifiée, ou même numéro de migration `NNN`.
+3. **Résoudre AVANT de (re)pousser** :
+   - Rebaser la branche sur le dernier `master` (`git fetch origin master && git rebase origin/master`).
+   - Prendre le **numéro de version suivant encore libre** (ne pas réutiliser celui d'une autre PR
+     déjà ouverte) et re-bumper via le skill [`bump-version`](.claude/skills/bump-version/SKILL.md).
+   - Ajouter l'entrée `CHANGELOG.md` en **nouvelle ligne** sous `[Non publié]` (ne pas écraser
+     l'entrée d'une autre PR) ; renuméroter une migration si `NNN` est déjà pris ailleurs.
+4. **Ne fusionner qu'une PR versionnante à la fois** ; après un merge, rebaser/rebumper les autres
+   PR ouvertes plutôt que de les fusionner à l'aveugle.
+
+> 💡 En pratique : garde le bump de version **le plus tard possible** dans la vie d'une PR
+> (juste avant merge) pour minimiser la fenêtre de conflit.
+
 ## Documentation de référence
 
 `docs/README.md` (index), `docs/TIMEZONE_MANAGEMENT.md`, `docs/AUTHENTICATION.md`,
