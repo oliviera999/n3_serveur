@@ -256,4 +256,27 @@ Modification du code → Incrémenter VERSION → Mettre à jour CHANGELOG.md �
 
 **⚠️ NE PAS oublier** : L'incrémentation de version fait partie intégrante de chaque modification, pas une étape optionnelle !
 
+### 🔀 Cohérence inter-PR - anti-conflit de merge (OBLIGATOIRE)
+
+**🚨 Le bump de version touche toujours les mêmes lignes** (`VERSION`, tête de `CHANGELOG.md`) :
+deux PR ouvertes en parallèle qui bumpent chacune → **conflit de merge garanti**.
+
+**À CHAQUE publication OU mise à jour (push) d'une PR de ce dépôt** :
+
+1. **Lister les autres PR ouvertes** du dépôt et repérer celles qui touchent les fichiers de
+   versionnage sensibles : `VERSION` (racine), `CHANGELOG.md` (entrée en tête / `[Non publié]`),
+   et toute migration `migrations/NNN_*.sql` (collision de numéro `NNN`).
+2. **Détecter les collisions** : même numéro de version cible, même ligne `CHANGELOG.md` modifiée,
+   ou même numéro de migration `NNN`.
+3. **Résoudre AVANT de (re)pousser** :
+   - Rebaser sur le dernier `master` (`git fetch origin master && git rebase origin/master`).
+   - Prendre le **prochain numéro de version encore libre** (pas celui déjà réservé par une autre PR)
+     et re-bumper `VERSION` + `CHANGELOG.md`.
+   - Ajouter l'entrée `CHANGELOG.md` en **nouvelle ligne** (ne pas écraser celle d'une autre PR) ;
+     renuméroter une migration si `NNN` est déjà pris ailleurs.
+4. **Ne fusionner qu'une PR versionnante à la fois** ; après un merge, rebaser/rebumper les autres.
+
+> 💡 Garder le bump de version **le plus tard possible** dans la vie d'une PR (juste avant merge)
+> pour minimiser la fenêtre de conflit.
+
 <!-- Ajoutez d'autres règles personnalisées ci-dessous -->
