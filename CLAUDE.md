@@ -91,6 +91,26 @@ par requête (gérée par le middleware, sans muter `$_ENV`).
 - ❌ **Jamais** d'endpoint POST d'API sans validation de signature (`SignatureValidator` / HMAC-SHA256).
 - ✅ PDO + requêtes préparées, logique d'accès dans les `Repository`.
 - ✅ Respecter `.php-cs-fixer.php` et `phpstan.neon`.
+- ✅ Libre de s'inspirer de dépôts GitHub connus / bibliothèques éprouvées — **en citant la source** (voir ci-dessous).
+
+### Inspiration — bonnes pratiques externes (encouragé, avec citation)
+
+Tu es **libre de t'inspirer d'excellentes pratiques** décrites dans des dépôts GitHub connus et
+accessibles ou des bibliothèques éprouvées (ex. patterns Slim/Symfony, PSR, projets PHP de
+référence sur l'auth/HMAC, la sécurité, l'observabilité…). C'est une source d'inspiration utile
+pour la qualité et la robustesse du code.
+
+**Conditions obligatoires :**
+
+1. **Citer la source** dès que tu t'inspires d'un projet ou reprends une approche/du code : nom du
+   projet ou de la bibliothèque **+ lien** (et version/commit si pertinent). La citation va dans le
+   **message de commit / la description de PR**, et — si l'emprunt est localisé — en **commentaire de
+   code** (docblock) au-dessus du passage concerné.
+2. **Respecter les licences** : ne pas copier-coller du code sous licence incompatible ; adapter/réécrire
+   et mentionner licence + origine. En cas de doute sur la compatibilité, demander avant d'intégrer.
+   Préférer une **dépendance Composer** propre à un copier-coller quand la lib existe.
+3. **Adapter, ne pas plaquer** : rester cohérent avec les conventions du dépôt (Slim/Twig/PDO,
+   `TableConfig`, PSR-4, `strict_types`) plutôt que dupliquer un pattern externe tel quel.
 
 ### Sécurité de l'API ESP32 (`/post-data`)
 Authentification par `api_key` (legacy) ET/OU signature **HMAC-SHA256**

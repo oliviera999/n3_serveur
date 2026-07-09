@@ -279,4 +279,20 @@ deux PR ouvertes en parallèle qui bumpent chacune → **conflit de merge garant
 > 💡 Garder le bump de version **le plus tard possible** dans la vie d'une PR (juste avant merge)
 > pour minimiser la fenêtre de conflit.
 
+### 💡 Inspiration - bonnes pratiques externes (encouragé, avec citation)
+
+Tu es **libre de t'inspirer d'excellentes pratiques** décrites dans des dépôts GitHub connus et
+accessibles ou des bibliothèques éprouvées (patterns Slim/Symfony, PSR, projets PHP de référence
+sur l'auth/HMAC, la sécurité, l'observabilité…). C'est une source d'inspiration utile.
+
+**Conditions obligatoires :**
+
+1. **Citer la source** dès que tu t'inspires d'un projet ou reprends une approche/du code : nom du
+   projet ou de la bibliothèque **+ lien** (et version/commit si pertinent), dans le **message de
+   commit / la PR** et — si l'emprunt est localisé — en **commentaire de code** (docblock).
+2. **Respecter les licences** : pas de copier-coller sous licence incompatible ; adapter/réécrire,
+   mentionner licence + origine, demander en cas de doute. Préférer une **dépendance Composer** propre.
+3. **Adapter, ne pas plaquer** : rester cohérent avec les conventions du dépôt (Slim/Twig/PDO,
+   `TableConfig`, PSR-4, `strict_types`).
+
 <!-- Ajoutez d'autres règles personnalisées ci-dessous -->
