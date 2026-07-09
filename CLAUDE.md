@@ -95,6 +95,8 @@ par requête (gérée par le middleware, sans muter `$_ENV`).
 
 ### Inspiration — bonnes pratiques externes (encouragé, avec citation)
 
+Voir le skill [`external-inspiration`](.claude/skills/external-inspiration/SKILL.md).
+
 Tu es **libre de t'inspirer d'excellentes pratiques** décrites dans des dépôts GitHub connus et
 accessibles ou des bibliothèques éprouvées (ex. patterns Slim/Symfony, PSR, projets PHP de
 référence sur l'auth/HMAC, la sécurité, l'observabilité…). C'est une source d'inspiration utile
