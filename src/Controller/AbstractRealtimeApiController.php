@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Service\Realtime\AbstractSensorRealtimeDataProvider;
 use App\Service\Realtime\RealtimeDataProviderInterface;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -66,6 +67,10 @@ abstract class AbstractRealtimeApiController
     {
         try {
             $data = $this->provider->getOutputsState();
+            // Filet de sécurité : si un firmware appelle encore /api/outputs/state
+            // (format nested) avec X-Api-Key, acquitter les one-shots comme getState.
+            // Le polling UI n'envoie pas la clé → pas d'ack prématuré.
+            $this->maybeAcknowledgeFirmwareOneShots($request);
             return ResponseHelper::json($response, [
                 'timestamp' => time(),
                 'outputs' => $data,
@@ -74,6 +79,33 @@ abstract class AbstractRealtimeApiController
             error_log('[realtime] ' . $e->getMessage());
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
+    }
+
+    /**
+     * Ack one-shot uniquement pour un client firmware authentifié par API key.
+     */
+    private function maybeAcknowledgeFirmwareOneShots(Request $request): void
+    {
+        if (!$this->provider instanceof AbstractSensorRealtimeDataProvider) {
+            return;
+        }
+
+        $expected = $_ENV['API_KEY'] ?? '';
+        if (!is_string($expected) || $expected === '') {
+            return;
+        }
+
+        $provided = $request->getHeaderLine('X-Api-Key');
+        if ($provided === '') {
+            $qp = $request->getQueryParams();
+            $provided = isset($qp['api_key']) ? trim((string) $qp['api_key']) : '';
+        }
+
+        if ($provided === '' || !hash_equals($expected, $provided)) {
+            return;
+        }
+
+        $this->provider->acknowledgeFirmwareOneShots();
     }
 
     public function getActiveAlerts(Request $request, Response $response): Response

@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.22.1] - 2026-07-10
+
+### Correctif - GET firmware plat+ack (/api/firmware/outputs/state) et ack one-shot si X-Api-Key sur realtime MSP/N3PP
+- **Résumé** : GET firmware plat+ack (/api/firmware/outputs/state) et ack one-shot si X-Api-Key sur realtime MSP/N3PP.
+
+---
 ## [6.22.0] - 2026-07-08
 
 ### Interrupteur « veille infinie sous seuil batterie » télécommandable (N3PP + MSP1)

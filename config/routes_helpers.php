@@ -191,6 +191,9 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
         $group->get("/{$pathPrefix}/api/realtime/system/health", [$realtimeController, 'getSystemHealth']);
         $group->get("/{$pathPrefix}/api/realtime/alerts/active", [$realtimeController, 'getActiveAlerts']);
         $group->get("/{$pathPrefix}/api/outputs/state", [$realtimeController, 'getOutputsState']);
+        // GET firmware : format plat {gpio:state} + ack one-shot (13/108/109/110).
+        // Distinct de /api/outputs/state (nested UI, sans ack) — cf. API_MSP1_N3PP.md.
+        $group->get("/{$pathPrefix}/api/firmware/outputs/state", [$outputController, 'getState']);
         // POST uniquement : toggle est une ecriture d'etat. En GET, CsrfMiddleware
         // considere la methode comme sure et laisse passer -> CSRF possible sur une
         // session admin (ex. <img src=".../api/outputs/toggle?gpio=16&state=1">).

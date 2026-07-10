@@ -16,9 +16,9 @@ class N3ppRealtimeDataProvider extends AbstractSensorRealtimeDataProvider
 
     public function __construct(
         N3ppSensorRepository $sensorRepo,
-        private N3ppOutputRepository $outputRepo,
+        N3ppOutputRepository $outputRepo,
     ) {
-        parent::__construct($sensorRepo, self::BOARD);
+        parent::__construct($sensorRepo, $outputRepo, self::BOARD);
     }
 
     protected function getOutputsForBoard(): array

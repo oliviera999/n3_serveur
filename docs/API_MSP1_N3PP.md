@@ -76,11 +76,25 @@ POST /msp1/post-data                         (alias moderne 2026-05)
 ### 2.2 GET configuration distante (outputs_state)
 
 ```
+GET /n3pp/api/firmware/outputs/state?board=3
+GET /msp1/api/firmware/outputs/state?board=2
+```
+
+Alias legacy (même contrat plat + ack) :
+
+```
 GET /n3pp/n3ppcontrol/n3pp-outputs-action.php?action=outputs_state&board=3
 GET /msp1/msp1control/msp1-outputs-action.php?action=outputs_state&board=2
 ```
 
-**Auth :** publique (lecture seule des paramètres).
+> **Ne pas** utiliser `GET /n3pp/api/outputs/state` (ni `/msp1/...`) pour le firmware :
+> c’est l’API **realtime UI** (JSON nested `{timestamp, outputs:[…]}`) **sans**
+> acquittement one-shot. Un firmware qui la pollait laissait GPIO 110/13 à `1`
+> et rejouait reset / arrosage. Filet serveur ≥ 6.23 : ack si `X-Api-Key` valide
+> sur cette route ; le contrat firmware reste le GET plat ci-dessus.
+
+**Auth :** publique (lecture). En-tête `X-Api-Key` recommandé (obligatoire si
+`FIRMWARE_STATE_REQUIRE_KEY=true`).
 
 **Réponse JSON :**
 

@@ -13,19 +13,21 @@
 
 ## N3PP (serre) et MSP1 (météo) — endpoints canoniques
 
-| Module | POST données | GET état | Heartbeat | Board |
-|--------|--------------|----------|-----------|-------|
-| **N3PP prod** | `POST /n3pp/post-data` | `GET /n3pp/api/outputs/state?board=3` | `POST /n3pp/heartbeat` | 3 |
-| **N3PP test** | `POST /n3pp-test/post-data` | `GET /n3pp-test/api/outputs/state?board=3` | `POST /n3pp-test/heartbeat` | 3 |
-| **MSP prod** | `POST /msp1/post-data` | `GET /msp1/api/outputs/state?board=2` | `POST /msp1/heartbeat` | 2 |
-| **MSP test** | `POST /msp1-test/post-data` | `GET /msp1-test/api/outputs/state?board=2` | `POST /msp1-test/heartbeat` | 2 |
+| Module | POST données | GET état **firmware** (plat + ack) | Heartbeat | Board |
+|--------|--------------|--------------------------------------|-----------|-------|
+| **N3PP prod** | `POST /n3pp/post-data` | `GET /n3pp/api/firmware/outputs/state?board=3` | `POST /n3pp/heartbeat` | 3 |
+| **N3PP test** | `POST /n3pp-test/post-data` | `GET /n3pp-test/api/firmware/outputs/state?board=3` | `POST /n3pp-test/heartbeat` | 3 |
+| **MSP prod** | `POST /msp1/post-data` | `GET /msp1/api/firmware/outputs/state?board=2` | `POST /msp1/heartbeat` | 2 |
+| **MSP test** | `POST /msp1-test/post-data` | `GET /msp1-test/api/firmware/outputs/state?board=2` | `POST /msp1-test/heartbeat` | 2 |
 
+- `GET /…/api/outputs/state` reste l’API **UI realtime** (JSON nested, sans ack one-shot par défaut).
+- Alias legacy plat+ack : `/n3pp/n3ppcontrol/n3pp-outputs-action.php?action=outputs_state&board=3` (idem msp1).
 - Auth POST/heartbeat : HMAC `timestamp`+`signature` ou en-têtes `X-Sig-*` (parité FFP3), fallback `api_key`.
 - **Notifications Option B** : firmware lit GPIO **101** (`mailNotif` = `important`|`partial`|`full`|`none`) ; GPIO **108/109** server-only (UI web).
 - **GPIO actionneurs N3PP** : pompe **12**, arrosage manuel **13** ; pas de GPIO 2.
 - **GPIO MSP** : pas de pompe (GPIO 2 supprimé) ; **111** = `ServoModeAuto`.
 
-Alias legacy `.php` (`/n3ppdatas/post-n3pp-data.php`, etc.) : toujours routés par Slim, **dépréciés** — firmwares >= 4.50 / 2.49 utilisent les URLs ci-dessus.
+Alias legacy `.php` (`/n3ppdatas/post-n3pp-data.php`, etc.) : toujours routés par Slim, **dépréciés** — firmwares récents utilisent les URLs ci-dessus.
 
 ### Matrice GPIO 106 / 107 (collision inter-familles)
 

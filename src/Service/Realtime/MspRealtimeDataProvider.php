@@ -16,9 +16,9 @@ class MspRealtimeDataProvider extends AbstractSensorRealtimeDataProvider
 
     public function __construct(
         MspSensorRepository $sensorRepo,
-        private MspOutputRepository $outputRepo,
+        MspOutputRepository $outputRepo,
     ) {
-        parent::__construct($sensorRepo, self::BOARD);
+        parent::__construct($sensorRepo, $outputRepo, self::BOARD);
     }
 
     protected function getOutputsForBoard(): array

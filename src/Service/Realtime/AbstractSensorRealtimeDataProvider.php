@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Realtime;
 
+use App\Repository\AbstractOutputRepository;
 use App\Repository\AbstractSensorRepository;
 
 /**
@@ -23,12 +24,23 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
 
     public function __construct(
         protected AbstractSensorRepository $sensorRepo,
-        private readonly int $board,
+        protected AbstractOutputRepository $outputRepo,
+        protected readonly int $board,
         private readonly int $expectedReadingIntervalMinutes = 2,
     ) {
     }
 
     abstract protected function getOutputsForBoard(): array;
+
+    /**
+     * Acquittement one-shot (13/108/109/110) + last_request — même logique que
+     * getStateForFirmware(). À appeler seulement pour un client firmware authentifié
+     * (X-Api-Key), pas pour le polling UI.
+     */
+    public function acknowledgeFirmwareOneShots(): void
+    {
+        $this->outputRepo->getStateForFirmware($this->board);
+    }
 
     public function getLatestReadings(): array
     {
