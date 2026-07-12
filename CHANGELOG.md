@@ -11,6 +11,23 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.22.3] - 2026-07-12
+
+### Correctif - Galerie : tri par date de capture (dernières photos en tête)
+- **Résumé** : la grille et `/api/gallery/{slug}/latest` trient par date embarquée dans le nom (`Y-m-d_H-i-s`), plus par compteur seq. Évite qu'un reset NVS (seq bas) enterre une photo fraîche derrière d'anciens numéros élevés.
+- `src/Controller/Gallery/GalleryViewController.php` — `sortNewestFirst($files, $uploadDir)`.
+
+---
+## [6.22.2] - 2026-07-12
+
+### Correctif - HMAC galerie optionnel avec fallback api_key
+- **Résumé** : sur upload / sync / POST version CAM, une signature `X-Sig-*` invalide (ex. horloge firmware hors fenêtre) ne provoque plus de 401 par défaut : repli sur la clé API déjà validée. Mode strict via `GALLERY_HMAC_STRICT=true`. Firmware uploadphotosserver ≥ 2.65 : HMAC device désactivé par défaut (`CAM_DEVICE_HMAC=0`).
+- `src/Security/DeviceSignatureValidator.php` — soft-fail → `null` sauf strict.
+- Controllers Gallery (Upload / Sync / Control) — logs info en fallback ; rejet uniquement si `verify() === false`.
+- `.env.example` — `GALLERY_HMAC_STRICT=false`.
+- Tests unitaires mis à jour (soft + strict).
+
+---
 ## [6.22.1] - 2026-07-10
 
 ### Correctif - GET firmware plat+ack (/api/firmware/outputs/state) et ack one-shot si X-Api-Key sur realtime MSP/N3PP

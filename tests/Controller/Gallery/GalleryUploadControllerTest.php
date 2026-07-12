@@ -49,12 +49,51 @@ final class GalleryUploadControllerTest extends TestCase
         $this->assertSame(401, $result->getStatusCode());
     }
 
-    public function testRejectsUploadWithInvalidSignature(): void
+    public function testInvalidSignatureFallsBackToApiKey(): void
     {
-        // A4 : signature HMAC présente mais invalide -> 401 même avec une clé API valide.
+        // Défaut soft : HMAC invalide + clé API valide => auth OK (échec ensuite faute de fichier => 400).
         $previousSecret = $_ENV['API_SIG_SECRET'] ?? '';
+        $previousStrict = $_ENV['GALLERY_HMAC_STRICT'] ?? null;
         $_ENV['API_SIG_SECRET'] = 'sig-secret-xyz';
         putenv('API_SIG_SECRET=sig-secret-xyz');
+        $_ENV['GALLERY_HMAC_STRICT'] = 'false';
+        putenv('GALLERY_HMAC_STRICT=false');
+
+        try {
+            $logger = $this->createMock(LogService::class);
+            $trash = $this->createMock(GalleryTrashService::class);
+            $controller = new GalleryUploadController($logger, $trash, $this->createMock(GallerySyncRepository::class));
+
+            $request = (new ServerRequestFactory())
+                ->createServerRequest('POST', '/gallery/ffp3/upload')
+                ->withHeader('X-Api-Key', 'test-device-key')
+                ->withHeader('X-Sig-Timestamp', (string) time())
+                ->withHeader('X-Sig-Nonce', 'nonce-1')
+                ->withHeader('X-Sig-Hmac', str_repeat('0', 64));
+
+            $result = $controller->handleBySlug($request, (new ResponseFactory())->createResponse(), ['slug' => 'ffp3']);
+            $this->assertSame(400, $result->getStatusCode());
+        } finally {
+            $_ENV['API_SIG_SECRET'] = $previousSecret;
+            putenv('API_SIG_SECRET=' . $previousSecret);
+            if ($previousStrict === null) {
+                unset($_ENV['GALLERY_HMAC_STRICT']);
+                putenv('GALLERY_HMAC_STRICT');
+            } else {
+                $_ENV['GALLERY_HMAC_STRICT'] = $previousStrict;
+                putenv('GALLERY_HMAC_STRICT=' . $previousStrict);
+            }
+        }
+    }
+
+    public function testRejectsUploadWithInvalidSignatureWhenStrict(): void
+    {
+        $previousSecret = $_ENV['API_SIG_SECRET'] ?? '';
+        $previousStrict = $_ENV['GALLERY_HMAC_STRICT'] ?? null;
+        $_ENV['API_SIG_SECRET'] = 'sig-secret-xyz';
+        putenv('API_SIG_SECRET=sig-secret-xyz');
+        $_ENV['GALLERY_HMAC_STRICT'] = 'true';
+        putenv('GALLERY_HMAC_STRICT=true');
 
         try {
             $logger = $this->createMock(LogService::class);
@@ -73,6 +112,13 @@ final class GalleryUploadControllerTest extends TestCase
         } finally {
             $_ENV['API_SIG_SECRET'] = $previousSecret;
             putenv('API_SIG_SECRET=' . $previousSecret);
+            if ($previousStrict === null) {
+                unset($_ENV['GALLERY_HMAC_STRICT']);
+                putenv('GALLERY_HMAC_STRICT');
+            } else {
+                $_ENV['GALLERY_HMAC_STRICT'] = $previousStrict;
+                putenv('GALLERY_HMAC_STRICT=' . $previousStrict);
+            }
         }
     }
 

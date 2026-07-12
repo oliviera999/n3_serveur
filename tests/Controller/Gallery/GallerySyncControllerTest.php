@@ -207,12 +207,54 @@ final class GallerySyncControllerTest extends TestCase
         $this->assertSame(200, $result->getStatusCode());
     }
 
-    public function testStartRejectsInvalidSignature(): void
+    public function testStartFallsBackToApiKeyOnInvalidSignature(): void
     {
-        // A4 : signature HMAC présente mais invalide -> 401 (la clé API seule ne suffit plus).
+        // Soft : HMAC invalide + clé API => requête acceptée (plus de 401).
         $previousSecret = $_ENV['API_SIG_SECRET'] ?? '';
+        $previousStrict = $_ENV['GALLERY_HMAC_STRICT'] ?? null;
         $_ENV['API_SIG_SECRET'] = 'sig-secret-xyz';
         putenv('API_SIG_SECRET=sig-secret-xyz');
+        $_ENV['GALLERY_HMAC_STRICT'] = 'false';
+        putenv('GALLERY_HMAC_STRICT=false');
+
+        try {
+            $control = $this->createMock(GalleryControlRepository::class);
+            $control->method('getModule')->willReturn(['board' => 5, 'table' => 'UploadPhoto1Outputs', 'label' => 'FFP3']);
+
+            $sync = $this->createMock(GallerySyncRepository::class);
+            $sync->method('startSession')->willReturn(['id' => 7, 'total' => 3]);
+
+            $controller = $this->createController(['control' => $control, 'sync' => $sync]);
+            $request = (new ServerRequestFactory())
+                ->createServerRequest('POST', '/gallery/ffp3/api/sync/start?device_session=boot-1&total=3&board=5')
+                ->withHeader('X-Api-Key', $this->apiKey())
+                ->withHeader('X-Sig-Timestamp', (string) time())
+                ->withHeader('X-Sig-Nonce', 'nonce-1')
+                ->withHeader('X-Sig-Hmac', str_repeat('0', 64));
+            $result = $controller->startBySlug($request, (new ResponseFactory())->createResponse(), ['slug' => 'ffp3']);
+
+            $this->assertSame(200, $result->getStatusCode());
+        } finally {
+            $_ENV['API_SIG_SECRET'] = $previousSecret;
+            putenv('API_SIG_SECRET=' . $previousSecret);
+            if ($previousStrict === null) {
+                unset($_ENV['GALLERY_HMAC_STRICT']);
+                putenv('GALLERY_HMAC_STRICT');
+            } else {
+                $_ENV['GALLERY_HMAC_STRICT'] = $previousStrict;
+                putenv('GALLERY_HMAC_STRICT=' . $previousStrict);
+            }
+        }
+    }
+
+    public function testStartRejectsInvalidSignatureWhenStrict(): void
+    {
+        $previousSecret = $_ENV['API_SIG_SECRET'] ?? '';
+        $previousStrict = $_ENV['GALLERY_HMAC_STRICT'] ?? null;
+        $_ENV['API_SIG_SECRET'] = 'sig-secret-xyz';
+        putenv('API_SIG_SECRET=sig-secret-xyz');
+        $_ENV['GALLERY_HMAC_STRICT'] = 'true';
+        putenv('GALLERY_HMAC_STRICT=true');
 
         try {
             $control = $this->createMock(GalleryControlRepository::class);
@@ -231,6 +273,13 @@ final class GallerySyncControllerTest extends TestCase
         } finally {
             $_ENV['API_SIG_SECRET'] = $previousSecret;
             putenv('API_SIG_SECRET=' . $previousSecret);
+            if ($previousStrict === null) {
+                unset($_ENV['GALLERY_HMAC_STRICT']);
+                putenv('GALLERY_HMAC_STRICT');
+            } else {
+                $_ENV['GALLERY_HMAC_STRICT'] = $previousStrict;
+                putenv('GALLERY_HMAC_STRICT=' . $previousStrict);
+            }
         }
     }
 

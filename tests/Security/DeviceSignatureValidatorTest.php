@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Security;
 
+use App\Config\Env;
 use App\Security\DeviceSignatureValidator;
 use App\Security\SignatureValidator;
 use PHPUnit\Framework\TestCase;
@@ -19,15 +20,21 @@ class DeviceSignatureValidatorTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        // Charger .env d'abord : createMutable écrase sinon le secret de test au 1er verify().
+        Env::load();
         $this->previousSecret = $_ENV['API_SIG_SECRET'] ?? '';
         $_ENV['API_SIG_SECRET'] = 'sig-secret-abcdef';
         putenv('API_SIG_SECRET=sig-secret-abcdef');
+        $_ENV['GALLERY_HMAC_STRICT'] = 'false';
+        putenv('GALLERY_HMAC_STRICT=false');
     }
 
     protected function tearDown(): void
     {
         $_ENV['API_SIG_SECRET'] = $this->previousSecret;
         putenv('API_SIG_SECRET=' . $this->previousSecret);
+        unset($_ENV['GALLERY_HMAC_STRICT']);
+        putenv('GALLERY_HMAC_STRICT');
         parent::tearDown();
     }
 
@@ -53,8 +60,27 @@ class DeviceSignatureValidatorTest extends TestCase
         $this->assertTrue(DeviceSignatureValidator::verify($request, $body));
     }
 
-    public function testInvalidSignatureReturnsFalse(): void
+    public function testInvalidSignatureSoftFallsBackToNull(): void
     {
+        // Défaut : HMAC optionnel — signature invalide => null (fallback api_key), pas false.
+        $_ENV['GALLERY_HMAC_STRICT'] = 'false';
+        putenv('GALLERY_HMAC_STRICT=false');
+
+        $ts = (string) time();
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('POST', '/msp1gallery/upload.php')
+            ->withHeader('X-Sig-Timestamp', $ts)
+            ->withHeader('X-Sig-Nonce', $ts . '-1')
+            ->withHeader('X-Sig-Hmac', str_repeat('0', 64));
+
+        $this->assertNull(DeviceSignatureValidator::verify($request, 'api-key'));
+    }
+
+    public function testInvalidSignatureReturnsFalseWhenStrict(): void
+    {
+        $_ENV['GALLERY_HMAC_STRICT'] = 'true';
+        putenv('GALLERY_HMAC_STRICT=true');
+
         $ts = (string) time();
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/msp1gallery/upload.php')
@@ -65,8 +91,30 @@ class DeviceSignatureValidatorTest extends TestCase
         $this->assertFalse(DeviceSignatureValidator::verify($request, 'api-key'));
     }
 
-    public function testExpiredTimestampReturnsFalse(): void
+    public function testExpiredTimestampSoftFallsBackWhenNotStrict(): void
     {
+        $_ENV['GALLERY_HMAC_STRICT'] = 'false';
+        putenv('GALLERY_HMAC_STRICT=false');
+
+        $body = 'api-key';
+        $ts = (string) (time() - 4000);
+        $nonce = $ts . '-1';
+        $sig = SignatureValidator::createSignatureForBody((int) $ts, $nonce, $body, 'sig-secret-abcdef');
+
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('POST', '/msp1gallery/upload.php')
+            ->withHeader('X-Sig-Timestamp', $ts)
+            ->withHeader('X-Sig-Nonce', $nonce)
+            ->withHeader('X-Sig-Hmac', $sig);
+
+        $this->assertNull(DeviceSignatureValidator::verify($request, $body));
+    }
+
+    public function testExpiredTimestampReturnsFalseWhenStrict(): void
+    {
+        $_ENV['GALLERY_HMAC_STRICT'] = 'true';
+        putenv('GALLERY_HMAC_STRICT=true');
+
         $body = 'api-key';
         $ts = (string) (time() - 4000);
         $nonce = $ts . '-1';

@@ -86,11 +86,13 @@ Codes de reponse upload galerie :
 - `HTTP 200` : photo acceptee dans la galerie.
 - `HTTP 202` : photo recue mais deplacee en corbeille auto (qualite insuffisante).
 - `HTTP 400` : aucun fichier reçu (champ `imageFile` attendu) ou `board`/`sensor` invalide.
-- `HTTP 401` : cle API absente ou invalide.
+- `HTTP 401` : cle API absente ou invalide ; ou signature `X-Sig-*` invalide **uniquement** si `GALLERY_HMAC_STRICT=true` (sinon fallback `api_key`, serveur >= 6.22.2).
 - `HTTP 413` : fichier trop volumineux (`MAX_FILE_SIZE = 5 Mo`).
 - `HTTP 415` : type non autorise (attendu `image/jpeg`) ou magic bytes non-JPEG.
 - `HTTP 429` : rate-limit dépassé (`GALLERY_UPLOAD_RATE_LIMIT_SECONDS`, défaut 10 s/IP).
 - `HTTP 500` : erreur serveur (filesystem, permission, etc.).
+
+**HMAC CAM (optionnel, serveur >= 6.22.2)** : en-têtes `X-Sig-*` additives sur upload / sync / POST version. Absentes ou invalides → auth `api_key` (défaut). `GALLERY_HMAC_STRICT=true` restaure le rejet 401. Firmware `uploadphotosserver` >= 2.65 : envoi HMAC désactivé par défaut (`CAM_DEVICE_HMAC=0`) ; opt-in `#define CAM_DEVICE_HMAC 1`.
 
 ### Poissonglouton (ESP32-S3 recyclage)
 

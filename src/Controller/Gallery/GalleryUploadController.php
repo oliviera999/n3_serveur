@@ -258,15 +258,17 @@ class GalleryUploadController
             return false;
         }
 
-        // A4 (audit 2026-07-05) : signature HMAC additive. Le corps multipart (JPEG) n'étant pas
-        // signable en streaming, le firmware signe un condensé stable = la clé API (X-Sig-*). Si la
-        // signature est présente elle DOIT être valide ; absente, on reste sur la seule clé API.
+        // HMAC X-Sig-* optionnel (condensé = clé API pour le multipart). Valide => OK ;
+        // absente/invalide => fallback api_key ; GALLERY_HMAC_STRICT=true => rejet.
         Env::load();
         $expectedApiKey = trim((string) ($_ENV['API_KEY'] ?? ''));
         $signatureCheck = DeviceSignatureValidator::verify($request, $expectedApiKey);
         if ($signatureCheck === false) {
-            $this->logger->warning("GalleryUpload [{$gallery}]: signature HMAC invalide (X-Sig-*)");
+            $this->logger->warning("GalleryUpload [{$gallery}]: signature HMAC invalide (X-Sig-*, mode strict)");
             return false;
+        }
+        if ($signatureCheck === null && trim($request->getHeaderLine('X-Sig-Hmac')) !== '') {
+            $this->logger->info("GalleryUpload [{$gallery}]: HMAC invalide ou hors fenetre, fallback api_key");
         }
 
         return true;

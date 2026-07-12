@@ -347,16 +347,21 @@ class GallerySyncController
             return ResponseHelper::json($response, ['error' => 'Cle API invalide'], 401);
         }
 
-        // A4 : signature HMAC additive sur le corps form-urlencoded (X-Sig-*). Présente => doit être
-        // valide ; absente => on reste sur la clé API (rétro-compatible).
+        // HMAC X-Sig-* optionnel : valide => OK ; absente/invalide => fallback api_key (déjà validée),
+        // sauf GALLERY_HMAC_STRICT=true (rejet 401). Cf. DeviceSignatureValidator.
         $signatureCheck = DeviceSignatureValidator::verify($request, DeviceSignatureValidator::rawBody($request));
         if ($signatureCheck === false) {
-            $this->logger->warning('GallerySync: rejet signature HMAC invalide (X-Sig-*)', [
+            $this->logger->warning('GallerySync: rejet signature HMAC invalide (X-Sig-*, mode strict)', [
                 'path' => $request->getUri()->getPath(),
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
             ]);
 
             return ResponseHelper::json($response, ['error' => 'Signature invalide'], 401);
+        }
+        if ($signatureCheck === null && trim($request->getHeaderLine('X-Sig-Hmac')) !== '') {
+            $this->logger->info('GallerySync: HMAC invalide ou hors fenetre, fallback api_key', [
+                'path' => $request->getUri()->getPath(),
+            ]);
         }
 
         return null;

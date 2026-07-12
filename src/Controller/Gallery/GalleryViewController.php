@@ -112,33 +112,35 @@ class GalleryViewController
                 $files[] = $name;
             }
         }
-        $this->sortNewestFirst($files);
+        $this->sortNewestFirst($files, $uploadDir);
         return $files;
     }
 
     /**
-     * Trie les noms du plus récent au plus ancien, robuste à un horodatage faux.
+     * Trie du plus récent au plus ancien selon la date de capture dans le nom de fichier
+     * (segment `Y-m-d_H-i-s`, ou mtime si absent).
      *
-     * Clé primaire : le compteur monotone `<N>` en tête de nom (format N-first), décroissant.
-     * Les fichiers N-first passent avant les fichiers legacy (date-first), eux triés par nom
-     * décroissant. Ainsi l'ordre de capture est respecté même si la date embarquée est erronée
-     * et même en cas de mélange ancien/nouveau format pendant la transition.
+     * Ne plus trier principalement sur le compteur seq : un reset NVS / compteur bas
+     * (ex. seq 37 après des fichiers seq 460) enterrait les dernières photos en page N.
+     * À timestamps égaux : seq décroissant (N-first), sinon nom décroissant.
      *
      * @param array<int, string> $files
      */
-    private function sortNewestFirst(array &$files): void
+    private function sortNewestFirst(array &$files, string $uploadDir): void
     {
-        usort($files, function (string $a, string $b): int {
+        usort($files, function (string $a, string $b) use ($uploadDir): int {
+            $tsA = $this->extractTimestampFromFilename($uploadDir . '/' . $a, $a)->getTimestamp();
+            $tsB = $this->extractTimestampFromFilename($uploadDir . '/' . $b, $b)->getTimestamp();
+            if ($tsA !== $tsB) {
+                return $tsB <=> $tsA;
+            }
             [$groupA, $seqA] = $this->filenameSortKey($a);
             [$groupB, $seqB] = $this->filenameSortKey($b);
-            if ($groupA !== $groupB) {
-                return $groupB <=> $groupA; // N-first (1) avant legacy (0)
-            }
-            if ($groupA === 1) {
-                return $seqB <=> $seqA; // par compteur décroissant
+            if ($groupA === 1 && $groupB === 1 && $seqA !== $seqB) {
+                return $seqB <=> $seqA;
             }
 
-            return strcmp($b, $a); // legacy : par nom (date) décroissant
+            return strcmp($b, $a);
         });
     }
 

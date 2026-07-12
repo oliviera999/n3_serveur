@@ -19,15 +19,20 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  *   - upload multipart : condensé stable = la clé API (le corps JPEG n'est pas signable en streaming) ;
  *   - sync / version (form-urlencoded via n3_data) : le corps brut de la requête.
  *
- * ADDITIF / RÉTRO-COMPATIBLE : si les en-têtes sont absents, ou si le serveur n'a pas de
- * API_SIG_SECRET configuré, on retourne null => l'appelant retombe sur l'auth par clé API. La
- * signature n'est donc JAMAIS obligatoire ; elle renforce l'authenticité quand elle est présente.
+ * Comportement (v6.22.2+) :
+ *   - en-têtes absents, ou API_SIG_SECRET serveur vide → null (fallback clé API) ;
+ *   - signature valide → true ;
+ *   - signature invalide → null (fallback clé API) sauf si GALLERY_HMAC_STRICT=true → false (rejet).
+ *
+ * Ainsi le HMAC est optionnel : une horloge firmware hors fenêtre ou un condensé faux ne bloque
+ * plus l'auth tant que la clé API est bonne. Le mode strict restaure l'ancien rejet 401.
  */
 final class DeviceSignatureValidator
 {
     /**
-     * @return bool|null null = pas de signature présente (fallback clé API) ; true = signature valide ;
-     *                   false = signature présente mais invalide (l'appelant doit rejeter).
+     * @return bool|null null = pas de signature / ignore / soft-fail (fallback clé API) ;
+     *                   true = signature valide ;
+     *                   false = signature invalide en mode strict (l'appelant doit rejeter).
      */
     public static function verify(Request $request, string $signedBody): ?bool
     {
@@ -50,7 +55,36 @@ final class DeviceSignatureValidator
             $window = 300;
         }
 
-        return SignatureValidator::isValidForBody($timestamp, $nonce, $signedBody, $signature, $secret, $window);
+        $valid = SignatureValidator::isValidForBody(
+            $timestamp,
+            $nonce,
+            $signedBody,
+            $signature,
+            $secret,
+            $window
+        );
+        if ($valid) {
+            return true;
+        }
+
+        // HMAC optionnel : invalide → fallback api_key, sauf mode strict galerie.
+        if (self::isStrict()) {
+            return false;
+        }
+
+        return null;
+    }
+
+    /**
+     * Mode strict : une signature X-Sig-* présente mais invalide provoque un rejet (401).
+     * Défaut false — HMAC additif avec fallback clé API.
+     */
+    public static function isStrict(): bool
+    {
+        Env::load();
+        $raw = strtolower(trim((string) ($_ENV['GALLERY_HMAC_STRICT'] ?? 'false')));
+
+        return in_array($raw, ['1', 'true', 'yes', 'on'], true);
     }
 
     /**
