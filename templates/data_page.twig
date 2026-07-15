@@ -36,7 +36,7 @@
     <article class="post featured">
         {% if latest %}
             <div class="section-header" style="flex-wrap: wrap; gap: 10px;" data-aos="fade-up">
-                <i class="fas fa-chart-line"></i>
+                <i class="fas fa-chart-line" aria-hidden="true"></i>
                 <h3>Dernière mesure</h3>
             </div>
             <div class="stats-grid" data-aos="fade-up">
@@ -47,7 +47,7 @@
                             {% set col = sensor.loop.prefix ~ i %}
                             {% if latest[col] is defined and latest[col] is not null %}
                             <div class="stat-card {{ sensor.class|default('') }}">
-                                <i class="fas {{ sensor.icon }} stat-card-icon"></i>
+                                <i class="fas {{ sensor.icon }} stat-card-icon" aria-hidden="true"></i>
                                 <div class="stat-card-label">{{ sensor.loop.label_prefix }} {{ i }}</div>
                                 <div class="stat-card-value"><span data-sensor="{{ col }}" data-decimals="{{ sensor.decimals|default(0) }}">{{ latest[col]|number_format(sensor.decimals|default(0)) }}</span>{% if sensor.unit %} <span class="stat-card-unit">{{ sensor.unit }}</span>{% endif %}</div>
                                 {% set lc = (sensor.loop.prefix|lower) ~ i %}
@@ -59,7 +59,7 @@
                         {# Capteur simple #}
                         {% if latest[sensor.key] is defined and latest[sensor.key] is not null %}
                         <div class="stat-card {{ sensor.class|default('') }}">
-                            <i class="fas {{ sensor.icon }} stat-card-icon"></i>
+                            <i class="fas {{ sensor.icon }} stat-card-icon" aria-hidden="true"></i>
                             <div class="stat-card-label">{{ sensor.label }}</div>
                             <div class="stat-card-value"><span data-sensor="{{ sensor.key }}" data-decimals="{{ sensor.decimals|default(0) }}">{{ latest[sensor.key]|number_format(sensor.decimals|default(0)) }}</span>{% if sensor.unit %} <span class="stat-card-unit">{{ sensor.unit }}</span>{% endif %}</div>
                             {% if sensor.no_stats is not defined or not sensor.no_stats %}
@@ -73,17 +73,17 @@
             </div>
             {% if latest.sensor is defined %}<p style="font-size:0.9em;color:#7f8c8d;">Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}</p>{% endif %}
         {% else %}
-            <div class="no-data"><i class="fas fa-database" style="font-size:2em;margin-bottom:10px;color:#bbb;"></i><br>Aucune donnée enregistrée.</div>
+            <div class="no-data"><i class="fas fa-database" style="font-size:2em;margin-bottom:10px;color:#bbb;" aria-hidden="true"></i><br>Aucune donnée enregistrée.</div>
         {% endif %}
 
         {% if measure_count > 0 %}
         <div class="section-header" data-aos="fade-up">
-            <i class="fas fa-chart-area"></i>
+            <i class="fas fa-chart-area" aria-hidden="true"></i>
             <h3>Graphiques</h3>
         </div>
         {% for chart in charts_config %}
         <div class="chart-container" data-aos="fade-up">
-            <p class="chart-container-title"><i class="fas {{ chart.icon }}"></i> {{ chart.title }}</p>
+            <p class="chart-container-title"><i class="fas {{ chart.icon }}" aria-hidden="true"></i> {{ chart.title }}</p>
             <div id="{{ chart.id }}" style="min-height:{{ chart.height|default('350px') }};"></div>
             {% if chart.legend_items is defined and chart.legend_items|length > 0 %}
             <div class="chart-legend-items">
@@ -100,7 +100,7 @@
 
         <div class="filter-health-row" data-aos="fade-up">
         <div class="filter-section">
-            <h3><i class="fas fa-filter"></i> Filtrage des données</h3>
+            <h3><i class="fas fa-filter" aria-hidden="true"></i> Filtrage des données</h3>
             <form method="POST" action="{{ base_path|default('') }}{{ data_config.form_action }}">
                 {{ csrf_field|raw }}
                 <div>
@@ -111,21 +111,21 @@
                     <label for="end_datetime">fin</label>
                     <input type="datetime-local" id="end_datetime" name="end_datetime" value="{{ end_date|localdt('Y-m-d\\TH:i') }}">
                 </div>
-                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Afficher</button>
-                <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-download"></i> CSV</button>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search" aria-hidden="true"></i> Afficher</button>
+                <button type="submit" name="export_csv" value="1" class="btn btn-secondary"><i class="fas fa-download" aria-hidden="true"></i> CSV</button>
             </form>
             <div class="quick-filters">
-                <span class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</span>
-                <span class="quick-filter-btn" onclick="setPeriod(3,'h')">3h</span>
-                <span class="quick-filter-btn" onclick="setPeriod(6,'h')">6h</span>
-                <span class="quick-filter-btn" onclick="setPeriod(12,'h')">12h</span>
-                <span class="quick-filter-btn" onclick="setPeriod(1,'d')">1 jour</span>
-                <span class="quick-filter-btn" onclick="setPeriod(7,'d')">1 sem</span>
-                <span class="quick-filter-btn" onclick="setPeriod(30,'d')">1 mois</span>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(1,'h')">1h</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(3,'h')">3h</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(6,'h')">6h</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(12,'h')">12h</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(1,'d')">1 jour</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(7,'d')">1 sem</button>
+                <button type="button" class="quick-filter-btn" onclick="setPeriod(30,'d')">1 mois</button>
             </div>
             <div class="period-info">
-                <span><i class="fas fa-database"></i> {{ measure_count }} mesures</span>
-                <span><i class="fas fa-clock"></i> {{ duration_str }}</span>
+                <span><i class="fas fa-database" aria-hidden="true"></i> {{ measure_count }} mesures</span>
+                <span><i class="fas fa-clock" aria-hidden="true"></i> {{ duration_str }}</span>
             </div>
         </div>
 

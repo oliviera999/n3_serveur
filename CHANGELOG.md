@@ -11,6 +11,45 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.23.0] - 2026-07-15
+
+### Audit général — sécurité, bugs, performance, code mort, UI/UX
+
+Lot de remédiation issu d'un audit transversal du dépôt. Aucun changement de rupture (l'auth par `?token=` reste fonctionnelle).
+
+#### Sécurité
+- **Rate-limiting anti-usurpation** : `X-Forwarded-For` n'est plus fait confiance que si `REMOTE_ADDR` est un proxy déclaré (`TRUSTED_PROXIES`, CSV IP/CIDR, vide par défaut) ; sinon `REMOTE_ADDR`. `src/Middleware/RateLimitMiddleware.php`, `.env.example`.
+- **RBAC** : les écritures de réglages opérationnels et de politique d'audit HMAC exigent désormais `isAdmin()` (403 sinon), au lieu du niveau OPERATOR. `OperationalSettingsController`, `HmacAuditController`.
+- **Anti-énumération d'utilisateurs (timing)** : `password_verify` factice quand l'utilisateur est absent, côté `.env` (`AuthService`) et table (`UserRepository`).
+- **Durcissement session** centralisé (`AuthService::hardenSessionCookie()`), appliqué aussi par `CsrfService` (indépendant de l'ordre d'init).
+- **Suppression** des scripts de purge de cache HTTP non authentifiés `public/maintenance/clear-cache.php` et `clear-di-cache.php` (wipe accessible sans auth). Remplacés par la route admin `/admin/clear-cache*` et `bin/clear-cache.php`. Docs mises à jour (dont correction : la variable réelle est `ADMIN_TOKEN`, sans valeur par défaut).
+- Support additif du token admin par en-tête sûr (`Authorization: Bearer` / `X-Admin-Token`) et cookie httpOnly. Le token en `?token=` reste accepté (front de contrôle) mais est marqué à migrer (secret en URL — cf. M4, `docs/AUTHENTICATION.md`).
+
+#### Corrections de bugs
+- **Export CSV d'une plage vide** ne renvoie plus une 500 : CSV valide (en-têtes seuls). `CsvExportService`, `SensorReadRepository`.
+- **Isolation d'environnement** : l'env `test` n'utilise plus l'ID de board `1` (prod) mais `2`. `TableConfig::getPostDataBoardId()`.
+- **Digest de notifications** : les entrées ne sont purgées qu'après un envoi mail réussi (plus de perte d'alertes P3/P4 sur panne SMTP). `NotificationDigest`, `NotificationService`.
+- **Alertes de transition FFP3** (chauffage / pompe réserve) : l'état n'est latché qu'après un envoi réussi. `Ffp3DerivedAlertService`.
+- **Anti-doublon `post_id`** : violation d'unicité traitée en skip idempotent (`SensorRepository`) + migration d'index UNIQUE.
+- `SensorStatisticsService::aggregateMany` : accès de clés gardés (`?? null`), fin des warnings PHP 8.
+
+#### Performance
+- Index `reading_time` ajouté sur les tables S3 (prod) et variantes non couvertes. `migrations/2026_07_PROD_05_s3_indexes.sql`.
+- Cache mémoire request-scoped des réglages serveur (1 requête au lieu de 2×N). `ServerSettingsRepository`.
+- `OutputRepository` : lignes GPIO garanties via 1 `SELECT ... IN` au lieu de 6-7 ; résolution de board paresseuse.
+- Nettoyage CRON incrémental (fenêtre glissante indexée) et sans COUNT préalable. `SensorDataService`, `CronOrchestrator`.
+- Compilation du container DI activée dès que `!TableConfig::isTest()` (couvre l'env s3 de prod). `config/container.php`.
+- Décimation LTTB mémoïsée (1 passe au lieu de 2 par page graphique). `ChartDataService`.
+
+#### Code mort
+- Suppression de `src/Util/BasePath.php`, `bin/auto-off-gpio.php`, `templates/control_harmonized.twig`, `AuthService::loginLegacy()`. Correction de références mortes dans `migrations/README.md`.
+
+#### UI / UX / PWA
+- Accessibilité : filtres de période en `<button>`, `aria-current="page"` sur la nav, `aria-hidden` sur icônes décoratives, skip-link et `base_path` corrigés dans `layout_base.twig`.
+- Badge de statut initialisé en état neutre « Vérification… » (plus de « En ligne » optimiste). `dashboard.twig`, `control.twig`.
+- Service worker : `RUNTIME_CACHE` versionné + purgé, HTML de navigation en network-first (plus de HTML périmé), éviction bornée. `manifest.json` : champ `id`. Toast d'install harmonisé (`n³ IoT`).
+
+---
 ## [6.22.3] - 2026-07-12
 
 ### Correctif - Galerie : tri par date de capture (dernières photos en tête)

@@ -105,10 +105,13 @@ class Ffp3DerivedAlertService
         $running = ((int) $raw) === 1;
 
         $previous = $state['tankPump']['lastState'] ?? null;
-        $state['tankPump']['lastState'] = $running;
 
         // Premier passage : initialiser sans notifier (pas de transition observable).
-        if (!is_bool($previous) || $previous === $running) {
+        if (!is_bool($previous)) {
+            $state['tankPump']['lastState'] = $running;
+            return;
+        }
+        if ($previous === $running) {
             return;
         }
 
@@ -126,13 +129,19 @@ class Ffp3DerivedAlertService
         }
 
         // Pas de clé d'anti-spam : dédup par transition (cf. checkHeaterTransition).
-        $this->notifier->sendAlert(
+        $sent = $this->notifier->sendAlert(
             Severity::Info,
             NotificationCategory::Hydraulic,
             'FFP3',
             $subject,
             $message
         );
+
+        // N'avancer l'état latché QUE si l'envoi a réussi (parité avec checkFlood) : sinon
+        // la transition sera réévaluée — et le mail retenté — au prochain tick.
+        if ($sent) {
+            $state['tankPump']['lastState'] = $running;
+        }
     }
 
     /**
@@ -254,10 +263,13 @@ class Ffp3DerivedAlertService
         $heat = ((int) $heatRaw) === 1;
 
         $previous = $state['heater']['lastState'] ?? null;
-        $state['heater']['lastState'] = $heat;
 
         // Premier passage : initialiser sans notifier (pas de transition observable).
-        if (!is_bool($previous) || $previous === $heat) {
+        if (!is_bool($previous)) {
+            $state['heater']['lastState'] = $heat;
+            return;
+        }
+        if ($previous === $heat) {
             return;
         }
 
@@ -275,13 +287,19 @@ class Ffp3DerivedAlertService
         // Pas de clé d'anti-spam : la déduplication vient de la détection de
         // transition (un mail par bascule). Un cooldown P3 (6 h) avalerait les
         // bascules légitimes suivantes de la journée.
-        $this->notifier->sendAlert(
+        $sent = $this->notifier->sendAlert(
             Severity::Info,
             NotificationCategory::Environment,
             'FFP3',
             "Chauffage {$label}",
             $message
         );
+
+        // N'avancer l'état latché QUE si l'envoi a réussi (parité avec checkFlood) : sinon
+        // la transition sera réévaluée — et le mail retenté — au prochain tick.
+        if ($sent) {
+            $state['heater']['lastState'] = $heat;
+        }
     }
 
     private function readPositiveOutputFloat(int $gpio): ?float

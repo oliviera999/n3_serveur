@@ -18,7 +18,9 @@ use PDO;
  *
  * Robustesse : comme AlertThrottler, la persistance « échoue silencieusement » en cas
  * d'indisponibilité de la base — une synthèse manquée est préférable à un plantage du
- * CRON. Les lignes flushées sont supprimées dans la même transaction logique.
+ * CRON. La lecture ({@see flush()}) est NON destructive : les lignes ne sont supprimées
+ * ({@see confirmFlush()}) qu'après un envoi e-mail réussi, pour ne pas perdre d'alertes
+ * P3/P4 si le transport SMTP est indisponible.
  */
 final class NotificationDigest implements DigestQueue
 {
@@ -26,6 +28,15 @@ final class NotificationDigest implements DigestQueue
 
     /** Nombre maximal d'entrées agrégées dans un même e-mail de synthèse. */
     private const MAX_ITEMS = 100;
+
+    /**
+     * Ids des lignes retournées par le dernier flush() et NON encore supprimées.
+     * La suppression est différée jusqu'à confirmFlush(), appelé seulement après
+     * un envoi e-mail réussi (évite la perte d'alertes P3/P4 si SMTP est KO).
+     *
+     * @var int[]
+     */
+    private array $pendingFlushIds = [];
 
     public function __construct(private readonly LogService $logger)
     {
@@ -87,12 +98,14 @@ final class NotificationDigest implements DigestQueue
     }
 
     /**
-     * Récupère et CONSOMME les entrées en attente, regroupées par (sévérité, famille, sujet).
+     * Récupère les entrées en attente, regroupées par (sévérité, famille, sujet).
      *
      * Chaque groupe porte un compteur d'occurrences, le dernier message et la dernière
-     * date. Les lignes lues sont supprimées : un flush ne renvoie jamais deux fois la
-     * même alerte. Retourne un tableau vide si rien n'est en attente ou si la base est
-     * indisponible.
+     * date. Les lignes lues ne sont PLUS supprimées ici : leurs ids sont mémorisés
+     * ({@see $pendingFlushIds}) et la suppression est différée à {@see confirmFlush()},
+     * appelé uniquement après un envoi e-mail réussi. Ainsi, si l'envoi échoue (SMTP KO),
+     * les alertes restent en file et seront réémises au prochain flush (aucune perte).
+     * Retourne un tableau vide si rien n'est en attente ou si la base est indisponible.
      *
      * @return list<array{severity_code: string, severity_label: string, severity_emoji: string, family: ?string, subject: string, message: string, count: int, last_seen: string}>
      */
@@ -111,6 +124,7 @@ final class NotificationDigest implements DigestQueue
             $rows = $rows === false ? [] : $rows->fetchAll(PDO::FETCH_ASSOC);
 
             if ($rows === []) {
+                $this->pendingFlushIds = [];
                 return [];
             }
 
@@ -143,7 +157,9 @@ final class NotificationDigest implements DigestQueue
                 $grouped[$key]['last_seen'] = (string) ($row['queued_at'] ?? '');
             }
 
-            $this->deleteByIds($pdo, $ids);
+            // Suppression DIFFÉRÉE : on mémorise les ids ; ils ne seront purgés qu'après
+            // un envoi réussi via confirmFlush() (robustesse : pas de perte si SMTP KO).
+            $this->pendingFlushIds = $ids;
 
             return array_values($grouped);
         } catch (\Throwable $e) {
@@ -152,6 +168,30 @@ final class NotificationDigest implements DigestQueue
             ]);
 
             return [];
+        }
+    }
+
+    /**
+     * Confirme la consommation du dernier flush() : supprime les lignes correspondantes.
+     *
+     * À appeler UNIQUEMENT après un envoi e-mail de synthèse réussi. Si l'envoi a échoué,
+     * ne pas l'appeler : les lignes restent en file et seront réémises au prochain flush.
+     * Idempotent : sans flush préalable (ou déjà confirmé), c'est un no-op.
+     */
+    public function confirmFlush(): void
+    {
+        if ($this->pendingFlushIds === []) {
+            return;
+        }
+        try {
+            $pdo = Database::getConnection();
+            $this->deleteByIds($pdo, $this->pendingFlushIds);
+        } catch (\Throwable $e) {
+            $this->logger->warning('NotificationDigest: purge post-envoi impossible', [
+                'error' => $e->getMessage(),
+            ]);
+        } finally {
+            $this->pendingFlushIds = [];
         }
     }
 

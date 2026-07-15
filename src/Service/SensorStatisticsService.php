@@ -144,27 +144,21 @@ class SensorStatisticsService
         $stmt->execute([':start' => $start, ':end' => $end]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
 
+        // Accès homogénéisés en `?? null` : sur une plage sans donnée, $row peut être vide
+        // (fetch() -> []) ou contenir des NULL. isset()/?? gèrent les deux cas et évitent
+        // les warnings PHP 8 « Undefined array key ». Un agrégat NULL (aucune ligne) reste null.
         $result = [];
         foreach ($columns as $col) {
+            $min = $row["min_{$col}"] ?? null;
+            $max = $row["max_{$col}"] ?? null;
+            $avg = $row["avg_{$col}"] ?? null;
+            $stddev = $row["stddev_{$col}"] ?? null;
             $result[$col] = [
-                'min' => isset($row["min_{$col}"]) ? (float) $row["min_{$col}"] : null,
-                'max' => isset($row["max_{$col}"]) ? (float) $row["max_{$col}"] : null,
-                'avg' => isset($row["avg_{$col}"]) ? (float) $row["avg_{$col}"] : null,
-                'stddev' => isset($row["stddev_{$col}"]) ? (float) $row["stddev_{$col}"] : null,
+                'min' => $min !== null ? (float) $min : null,
+                'max' => $max !== null ? (float) $max : null,
+                'avg' => $avg !== null ? (float) $avg : null,
+                'stddev' => $stddev !== null ? (float) $stddev : null,
             ];
-            // Conserver null si la BDD a retourné NULL (pas de donnees)
-            if ($row["min_{$col}"] === null) {
-                $result[$col]['min'] = null;
-            }
-            if ($row["max_{$col}"] === null) {
-                $result[$col]['max'] = null;
-            }
-            if ($row["avg_{$col}"] === null) {
-                $result[$col]['avg'] = null;
-            }
-            if ($row["stddev_{$col}"] === null) {
-                $result[$col]['stddev'] = null;
-            }
         }
         return $result;
     }

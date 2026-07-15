@@ -33,7 +33,7 @@ final class OperationalSettingsController
 
     public function update(Request $request, Response $response): Response
     {
-        if (!$this->authService->canAccessControl()) {
+        if (!$this->authService->isAdmin()) {
             return $this->json($response, [
                 'success' => false,
                 'error' => 'Action réservée aux administrateurs.',
@@ -86,7 +86,7 @@ final class OperationalSettingsController
 
     public function reset(Request $request, Response $response): Response
     {
-        if (!$this->authService->canAccessControl()) {
+        if (!$this->authService->isAdmin()) {
             return $this->json($response, [
                 'success' => false,
                 'error' => 'Action réservée aux administrateurs.',

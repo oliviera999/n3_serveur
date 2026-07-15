@@ -126,7 +126,35 @@ class SensorRepository extends AbstractRepository
 
         $sql = "INSERT INTO `{$table}` ({$columns}) VALUES ({$placeholders})";
 
-        $this->execute($sql, $params);
+        try {
+            $this->execute($sql, $params);
+        } catch (\PDOException $e) {
+            // TOCTOU post_id : la contrainte UNIQUE (migrations/2026_07_post_id_unique.sql)
+            // ferme la fenêtre entre existsByPostId() et cet INSERT. Une violation d'unicité
+            // signifie qu'une insertion concurrente (ou un rejeu SD) a déjà persisté ce
+            // post_id : on traite le doublon comme un no-op idempotent (skip silencieux)
+            // plutôt qu'une erreur 500. InnoDB n'invalide que l'instruction fautive, la
+            // transaction englobante (insertAtomically) reste committable.
+            if ($this->isUniqueViolation($e)) {
+                return;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Détermine si une PDOException correspond à une violation de contrainte d'unicité
+     * (clé dupliquée). Se base sur le code driver MySQL 1062 (ER_DUP_ENTRY), avec repli
+     * sur le SQLSTATE 23000 lorsque le code driver n'est pas exposé.
+     */
+    private function isUniqueViolation(\PDOException $e): bool
+    {
+        $driverCode = $e->errorInfo[1] ?? null;
+        if ($driverCode !== null) {
+            return $driverCode === 1062;
+        }
+
+        return $e->getCode() === '23000';
     }
 
     /**

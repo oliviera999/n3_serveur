@@ -104,13 +104,21 @@ git pull origin main
 Si vous avez besoin de vider les caches sans déployer :
 
 ```bash
-# Méthode recommandée
+# Méthode recommandée (SSH)
 php bin/clear-cache.php
 
 # Méthode manuelle (si le script ne fonctionne pas)
 rm -rf var/cache/twig/*
 rm -rf var/cache/di/*
 ```
+
+Sans accès SSH, utiliser la route admin authentifiée `POST /admin/clear-cache` (et sa page
+d'assistance `GET /admin/clear-cache-page`) — détails et exemples dans `docs/CLEAR_CACHE_OPTIONS.md`.
+
+> ⛔ Les anciens scripts `public/maintenance/clear-cache.php` et `public/maintenance/clear-di-cache.php`
+> ont été **supprimés** : ils permettaient de vider le cache par simple appel HTTP, sans aucune
+> authentification. Ne pas recréer ce type de script ; toujours passer par la route `/admin/clear-cache*`
+> (protégée par `$applyAuth`) ou par `bin/clear-cache.php` en SSH.
 
 ### Vérification après déploiement
 
@@ -307,11 +315,13 @@ fi
 
 ## 🔗 Fichiers liés
 
-- `bin/clear-cache.php` : Script de vidage des caches
+- `bin/clear-cache.php` : Script de vidage des caches (SSH)
+- `src/Controller/Ffp3/CacheController.php` : routes admin `/admin/clear-cache*` (authentifiées)
 - `bin/deploy.sh` : Script de déploiement avec vidage automatique
 - `.git/hooks/post-merge` : Hook Git automatique
 - `src/Service/TemplateRenderer.php` : Configuration du cache Twig
 - `config/container.php` : Configuration du cache DI Container
+- `docs/CLEAR_CACHE_OPTIONS.md` : détail des options de vidage (CLI, route admin, hook)
 - `src/Config/TableConfig.php` : Gestion des environnements PROD/TEST
 
 ---

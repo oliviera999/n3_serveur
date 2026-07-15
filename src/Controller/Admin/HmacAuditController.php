@@ -62,7 +62,7 @@ final class HmacAuditController
 
     public function toggle(Request $request, Response $response): Response
     {
-        if (!$this->authService->canAccessControl()) {
+        if (!$this->authService->isAdmin()) {
             return $this->json($response, [
                 'success' => false,
                 'error' => 'Action réservée aux administrateurs.',
@@ -105,7 +105,7 @@ final class HmacAuditController
 
     public function togglePolicy(Request $request, Response $response): Response
     {
-        if (!$this->authService->canAccessControl()) {
+        if (!$this->authService->isAdmin()) {
             return $this->json($response, [
                 'success' => false,
                 'error' => 'Action réservée aux administrateurs.',
@@ -143,7 +143,7 @@ final class HmacAuditController
 
     public function resetPolicy(Request $request, Response $response): Response
     {
-        if (!$this->authService->canAccessControl()) {
+        if (!$this->authService->isAdmin()) {
             return $this->json($response, [
                 'success' => false,
                 'error' => 'Action réservée aux administrateurs.',

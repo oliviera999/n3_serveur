@@ -17,8 +17,12 @@ class CsrfService
 
     public function __construct()
     {
-        // S'assurer que la session est démarrée
+        // S'assurer que la session est démarrée avec le même durcissement de
+        // cookie qu'AuthService (httpOnly, SameSite, Secure conditionnel), même
+        // si CsrfService démarre la session en premier — sinon le durcissement
+        // serait perdu selon l'ordre d'initialisation (B3).
         if (session_status() === PHP_SESSION_NONE) {
+            AuthService::hardenSessionCookie();
             session_start();
         }
     }

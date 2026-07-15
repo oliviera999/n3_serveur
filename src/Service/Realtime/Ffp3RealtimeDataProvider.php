@@ -25,6 +25,14 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
     private const EXPECTED_READING_INTERVAL_MINUTES = 3;
     private const ESTIMATED_LATENCY_SECONDS = 3.5;
     private const DEFAULT_UPTIME_DAYS = 30;
+    /**
+     * GPIO ≥ 100 qui, par EXCEPTION à la règle « ≥ 100 = paramètre (chaîne) », portent un état
+     * BOOLÉEN (flag 0/1) et doivent être renvoyés en entier — cf. contrat outputs/state
+     * (docs/API_REALTIME_OUTPUTS_CONTRAT.md §1.3). D'après {@see \App\Config\Ffp3GpioMap} :
+     *   101 mailNotif · 108 bouffePetits · 109 bouffeGros · 110 resetMode · 115 WakeUp.
+     * Les actionneurs physiques (GPIO < 100 : 2/15/16/18) sont déjà coercés en entier par
+     * l'intervalle 0-99 ci-dessous ; ces cinq entrées l'ÉTENDENT aux flags ≥ 100 (pas un no-op).
+     */
     private const BOOLEAN_GPIO_EXCEPTIONS = [101, 108, 109, 110, 115];
 
     private const FFP3_SENSOR_KEYS = [
@@ -119,6 +127,11 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
     {
         $outputs = $this->outputRepo->findAll();
 
+        // Ensemble des GPIO dont l'état est booléen (renvoyé en entier) :
+        //  - 0-99  : actionneurs physiques (relais on/off) ;
+        //  - + les EXCEPTIONS ≥ 100 (flags 0/1, cf. BOOLEAN_GPIO_EXCEPTIONS) qui s'AJOUTENT
+        //    ici à l'ensemble (nouvelles clés ≥ 100 → pas un no-op).
+        // Les autres GPIO ≥ 100 (mail, seuils, heures, angles…) restent des chaînes.
         $booleanGpios = array_fill(0, 100, true);
         foreach (self::BOOLEAN_GPIO_EXCEPTIONS as $g) {
             $booleanGpios[$g] = true;

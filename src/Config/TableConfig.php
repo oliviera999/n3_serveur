@@ -109,11 +109,14 @@ class TableConfig
      * Retourne l'identifiant de la board utilisée pour updateLastRequest (PostData)
      * Chaque environnement pointe vers une board distincte dans la table Boards partagée.
      *
-     * @return string '1' en prod, '4' en test3, '5' en s3, '6' en s3test
+     * @return string '1' en prod, '2' en test, '4' en test3, '5' en s3, '6' en s3test
      */
     public static function getPostDataBoardId(): string
     {
         return match (self::getEnvironment()) {
+            // `test` a ses propres tables (ffp3Data2…) : il lui faut une board dédiée pour ne
+            // pas écraser le lastRequest de la board PROD (id '1'). '2' et '3' étaient libres.
+            'test' => '2',
             'test3' => '4',
             's3' => '5',
             's3test' => '6',

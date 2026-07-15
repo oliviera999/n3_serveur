@@ -540,10 +540,11 @@ class OutputRepository extends AbstractRepository
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
 
-        $board = $this->resolveDefaultBoardForNewRows($table);
-
         $forceName = 'Forcage pompe aquarium ON';
 
+        // Perf : lire d'abord l'existant ; ne résoudre la board (SELECT supplémentaire)
+        // que lorsqu'on doit réellement écrire (INSERT / réparation de ligne fantôme).
+        // Le cas stable (ligne présente, nom non vide) ne coûte donc plus qu'un SELECT.
         $existing = $this->fetchOne(
             "SELECT id, name FROM `{$table}` WHERE gpio = :gpio LIMIT 1",
             [':gpio' => self::AQUARIUM_PUMP_FORCE_GPIO]
@@ -553,6 +554,7 @@ class OutputRepository extends AbstractRepository
         if ($existing !== null) {
             $name = isset($existing['name']) ? trim((string) $existing['name']) : '';
             if ($name === '') {
+                $board = $this->resolveDefaultBoardForNewRows($table);
                 $sql = "UPDATE `{$table}` SET board = :board, name = :name WHERE gpio = :gpio";
                 $stmt = $this->pdo->prepare($sql);
                 if (!$stmt->execute([
@@ -567,6 +569,8 @@ class OutputRepository extends AbstractRepository
 
             return;
         }
+
+        $board = $this->resolveDefaultBoardForNewRows($table);
 
         try {
             $sql = "INSERT INTO `{$table}` (board, gpio, name, state)
@@ -597,17 +601,51 @@ class OutputRepository extends AbstractRepository
     public function ensureServoAngleRowsExist(): void
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
-        $board = $this->resolveDefaultBoardForNewRows($table);
+
+        // Perf : un seul SELECT ... WHERE gpio IN (118..123) au lieu de six SELECT
+        // unitaires. On indexe l'existant par gpio pour décider insert/réparation
+        // sans re-requêter. La board (SELECT supplémentaire) n'est résolue qu'à la
+        // première écriture réelle — le cas stable ne coûte donc plus qu'un SELECT.
+        $gpios = array_keys(self::SERVO_ANGLE_ROWS);
+        $placeholders = [];
+        $params = [];
+        foreach ($gpios as $i => $gpio) {
+            $ph = ':g' . $i;
+            $placeholders[] = $ph;
+            $params[$ph] = $gpio;
+        }
+        $inList = implode(', ', $placeholders);
+
+        // La lecture groupée participe au même contrat de tolérance que les INSERT :
+        // une contrainte/course transitoire (doublon) retombe sur le chemin INSERT
+        // idempotent ci-dessous ; toute autre erreur SQL est propagée.
+        try {
+            $rows = $this->fetchAll(
+                "SELECT gpio, name FROM `{$table}` WHERE gpio IN ({$inList})",
+                $params
+            );
+        } catch (PDOException $e) {
+            if (!$this->isDuplicateOutputRowException($e)) {
+                throw $e;
+            }
+            $rows = [];
+        }
+
+        // gpio => name (trim) des lignes déjà présentes.
+        $existingByGpio = [];
+        foreach ($rows as $row) {
+            $existingByGpio[(int) $row['gpio']] = isset($row['name']) ? trim((string) $row['name']) : '';
+        }
+
+        $board = null; // résolution paresseuse (une seule fois, au premier write)
 
         foreach (self::SERVO_ANGLE_ROWS as $gpio => $meta) {
-            $existing = $this->fetchOne(
-                "SELECT id, name FROM `{$table}` WHERE gpio = :gpio LIMIT 1",
-                [':gpio' => $gpio]
-            );
+            $exists = array_key_exists($gpio, $existingByGpio);
 
-            if ($existing !== null) {
-                $name = isset($existing['name']) ? trim((string) $existing['name']) : '';
-                if ($name === '') {
+            if ($exists) {
+                // Ligne fantôme (name vide) : réparer nom + board, sans toucher au state.
+                if ($existingByGpio[$gpio] === '') {
+                    $board ??= $this->resolveDefaultBoardForNewRows($table);
                     $sql = "UPDATE `{$table}` SET board = :board, name = :name WHERE gpio = :gpio";
                     $stmt = $this->pdo->prepare($sql);
                     if (!$stmt->execute([
@@ -623,6 +661,7 @@ class OutputRepository extends AbstractRepository
                 continue;
             }
 
+            $board ??= $this->resolveDefaultBoardForNewRows($table);
             try {
                 $sql = "INSERT INTO `{$table}` (board, gpio, name, state)
                         VALUES (:board, :gpio, :name, :state)";

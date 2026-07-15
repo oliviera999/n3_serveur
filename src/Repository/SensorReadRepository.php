@@ -145,10 +145,18 @@ class SensorReadRepository extends AbstractRepository
 
         // Écriture en streaming : on itère ligne à ligne sur le statement PDO
         // (fetch() dans une boucle) plutôt que de tout charger en mémoire via fetchAll.
+        // La liste de colonnes est définie une fois puis réutilisée pour le SELECT ET
+        // l'en-tête CSV, garantissant leur cohérence même sur une plage sans donnée.
+        $columns = [
+            'id', 'TempAir', 'Humidite', 'TempEau', 'EauPotager', 'EauAquarium', 'EauReserve',
+            'diffMaree', 'Luminosite', 'etatPompeAqua', 'etatPompeTank', 'etatHeat', 'etatUV',
+            'bouffePetits', 'bouffeGros', 'reading_time',
+        ];
+
         $table = TableValidator::validateDataTable(TableConfig::getDataTable());
+        $columnList = implode(', ', $columns);
         $sql = <<<SQL
-            SELECT id, TempAir, Humidite, TempEau, EauPotager, EauAquarium, EauReserve, diffMaree, Luminosite,
-                   etatPompeAqua, etatPompeTank, etatHeat, etatUV, bouffePetits, bouffeGros, reading_time
+            SELECT {$columnList}
             FROM `{$table}`
             WHERE reading_time BETWEEN :start AND :end
             ORDER BY reading_time DESC
@@ -157,29 +165,22 @@ class SensorReadRepository extends AbstractRepository
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([':start' => $start, ':end' => $end]);
 
-        // On lit la première ligne pour décider d'ouvrir (ou non) le fichier et écrire l'en-tête.
-        $first = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($first === false) {
-            return 0;
-        }
-
         $handle = fopen($filePath, 'w');
         if ($handle === false) {
             throw new \RuntimeException('Impossible d\'ouvrir le fichier ' . $filePath);
         }
 
-        // En-têtes (clés de la première ligne).
+        // En-tête écrit SYSTÉMATIQUEMENT (même sans donnée) afin qu'une plage vide produise
+        // un CSV valide listant les colonnes attendues (cf. CsvExportService, bug B1).
         // Les paramètres séparateur/enclosure/escape sont fournis explicitement pour
         // conserver le format historique et éviter la dépréciation PHP 8.1+ de $escape.
-        fputcsv($handle, array_keys($first), ',', '"', '\\');
+        fputcsv($handle, $columns, ',', '"', '\\');
 
         $count = 0;
-        $row = $first;
-        do {
+        while (($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false) {
             fputcsv($handle, $row, ',', '"', '\\');
             $count++;
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        } while ($row !== false);
+        }
 
         fclose($handle);
 

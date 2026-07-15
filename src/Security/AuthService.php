@@ -23,6 +23,14 @@ class AuthService
     private const COOKIE_TOKEN_NAME = 'admin_token';
     private const SESSION_TIMEOUT = 7200; // 2 heures
 
+    /**
+     * Hash bcrypt bidon (mot de passe aléatoire inconnu) servant à exécuter un
+     * password_verify factice quand l'utilisateur n'existe pas / le username ne
+     * correspond pas, afin d'égaliser le temps de réponse et d'éviter
+     * l'énumération d'utilisateurs par analyse de timing (B2).
+     */
+    private const DUMMY_PASSWORD_HASH = '$2y$12$4emarLin6MEkat6qo8fXHOgMKk9yxjaa.kJcBNOD1Ti4Jbh6tSrGS';
+
     /** @var array<string, int> */
     private const ROLE_LEVELS = [
         User::ROLE_READER => 1,
@@ -34,17 +42,34 @@ class AuthService
         private ?UserRepository $userRepository = null,
     ) {
         if (session_status() === PHP_SESSION_NONE) {
-            ini_set('session.cookie_httponly', '1');
-            ini_set('session.cookie_samesite', 'Lax');
-            $isHttps = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
-                || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string) $_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
-                || (isset($_SERVER['SERVER_PORT']) && (int) $_SERVER['SERVER_PORT'] === 443);
-            if ($isHttps) {
-                ini_set('session.cookie_secure', '1');
-            }
+            self::hardenSessionCookie();
             ini_set('session.gc_maxlifetime', (string) self::SESSION_TIMEOUT);
             session_start();
         }
+    }
+
+    /**
+     * Applique le durcissement des cookies de session (httpOnly, SameSite=Lax,
+     * Secure conditionnel) — À APPELER AVANT session_start().
+     *
+     * Statique et réutilisable par les autres services susceptibles de démarrer
+     * la session en premier (ex. {@see CsrfService}), afin de ne pas perdre le
+     * durcissement selon l'ordre d'initialisation (B3).
+     */
+    public static function hardenSessionCookie(): void
+    {
+        ini_set('session.cookie_httponly', '1');
+        ini_set('session.cookie_samesite', 'Lax');
+        if (self::isHttpsRequest()) {
+            ini_set('session.cookie_secure', '1');
+        }
+    }
+
+    private static function isHttpsRequest(): bool
+    {
+        return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+            || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string) $_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
+            || (isset($_SERVER['SERVER_PORT']) && (int) $_SERVER['SERVER_PORT'] === 443);
     }
 
     /**
@@ -87,19 +112,6 @@ class AuthService
                 // Ignorer si BDD indisponible
             }
         }
-    }
-
-    /**
-     * @deprecated Utiliser login(array $credentials)
-     */
-    public function loginLegacy(string $username): void
-    {
-        $this->login([
-            'username' => $username,
-            'role' => User::ROLE_ADMIN,
-            'user_id' => null,
-            'from_env' => true,
-        ]);
     }
 
     public function logout(): void
@@ -166,12 +178,31 @@ class AuthService
         return hash_equals($expectedToken, $token);
     }
 
+    /**
+     * Authentifie la requête par token d'accès admin.
+     *
+     * Le token est accepté via trois canaux (par ordre de préférence) :
+     *  1. cookie httpOnly `admin_token` (posé après validation) ;
+     *  2. en-tête sûr (`Authorization: Bearer <token>` / `X-Admin-Token`) —
+     *     non-ambiant, utilisable comme exemption CSRF ;
+     *  3. paramètre d'URL `?token=` (legacy) — conservé car tout le front des
+     *     pages de contrôle et de la galerie propage le token via l'URL
+     *     (`_control_init_js.twig::withCurrentToken`) et plusieurs middlewares
+     *     en dépendent.
+     *
+     * ⚠️ M4 (sécurité) : le token en query string fuit dans les logs serveur,
+     * l'en-tête Referer et l'historique navigateur. La cible est de migrer le
+     * front vers l'en-tête `X-Admin-Token` (canaux 1/2) puis de retirer le
+     * canal 3. Tant que le front n'est pas migré, on le conserve pour ne pas
+     * casser l'accès au contrôle. Voir docs/AUTHENTICATION.md.
+     *
+     * @param array<string, mixed> $queryParams Paramètres de requête (`token`).
+     */
     public function isAuthenticatedByToken(array $queryParams = []): bool
     {
-        if (isset($_COOKIE[self::COOKIE_TOKEN_NAME])) {
-            if ($this->validateToken($_COOKIE[self::COOKIE_TOKEN_NAME])) {
-                return true;
-            }
+        if (isset($_COOKIE[self::COOKIE_TOKEN_NAME])
+            && $this->validateToken($_COOKIE[self::COOKIE_TOKEN_NAME])) {
+            return true;
         }
 
         if (isset($queryParams['token'])) {
@@ -181,7 +212,42 @@ class AuthService
             }
         }
 
-        return false;
+        return $this->hasValidHeaderToken();
+    }
+
+    /**
+     * Vrai si la requête porte un token admin valide dans un en-tête sûr
+     * (`Authorization: Bearer` ou `X-Admin-Token`).
+     *
+     * Contrairement au cookie (ambiant, envoyé automatiquement par le
+     * navigateur), un token porté par un en-tête custom ne peut pas être ajouté
+     * en cross-site : cette variante est donc utilisable comme exemption CSRF.
+     */
+    public function hasValidHeaderToken(): bool
+    {
+        $token = $this->extractHeaderToken();
+
+        return $token !== null && $this->validateToken($token);
+    }
+
+    private function extractHeaderToken(): ?string
+    {
+        $authorization = $_SERVER['HTTP_AUTHORIZATION']
+            ?? ($_SERVER['REDIRECT_HTTP_AUTHORIZATION'] ?? '');
+        if (is_string($authorization)
+            && preg_match('/^Bearer\s+(.+)$/i', trim($authorization), $m) === 1) {
+            $token = trim($m[1]);
+            if ($token !== '') {
+                return $token;
+            }
+        }
+
+        $xAdminToken = $_SERVER['HTTP_X_ADMIN_TOKEN'] ?? '';
+        if (is_string($xAdminToken) && $xAdminToken !== '') {
+            return $xAdminToken;
+        }
+
+        return null;
     }
 
     public function setAdminTokenCookie(string $token): void
@@ -189,9 +255,7 @@ class AuthService
         if (!$this->validateToken($token)) {
             return;
         }
-        $secure = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
-            || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string) $_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
-            || (isset($_SERVER['SERVER_PORT']) && (int) $_SERVER['SERVER_PORT'] === 443);
+        $secure = self::isHttpsRequest();
         setcookie(self::COOKIE_TOKEN_NAME, $token, [
             'expires' => time() + (86400 * 30),
             'path' => '/',
@@ -265,6 +329,16 @@ class AuthService
     }
 
     /**
+     * Exécute un password_verify sur un hash bidon pour consommer un temps CPU
+     * comparable à une vérification réelle. Utilisé quand aucun utilisateur ne
+     * correspond, afin de neutraliser l'énumération d'utilisateurs par timing (B2).
+     */
+    private static function dummyPasswordVerify(): void
+    {
+        password_verify('invalid', self::DUMMY_PASSWORD_HASH);
+    }
+
+    /**
      * @return array{username: string, role: string, user_id: ?int, from_env: bool}|null
      */
     private function authenticateFromDatabase(string $username, string $password): ?array
@@ -305,14 +379,20 @@ class AuthService
         $passwordHash = $_ENV['ADMIN_PASSWORD_HASH'] ?? null;
 
         if ($expectedUsername === null || $passwordHash === null) {
+            // Config incomplète : exécuter un verify factice pour ne pas répondre
+            // plus vite que le cas nominal (égalisation du timing, B2).
+            self::dummyPasswordVerify();
             return null;
         }
 
         if ($username !== $expectedUsername) {
+            // Username inconnu : verify factice pour égaliser le temps de réponse
+            // avec le cas « bon username / mauvais mot de passe » (anti-énumération, B2).
+            self::dummyPasswordVerify();
             return null;
         }
 
-        if (!password_verify($password, $passwordHash)) {
+        if (!password_verify($password, (string) $passwordHash)) {
             return null;
         }
 

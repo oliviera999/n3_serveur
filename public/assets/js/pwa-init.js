@@ -86,7 +86,7 @@ function showInstallButton() {
 window.addEventListener('appinstalled', () => {
     console.log('[PWA] App installed successfully');
     if (typeof toastManager !== 'undefined') {
-        toastManager.showSuccess('FFP3 Aqua installé ! Vous pouvez maintenant l\'utiliser hors ligne.');
+        toastManager.showSuccess('n³ IoT installé ! Vous pouvez maintenant l\'utiliser hors ligne.');
     }
 });
 

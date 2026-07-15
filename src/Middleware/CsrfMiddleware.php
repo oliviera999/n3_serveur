@@ -20,9 +20,11 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
  *    positive) afin de NE JAMAIS impacter les endpoints machine (ESP32 :
  *    post-data, heartbeat, firmware, /state) qui n'y figurent pas ;
  *  - exempte les requêtes authentifiées par un token d'accès explicite
- *    (`?token=` valide) : une requête portant un secret non-ambiant n'est pas
- *    falsifiable en cross-site, donc pas vulnérable au CSRF (et cela préserve
- *    l'automatisation/liens partagés) ;
+ *    (`?token=`, en-tête `Authorization: Bearer` / `X-Admin-Token`) : un secret
+ *    non-ambiant n'est pas falsifiable en cross-site, donc pas vulnérable au
+ *    CSRF (et cela préserve l'automatisation / les liens partagés de contrôle) ;
+ *    ⚠️ M4 : la cible est de migrer le front vers l'en-tête `X-Admin-Token` puis
+ *    de retirer le token en URL — voir AuthService::isAuthenticatedByToken ;
  *  - pour les écritures authentifiées par cookie de session (le vrai risque
  *    CSRF), exige un token CSRF valide via l'en-tête `X-CSRF-Token` ou le
  *    champ de formulaire `_csrf_token`.
@@ -84,7 +86,8 @@ class CsrfMiddleware implements MiddlewareInterface
             return $handler->handle($request);
         }
 
-        // Requête authentifiée par token explicite : non vulnérable au CSRF.
+        // Requête authentifiée par token explicite (query/en-tête, non-ambiant) :
+        // non falsifiable en cross-site, donc non vulnérable au CSRF.
         if ($this->authService->isAuthenticatedByToken($request->getQueryParams())) {
             return $handler->handle($request);
         }
