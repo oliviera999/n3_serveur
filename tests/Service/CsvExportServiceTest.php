@@ -189,7 +189,7 @@ final class CsvExportServiceTest extends TestCase
     public function testExportEmptyWithoutMessageAndNoFileReturnsEmptyBody(): void
     {
         // Repository qui ne crée aucun fichier et retourne 0 : garde-fou anti-500 -> corps vide.
-        $repo = new class {
+        $repo = new class () {
             public string $lastPath = '';
 
             public function exportCsv(string $start, string $end, string $path): int
