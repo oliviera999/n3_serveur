@@ -16,6 +16,8 @@ use App\Util\ReadingTimeParser;
  */
 class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
 {
+    use RealtimeHealthTrait;
+
     /** GPIO stockant FreqWakeUp (temps de veille en secondes) dans ffp3Outputs. */
     private const FREQ_WAKEUP_GPIO = 116;
     /** Seuil par défaut si FreqWakeUp absent ou invalide en BDD (15 min pour couvrir une veille typique). */
@@ -23,7 +25,6 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
     /** Marge ajoutée au seuil pour éviter de passer hors ligne juste avant le prochain réveil (latence, horloge). */
     private const ONLINE_THRESHOLD_MARGIN_SECONDS = 60;
     private const EXPECTED_READING_INTERVAL_MINUTES = 3;
-    private const ESTIMATED_LATENCY_SECONDS = 3.5;
     private const DEFAULT_UPTIME_DAYS = 30;
     /**
      * GPIO ≥ 100 qui, par EXCEPTION à la règle « ≥ 100 = paramètre (chaîne) », portent un état
@@ -86,17 +87,7 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         $lastReadingDateStr = $this->sensorReadRepo->getLastReadingDate();
 
         if ($lastReadingDateStr === null) {
-            return [
-                'online' => false,
-                'last_reading' => null,
-                'last_reading_ts' => null,
-                'last_reading_ago_seconds' => null,
-                'uptime_percentage' => 0.0,
-                'readings_today' => 0,
-                'average_latency_seconds' => null,
-                'device_ip' => $this->readDeviceIpFile(),
-                'module_uptime_seconds' => null,
-            ];
+            return $this->emptySystemHealth($this->readDeviceIpFile());
         }
 
         $lastReadingTs = strtotime($lastReadingDateStr);
@@ -105,22 +96,16 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
         $thresholdSeconds = min(86400, $this->resolveOnlineThresholdSeconds() + self::ONLINE_THRESHOLD_MARGIN_SECONDS);
         $isOnline = $secondsSinceLastReading < $thresholdSeconds;
 
-        $firstReadingDateStr = $this->sensorReadRepo->getFirstReadingDate();
-        $moduleUptimeSeconds = $firstReadingDateStr !== null
-            ? time() - strtotime($firstReadingDateStr)
-            : null;
-
-        return [
-            'online' => $isOnline,
-            'last_reading' => $lastReadingDateStr,
-            'last_reading_ts' => $lastReadingTs !== false ? $lastReadingTs : null,
-            'last_reading_ago_seconds' => $secondsSinceLastReading,
-            'uptime_percentage' => $this->calculateUptime(self::DEFAULT_UPTIME_DAYS),
-            'readings_today' => $this->countReadingsToday(),
-            'average_latency_seconds' => $isOnline ? self::ESTIMATED_LATENCY_SECONDS : null,
-            'device_ip' => $this->readDeviceIpFile(),
-            'module_uptime_seconds' => $moduleUptimeSeconds,
-        ];
+        return $this->assembleSystemHealth(
+            $isOnline,
+            $lastReadingDateStr,
+            $lastReadingTs !== false ? $lastReadingTs : null,
+            $secondsSinceLastReading,
+            $this->calculateUptime(self::DEFAULT_UPTIME_DAYS),
+            $this->countReadingsToday(),
+            $this->readDeviceIpFile(),
+            $this->computeModuleUptimeSeconds(),
+        );
     }
 
     public function getOutputsState(): array
@@ -200,12 +185,13 @@ class Ffp3RealtimeDataProvider implements RealtimeDataProviderInterface
     {
         $startDate = date('Y-m-d H:i:s', strtotime("-{$days} days"));
         $endDate = date('Y-m-d H:i:s');
-        $expectedReadings = ($days * 24 * 60) / self::EXPECTED_READING_INTERVAL_MINUTES;
         $actualReadings = $this->sensorReadRepo->countReadingsBetween($startDate, $endDate);
-        if ($expectedReadings == 0) {
-            return 0.0;
-        }
-        return min(($actualReadings / $expectedReadings) * 100, 100.0);
+        return $this->sensorUptimePercentage($days, self::EXPECTED_READING_INTERVAL_MINUTES, $actualReadings);
+    }
+
+    private function computeModuleUptimeSeconds(): ?int
+    {
+        return $this->moduleUptimeSecondsFromDate($this->sensorReadRepo->getFirstReadingDate());
     }
 
     private function countReadingsToday(): int

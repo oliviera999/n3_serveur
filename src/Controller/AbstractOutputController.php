@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Config\TableConfig;
 use App\Controller\Traits\HandlesNotificationPolicy;
+use App\Repository\AbstractOutputRepository;
 use App\Security\AuthService;
 use App\Service\ControlAuditLogger;
 use App\Service\LogService;
@@ -117,9 +119,75 @@ abstract class AbstractOutputController
     }
 
     /**
+     * Préambule commun de buildControlPageData : résout l'environnement courant et les
+     * bases d'URL API (outputs/realtime) selon que l'on est dans l'environnement de test
+     * du module. `$slug` est le préfixe de route du module ('n3pp', 'msp1').
+     *
+     * @return array{env: string, is_test: bool, outputs_api_base: string, realtime_api_base: string}
+     */
+    protected function resolveControlEnv(string $testEnv, string $slug): array
+    {
+        $env = TableConfig::getEnvironment();
+        $isTest = $env === $testEnv;
+
+        return [
+            'env' => $env,
+            'is_test' => $isTest,
+            'outputs_api_base' => $isTest ? "/{$slug}-test/api/outputs" : "/{$slug}/api/outputs",
+            'realtime_api_base' => $isTest ? "/{$slug}-test/api/realtime" : "/{$slug}/api/realtime",
+        ];
+    }
+
+    /**
+     * Un output est un actionneur physique lorsque son GPIO est < 100 (les GPIO ≥ 100 sont
+     * des paramètres / commandes virtuelles). Prédicat commun MSP/N3pp.
+     *
+     * @param array<string, mixed> $output
+     */
+    protected function isActuatorOutput(array $output): bool
+    {
+        return (int) ($output['gpio'] ?? 0) < 100;
+    }
+
+    /**
+     * Filtre les outputs pour ne conserver que les actionneurs physiques (GPIO < 100).
+     *
+     * @param array<int, array<string, mixed>> $outputs
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    protected function filterActuatorOutputs(array $outputs): array
+    {
+        return array_values(array_filter(
+            $outputs,
+            fn (array $output): bool => $this->isActuatorOutput($output)
+        ));
+    }
+
+    /**
+     * POST : sauvegarde la politique de notifications. Route commune MSP/N3pp ;
+     * délègue au trait HandlesNotificationPolicy (la famille est fournie par la sous-classe).
+     */
+    public function saveNotificationPolicy(Request $request, Response $response): Response
+    {
+        return $this->updateNotificationPolicy($request, $response);
+    }
+
+    /**
+     * Repository d'outputs du module (N3pp/Msp), tous deux dérivés d'AbstractOutputRepository.
+     * Fourni par la sous-classe (propriété privée câblée par le constructeur / PHP-DI) afin
+     * que la base puisse factoriser les délégations d'accès aux données sans posséder la
+     * dépendance concrète.
+     */
+    abstract protected function outputRepository(): AbstractOutputRepository;
+
+    /**
      * Retourne l'état des sorties pour le firmware (format dépend du module).
      */
-    abstract protected function getStateData(int $board): array;
+    protected function getStateData(int $board): array
+    {
+        return $this->outputRepository()->getStateForFirmware($board);
+    }
 
     /**
      * Exécute le toggle d'un output. Retourne un tableau avec 'success' et éventuellement 'error'/'status'.
@@ -138,12 +206,18 @@ abstract class AbstractOutputController
      */
     abstract protected function getDefaultParamKeys(): array;
 
-    abstract protected function updateParameterByName(int $board, string $paramName, string $value): bool;
+    protected function updateParameterByName(int $board, string $paramName, string $value): bool
+    {
+        return $this->outputRepository()->updateParameterByName($board, $paramName, $value);
+    }
 
     /**
      * @param array<string, mixed> $params
      */
-    abstract protected function batchUpdateParameters(int $board, array $params): void;
+    protected function batchUpdateParameters(int $board, array $params): void
+    {
+        $this->outputRepository()->batchUpdateParameters($board, $params);
+    }
 
     /**
      * Normalise une valeur de state brute vers '0' ou '1'.
@@ -330,9 +404,15 @@ abstract class AbstractOutputController
     /** @return array<string, string> */
     protected function getDefaultParams(): array
     {
+        $keys = $this->getDefaultParamKeys();
         $params = [];
-        foreach ($this->getDefaultParamKeys() as $key) {
+        foreach ($keys as $key) {
             $params[$key] = $key === 'mail' ? '' : ($key === 'mailNotif' ? 'false' : '0');
+        }
+        // Veille infinie sous seuil batterie : active par defaut (comportement
+        // historique du firmware). GPIO virtuel 112. Commun MSP/N3pp.
+        if (in_array('veilleInfinie', $keys, true)) {
+            $params['veilleInfinie'] = '1';
         }
         return $params;
     }

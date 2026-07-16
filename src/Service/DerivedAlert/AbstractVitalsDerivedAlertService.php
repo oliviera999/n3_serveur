@@ -32,6 +32,12 @@ use App\Service\NotificationService;
  */
 abstract class AbstractVitalsDerivedAlertService
 {
+    use FloatCastTrait;
+
+    /** Sens de franchissement passé à {@see evaluateLatchedLowValue}. */
+    protected const DIRECTION_LOW = 'low';
+    protected const DIRECTION_HIGH = 'high';
+
     public function __construct(
         protected AbstractSensorRepository $sensorRepo,
         protected NotificationService $notifier,
@@ -93,30 +99,91 @@ abstract class AbstractVitalsDerivedAlertService
             return;
         }
 
-        $alreadyLow = (bool) ($state['batteryLow'] ?? false);
-        $decision = LowValueAlertEvaluator::evaluate($pontDiv, $seuil, $alreadyLow);
+        $this->evaluateLatchedLowValue(
+            $state,
+            'batteryLow',
+            $pontDiv,
+            $seuil,
+            null,
+            self::DIRECTION_LOW,
+            function () use ($pontDiv, $seuil): void {
+                $message = sprintf(
+                    "La batterie de l'appareil %s est faible : PontDiv = %.0f (seuil %.0f).\n"
+                    . "L'appareil bascule en sommeil protecteur (réveil GPIO uniquement) une fois le seuil franchi.",
+                    $this->family(),
+                    $pontDiv,
+                    $seuil
+                );
+                $this->notifier->sendAlert(
+                    Severity::Critical,
+                    NotificationCategory::Energy,
+                    $this->family(),
+                    'Batterie faible',
+                    $message,
+                    $this->throttleKeyPrefix() . ':battery-low'
+                );
+            },
+            // Parité firmware : ré-armement silencieux, pas de mail de fin.
+            function (): void {
+                $this->logger->info($this->family() . ' : batterie revenue au-dessus du seuil, alerte ré-armée.');
+            },
+        );
+    }
+
+    /**
+     * Squelette latch + hystérésis partagé par les alertes « la valeur franchit un
+     * seuil » (batterie, sol sec, gel, canicule, pluie). Le null-guard et les gardes
+     * spécifiques (capteur valide, seuil opt-in, sonde déconnectée…) restent à la
+     * charge de l'appelant ; ce helper reçoit une valeur et un seuil déjà résolus et
+     * applique EXACTEMENT la logique répétée à la main : lecture du drapeau latch,
+     * {@see LowValueAlertEvaluator}, action Raise (latch → true) / Clear (latch →
+     * false). Le latch bascule indépendamment du résultat d'envoi, comme dans chaque
+     * implémentation d'origine (aucune n'attendait un `sendAlert()` réussi).
+     *
+     * `DIRECTION_HIGH` couvre la variante seuil HAUT (canicule) en réutilisant
+     * l'évaluateur « valeur basse » sur les valeurs négées : Raise ⇔ `value > seuil`,
+     * Clear ⇔ `value < clearThreshold`, inégalités strictes préservées.
+     *
+     * @param array<string, mixed>   $state          État persistant (par référence)
+     * @param string                 $stateKey       Clé du drapeau latch (ex. 'frost')
+     * @param float                  $value          Valeur mesurée
+     * @param float                  $threshold      Seuil de déclenchement
+     * @param float|null             $clearThreshold Seuil de ré-armement (null = défaut +5 %)
+     * @param string                 $direction      self::DIRECTION_LOW ou DIRECTION_HIGH
+     * @param callable(): void       $onRaise        Action au déclenchement (envoi du mail)
+     * @param (callable(): void)|null $onClear       Action au ré-armement (mail ou log)
+     */
+    protected function evaluateLatchedLowValue(
+        array &$state,
+        string $stateKey,
+        float $value,
+        float $threshold,
+        ?float $clearThreshold,
+        string $direction,
+        callable $onRaise,
+        ?callable $onClear = null,
+    ): void {
+        $latched = (bool) ($state[$stateKey] ?? false);
+
+        if ($direction === self::DIRECTION_HIGH) {
+            $decision = LowValueAlertEvaluator::evaluate(
+                -$value,
+                -$threshold,
+                $latched,
+                $clearThreshold !== null ? -$clearThreshold : null,
+            );
+        } else {
+            $decision = LowValueAlertEvaluator::evaluate($value, $threshold, $latched, $clearThreshold);
+        }
 
         if ($decision === LowValueDecision::Raise) {
-            $message = sprintf(
-                "La batterie de l'appareil %s est faible : PontDiv = %.0f (seuil %.0f).\n"
-                . "L'appareil bascule en sommeil protecteur (réveil GPIO uniquement) une fois le seuil franchi.",
-                $this->family(),
-                $pontDiv,
-                $seuil
-            );
-            $this->notifier->sendAlert(
-                Severity::Critical,
-                NotificationCategory::Energy,
-                $this->family(),
-                'Batterie faible',
-                $message,
-                $this->throttleKeyPrefix() . ':battery-low'
-            );
-            $state['batteryLow'] = true;
+            $onRaise();
+            $state[$stateKey] = true;
         } elseif ($decision === LowValueDecision::Clear) {
-            // Parité firmware : ré-armement silencieux, pas de mail de fin.
-            $this->logger->info($this->family() . ' : batterie revenue au-dessus du seuil, alerte ré-armée.');
-            $state['batteryLow'] = false;
+            if ($onClear !== null) {
+                $onClear();
+            }
+            $state[$stateKey] = false;
         }
     }
 
@@ -203,10 +270,5 @@ abstract class AbstractVitalsDerivedAlertService
                 $this->throttleKeyPrefix() . ':reboot'
             );
         }
-    }
-
-    protected function toFloatOrNull(mixed $value): ?float
-    {
-        return is_numeric($value) ? (float) $value : null;
     }
 }

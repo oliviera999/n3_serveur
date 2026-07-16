@@ -44,6 +44,11 @@ Lot de remédiation issu d'un audit transversal du dépôt. Aucun changement de 
 #### Code mort
 - Suppression de `src/Util/BasePath.php`, `bin/auto-off-gpio.php`, `templates/control_harmonized.twig`, `AuthService::loginLegacy()`. Correction de références mortes dans `migrations/README.md`.
 
+#### Refactoring interne (comportement inchangé)
+- **DerivedAlert** : squelette latch/hystérésis mutualisé dans `AbstractVitalsDerivedAlertService::evaluateLatchedLowValue()` (batterie/sol/gel/pluie + canicule via `DIRECTION_HIGH`) ; détecteur de transition booléenne extrait en `BooleanTransitionDetectorTrait` ; `toFloatOrNull()` en `FloatCastTrait` (fin de la double définition Abstract/Ffp3). `N3pp::checkWateringPump()` volontairement non mutualisé (sémantique de latch différente).
+- **Realtime** : maths santé/uptime repository-agnostiques extraites en `RealtimeHealthTrait` (partagé base + Ffp3 + Pgl) ; spécificités par famille (seuils online GPIO 116/107, marge, buckets Pgl) préservées.
+- **Contrôleurs Output** : blocs identiques N3pp/Msp remontés dans `AbstractOutputController` (`saveNotificationPolicy`, délégations `getStateData`/`updateParameterByName`/`batchUpdateParameters` via hook `outputRepository()`, `getDefaultParams` commun, prédicat actionneur, préambule env). `Ffp3/OutputController` laissé inchangé (n'étend pas la base — re-parentage reporté).
+
 #### UI / UX / PWA
 - Accessibilité : filtres de période en `<button>`, `aria-current="page"` sur la nav, `aria-hidden` sur icônes décoratives, skip-link et `base_path` corrigés dans `layout_base.twig`.
 - Badge de statut initialisé en état neutre « Vérification… » (plus de « En ligne » optimiste). `dashboard.twig`, `control.twig`.

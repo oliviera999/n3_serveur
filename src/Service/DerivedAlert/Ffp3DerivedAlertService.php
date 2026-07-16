@@ -43,6 +43,12 @@ use App\Service\OperationalSettingsService;
  */
 class Ffp3DerivedAlertService
 {
+    // Ffp3DerivedAlertService n'étend PAS AbstractVitalsDerivedAlertService (DI et
+    // dépendances distinctes) : les helpers partagés arrivent par traits plutôt que
+    // par héritage, ce qui évite un changement de hiérarchie risqué.
+    use BooleanTransitionDetectorTrait;
+    use FloatCastTrait;
+
     /** GPIO 114 (FFP3) : limite trop-plein firmware, en CENTIMÈTRES en BDD. */
     private const LIM_FLOOD_GPIO = 114;
     /** GPIO 104 (FFP3) : seuil chauffage (°C). */
@@ -98,50 +104,29 @@ class Ffp3DerivedAlertService
      */
     private function checkTankPumpTransition(array $reading, array &$state): void
     {
-        $raw = $reading['etatPompeTank'] ?? null;
-        if ($raw === null || !is_numeric($raw)) {
-            return;
-        }
-        $running = ((int) $raw) === 1;
+        $this->detectTransition($state, 'tankPump', $reading['etatPompeTank'] ?? null, function (bool $running) use ($reading): bool {
+            $levelMm = $this->toFloatOrNull($reading['EauAquarium'] ?? null);
+            $levelTxt = $levelMm !== null ? sprintf('%.0f mm', $levelMm) : 'inconnu';
 
-        $previous = $state['tankPump']['lastState'] ?? null;
+            if ($running) {
+                $subject = 'Remplissage démarré';
+                $message = "La pompe de la réserve vient de démarrer (remplissage de l'aquarium).\n"
+                    . "Niveau aquarium (distance capteur→surface) : {$levelTxt}.";
+            } else {
+                $subject = 'Remplissage terminé';
+                $message = "La pompe de la réserve vient de s'arrêter (fin de remplissage).\n"
+                    . "Niveau aquarium (distance capteur→surface) : {$levelTxt}.";
+            }
 
-        // Premier passage : initialiser sans notifier (pas de transition observable).
-        if (!is_bool($previous)) {
-            $state['tankPump']['lastState'] = $running;
-            return;
-        }
-        if ($previous === $running) {
-            return;
-        }
-
-        $levelMm = $this->toFloatOrNull($reading['EauAquarium'] ?? null);
-        $levelTxt = $levelMm !== null ? sprintf('%.0f mm', $levelMm) : 'inconnu';
-
-        if ($running) {
-            $subject = 'Remplissage démarré';
-            $message = "La pompe de la réserve vient de démarrer (remplissage de l'aquarium).\n"
-                . "Niveau aquarium (distance capteur→surface) : {$levelTxt}.";
-        } else {
-            $subject = 'Remplissage terminé';
-            $message = "La pompe de la réserve vient de s'arrêter (fin de remplissage).\n"
-                . "Niveau aquarium (distance capteur→surface) : {$levelTxt}.";
-        }
-
-        // Pas de clé d'anti-spam : dédup par transition (cf. checkHeaterTransition).
-        $sent = $this->notifier->sendAlert(
-            Severity::Info,
-            NotificationCategory::Hydraulic,
-            'FFP3',
-            $subject,
-            $message
-        );
-
-        // N'avancer l'état latché QUE si l'envoi a réussi (parité avec checkFlood) : sinon
-        // la transition sera réévaluée — et le mail retenté — au prochain tick.
-        if ($sent) {
-            $state['tankPump']['lastState'] = $running;
-        }
+            // Pas de clé d'anti-spam : dédup par transition (cf. checkHeaterTransition).
+            return $this->notifier->sendAlert(
+                Severity::Info,
+                NotificationCategory::Hydraulic,
+                'FFP3',
+                $subject,
+                $message
+            );
+        });
     }
 
     /**
@@ -256,50 +241,29 @@ class Ffp3DerivedAlertService
      */
     private function checkHeaterTransition(array $reading, array &$state): void
     {
-        $heatRaw = $reading['etatHeat'] ?? null;
-        if ($heatRaw === null || !is_numeric($heatRaw)) {
-            return;
-        }
-        $heat = ((int) $heatRaw) === 1;
+        $this->detectTransition($state, 'heater', $reading['etatHeat'] ?? null, function (bool $heat) use ($reading): bool {
+            $tempEau = $this->toFloatOrNull($reading['TempEau'] ?? null);
+            $threshold = $this->readPositiveOutputFloat(self::HEATER_THRESHOLD_GPIO);
 
-        $previous = $state['heater']['lastState'] ?? null;
+            $label = $heat ? 'ON' : 'OFF';
+            $message = sprintf(
+                "Le chauffage de l'aquarium vient de passer %s.\nTempérature de l'eau : %s°C (seuil : %s°C).",
+                $label,
+                $tempEau !== null ? sprintf('%.1f', $tempEau) : 'inconnue',
+                $threshold !== null ? sprintf('%.1f', $threshold) : 'inconnu'
+            );
 
-        // Premier passage : initialiser sans notifier (pas de transition observable).
-        if (!is_bool($previous)) {
-            $state['heater']['lastState'] = $heat;
-            return;
-        }
-        if ($previous === $heat) {
-            return;
-        }
-
-        $tempEau = $this->toFloatOrNull($reading['TempEau'] ?? null);
-        $threshold = $this->readPositiveOutputFloat(self::HEATER_THRESHOLD_GPIO);
-
-        $label = $heat ? 'ON' : 'OFF';
-        $message = sprintf(
-            "Le chauffage de l'aquarium vient de passer %s.\nTempérature de l'eau : %s°C (seuil : %s°C).",
-            $label,
-            $tempEau !== null ? sprintf('%.1f', $tempEau) : 'inconnue',
-            $threshold !== null ? sprintf('%.1f', $threshold) : 'inconnu'
-        );
-
-        // Pas de clé d'anti-spam : la déduplication vient de la détection de
-        // transition (un mail par bascule). Un cooldown P3 (6 h) avalerait les
-        // bascules légitimes suivantes de la journée.
-        $sent = $this->notifier->sendAlert(
-            Severity::Info,
-            NotificationCategory::Environment,
-            'FFP3',
-            "Chauffage {$label}",
-            $message
-        );
-
-        // N'avancer l'état latché QUE si l'envoi a réussi (parité avec checkFlood) : sinon
-        // la transition sera réévaluée — et le mail retenté — au prochain tick.
-        if ($sent) {
-            $state['heater']['lastState'] = $heat;
-        }
+            // Pas de clé d'anti-spam : la déduplication vient de la détection de
+            // transition (un mail par bascule). Un cooldown P3 (6 h) avalerait les
+            // bascules légitimes suivantes de la journée.
+            return $this->notifier->sendAlert(
+                Severity::Info,
+                NotificationCategory::Environment,
+                'FFP3',
+                "Chauffage {$label}",
+                $message
+            );
+        });
     }
 
     private function readPositiveOutputFloat(int $gpio): ?float
@@ -321,11 +285,6 @@ class Ffp3DerivedAlertService
         $value = (float) $row['state'];
 
         return $value > 0 ? $value : null;
-    }
-
-    private function toFloatOrNull(mixed $value): ?float
-    {
-        return is_numeric($value) ? (float) $value : null;
     }
 
     private function now(): int

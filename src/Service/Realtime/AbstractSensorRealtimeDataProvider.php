@@ -15,11 +15,12 @@ use App\Repository\AbstractSensorRepository;
  */
 abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProviderInterface
 {
+    use RealtimeHealthTrait;
+
     /** GPIO stockant FreqWakeUp (temps de veille en secondes) pour MSP et N3PP. */
     private const FREQ_WAKEUP_GPIO = 107;
     /** Seuil par défaut si FreqWakeUp absent ou invalide en BDD. */
     private const DEFAULT_ONLINE_THRESHOLD_SECONDS = 600;
-    private const ESTIMATED_LATENCY_SECONDS = 3.5;
     private const DEFAULT_UPTIME_DAYS = 30;
 
     public function __construct(
@@ -76,17 +77,7 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
     {
         $lastReadingDate = $this->sensorRepo->getLastReadingDate();
         if ($lastReadingDate === null) {
-            return [
-                'online' => false,
-                'last_reading' => null,
-                'last_reading_ts' => null,
-                'last_reading_ago_seconds' => null,
-                'uptime_percentage' => 0.0,
-                'readings_today' => 0,
-                'average_latency_seconds' => null,
-                'device_ip' => null,
-                'module_uptime_seconds' => null,
-            ];
+            return $this->emptySystemHealth(null);
         }
 
         $lastTs = strtotime($lastReadingDate);
@@ -94,17 +85,16 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
         $thresholdSeconds = $this->resolveOnlineThresholdSeconds();
         $isOnline = $secondsAgo < $thresholdSeconds;
 
-        return [
-            'online' => $isOnline,
-            'last_reading' => $lastReadingDate,
-            'last_reading_ts' => $lastTs !== false ? $lastTs : null,
-            'last_reading_ago_seconds' => $secondsAgo,
-            'uptime_percentage' => $this->calculateUptime(self::DEFAULT_UPTIME_DAYS),
-            'readings_today' => $this->sensorRepo->countReadingsToday(),
-            'average_latency_seconds' => $isOnline ? self::ESTIMATED_LATENCY_SECONDS : null,
-            'device_ip' => null,
-            'module_uptime_seconds' => $this->computeModuleUptimeSeconds(),
-        ];
+        return $this->assembleSystemHealth(
+            $isOnline,
+            $lastReadingDate,
+            $lastTs !== false ? $lastTs : null,
+            $secondsAgo,
+            $this->calculateUptime(self::DEFAULT_UPTIME_DAYS),
+            $this->sensorRepo->countReadingsToday(),
+            null,
+            $this->computeModuleUptimeSeconds(),
+        );
     }
 
     public function getOutputsState(): array
@@ -165,12 +155,8 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
     {
         $start = date('Y-m-d H:i:s', strtotime("-{$days} days"));
         $end = date('Y-m-d H:i:s');
-        $expected = ($days * 24 * 60) / $this->expectedReadingIntervalMinutes;
-        if ($expected == 0) {
-            return 0.0;
-        }
         $actual = $this->sensorRepo->countReadingsBetween($start, $end);
-        return min($actual / $expected * 100, 100.0);
+        return $this->sensorUptimePercentage($days, $this->expectedReadingIntervalMinutes, $actual);
     }
 
     /**
@@ -178,10 +164,6 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
      */
     private function computeModuleUptimeSeconds(): ?int
     {
-        $firstDate = $this->sensorRepo->getFirstReadingDate();
-        if ($firstDate === null) {
-            return null;
-        }
-        return (int) (time() - strtotime($firstDate));
+        return $this->moduleUptimeSecondsFromDate($this->sensorRepo->getFirstReadingDate());
     }
 }
