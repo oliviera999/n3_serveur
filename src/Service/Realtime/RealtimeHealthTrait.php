@@ -21,8 +21,16 @@ namespace App\Service\Realtime;
  */
 trait RealtimeHealthTrait
 {
-    /** Latence moyenne estimée (s) exposée quand le module est en ligne. */
-    protected const HEALTH_ESTIMATED_LATENCY_SECONDS = 3.5;
+    /**
+     * Latence moyenne estimée (s) exposée quand le module est en ligne.
+     *
+     * NB : méthode plutôt que constante de trait — les constantes de trait ne
+     * sont supportées qu'à partir de PHP 8.2, or le projet cible PHP 8.1+.
+     */
+    protected function healthEstimatedLatencySeconds(): float
+    {
+        return 3.5;
+    }
 
     /**
      * Formule commune de pourcentage d'uptime : min(actual / expected * 100, 100).
@@ -123,7 +131,7 @@ trait RealtimeHealthTrait
             'last_reading_ago_seconds' => $lastReadingAgoSeconds,
             'uptime_percentage' => $uptimePercentage,
             'readings_today' => $readingsToday,
-            'average_latency_seconds' => $isOnline ? self::HEALTH_ESTIMATED_LATENCY_SECONDS : null,
+            'average_latency_seconds' => $isOnline ? $this->healthEstimatedLatencySeconds() : null,
             'device_ip' => $deviceIp,
             'module_uptime_seconds' => $moduleUptimeSeconds,
         ];
