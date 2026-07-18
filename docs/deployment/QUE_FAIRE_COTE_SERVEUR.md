@@ -12,13 +12,16 @@ Le serveur de production exécute un **CRON toutes les minutes** qui fait un `gi
 
 > Le push vers GitHub **est** le déploiement.
 
-**Cas particulier — cache DI** : si `config/dependencies.php` ou des classes de contrôleurs sont ajoutés/modifiés, le cache DI compilé (`var/cache/di/CompiledContainer.php`) peut devenir obsolète et provoquer des erreurs 500. Solution :
-1. Pousser un script `public/maintenance/clear-di-cache.php` dans le dépôt.
-2. Attendre ~1 min (CRON pull).
-3. Appeler `https://iot.olution.info/public/maintenance/clear-di-cache.php` pour vider le cache.
-4. Supprimer le script du dépôt (sécurité) et pousser à nouveau.
+**Cas particulier — cache DI** : si `config/dependencies.php` ou des classes de contrôleurs sont ajoutés/modifiés, le cache DI compilé (`var/cache/di/CompiledContainer.php`) peut devenir obsolète et provoquer des erreurs 500. Solution (le hook `post-merge`, voir `docs/deployment/INSTALL_HOOKS.md`, le fait déjà automatiquement après chaque `git pull`) :
 
-**Note sur le DocumentRoot** : le DocumentRoot Apache pointe sur la **racine du dépôt** (pas sur `public/`). Le `.htaccess` racine redirige vers `public/index.php`. Les fichiers statiques dans `public/` sont accessibles avec le préfixe `/public/` (ex. `/public/maintenance/clear-di-cache.php`).
+- **En SSH** : `php bin/clear-cache.php` (vide `var/cache/twig/` et `var/cache/di/`, voir `docs/deployment/CACHE_MANAGEMENT.md`).
+- **Sans accès SSH** : route admin authentifiée `POST /admin/clear-cache` (session admin + jeton CSRF, ou jeton `ADMIN_TOKEN`), et sa page d'assistance `GET /admin/clear-cache-page` — voir `docs/CLEAR_CACHE_OPTIONS.md`.
+
+> ⚠️ Les anciens scripts `public/maintenance/clear-cache.php` et `public/maintenance/clear-di-cache.php`
+> ont été **supprimés** (ils vidaient le cache sans authentification, accessibles à quiconque connaissait
+> l'URL). Ne pas les recréer ; utiliser la route admin ou `bin/clear-cache.php` ci-dessus.
+
+**Note sur le DocumentRoot** : le DocumentRoot Apache pointe sur la **racine du dépôt** (pas sur `public/`). Le `.htaccess` racine redirige vers `public/index.php`. Les fichiers statiques dans `public/` sont accessibles avec le préfixe `/public/` (ex. `/public/robots.txt`).
 
 ---
 

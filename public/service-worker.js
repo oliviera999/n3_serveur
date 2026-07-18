@@ -4,7 +4,26 @@
  */
 
 const CACHE_NAME = 'n3-iot-v5.1.8';
-const RUNTIME_CACHE = 'n3-iot-runtime';
+// Cache runtime versionné (aligné sur CACHE_NAME) : les anciens caches runtime
+// non versionnés / d'anciennes versions sont purgés à l'activation.
+const RUNTIME_CACHE = 'n3-iot-runtime-v5.1.8';
+// Borne la croissance du cache runtime (éviction FIFO à l'ajout).
+const RUNTIME_MAX_ENTRIES = 60;
+
+/**
+ * Limite le nombre d'entrées d'un cache (éviction FIFO : caches.keys() renvoie
+ * les requêtes dans l'ordre d'insertion, on supprime donc les plus anciennes).
+ */
+async function trimCache(cacheName, maxEntries) {
+    const cache = await caches.open(cacheName);
+    const keys = await cache.keys();
+    if (keys.length <= maxEntries) {
+        return;
+    }
+    for (let i = 0; i < keys.length - maxEntries; i++) {
+        await cache.delete(keys[i]);
+    }
+}
 
 // Assets à mettre en cache lors de l'installation (shell minimal)
 const STATIC_ASSETS = [
@@ -93,14 +112,24 @@ self.addEventListener('fetch', event => {
         return;
     }
 
+    // Navigation HTML : détectée via request.mode ou l'en-tête Accept.
+    // Stratégie network-first (toujours frais en ligne) SANS stockage runtime
+    // du HTML — on évite d'accumuler des variantes de pages et de servir du
+    // HTML périmé indéfiniment. Le repli hors ligne s'appuie sur le shell
+    // pré-caché (STATIC_ASSETS) dans CACHE_NAME.
+    const isHtmlNav = request.mode === 'navigate'
+        || (request.headers.get('accept') || '').includes('text/html');
+
     event.respondWith(
         fetch(request)
             .then(response => {
-                const responseClone = response.clone();
-
-                if (response.status === 200) {
-                    caches.open(RUNTIME_CACHE)
-                        .then(cache => cache.put(request, responseClone));
+                // Assets statiques uniquement : GET 200, jamais le HTML de navigation.
+                if (response.status === 200 && !isHtmlNav) {
+                    const responseClone = response.clone();
+                    caches.open(RUNTIME_CACHE).then(cache => {
+                        cache.put(request, responseClone);
+                        trimCache(RUNTIME_CACHE, RUNTIME_MAX_ENTRIES);
+                    });
                 }
 
                 return response;
@@ -113,11 +142,15 @@ self.addEventListener('fetch', event => {
                             return cachedResponse;
                         }
 
-                        return caches.match('/')
-                            .then(fallback => fallback || new Response(
-                                '<h1>Hors ligne</h1><p>Aucune connexion disponible.</p>',
-                                { headers: { 'Content-Type': 'text/html' } }
-                            ));
+                        if (isHtmlNav) {
+                            return caches.match('/')
+                                .then(fallback => fallback || new Response(
+                                    '<h1>Hors ligne</h1><p>Aucune connexion disponible.</p>',
+                                    { headers: { 'Content-Type': 'text/html' } }
+                                ));
+                        }
+
+                        return Response.error();
                     });
             })
     );

@@ -95,22 +95,60 @@ final class RateLimitMiddlewareTest extends TestCase
         $this->assertSame($passed, $result);
     }
 
-    public function testForwardedForTakesPrecedenceForKeying(): void
+    public function testForwardedForIgnoredFromUntrustedProxy(): void
     {
-        $middleware = new RateLimitMiddleware(new RateLimiter($this->dir), 'login', 1, 60);
-        $passed = $this->createMock(ResponseInterface::class);
+        // Sans TRUSTED_PROXIES, X-Forwarded-For est ignoré (falsifiable) : la clé
+        // reste REMOTE_ADDR. Deux XFF distincts derrière le même REMOTE_ADDR
+        // partagent donc le même bucket, empêchant le contournement du quota (S1).
+        $old = $_ENV['TRUSTED_PROXIES'] ?? null;
+        unset($_ENV['TRUSTED_PROXIES']);
+        try {
+            $middleware = new RateLimitMiddleware(new RateLimiter($this->dir), 'login', 1, 60);
+            $passed = $this->createMock(ResponseInterface::class);
 
-        // Même REMOTE_ADDR (proxy) mais clients distincts via XFF → buckets séparés
-        $r1 = $middleware->process($this->makeRequest('10.0.0.1', '203.0.113.1'), $this->passHandler($passed));
-        $r2 = $middleware->process($this->makeRequest('10.0.0.1', '203.0.113.2'), $this->passHandler($passed));
+            $r1 = $middleware->process($this->makeRequest('10.0.0.1', '203.0.113.1'), $this->passHandler($passed));
+            $this->assertSame($passed, $r1);
 
-        $this->assertSame($passed, $r1);
-        $this->assertSame($passed, $r2);
+            // Même REMOTE_ADDR, XFF différent : ignoré → même bucket → bloqué (quota 1).
+            $blockedHandler = $this->createMock(RequestHandlerInterface::class);
+            $blockedHandler->expects($this->never())->method('handle');
+            $result = $middleware->process($this->makeRequest('10.0.0.1', '203.0.113.2'), $blockedHandler);
+            $this->assertSame(429, $result->getStatusCode());
+        } finally {
+            if ($old === null) {
+                unset($_ENV['TRUSTED_PROXIES']);
+            } else {
+                $_ENV['TRUSTED_PROXIES'] = $old;
+            }
+        }
+    }
 
-        // Re-frapper le premier client XFF dépasse son quota de 1
-        $blockedHandler = $this->createMock(RequestHandlerInterface::class);
-        $blockedHandler->expects($this->never())->method('handle');
-        $result = $middleware->process($this->makeRequest('10.0.0.1', '203.0.113.1'), $blockedHandler);
-        $this->assertSame(429, $result->getStatusCode());
+    public function testForwardedForUsedFromTrustedProxy(): void
+    {
+        // REMOTE_ADDR ∈ TRUSTED_PROXIES : X-Forwarded-For fait foi → des clients
+        // distincts derrière le proxy obtiennent des buckets séparés.
+        $old = $_ENV['TRUSTED_PROXIES'] ?? null;
+        $_ENV['TRUSTED_PROXIES'] = '10.0.0.1';
+        try {
+            $middleware = new RateLimitMiddleware(new RateLimiter($this->dir), 'login', 1, 60);
+            $passed = $this->createMock(ResponseInterface::class);
+
+            $r1 = $middleware->process($this->makeRequest('10.0.0.1', '203.0.113.1'), $this->passHandler($passed));
+            $r2 = $middleware->process($this->makeRequest('10.0.0.1', '203.0.113.2'), $this->passHandler($passed));
+            $this->assertSame($passed, $r1);
+            $this->assertSame($passed, $r2);
+
+            // Re-frapper le premier client XFF dépasse son quota de 1.
+            $blockedHandler = $this->createMock(RequestHandlerInterface::class);
+            $blockedHandler->expects($this->never())->method('handle');
+            $result = $middleware->process($this->makeRequest('10.0.0.1', '203.0.113.1'), $blockedHandler);
+            $this->assertSame(429, $result->getStatusCode());
+        } finally {
+            if ($old === null) {
+                unset($_ENV['TRUSTED_PROXIES']);
+            } else {
+                $_ENV['TRUSTED_PROXIES'] = $old;
+            }
+        }
     }
 }

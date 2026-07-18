@@ -2,6 +2,7 @@
   "name": "n3 IoT Datas - Supervision",
   "short_name": "n3 IoT",
   "description": "Supervision en temps réel des projets IoT n3 (aquaponie, potager, serre)",
+  "id": "/",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#008B74",

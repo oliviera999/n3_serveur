@@ -9,8 +9,13 @@
     <script src="{{ base_path|default('') }}/assets/js/theme-toggle.js"></script>
     <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/theme-variables.css" />
     <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/main.css" />
-    <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/realtime-styles.css" />
     <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/fontawesome.min.css" />
+    {# Pages admin sans temps réel : realtime-styles.css n'est pas chargé.
+       Style minimal du lien d'évitement (défini ailleurs dans realtime-styles.css). #}
+    <style>
+        .skip-to-content{position:absolute;top:-100%;left:50%;transform:translateX(-50%);z-index:100000;padding:12px 24px;background:var(--accent-primary,#008B74);color:#fff;font-weight:700;border-radius:0 0 8px 8px;text-decoration:none;transition:top .2s ease;}
+        .skip-to-content:focus{top:0;outline:3px solid var(--accent-primary-hover,#00A896);outline-offset:2px;}
+    </style>
     <link rel="icon" type="image/png" href="{{ base_path|default('') }}/assets/icons/favicon-n3-orange.png" />
     <link rel="shortcut icon" type="image/png" href="{{ base_path|default('') }}/assets/icons/favicon-n3-orange.png" />
     {#
@@ -23,10 +28,11 @@
     {% block page_styles %}{% endblock %}
 </head>
 <body class="is-preload">
+    <a href="#main" class="skip-to-content">Aller au contenu</a>
     <div id="page-bg" aria-hidden="true"></div>
     <div id="wrapper" class="fade-in">
         <header id="header">
-            <a href="/" class="logo"><img src="{{ base_path|default('') }}/assets/logo.png" alt="n³ iot datas" /><span class="logo-text">IOT</span></a>
+            <a href="{{ base_path|default('') }}/" class="logo"><img src="{{ base_path|default('') }}/assets/logo.png" alt="n³ iot datas" /><span class="logo-text">IOT</span></a>
         </header>
         {% include 'partials/_nav.twig' with { nav_active: block('nav_active')|trim, environment: environment|default('prod'), base_path: base_path|default('') } %}
 

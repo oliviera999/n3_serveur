@@ -282,6 +282,13 @@ class NotificationService
 
         $isSuccess = $this->sendMail($this->recipient, $subject, $html, $text);
         if ($isSuccess) {
+            // Ne purger la file QU'APRÈS un envoi réussi : si SMTP est KO, les alertes
+            // P3/P4 restent en attente et seront réémises au prochain flush (aucune perte).
+            // La suppression est portée par NotificationDigest (flush non destructif +
+            // confirmFlush) ; les doubles de test (FakeDigestQueue) consomment dès flush().
+            if ($this->digest instanceof NotificationDigest) {
+                $this->digest->confirmFlush();
+            }
             $this->logger->info('E-mail de synthèse (digest) envoyé', ['groupes' => $count]);
         }
 

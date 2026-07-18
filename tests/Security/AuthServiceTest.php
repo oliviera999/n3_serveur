@@ -121,4 +121,47 @@ final class AuthServiceTest extends TestCase
         $this->assertFalse($auth->isAuthenticatedByToken(['token' => 'wrong']));
         $this->assertFalse($auth->isAuthenticatedByToken([]));
     }
+
+    public function testHasValidHeaderTokenFromXAdminTokenHeader(): void
+    {
+        $_ENV['ADMIN_TOKEN'] = 'super-secret-token-abc';
+        $auth = new AuthService(null);
+
+        $previous = $_SERVER['HTTP_X_ADMIN_TOKEN'] ?? null;
+        try {
+            $_SERVER['HTTP_X_ADMIN_TOKEN'] = 'super-secret-token-abc';
+            $this->assertTrue($auth->hasValidHeaderToken());
+            $this->assertTrue($auth->isAuthenticatedByToken());
+
+            $_SERVER['HTTP_X_ADMIN_TOKEN'] = 'wrong';
+            $this->assertFalse($auth->hasValidHeaderToken());
+        } finally {
+            if ($previous === null) {
+                unset($_SERVER['HTTP_X_ADMIN_TOKEN']);
+            } else {
+                $_SERVER['HTTP_X_ADMIN_TOKEN'] = $previous;
+            }
+        }
+    }
+
+    public function testHasValidHeaderTokenFromBearerHeader(): void
+    {
+        $_ENV['ADMIN_TOKEN'] = 'super-secret-token-abc';
+        $auth = new AuthService(null);
+
+        $previous = $_SERVER['HTTP_AUTHORIZATION'] ?? null;
+        try {
+            $_SERVER['HTTP_AUTHORIZATION'] = 'Bearer super-secret-token-abc';
+            $this->assertTrue($auth->hasValidHeaderToken());
+
+            $_SERVER['HTTP_AUTHORIZATION'] = 'Bearer wrong';
+            $this->assertFalse($auth->hasValidHeaderToken());
+        } finally {
+            if ($previous === null) {
+                unset($_SERVER['HTTP_AUTHORIZATION']);
+            } else {
+                $_SERVER['HTTP_AUTHORIZATION'] = $previous;
+            }
+        }
+    }
 }

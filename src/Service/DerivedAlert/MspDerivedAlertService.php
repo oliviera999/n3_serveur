@@ -93,33 +93,32 @@ class MspDerivedAlertService extends AbstractVitalsDerivedAlertService
             return;
         }
 
-        $alreadyCold = (bool) ($state['frost'] ?? false);
-        $decision = LowValueAlertEvaluator::evaluate(
+        $this->evaluateLatchedLowValue(
+            $state,
+            'frost',
             $temp,
             $threshold,
-            $alreadyCold,
-            $threshold + self::TEMP_HYSTERESIS_C
+            $threshold + self::TEMP_HYSTERESIS_C,
+            self::DIRECTION_LOW,
+            function () use ($temp, $threshold): void {
+                $message = sprintf(
+                    'Risque de gel : température extérieure %.1f °C (seuil %.1f °C).',
+                    $temp,
+                    $threshold
+                );
+                $this->notifier->sendAlert(
+                    Severity::Alert,
+                    NotificationCategory::Environment,
+                    $this->family(),
+                    'Risque de gel',
+                    $message,
+                    'msp1:frost'
+                );
+            },
+            function (): void {
+                $this->logger->info('MSP1 : température remontée au-dessus du seuil de gel, alerte ré-armée.');
+            },
         );
-
-        if ($decision === LowValueDecision::Raise) {
-            $message = sprintf(
-                'Risque de gel : température extérieure %.1f °C (seuil %.1f °C).',
-                $temp,
-                $threshold
-            );
-            $this->notifier->sendAlert(
-                Severity::Alert,
-                NotificationCategory::Environment,
-                $this->family(),
-                'Risque de gel',
-                $message,
-                'msp1:frost'
-            );
-            $state['frost'] = true;
-        } elseif ($decision === LowValueDecision::Clear) {
-            $this->logger->info('MSP1 : température remontée au-dessus du seuil de gel, alerte ré-armée.');
-            $state['frost'] = false;
-        }
     }
 
     /**
@@ -134,27 +133,34 @@ class MspDerivedAlertService extends AbstractVitalsDerivedAlertService
             return;
         }
 
-        $alreadyHot = (bool) ($state['heat'] ?? false);
-
-        if (!$alreadyHot && $temp > $threshold) {
-            $message = sprintf(
-                'Canicule : température extérieure %.1f °C (seuil %.1f °C).',
-                $temp,
-                $threshold
-            );
-            $this->notifier->sendAlert(
-                Severity::Alert,
-                NotificationCategory::Environment,
-                $this->family(),
-                'Température extérieure élevée',
-                $message,
-                'msp1:heat'
-            );
-            $state['heat'] = true;
-        } elseif ($alreadyHot && $temp < $threshold - self::TEMP_HYSTERESIS_C) {
-            $this->logger->info('MSP1 : température redescendue sous le seuil de canicule, alerte ré-armée.');
-            $state['heat'] = false;
-        }
+        // Variante seuil HAUT : DIRECTION_HIGH réutilise l'évaluateur « valeur basse »
+        // sur les valeurs négées (Raise ⇔ temp > seuil, Clear ⇔ temp < seuil - hyst).
+        $this->evaluateLatchedLowValue(
+            $state,
+            'heat',
+            $temp,
+            $threshold,
+            $threshold - self::TEMP_HYSTERESIS_C,
+            self::DIRECTION_HIGH,
+            function () use ($temp, $threshold): void {
+                $message = sprintf(
+                    'Canicule : température extérieure %.1f °C (seuil %.1f °C).',
+                    $temp,
+                    $threshold
+                );
+                $this->notifier->sendAlert(
+                    Severity::Alert,
+                    NotificationCategory::Environment,
+                    $this->family(),
+                    'Température extérieure élevée',
+                    $message,
+                    'msp1:heat'
+                );
+            },
+            function (): void {
+                $this->logger->info('MSP1 : température redescendue sous le seuil de canicule, alerte ré-armée.');
+            },
+        );
     }
 
     /**
@@ -172,27 +178,31 @@ class MspDerivedAlertService extends AbstractVitalsDerivedAlertService
             return; // sonde déconnectée (sentinelle firmware), pas une pluie
         }
 
-        $alreadyWet = (bool) ($state['rain'] ?? false);
-        $decision = LowValueAlertEvaluator::evaluate($rain, $threshold, $alreadyWet);
-
-        if ($decision === LowValueDecision::Raise) {
-            $message = sprintf(
-                'Pluie détectée par la station météo (capteur %.0f, seuil %.0f — plus bas = plus mouillé).',
-                $rain,
-                $threshold
-            );
-            $this->notifier->sendAlert(
-                Severity::Info,
-                NotificationCategory::Environment,
-                $this->family(),
-                'Pluie détectée',
-                $message,
-                'msp1:rain'
-            );
-            $state['rain'] = true;
-        } elseif ($decision === LowValueDecision::Clear) {
-            $this->logger->info('MSP1 : capteur pluie redevenu sec, alerte ré-armée.');
-            $state['rain'] = false;
-        }
+        $this->evaluateLatchedLowValue(
+            $state,
+            'rain',
+            $rain,
+            $threshold,
+            null,
+            self::DIRECTION_LOW,
+            function () use ($rain, $threshold): void {
+                $message = sprintf(
+                    'Pluie détectée par la station météo (capteur %.0f, seuil %.0f — plus bas = plus mouillé).',
+                    $rain,
+                    $threshold
+                );
+                $this->notifier->sendAlert(
+                    Severity::Info,
+                    NotificationCategory::Environment,
+                    $this->family(),
+                    'Pluie détectée',
+                    $message,
+                    'msp1:rain'
+                );
+            },
+            function (): void {
+                $this->logger->info('MSP1 : capteur pluie redevenu sec, alerte ré-armée.');
+            },
+        );
     }
 }

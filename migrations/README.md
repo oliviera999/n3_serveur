@@ -23,7 +23,7 @@ Comparaison dump prod vs serveur **5.1.3** : voir le plan d'audit dans le dépô
 | Lignes fantômes gpio 16 + `UNIQUE(gpio)` | `FIX_GPIO16_NULL_DUPLICATES_2026_06.sql` | **Critique** si doublons `name=NULL` (purge + anti-récidive) |
 | GPIO actionneurs N3PP (12 pompe, 13 arrosage) | `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` | **Recommandé** si prod utilise encore gpio=2 pour la pompe |
 | **Bundle audit juillet 2026** | `2026_07_PROD_01` (+ `01a` S3 si `ffp3Data4` existe) → `02` → `03` → **`03b`** → **`03c`** (+ `04` indexes) | **Recommandé** post-backup |
-| **Bundle supervision & notifs (juin–juil. 2026)** | `APPLY_PROD_2026_07_SUPERVISION.sql` | **Recommandé** après le bundle PROD_01–04 (v6.9 → v6.22) |
+| **Supervision & notifs (juin–juil. 2026)** — pas de bundle agrégé, exécuter les scripts individuels : `2026_07_nav_pages.sql`, `2026_07_nav_pages_gallery_users.sql`, `2026_07_server_settings.sql`, `2026_07_night_sleep_and_alert_gpio.sql`, `2026_07_veille_infinie_gpio.sql`, `2026_06_notification_policy_gpio.sql`, `2026_07_notification_log.sql`, `2026_07_notification_digest.sql` | **Recommandé** après le bundle PROD_01–04 (v6.9 → v6.22) |
 | Angles servo FFP3 (GPIO 118-123) | `tools/sql/migrate-gpio118-123-servo-angles-ffp3.sql` | Si prod antérieure à 5.3.9 (auto-créé depuis 5.3.9) |
 | Validation post-migration | `99_validate_prod.sql` | Après migration |
 
@@ -138,7 +138,12 @@ SHOW INDEXES FROM ffp3Outputs WHERE Key_name = 'unique_gpio';
 | `ADD_LASTMODIFIEDBY_COLUMN.sql` | Sync bidirectionnelle GPIO (souvent déjà en prod) |
 | `ADD_N3PP_WAKEUP_COLUMNS.sql` | WakeUp n3pp (souvent déjà en prod) |
 | `APPLY_PROD_AUDIT_2026.sql` | Bundle phases 1–4 audit 2026-05 |
-| `APPLY_PROD_2026_07_SUPERVISION.sql` | Bundle supervision, navPages, serverSettings, GPIO 108–130, notifs (v6.9–v6.22) |
+| `2026_07_nav_pages.sql` | Table `navPages` (supervision v6.9–v6.22) |
+| `2026_07_nav_pages_gallery_users.sql` | navPages — galerie / utilisateurs |
+| `2026_07_server_settings.sql` | Table `serverSettings` |
+| `2026_07_night_sleep_and_alert_gpio.sql` | GPIO seuils/nuit FFP3 (108–130) |
+| `2026_07_veille_infinie_gpio.sql` | veilleInfinie MSP / N3PP |
+| `2026_06_notification_policy_gpio.sql` | Politique de notification par GPIO |
 | `99_validate_prod.sql` | Contrôles post-migration |
 | `CREATE_LEGACY_HEARTBEAT_TABLES.sql` | msp1Heartbeat, n3ppHeartbeat |
 | `CREATE_PGL_TABLES.sql` | Poissonglouton |
@@ -156,7 +161,7 @@ SHOW INDEXES FROM ffp3Outputs WHERE Key_name = 'unique_gpio';
 
 ## Changelog migrations
 
-- **2026-07-09** : `APPLY_PROD_2026_07_SUPERVISION.sql` — regroupe notifications, navPages, serverSettings, GPIO seuils/nuit FFP3, veilleInfinie MSP/N3PP (sans doublon avec PROD_01–04)
+- **2026-07-09** : supervision & notifs (v6.9–v6.22) — scripts individuels `2026_07_nav_pages.sql`, `2026_07_nav_pages_gallery_users.sql`, `2026_07_server_settings.sql`, `2026_07_night_sleep_and_alert_gpio.sql`, `2026_07_veille_infinie_gpio.sql`, `2026_06_notification_policy_gpio.sql`, `2026_07_notification_log.sql`, `2026_07_notification_digest.sql` (aucun bundle `APPLY_PROD_2026_07_SUPERVISION.sql` n'a été créé ; sans doublon avec PROD_01–04)
 - **2026-07-05** : bundle `2026_07_PROD_01/02/03/04` — migration S3, GPIO, élagage qualitatif ; serveur **6.8.0** ; firmwares n3pp 4.50 / msp 2.49
 - **2026-07-05** : `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` — migration GPIO 12/13 N3PP (pompe, arrosage manuel), seed Docker `10-seed.sql` aligné
 - **2026-05-30** : Audit prod oliviera_iot3 — `APPLY_PROD_AUDIT_2026.sql`, `001b`, `ADD_MISSING_COLUMNS` consolidé, `00_diagnostic_prod`, `99_validate_prod`, init Docker 85/95

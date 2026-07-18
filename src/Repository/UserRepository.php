@@ -14,6 +14,13 @@ class UserRepository extends AbstractRepository
 {
     private const TABLE = 'n3_users';
 
+    /**
+     * Hash bcrypt bidon (mot de passe aléatoire inconnu) pour un password_verify
+     * factice quand l'utilisateur est absent, afin d'égaliser le temps de réponse
+     * et d'éviter l'énumération d'utilisateurs par analyse de timing (B2).
+     */
+    private const DUMMY_PASSWORD_HASH = '$2y$12$4emarLin6MEkat6qo8fXHOgMKk9yxjaa.kJcBNOD1Ti4Jbh6tSrGS';
+
     public function isEmpty(): bool
     {
         try {
@@ -53,6 +60,10 @@ class UserRepository extends AbstractRepository
             ['username' => $username]
         );
         if ($row === null) {
+            // Anti-énumération (B2) : exécuter un password_verify factice pour
+            // égaliser le temps de réponse avec le cas « utilisateur existant,
+            // mauvais mot de passe » (le hash bidon ne matche jamais).
+            password_verify($password, self::DUMMY_PASSWORD_HASH);
             return null;
         }
         $hash = (string) ($row['password_hash'] ?? '');

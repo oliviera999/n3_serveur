@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Controller\Msp;
 
 use App\Config\MspGpioMap;
-use App\Config\TableConfig;
 use App\Config\Version;
 use App\Controller\AbstractOutputController;
 use App\Notification\NotificationFamily;
+use App\Repository\AbstractOutputRepository;
 use App\Repository\MspOutputRepository;
 use App\Repository\MspSensorRepository;
 use App\Repository\NotificationPolicyRepository;
@@ -18,8 +18,6 @@ use App\Service\NotificationPolicySaveService;
 use App\Service\NotificationService;
 use App\Service\OperationalSettingsService;
 use App\Service\TemplateRenderer;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 
 class MspOutputController extends AbstractOutputController
 {
@@ -52,10 +50,10 @@ class MspOutputController extends AbstractOutputController
 
     protected function buildControlPageData(int $board): array
     {
-        $env = TableConfig::getEnvironment();
-        $isTest = $env === 'msp_test';
-        $outputsApiBase = $isTest ? '/msp1-test/api/outputs' : '/msp1/api/outputs';
-        $realtimeApiBase = $isTest ? '/msp1-test/api/realtime' : '/msp1/api/realtime';
+        $envInfo = $this->resolveControlEnv('msp_test', 'msp1');
+        $env = $envInfo['env'];
+        $outputsApiBase = $envInfo['outputs_api_base'];
+        $realtimeApiBase = $envInfo['realtime_api_base'];
 
         try {
             $outputs = $this->outputRepo->getAllForBoard($board);
@@ -70,10 +68,7 @@ class MspOutputController extends AbstractOutputController
             $lastBoardRequest = null;
         }
 
-        $actuatorCount = count(array_filter(
-            $outputs,
-            static fn (array $output): bool => (int) ($output['gpio'] ?? 0) < 100
-        ));
+        $actuatorCount = count($this->filterActuatorOutputs($outputs));
 
         return array_merge([
             'page_title' => 'Contrôle station météo - Le potager',
@@ -122,11 +117,6 @@ class MspOutputController extends AbstractOutputController
         return $this->notificationPolicyRepo;
     }
 
-    public function saveNotificationPolicy(Request $request, Response $response): Response
-    {
-        return $this->updateNotificationPolicy($request, $response);
-    }
-
     protected function getDefaultParamKeys(): array
     {
         return ['mail', 'mailNotif', 'notifMode', 'notifCategories', 'SeuilSec', 'SeuilPontDiv', 'ServoHB', 'ServoGD', 'WakeUp', 'FreqWakeUp', 'ServoModeAuto', 'veilleInfinie'];
@@ -137,15 +127,12 @@ class MspOutputController extends AbstractOutputController
     {
         $params = parent::getDefaultParams();
         $params['ServoModeAuto'] = '1';
-        // Veille infinie sous seuil batterie : active par defaut (comportement
-        // historique du firmware). GPIO virtuel 112.
-        $params['veilleInfinie'] = '1';
         return $params;
     }
 
-    protected function getStateData(int $board): array
+    protected function outputRepository(): AbstractOutputRepository
     {
-        return $this->outputRepo->getStateForFirmware($board);
+        return $this->outputRepo;
     }
 
     protected function doToggle(array $params, int $board): array
@@ -188,15 +175,6 @@ class MspOutputController extends AbstractOutputController
         }
 
         return ['success' => false, 'error' => 'Paramètre gpio ou name requis', 'status' => 400];
-    }
-    protected function updateParameterByName(int $board, string $paramName, string $value): bool
-    {
-        return $this->outputRepo->updateParameterByName($board, $paramName, $value);
-    }
-
-    protected function batchUpdateParameters(int $board, array $params): void
-    {
-        $this->outputRepo->batchUpdateParameters($board, $params);
     }
 
     protected function allowedGpios(): array

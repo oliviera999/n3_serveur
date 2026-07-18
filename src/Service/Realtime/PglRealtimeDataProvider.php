@@ -12,6 +12,8 @@ use App\Repository\PglRepository;
  */
 class PglRealtimeDataProvider implements RealtimeDataProviderInterface
 {
+    use RealtimeHealthTrait;
+
     private const UPTIME_DAYS = 30;
     private const BUCKET_SECONDS = 3600;
 
@@ -160,6 +162,12 @@ class PglRealtimeDataProvider implements RealtimeDataProviderInterface
         return $unixTs - ($unixTs % self::BUCKET_SECONDS);
     }
 
+    /**
+     * Uptime spécifique Pgl : agrégation ÉVÉNEMENTIELLE (pas de lectures régulières).
+     * Le nombre attendu suppose 1 événement/heure ; la formule finale est mutualisée
+     * ({@see RealtimeHealthTrait::uptimePercentage()}), le reste (garde firstDate, expected)
+     * reste propre à la famille.
+     */
     private function calculateUptime(): float
     {
         $firstDate = $this->repository->getFirstEventDate();
@@ -174,9 +182,13 @@ class PglRealtimeDataProvider implements RealtimeDataProviderInterface
         // Estimation : 1 événement attendu par heure en fonctionnement normal
         $expected = self::UPTIME_DAYS * 24;
 
-        return min($eventCount / $expected * 100, 100.0);
+        return $this->uptimePercentage((float) $eventCount, (float) $expected);
     }
 
+    /**
+     * Uptime module Pgl : garde volontairement sa propre gestion de strtotime()===false
+     * (retour null), distincte de la sémantique base/FFP3 — différence légitime conservée.
+     */
     private function computeModuleUptimeSeconds(): ?int
     {
         $firstDate = $this->repository->getFirstEventDate();

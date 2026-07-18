@@ -147,48 +147,84 @@ class SensorDataService
 
     /**
      * Remplace par NULL toutes les valeurs trop basses pour une colonne donnée.
+     *
      * @param string $column Nom de la colonne à nettoyer
      * @param float $threshold Seuil minimum
+     * @param string|null $since Si fourni, ne balaie que les lignes `reading_time > :since`
+     *                           (profite de l'index reading_time et évite un full-scan).
+     * @return int Nombre de lignes effectivement corrigées (rowCount de l'UPDATE)
      * @throws \InvalidArgumentException Si la colonne n'est pas autorisée
      */
-    public function cleanAbnormalLowValues(string $column, float $threshold): void
+    public function cleanAbnormalLowValues(string $column, float $threshold, ?string $since = null): int
     {
-        $this->validateColumn($column);
-        $table = \App\Config\TableConfig::getDataTable();
-        $stmt = $this->pdo->prepare("UPDATE `{$table}` SET `{$column}` = NULL WHERE `{$column}` < :threshold");
-        $stmt->execute([':threshold' => $threshold]);
+        return $this->cleanAbnormalValues($column, '<', $threshold, $since);
     }
 
     /**
      * Remplace par NULL toutes les valeurs trop hautes pour une colonne donnée.
+     *
      * @param string $column Nom de la colonne à nettoyer
      * @param float $threshold Seuil maximum
+     * @param string|null $since Si fourni, ne balaie que les lignes `reading_time > :since`.
+     * @return int Nombre de lignes effectivement corrigées (rowCount de l'UPDATE)
      * @throws \InvalidArgumentException Si la colonne n'est pas autorisée
      */
-    public function cleanAbnormalHighValues(string $column, float $threshold): void
+    public function cleanAbnormalHighValues(string $column, float $threshold, ?string $since = null): int
+    {
+        return $this->cleanAbnormalValues($column, '>', $threshold, $since);
+    }
+
+    /**
+     * Facteur commun des nettoyages bas/haut : émet un unique UPDATE et renvoie
+     * son rowCount (plus de COUNT préalable). L'opérateur est une constante littérale
+     * ('<' ou '>'), jamais une entrée externe → aucune injection possible.
+     *
+     * @param string $operator '<' ou '>'
+     */
+    private function cleanAbnormalValues(string $column, string $operator, float $threshold, ?string $since): int
     {
         $this->validateColumn($column);
         $table = \App\Config\TableConfig::getDataTable();
-        $stmt = $this->pdo->prepare("UPDATE `{$table}` SET `{$column}` = NULL WHERE `{$column}` > :threshold");
-        $stmt->execute([':threshold' => $threshold]);
+
+        $sql = "UPDATE `{$table}` SET `{$column}` = NULL WHERE `{$column}` {$operator} :threshold";
+        $params = [':threshold' => $threshold];
+
+        // Fenêtre glissante : restreint le balayage aux lignes récentes pour
+        // exploiter l'index reading_time (les anciennes lignes ont déjà été nettoyées
+        // lors des passages précédents ; inutile de les re-scanner chaque minute).
+        if ($since !== null) {
+            $sql .= ' AND reading_time > :since';
+            $params[':since'] = $since;
+        }
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);
+
+        return $stmt->rowCount();
     }
 
     /**
      * Exécute le nettoyage complet des données des capteurs en suivant les règles définies.
      * Pour chaque colonne, applique les seuils min et max si définis.
      * Logge les opérations et retourne un tableau des corrections effectuées.
+     *
+     * Perf : un seul UPDATE par colonne/borne (le rowCount fournit le compte), au
+     * lieu d'un COUNT + un UPDATE. Combiné à `$since`, le balayage reste borné aux
+     * lignes récentes (index reading_time) plutôt qu'à toute la table à chaque minute.
+     *
+     * @param string|null $since Borne basse `reading_time > :since` (fenêtre glissante).
+     *                           null = balayage complet (rétro-compat / tables sans reading_time).
      * @return array Information sur les valeurs nettoyées (ex : ['TempEau_low' => 2, 'TempEau_high' => 1])
      */
-    public function cleanAllSensorData(): array
+    public function cleanAllSensorData(?string $since = null): array
     {
         $cleaningStats = [];
 
         foreach ($this->cleaningRules as $column => $rules) {
             // Nettoyage des valeurs trop basses
             if (isset($rules['min'])) {
-                $count = $this->countAbnormalLowValues($column, $rules['min']);
+                $count = $this->cleanAbnormalLowValues($column, $rules['min'], $since);
                 if ($count > 0) {
-                    $this->cleanAbnormalLowValues($column, $rules['min']);
                     $cleaningStats[$column . '_low'] = $count;
                     $this->logger->info("Nettoyage : {$count} valeur(s) basse(s) supprimée(s) pour la colonne {$column}.");
                 }
@@ -196,9 +232,8 @@ class SensorDataService
 
             // Nettoyage des valeurs trop hautes
             if (isset($rules['max'])) {
-                $count = $this->countAbnormalHighValues($column, $rules['max']);
+                $count = $this->cleanAbnormalHighValues($column, $rules['max'], $since);
                 if ($count > 0) {
-                    $this->cleanAbnormalHighValues($column, $rules['max']);
                     $cleaningStats[$column . '_high'] = $count;
                     $this->logger->info("Nettoyage : {$count} valeur(s) haute(s) supprimée(s) pour la colonne {$column}.");
                 }

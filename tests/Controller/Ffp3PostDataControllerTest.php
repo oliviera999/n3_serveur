@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Controller;
 
+use App\Config\TableConfig;
 use App\Controller\Ffp3\PostDataController;
 use App\Domain\SensorData;
 use App\Repository\BoardRepository;
@@ -68,7 +69,7 @@ final class Ffp3PostDataControllerTest extends TestCase
                 ->with($this->callback(fn (SensorData $data): bool => $data->postId === 'retry-123'));
             $boardRepo->expects($this->once())
                 ->method('updateLastRequest')
-                ->with('1')
+                ->with(TableConfig::getPostDataBoardId())
                 ->willReturn(true);
 
             $controller = new PostDataController(

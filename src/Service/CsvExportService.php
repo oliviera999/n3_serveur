@@ -39,16 +39,32 @@ class CsvExportService
 
         $nbLines = $repository->exportCsv($startDate, $endDate, $tmpFile);
 
-        if ($nbLines === 0) {
-            if (file_exists($tmpFile)) {
+        // Plage sans donnée + message explicite demandé : 204 No Content (comportement historique).
+        if ($nbLines === 0 && $emptyMessage !== null) {
+            if (is_file($tmpFile)) {
                 @unlink($tmpFile);
             }
-            if ($emptyMessage !== null) {
-                $response->getBody()->write($emptyMessage);
-                return $response
-                    ->withStatus(204)
-                    ->withHeader('Content-Type', 'text/plain; charset=utf-8');
-            }
+            $response->getBody()->write($emptyMessage);
+            return $response
+                ->withStatus(204)
+                ->withHeader('Content-Type', 'text/plain; charset=utf-8');
+        }
+
+        $filename = $filenamePrefix . '_' . date('YmdHis') . '.csv';
+        $response = $response
+            ->withHeader('Content-Type', 'text/csv; charset=utf-8')
+            ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"');
+
+        // Plage sans donnée et AUCUN message : on renvoie un CSV VIDE VALIDE plutôt qu'un
+        // HTTP 500. Choix retenu (meilleure UX) : livrer un fichier CSV téléchargeable avec la
+        // ligne d'en-tête (colonnes) seule — le client reçoit un fichier ouvrable listant les
+        // colonnes attendues, sans avoir à gérer un statut d'erreur.
+        // SensorReadRepository::exportCsv écrit toujours l'en-tête (même sans donnée) : le
+        // fichier existe donc et est streamé ci-dessous. Garde-fou : si un repository n'a produit
+        // aucun fichier (0 ligne, autres familles), on renvoie un corps vide (Content-Length: 0)
+        // au lieu de planter sur filesize()/fopen() d'un fichier inexistant (bug B1).
+        if (!is_file($tmpFile)) {
+            return $response->withHeader('Content-Length', '0');
         }
 
         // Lecture du fichier temporaire en streaming (par blocs) vers le corps de la
@@ -71,12 +87,6 @@ class CsvExportService
         }
         fclose($handle);
         @unlink($tmpFile);
-
-        $filename = $filenamePrefix . '_' . date('YmdHis') . '.csv';
-
-        $response = $response
-            ->withHeader('Content-Type', 'text/csv; charset=utf-8')
-            ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"');
 
         if ($contentLength !== false) {
             $response = $response->withHeader('Content-Length', (string) $contentLength);

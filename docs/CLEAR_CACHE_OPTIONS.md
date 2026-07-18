@@ -53,13 +53,28 @@ php bin/clear-cache.php
 ### Option 2 : Route API JSON (via curl / script)
 
 **URL** (méthode **POST** uniquement — écriture d'état) :
-- Production : `https://iot.olution.info/ffp3/admin/clear-cache`
+- Production : `https://iot.olution.info/ffp3/admin/clear-cache` (ou `/admin/clear-cache` si le
+  DocumentRoot pointe directement sur `public/`)
 - Test : `https://iot.olution.info/ffp3/admin/clear-cache-test`
+- Autres environnements : `/admin/clear-cache3-test`, `/admin/clear-cache3`,
+  `/admin/clear-cache-s3-test` (voir `config/routes_ffp3.php`)
 
-> ⚠️ **Depuis la v6.8.8** : la route est en **POST** (plus de GET) et **réservée aux administrateurs**.
-> Une simple ouverture d'URL dans le navigateur ne vide plus le cache. Deux modes d'auth :
-> - **session admin** : depuis l'UI (page supervision ou `/admin/clear-cache-page`), le bouton envoie automatiquement l'en-tête CSRF `X-CSRF-Token` ;
-> - **token** : `?token=<ADMIN_CACHE_TOKEN>` sur la requête POST (exempté de CSRF car secret non-ambiant).
+> ⚠️ **Depuis la v6.8.8** : la route est en **POST** (plus de GET) et **réservée aux administrateurs**
+> (middleware `$applyAuth`, voir `public/index.php` + `config/routes_helpers.php`).
+> Une simple ouverture d'URL dans le navigateur ne vide plus le cache. Deux modes d'auth
+> (voir `App\Security\AuthService::isAuthenticatedByToken`) :
+> - **session admin** : depuis l'UI (page supervision ou `/admin/clear-cache-page`), le bouton envoie
+>   automatiquement l'en-tête CSRF `X-CSRF-Token` ;
+> - **jeton admin** : variable d'environnement `ADMIN_TOKEN` (pas `ADMIN_CACHE_TOKEN`, qui n'est lu
+>   par aucun code du dépôt), passé via `?token=<ADMIN_TOKEN>` sur la requête POST (exempté de CSRF
+>   car secret non-ambiant, voir `CsrfMiddleware`), l'en-tête `X-Admin-Token` / `Authorization: Bearer`,
+>   ou le cookie `admin_token` posé après une première validation. Il n'existe **pas** de valeur par
+>   défaut : `ADMIN_TOKEN` doit être défini dans `.env`, sinon le jeton est toujours refusé.
+>
+> ⛔ **Historique** : les anciens scripts HTTP non authentifiés `public/maintenance/clear-cache.php`
+> et `public/maintenance/clear-di-cache.php` (vidage sans aucune vérification) ont été **supprimés**
+> pour cette raison. Utiliser exclusivement la route `/admin/clear-cache*` ci-dessus (authentifiée)
+> ou `bin/clear-cache.php` en SSH (option 1).
 
 **Avantages** :
 - ✅ Accessible depuis n'importe où (pas besoin de SSH)
@@ -70,12 +85,12 @@ php bin/clear-cache.php
 
 **Avec curl** :
 ```bash
-curl -X POST "https://iot.olution.info/ffp3/admin/clear-cache?token=clear-cache-2025"
+curl -X POST "https://iot.olution.info/ffp3/admin/clear-cache?token=<ADMIN_TOKEN>"
 ```
 
 **Avec PowerShell** :
 ```powershell
-Invoke-WebRequest -Method POST -Uri "https://iot.olution.info/ffp3/admin/clear-cache?token=clear-cache-2025"
+Invoke-WebRequest -Method POST -Uri "https://iot.olution.info/ffp3/admin/clear-cache?token=<ADMIN_TOKEN>"
 ```
 
 **Réponse JSON** :
@@ -101,9 +116,11 @@ Invoke-WebRequest -Method POST -Uri "https://iot.olution.info/ffp3/admin/clear-c
 ```
 
 **Sécurité** :
-- Token configurable via variable d'environnement `ADMIN_CACHE_TOKEN`
-- Par défaut : `clear-cache-2025`
-- Si le token ne correspond pas, retourne une erreur 403
+- Jeton configurable via la variable d'environnement `ADMIN_TOKEN` (aucune valeur par défaut, à
+  définir dans `.env`)
+- Alternative sans jeton en URL : session admin (login `/admin/clear-cache-page`) ou en-tête
+  `X-Admin-Token` / `Authorization: Bearer`
+- Si l'authentification échoue, l'accès est refusé (redirection login ou erreur selon `AUTH_METHOD`)
 
 **Quand l'utiliser** :
 - Quand vous n'avez pas accès SSH
@@ -311,14 +328,16 @@ php bin/clear-cache.php
 
 ### Scénario 4 : Pas d'accès SSH
 ```
-# Ouvrir dans le navigateur
-https://iot.olution.info/ffp3/admin/clear-cache-page?token=clear-cache-2025
+# Ouvrir dans le navigateur (session admin déjà connectée) :
+https://iot.olution.info/ffp3/admin/clear-cache-page
+# Ou avec le jeton ADMIN_TOKEN (voir .env) :
+https://iot.olution.info/ffp3/admin/clear-cache-page?token=<ADMIN_TOKEN>
 ```
 
 ### Scénario 5 : Intégration dans un outil externe
 ```bash
-# Appel API JSON
-curl "https://iot.olution.info/ffp3/admin/clear-cache?token=clear-cache-2025"
+# Appel API JSON (POST, jeton ADMIN_TOKEN)
+curl -X POST "https://iot.olution.info/ffp3/admin/clear-cache?token=<ADMIN_TOKEN>"
 ```
 
 ### Scénario 6 : Dépannage (scripts échouent)
@@ -333,15 +352,18 @@ chmod -R 775 var/cache/
 
 ## 🔧 Configuration
 
-### Token de sécurité (optionnel)
+### Token de sécurité
 
-Pour sécuriser les routes `/admin/clear-cache*`, configurez dans `.env` :
+Les routes `/admin/clear-cache*` sont protégées par `$applyAuth` (session admin, voir
+`AUTH_METHOD` dans `.env`). Pour autoriser en plus un accès par jeton (sans session), configurez
+dans `.env` :
 
 ```env
-ADMIN_CACHE_TOKEN=votre-token-secret-ici
+ADMIN_TOKEN=votre-token-secret-ici
 ```
 
-Si non défini, le token par défaut est `clear-cache-2025`.
+Il n'y a **pas** de valeur par défaut : sans `ADMIN_TOKEN` défini, l'authentification par jeton est
+toujours refusée (`App\Security\AuthService::validateToken`).
 
 **Utilisation** :
 ```
@@ -391,22 +413,28 @@ https://iot.olution.info/ffp3/admin/clear-cache?token=votre-token-secret-ici
    .git/hooks/post-merge
    ```
 
-### Erreur 403 sur les routes API
+### Erreur 401/403 (ou redirection login) sur les routes admin
 
-- Vérifier que le token correspond à `ADMIN_CACHE_TOKEN` dans `.env`
-- Ou utiliser le token par défaut : `clear-cache-2025`
+- Vérifier que vous êtes connecté en session admin, **ou** que le jeton passé (`?token=`, en-tête
+  `X-Admin-Token`/`Authorization: Bearer`) correspond bien à `ADMIN_TOKEN` dans `.env`
+- Vérifier que `ADMIN_TOKEN` est bien défini côté serveur (aucune valeur par défaut n'est acceptée)
 
 ---
 
 ## 📚 Fichiers liés
 
-- `bin/clear-cache.php` : Script principal de vidage
-- `src/Controller/CacheController.php` : Contrôleur des routes API/web
+- `bin/clear-cache.php` : Script CLI principal de vidage (SSH)
+- `src/Controller/Ffp3/CacheController.php` : Contrôleur des routes admin `/admin/clear-cache*`
+- `config/routes_ffp3.php` / `config/routes_helpers.php` : déclaration des routes admin par
+  environnement (protégées par `$applyAuth`)
 - `bin/deploy.sh` : Script de déploiement complet
 - `.git/hooks/post-merge` : Hook Git automatique
 - `docs/deployment/CACHE_MANAGEMENT.md` : Documentation détaillée du cache
 
+> ⛔ Les scripts `public/maintenance/clear-cache.php` et `public/maintenance/clear-di-cache.php`
+> (vidage HTTP non authentifié) ont été supprimés — ne pas les recréer.
+
 ---
 
 **Document créé le** : 2025-01-27  
-**Dernière mise à jour** : 2025-01-27
+**Dernière mise à jour** : 2026-07-15 (retrait des scripts HTTP non authentifiés `public/maintenance/`)

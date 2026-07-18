@@ -8,10 +8,10 @@
 <nav id="nav" aria-label="Navigation principale">
     <ul class="links">
         {% for page in nav_pages|default([]) %}
-        <li class="nav-dyn-item{{ nav_active == page.key ? ' active' : '' }}" data-nav-key="{{ page.key }}"><a href="{{ page.url }}" title="{{ page.label }}">{{ page.label }}</a></li>
+        <li class="nav-dyn-item{{ nav_active == page.key ? ' active' : '' }}" data-nav-key="{{ page.key }}"><a href="{{ page.url }}" title="{{ page.label }}"{{ nav_active == page.key ? ' aria-current="page"' : '' }}>{{ page.label }}</a></li>
         {% endfor %}
         {% if can_manage_users|default(false) %}
-        <li class="nav-perm-item {{ nav_active == 'supervision' ? 'active' }}"><a href="{{ bp }}/supervision" title="Supervision et administration"><i class="fas fa-cog" aria-hidden="true"></i> Admin</a></li>
+        <li class="nav-perm-item {{ nav_active == 'supervision' ? 'active' }}"><a href="{{ bp }}/supervision" title="Supervision et administration"{{ nav_active == 'supervision' ? ' aria-current="page"' : '' }}><i class="fas fa-cog" aria-hidden="true"></i> Admin</a></li>
         {% endif %}
         <li class="nav-theme-toggle">
             <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Basculer le mode sombre" title="Mode sombre / clair">

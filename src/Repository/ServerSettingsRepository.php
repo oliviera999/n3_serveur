@@ -22,6 +22,19 @@ class ServerSettingsRepository extends AbstractRepository
 
     private bool $schemaEnsured = false;
 
+    /**
+     * Cache mémoire request-scoped de l'intégralité de la table (clé → valeur).
+     *
+     * Renseigné en un seul `SELECT` au premier accès puis servant hasKey/getRaw/
+     * getBool sans nouvelle requête. Ces réglages sont lus plusieurs fois par
+     * requête (OperationalSettingsService résout chaque clé via hasKey + getRaw)
+     * pour un jeu de lignes minuscule et quasi statique : le cache supprime la
+     * multiplication de petits SELECT. Invalidé (mis à jour) sur chaque write.
+     *
+     * @var array<string, string>|null null = pas encore chargé
+     */
+    private ?array $cache = null;
+
     public function __construct(PDO $pdo)
     {
         parent::__construct($pdo);
@@ -46,25 +59,9 @@ class ServerSettingsRepository extends AbstractRepository
 
     public function getRaw(string $key): ?string
     {
-        $this->ensureSchema();
+        $cache = $this->loadCache();
 
-        try {
-            $row = $this->fetchOne(
-                'SELECT setting_value FROM `' . self::TABLE . '` WHERE setting_key = :key LIMIT 1',
-                [':key' => $key]
-            );
-        } catch (\PDOException $e) {
-            if ($this->isMissingTable($e)) {
-                return null;
-            }
-            throw $e;
-        }
-
-        if ($row === null) {
-            return null;
-        }
-
-        return (string) $row['setting_value'];
+        return $cache[$key] ?? null;
     }
 
     public function setString(string $key, string $value, ?string $updatedBy): void
@@ -85,6 +82,11 @@ class ServerSettingsRepository extends AbstractRepository
             ':value' => $value,
             ':user' => $updatedBy,
         ]);
+
+        // Le cache mémoire reflète immédiatement l'écriture (cohérence intra-requête).
+        if ($this->cache !== null) {
+            $this->cache[$key] = $value;
+        }
     }
 
     public function setBool(string $key, bool $value, ?string $updatedBy): void
@@ -94,27 +96,53 @@ class ServerSettingsRepository extends AbstractRepository
 
     public function hasKey(string $key): bool
     {
-        $this->ensureSchema();
-
-        try {
-            $row = $this->fetchOne(
-                'SELECT 1 FROM `' . self::TABLE . '` WHERE setting_key = :key LIMIT 1',
-                [':key' => $key]
-            );
-        } catch (\PDOException $e) {
-            if ($this->isMissingTable($e)) {
-                return false;
-            }
-            throw $e;
-        }
-
-        return $row !== null;
+        return array_key_exists($key, $this->loadCache());
     }
 
     public function deleteKey(string $key): void
     {
         $this->ensureSchema();
         $this->execute('DELETE FROM `' . self::TABLE . '` WHERE setting_key = :key', [':key' => $key]);
+
+        // Invalide l'entrée en mémoire pour rester cohérent avec la BDD.
+        if ($this->cache !== null) {
+            unset($this->cache[$key]);
+        }
+    }
+
+    /**
+     * Charge (une seule fois par instance) l'intégralité de la table dans le
+     * cache mémoire. Un unique `SELECT setting_key, setting_value` remplace la
+     * multiplication de SELECT unitaires (hasKey + getRaw par clé). En cas de
+     * table absente (SQLite/tests, prod non migrée), le cache reste vide.
+     *
+     * @return array<string, string>
+     */
+    private function loadCache(): array
+    {
+        if ($this->cache !== null) {
+            return $this->cache;
+        }
+
+        $this->ensureSchema();
+
+        try {
+            $rows = $this->fetchAll(
+                'SELECT setting_key, setting_value FROM `' . self::TABLE . '`'
+            );
+        } catch (\PDOException $e) {
+            if ($this->isMissingTable($e)) {
+                return $this->cache = [];
+            }
+            throw $e;
+        }
+
+        $cache = [];
+        foreach ($rows as $row) {
+            $cache[(string) $row['setting_key']] = (string) $row['setting_value'];
+        }
+
+        return $this->cache = $cache;
     }
 
     private function isMissingTable(\PDOException $e): bool

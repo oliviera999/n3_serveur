@@ -20,12 +20,9 @@ use Slim\Psr7\Factory\ResponseFactory;
  *  - cas nominal : en-têtes Content-Type/Content-Disposition/Content-Length, corps CSV,
  *    nettoyage du fichier temporaire ;
  *  - cas vide avec message : réponse 204 text/plain et message dans le corps ;
+ *  - cas vide SANS message (bug B1 corrigé) : CSV vide valide (200, en-têtes seuls) au lieu
+ *    d'une RuntimeException / HTTP 500 ;
  *  - délégation des dates et du chemin temporaire au repository.
- *
- * NON couvert (signalé) : la branche « 0 ligne SANS emptyMessage ». Dans ce cas le service
- * supprime lui-même le fichier temporaire puis tente quand même de le relire, ce qui lève
- * une RuntimeException ; l'usage sûr/documenté est de toujours fournir un emptyMessage
- * lorsqu'un export peut être vide, c'est donc ce contrat qui est verrouillé ici.
  */
 final class CsvExportServiceTest extends TestCase
 {
@@ -162,6 +159,61 @@ final class CsvExportServiceTest extends TestCase
 
         $response->getBody()->rewind();
         self::assertSame('Aucune donnée disponible', $response->getBody()->getContents());
+    }
+
+    public function testExportEmptyWithoutMessageReturnsValidEmptyCsv(): void
+    {
+        // Bug B1 : 0 ligne + emptyMessage null ne doit plus lever de RuntimeException (HTTP 500).
+        // Le repository écrit tout de même la ligne d'en-tête (colonnes) : on renvoie un CSV
+        // vide mais valide (200) avec Content-Type/Content-Disposition.
+        $header = "id,TempAir,reading_time\n";
+        $repo = $this->makeRepository($header, 0);
+
+        $response = $this->service->export(
+            $repo,
+            '2026-01-01 00:00:00',
+            '2026-01-02 00:00:00',
+            $this->responseFactory->createResponse(),
+            'aquaponie'
+        );
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertSame('text/csv; charset=utf-8', $response->getHeaderLine('Content-Type'));
+        self::assertStringStartsWith('attachment; filename="aquaponie_', $response->getHeaderLine('Content-Disposition'));
+
+        $response->getBody()->rewind();
+        self::assertSame($header, $response->getBody()->getContents());
+        self::assertFileDoesNotExist($repo->lastPath);
+    }
+
+    public function testExportEmptyWithoutMessageAndNoFileReturnsEmptyBody(): void
+    {
+        // Repository qui ne crée aucun fichier et retourne 0 : garde-fou anti-500 -> corps vide.
+        $repo = new class () {
+            public string $lastPath = '';
+
+            public function exportCsv(string $start, string $end, string $path): int
+            {
+                $this->lastPath = $path;
+
+                return 0;
+            }
+        };
+
+        $response = $this->service->export(
+            $repo,
+            '2026-01-01 00:00:00',
+            '2026-01-02 00:00:00',
+            $this->responseFactory->createResponse(),
+            'aquaponie'
+        );
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertSame('text/csv; charset=utf-8', $response->getHeaderLine('Content-Type'));
+        self::assertSame('0', $response->getHeaderLine('Content-Length'));
+
+        $response->getBody()->rewind();
+        self::assertSame('', $response->getBody()->getContents());
     }
 
     public function testExportEmptyWithMessageCleansTemporaryFile(): void

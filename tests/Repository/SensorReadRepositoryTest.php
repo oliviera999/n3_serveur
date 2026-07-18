@@ -138,15 +138,22 @@ class SensorReadRepositoryTest extends TestCase
         @unlink($tmp);
     }
 
-    public function testExportCsvReturnsZeroWhenNoRows(): void
+    public function testExportCsvWritesHeaderOnlyWhenNoRows(): void
     {
+        // Bug B1 : sur une plage vide, exportCsv retourne toujours 0 MAIS écrit désormais un
+        // fichier contenant la seule ligne d'en-tête (colonnes), afin que CsvExportService
+        // puisse renvoyer un CSV vide valide au lieu de planter (HTTP 500).
         $repo = $this->makeFullRepo();
         $tmp = sys_get_temp_dir() . '/csvtest_empty_' . uniqid() . '.csv';
 
         $count = $repo->exportCsv('2030-01-01 00:00:00', '2030-01-02 00:00:00', $tmp);
 
         $this->assertSame(0, $count);
-        // Aucun fichier ne doit avoir été écrit pour une plage vide.
-        $this->assertFileDoesNotExist($tmp);
+        $this->assertFileExists($tmp);
+        $lines = file($tmp, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        // Une seule ligne : l'en-tête, aucune ligne de données.
+        $this->assertCount(1, $lines);
+        $this->assertStringContainsString('reading_time', $lines[0]);
+        @unlink($tmp);
     }
 }

@@ -60,41 +60,45 @@ class N3ppDerivedAlertService extends AbstractVitalsDerivedAlertService
             return;
         }
 
-        $alreadyDry = (bool) ($state['soilDry'] ?? false);
-        $decision = LowValueAlertEvaluator::evaluate($humidMoy, $seuilSec, $alreadyDry);
-
-        if ($decision === LowValueDecision::Raise) {
-            $message = sprintf(
-                "Le sol est sec : humidité moyenne %.0f (seuil %.0f).\n"
-                . "L'arrosage automatique du firmware peut se déclencher (cooldown 5 min).",
-                $humidMoy,
-                $seuilSec
-            );
-            $this->notifier->sendAlert(
-                Severity::Alert,
-                NotificationCategory::Environment,
-                $this->family(),
-                'Sol sec',
-                $message,
-                'n3pp:soil-dry'
-            );
-            $state['soilDry'] = true;
-        } elseif ($decision === LowValueDecision::Clear) {
-            $message = sprintf(
-                "L'humidité du sol est remontée : moyenne %.0f (seuil %.0f + hystérésis).",
-                $humidMoy,
-                $seuilSec
-            );
-            $this->notifier->sendAlert(
-                Severity::Info,
-                NotificationCategory::Environment,
-                $this->family(),
-                'Humidité du sol redevenue normale',
-                $message,
-                'n3pp:soil-ok'
-            );
-            $state['soilDry'] = false;
-        }
+        $this->evaluateLatchedLowValue(
+            $state,
+            'soilDry',
+            $humidMoy,
+            $seuilSec,
+            null,
+            self::DIRECTION_LOW,
+            function () use ($humidMoy, $seuilSec): void {
+                $message = sprintf(
+                    "Le sol est sec : humidité moyenne %.0f (seuil %.0f).\n"
+                    . "L'arrosage automatique du firmware peut se déclencher (cooldown 5 min).",
+                    $humidMoy,
+                    $seuilSec
+                );
+                $this->notifier->sendAlert(
+                    Severity::Alert,
+                    NotificationCategory::Environment,
+                    $this->family(),
+                    'Sol sec',
+                    $message,
+                    'n3pp:soil-dry'
+                );
+            },
+            function () use ($humidMoy, $seuilSec): void {
+                $message = sprintf(
+                    "L'humidité du sol est remontée : moyenne %.0f (seuil %.0f + hystérésis).",
+                    $humidMoy,
+                    $seuilSec
+                );
+                $this->notifier->sendAlert(
+                    Severity::Info,
+                    NotificationCategory::Environment,
+                    $this->family(),
+                    'Humidité du sol redevenue normale',
+                    $message,
+                    'n3pp:soil-ok'
+                );
+            },
+        );
     }
 
     /** Nombre de lignes consécutives avec pompe ON avant l'alerte « arrosage continu ». */
@@ -121,6 +125,10 @@ class N3ppDerivedAlertService extends AbstractVitalsDerivedAlertService
         $streak = (int) ($state['pump']['onStreak'] ?? 0);
         $stuckAlerted = (bool) ($state['pump']['stuckAlerted'] ?? false);
 
+        // NB : volontairement PAS délégué à detectTransition — ici `lastState`
+        // avance INCONDITIONNELLEMENT (avant tout envoi) car il pilote aussi le
+        // comptage de streak « pompe bloquée » qui doit progresser à chaque ligne ;
+        // la sémantique « latch sur envoi » du helper changerait ce comportement.
         $streak = $running ? $streak + 1 : 0;
         $state['pump']['lastState'] = $running;
         $state['pump']['onStreak'] = $streak;

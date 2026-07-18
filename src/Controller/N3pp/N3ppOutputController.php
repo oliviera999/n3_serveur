@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Controller\N3pp;
 
 use App\Config\N3ppGpioMap;
-use App\Config\TableConfig;
 use App\Config\Version;
 use App\Controller\AbstractOutputController;
 use App\Notification\NotificationFamily;
+use App\Repository\AbstractOutputRepository;
 use App\Repository\N3ppOutputRepository;
 use App\Repository\N3ppSensorRepository;
 use App\Repository\NotificationPolicyRepository;
@@ -53,10 +53,10 @@ class N3ppOutputController extends AbstractOutputController
 
     protected function buildControlPageData(int $board): array
     {
-        $env = TableConfig::getEnvironment();
-        $isTest = $env === 'n3pp_test';
-        $outputsApiBase = $isTest ? '/n3pp-test/api/outputs' : '/n3pp/api/outputs';
-        $realtimeApiBase = $isTest ? '/n3pp-test/api/realtime' : '/n3pp/api/realtime';
+        $envInfo = $this->resolveControlEnv('n3pp_test', 'n3pp');
+        $env = $envInfo['env'];
+        $outputsApiBase = $envInfo['outputs_api_base'];
+        $realtimeApiBase = $envInfo['realtime_api_base'];
 
         try {
             $allOutputs = $this->outputRepo->getAllForBoard($board);
@@ -102,19 +102,6 @@ class N3ppOutputController extends AbstractOutputController
         ], $this->notificationPolicyTwigData($this->notificationPolicyRepo));
     }
 
-    /**
-     * @param array<int, array<string, mixed>> $outputs
-     *
-     * @return array<int, array<string, mixed>>
-     */
-    private function filterActuatorOutputs(array $outputs): array
-    {
-        return array_values(array_filter(
-            $outputs,
-            static fn (array $output): bool => (int) ($output['gpio'] ?? 0) < 100
-        ));
-    }
-
     protected function notificationFamily(): NotificationFamily
     {
         return NotificationFamily::N3pp;
@@ -135,29 +122,14 @@ class N3ppOutputController extends AbstractOutputController
         return $this->notificationPolicyRepo;
     }
 
-    public function saveNotificationPolicy(Request $request, Response $response): Response
-    {
-        return $this->updateNotificationPolicy($request, $response);
-    }
-
     protected function getDefaultParamKeys(): array
     {
         return ['mail', 'mailNotif', 'notifMode', 'notifCategories', 'SeuilSec', 'SeuilPontDiv', 'HeureArrosage', 'tempsArrosage', 'WakeUp', 'FreqWakeUp', 'veilleInfinie'];
     }
 
-    /** @return array<string, string> */
-    protected function getDefaultParams(): array
+    protected function outputRepository(): AbstractOutputRepository
     {
-        $params = parent::getDefaultParams();
-        // Veille infinie sous seuil batterie : active par defaut (comportement
-        // historique du firmware). GPIO virtuel 112.
-        $params['veilleInfinie'] = '1';
-        return $params;
-    }
-
-    protected function getStateData(int $board): array
-    {
-        return $this->outputRepo->getStateForFirmware($board);
+        return $this->outputRepo;
     }
 
     protected function doToggle(array $params, int $board): array
@@ -199,10 +171,6 @@ class N3ppOutputController extends AbstractOutputController
         $state = $this->normalizeOutputState(trim((string) ($params['state'] ?? '0')));
         $this->outputRepo->updateByGpio($gpio, $state, $board);
         return ['success' => true, 'gpio' => $gpio, 'state' => $state];
-    }
-    protected function updateParameterByName(int $board, string $paramName, string $value): bool
-    {
-        return $this->outputRepo->updateParameterByName($board, $paramName, $value);
     }
 
     private function handleOutputUpdate(Request $request, Response $response): Response
@@ -254,11 +222,6 @@ class N3ppOutputController extends AbstractOutputController
             $this->logger->error('N3ppOutputController: erreur deleteById', ['error' => $e->getMessage()]);
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
         }
-    }
-
-    protected function batchUpdateParameters(int $board, array $params): void
-    {
-        $this->outputRepo->batchUpdateParameters($board, $params);
     }
 
     protected function allowedGpios(): array

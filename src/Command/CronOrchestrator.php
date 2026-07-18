@@ -49,6 +49,15 @@ class CronOrchestrator
     /** Forfait hors-ligne (s) de repli quand aucun résolveur dérivé n'est disponible. */
     private const DEFAULT_OFFLINE_FALLBACK_SECONDS = 3600;
 
+    /**
+     * Fenêtre glissante (s) du nettoyage de données (SensorDataService).
+     * Le CRON tourne chaque minute : ne balayer que les lignes des ~15 dernières
+     * minutes suffit largement (marge pour un run manqué/lent) et permet à l'UPDATE
+     * de s'appuyer sur l'index reading_time au lieu d'un full-scan à chaque tick.
+     * Les lignes plus anciennes ont déjà été nettoyées aux passages précédents.
+     */
+    private const CLEANING_WINDOW_SECONDS = 900;
+
     private const LOCK_FILENAME = 'cron_orchestrator.lock';
     private const HOURLY_STATE_FILENAME = 'cron_last_hourly.timestamp';
     private const PUMP_RESTART_FLAG_FILENAME = 'pump_restart_scheduled.flag';
@@ -280,7 +289,10 @@ class CronOrchestrator
         $this->logger->addEvent('Démarrage tâches fréquentes CRON');
         $this->logPumpStates();
 
-        $stats = $this->sensorDataService->cleanAllSensorData();
+        // Fenêtre glissante : le nettoyage ne balaie que les lignes récentes
+        // (index reading_time) au lieu de toute la table à chaque minute.
+        $cleaningSince = date('Y-m-d H:i:s', time() - self::CLEANING_WINDOW_SECONDS);
+        $stats = $this->sensorDataService->cleanAllSensorData($cleaningSince);
         foreach ($stats as $type => $count) {
             $this->logger->addName("$type: ");
             $this->logger->addTask("$count valeurs supprimées");
