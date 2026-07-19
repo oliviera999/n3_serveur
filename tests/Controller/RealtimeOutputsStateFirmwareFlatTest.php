@@ -25,7 +25,7 @@ class RealtimeOutputsStateFirmwareFlatTest extends TestCase
 
     private function controller(AbstractSensorRealtimeDataProvider $provider): AbstractRealtimeApiController
     {
-        return new class($provider) extends AbstractRealtimeApiController {};
+        return new class ($provider) extends AbstractRealtimeApiController {};
     }
 
     private function makeProvider(): AbstractSensorRealtimeDataProvider
