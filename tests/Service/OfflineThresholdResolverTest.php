@@ -35,19 +35,36 @@ final class OfflineThresholdResolverTest extends TestCase
         self::assertSame(1260, $resolver->resolveForFamily('FFP3', 12));
     }
 
-    public function testFfp3NightAppliesMultiplier(): void
+    public function testFfp3NightAppliesMultiplierAndExtraToleranceCycle(): void
     {
-        // Nuit (22h ∈ [19,6[) : 600 × 3 = 1800 -> 1800 × 2 + 60 = 3660
+        // Nuit (22h ∈ [19,6[) : veille 600 × 3 = 1800, tolérance nuit = 2 + 1 = 3
+        // -> 1800 × 3 + 60 = 5460
         $resolver = $this->resolver([116 => '600', 126 => '3', 127 => '19', 128 => '6']);
-        self::assertSame(3660, $resolver->resolveForFamily('FFP3', 22));
-        self::assertSame(3660, $resolver->resolveForFamily('FFP3', 5)); // avant 6h = encore nuit
+        self::assertSame(5460, $resolver->resolveForFamily('FFP3', 22));
+        self::assertSame(5460, $resolver->resolveForFamily('FFP3', 5)); // avant 6h = encore nuit
     }
 
-    public function testFfp3NightWindowEndHourIsExclusive(): void
+    public function testFfp3MorningGraceKeepsNightThresholdAfterWindowEnds(): void
     {
-        // 6h n'est pas nuit (fin exclusive) -> jour -> 1260
+        // 6h est hors fenêtre stricte [19,6[, mais le dernier cycle nuit (600 × 3 = 1800 s
+        // ≈ 1 h de grâce) déborde -> régime nuit maintenu -> 5460 (et non le seuil jour 1260).
         $resolver = $this->resolver([116 => '600', 126 => '3', 127 => '19', 128 => '6']);
-        self::assertSame(1260, $resolver->resolveForFamily('FFP3', 6));
+        self::assertSame(5460, $resolver->resolveForFamily('FFP3', 6));
+        // Une fois la grâce écoulée (7h, grâce = 1 h), retour au régime jour -> 1260.
+        self::assertSame(1260, $resolver->resolveForFamily('FFP3', 7));
+    }
+
+    public function testFfp3RealScenarioFreqWakeUp1800(): void
+    {
+        // Cas signalé : veille 1800 s. Jour -> 1800 × 2 + 60 = 3660 (61 min).
+        // Nuit : 1800 × 3 = 5400 s (90 min), grâce = ceil(5400/3600) = 2 h,
+        // tolérance nuit = 3 -> 5400 × 3 + 60 = 16260 s (4 h 31).
+        $resolver = $this->resolver([116 => '1800', 126 => '3', 127 => '19', 128 => '6']);
+        self::assertSame(3660, $resolver->resolveForFamily('FFP3', 12));   // jour
+        self::assertSame(16260, $resolver->resolveForFamily('FFP3', 3));   // 3h50 -> nuit
+        self::assertSame(16260, $resolver->resolveForFamily('FFP3', 22));  // 22h40 -> nuit
+        self::assertSame(16260, $resolver->resolveForFamily('FFP3', 6));   // 6h50 -> grâce matinale
+        self::assertSame(3660, $resolver->resolveForFamily('FFP3', 8));    // grâce écoulée -> jour
     }
 
     public function testSensorFamiliesIgnoreNightAndReadGpio107(): void
@@ -74,9 +91,9 @@ final class OfflineThresholdResolverTest extends TestCase
 
     public function testInvalidNightMultiplierFallsBackToDefault(): void
     {
-        // Multiplicateur invalide (0) -> défaut 3 -> nuit -> 3660
+        // Multiplicateur invalide (0) -> défaut 3 -> nuit (tolérance 3) -> 5460
         $resolver = $this->resolver([116 => '600', 126 => '0', 127 => '19', 128 => '6']);
-        self::assertSame(3660, $resolver->resolveForFamily('FFP3', 22));
+        self::assertSame(5460, $resolver->resolveForFamily('FFP3', 22));
     }
 
     public function testUnknownFamilyUsesSafeFallback(): void

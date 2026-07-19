@@ -11,6 +11,26 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.25.1] - 2026-07-19
+
+### Corrections — faux positifs « hors ligne » la nuit (FFP3 / ffp5cs)
+
+Suppression des fausses alertes de mise hors ligne reçues la nuit et au petit matin, dues à
+deux défauts du calcul de seuil dérivé (`src/Service/OfflineThresholdResolver.php`).
+
+- **Grâce matinale** : à la fin de la fenêtre de nuit (`end`, ex. 6h), le dernier sommeil nuit
+  (veille × multiplicateur) débordait encore, mais le serveur repassait immédiatement au seuil
+  jour (court) — d'où une fausse alerte « hors ligne » le temps que l'ESP32 finisse ce cycle
+  (mail typique vers 6h50). Le régime « nuit » (seuil long) est désormais prolongé d'une durée
+  d'un cycle nuit après `end`.
+- **Tolérance nuit élargie** : la cadence nuit est longue (veille × multiplicateur) et le WiFi
+  plus capricieux ; `TOLERANCE_CYCLES = 2` ne laissait quasi aucune marge (un seul report
+  manqué suffisait à alerter). On tolère désormais un cycle manqué de plus la nuit
+  (`NIGHT_EXTRA_CYCLES = 1`), sans ralentir la détection en journée.
+
+Exemple `FreqWakeUp = 1800 s` : seuil nuit 3660 s → 16260 s (4 h 31) ; le créneau 6h reste en
+régime nuit tant que la grâce court. Aucun changement pour N3PP / MSP1 (pas de facteur nuit).
+
 ## [6.25.0] - 2026-07-19
 
 ### Config distante firmware (audit C1/C2) — n3pp/msp : la config s'applique à nouveau
@@ -36,7 +56,6 @@ Phase 1 **non bloquante** de l'audit bout-en-bout du contrat firmware↔serveur 
 
 #### Documentation
 - Rapport d'audit complet + **séquence de déploiement sûre** de l'enforcement de signature OTA (`docs/AUDIT_CONTRAT_FIRMWARE_SERVEUR_2026-07.md`) : points OTA (signature P‑521, TLS), HMAC anti-rejeu (legacy epoch-only), config distante (C1/C2 nested vs plat), contrat de champs, versions.
-
 ## [6.23.0] - 2026-07-15
 
 ### Audit général — sécurité, bugs, performance, code mort, UI/UX
