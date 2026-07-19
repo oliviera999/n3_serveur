@@ -11,6 +11,32 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.25.0] - 2026-07-19
+
+### Config distante firmware (audit C1/C2) — n3pp/msp : la config s'applique à nouveau
+
+⚠️ **Changement de comportement de la flotte** (serveur seul, sans re-flash) : les firmwares n3pp/msp interrogent `/api/outputs/state` (format nested) mais **lisent des clés plates** `myObject["110"]`… → la config serveur (email, notif, `SeuilSec`, `FreqWakeUp`, servo, `VeilleInfinie`, `resetMode`…) **n'était jamais appliquée** (C1), et les commandes one-shot (reset 110, bouffe 108/109) étaient **acquittées côté serveur sans jamais être vues** par le device (C2).
+
+- **Fix** : `AbstractRealtimeApiController::getOutputsState` fusionne désormais l'état **plat** `{gpio: state}` à la racine de la réponse **uniquement pour une requête firmware authentifiée** (`X-Api-Key`). Le polling UI (sans clé) garde la réponse nested inchangée et ne déclenche pas d'ack. Aucun appel supplémentaire : `acknowledgeFirmwareOneShots()` calculait déjà cet état plat (pour l'ack) et le jetait — il le retourne maintenant.
+- Fichiers : `src/Controller/AbstractRealtimeApiController.php`, `src/Service/Realtime/AbstractSensorRealtimeDataProvider.php`. Tests : `tests/Controller/RealtimeOutputsStateFirmwareFlatTest.php`.
+
+> 📌 **Impact au déploiement** : à la première requête après mise en prod, les devices n3pp/msp adopteront la config **actuellement stockée** en base (vérifier les valeurs, notamment `resetMode`, avant déploiement). Les 906 tests unitaires passent.
+
+## [6.24.0] - 2026-07-19
+
+### OTA — rollback serveur + durcissement (audit contrat firmware↔serveur, phase 1)
+
+Phase 1 **non bloquante** de l'audit bout-en-bout du contrat firmware↔serveur (voir `docs/AUDIT_CONTRAT_FIRMWARE_SERVEUR_2026-07.md`). Aucune activation d'enforcement de signature ni de retrait du chemin legacy (flotte non re-flashable).
+
+#### Ajouts
+- **Système de rollback OTA serveur** (`src/Service/OtaRollbackService.php`, CLI `bin/ota-rollback.php`) : capture (snapshot), liste et **restauration atomique** d'une version OTA servie, avec auto-sauvegarde de l'état courant avant écrasement. Prérequis de récupération avant tout futur enforcement de signature. Doc : `docs/OTA_ROLLBACK.md`. Cibles : n3pp, n3pp-test, msp, msp-test, cam (ffp5cs : rollback Git documenté).
+
+#### Sécurité
+- **OTA handler — défense en profondeur (L4)** : au-delà du blocage `..`, vérification `realpath()` que le fichier résolu reste sous la base `ota/` (neutralise un lien symbolique pointant hors base). `src/Controller/Ffp3/OtaFileController.php`.
+
+#### Documentation
+- Rapport d'audit complet + **séquence de déploiement sûre** de l'enforcement de signature OTA (`docs/AUDIT_CONTRAT_FIRMWARE_SERVEUR_2026-07.md`) : points OTA (signature P‑521, TLS), HMAC anti-rejeu (legacy epoch-only), config distante (C1/C2 nested vs plat), contrat de champs, versions.
+
 ## [6.23.0] - 2026-07-15
 
 ### Audit général — sécurité, bugs, performance, code mort, UI/UX

@@ -67,14 +67,25 @@ abstract class AbstractRealtimeApiController
     {
         try {
             $data = $this->provider->getOutputsState();
-            // Filet de sécurité : si un firmware appelle encore /api/outputs/state
-            // (format nested) avec X-Api-Key, acquitter les one-shots comme getState.
-            // Le polling UI n'envoie pas la clé → pas d'ack prématuré.
-            $this->maybeAcknowledgeFirmwareOneShots($request);
-            return ResponseHelper::json($response, [
+            // Audit C1/C2 : si un firmware appelle /api/outputs/state (format nested)
+            // avec X-Api-Key, acquitter les one-shots ET récupérer l'état PLAT
+            // {gpio: state}. Le polling UI n'envoie pas la clé → null, réponse nested
+            // inchangée (pas d'ack prématuré, pas de clés plates).
+            $firmwareFlat = $this->maybeAcknowledgeFirmwareOneShots($request);
+            $payload = [
                 'timestamp' => time(),
                 'outputs' => $data,
-            ]);
+            ];
+            if ($firmwareFlat !== null) {
+                // Clés plates au niveau racine, pour les firmwares n3pp/msp qui lisent
+                // myObject["110"], ["106"]… sans écraser 'timestamp'/'outputs'.
+                foreach ($firmwareFlat as $gpio => $state) {
+                    if ($gpio !== 'timestamp' && $gpio !== 'outputs') {
+                        $payload[$gpio] = $state;
+                    }
+                }
+            }
+            return ResponseHelper::json($response, $payload);
         } catch (\Throwable $e) {
             error_log('[realtime] ' . $e->getMessage());
             return ResponseHelper::json($response, ['error' => 'Erreur serveur'], 500);
@@ -82,17 +93,21 @@ abstract class AbstractRealtimeApiController
     }
 
     /**
-     * Ack one-shot uniquement pour un client firmware authentifié par API key.
+     * Ack one-shot + état plat firmware, uniquement pour un client firmware
+     * authentifié par API key. Retourne l'état plat {gpio: state} à fusionner dans
+     * la réponse, ou null si la requête n'est pas un firmware authentifié (polling UI).
+     *
+     * @return array<string, string>|null
      */
-    private function maybeAcknowledgeFirmwareOneShots(Request $request): void
+    private function maybeAcknowledgeFirmwareOneShots(Request $request): ?array
     {
         if (!$this->provider instanceof AbstractSensorRealtimeDataProvider) {
-            return;
+            return null;
         }
 
         $expected = $_ENV['API_KEY'] ?? '';
         if (!is_string($expected) || $expected === '') {
-            return;
+            return null;
         }
 
         $provided = $request->getHeaderLine('X-Api-Key');
@@ -102,10 +117,10 @@ abstract class AbstractRealtimeApiController
         }
 
         if ($provided === '' || !hash_equals($expected, $provided)) {
-            return;
+            return null;
         }
 
-        $this->provider->acknowledgeFirmwareOneShots();
+        return $this->provider->acknowledgeFirmwareOneShots();
     }
 
     public function getActiveAlerts(Request $request, Response $response): Response
