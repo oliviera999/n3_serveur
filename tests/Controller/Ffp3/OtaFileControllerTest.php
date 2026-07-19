@@ -156,6 +156,27 @@ class OtaFileControllerTest extends TestCase
         $this->assertSame(400, $r->getStatusCode());
     }
 
+    /**
+     * Défense en profondeur (L4) : un lien symbolique dans `ota/` pointant hors
+     * base est refusé par la vérification realpath (404), même sans `..` dans l'URL.
+     */
+    public function testSymlinkEscapeReturns404(): void
+    {
+        $outside = sys_get_temp_dir() . '/ota_outside_' . bin2hex(random_bytes(6));
+        file_put_contents($outside, 'SECRET');
+        $link = $this->otaDir . '/test/escape.bin';
+        if (!@symlink($outside, $link)) {
+            @unlink($outside);
+            $this->markTestSkipped('symlink() indisponible sur cet environnement.');
+        }
+
+        $r = $this->get('test/escape.bin');
+
+        @unlink($link);
+        @unlink($outside);
+        $this->assertSame(404, $r->getStatusCode());
+    }
+
     public function testNonExistentFileReturns404(): void
     {
         $r = $this->get('test/missing.bin', ['Range' => 'bytes=0-10']);

@@ -57,6 +57,16 @@ final class OtaFileController
             return $response->withStatus(404);
         }
 
+        // Défense en profondeur (audit 2026-07, L4) : au-delà du blocage `..`
+        // ci-dessus, vérifier que le chemin résolu reste SOUS la base OTA. Neutralise
+        // un lien symbolique éventuel dans `ota/` qui pointerait hors base.
+        $realFile = realpath($file);
+        $realBase = realpath(rtrim($this->otaDir, DIRECTORY_SEPARATOR));
+        if ($realFile === false || $realBase === false
+            || !str_starts_with($realFile, $realBase . DIRECTORY_SEPARATOR)) {
+            return $response->withStatus(404);
+        }
+
         $fileSize = filesize($file);
         if ($fileSize === false) {
             return $response->withStatus(500);
