@@ -19,8 +19,8 @@ Audit croisé, preuves `fichier:ligne` des deux côtés. Fait suite à
 |----|----------|-------|-----------------------------|--------|
 | **O1** | CRITICAL | OTA signature | ffp5cs `ota/metadata.json` = **md5 seul** ; **pgl sans cible OTA**. Aucune authenticité crypto. | ⏳ documenté (train C) |
 | **H1** | HIGH | POST HMAC | Serveur accepte la paire legacy `timestamp=&signature=` (signe l'epoch seul) → **forge de corps** ≤ 300 s. | ⏳ différé (firmware d'abord) |
-| **C1** | HIGH | Config GET | n3pp/msp lisent des **clés plates** ; l'endpoint appelé renvoie du **nested** → config **jamais appliquée**. | ⏳ différé (fix additif serveur, cf. §Config) |
-| **C2** | HIGH | Config GET | One-shots (reset 110, bouffe 108/109) **acquittés/effacés** alors que jamais appliqués. | ⏳ résolu par C1 |
+| **C1** | HIGH | Config GET | n3pp/msp lisent des **clés plates** ; l'endpoint appelé renvoie du **nested** → config **jamais appliquée**. | ✅ **corrigé** (fusion clés plates, requête firmware auth.) |
+| **C2** | HIGH | Config GET | One-shots (reset 110, bouffe 108/109) **acquittés/effacés** alors que jamais appliqués. | ✅ **corrigé** (résolu par C1) |
 | **O2** | HIGH | OTA signature | `N3_OTA_REQUIRE_SIGNATURE` **défini nulle part** → même les cibles signées restent fail-open. | ⏳ train A (banc requis) |
 | **O3** | HIGH | OTA TLS | `DEFAULT_BASE` sert les cibles **signées en `http://`** (`publish_ota.py:57`). | ✅ **corrigé** (tooling → https) |
 | **C3** | MED/HIGH | Config GET | Réponse config **non signée** + TLS non validé → MITM réécrit la config. | ⏳ différé (firmware doit vérifier) |
@@ -70,7 +70,8 @@ Audit croisé, preuves `fichier:ligne` des deux côtés. Fait suite à
 2. **Durcissement OTA handler (L4)** : contrôle `realpath()` sous base (anti-symlink).
 3. **O3 (tooling firmware)** : `publish_ota.py` sert désormais les cibles n3ota en **https** + **archive-on-publish** (alimente l'historique de rollback).
 4. **D1 (commentaires firmware)** : correction « P‑256 » → **P‑521** (aucun changement de clé ni de logique).
-5. **Docs de plan** : ce document + `n3_firmwires/docs/OTA_SIGNATURE_ENFORCEMENT_PLAN.md`.
+5. **Config distante C1/C2** (validé par l'utilisateur) : `getOutputsState` fusionne l'état plat `{gpio: state}` pour les requêtes firmware authentifiées → la config n3pp/msp s'applique à nouveau et les one-shots sont vus avant ack. Serveur seul, sans re-flash. ⚠️ Change le comportement de la flotte (voir CHANGELOG 6.25.0).
+6. **Docs de plan** : ce document + `n3_firmwires/docs/OTA_SIGNATURE_ENFORCEMENT_PLAN.md`.
 
 ---
 
@@ -91,6 +92,6 @@ que la **pile partagée** (n3pp/msp/cam/pgl) ; **ffp5cs a sa propre pile** (trai
 
 **Transverse (non bloquant, parallèle) :**
 - HMAC : migrer n3pp/msp/pgl/upload en X‑Sig-only (retirer `n3_data.cpp:95-108`), confirmer via `HmacAuditLogger` l'absence de legacy, puis flag serveur « corps-signé requis » + suppression `createSignature`/`isValid`.
-- **C1/C2** : correctif possible **sans re-flash** = ajouter les clés plates à la réponse `getOutputsState` (additif) **ou** router le firmware vers `/api/firmware/outputs/state`. ⚠️ **Changement de comportement flotte** (les devices se mettent soudain à appliquer la config stockée : email, resetMode, FreqWakeUp…) → à valider explicitement avant activation.
+- **C1/C2** : ✅ **fait** (fusion additive des clés plates dans `getOutputsState` pour les requêtes firmware authentifiées, sans re-flash). ⚠️ **Changement de comportement flotte** : au déploiement, les devices adoptent la config stockée (vérifier `resetMode`, `FreqWakeUp`… avant mise en prod).
 - C3 : signer la réponse config (en-tête `X-Sig-*` vérifié firmware) + livrer le bundle CA (pinning).
 - O4 : republier toutes les cibles aux versions courantes (flotte dégelée).

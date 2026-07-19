@@ -37,10 +37,19 @@ abstract class AbstractSensorRealtimeDataProvider implements RealtimeDataProvide
      * Acquittement one-shot (13/108/109/110) + last_request — même logique que
      * getStateForFirmware(). À appeler seulement pour un client firmware authentifié
      * (X-Api-Key), pas pour le polling UI.
+     *
+     * Retourne l'état PLAT {gpio: state} destiné au firmware. Audit C1/C2 : les
+     * firmwares n3pp/msp interrogent `/api/outputs/state` (format nested) mais lisent
+     * des clés PLATES `myObject["110"]`… → la config n'était jamais appliquée et les
+     * one-shots étaient acquittés sans jamais être vus. On ne jette plus ce résultat
+     * (déjà calculé ici pour l'ack) : le contrôleur le fusionne à la racine de la
+     * réponse pour les requêtes firmware.
+     *
+     * @return array<string, string> Clés = numéros GPIO (string), valeurs = état
      */
-    public function acknowledgeFirmwareOneShots(): void
+    public function acknowledgeFirmwareOneShots(): array
     {
-        $this->outputRepo->getStateForFirmware($this->board);
+        return $this->outputRepo->getStateForFirmware($this->board);
     }
 
     public function getLatestReadings(): array
