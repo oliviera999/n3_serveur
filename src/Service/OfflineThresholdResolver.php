@@ -23,12 +23,21 @@ use App\Repository\OutputMonitorRepository;
  *    constantes firmware `NIGHT_SLEEP_MULTIPLIER` / fenêtre 19h–6h.
  *  - N3PP / MSP1 : `FreqWakeUp` (GPIO 107), sans variation nocturne.
  *
- * Formule : seuil = veille_effective × TOLERANCE_CYCLES + MARGE, borné [MIN, MAX].
+ * Formule : seuil = veille_effective × cycles_tolérés + MARGE, borné [MIN, MAX].
+ *
+ * Deux garde-fous contre les FAUX positifs nocturnes (FFP3) :
+ *  1. GRÂCE MATINALE : à la fin de la fenêtre nuit (`end`, ex. 6h), le dernier sommeil nuit
+ *     déborde encore. On prolonge donc le régime « nuit » (seuil long) pendant la durée d'un
+ *     cycle nuit après `end`, sinon l'appareil paraît hors ligne le temps de finir ce cycle.
+ *  2. TOLÉRANCE NUIT ÉLARGIE : la cadence nuit est longue et le WiFi capricieux ; on tolère
+ *     un cycle manqué de plus (`NIGHT_EXTRA_CYCLES`) qu'en journée avant d'alerter.
  */
 class OfflineThresholdResolver
 {
     /** Nombre de cycles de veille manqués tolérés avant de déclarer un module hors ligne. */
     private const TOLERANCE_CYCLES = 2;
+    /** Cycle(s) de tolérance supplémentaire(s) la nuit (cadence longue, WiFi capricieux). */
+    private const NIGHT_EXTRA_CYCLES = 1;
     /** Marge fixe ajoutée (latence réseau / jitter d'ordonnancement CRON), en secondes. */
     private const MARGIN_SECONDS = 60;
     private const MIN_SECONDS = 60;
@@ -102,22 +111,30 @@ class OfflineThresholdResolver
     private function resolve(string $table, int $freqGpio, bool $nightAware, ?int $nowHour): int
     {
         $sleep = $this->readPositiveInt($table, $freqGpio, self::DEFAULT_FREQ_WAKEUP_SECONDS);
+        $cycles = self::TOLERANCE_CYCLES;
 
         if ($nightAware) {
+            $multiplier = max(1, $this->readPositiveInt($table, self::NIGHT_MULTIPLIER_GPIO, self::DEFAULT_NIGHT_MULTIPLIER));
             $hour = $nowHour ?? (int) date('G');
-            if ($this->isNight($hour, $table)) {
-                $multiplier = $this->readPositiveInt($table, self::NIGHT_MULTIPLIER_GPIO, self::DEFAULT_NIGHT_MULTIPLIER);
-                $sleep *= max(1, $multiplier);
+            // Grâce matinale = durée d'un cycle nuit (arrondie à l'heure supérieure), afin de
+            // couvrir le dernier sommeil nuit qui déborde après la fin de la fenêtre.
+            $graceHours = (int) ceil(($sleep * $multiplier) / 3600);
+
+            if ($this->isNightRegime($hour, $table, $graceHours)) {
+                $sleep *= $multiplier;
+                $cycles += self::NIGHT_EXTRA_CYCLES;
             }
         }
 
-        return $this->bound($sleep * self::TOLERANCE_CYCLES + self::MARGIN_SECONDS);
+        return $this->bound($sleep * $cycles + self::MARGIN_SECONDS);
     }
 
     /**
-     * Fenêtre de nuit à cheval possible sur minuit (défaut 19h→6h, comme le firmware).
+     * Régime « nuit » (seuil long) : l'heure courante est dans la fenêtre de nuit, OU dans la
+     * grâce matinale — jusqu'à `$graceHours` après la fin de nuit — le temps que le dernier
+     * cycle nuit se termine. Fenêtre à cheval possible sur minuit (défaut 19h→6h, firmware).
      */
-    private function isNight(int $hour, string $table): bool
+    private function isNightRegime(int $hour, string $table, int $graceHours): bool
     {
         $start = $this->clampHour($this->readPositiveInt($table, self::NIGHT_START_HOUR_GPIO, self::DEFAULT_NIGHT_START_HOUR, true));
         $end = $this->clampHour($this->readPositiveInt($table, self::NIGHT_END_HOUR_GPIO, self::DEFAULT_NIGHT_END_HOUR, true));
@@ -126,9 +143,22 @@ class OfflineThresholdResolver
             return false;
         }
 
-        return $start < $end
-            ? ($hour >= $start && $hour < $end)
-            : ($hour >= $start || $hour < $end);
+        $inWindow = static fn (int $h): bool => $start < $end
+            ? ($h >= $start && $h < $end)
+            : ($h >= $start || $h < $end);
+
+        if ($inWindow($hour)) {
+            return true;
+        }
+
+        // Grâce matinale : il y a `$i` heures (≤ $graceHours), on était encore en nuit.
+        for ($i = 1; $i <= $graceHours; $i++) {
+            if ($inWindow((($hour - $i) % 24 + 24) % 24)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function clampHour(int $hour): int
