@@ -11,6 +11,34 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.27.0] - 2026-07-26
+
+### Aquarium bas (GPIO 102) : alerte seule — le CRON ne pilote plus la pompe réserve
+
+`CronOrchestrator::checkLowWaterLevel()` n'appelle plus `PumpService::stopPompeTank()`. Le seuil
+GPIO 102 (« Aquarium bas », page contrôle) est celui sur lequel le **firmware** ffp5cs *démarre*
+le remplissage (`RefillStart::evaluate` : `EauAquarium > seuil` = distance capteur→surface élevée
+= niveau bas). Le serveur constate et notifie ; le pilotage de la pompe réserve reste à l'ESP32.
+
+Deux défauts corrigés :
+
+- **Intention inversée** : sur la même condition, le serveur coupait la pompe pendant que le
+  firmware la démarrait. La protection « panne sèche » relève du seuil réserve (GPIO 103, verrou
+  `RESERVOIR_LOW` du firmware), pas du seuil aquarium.
+- **L'arrêt commandait en réalité un démarrage** : `stopPompeTank()` suit la convention legacy
+  relais actif-bas (`state = 1`) alors que `GET /api/outputs/state` sert la valeur brute et que le
+  firmware lit `1 = ON` (front montant dans `gpio_parser.cpp`). Avec un GET toutes les 6 s et un
+  POST toutes les 30 s qui resynchronise le GPIO 18, un remplissage **manuel** était relancé à
+  chaque minute tant que le niveau restait bas — et le chemin manuel court-circuite le compteur
+  d'essais qui verrouille une pompe inefficace (`RefillEfficiency`, 5 tentatives).
+
+Le mail (P1, clé `ffp3:water-low`, cooldown 15 min) est conservé, avec un texte aligné sur le
+firmware : niveau sous la consigne de remplissage, remplissage déclenché par l'ESP32, aucune
+action serveur, quoi vérifier si l'alerte persiste.
+
+⚠️ `PumpService::stopPompeTank()` / `runPompeTank()` n'ont plus d'appelant applicatif ; ne pas les
+réintroduire sur le GPIO 18 sans convertir d'abord la convention (`stopPompeTank()` → `0`).
+
 ## [6.26.0] - 2026-07-26
 
 ### Compatibilité flotte déployée — rollback des clés plates n3pp/msp (n3pp 4.57 muet)

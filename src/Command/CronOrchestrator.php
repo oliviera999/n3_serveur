@@ -360,6 +360,22 @@ class CronOrchestrator
         $this->logger->addTask((string) $this->pumpService->getResetModeState());
     }
 
+    /**
+     * Aquarium bas (GPIO 102, « seuil de remplissage ») : ALERTE SEULE, aucune action pompe.
+     *
+     * Ce seuil est celui qui déclenche le remplissage CÔTÉ FIRMWARE (ffp5cs
+     * `RefillStart::evaluate`) : `EauAquarium > seuil` = niveau trop bas = il faut remplir.
+     * Le serveur ne pilote donc PAS la pompe réserve ici — il constate et notifie.
+     *
+     * Historique : jusqu'en 6.26.0 ce bloc appelait `PumpService::stopPompeTank()`, avec deux
+     * défauts. (1) Intention inverse du firmware, qui démarre la pompe sur la même condition ;
+     * la panne sèche est couverte par le seuil réserve (GPIO 103, verrou `RESERVOIR_LOW` de
+     * l'ESP32), pas par celui-ci. (2) `stopPompeTank()` suit la convention legacy relais
+     * actif-bas (`state = 1`), alors que `GET /api/outputs/state` sert la valeur brute et que
+     * le firmware lit `1 = ON` (`gpio_parser.cpp`, front montant) : la « sécurité » commandait
+     * en réalité un remplissage manuel — relancé à chaque minute tant que le niveau restait
+     * bas, et hors du compteur d'essais qui verrouille la pompe inefficace.
+     */
     private function checkLowWaterLevel(): void
     {
         $lastReading = $this->sensorReadRepo->getLastReadings();
@@ -375,14 +391,17 @@ class CronOrchestrator
             return;
         }
 
-        $this->pumpService->stopPompeTank();
         $this->logger->addEvent(
-            "ALERTE: Niveau d'eau aquarium trop bas (distance {$lastWaterLevel} mm) - Arrêt pompe réservoir"
+            "ALERTE: Niveau d'eau aquarium bas (distance {$lastWaterLevel} mm) - remplissage attendu côté ESP32"
         );
 
         $message = sprintf(
-            "La distance capteur→surface de l'aquarium a atteint %.0f mm (seuil %.0f mm).\n"
-            . "L'eau est considérée trop basse. La pompe réservoir a été arrêtée automatiquement pour éviter une panne sèche.",
+            "La distance capteur→surface de l'aquarium a atteint %.0f mm (seuil de remplissage %.0f mm).\n"
+            . "Le niveau est sous la consigne : l'ESP32 déclenche le remplissage depuis la réserve "
+            . "(pompe réserve, durée « Remplissage »).\n"
+            . 'Aucune action serveur — le pilotage de la pompe et ses sécurités (réserve basse, '
+            . "remplissage inefficace) restent au firmware.\n"
+            . "Si l'alerte persiste, vérifier la réserve, la pompe et le capteur.",
             $lastWaterLevel,
             $threshold
         );
