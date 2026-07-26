@@ -215,6 +215,11 @@ return [
     \App\Controller\N3pp\N3ppOutputController::class => \DI\autowire()
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
 
+    // Les contrôleurs construisent FirmwareStateCompat eux-mêmes (`new`), mais on câble
+    // aussi l'entrée du container : un futur autowiring hériterait sinon d'un service muet.
+    \App\Service\FirmwareStateCompat::class => \DI\autowire()
+        ->constructorParameter('settings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
     // Live n3pp/msp : le réglage alimente FirmwareStateCompat (FIRMWARE_FLAT_STATE_MODE),
     // construit dans le constructeur — sans lui, la manette BDD reste sans effet.
     \App\Controller\Msp\MspRealtimeApiController::class => \DI\autowire()
@@ -235,4 +240,32 @@ return [
         ->constructorParameter('hmacAuditLogger', \DI\get(\App\Service\HmacAuditLogger::class))
         ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    // --------------------------------------------------------------------
+    // Authentification et rendu — même défaut, conséquences non plus sur la
+    // configuration mais sur le contrôle d'accès.
+    // --------------------------------------------------------------------
+
+    // Sans UserRepository, `authenticateFromDatabase()` retourne toujours null :
+    // les comptes de la table `n3_users` ne pouvaient pas se connecter (seul le
+    // couple ADMIN_USERNAME / ADMIN_PASSWORD_HASH du `.env` fonctionnait) et
+    // `last_login` n'était jamais mis à jour.
+    \App\Security\AuthService::class => \DI\autowire()
+        ->constructorParameter('userRepository', \DI\get(\App\Repository\UserRepository::class)),
+
+    // Sans RoleAccessService, `hasRoleAccess()` retournait true pour TOUT chemin :
+    // le filtrage par rôle (role_requirements de routes_config.php) était inopérant.
+    // Le contrôle intervient après l'authentification, et l'auth `.env` donne
+    // ROLE_ADMIN : rétablir le filtre ne peut pas verrouiller une session existante.
+    // TemplateRenderer : page 403 rendue au lieu d'une réponse brute.
+    \App\Middleware\AuthGuardMiddleware::class => \DI\autowire()
+        ->constructorParameter('roleAccessService', \DI\get(\App\Security\RoleAccessService::class))
+        ->constructorParameter('templateRenderer', \DI\get(\App\Service\TemplateRenderer::class)),
+
+    // Pages d'erreur : sans renderer, réponse brute au lieu du template.
+    \App\Middleware\ErrorHandlerMiddleware::class => \DI\autowire()
+        ->constructorParameter('renderer', \DI\get(\App\Service\TemplateRenderer::class)),
+
+    \App\Controller\Ffp3\CacheController::class => \DI\autowire()
+        ->constructorParameter('renderer', \DI\get(\App\Service\TemplateRenderer::class)),
 ];

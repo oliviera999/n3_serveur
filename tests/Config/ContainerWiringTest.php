@@ -228,6 +228,14 @@ final class ContainerWiringTest extends TestCase
             [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.hmacAuditLogger'],
             [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.hmacPolicyService'],
             [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.operationalSettings'],
+            [\App\Service\FirmwareStateCompat::class, 'settings'],
+            // Contrôle d'accès : sans ces dépendances, l'authentification BDD est inactive
+            // et le filtrage par rôle laisse passer tous les chemins.
+            [\App\Security\AuthService::class, 'userRepository'],
+            [\App\Middleware\AuthGuardMiddleware::class, 'roleAccessService'],
+            [\App\Middleware\AuthGuardMiddleware::class, 'templateRenderer'],
+            [\App\Middleware\ErrorHandlerMiddleware::class, 'renderer'],
+            [\App\Controller\Ffp3\CacheController::class, 'renderer'],
         ];
 
         foreach ($cases as [$class, $path]) {

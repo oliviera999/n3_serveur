@@ -11,6 +11,39 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.29.0] - 2026-07-26
+
+### Contrôle d'accès — filtrage par rôle inopérant et authentification BDD inactive
+
+Second volet du défaut de câblage traité en 6.28.0 (PHP-DI n'autowire pas les paramètres de
+constructeur optionnels). Ici les dépendances manquantes ne dégradaient pas de la configuration
+mais le contrôle d'accès :
+
+- **Filtrage par rôle inopérant** : sans `RoleAccessService`, `AuthGuardMiddleware::hasRoleAccess()`
+  retournait `true` pour **tout chemin**. Les `role_requirements` de `config/routes_config.php`
+  (`/supervision`, `/admin/*` réservés aux administrateurs, reste en opérateur) n'étaient pas
+  appliqués : tout utilisateur authentifié atteignait n'importe quelle page protégée.
+- **Authentification BDD inactive** : sans `UserRepository`, `AuthService::authenticateFromDatabase()`
+  retournait toujours `null`. Les comptes de la table `n3_users` ne pouvaient pas se connecter —
+  seul le couple `ADMIN_USERNAME` / `ADMIN_PASSWORD_HASH` du `.env` fonctionnait — et `last_login`
+  n'était jamais mis à jour.
+- **Pages d'erreur / 403** : sans `TemplateRenderer`, `ErrorHandlerMiddleware`, `CacheController` et
+  la réponse 403 d'`AuthGuardMiddleware` renvoyaient une sortie brute au lieu du template.
+
+Ces trois comportements étaient couverts par des tests unitaires (`AuthGuardMiddlewareTest`,
+`RoleAccessServiceTest`, `AuthServiceTest`) qui construisent les objets à la main avec leurs
+dépendances : le défaut ne vivait que dans le câblage du container, invisible pour eux.
+
+**Pas de risque de verrouillage** : le contrôle de rôle n'est atteint qu'après authentification, et
+l'authentification `.env` attribue `ROLE_ADMIN` (`getCurrentRole()` retombe également sur
+`ROLE_ADMIN` si la session ne porte pas de rôle). Les sessions existantes ne sont pas affectées ;
+le filtrage prend effet pour les comptes BDD `reader` / `operator`, désormais utilisables.
+
+`FirmwareStateCompat` reçoit aussi son service de réglages en tant qu'entrée du container (les
+contrôleurs l'instancient eux-mêmes, mais un futur autowiring hériterait sinon d'un service muet).
+Les six nouveaux câblages sont couverts par
+`ContainerWiringTest::testOptionalDependencyIsActuallyInjected` (30 cas au total).
+
 ## [6.28.0] - 2026-07-26
 
 ### Câblage DI — les réglages pilotés en BDD étaient ignorés (repli silencieux sur `.env`)
@@ -49,9 +82,8 @@ le heartbeat FFP3 l'appliquait. Les deux sont câblés.
 dépendances optionnelles sont réellement injectées après build (chaîne de propriétés comprise, pour
 les dépendances ré-empaquetées), et échoue si un câblage disparaît.
 
-Reste connu, hors périmètre de cette version : `AuthGuardMiddleware` (filtrage par rôle inopérant),
-`AuthService` (authentification BDD inactive), `ErrorHandlerMiddleware` / `CacheController`
-(`TemplateRenderer` absent) — à traiter séparément.
+Volet contrôle d'accès du même défaut (`AuthGuardMiddleware`, `AuthService`,
+`ErrorHandlerMiddleware`, `CacheController`) : traité en 6.29.0.
 
 ## [6.27.0] - 2026-07-26
 
