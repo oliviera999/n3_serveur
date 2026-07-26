@@ -11,6 +11,48 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.28.0] - 2026-07-26
+
+### Câblage DI — les réglages pilotés en BDD étaient ignorés (repli silencieux sur `.env`)
+
+**PHP-DI n'autowire jamais un paramètre de constructeur optionnel** (`ReflectionBasedAutowiring` :
+« Skip optional parameters » ; le `ResolverChain` place `DefaultValueResolver` avant
+`TypeHintContainerResolver`). Or c'est la signature de tous les résolveurs « BDD prioritaire,
+repli `.env` » du projet : sans entrée DI explicite, la dépendance restait `null` **sans aucune
+erreur au build**, et le code retombait silencieusement sur `.env`.
+
+**CRON (`run-cron.php`)** — la fabrique DI injectant les 9 services qui pilotent `$needsDatabase`,
+`$pdo` valait `null` et l'orchestrateur laissait vides *tous* ses collaborateurs conditionnels :
+
+- seuil « Aquarium bas » (GPIO 102) et seuil marées (GPIO 129) : valeur BDD ignorée, `.env` / défauts ;
+- seuil hors-ligne FFP3 : figé au forfait 3600 s, le seuil dérivé du temps de veille était ignoré ;
+- **les trois services d'alertes dérivées ne s'exécutaient jamais** (`runDerivedAlerts()` passait sur
+  `null`) : trop-plein FFP3, chauffage ON/OFF, remplissage démarré/terminé, firmware mis à jour,
+  sol sec / batterie / arrosage N3PP, batterie / redémarrage / météo MSP1. Combiné au silence du
+  firmware quand `serverCoversSharedAlerts()` est vrai, le trop-plein n'était alerté par personne.
+
+`CronOrchestrator` accepte désormais un `?PDO $pdo` et la fabrique lui passe la connexion du
+container (SQLite en test) : la logique de construction reste à un seul endroit.
+
+**Réglages opérationnels (`serverSettings` via `OperationalSettingsService`)** — désormais câblés
+sur `SystemHealthService` (+ seuil réserve basse GPIO 130), `SensorReadRepository`,
+`GallerySyncRepository`, `SensorDataService`, `HmacAuditLogger`, `Ffp3\HeartbeatController`,
+`GalleryUploadController`, `Msp/N3ppOutputController`, `Msp/N3ppRealtimeApiController` (manette
+`FIRMWARE_FLAT_STATE_MODE` de la 6.26.0, jusqu'ici sans effet depuis la supervision) et
+`OtaFileController` (`OTA_REQUIRE_AUTH`).
+
+**Heartbeat n3pp/msp** — `HmacAuditLogger` et `HmacPolicyService` étaient `null` : aucun audit HMAC
+n'était enregistré et le **mode strict piloté en BDD était ignoré** (repli sur `.env`), alors que
+le heartbeat FFP3 l'appliquait. Les deux sont câblés.
+
+**Garde-fou** : `ContainerWiringTest::testOptionalDependencyIsActuallyInjected` vérifie que ces 24
+dépendances optionnelles sont réellement injectées après build (chaîne de propriétés comprise, pour
+les dépendances ré-empaquetées), et échoue si un câblage disparaît.
+
+Reste connu, hors périmètre de cette version : `AuthGuardMiddleware` (filtrage par rôle inopérant),
+`AuthService` (authentification BDD inactive), `ErrorHandlerMiddleware` / `CacheController`
+(`TemplateRenderer` absent) — à traiter séparément.
+
 ## [6.27.0] - 2026-07-26
 
 ### Aquarium bas (GPIO 102) : alerte seule — le CRON ne pilote plus la pompe réserve

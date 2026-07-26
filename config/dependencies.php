@@ -164,6 +164,75 @@ return [
             deviceHealthService: $c->get(\App\Service\DeviceHealthService::class),
             restartPumpCommand: $c->get(\App\Command\RestartPumpCommand::class),
             operationalSettings: $c->get(\App\Service\OperationalSettingsService::class),
+            // Connexion du container (SQLite en test) : sans elle, `$needsDatabase` est
+            // faux — tous les services ci-dessus étant injectés — et l'orchestrateur
+            // laissait à null OutputRepository, OfflineThresholdResolver et les trois
+            // services d'alertes dérivées. Conséquences en production : seuils BDD
+            // (GPIO 102/129) ignorés au profit de `.env`, seuil hors-ligne figé à 3600 s,
+            // et surtout AUCUNE alerte dérivée émise (trop-plein, chauffage, remplissage,
+            // sol sec, batterie, redémarrage, météo).
+            pdo: $c->get(\PDO::class),
         );
     },
+
+    // ====================================================================
+    // Dépendances OPTIONNELLES (`?Type $x = null`) — jamais autowirées.
+    // PHP-DI ignore délibérément les paramètres optionnels
+    // (ReflectionBasedAutowiring : « Skip optional parameters »), donc toute
+    // dépendance déclarée avec une valeur par défaut reste null sans câblage
+    // explicite. Pour les services ci-dessous, ce null n'est pas neutre : il
+    // débranche silencieusement la lecture des réglages pilotés en BDD
+    // (`serverSettings` via OperationalSettingsService, seuils de la table
+    // outputs) et fait retomber le code sur `.env`.
+    // `DI\autowire()->constructorParameter()` conserve l'autowiring pour tout
+    // le reste du constructeur et ne renseigne que le paramètre optionnel.
+    // ====================================================================
+    \App\Service\SystemHealthService::class => \DI\autowire()
+        ->constructorParameter('outputRepo', \DI\get(\App\Repository\OutputRepository::class))
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Repository\SensorReadRepository::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Repository\GallerySyncRepository::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Service\SensorDataService::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Service\HmacAuditLogger::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Controller\Ffp3\HeartbeatController::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Controller\Gallery\GalleryUploadController::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Controller\Msp\MspOutputController::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Controller\N3pp\N3ppOutputController::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    // Live n3pp/msp : le réglage alimente FirmwareStateCompat (FIRMWARE_FLAT_STATE_MODE),
+    // construit dans le constructeur — sans lui, la manette BDD reste sans effet.
+    \App\Controller\Msp\MspRealtimeApiController::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Controller\N3pp\N3ppRealtimeApiController::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    // Heartbeat n3pp/msp : sans câblage, l'audit HMAC n'enregistrait rien et le mode
+    // strict retombait sur `.env` (le réglage BDD de supervision était ignoré), alors
+    // que le heartbeat FFP3 — dont la dépendance d'audit est obligatoire — l'appliquait.
+    \App\Controller\Msp\MspHeartbeatController::class => \DI\autowire()
+        ->constructorParameter('hmacAuditLogger', \DI\get(\App\Service\HmacAuditLogger::class))
+        ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Controller\N3pp\N3ppHeartbeatController::class => \DI\autowire()
+        ->constructorParameter('hmacAuditLogger', \DI\get(\App\Service\HmacAuditLogger::class))
+        ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
 ];

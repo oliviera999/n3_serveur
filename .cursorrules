@@ -162,6 +162,7 @@ php -S localhost:8080 -t public
 - **Fréquence crontab** : toutes les minutes (`* * * * * php run-cron.php`) — Phase 1 arbitrage mails, le serveur est l'émetteur primaire des alertes (latence ≤ 1 min)
 - **Cadences internes** : tâches fréquentes à chaque run (aquarium bas, marées, réserve, alertes dérivées du POST — trop-plein, chauffage, sol sec, batterie, redémarrage) ; tâches horaires (online, silencieux, digest) selon `CRON_HOURLY_INTERVAL_SECONDS` (défaut 3600 s)
 - **Aquarium bas (GPIO 102) = alerte seule** : ce seuil est celui sur lequel le firmware ffp5cs *démarre* le remplissage. Le CRON notifie mais ne pilote pas la pompe réserve (GPIO 18) ; ses sécurités (réserve basse GPIO 103, remplissage inefficace) appartiennent à l'ESP32
+- ⚠️ **Dépendance optionnelle = dépendance NON autowirée** : PHP-DI ignore les paramètres de constructeur ayant une valeur par défaut (`?Type $x = null`). Toute dépendance de ce type doit être passée explicitement dans `config/dependencies.php` (`DI\autowire()->constructorParameter(...)`), sinon elle reste `null` sans erreur et le code retombe silencieusement sur `.env` au lieu du réglage BDD. `ContainerWiringTest::testOptionalDependencyIsActuallyInjected` verrouille les cas connus — y ajouter toute nouvelle dépendance de ce genre
 - **Sous-commande** : `App\Command\RestartPumpCommand` (redémarrage pompe aqua différé 5 min, délai HORODATÉ — indépendant de la cadence crontab)
 - Verrouillage global par `flock` (`cron_orchestrator.lock`)
 - Doc : `docs/deployment/CRON.md`

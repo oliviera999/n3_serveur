@@ -232,7 +232,13 @@ $app->get('/serre-description', [N3ppDescriptionController::class, 'show']);
 // validée côté firmware par MD5 (cf. firmwires/ffp5cs/include/ota_config.h).
 // Supporte HTTP Range (206) pour la reprise de download ; téléchargement complet (200) inchangé.
 // Logique extraite et testée dans App\Controller\Ffp3\OtaFileController (OtaFileControllerTest).
-$otaHandler = new \App\Controller\Ffp3\OtaFileController(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ota');
+// OperationalSettingsService explicite : le paramètre est optionnel, donc jamais
+// autowiré (PHP-DI ignore les paramètres à valeur par défaut). Sans lui, OTA_REQUIRE_AUTH
+// n'était lu que dans `.env` et le réglage de supervision restait sans effet.
+$otaHandler = new \App\Controller\Ffp3\OtaFileController(
+    dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ota',
+    $container->get(\App\Service\OperationalSettingsService::class)
+);
 
 // Fichiers OTA (n3pp, msp, cam, ffp3) — servis depuis serveur/ota/
 $app->get('/ota/{path:.+}', $otaHandler);
