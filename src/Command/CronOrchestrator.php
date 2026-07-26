@@ -26,6 +26,7 @@ use App\Service\PumpService;
 use App\Service\SensorDataService;
 use App\Service\SensorStatisticsService;
 use App\Service\SystemHealthService;
+use PDO;
 
 /**
  * Orchestrateur unique des tâches CRON applicatives FFP3.
@@ -104,6 +105,7 @@ class CronOrchestrator
         ?string $stateDir = null,
         ?string $pumpRestartFlagFile = null,
         ?OperationalSettingsService $operationalSettings = null,
+        ?PDO $pdo = null,
     ) {
         $needsDatabase = $logger === null
             || $sensorDataService === null
@@ -115,7 +117,12 @@ class CronOrchestrator
             || $deviceHealthService === null
             || $restartPumpCommand === null;
 
-        $pdo = $needsDatabase ? Database::getConnection() : null;
+        // Connexion fournie par le container DI en priorité. Sans elle, tous les
+        // collaborateurs conditionnés par `$pdo` (seuils BDD, résolveur hors-ligne,
+        // alertes dérivées) resteraient null et le CRON retomberait silencieusement
+        // sur `.env` (cf. config/dependencies.php : la fabrique injecte les services,
+        // donc `$needsDatabase` est faux et aucune connexion n'était ouverte ici).
+        $pdo ??= $needsDatabase ? Database::getConnection() : null;
 
         $this->logger = $logger ?? new LogService();
         $this->sensorDataService = $sensorDataService ?? new SensorDataService($pdo, $this->logger);

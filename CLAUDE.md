@@ -89,6 +89,11 @@ par requête (gérée par le middleware, sans muter `$_ENV`).
 - ❌ **Jamais** de connexion PDO manuelle → `App\Config\Database::getConnection()`.
 - ❌ **Jamais** muter `$_ENV['ENV']` pour changer d'environnement → `TableConfig::setEnvironment()`.
 - ❌ **Jamais** d'endpoint POST d'API sans validation de signature (`SignatureValidator` / HMAC-SHA256).
+- ⚠️ **Une dépendance optionnelle n'est jamais autowirée** : PHP-DI ignore les paramètres de
+  constructeur ayant une valeur par défaut (`?Type $x = null`). Il faut la passer explicitement
+  dans `config/dependencies.php` (`DI\autowire()->constructorParameter(...)`) — sinon elle reste
+  `null` sans erreur et le code retombe silencieusement sur `.env` au lieu du réglage BDD.
+  Ajouter tout nouveau cas à `ContainerWiringTest::testOptionalDependencyIsActuallyInjected`.
 - ✅ PDO + requêtes préparées, logique d'accès dans les `Repository`.
 - ✅ Respecter `.php-cs-fixer.php` et `phpstan.neon`.
 - ✅ Libre de s'inspirer de dépôts GitHub connus / bibliothèques éprouvées — **en citant la source** (voir ci-dessous).

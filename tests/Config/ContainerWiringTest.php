@@ -177,4 +177,111 @@ final class ContainerWiringTest extends TestCase
 
         self::assertInstanceOf(PDO::class, $container->get(PDO::class));
     }
+
+    /**
+     * Dépendances OPTIONNELLES qui doivent malgré tout être injectées.
+     *
+     * PHP-DI ignore volontairement les paramètres de constructeur ayant une valeur
+     * par défaut (`ReflectionBasedAutowiring` : « Skip optional parameters »). Une
+     * dépendance déclarée `?Type $x = null` reste donc à null tant qu'une entrée
+     * explicite ne la passe pas — sans la moindre erreur au build.
+     *
+     * Pour les entrées ci-dessous, ce null n'est pas neutre : il débranche
+     * silencieusement la lecture des réglages pilotés en BDD (table `serverSettings`
+     * via OperationalSettingsService, seuils de la table outputs) et fait retomber le
+     * code sur `.env`. Ce test échoue si l'un de ces câblages disparaît.
+     *
+     * Chemin pointé : propriété, ou chaîne de propriétés pour les dépendances
+     * ré-empaquetées (`handler.hmacAuditLogger`).
+     *
+     * @return iterable<string, array{class-string, string}>
+     */
+    public static function wiredOptionalDependencyProvider(): iterable
+    {
+        $cases = [
+            // CRON : seuils pilotés en BDD + alertes dérivées du POST.
+            [\App\Command\CronOrchestrator::class, 'outputRepo'],
+            [\App\Command\CronOrchestrator::class, 'offlineResolver'],
+            [\App\Command\CronOrchestrator::class, 'ffp3DerivedAlerts'],
+            [\App\Command\CronOrchestrator::class, 'n3ppDerivedAlerts'],
+            [\App\Command\CronOrchestrator::class, 'mspDerivedAlerts'],
+            [\App\Command\CronOrchestrator::class, 'healthService.outputRepo'],
+            [\App\Command\CronOrchestrator::class, 'healthService.operationalSettings'],
+            [\App\Service\SystemHealthService::class, 'outputRepo'],
+            [\App\Service\SystemHealthService::class, 'operationalSettings'],
+            // Réglages opérationnels (BDD > .env).
+            [\App\Repository\SensorReadRepository::class, 'operationalSettings'],
+            [\App\Repository\GallerySyncRepository::class, 'operationalSettings'],
+            [\App\Service\SensorDataService::class, 'operationalSettings'],
+            [\App\Service\HmacAuditLogger::class, 'operationalSettings'],
+            [\App\Controller\Ffp3\HeartbeatController::class, 'operationalSettings'],
+            [\App\Controller\Gallery\GalleryUploadController::class, 'operationalSettings'],
+            // Manette FIRMWARE_FLAT_STATE_MODE (FirmwareStateCompat interne).
+            [\App\Controller\Msp\MspOutputController::class, 'operationalSettings'],
+            [\App\Controller\N3pp\N3ppOutputController::class, 'operationalSettings'],
+            [\App\Controller\Msp\MspRealtimeApiController::class, 'firmwareStateCompat.settings'],
+            [\App\Controller\N3pp\N3ppRealtimeApiController::class, 'firmwareStateCompat.settings'],
+            // Heartbeat n3pp/msp : audit HMAC + mode strict piloté en BDD.
+            [\App\Controller\Msp\MspHeartbeatController::class, 'handler.hmacAuditLogger'],
+            [\App\Controller\Msp\MspHeartbeatController::class, 'handler.hmacPolicyService'],
+            [\App\Controller\Msp\MspHeartbeatController::class, 'handler.operationalSettings'],
+            [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.hmacAuditLogger'],
+            [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.hmacPolicyService'],
+            [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.operationalSettings'],
+            [\App\Service\FirmwareStateCompat::class, 'settings'],
+            // Contrôle d'accès : sans ces dépendances, l'authentification BDD est inactive
+            // et le filtrage par rôle laisse passer tous les chemins.
+            [\App\Security\AuthService::class, 'userRepository'],
+            [\App\Middleware\AuthGuardMiddleware::class, 'roleAccessService'],
+            [\App\Middleware\AuthGuardMiddleware::class, 'templateRenderer'],
+            [\App\Middleware\ErrorHandlerMiddleware::class, 'renderer'],
+            [\App\Controller\Ffp3\CacheController::class, 'renderer'],
+        ];
+
+        foreach ($cases as [$class, $path]) {
+            yield $class . '::' . $path => [$class, $path];
+        }
+    }
+
+    /**
+     * @param class-string $class
+     *
+     * @dataProvider wiredOptionalDependencyProvider
+     */
+    public function testOptionalDependencyIsActuallyInjected(string $class, string $path): void
+    {
+        $instance = self::buildContainer()->get($class);
+
+        $current = $instance;
+        foreach (explode('.', $path) as $segment) {
+            self::assertIsObject($current, "Chaîne interrompue avant « {$segment} » sur {$class}::{$path}");
+            $property = self::findProperty($current, $segment);
+            self::assertNotNull($property, "Propriété « {$segment} » introuvable sur " . $current::class);
+            $property->setAccessible(true);
+            $current = $property->isInitialized($current) ? $property->getValue($current) : null;
+            self::assertNotNull(
+                $current,
+                "{$class}::{$path} est null : dépendance optionnelle non câblée dans config/dependencies.php "
+                . '(PHP-DI n\'autowire pas les paramètres optionnels). Le code retomberait silencieusement sur .env.'
+            );
+        }
+    }
+
+    /**
+     * Recherche une propriété en remontant la hiérarchie (une propriété privée
+     * déclarée dans une classe parente n'est pas visible depuis l'instance enfant).
+     */
+    private static function findProperty(object $object, string $name): ?\ReflectionProperty
+    {
+        $reflection = new \ReflectionClass($object);
+        while (!$reflection->hasProperty($name)) {
+            $parent = $reflection->getParentClass();
+            if ($parent === false) {
+                return null;
+            }
+            $reflection = $parent;
+        }
+
+        return $reflection->getProperty($name);
+    }
 }
