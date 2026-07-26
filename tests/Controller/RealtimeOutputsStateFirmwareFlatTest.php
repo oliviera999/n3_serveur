@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Controller;
 
 use App\Controller\AbstractRealtimeApiController;
+use App\Service\FirmwareStateCompat;
 use App\Service\Realtime\AbstractSensorRealtimeDataProvider;
 use PHPUnit\Framework\TestCase;
 use Slim\Psr7\Factory\ServerRequestFactory;
@@ -18,9 +19,17 @@ use Slim\Psr7\Response;
  */
 class RealtimeOutputsStateFirmwareFlatTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        // La fusion des clés plates est désormais pilotée par FIRMWARE_FLAT_STATE_MODE,
+        // dont le défaut (`off`) restaure le contrat d'avant v6.25.0 pour la flotte non
+        // reflashable. Les cas ci-dessous testent le comportement une fois réactivée.
+        $_ENV[FirmwareStateCompat::SETTING_KEY] = FirmwareStateCompat::MODE_SAFE;
+    }
+
     protected function tearDown(): void
     {
-        unset($_ENV['API_KEY']);
+        unset($_ENV['API_KEY'], $_ENV[FirmwareStateCompat::SETTING_KEY]);
     }
 
     private function controller(AbstractSensorRealtimeDataProvider $provider): AbstractRealtimeApiController
@@ -73,6 +82,50 @@ class RealtimeOutputsStateFirmwareFlatTest extends TestCase
         $this->assertIsArray($body);
         $this->assertArrayHasKey('outputs', $body);
         $this->assertArrayNotHasKey('110', $body);     // pas de clés plates sans auth
+    }
+
+    public function testFlatStateOffKeepsNestedOnlyButStillAcknowledges(): void
+    {
+        // Rollback flotte déployée (défaut) : aucune clé plate renvoyée — un module non
+        // reflashable conserve sa config locale — mais l'ack one-shot reste effectué,
+        // strictement comme avant le correctif C1/C2.
+        $_ENV[FirmwareStateCompat::SETTING_KEY] = FirmwareStateCompat::MODE_OFF;
+        $_ENV['API_KEY'] = 'secret';
+        $provider = $this->makeProvider();
+        $provider->method('getOutputsState')->willReturn([]);
+        $provider->expects($this->once())->method('acknowledgeFirmwareOneShots')
+            ->willReturn(['110' => '1', '107' => '3600']);
+
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('GET', 'http://x/api/outputs/state')
+            ->withHeader('X-Api-Key', 'secret');
+        $response = $this->controller($provider)->getOutputsState($request, new Response());
+
+        $body = json_decode((string) $response->getBody(), true);
+        $this->assertIsArray($body);
+        $this->assertArrayHasKey('outputs', $body);
+        $this->assertArrayNotHasKey('110', $body);
+        $this->assertArrayNotHasKey('107', $body);
+    }
+
+    public function testFlatStateSafeOmitsOutOfRangeConfigValue(): void
+    {
+        // Un FreqWakeUp invalide en BDD n'est pas propagé : le firmware garde sa valeur
+        // locale (log `[SERVER][GET][WARN] Cle 107 absente`) au lieu d'adopter 0.
+        $_ENV['API_KEY'] = 'secret';
+        $provider = $this->makeProvider();
+        $provider->method('getOutputsState')->willReturn([]);
+        $provider->method('acknowledgeFirmwareOneShots')
+            ->willReturn(['107' => '0', '106' => '1']);
+
+        $request = (new ServerRequestFactory())
+            ->createServerRequest('GET', 'http://x/api/outputs/state')
+            ->withHeader('X-Api-Key', 'secret');
+        $response = $this->controller($provider)->getOutputsState($request, new Response());
+
+        $body = json_decode((string) $response->getBody(), true);
+        $this->assertArrayNotHasKey('107', $body);
+        $this->assertSame('1', $body['106']);
     }
 
     public function testWrongKeyStaysNested(): void

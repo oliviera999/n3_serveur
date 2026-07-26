@@ -18,6 +18,7 @@ données (msp1, n3pp, ffp3, poissonglouton), contrôle des sorties, galeries pho
 | [API_MSP1_N3PP.md](API_MSP1_N3PP.md) | API des modules MSP1 (météo) et N3PP (serre). |
 | [API_REALTIME_MSP_N3PP.md](API_REALTIME_MSP_N3PP.md) | API temps réel (LIVE) MSP1 / N3PP. |
 | [API_REALTIME_OUTPUTS_CONTRAT.md](API_REALTIME_OUTPUTS_CONTRAT.md) | Contrat de l’API d’état des sorties (`/api/outputs/state`). |
+| [COMPAT_FLOTTE_DEPLOYEE.md](COMPAT_FLOTTE_DEPLOYEE.md) | Rollbacks serveur pour la flotte non reflashable (clés plates n3pp/msp, seuil « silencieux »). |
 | [OTA_N3PP_MSP.md](OTA_N3PP_MSP.md) | Mises à jour OTA des firmwares N3PP / MSP. |
 
 ## 🔐 Sécurité & authentification

@@ -183,15 +183,83 @@ final class DeviceHealthServiceTest extends TestCase
         }
     }
 
-    public function testResolverThresholdOverridesFixedThreshold(): void
+    public function testResolverOnlyExtendsThresholdNeverShortensIt(): void
     {
-        // Le résolveur (dérivé du temps de veille BDD) prime sur le forfait fixe.
-        // Heartbeat vieux de 20 min (1200 s) : sous le forfait 3600 s (pas d'alerte),
-        // mais au-dessus du seuil dérivé 660 s -> alerte attendue.
+        // Correctif « faux silencieux » : le forfait configuré est un PLANCHER. Le seuil
+        // dérivé (660 s) modélise la cadence des DONNÉES, plus courte que celle du
+        // heartbeat : l'appliquer tel quel déclenchait une alerte sur un module vivant.
+        // Heartbeat vieux de 20 min < plancher 3600 s -> pas d'alerte.
         $repo = $this->repoReturning(['n3ppHeartbeat' => date('Y-m-d H:i:s', strtotime('-20 minutes'))]);
 
         $resolver = $this->createMock(OfflineThresholdResolver::class);
         $resolver->method('resolveForFamily')->willReturn(660);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendAlert');
+
+        $service = new DeviceHealthService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            3600,
+            [['family' => 'N3PP', 'table' => 'n3ppHeartbeat']],
+            $resolver
+        );
+
+        self::assertSame(0, $service->checkAllFamilies());
+    }
+
+    public function testResolverLongerThanFloorStillDelaysAlert(): void
+    {
+        // Régime nuit : le résolveur allonge le seuil (5460 s) au-delà du plancher 3600 s.
+        // Heartbeat vieux de 80 min (4800 s) -> toujours en ligne.
+        $repo = $this->repoReturning(['ffp3Heartbeat' => date('Y-m-d H:i:s', strtotime('-80 minutes'))]);
+
+        $resolver = $this->createMock(OfflineThresholdResolver::class);
+        $resolver->method('resolveForFamily')->willReturn(5460);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendAlert');
+
+        $service = new DeviceHealthService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            3600,
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']],
+            $resolver
+        );
+
+        self::assertSame(0, $service->checkAllFamilies());
+    }
+
+    public function testFreshDataPreventsSilentAlertDespiteStaleHeartbeat(): void
+    {
+        // Cas ffp5cs : heartbeat perdu (fire-and-forget, sans reprise) mais POST de
+        // mesures normaux -> le module n'est PAS silencieux, aucune alerte.
+        $repo = $this->repoReturning(['ffp3Heartbeat' => date('Y-m-d H:i:s', strtotime('-4 hours'))]);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendAlert');
+
+        $service = new DeviceHealthService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            3600,
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']],
+            null,
+            null,
+            ['FFP3' => static fn (): ?string => date('Y-m-d H:i:s', strtotime('-3 minutes'))]
+        );
+
+        self::assertSame(0, $service->checkAllFamilies());
+    }
+
+    public function testStaleDataAndStaleHeartbeatStillAlert(): void
+    {
+        // Vrai silence : les deux flux sont périmés -> alerte P1 conservée.
+        $repo = $this->repoReturning(['FFP3' => null, 'ffp3Heartbeat' => date('Y-m-d H:i:s', strtotime('-4 hours'))]);
 
         $notifier = $this->createMock(NotificationService::class);
         $notifier->expects($this->once())->method('sendAlert')->willReturn(true);
@@ -201,8 +269,34 @@ final class DeviceHealthServiceTest extends TestCase
             $notifier,
             $this->createMock(LogService::class),
             3600,
-            [['family' => 'N3PP', 'table' => 'n3ppHeartbeat']],
-            $resolver
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']],
+            null,
+            null,
+            ['FFP3' => static fn (): ?string => date('Y-m-d H:i:s', strtotime('-5 hours'))]
+        );
+
+        self::assertSame(1, $service->checkAllFamilies());
+    }
+
+    public function testDataProviderFailureIsFailSafeAndKeepsAlert(): void
+    {
+        // La contre-preuve ne doit jamais masquer une alerte : lecture en erreur = ignorée.
+        $repo = $this->repoReturning(['ffp3Heartbeat' => date('Y-m-d H:i:s', strtotime('-4 hours'))]);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->once())->method('sendAlert')->willReturn(true);
+
+        $service = new DeviceHealthService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            3600,
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']],
+            null,
+            null,
+            ['FFP3' => static function (): ?string {
+                throw new \RuntimeException('table indisponible');
+            }]
         );
 
         self::assertSame(1, $service->checkAllFamilies());

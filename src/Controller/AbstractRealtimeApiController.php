@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Service\FirmwareStateCompat;
+use App\Service\OperationalSettingsService;
 use App\Service\Realtime\AbstractSensorRealtimeDataProvider;
 use App\Service\Realtime\RealtimeDataProviderInterface;
 use App\Util\ResponseHelper;
@@ -16,9 +18,22 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 abstract class AbstractRealtimeApiController
 {
+    protected FirmwareStateCompat $firmwareStateCompat;
+
     public function __construct(
-        protected RealtimeDataProviderInterface $provider
+        protected RealtimeDataProviderInterface $provider,
+        ?OperationalSettingsService $operationalSettings = null,
     ) {
+        $this->firmwareStateCompat = new FirmwareStateCompat($operationalSettings);
+    }
+
+    /**
+     * Module firmware servi par ce contrôleur, pour la couche de compatibilité
+     * ({@see FirmwareStateCompat}). '' = famille sans contrat de clés plates (FFP3).
+     */
+    protected function firmwareModule(): string
+    {
+        return '';
     }
 
     public function getLatestSensors(Request $request, Response $response): Response
@@ -71,12 +86,22 @@ abstract class AbstractRealtimeApiController
             // avec X-Api-Key, acquitter les one-shots ET récupérer l'état PLAT
             // {gpio: state}. Le polling UI n'envoie pas la clé → null, réponse nested
             // inchangée (pas d'ack prématuré, pas de clés plates).
+            //
+            // Compatibilité flotte déployée : la fusion des clés plates est pilotée par
+            // FIRMWARE_FLAT_STATE_MODE ({@see FirmwareStateCompat}). En mode `off`
+            // (défaut) l'ack reste effectué — comportement strictement identique à celui
+            // d'avant le correctif C1/C2 — mais aucune clé plate n'est renvoyée, ce qui
+            // évite qu'un module non reflashable adopte une config BDD non validée.
             $firmwareFlat = $this->maybeAcknowledgeFirmwareOneShots($request);
             $payload = [
                 'timestamp' => time(),
                 'outputs' => $data,
             ];
+            if ($firmwareFlat !== null && !$this->firmwareStateCompat->mergesFlatKeys()) {
+                $firmwareFlat = null;
+            }
             if ($firmwareFlat !== null) {
+                $firmwareFlat = $this->firmwareStateCompat->sanitize($firmwareFlat, $this->firmwareModule());
                 // Clés plates au niveau racine, pour les firmwares n3pp/msp qui lisent
                 // myObject["110"], ["106"]… sans écraser 'timestamp'/'outputs'.
                 foreach ($firmwareFlat as $gpio => $state) {

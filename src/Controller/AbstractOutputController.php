@@ -9,6 +9,7 @@ use App\Controller\Traits\HandlesNotificationPolicy;
 use App\Repository\AbstractOutputRepository;
 use App\Security\AuthService;
 use App\Service\ControlAuditLogger;
+use App\Service\FirmwareStateCompat;
 use App\Service\LogService;
 use App\Service\OperationalSettingsService;
 use App\Service\TemplateRenderer;
@@ -186,7 +187,28 @@ abstract class AbstractOutputController
      */
     protected function getStateData(int $board): array
     {
-        return $this->outputRepository()->getStateForFirmware($board);
+        $flat = $this->outputRepository()->getStateForFirmware($board);
+
+        // Compatibilité flotte déployée : cette route firmware reste TOUJOURS servie
+        // (contrairement à la fusion de clés plates dans /api/outputs/state, pilotée par
+        // FIRMWARE_FLAT_STATE_MODE), mais son contenu est nettoyé hors mode `full` :
+        // GPIO d'état miroir retirés et valeurs de config hors plage omises.
+        // Cf. App\Service\FirmwareStateCompat.
+        return (new FirmwareStateCompat($this->operationalSettings))
+            ->sanitize($flat, $this->firmwareModule());
+    }
+
+    /**
+     * Module firmware au sens de {@see FirmwareStateCompat} ('n3pp', 'msp1'),
+     * dérivé du module d'audit ('' si inconnu → seules les bornes communes s'appliquent).
+     */
+    protected function firmwareModule(): string
+    {
+        return match ($this->auditModule()) {
+            'n3pp' => FirmwareStateCompat::MODULE_N3PP,
+            'msp' => FirmwareStateCompat::MODULE_MSP1,
+            default => '',
+        };
     }
 
     /**

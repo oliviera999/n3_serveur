@@ -25,6 +25,22 @@ use App\Repository\HeartbeatMonitorRepository;
  * Choix de robustesse : une table SANS aucun heartbeat (null) est IGNORÉE (l'appareil
  * n'a jamais émis = famille non déployée), afin de ne pas générer de fausses alertes à
  * chaque cycle CRON. On n'alerte que sur un appareil ayant un historique devenu obsolète.
+ *
+ * DEUX GARDE-FOUS contre les fausses alertes « silencieux » (correctif juillet 2026) :
+ *
+ *  1. **UN MODULE QUI ENVOIE DES DONNÉES N'EST PAS SILENCIEUX.** Le heartbeat et le POST
+ *     de mesures sont deux flux INDÉPENDANTS et de cadences très différentes : côté
+ *     ffp5cs le heartbeat part au plus une fois par cycle de réveil, en « fire and
+ *     forget » (aucune file de reprise, `lastHeartbeat` avancé même en cas d'échec, envoi
+ *     déclenché pendant la fenêtre de reconnexion WiFi), là où les mesures sont postées
+ *     toutes les 30 s en éveil AVEC file de reprise et rejeu SD. Un seul heartbeat perdu
+ *     suffisait donc à déclarer « silencieux » un module dont les données arrivaient
+ *     parfaitement. On croise désormais les deux sources : tant que la dernière MESURE est
+ *     fraîche (même seuil), aucune alerte n'est émise (cf. {@see $lastDataProviders}).
+ *  2. **Le seuil configuré est un PLANCHER.** Le seuil dérivé de la veille
+ *     ({@see OfflineThresholdResolver}) modélise la cadence des DONNÉES ; l'appliquer tel
+ *     quel au heartbeat raccourcissait la tolérance historique (3600 s → ~1260 s en
+ *     journée). Il ne peut plus que l'ALLONGER (facteur nuit), jamais la raccourcir.
  */
 class DeviceHealthService
 {
@@ -37,6 +53,10 @@ class DeviceHealthService
      * @param array<int, array{family: string, table: string}>|null $families
      *        Familles à superviser (défaut : FFP3, N3PP, MSP1 via TableConfig).
      *        Surchargeable pour les tests.
+     * @param array<string, callable(): ?string>|null $lastDataProviders
+     *        Par famille, une closure retournant la date SQL de la dernière MESURE reçue
+     *        (table de données). Sert de contre-preuve : des mesures fraîches interdisent
+     *        l'alerte « silencieux ». Absente → seul le heartbeat est consulté.
      */
     public function __construct(
         private HeartbeatMonitorRepository $heartbeatRepo,
@@ -46,6 +66,7 @@ class DeviceHealthService
         private ?array $families = null,
         private ?OfflineThresholdResolver $thresholdResolver = null,
         private ?OperationalSettingsService $operationalSettings = null,
+        private ?array $lastDataProviders = null,
     ) {
         $this->offlineThresholdSeconds = $offlineThresholdSeconds
             ?? $this->operationalSettings?->int('HEARTBEAT_OFFLINE_THRESHOLD_SECONDS', self::DEFAULT_OFFLINE_THRESHOLD_SECONDS)
@@ -137,21 +158,69 @@ class DeviceHealthService
             return false;
         }
 
+        // Contre-preuve : des mesures fraîches prouvent que le module émet, quelle que
+        // soit la vétusté du heartbeat (flux distinct, sans reprise sur échec).
+        $dataAge = $this->lastDataAgeSeconds($family);
+        if ($dataAge !== null && $dataAge <= $threshold) {
+            $this->logger->info('DeviceHealthService: heartbeat en retard mais données fraîches', [
+                'family' => $family,
+                'heartbeat_age_seconds' => $ageSeconds,
+                'data_age_seconds' => $dataAge,
+                'threshold_seconds' => $threshold,
+            ]);
+
+            return false;
+        }
+
         return $this->alertOffline($family, $ageSeconds, $threshold);
     }
 
     /**
-     * Seuil d'inactivité (s) pour la famille : dérivé du temps de veille en BDD si un
-     * {@see OfflineThresholdResolver} est fourni (tient compte du facteur nuit FFP3),
-     * sinon le forfait historique ({@see $offlineThresholdSeconds}).
+     * Seuil d'inactivité (s) pour la famille. Le forfait configuré
+     * ({@see $offlineThresholdSeconds}) est un PLANCHER : le seuil dérivé du temps de
+     * veille ({@see OfflineThresholdResolver}, facteur nuit FFP3) ne peut que l'allonger.
+     * Il modélise la cadence des données, plus courte que celle du heartbeat : le prendre
+     * tel quel produisait des alertes « silencieux » sur un module parfaitement vivant.
      */
     private function resolveThresholdSeconds(string $family): int
     {
         if ($this->thresholdResolver !== null) {
-            return $this->thresholdResolver->resolveForFamily($family);
+            return max($this->thresholdResolver->resolveForFamily($family), $this->offlineThresholdSeconds);
         }
 
         return $this->offlineThresholdSeconds;
+    }
+
+    /**
+     * Âge (s) de la dernière mesure reçue pour la famille, ou null si aucune source de
+     * données n'est câblée, si la table est vide ou si la lecture échoue (fail-safe : on
+     * ne bloque jamais l'alerte sur une erreur de lecture).
+     */
+    private function lastDataAgeSeconds(string $family): ?int
+    {
+        $provider = $this->lastDataProviders[$family] ?? null;
+        if (!is_callable($provider)) {
+            return null;
+        }
+
+        try {
+            $lastData = $provider();
+        } catch (\Throwable $e) {
+            $this->logger->warning('DeviceHealthService: lecture dernière mesure impossible', [
+                'family' => $family,
+                'error' => $e->getMessage(),
+            ]);
+
+            return null;
+        }
+
+        if (!is_string($lastData) || $lastData === '') {
+            return null;
+        }
+
+        $ts = strtotime($lastData);
+
+        return $ts === false ? null : time() - $ts;
     }
 
     /**
@@ -168,8 +237,8 @@ class DeviceHealthService
 
         $message = sprintf(
             "Aucun battement de cœur (heartbeat) reçu de l'appareil %s depuis environ %d minute(s) "
-            . "(seuil : %d minute(s)).\nL'appareil ne transmet plus : vérifiez son alimentation, "
-            . 'sa connexion réseau ou son firmware.',
+            . "(seuil : %d minute(s)), et aucune mesure récente non plus.\nL'appareil ne transmet "
+            . 'plus : vérifiez son alimentation, sa connexion réseau ou son firmware.',
             strtoupper($family),
             $minutes,
             (int) round($thresholdSeconds / 60)
