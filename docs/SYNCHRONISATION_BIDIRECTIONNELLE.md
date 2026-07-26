@@ -62,7 +62,9 @@ WHERE gpio = :gpio AND name IS NOT NULL AND name != ''
 
 **Contrat actuel (page contrôle + GET state + firmware `gpio_parser.cpp`)** : `state = 1` → pompe **ON**, `state = 0` → pompe **OFF**. Aucune inversion dans `getOutputsState()` ni dans `control.twig` (`is_inverted = false`).
 
-**Exception legacy** : [`PumpService`](../src/Service/PumpService.php) (scripts/cron historiques) utilise une logique relais active-low : `runPompeTank()` écrit `0`, `stopPompeTank()` écrit `1`. Ne pas confondre avec la page `/aquaponie-control` ni le poll ESP32.
+**Exception legacy** : [`PumpService`](../src/Service/PumpService.php) (scripts historiques) utilise une logique relais active-low : `runPompeTank()` écrit `0`, `stopPompeTank()` écrit `1`. Ne pas confondre avec la page `/aquaponie-control` ni le poll ESP32.
+
+⚠️ **Ces deux méthodes n'ont plus aucun appelant applicatif** : depuis la 6.27.0, `CronOrchestrator::checkLowWaterLevel()` n'agit plus sur la pompe réserve (alerte seule). Comme le GET sert la valeur brute et que le firmware lit `1 = ON` (front montant dans `gpio_parser.cpp`), un `stopPompeTank()` déclenchait en réalité un remplissage manuel. **Ne pas réintroduire d'appel à `PumpService` sur le GPIO 18** sans convertir d'abord la convention (`stopPompeTank()` → `0`).
 
 **Sync POST** : `syncStatesFromSensorData()` recopie `etatPompeTank` tel quel (même sémantique 0/1 que le firmware POST).
 

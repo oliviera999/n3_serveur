@@ -164,6 +164,11 @@ class PumpService
     /**
      * Arrête la pompe réserve (relais active-low : state BDD = 1).
      * Ne pas confondre avec la page /aquaponie-control ni le GET /api/outputs/state (1 = ON).
+     *
+     * ⚠️ SANS APPELANT APPLICATIF depuis la 6.27.0 (le CRON « aquarium bas » n'agit plus sur la
+     * pompe). La convention ci-dessus est INVERSE de celle du GPIO 18 servi au firmware : écrire
+     * `1` ici revient à commander un DÉMARRAGE côté ESP32 (front montant, `gpio_parser.cpp`).
+     * Ne pas réintroduire d'appel sans convertir la convention au préalable.
      */
     public function stopPompeTank(): void
     {
@@ -172,6 +177,9 @@ class PumpService
 
     /**
      * Démarre la pompe réserve (relais active-low : state BDD = 0).
+     *
+     * ⚠️ Même réserve que {@see stopPompeTank()} : sans appelant applicatif, convention inverse
+     * du contrat GPIO 18 lu par le firmware.
      */
     public function runPompeTank(): void
     {

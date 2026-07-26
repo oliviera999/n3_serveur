@@ -122,10 +122,15 @@ class CronOrchestratorTest extends TestCase
         $this->assertGreaterThan(time() - 10, (int) file_get_contents($this->tempDir . '/cron_last_hourly.timestamp'));
     }
 
-    public function testLowWaterLevelStopsTankPump(): void
+    /**
+     * Aquarium bas = seuil de remplissage du firmware : le serveur alerte, mais ne touche
+     * PAS à la pompe réserve (le pilotage et ses sécurités appartiennent à l'ESP32).
+     */
+    public function testLowWaterLevelAlertsWithoutTouchingTankPump(): void
     {
         $pump = $this->createMock(PumpService::class);
-        $pump->expects($this->once())->method('stopPompeTank');
+        $pump->expects($this->never())->method('stopPompeTank');
+        $pump->expects($this->never())->method('runPompeTank');
         $pump->method('getAquaPumpState')->willReturn(0);
         $pump->method('getTankPumpState')->willReturn(1);
         $pump->method('getResetModeState')->willReturn(0);
@@ -146,10 +151,11 @@ class CronOrchestratorTest extends TestCase
         $orchestrator->execute();
     }
 
-    public function testNormalWaterLevelDoesNotStopTankPump(): void
+    public function testNormalWaterLevelSendsNoAlert(): void
     {
         $pump = $this->createMock(PumpService::class);
         $pump->expects($this->never())->method('stopPompeTank');
+        $pump->expects($this->never())->method('runPompeTank');
         $pump->method('getAquaPumpState')->willReturn(0);
         $pump->method('getTankPumpState')->willReturn(1);
         $pump->method('getResetModeState')->willReturn(0);
