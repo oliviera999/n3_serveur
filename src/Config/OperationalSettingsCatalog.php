@@ -72,12 +72,25 @@ final class OperationalSettingsCatalog
                 'hint' => 'Liste séparée par des virgules : hydraulic, energy, environment, feeding, availability, lifecycle, camera, system.',
                 'default' => '',
             ],
+            'FIRMWARE_FLAT_STATE_MODE' => [
+                'env' => 'FIRMWARE_FLAT_STATE_MODE',
+                'type' => self::TYPE_ENUM,
+                'group' => self::GROUP_MAINTENANCE,
+                'label' => 'Config distante n3pp/msp (clés plates)',
+                'hint' => 'off = la flotte garde sa config locale (contrat d\'avant v6.25.0, '
+                    . 'recommandé tant que les modules ne sont pas reflashés) ; safe = config '
+                    . 'appliquée mais nettoyée (état pompe miroir retiré, valeurs hors plage '
+                    . 'ignorées) ; full = tout est renvoyé tel quel.',
+                'default' => 'off',
+                'options' => ['off', 'safe', 'full'],
+            ],
             'HEARTBEAT_OFFLINE_THRESHOLD_SECONDS' => [
                 'env' => 'HEARTBEAT_OFFLINE_THRESHOLD_SECONDS',
                 'type' => self::TYPE_INT,
                 'group' => self::GROUP_ALERTS,
                 'label' => 'Délai appareil silencieux',
-                'hint' => 'Secondes sans heartbeat avant alerte (toutes familles).',
+                'hint' => 'Secondes sans heartbeat avant alerte (toutes familles). Sert de '
+                    . 'PLANCHER : le seuil dérivé de la veille ne peut que l\'allonger.',
                 'default' => 3600,
                 'min' => 60,
                 'max' => 86400,

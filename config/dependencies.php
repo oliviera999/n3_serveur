@@ -106,7 +106,15 @@ return [
             null,
             null,
             $c->get(\App\Service\OfflineThresholdResolver::class),
-            $c->get(\App\Service\OperationalSettingsService::class)
+            $c->get(\App\Service\OperationalSettingsService::class),
+            // Contre-preuve « le module envoie des données » : tables de mesures par
+            // famille (lecture paresseuse — aucun repo instancié si l'alerte n'est pas
+            // envisagée). Un heartbeat perdu ne déclenche plus d'alerte « silencieux ».
+            [
+                'FFP3' => static fn (): ?string => $c->get(\App\Repository\SensorReadRepository::class)->getLastReadingDate(),
+                'N3PP' => static fn (): ?string => $c->get(\App\Repository\N3ppSensorRepository::class)->getLastReadingDate(),
+                'MSP1' => static fn (): ?string => $c->get(\App\Repository\MspSensorRepository::class)->getLastReadingDate(),
+            ]
         );
     },
 

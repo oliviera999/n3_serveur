@@ -11,6 +11,61 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.26.0] - 2026-07-26
+
+### Compatibilité flotte déployée — rollback des clés plates n3pp/msp (n3pp 4.57 muet)
+
+⚠️ **Rollback du changement de comportement introduit en 6.25.0**, la flotte ne pouvant pas
+être reflashée avant plusieurs semaines. Nouveau réglage opérationnel
+`FIRMWARE_FLAT_STATE_MODE` (`off` **par défaut** / `safe` / `full`, groupe Maintenance).
+
+Depuis la 6.25.0, `GET /{module}/api/outputs/state` fusionnait les clés plates à la racine
+pour un firmware authentifié : la flotte n3pp/msp adoptait d'un coup la configuration
+stockée en BDD, jamais confrontée au terrain. Deux effets de bord peuvent rendre un module
+définitivement muet, sans récupération possible par OTA :
+
+- **Boucle de rétroaction sur l'état pompe (n3pp, GPIO 12)** : le serveur recopie la mesure
+  `etatPompe` de chaque POST dans la ligne de *commande* GPIO 12
+  (`N3ppPostDataController::insertData`) ; le firmware relit cette clé plate et exécute
+  `digitalWrite(POMPE, 1)` à chaque réveil, avant sa logique d'arrosage, puis re-poste
+  `etatPompe=1`. La boucle s'auto-entretient → pompe alimentée en continu, batterie vidée,
+  module qui cesse d'émettre avec les apparences d'une panne d'alimentation.
+- **Config appliquée sans garde-fou** : `SeuilPontDiv` (GPIO 103) est lu *sans bornage* par
+  le firmware et le champ de l'interface n'a pas de maximum ; une valeur haute, combinée à
+  `veilleInfinie` (GPIO 112, défaut 1), envoie le module en veille GPIO-only (aucun réveil
+  timer). Idem `FreqWakeUp` (107) à 86400 s, `resetMode` (110) latché, servos msp (104/105).
+
+- `off` (défaut) : aucune clé plate fusionnée → contrat strictement identique à celui
+  d'avant la 6.25.0 (l'acquittement one-shot reste effectué, comme avant).
+- `safe` : clés fusionnées mais **nettoyées** — GPIO d'état miroir retirés (n3pp 12) et
+  valeurs de config hors plage omises (le firmware conserve alors sa valeur locale et
+  journalise `[SERVER][GET][WARN] Cle … absente`). Bornes : 102/103 ∈ 0–4095, 107 ∈ 1–86400,
+  106/110/111/112 ∈ 0–1, 104/105 selon le module.
+- `full` : comportement 6.25.0 tel quel.
+
+Le nettoyage `safe` s'applique aussi à `GET /{module}/api/firmware/outputs/state`, qui reste
+toujours servie. Nouveau service `App\Service\FirmwareStateCompat` + tests
+(`FirmwareStateCompatTest`, `RealtimeOutputsStateFirmwareFlatTest` étendu).
+Checklist de bascule et requêtes de vérification : **`docs/COMPAT_FLOTTE_DEPLOYEE.md`**.
+
+### Corrections — fausse alerte « appareil silencieux » alors que les données arrivent
+
+`DeviceHealthService` surveille la table *heartbeat*, mais depuis la 6.19 avec un seuil
+dérivé de la veille (`FreqWakeUp × 2 + 60`, ≈ 21 min en journée) au lieu du forfait
+historique de 3600 s. Or heartbeat et POST de mesures sont deux flux indépendants : côté
+ffp5cs le heartbeat part au plus une fois par cycle de réveil, en *fire and forget* (aucune
+file de reprise, horodatage avancé même en cas d'échec, envoi déclenché pendant la fenêtre
+de reconnexion WiFi), là où les mesures partent toutes les 30 s en éveil avec file de
+reprise et rejeu SD. **Un seul heartbeat perdu suffisait donc à déclarer « silencieux » un
+module dont les données arrivaient parfaitement** (la 6.25.1 n'avait traité que la nuit).
+
+- **Contre-preuve données** : aucune alerte tant que la dernière *mesure* de la famille est
+  fraîche (même seuil). Lecture en erreur → ignorée (fail-safe : ne masque jamais une panne).
+- **Plancher** : `HEARTBEAT_OFFLINE_THRESHOLD_SECONDS` (défaut 3600 s) redevient effectif —
+  le seuil dérivé de la veille ne peut plus que l'**allonger** (facteur nuit FFP3), jamais le
+  raccourcir. Le réglage « Délai appareil silencieux » de la supervision, jusqu'ici sans
+  effet dès que le résolveur était câblé, repilote donc à nouveau la tolérance.
+
 ## [6.25.1] - 2026-07-19
 
 ### Corrections — faux positifs « hors ligne » la nuit (FFP3 / ffp5cs)
