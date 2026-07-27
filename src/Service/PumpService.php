@@ -99,8 +99,11 @@ class PumpService
             $stmt = $this->pdo->query($sql);
             if ($stmt !== false) {
                 // MySQL (SHOW COLUMNS) et SQLite (PRAGMA) exposent tous deux le nom
-                // de la colonne sous la clé `Field` / `name` respectivement.
+                // de la colonne, sous la clé `Field` / `name` respectivement.
                 foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                    if (!is_array($row)) {
+                        continue;
+                    }
                     $name = $row['Field'] ?? $row['name'] ?? null;
                     if (is_string($name) && $name !== '') {
                         $columns[$name] = true;
