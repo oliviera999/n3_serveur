@@ -501,10 +501,15 @@ laisser l'UI choisir ce qu'elle affiche. Plus verbeux, mais sans ambiguïté.
 
 > **Correctif appliqué (6.34.0)** — **option A**, mais par EXTRACTION plutôt que par
 > réécriture : `RateLimitMiddleware::clientIp()` implémentait déjà ce durcissement,
-> correctement et avec support IPv6. Il est déplacé verbatim dans
-> `App\Util\ClientIpResolver`, désormais utilisé par les trois appelants — les limiteurs
-> firmware héritent donc aussi d'IPv6 (`inet_pton`, CIDR v4/v6). L'option B (clé composite
-> IP + sensor) reste possible en complément si un jour plusieurs appareils partagent une IP.
+> correctement et avec support IPv6. Il est déplacé dans `App\Util\ClientIpResolver`,
+> désormais utilisé par les trois appelants — les limiteurs firmware héritent donc aussi
+> d'IPv6 (`inet_pton`, CIDR v4/v6). L'option B (clé composite IP + sensor) reste possible en
+> complément si un jour plusieurs appareils partagent une IP.
+>
+> **Bonus** : écrire les tests de l'extraction a révélé un fail-open dans le code d'origine —
+> un masque CIDR malformé (`/abc`, ou `/` vide) était parsé comme `/0`, donc « confiance à
+> tout le monde ». Une coquille dans `TRUSTED_PROXIES` suffisait à rouvrir le contournement.
+> Le masque doit maintenant être strictement numérique.
 
 `AbstractPostDataController::enforceFirmwareRateLimit()`
 (`src/Controller/AbstractPostDataController.php:100-106`) et son jumeau dans

@@ -26,10 +26,18 @@ le compteur d'une IP tierce.
 Le durcissement adéquat existait déjà, correct et couvert par des tests, dans
 `RateLimitMiddleware::clientIp()` (limiteur de login) : l'en-tête n'est cru que si
 `REMOTE_ADDR` appartient à `TRUSTED_PROXIES`. Plutôt que d'en écrire une troisième variante,
-cette logique est **extraite verbatim** dans `App\Util\ClientIpResolver`, dont les trois
-appelants dépendent désormais. Les limiteurs firmware héritent au passage du support **IPv6**
+cette logique est **extraite** dans `App\Util\ClientIpResolver`, dont les trois appelants
+dépendent désormais. Les limiteurs firmware héritent au passage du support **IPv6**
 (`inet_pton`, CIDR v4/v6) que la copie naïve n'avait pas. `TRUSTED_PROXIES` vide (défaut)
 = aucun proxy de confiance, `X-Forwarded-For` totalement ignoré.
+
+**Constat supplémentaire, mis au jour par les tests de l'extraction** : un masque CIDR
+malformé était traité comme `/0`, c'est-à-dire **« faire confiance à tout le monde »**.
+`(int) 'abc'` valant `0`, une simple coquille dans `TRUSTED_PROXIES` (`10.0.0.0/abc`, ou même
+`10.0.0.0/` avec un masque vide) rouvrait exactement le contournement que cette liste ferme —
+un fail-open sur un contrôle de sécurité, silencieux. Le masque doit désormais être
+strictement numérique ; un `/0` écrit explicitement reste honoré (choix assumé de
+l'exploitant). Le limiteur de login bénéficie du correctif par la même occasion.
 
 ### `updated` compte enfin les paramètres réellement persistés (S8)
 

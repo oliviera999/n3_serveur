@@ -103,12 +103,49 @@ final class ClientIpResolverTest extends TestCase
         $this->assertSame('10.0.0.1', ClientIpResolver::resolve($this->request('10.0.0.1')));
     }
 
-    public function testMalformedCidrIsNotTrusted(): void
+    /**
+     * Un masque malformé ne doit JAMAIS valoir « /0 » (= confiance à tout le monde).
+     * C'est le comportement qu'avait le code d'origine : `(int) 'abc'` = 0, donc une
+     * simple coquille dans `TRUSTED_PROXIES` rouvrait le contournement que cette liste
+     * est censée fermer. Corrigé en 6.34.0.
+     *
+     * @dataProvider malformedCidrs
+     */
+    public function testMalformedCidrIsNotTrusted(string $entry): void
     {
-        $_ENV['TRUSTED_PROXIES'] = '10.0.0.0/abc';
+        $_ENV['TRUSTED_PROXIES'] = $entry;
 
         $this->assertSame(
             '10.0.0.1',
+            ClientIpResolver::resolve($this->request('10.0.0.1', '198.51.100.7')),
+            "L'entrée « {$entry} » ne doit accorder aucune confiance"
+        );
+    }
+
+    /**
+     * @return array<string, array{string}>
+     */
+    public static function malformedCidrs(): array
+    {
+        return [
+            'masque non numérique' => ['10.0.0.0/abc'],
+            'masque vide' => ['10.0.0.0/'],
+            'masque négatif' => ['10.0.0.0/-1'],
+            'masque hors plage' => ['10.0.0.0/33'],
+            'sous-réseau invalide' => ['pas-une-ip/8'],
+        ];
+    }
+
+    /**
+     * En revanche, un `/0` écrit EXPLICITEMENT reste honoré : c'est un choix assumé
+     * de l'exploitant (« tout le réseau est de confiance »), pas une coquille.
+     */
+    public function testExplicitZeroPrefixIsHonoured(): void
+    {
+        $_ENV['TRUSTED_PROXIES'] = '0.0.0.0/0';
+
+        $this->assertSame(
+            '198.51.100.7',
             ClientIpResolver::resolve($this->request('10.0.0.1', '198.51.100.7'))
         );
     }

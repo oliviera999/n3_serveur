@@ -94,6 +94,19 @@ final class ClientIpResolver
     private static function ipInCidr(string $ip, string $cidr): bool
     {
         [$subnet, $maskLen] = array_pad(explode('/', $cidr, 2), 2, '');
+
+        // Masque non numérique ou vide -> entrée malformée, JAMAIS de confiance.
+        //
+        // Sans ce garde (comportement d'origine, corrigé en 6.34.0 et mis au jour par
+        // ClientIpResolverTest), `(int) 'abc'` valait 0 : une coquille dans
+        // `TRUSTED_PROXIES` — `10.0.0.0/abc`, ou même `10.0.0.0/` — devenait un `/0`,
+        // c'est-à-dire « faire confiance à TOUT LE MONDE ». Une faute de frappe dans la
+        // configuration rouvrait donc exactement le contournement que cette liste ferme.
+        // Un `/0` écrit explicitement reste accepté (choix assumé de l'exploitant).
+        if ($maskLen === '' || !ctype_digit($maskLen)) {
+            return false;
+        }
+
         $ipBin = @inet_pton($ip);
         $subnetBin = @inet_pton($subnet);
         if ($ipBin === false || $subnetBin === false) {
