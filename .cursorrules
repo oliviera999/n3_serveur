@@ -172,7 +172,7 @@ php -S localhost:8080 -t public
 
 - `SensorStatisticsService` / `StatisticsAggregatorService`: Calculs statistiques capteurs
 - `SensorDataService` / `ChartDataService`: Données capteurs & séries pour les graphiques
-- `PumpService`: Contrôle GPIO des pompes (aqua, tank). ⚠️ Convention legacy relais actif-bas sur le **tank** (`stopPompeTank()` écrit `1`) alors que le firmware lit `1 = ON` → `runPompeTank()`/`stopPompeTank()` sans appelant applicatif depuis la 6.27.0, à ne pas réintroduire tel quel
+- `PumpService`: Contrôle GPIO des pompes (aqua, tank). Convention unique depuis la 6.30.0 : **`1` = ON, `0` = OFF** sur tous les GPIO d'actionneur, identique à la page de contrôle, au `GET /api/outputs/state` et au firmware (l'ancienne logique actif-bas du tank écrivait `1` pour « arrêter », ce que l'ESP32 lisait comme un démarrage)
 - `WaterBalanceService` / `TideAnalysisService` / `TideCycleDetector`: Analyses hydrauliques
 - `NotificationService`: Envoi d'emails d'alerte
 - `ErrorAlertService`: Alertes d'erreurs serveur

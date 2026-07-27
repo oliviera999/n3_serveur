@@ -32,7 +32,7 @@ class OutputCacheService
      * Alignées avec include/gpio_mapping.h (GPIODefaults) et migrations/INIT_GPIO_BASE_ROWS.sql
      */
     private const DEFAULT_STATE = [
-        2 => 0,   15 => 0,   16 => 0,   18 => 1,   // actionneurs physiques (pompe réserve 1 par défaut)
+        2 => 0,   15 => 0,   16 => 0,   18 => 0,   // actionneurs physiques (tous OFF par défaut : 1 = ON)
         100 => 0, 101 => 1,  102 => 18, 103 => 80, 104 => 18, // config: email, notif, seuils
         105 => 8, 106 => 12, 107 => 19,             // heures nourrissage
         108 => 0, 109 => 0, 110 => 0,              // commandes nourrissage + reset

@@ -11,6 +11,44 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.30.0] - 2026-07-27
+
+### GPIO 18 (pompe réserve) : convention unifiée `1 = ON` — le seed faisait démarrer un remplissage
+
+`PumpService` suivait une logique relais **actif-bas** sur la pompe réserve (`stopPompeTank()`
+écrivait `1`, `runPompeTank()` écrivait `0`), inverse du contrat réellement servi au firmware :
+`GET /api/outputs/state` transmet la valeur brute et `gpio_parser.cpp` lit `1 = ON` (déclenchement
+sur front montant). Un « arrêt » commandait donc un **démarrage** de remplissage. Les deux méthodes
+n'avaient plus d'appelant depuis la 6.27.0, mais le piège restait posé.
+
+Deux traces du même héritage étaient, elles, bien actives :
+
+- `OutputCacheService::DEFAULT_STATE` renvoyait `18 => 1` quand la ligne manque en BDD ;
+- `migrations/INIT_GPIO_BASE_ROWS.sql` créait la ligne GPIO 18 avec `state = 1`.
+
+Dans les deux cas, une installation neuve servait `18: 1` au premier poll de l'ESP32 — front montant
+depuis l'état de boot, donc **remplissage manuel déclenché** sans que personne ne l'ait demandé.
+
+Tout est désormais aligné sur `1 = ON` / `0 = OFF` : `PumpService`, la valeur par défaut et le seed.
+Les installations existantes ne sont pas touchées (`ON DUPLICATE KEY UPDATE` ne réécrit pas `state`)
+et le POST firmware resynchronise l'état réel toutes les 30 s.
+
+### Replis hors container : mêmes réglages BDD que via le DI
+
+Audit statique des instanciations manuelles (`new App\...`) hors container, à la recherche du même
+défaut que la 6.28.0 : 6 sites trouvés, tous des replis `?? new X(...)` dans les constructeurs du
+CRON, atteints uniquement en construction directe (tests, script ad hoc) — jamais en production, où
+la fabrique DI injecte tout. Les replis de `CronOrchestrator` reçoivent maintenant
+`$operationalSettings` (`LogService`, `SensorDataService`, `SensorReadRepository`) et un
+`NotificationPolicyResolver` construit sur le `$pdo` déjà disponible, au lieu de retomber sur `.env`
+et d'ouvrir une seconde connexion via `Database::getConnection()`.
+
+Les trois sites restants sont intentionnels : les paramètres non passés à `NotificationService` ont
+des défauts identiques à ceux de la fabrique DI, `RestartPumpCommand` n'a pas de service de réglages
+dans sa portée (le DI lui injecte un `LogService` déjà configuré), et les collaborateurs du
+`CronOrchestrator` non listés dans la fabrique sont dérivés en interne du `$pdo` (vérifiés non-null
+par `ContainerWiringTest`).
+
 ## [6.29.0] - 2026-07-26
 
 ### Contrôle d'accès — filtrage par rôle inopérant et authentification BDD inactive

@@ -13,7 +13,7 @@
 | Routes / auth | OK | URLs actuelles, 301 depuis `/control*`, auth sur page + POST, GET state public |
 | Mapping GPIO / paramètres | OK | `OutputRepository::PARAMETER_GPIO_MAP` aligné sur `control.twig` et GET state |
 | GPIO 117 (forçage pompe) | OK (serveur) | Documenté extension serveur ; absent firmware `ALL_MAPPINGS` (volontaire) |
-| GPIO 18 (pompe réserve) | OK après clarification | UI/firmware : 1=ON ; `PumpService` = legacy relais actif-bas uniquement |
+| GPIO 18 (pompe réserve) | Unifié en 6.30.0 | `1=ON` partout (UI, GET state, firmware, `PumpService`, seed migration) ; l'exception actif-bas de `PumpService` est supprimée |
 | Texte UI « sync » | Corrigé | Ancien « &lt; 4 s » remplacé par délai réaliste 6–10 s |
 | Documentation historique | Corrigé | `AUDIT_PAGE_CONTROL_DISTANT`, `SYNCHRONISATION_BIDIRECTIONNELLE`, `AUTHENTICATION` |
 | Tests automatisés | Ajout | `tests/Repository/OutputRepositoryTest.php` (3 tests, 51 assertions) |

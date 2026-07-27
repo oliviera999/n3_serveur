@@ -6,10 +6,12 @@ namespace App\Command;
 
 use App\Config\Database;
 use App\Notification\NotificationCategory;
+use App\Notification\NotificationPolicyResolver;
 use App\Notification\Severity;
 use App\Repository\HeartbeatMonitorRepository;
 use App\Repository\MspSensorRepository;
 use App\Repository\N3ppSensorRepository;
+use App\Repository\NotificationPolicyRepository;
 use App\Repository\OutputMonitorRepository;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
@@ -124,12 +126,21 @@ class CronOrchestrator
         // donc `$needsDatabase` est faux et aucune connexion n'était ouverte ici).
         $pdo ??= $needsDatabase ? Database::getConnection() : null;
 
-        $this->logger = $logger ?? new LogService();
-        $this->sensorDataService = $sensorDataService ?? new SensorDataService($pdo, $this->logger);
+        // Replis utilisés hors container (construction directe) : leur passer
+        // $operationalSettings, sinon ces services perdent la lecture des réglages BDD
+        // exactement comme le faisait le câblage DI avant la 6.28.0.
+        $this->logger = $logger ?? new LogService($operationalSettings);
+        $this->sensorDataService = $sensorDataService
+            ?? new SensorDataService($pdo, $this->logger, $operationalSettings);
         $this->pumpService = $pumpService ?? new PumpService($pdo);
         $this->statsService = $statsService ?? new SensorStatisticsService($pdo);
-        $this->notifier = $notifier ?? new NotificationService($this->logger);
-        $this->sensorReadRepo = $sensorReadRepo ?? new SensorReadRepository($pdo);
+        $this->notifier = $notifier ?? new NotificationService(
+            $this->logger,
+            policyResolver: $pdo !== null
+                ? NotificationPolicyResolver::fromEnv(new NotificationPolicyRepository($pdo), $operationalSettings)
+                : null
+        );
+        $this->sensorReadRepo = $sensorReadRepo ?? new SensorReadRepository($pdo, $operationalSettings);
 
         // Lecture des seuils pilotés en BDD. Restent null en contexte de test (toutes les
         // dépendances injectées, pas de PDO) : les seuils retombent alors sur `.env` / défauts.
@@ -377,11 +388,12 @@ class CronOrchestrator
      * Historique : jusqu'en 6.26.0 ce bloc appelait `PumpService::stopPompeTank()`, avec deux
      * défauts. (1) Intention inverse du firmware, qui démarre la pompe sur la même condition ;
      * la panne sèche est couverte par le seuil réserve (GPIO 103, verrou `RESERVOIR_LOW` de
-     * l'ESP32), pas par celui-ci. (2) `stopPompeTank()` suit la convention legacy relais
+     * l'ESP32), pas par celui-ci. (2) `stopPompeTank()` suivait alors la convention relais
      * actif-bas (`state = 1`), alors que `GET /api/outputs/state` sert la valeur brute et que
      * le firmware lit `1 = ON` (`gpio_parser.cpp`, front montant) : la « sécurité » commandait
      * en réalité un remplissage manuel — relancé à chaque minute tant que le niveau restait
-     * bas, et hors du compteur d'essais qui verrouille la pompe inefficace.
+     * bas, et hors du compteur d'essais qui verrouille la pompe inefficace. Cette seconde
+     * inversion est corrigée depuis la 6.30.0 (`PumpService` aligné sur `1 = ON`).
      */
     private function checkLowWaterLevel(): void
     {

@@ -58,13 +58,13 @@ WHERE gpio = :gpio AND name IS NOT NULL AND name != ''
   AND (lastModifiedBy != 'web' OR requestTime IS NULL OR requestTime < NOW() - INTERVAL :priority SECOND)
 ```
 
-### Problème 2: GPIO 18 (pompe réserve) — sémantique UI / firmware / legacy
+### Problème 2: GPIO 18 (pompe réserve) — sémantique unifiée depuis la 6.30.0
 
-**Contrat actuel (page contrôle + GET state + firmware `gpio_parser.cpp`)** : `state = 1` → pompe **ON**, `state = 0` → pompe **OFF**. Aucune inversion dans `getOutputsState()` ni dans `control.twig` (`is_inverted = false`).
+**Contrat unique** : `state = 1` → pompe **ON**, `state = 0` → pompe **OFF**. Vrai partout : page contrôle (`control.twig`, `is_inverted = false`), `getOutputsState()` (aucune inversion), firmware (`gpio_parser.cpp`, déclenchement sur front montant), `PumpService` et le seed `INIT_GPIO_BASE_ROWS.sql`.
 
-**Exception legacy** : [`PumpService`](../src/Service/PumpService.php) (scripts historiques) utilise une logique relais active-low : `runPompeTank()` écrit `0`, `stopPompeTank()` écrit `1`. Ne pas confondre avec la page `/aquaponie-control` ni le poll ESP32.
+**Historique (résolu)** : `PumpService` suivait une logique relais active-low — `stopPompeTank()` écrivait `1`, `runPompeTank()` écrivait `0` — inverse du canal réellement lu par l'ESP32. Un « arrêt » y commandait donc un remplissage. Deux traces du même héritage ont été corrigées en même temps : la valeur par défaut `18 => 1` de `OutputCacheService` et le seed de migration à `1`, qui faisaient démarrer un remplissage au premier poll d'une installation neuve (ligne GPIO 18 absente ou fraîchement créée).
 
-⚠️ **Ces deux méthodes n'ont plus aucun appelant applicatif** : depuis la 6.27.0, `CronOrchestrator::checkLowWaterLevel()` n'agit plus sur la pompe réserve (alerte seule). Comme le GET sert la valeur brute et que le firmware lit `1 = ON` (front montant dans `gpio_parser.cpp`), un `stopPompeTank()` déclenchait en réalité un remplissage manuel. **Ne pas réintroduire d'appel à `PumpService` sur le GPIO 18** sans convertir d'abord la convention (`stopPompeTank()` → `0`).
+Les installations existantes ne sont pas impactées : `ON DUPLICATE KEY UPDATE` ne réécrit pas `state`, et le POST firmware resynchronise l'état réel toutes les 30 s.
 
 **Sync POST** : `syncStatesFromSensorData()` recopie `etatPompeTank` tel quel (même sémantique 0/1 que le firmware POST).
 

@@ -26,8 +26,13 @@ VALUES (16, 'Pompe Aquarium', 'ESP32-MAIN', 0, 'Pompe de circulation aquarium (m
 ON DUPLICATE KEY UPDATE name='Pompe Aquarium', board='ESP32-MAIN', description='Pompe de circulation aquarium (marée)';
 
 -- GPIO 18: Pompe Réserve
+-- state=0 (pompe à l'arrêt) : contrat unique du GPIO 18, 1 = ON / 0 = OFF, identique à la
+-- page de contrôle, au GET /api/outputs/state et au firmware. Le seed valait 1 (héritage
+-- relais actif-bas) : sur une installation neuve, le premier poll de l'ESP32 y lisait un
+-- front montant et démarrait un remplissage. Les lignes existantes ne sont pas touchées
+-- (ON DUPLICATE KEY UPDATE ne réécrit pas `state`) et le POST firmware resynchronise l'état réel.
 INSERT INTO ffp3Outputs (gpio, name, board, state, description)
-VALUES (18, 'Pompe Réserve', 'ESP32-MAIN', 1, 'Pompe de remplissage depuis réserve')
+VALUES (18, 'Pompe Réserve', 'ESP32-MAIN', 0, 'Pompe de remplissage depuis réserve')
 ON DUPLICATE KEY UPDATE name='Pompe Réserve', board='ESP32-MAIN', description='Pompe de remplissage depuis réserve';
 
 -- ============================================================================
