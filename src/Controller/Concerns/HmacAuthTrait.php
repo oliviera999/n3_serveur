@@ -50,6 +50,16 @@ trait HmacAuthTrait
         // (HMAC(ts . "\n" . nonce . "\n" . body)) -> integrite du corps + fenetre
         // temps, contrairement au contrat legacy qui ne signe que le timestamp.
         // Additif : absent -> on continue sur le contrat existant ci-dessous.
+        //
+        // REPLI (6.31.0) : une signature X-Sig-* qui NE VALIDE PAS ne rejette plus
+        // par elle-meme (sauf HMAC_STRICT_MODE) — on poursuit sur le contrat legacy
+        // (timestamp+signature dans le corps) puis sur api_key. Motif : sous mod_php
+        // + x-www-form-urlencoded, php://input est vide (cf. CHANGELOG 5.1.12), donc
+        // le corps signe reconstitue cote serveur peut etre absent alors que le
+        // firmware, lui, a bien signe son corps -> 401 sur des mesures parfaitement
+        // authentiques. Seul FFP3 dispose d'une reconstitution canonique
+        // (App\Security\Ffp3HmacPostBody) ; N3PP/MSP1/PGL n'en ont pas.
+        // Meme politique additive que App\Security\DeviceSignatureValidator (galerie).
         if (isset($params['__sig_hmac']) && is_string($params['__sig_hmac']) && $params['__sig_hmac'] !== '') {
             $sigSecret = $this->hmacSecret();
             if (!is_string($sigSecret) || $sigSecret === '') {
@@ -63,7 +73,7 @@ trait HmacAuthTrait
             $bodyTs = (string) ($params['__sig_ts'] ?? '');
             $bodyNonce = (string) ($params['__sig_nonce'] ?? '');
             $bodyRaw = (string) ($params['__sig_body'] ?? '');
-            if (!SignatureValidator::isValidForBody(
+            if (SignatureValidator::isValidForBody(
                 $bodyTs,
                 $bodyNonce,
                 $bodyRaw,
@@ -71,36 +81,50 @@ trait HmacAuthTrait
                 $sigSecret,
                 $sigWindow
             )) {
-                $this->logger->warning("{$this->componentName()}: rejet auth HMAC body invalide code=401", [
-                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                $this->authenticatedByHmac = true;
+                $this->logger->info("{$this->componentName()}: auth HMAC body OK", [
                     'sensor' => trim((string) ($params['sensor'] ?? '')),
-                    'ts_received' => $bodyTs,
-                    'window_s' => $sigWindow,
                 ]);
-                $this->recordHmacAudit('reject', 'x_sig_body', [
+                $this->recordHmacAudit('ok', 'x_sig_body', [
                     'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
                     'sensor' => trim((string) ($params['sensor'] ?? '')),
                     'version' => trim((string) ($params['version'] ?? '')),
                     'ts_received' => $bodyTs,
                     'window_s' => $sigWindow,
                     'body_len' => strlen($bodyRaw),
-                ], 'signature_invalid');
-                return ResponseHelper::text($response, 'Signature incorrecte', 401);
+                ]);
+
+                return null;
             }
-            $this->authenticatedByHmac = true;
-            $this->logger->info("{$this->componentName()}: auth HMAC body OK", [
-                'sensor' => trim((string) ($params['sensor'] ?? '')),
-            ]);
-            $this->recordHmacAudit('ok', 'x_sig_body', [
+
+            $strictBody = $this->isHmacStrictMode();
+            $this->logger->warning(
+                $strictBody
+                    ? "{$this->componentName()}: rejet auth HMAC body invalide code=401"
+                    : "{$this->componentName()}: auth HMAC body invalide, repli contrat legacy/api_key",
+                [
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                    'sensor' => trim((string) ($params['sensor'] ?? '')),
+                    'ts_received' => $bodyTs,
+                    'window_s' => $sigWindow,
+                    'body_len' => strlen($bodyRaw),
+                    'strict' => $strictBody,
+                ]
+            );
+            $this->recordHmacAudit('reject', 'x_sig_body', [
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
                 'sensor' => trim((string) ($params['sensor'] ?? '')),
                 'version' => trim((string) ($params['version'] ?? '')),
                 'ts_received' => $bodyTs,
                 'window_s' => $sigWindow,
                 'body_len' => strlen($bodyRaw),
-            ]);
+            ], $strictBody ? 'signature_invalid' : 'signature_invalid_soft_fallback');
 
-            return null;
+            if ($strictBody) {
+                return ResponseHelper::text($response, 'Signature incorrecte', 401);
+            }
+            // Repli : on NE retourne pas — le contrat legacy ci-dessous, puis
+            // api_key (authenticatedByHmac reste false), restent a satisfaire.
         }
 
         $timestamp = $params['timestamp'] ?? null;

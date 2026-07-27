@@ -5,31 +5,44 @@ firmware ↔ serveur). Chaque constat a été **vérifié dans le code** (chemin
 d'appel remonté jusqu'à un déclencheur réel) avant d'être qualifié de bug ; les
 constats non déclenchables aujourd'hui sont explicitement marqués **latent**.
 
-Ce document **ne modifie aucun comportement** : il propose, pour chaque constat,
-**une ou plusieurs options de correction** avec leurs compromis. Le choix
-(notamment S1 et S4, qui touchent la posture de sécurité) revient au mainteneur.
+Pour chaque constat, ce document propose **une ou plusieurs options de correction**
+avec leurs compromis, et indique lesquelles ont été **appliquées**.
+
+**État au 2026-07-27** (version 6.31.0) : **S1, S2 et S3 sont corrigés**. S4 à S10
+restent ouverts — leurs options sont documentées ci-dessous, le choix (notamment S4,
+qui touche la posture de sécurité) revient au mainteneur.
 
 > Un audit jumeau couvre le dépôt firmware : `n3_firmwires/docs/AUDIT_BUGS_2026-07.md`.
 > Les constats **S1** (ici) et **F2** (là-bas) portent sur le même contrat HMAC.
 
 ## Synthèse
 
-| # | Gravité | Sujet | Fichier principal |
-|---|---------|-------|-------------------|
-| S1 | 🔴 Élevé | HMAC `X-Sig-*` : 401 systématique N3PP / MSP1 / PGL sous mod_php | `AbstractHmacPostDataController.php` |
-| S2 | 🟠 Moyen+ | Arrêt pompe « sécurité marée » annulé par le POST firmware suivant | `PumpService.php` |
-| S3 | 🟠 Moyen | `PRAGMA table_info` (SQLite) exécuté sur MySQL → garde `name` inerte | `PumpService.php` |
-| S4 | 🟠 Moyen | Exemption CSRF accordée à un canal **ambiant** (cookie) | `CsrfMiddleware.php` |
-| S5 | 🟠 Moyen | Rôle manquant en session → repli sur `ROLE_ADMIN` | `AuthService.php` |
-| S6 | 🟡 Faible+ | `EXIT_FLOOD` renvoyé à chaque tick → log toutes les minutes | `FloodStateMachine.php` |
-| S7 | 🟡 Faible (latent) | Hystérésis inversée pour `DIRECTION_HIGH` sans seuil explicite | `AbstractVitalsDerivedAlertService.php` |
-| S8 | 🟡 Faible | `updated` compte les tentatives, pas les lignes modifiées | `OutputRepository.php` |
-| S9 | 🟡 Faible | Rate-limit contournable via `X-Forwarded-For` | `AbstractPostDataController.php` |
-| S10 | ⚪ Robustesse | Divers (division par zéro latente, `strtotime` false, fuseau, session) | divers |
+| # | Gravité | Sujet | Fichier principal | État |
+|---|---------|-------|-------------------|------|
+| S1 | 🔴 Élevé | HMAC `X-Sig-*` : 401 systématique N3PP / MSP1 / PGL sous mod_php | `AbstractHmacPostDataController.php` | ✅ **corrigé** (6.31.0) |
+| S2 | 🟠 Moyen+ | Arrêt pompe « sécurité marée » annulé par le POST firmware suivant | `PumpService.php` | ✅ **corrigé** (6.31.0) |
+| S3 | 🟠 Moyen | `PRAGMA table_info` (SQLite) exécuté sur MySQL → garde `name` inerte | `PumpService.php` | ✅ **corrigé** (6.31.0) |
+| S4 | 🟠 Moyen | Exemption CSRF accordée à un canal **ambiant** (cookie) | `CsrfMiddleware.php` | ouvert |
+| S5 | 🟠 Moyen | Rôle manquant en session → repli sur `ROLE_ADMIN` | `AuthService.php` | ouvert |
+| S6 | 🟡 Faible+ | `EXIT_FLOOD` renvoyé à chaque tick → log toutes les minutes | `FloodStateMachine.php` | ouvert |
+| S7 | 🟡 Faible (latent) | Hystérésis inversée pour `DIRECTION_HIGH` sans seuil explicite | `AbstractVitalsDerivedAlertService.php` | ouvert |
+| S8 | 🟡 Faible | `updated` compte les tentatives, pas les lignes modifiées | `OutputRepository.php` | ouvert |
+| S9 | 🟡 Faible | Rate-limit contournable via `X-Forwarded-For` | `AbstractPostDataController.php` | ouvert |
+| S10 | ⚪ Robustesse | Divers (division par zéro latente, `strtotime` false, fuseau, session) | divers | ouvert |
 
 ---
 
-## S1 — 🔴 HMAC `X-Sig-*` : corps signé vide → 401 systématique pour N3PP / MSP1 / PGL
+## S1 — 🔴 HMAC `X-Sig-*` : corps signé vide → 401 systématique pour N3PP / MSP1 / PGL — ✅ CORRIGÉ
+
+> **Correctif appliqué (6.31.0)** — **option A** ci-dessous. Une signature `X-Sig-*`
+> présente mais non vérifiable ne rejette plus à elle seule : la requête poursuit sur le
+> contrat legacy `timestamp`+`signature` (qui ne dépend PAS du corps, et que `n3DataPost`
+> place justement dans le body) puis sur `api_key`. `HMAC_STRICT_MODE=true` restaure le
+> rejet 401. `authenticatedByHmac` **reste false** en cas de repli : la seule présence d'un
+> en-tête `X-Sig-*` ne vaut jamais authentification (garde-fou couvert par test). L'audit
+> HMAC distingue le repli du rejet via le motif `signature_invalid_soft_fallback`.
+> FFP3 est inchangé (il a sa reconstitution canonique). Les options B et C restent
+> pertinentes comme correctif de fond.
 
 ### Constat
 
@@ -132,7 +145,14 @@ réel → doit passer (et non 401).
 
 ---
 
-## S2 — 🟠 L'arrêt de pompe « sécurité marée » est annulé par le POST firmware suivant
+## S2 — 🟠 L'arrêt de pompe « sécurité marée » est annulé par le POST firmware suivant — ✅ CORRIGÉ
+
+> **Correctif appliqué (6.31.0)** — combinaison des options A et B : `PumpService::setState()`
+> écrit désormais `requestTime` et `lastModifiedBy = 'cron'` (`PumpService::MODIFIED_BY`), et
+> la clause de priorité s'appuie sur `OutputRepository::SERVER_OWNED_SOURCES` (`web`, `cron`)
+> au lieu du littéral `'web'`. La fenêtre de 12 s existante suffit : ffp5cs relit
+> `/api/outputs/state` toutes les 6 s (`REMOTE_FETCH_FALLBACK_INTERVAL_MS`), soit deux polls
+> dans la fenêtre. Sémantique inchangée pour `lastModifiedBy IS NULL`.
 
 ### Constat
 
@@ -203,7 +223,12 @@ une migration.
 
 ---
 
-## S3 — 🟠 `PRAGMA table_info` (SQLite) exécuté sur MySQL → garde `name` inerte en production
+## S3 — 🟠 `PRAGMA table_info` (SQLite) exécuté sur MySQL → garde `name` inerte en production — ✅ CORRIGÉ
+
+> **Correctif appliqué (6.31.0)** — **option B** : introspection portable branchée sur
+> `PDO::ATTR_DRIVER_NAME` (`SHOW COLUMNS` en MySQL, `PRAGMA table_info` en SQLite), mémoïsée
+> **par table**. C'était le prérequis de S2 : sans elle, écrire `requestTime`/`lastModifiedBy`
+> aurait cassé les schémas de test minimaux.
 
 `PumpService::outputsTableHasNameColumn()` (`src/Service/PumpService.php:60-86`) :
 

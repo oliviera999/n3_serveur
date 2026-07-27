@@ -26,6 +26,12 @@ class HmacAuthTraitTest extends TestCase
         $_ENV['API_SIG_SECRET'] = 'unit-test-secret';
         $_ENV['SIG_VALID_WINDOW'] = '300';
         $_ENV['API_KEY'] = 'unit-test-api-key';
+        $_ENV['HMAC_STRICT_MODE'] = 'false';
+    }
+
+    protected function tearDown(): void
+    {
+        unset($_ENV['HMAC_STRICT_MODE']);
     }
 
     public function testNoHmacFallsBackToApiKey(): void
@@ -102,6 +108,105 @@ class HmacAuthTraitTest extends TestCase
 
         $this->assertNotNull($result);
         $this->assertSame(500, $result->getStatusCode());
+    }
+
+    // ------------------------------------------------------------------
+    // Body-signing X-Sig-* : succès, et REPLI quand le corps signé est
+    // indisponible côté serveur (php://input vide sous mod_php, cf. 6.31.0).
+    // ------------------------------------------------------------------
+
+    public function testValidBodySignatureAuthenticates(): void
+    {
+        $ctrl = new HmacAuthTraitTestController($this->logger);
+        $body = 'api_key=unit-test-api-key&sensor=msp1&version=4.42&TempAir=21.5';
+        $ts = (string) time();
+        $nonce = 'abcdef0123456789';
+
+        $result = $ctrl->callValidate([
+            'sensor' => 'msp1',
+            '__sig_ts' => $ts,
+            '__sig_nonce' => $nonce,
+            '__sig_body' => $body,
+            '__sig_hmac' => SignatureValidator::createSignatureForBody(
+                (int) $ts,
+                $nonce,
+                $body,
+                'unit-test-secret'
+            ),
+        ], $this->newResponse());
+
+        $this->assertNull($result);
+        $this->assertTrue($ctrl->exposeAuthenticatedByHmac());
+    }
+
+    /**
+     * Cas réel du correctif 6.31.0 : sous mod_php + x-www-form-urlencoded,
+     * `php://input` est vide, donc `__sig_body` arrive VIDE alors que le firmware a
+     * signé son corps complet. Sans reconstitution canonique (N3PP/MSP1/PGL n'en ont
+     * pas), la vérification échoue forcément. Elle ne doit plus rejeter à elle seule :
+     * la requête retombe sur le contrat legacy `timestamp`+`signature`, qui ne dépend
+     * PAS du corps — et que `n3DataPost` place justement dans le body.
+     */
+    public function testUnverifiableBodySignatureFallsBackToLegacyContract(): void
+    {
+        $ctrl = new HmacAuthTraitTestController($this->logger);
+        $ts = (string) time();
+
+        $result = $ctrl->callValidate([
+            'sensor' => 'msp1',
+            // Contrat legacy présent dans le corps (émis par n3DataPost).
+            'timestamp' => $ts,
+            'signature' => SignatureValidator::createSignature((int) $ts, 'unit-test-secret'),
+            // En-têtes X-Sig-* présents, mais corps signé introuvable côté serveur.
+            '__sig_ts' => $ts,
+            '__sig_nonce' => 'abcdef0123456789',
+            '__sig_body' => '',
+            '__sig_hmac' => str_repeat('a', 64),
+        ], $this->newResponse());
+
+        $this->assertNull($result, 'Le repli doit accepter via le contrat legacy');
+        $this->assertTrue($ctrl->exposeAuthenticatedByHmac());
+    }
+
+    /**
+     * Sans contrat legacy, le repli ne doit PAS authentifier : `authenticatedByHmac`
+     * reste false, donc `requiresApiKey()` reste true et la clé API est exigée par
+     * AbstractPostDataController::handle(). Une signature invalide ne doit jamais
+     * valoir laissez-passer.
+     */
+    public function testUnverifiableBodySignatureStillRequiresApiKey(): void
+    {
+        $ctrl = new HmacAuthTraitTestController($this->logger);
+
+        $result = $ctrl->callValidate([
+            'sensor' => 'msp1',
+            '__sig_ts' => (string) time(),
+            '__sig_nonce' => 'abcdef0123456789',
+            '__sig_body' => '',
+            '__sig_hmac' => str_repeat('a', 64),
+        ], $this->newResponse());
+
+        $this->assertNull($result);
+        $this->assertFalse($ctrl->exposeAuthenticatedByHmac());
+        $this->assertTrue($ctrl->exposesRequiresApiKey());
+    }
+
+    public function testInvalidBodySignatureRejectedInStrictMode(): void
+    {
+        $_ENV['HMAC_STRICT_MODE'] = 'true';
+        $ctrl = new HmacAuthTraitTestController($this->logger);
+
+        $result = $ctrl->callValidate([
+            'sensor' => 'msp1',
+            '__sig_ts' => (string) time(),
+            '__sig_nonce' => 'abcdef0123456789',
+            '__sig_body' => '',
+            '__sig_hmac' => str_repeat('a', 64),
+        ], $this->newResponse());
+
+        $this->assertNotNull($result);
+        $this->assertSame(401, $result->getStatusCode());
+        $this->assertFalse($ctrl->exposeAuthenticatedByHmac());
     }
 
     private function newResponse(): Response

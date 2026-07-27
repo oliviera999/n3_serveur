@@ -11,6 +11,58 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.31.0] - 2026-07-27
+
+### HMAC `X-Sig-*` : repli au lieu du 401 quand le corps signé est indisponible (N3PP / MSP1 / PGL)
+
+Suite de l'audit `docs/AUDIT_BUGS_2026-07.md` (constat **S1**). Le correctif **5.1.12**
+(`php://input` vide sous mod_php + `x-www-form-urlencoded`, corps signé reconstitué via
+`Ffp3HmacPostBody`) n'avait été appliqué **qu'à FFP3**. Les trois autres chemins de
+body-signing lisaient le corps brut seul et **rejetaient en 401 sans repli `api_key`** :
+
+- `AbstractHmacPostDataController` → `POST /post-data` N3PP / MSP1 ;
+- `LegacyHeartbeatHandler` → `POST /*-heartbeat` N3PP / MSP1 ;
+- `PglHmacAuthTrait` → `POST /pgl/post-data`, `POST /pgl/heartbeat`.
+
+Or `n3DataPost()` (dépôt n3_firmwires, `shared/n3_data`) pose les en-têtes `X-Sig-*` **dès que
+`API_SIG_SECRET` est non vide**, ce que `docs/API_MSP1_N3PP.md` recommande d'activer en
+production : suivre cette recommandation coupait toute l'ingestion N3PP/MSP1/PGL.
+
+**Correctif** — une signature `X-Sig-*` présente mais non vérifiable ne rejette plus à elle
+seule (même politique additive que `DeviceSignatureValidator` pour la galerie) : la requête
+poursuit sur le contrat legacy `timestamp`+`signature` — qui ne dépend PAS du corps et que
+`n3DataPost` place justement dans le body — puis sur `api_key`. `HMAC_STRICT_MODE=true`
+restaure le rejet 401.
+
+- `authenticatedByHmac` **reste false** en cas de repli : la clé API demeure exigée. La seule
+  présence d'un en-tête `X-Sig-*` ne vaut jamais authentification (garde-fou couvert par test).
+- L'audit HMAC continue de tracer chaque cas, avec le motif `signature_invalid_soft_fallback`
+  pour distinguer un repli d'un rejet.
+- FFP3 est **inchangé** (mode strict conservé) : il dispose de la reconstitution canonique.
+
+### Sécurité marée : l'arrêt de pompe du CRON n'était plus annulé par le POST firmware suivant
+
+Constat **S2** du même audit. `PumpService::setState()` écrivait `state` sans `requestTime` ni
+`lastModifiedBy`, alors que la clause anti-écrasement d'`OutputRepository` repose exactement sur
+ces deux colonnes. Après l'arrêt de pompe déclenché par `CronOrchestrator::checkTideSystem()`, la
+ligne portait toujours `lastModifiedBy = 'esp32'` et un `requestTime` ancien : le premier POST
+firmware remettait GPIO 16 à l'état renvoyé par l'ESP32 — la sécurité était annulée avant même
+que l'appareil ait relu `/api/outputs/state` (poll 6 s côté ffp5cs).
+
+- `PumpService` écrit désormais `requestTime` et `lastModifiedBy = 'cron'` (`PumpService::MODIFIED_BY`).
+- `OutputRepository::SERVER_OWNED_SOURCES` (`web`, `cron`) remplace le littéral `'web'` dans la
+  clause de priorité : toute source serveur y est protégée pendant sa fenêtre. Sémantique
+  inchangée pour `lastModifiedBy IS NULL` (la clause `requestTime IS NULL` reste le garde-fou).
+
+### Détection de colonnes portable (`PRAGMA` SQLite exécuté sur MySQL)
+
+Constat **S3**. `PumpService` interrogeait `PRAGMA table_info`, syntaxe propre à SQLite : en MySQL
+la requête levait une `PDOException` silencieusement avalée. Conséquences en production : la garde
+« v11.38 » (ne pas toucher aux lignes sans `name`) n'était **jamais** appliquée, et une requête
+invalide partait au serveur à chaque écriture de pompe. Détection désormais branchée sur
+`PDO::ATTR_DRIVER_NAME` (même approche qu'`OutputCacheService`), mémoïsée **par table** — l'ancien
+cache d'instance ignorait le nom de table et aurait réutilisé le verdict d'un autre environnement.
+
 ## [6.30.0] - 2026-07-27
 
 ### GPIO 18 (pompe réserve) : convention unifiée `1 = ON` — le seed faisait démarrer un remplissage
