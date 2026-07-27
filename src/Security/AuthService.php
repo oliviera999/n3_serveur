@@ -282,10 +282,25 @@ class AuthService
         return null;
     }
 
+    /**
+     * Rôle de la requête courante, ou null si non authentifiée.
+     *
+     * Le repli d'une session SANS rôle est {@see User::ROLE_READER} — le rôle le plus
+     * FAIBLE (corrigé en 6.32.0). Il valait auparavant `ROLE_ADMIN` : une session
+     * authentifiée dépourvue de la clé `auth_role` (session antérieure à l'introduction
+     * du champ et survivant à un déploiement, ou store de sessions partiellement
+     * désérialisé) obtenait silencieusement les droits d'administration. C'était un
+     * fail-open sur un contrôle d'accès, à contre-courant de {@see hasMinimumRole()}
+     * qui applique déjà `?? 99` (fail-closed) au rôle requis.
+     *
+     * `login()` pose toujours la clé : ce repli ne concerne que les sessions anormales.
+     */
     public function getCurrentRole(): ?string
     {
         if ($this->isAuthenticated()) {
-            return (string) ($_SESSION[self::SESSION_ROLE_KEY] ?? User::ROLE_ADMIN);
+            $role = $_SESSION[self::SESSION_ROLE_KEY] ?? null;
+
+            return is_string($role) && $role !== '' ? $role : User::ROLE_READER;
         }
 
         if ($this->isAuthenticatedByToken($_GET)) {

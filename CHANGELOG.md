@@ -11,6 +11,39 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.32.0] - 2026-07-27
+
+### Défense en profondeur — deux fail-open sur des contrôles d'accès
+
+Suite de l'audit `docs/AUDIT_BUGS_2026-07.md` (constats **S4** et **S5**). Aucun des deux
+n'est exploitable en l'état, mais tous deux ouvrent dans le mauvais sens.
+
+**S5 — rôle manquant en session → `ROLE_ADMIN`.** `AuthService::getCurrentRole()` repliait
+sur le rôle le plus ÉLEVÉ quand `$_SESSION['auth_role']` était absent : une session
+authentifiée dépourvue de cette clé (session antérieure à l'introduction du champ survivant
+à un déploiement, store de sessions partiellement désérialisé) obtenait silencieusement les
+droits d'administration. Le repli est désormais `User::ROLE_READER`, cohérent avec
+`hasMinimumRole()` qui applique déjà `?? 99` (fail-closed) au rôle requis. `login()` pose
+toujours la clé : seules les sessions anormales sont concernées.
+
+**S4 — exemption CSRF accordée à un canal ambiant.** `CsrfMiddleware` exemptait de jeton CSRF
+toute requête acceptée par `AuthService::isAuthenticatedByToken()` — qui teste **en premier**
+le cookie `admin_token`, ambiant par nature (posé 30 jours par `setAdminTokenCookie()`, réémis
+seul par le navigateur). L'exemption contredisait donc sa propre justification (« un secret
+non-ambiant n'est pas falsifiable en cross-site »). `SameSite=Lax` limitait la portée pratique
+— un POST cross-site ne transporte pas le cookie — mais ne couvre ni un sous-domaine same-site
+compromis, ni un assouplissement futur de l'attribut.
+
+L'exemption ne retient plus que les deux canaux réellement non-ambiants, via le nouveau
+`CsrfMiddleware::hasExplicitToken()` : en-tête (`Authorization: Bearer` / `X-Admin-Token`,
+déjà exposé par `AuthService::hasValidHeaderToken()`) ou paramètre d'URL `?token=`. Une
+écriture portée par le seul cookie exige désormais un `X-CSRF-Token` / `_csrf_token`, comme
+n'importe quelle écriture de session. ⚠️ M4 inchangé : le token en query string reste accepté
+tant que le front le propage par l'URL.
+
+Tests : repli de rôle (faible + rôle explicite préservé) ; exemption par en-tête admin,
+non-exemption par cookie ambiant, et cookie ambiant + jeton CSRF valide → passe.
+
 ## [6.31.0] - 2026-07-27
 
 ### HMAC `X-Sig-*` : repli au lieu du 401 quand le corps signé est indisponible (N3PP / MSP1 / PGL)

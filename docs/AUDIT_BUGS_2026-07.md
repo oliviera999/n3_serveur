@@ -8,9 +8,8 @@ constats non déclenchables aujourd'hui sont explicitement marqués **latent**.
 Pour chaque constat, ce document propose **une ou plusieurs options de correction**
 avec leurs compromis, et indique lesquelles ont été **appliquées**.
 
-**État au 2026-07-27** (version 6.31.0) : **S1, S2 et S3 sont corrigés**. S4 à S10
-restent ouverts — leurs options sont documentées ci-dessous, le choix (notamment S4,
-qui touche la posture de sécurité) revient au mainteneur.
+**État au 2026-07-27** : **S1, S2 et S3 corrigés en 6.31.0** ; **S4 et S5 corrigés en
+6.32.0**. S6 à S10 restent ouverts — leurs options sont documentées ci-dessous.
 
 > Un audit jumeau couvre le dépôt firmware : `n3_firmwires/docs/AUDIT_BUGS_2026-07.md`.
 > Les constats **S1** (ici) et **F2** (là-bas) portent sur le même contrat HMAC.
@@ -22,8 +21,8 @@ qui touche la posture de sécurité) revient au mainteneur.
 | S1 | 🔴 Élevé | HMAC `X-Sig-*` : 401 systématique N3PP / MSP1 / PGL sous mod_php | `AbstractHmacPostDataController.php` | ✅ **corrigé** (6.31.0) |
 | S2 | 🟠 Moyen+ | Arrêt pompe « sécurité marée » annulé par le POST firmware suivant | `PumpService.php` | ✅ **corrigé** (6.31.0) |
 | S3 | 🟠 Moyen | `PRAGMA table_info` (SQLite) exécuté sur MySQL → garde `name` inerte | `PumpService.php` | ✅ **corrigé** (6.31.0) |
-| S4 | 🟠 Moyen | Exemption CSRF accordée à un canal **ambiant** (cookie) | `CsrfMiddleware.php` | ouvert |
-| S5 | 🟠 Moyen | Rôle manquant en session → repli sur `ROLE_ADMIN` | `AuthService.php` | ouvert |
+| S4 | 🟠 Moyen | Exemption CSRF accordée à un canal **ambiant** (cookie) | `CsrfMiddleware.php` | ✅ **corrigé** (6.32.0) |
+| S5 | 🟠 Moyen | Rôle manquant en session → repli sur `ROLE_ADMIN` | `AuthService.php` | ✅ **corrigé** (6.32.0) |
 | S6 | 🟡 Faible+ | `EXIT_FLOOD` renvoyé à chaque tick → log toutes les minutes | `FloodStateMachine.php` | ouvert |
 | S7 | 🟡 Faible (latent) | Hystérésis inversée pour `DIRECTION_HIGH` sans seuil explicite | `AbstractVitalsDerivedAlertService.php` | ouvert |
 | S8 | 🟡 Faible | `updated` compte les tentatives, pas les lignes modifiées | `OutputRepository.php` | ouvert |
@@ -271,7 +270,13 @@ déjà le filtre `name`).
 
 ---
 
-## S4 — 🟠 Exemption CSRF accordée à un canal ambiant (cookie)
+## S4 — 🟠 Exemption CSRF accordée à un canal ambiant (cookie) — ✅ CORRIGÉ
+
+> **Correctif appliqué (6.32.0)** — **option A**. Nouveau `CsrfMiddleware::hasExplicitToken()` :
+> l'exemption ne retient plus que l'en-tête (`Authorization: Bearer` / `X-Admin-Token`) et
+> `?token=`. Le cookie `admin_token` n'exempte plus — une écriture qui n'a que lui doit
+> fournir un `X-CSRF-Token` / `_csrf_token`. L'option B (en-tête seul, retrait de `?token=`)
+> reste la cible M4, conditionnée à la migration du front.
 
 `CsrfMiddleware` (`src/Middleware/CsrfMiddleware.php:91`) exempte de jeton CSRF
 toute requête pour laquelle `AuthService::isAuthenticatedByToken()` répond vrai.
@@ -313,7 +318,12 @@ propre, mais casse les liens de contrôle partagés tant que le front n'est pas 
 
 ---
 
-## S5 — 🟠 Rôle manquant en session → repli sur `ROLE_ADMIN`
+## S5 — 🟠 Rôle manquant en session → repli sur `ROLE_ADMIN` — ✅ CORRIGÉ
+
+> **Correctif appliqué (6.32.0)** — **option A** : repli sur `User::ROLE_READER` (fail-closed),
+> cohérent avec le `?? 99` déjà appliqué au rôle requis par `hasMinimumRole()`. L'option B
+> (invalider la session) a été écartée : plus stricte, mais elle déconnecte l'utilisateur sur
+> une anomalie de stockage dont il n'est pas responsable.
 
 `AuthService::getCurrentRole()` (`src/Security/AuthService.php:288`) :
 
