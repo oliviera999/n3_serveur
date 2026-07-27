@@ -32,7 +32,7 @@ final class Ffp3GpioMap
         2 => 'etatHeat',           // Chauffage
         15 => 'etatUV',            // Lumière
         16 => 'etatPompeAqua',     // Pompe aquarium
-        18 => 'etatPompeTank',     // Pompe réservoir (1=ON côté UI/GET/POST ; PumpService legacy = relais actif-bas)
+        18 => 'etatPompeTank',     // Pompe réservoir (1=ON partout : UI, GET state, POST, PumpService)
 
         // Configuration
         100 => 'mail',             // Email (string)

@@ -45,14 +45,18 @@ class PumpServiceTest extends TestCase
         $this->assertSame(0, $this->service->getAquaPumpState());
     }
 
-    public function testRunAndStopTankPumpInvertedLogic(): void
+    /**
+     * Contrat unique du GPIO 18 depuis la 6.30.0 : 1 = ON, 0 = OFF — comme la page de
+     * contrôle, le GET /api/outputs/state et le firmware. L'ancienne logique actif-bas
+     * était inverse du canal lu par l'ESP32 (un « arrêt » y commandait un démarrage).
+     */
+    public function testRunAndStopTankPumpUseOnIsOneConvention(): void
     {
-        // Tank pump logic inverted (1 = off)
-        $this->service->runPompeTank(); // sets state 0
-        $this->assertSame(0, $this->service->getTankPumpState());
-
-        $this->service->stopPompeTank(); // sets state 1
+        $this->service->runPompeTank();
         $this->assertSame(1, $this->service->getTankPumpState());
+
+        $this->service->stopPompeTank();
+        $this->assertSame(0, $this->service->getTankPumpState());
     }
 
     public function testRebootEspSetsResetMode(): void

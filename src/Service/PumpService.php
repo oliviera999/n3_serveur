@@ -162,28 +162,27 @@ class PumpService
     }
 
     /**
-     * Arrête la pompe réserve (relais active-low : state BDD = 1).
-     * Ne pas confondre avec la page /aquaponie-control ni le GET /api/outputs/state (1 = ON).
+     * Arrête la pompe réserve (GPIO 18 à 0).
      *
-     * ⚠️ SANS APPELANT APPLICATIF depuis la 6.27.0 (le CRON « aquarium bas » n'agit plus sur la
-     * pompe). La convention ci-dessus est INVERSE de celle du GPIO 18 servi au firmware : écrire
-     * `1` ici revient à commander un DÉMARRAGE côté ESP32 (front montant, `gpio_parser.cpp`).
-     * Ne pas réintroduire d'appel sans convertir la convention au préalable.
+     * Convention alignée depuis la 6.30.0 sur le contrat unique du GPIO 18 : `1` = ON,
+     * `0` = OFF — celui de la page /aquaponie-control, du `GET /api/outputs/state` et du
+     * firmware (`gpio_parser.cpp` déclenche sur front montant). L'ancienne logique
+     * relais actif-bas (`stop` écrivait `1`) était inverse du canal réellement lu par
+     * l'ESP32 : un « arrêt » y commandait un démarrage de remplissage.
      */
     public function stopPompeTank(): void
     {
-        $this->setState($this->gpioPompeTank, 1);
+        $this->setState($this->gpioPompeTank, 0);
     }
 
     /**
-     * Démarre la pompe réserve (relais active-low : state BDD = 0).
+     * Démarre la pompe réserve (GPIO 18 à 1).
      *
-     * ⚠️ Même réserve que {@see stopPompeTank()} : sans appelant applicatif, convention inverse
-     * du contrat GPIO 18 lu par le firmware.
+     * Voir {@see stopPompeTank()} pour la convention et l'historique.
      */
     public function runPompeTank(): void
     {
-        $this->setState($this->gpioPompeTank, 0);
+        $this->setState($this->gpioPompeTank, 1);
     }
 
     public function getAquaPumpState(): ?int
