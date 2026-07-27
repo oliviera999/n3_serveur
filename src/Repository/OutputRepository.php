@@ -394,10 +394,10 @@ class OutputRepository extends AbstractRepository
                           AND name IS NOT NULL
                           AND name != ''
                           AND (
-                              " . self::serverOwnedSourcesSql() . "
+                              " . self::serverOwnedSourcesSql() . '
                               OR requestTime IS NULL
                               OR requestTime < DATE_SUB(NOW(), INTERVAL :priority SECOND)
-                          )";
+                          )';
 
                 $rowCount = $this->executeWithRowCount($sql, [
                     ':gpio' => $gpio,
