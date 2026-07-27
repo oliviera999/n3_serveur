@@ -5,6 +5,9 @@
  * Usage: php tools/diagnostic_500_errors.php
  */
 
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 echo "╔═══════════════════════════════════════════════════════════════╗\n";
 echo "║      DIAGNOSTIC ERREURS 500 - FFP3 AQUAPONIE                 ║\n";
 echo "╚═══════════════════════════════════════════════════════════════╝\n\n";

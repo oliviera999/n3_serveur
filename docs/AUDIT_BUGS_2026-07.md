@@ -30,6 +30,7 @@ fond, à arbitrer avec le constat **F2** de l'audit firmware.
 | S8 | 🟡 Faible | `updated` compte les tentatives, pas les lignes modifiées | `OutputRepository.php` | ✅ **corrigé** (6.34.0) |
 | S9 | 🟡 Faible | Rate-limit contournable via `X-Forwarded-For` | `AbstractPostDataController.php` | ✅ **corrigé** (6.34.0) |
 | S10 | ⚪ Robustesse | Divers (division par zéro latente, `strtotime` false, fuseau, session) | divers | ✅ **corrigé** (6.34.0) |
+| S11 | 🔴 Critique | Scripts de maintenance `tools/` + `run-cron.php` exécutables par une requête web | `.htaccess`, `run-cron.php` | ✅ **corrigé** (6.35.0) |
 
 ---
 
@@ -580,6 +581,131 @@ actuelle. À traiter en défense en profondeur.
    seul ; deux lignes de la même seconde donnent une « dernière lecture »
    arbitraire (les alertes dérivées et la page contrôle en dépendent).
    *Fix* : `ORDER BY reading_time DESC, id DESC`.
+
+---
+
+## S11 — 🔴 Les scripts de maintenance sont exécutables par une requête web — ✅ CORRIGÉ
+
+> ✅ **Corrigé en 6.35.0.** Garde applicative `App\Util\CliGuard` en tête des 19 scripts
+> de `tools/`, `bin/` et `run-cron.php` ; refus `.htaccess` racine + `.htaccess` dédiés
+> dans `tools/`, `bin/`, `migrations/` ; garde-fou `CliOnlyScriptsTest` qui découvre les
+> scripts sur le disque (un nouveau script sans garde fait échouer la CI).
+
+**Trouvé en cherchant tout autre chose** — l'origine de `php://input` vide (S1 / F2) imposait
+de lire la configuration Apache. Le constat n'a rien à voir avec HMAC.
+
+### Constat
+
+Le `.htaccess` racine refuse `vendor/ config/ src/ var/ templates/`, `.env`, `.git` et
+`composer.json|lock`. Il ne refuse **ni `tools/`, ni `bin/`, ni `tests/`, ni `migrations/`**.
+Et le routeur, en fin de fichier, ne prend la main que sur les URL qui ne correspondent à
+**aucun fichier existant** :
+
+```apache
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ public/index.php [L]
+```
+
+Or ce `.htaccess` n'a de sens que si le **DocumentRoot pointe sur la racine du dépôt** — c'est
+lui qui joue le rôle de routeur, et son propre commentaire l'assume (« si DocumentRoot pointe
+sur la racine »). Dans cette configuration, `GET /tools/xxx.php` correspond à un fichier
+existant : Apache l'exécute **directement**, sans passer par Slim, donc sans authentification,
+sans CSRF, sans rate-limit.
+
+### Ce qui était réellement atteignable
+
+Quatre scripts étaient protégés **par accident** : ils portent un shebang `#!/usr/bin/env php`
+*et* un `declare(strict_types=1)`. En CLI, PHP retire le shebang ; sous un SAPI web il le traite
+comme de la sortie HTML, ce qui rend le `declare` non-premier → erreur fatale à la compilation,
+avant tout effet de bord. C'est une protection fortuite et fragile (elle disparaît si on retire
+le shebang), et elle renvoie un 500 qui divulgue le chemin absolu quand `display_errors` est actif.
+
+Vérifié fichier par fichier — les scripts qui **s'exécutaient réellement** :
+
+| Script | Effet atteignable sans authentification |
+|--------|------------------------------------------|
+| `run-cron.php` | **Déclenchement du `CronOrchestrator` complet** (alertes, e-mails, `RestartPumpCommand`) — voir ci-dessous |
+| `tools/cleanup_whitespace.php` | **`file_put_contents()` sur les fichiers source** du dépôt |
+| `tools/fix_test_environment.php` | `INSERT` puis `DELETE` sur `ffp3Data2` |
+| `tools/check_tables_server.php` | `INSERT` puis `DELETE` sur `ffp3Data2` |
+| `tools/run-phpunit.php` | `unlink()` puis exécution de la suite de tests |
+| `tools/diagnostic_esp32.php` | Divulgue les **5 premiers caractères de `API_KEY`**, la config BDD, les dernières mesures |
+| `tools/check_env.php` | Divulgue `ENV`, `DB_HOST`, `DB_NAME`, `DB_USER`, les noms de tables |
+| `tools/verify_environments.php`, `check_test_tables.php`, `diagnostic_500_errors.php` | Divulgation schéma / BDD |
+| `bin/diagnose-controllers.php` | Instancie tous les contrôleurs, écrit un rapport JSON |
+| `tools/icons/generate-icons.php` | Écriture de fichiers |
+
+`tools/generate_password_hash.php` portait déjà sa propre garde `php_sapi_name() !== 'cli'` —
+c'était le seul. `tools/ping_standalone.php` est volontairement servable (endpoint de latence,
+sans BDD ni secret) : il reste exclu de la garde, explicitement.
+
+### Le cas `run-cron.php` : une garde qui ne gardait pas
+
+```php
+if (php_sapi_name() !== 'cli' && strpos(php_sapi_name(), 'cgi') === false) {
+    die('This script can only be run from the command line.');
+}
+```
+
+L'intention était d'autoriser les crontabs d'hébergement mutualisé qui lancent `php-cgi`. Mais
+**`cgi-fcgi` est précisément le SAPI de PHP-FPM en contexte web**, et `fpm-fcgi` contient lui
+aussi « cgi ». Sous mod_php (`apache2handler`) la garde tenait ; derrière PHP-FPM ou en CGI,
+`GET /run-cron.php` exécutait le CRON — envoi d'alertes e-mail, redémarrage de pompe, à la
+demande de n'importe qui, aussi souvent que voulu.
+
+### Options de correction
+
+0. **Ne rien faire, en pariant sur le DocumentRoot.** Si l'hébergement pointe sur `public/`,
+   rien de tout cela n'est atteignable. Écartée : le `.htaccess` racine prouve que la
+   configuration racine est prévue et utilisée, et le pari se rejoue à chaque déploiement.
+1. **`.htaccess` seul** (`RewriteRule ^tools/ - [F,L]`, …). Suffisant sous Apache avec
+   `AllowOverride All`, nul sous nginx et neutralisé par un `AllowOverride None`.
+2. **Garde applicative seule** (`CliGuard::assertCli()` en tête de script). Suit le fichier quel
+   que soit le serveur web, mais ne protège pas les fichiers non-PHP (`migrations/*.sql`).
+3. **Déplacer `tools/` hors de la racine web.** Le plus propre, mais casse les chemins
+   documentés (`php tools/…`), les hooks de déploiement et la structure du dépôt.
+4. **Les trois couches (retenu)** : `.htaccess` racine + `.htaccess` par répertoire + garde
+   applicative, plus un test qui découvre les scripts sur le disque pour empêcher la régression.
+
+### Correctif appliqué (option 4)
+
+- **`src/Util/CliGuard.php`** — `isCli(?string $sapi, ?array $server)` injectable donc testable.
+  Accepte `cli`/`phpdbg` ; accepte un SAPI `*cgi*` **uniquement en l'absence de marqueur HTTP**
+  (`REQUEST_METHOD`, `REQUEST_URI`, `SERVER_PROTOCOL`, `HTTP_HOST`, `REMOTE_ADDR`) — ce qui
+  préserve les crontabs `php-cgi` tout en fermant `cgi-fcgi` ; refuse tout le reste (fail-closed).
+  `assertCli()` journalise le refus (`error_log`) puis répond `403`.
+- Le `require_once` de la garde est écrit **en chemin dur** et placé **avant `vendor/autoload.php`** :
+  la garde doit s'exécuter avant le moindre effet de bord, y compris avant l'autoloader.
+- **`.htaccess`** racine : refus de `tools/ bin/ tests/ migrations/ docker/ docs/ .github/ .claude/
+  .cursor`, de `run-cron.php`, des fichiers de configuration racine (`phpunit.xml*`, `phpstan*.neon`,
+  `.php-cs-fixer.php`, `docker-compose*.yml`) et de `README.md` / `CHANGELOG.md` / `CLAUDE.md` / `VERSION`.
+- **`tools/.htaccess`**, **`bin/.htaccess`**, **`migrations/.htaccess`** : `Require all denied`
+  (avec repli Apache 2.2), indépendants du `.htaccess` racine qui est remplacé à chaque déploiement.
+
+### Vérification
+
+- **Reproduction avant/après** : `php -S 127.0.0.1:8099 -t .` (le serveur intégré exécute
+  lui aussi les `.php` existants avant tout routeur, comme Apache en DocumentRoot racine).
+  `GET /tools/check_env.php` et `GET /run-cron.php` renvoient désormais `403` + le message de la
+  garde ; une copie du même script sans la garde s'exécute.
+- **Table de décision `isCli()`** validée sur 12 combinaisons SAPI × `$_SERVER`
+  (`tests/Util/CliGuardTest.php`), dont les deux cas ambigus `cgi-fcgi` (crontab → autorisé,
+  requête web → refusé).
+- **Non-régression CLI** : les 4 scripts à shebang compilent et franchissent la garde en ligne
+  de commande (ils échouent ensuite sur `vendor/autoload.php`, absent de cet environnement).
+- `tests/Security/CliOnlyScriptsTest.php` — 19 scripts découverts, garde présente, garde **avant**
+  `vendor/autoload.php` / `Database::getConnection` / `file_put_contents` / `new PDO`, chemin du
+  `require_once` résolu par `realpath()`, `.htaccess` en place, et `public/index.php` / `index.php`
+  vérifiés **non** gardés.
+- 141 assertions rejouées hors PHPUnit (`composer install` indisponible ici, cf. note de méthode).
+
+### Reste à faire côté hébergement (hors dépôt)
+
+Le dépôt ne peut pas corriger la cause première : le **DocumentRoot pointe sur la racine**.
+Le faire pointer sur `public/` supprimerait la classe entière de problèmes (plus aucun fichier
+du dépôt n'est servi par défaut) et rendrait les trois couches redondantes plutôt que nécessaires.
+À arbitrer selon les contraintes de l'hébergeur — `docs/deployment/QUE_FAIRE_COTE_SERVEUR.md`.
 
 ---
 

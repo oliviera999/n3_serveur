@@ -15,6 +15,9 @@ declare(strict_types=1);
  *   POST_URL=http://... php test_simple.php  # override URL
  */
 
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 echo "========================================\n";
 echo "TEST SIMPLE POST-DATA-TEST\n";
 echo "Date: " . date('Y-m-d H:i:s') . "\n";

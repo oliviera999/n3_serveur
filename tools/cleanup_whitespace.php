@@ -8,6 +8,9 @@
  * - Pas de lignes vides multiples consécutives
  */
 
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 function cleanWhitespace(string $content): string
 {
     // Séparer en lignes

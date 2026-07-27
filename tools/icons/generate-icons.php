@@ -6,6 +6,9 @@
  * Usage: php generate-icons.php
  */
 
+require_once __DIR__ . '/../../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 $sizes = [72, 96, 128, 144, 152, 192, 384, 512];
 $bgColor = [0, 139, 116]; // #008B74
 $textColor = [255, 255, 255];

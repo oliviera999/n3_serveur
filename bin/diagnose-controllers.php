@@ -9,6 +9,9 @@
  * 4. Génère un rapport JSON avec les corrections nécessaires
  */
 
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 // Charger l'environnement

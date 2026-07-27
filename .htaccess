@@ -14,6 +14,30 @@ RewriteRule ^composer\.(json|lock)$ - [F,L]
 RewriteRule ^\.env - [F,L]
 RewriteRule ^\.git - [F,L]
 
+# Repertoires hors-web : scripts de maintenance, tests, schema, outillage.
+# Le routeur en bas de fichier ne prend la main que sur les URL qui ne
+# correspondent a AUCUN fichier existant (RewriteCond !-f) : sans ces regles,
+# un GET /tools/xxx.php etait execute directement par Apache, hors de Slim et
+# sans authentification (audit 2026-07, S11). Les scripts portent en plus une
+# garde applicative (App\Util\CliGuard) — cf. tests/Security/CliOnlyScriptsTest.
+RewriteRule ^tools/ - [F,L]
+RewriteRule ^bin/ - [F,L]
+RewriteRule ^tests/ - [F,L]
+RewriteRule ^migrations/ - [F,L]
+RewriteRule ^docker/ - [F,L]
+RewriteRule ^docs/ - [F,L]
+RewriteRule ^\.github/ - [F,L]
+RewriteRule ^\.claude/ - [F,L]
+RewriteRule ^\.cursor - [F,L]
+RewriteRule ^run-cron\.php$ - [F,L]
+
+# Fichiers de configuration / documentation a la racine (pas de contenu servi).
+RewriteRule ^(phpunit\.xml(\.dist)?|phpstan.*\.neon|\.php-cs-fixer\.php)$ - [F,L]
+RewriteRule ^docker-compose.*\.yml$ - [F,L]
+RewriteRule ^(env\.test\.example|\.keep-env|\.gitattributes|\.gitmodules)$ - [F,L]
+RewriteRule ^(README|CHANGELOG|CLAUDE)\.md$ - [F,L]
+RewriteRule ^VERSION$ - [F,L]
+
 # ====================================================================
 # Headers de securite HTTP
 # ====================================================================

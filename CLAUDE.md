@@ -89,6 +89,11 @@ par requête (gérée par le middleware, sans muter `$_ENV`).
 - ❌ **Jamais** de connexion PDO manuelle → `App\Config\Database::getConnection()`.
 - ❌ **Jamais** muter `$_ENV['ENV']` pour changer d'environnement → `TableConfig::setEnvironment()`.
 - ❌ **Jamais** d'endpoint POST d'API sans validation de signature (`SignatureValidator` / HMAC-SHA256).
+- ❌ **Jamais** de script dans `tools/` ou `bin/` sans `\App\Util\CliGuard::assertCli()` en tête,
+  **avant** `vendor/autoload.php`. Le DocumentRoot pointe sur la racine du dépôt : le routeur Slim
+  ne prend la main que sur les URL sans fichier correspondant (`RewriteCond !-f`), donc tout `.php`
+  existant est exécutable par une simple requête web. `tests/Security/CliOnlyScriptsTest` découvre
+  les scripts sur le disque et échoue si l'un d'eux n'est pas gardé.
 - ⚠️ **Une dépendance optionnelle n'est jamais autowirée** : PHP-DI ignore les paramètres de
   constructeur ayant une valeur par défaut (`?Type $x = null`). Il faut la passer explicitement
   dans `config/dependencies.php` (`DI\autowire()->constructorParameter(...)`) — sinon elle reste

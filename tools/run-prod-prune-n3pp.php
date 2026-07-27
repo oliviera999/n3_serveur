@@ -15,6 +15,9 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 $projectRoot = dirname(__DIR__);
 require $projectRoot . '/vendor/autoload.php';
 

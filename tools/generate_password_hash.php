@@ -6,9 +6,8 @@
  * Si aucun mot de passe n'est fourni, le script demande une saisie sécurisée.
  */
 
-if (php_sapi_name() !== 'cli') {
-    die("Ce script doit être exécuté en ligne de commande.\n");
-}
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
 
 $password = $argv[1] ?? null;
 

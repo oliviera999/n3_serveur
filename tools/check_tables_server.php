@@ -8,6 +8,9 @@
  * Exemple : php tools/check_tables_server.php
  */
 
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\Config\Env;

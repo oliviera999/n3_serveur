@@ -11,6 +11,49 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.35.0] - 2026-07-27
+
+### Sécurité — les scripts de maintenance étaient exécutables par une requête web (S11)
+
+Constat ouvert par `docs/AUDIT_BUGS_2026-07.md` (**S11**), trouvé en enquêtant sur l'origine
+de `php://input` vide (S1).
+
+Le `.htaccess` racine refusait `vendor/ config/ src/ var/ templates/` mais **pas** `tools/`,
+`bin/`, `tests/` ni `migrations/`, et le routeur ne prend la main que sur les URL sans fichier
+correspondant (`RewriteCond %{REQUEST_FILENAME} !-f`). Avec le DocumentRoot sur la racine du
+dépôt — la configuration que ce `.htaccess` met justement en place — un `GET /tools/xxx.php`
+était exécuté directement par Apache, hors de Slim : sans authentification, sans CSRF,
+sans rate-limit.
+
+Atteignables sans authentification : `cleanup_whitespace.php` (`file_put_contents` sur les
+sources), `fix_test_environment.php` et `check_tables_server.php` (`INSERT`/`DELETE`),
+`run-phpunit.php` (`unlink`), `diagnostic_esp32.php` (divulgue les 5 premiers caractères de
+`API_KEY`), `check_env.php` (config BDD). Quatre scripts n'étaient protégés **que par accident**
+(shebang + `declare(strict_types=1)` → erreur fatale à la compilation sous SAPI web).
+
+`run-cron.php` avait bien une garde, mais elle acceptait tout SAPI contenant « cgi » — or
+`cgi-fcgi` est celui de **PHP-FPM en contexte web**. Derrière PHP-FPM, `GET /run-cron.php`
+déclenchait le `CronOrchestrator` complet (alertes, e-mails, `RestartPumpCommand`) à la demande.
+
+- **`App\Util\CliGuard`** (nouveau) : `isCli()` injectable (SAPI + `$_SERVER`), accepte
+  `cli`/`phpdbg`, accepte un SAPI `*cgi*` **uniquement sans marqueur HTTP** (`REQUEST_METHOD`,
+  `REQUEST_URI`, `SERVER_PROTOCOL`, `HTTP_HOST`, `REMOTE_ADDR`) — les crontabs `php-cgi`
+  continuent de fonctionner, PHP-FPM est fermé — et refuse tout le reste. `assertCli()`
+  journalise puis répond `403`.
+- **19 scripts** (`tools/`, `bin/`, `run-cron.php`) appellent la garde en tête, via un
+  `require_once` en chemin dur placé **avant `vendor/autoload.php`**.
+- **`.htaccess`** racine : refus de `tools/ bin/ tests/ migrations/ docker/ docs/ .github/
+  .claude/ .cursor`, de `run-cron.php`, des fichiers de configuration racine et des `.md` racine.
+- **`tools/.htaccess`**, **`bin/.htaccess`**, **`migrations/.htaccess`** : `Require all denied`,
+  indépendants du `.htaccess` racine (remplacé à chaque déploiement).
+- **Tests** : `CliGuardTest` (table de décision, 12 combinaisons SAPI × `$_SERVER`) et
+  `CliOnlyScriptsTest` (garde-fou structurel : découvre les scripts sur le disque, vérifie que
+  la garde précède tout effet de bord, que le chemin du `require_once` résout, que les `.htaccess`
+  sont en place et que les points d'entrée web ne sont **pas** gardés).
+
+> ⚠️ Reste côté hébergement : faire pointer le **DocumentRoot sur `public/`** supprimerait la
+> classe entière de problèmes. Cf. `docs/deployment/QUE_FAIRE_COTE_SERVEUR.md`.
+
 ## [6.34.0] - 2026-07-27
 
 Solde les derniers constats de `docs/AUDIT_BUGS_2026-07.md` (**S8**, **S9**, **S10**).

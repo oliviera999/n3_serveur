@@ -1,0 +1,13 @@
+# Migrations SQL : jamais accessibles par le web (divulgation de schema).
+#
+# Troisieme filet, independant du .htaccess racine (qui peut etre remplace lors
+# d'un deploiement) et de la garde applicative App\Util\CliGuard.
+# Cf. audit 2026-07, S11.
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
