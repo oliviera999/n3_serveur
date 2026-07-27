@@ -6,8 +6,8 @@ namespace Tests\Util;
 
 use App\Util\ClientIpResolver;
 use PHPUnit\Framework\TestCase;
-use Slim\Psr7\Factory\ServerRequestFactory;
 use Psr\Http\Message\ServerRequestInterface;
+use Slim\Psr7\Factory\ServerRequestFactory;
 
 /**
  * `X-Forwarded-For` est fourni par le client : ne le croire que derrière un proxy
