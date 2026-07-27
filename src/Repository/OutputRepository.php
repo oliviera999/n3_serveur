@@ -257,15 +257,29 @@ class OutputRepository extends AbstractRepository
      * Met à jour plusieurs paramètres depuis un formulaire.
      *
      * @param array<string, mixed> $params
+     * @return int Nombre de paramètres RÉELLEMENT persistés (lignes touchées).
+     *             Corrigé en 6.34.0 : le compteur incrémentait sur le retour de
+     *             `PDOStatement::execute()`, qui vaut `true` dès que la requête part
+     *             sans erreur — **y compris quand elle ne touche aucune ligne** (GPIO
+     *             absent de la table). L'API annonçait donc des paramètres
+     *             « enregistrés » qui ne l'étaient pas.
+     *             NB MySQL : `rowCount()` compte les lignes *modifiées*, pas trouvées.
+     *             Sans effet ici, la requête écrivant toujours `requestTime = NOW()` —
+     *             seul un ré-enregistrement à l'identique dans la MÊME seconde pourrait
+     *             renvoyer 0 (cas bénin).
      */
     public function updateMultipleParameters(array $params, string $modifiedBy = 'web'): int
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
         return $this->executeInTransaction(function () use ($params, $table, $modifiedBy): int {
             $updated = 0;
+            // CURRENT_TIMESTAMP plutôt que NOW() : synonyme exact en MySQL, et portable
+            // SQLite — ce qui rend enfin cette méthode couvrable par un test unitaire
+            // (OutputRepositoryUpdateCountTest), là où NOW() la réservait à la suite
+            // d'intégration MySQL.
             $sql = "UPDATE `{$table}`
                     SET state = :state,
-                        requestTime = NOW(),
+                        requestTime = CURRENT_TIMESTAMP,
                         lastModifiedBy = :modifiedBy
                     WHERE gpio = :gpio";
             $stmt = $this->pdo->prepare($sql);
@@ -286,7 +300,8 @@ class OutputRepository extends AbstractRepository
                 } else {
                     $value = is_numeric($value) ? (int) $value : 0;
                 }
-                if ($stmt->execute([':state' => $value, ':gpio' => $gpio, ':modifiedBy' => $modifiedBy])) {
+                $stmt->execute([':state' => $value, ':gpio' => $gpio, ':modifiedBy' => $modifiedBy]);
+                if ($stmt->rowCount() > 0) {
                     $updated++;
                 }
             }

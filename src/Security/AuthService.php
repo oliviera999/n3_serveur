@@ -150,14 +150,17 @@ class AuthService
             return false;
         }
 
-        if (isset($_SESSION['auth_time'])) {
-            $elapsed = time() - $_SESSION['auth_time'];
-            if ($elapsed > self::SESSION_TIMEOUT) {
-                $this->logout();
-                return false;
-            }
-            $_SESSION['auth_time'] = time();
+        // Corrigé en 6.34.0 : le délai n'était appliqué QUE si `auth_time` existait —
+        // une session dépourvue de la clé n'expirait donc JAMAIS. `login()` la pose
+        // toujours ; l'absence signale une session anormale, traitée comme expirée
+        // (fail-closed, cohérent avec le repli de rôle de la 6.32.0).
+        $authTime = $_SESSION['auth_time'] ?? null;
+        if (!is_int($authTime) || (time() - $authTime) > self::SESSION_TIMEOUT) {
+            $this->logout();
+
+            return false;
         }
+        $_SESSION['auth_time'] = time();
 
         return true;
     }

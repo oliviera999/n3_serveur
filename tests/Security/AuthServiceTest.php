@@ -193,6 +193,45 @@ final class AuthServiceTest extends TestCase
         }
     }
 
+    /**
+     * Constat S10 (6.34.0) : le délai d'expiration n'était appliqué QUE si `auth_time`
+     * existait — une session dépourvue de la clé ne périmait donc jamais.
+     */
+    public function testSessionWithoutAuthTimeIsNotAuthenticated(): void
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $previousSession = $_SESSION;
+
+        try {
+            $_SESSION = ['authenticated' => true]; // pas d'auth_time
+            $auth = new AuthService(null);
+
+            $this->assertFalse($auth->isAuthenticated());
+            $this->assertNull($auth->getCurrentRole());
+        } finally {
+            $_SESSION = $previousSession;
+        }
+    }
+
+    public function testExpiredSessionIsNotAuthenticated(): void
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $previousSession = $_SESSION;
+
+        try {
+            $_SESSION = ['authenticated' => true, 'auth_time' => time() - 7201];
+            $auth = new AuthService(null);
+
+            $this->assertFalse($auth->isAuthenticated());
+        } finally {
+            $_SESSION = $previousSession;
+        }
+    }
+
     public function testExplicitSessionRoleIsPreserved(): void
     {
         if (session_status() === PHP_SESSION_NONE) {

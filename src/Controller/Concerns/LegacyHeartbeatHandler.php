@@ -11,6 +11,7 @@ use App\Service\HmacAuditLogger;
 use App\Service\HmacPolicyService;
 use App\Service\LogService;
 use App\Service\OperationalSettingsService;
+use App\Util\ClientIpResolver;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
 use PDO;
@@ -87,15 +88,9 @@ final class LegacyHeartbeatHandler
             if ($window <= 0) {
                 $window = 60;
             }
-            $server = $request->getServerParams();
-            $ip = isset($server['REMOTE_ADDR']) && is_string($server['REMOTE_ADDR']) ? $server['REMOTE_ADDR'] : 'unknown';
-            $xff = $request->getHeaderLine('X-Forwarded-For');
-            if ($xff !== '') {
-                $first = trim(explode(',', $xff)[0]);
-                if ($first !== '') {
-                    $ip = $first;
-                }
-            }
+            // Même politique que /post-data : X-Forwarded-For n'est cru que derrière
+            // un proxy déclaré dans TRUSTED_PROXIES (corrigé en 6.34.0).
+            $ip = ClientIpResolver::resolve($request);
             if ((new RateLimiter())->hit("firmware:{$this->componentName}:{$ip}", $window) > $max) {
                 $this->logger->warning("{$this->componentName}: rejet rate limit code=429", ['ip' => $ip]);
                 return ResponseHelper::text($response, 'Trop de requetes', 429);

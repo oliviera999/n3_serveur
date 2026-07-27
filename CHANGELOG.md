@@ -11,6 +11,56 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.34.0] - 2026-07-27
+
+Solde les derniers constats de `docs/AUDIT_BUGS_2026-07.md` (**S8**, **S9**, **S10**).
+
+### Rate-limit firmware : `X-Forwarded-For` n'est plus cru sans condition (S9)
+
+`AbstractPostDataController::enforceFirmwareRateLimit()` et `LegacyHeartbeatHandler`
+construisaient leur clé de limitation à partir de `X-Forwarded-For` **pris tel quel**. Cet
+en-tête étant fourni par le client, il suffisait de le faire varier pour obtenir un compteur
+neuf à chaque requête — la limite était donc inopérante — et de l'usurper pour empoisonner
+le compteur d'une IP tierce.
+
+Le durcissement adéquat existait déjà, correct et couvert par des tests, dans
+`RateLimitMiddleware::clientIp()` (limiteur de login) : l'en-tête n'est cru que si
+`REMOTE_ADDR` appartient à `TRUSTED_PROXIES`. Plutôt que d'en écrire une troisième variante,
+cette logique est **extraite verbatim** dans `App\Util\ClientIpResolver`, dont les trois
+appelants dépendent désormais. Les limiteurs firmware héritent au passage du support **IPv6**
+(`inet_pton`, CIDR v4/v6) que la copie naïve n'avait pas. `TRUSTED_PROXIES` vide (défaut)
+= aucun proxy de confiance, `X-Forwarded-For` totalement ignoré.
+
+### `updated` compte enfin les paramètres réellement persistés (S8)
+
+`OutputRepository::updateMultipleParameters()` incrémentait son compteur sur le retour de
+`PDOStatement::execute()`, qui vaut `true` dès que la requête part sans erreur — **y compris
+quand elle ne touche aucune ligne** (GPIO absent de la table). L'API annonçait donc des
+paramètres « enregistrés » qui ne l'étaient pas. Le compteur s'appuie désormais sur
+`rowCount()`. `NOW()` devient `CURRENT_TIMESTAMP` (synonyme exact en MySQL, mais portable
+SQLite) : la méthode est enfin couvrable par un test unitaire, là où `NOW()` la réservait à
+la suite d'intégration MySQL.
+
+### Robustesse (S10)
+
+- **`RealtimeHealthTrait::sensorUptimePercentage()`** : un intervalle nul levait
+  `DivisionByZeroError` (fatale en PHP 8) ; retourne 0 %, comme le garde-fou déjà présent
+  dans `uptimePercentage()`.
+- **`RealtimeHealthTrait::moduleUptimeSecondsFromDate()`** : `strtotime()` renvoyant `false`
+  était additionné comme `0`, affichant une durée de fonctionnement d'environ 56 ans ; une
+  date illisible retourne désormais `null`.
+- **`ReadingTimeParser`** : le fuseau de stockage était codé en dur à `Europe/Paris` alors que
+  `DisplayTime` et `Database::currentUtcOffset()` lisent `APP_TIMEZONE` — changer ce réglage
+  aurait décalé silencieusement les horodatages Highcharts. Le fuseau est lu depuis
+  `APP_TIMEZONE` (mémoïsé par nom, repli sur le défaut historique si invalide).
+- **`AuthService::isAuthenticated()`** : le délai d'expiration n'était appliqué que si
+  `auth_time` existait — une session dépourvue de la clé ne périmait **jamais**. Son absence
+  est désormais traitée comme une expiration (fail-closed, cohérent avec le repli de rôle de
+  la 6.32.0).
+- **`SensorReadRepository::getLastReadings()`** : `ORDER BY reading_time DESC` seul rendait la
+  « dernière lecture » arbitraire entre deux lignes de la même seconde — or les alertes
+  dérivées et la page de contrôle en dépendent. Départage par `id DESC`.
+
 ## [6.33.0] - 2026-07-27
 
 ### `EXIT_FLOOD` est une transition, pas un état — fin du log toutes les minutes

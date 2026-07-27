@@ -204,8 +204,12 @@ class SensorReadRepository extends AbstractRepository
             $limit = 10_000;
         }
         // Limite en SQL entier : avec MySQL, LIMIT lié (:limit) peut produire un ordre incohérent selon le driver PDO.
+        // Départage par `id DESC` (6.34.0) : `reading_time` a une résolution d'une SECONDE,
+        // donc deux lignes de la même seconde rendaient la « dernière lecture » arbitraire
+        // — or les alertes dérivées et la page de contrôle en dépendent. La colonne `id`
+        // est déjà sélectionnée explicitement par d'autres requêtes de ce repository.
         $sql = sprintf(
-            'SELECT * FROM `%s` ORDER BY reading_time DESC LIMIT %d',
+            'SELECT * FROM `%s` ORDER BY reading_time DESC, id DESC LIMIT %d',
             $table,
             $limit
         );

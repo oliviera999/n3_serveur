@@ -8,8 +8,10 @@ constats non déclenchables aujourd'hui sont explicitement marqués **latent**.
 Pour chaque constat, ce document propose **une ou plusieurs options de correction**
 avec leurs compromis, et indique lesquelles ont été **appliquées**.
 
-**État au 2026-07-27** : **S1-S3 corrigés en 6.31.0**, **S4-S5 en 6.32.0**, **S6-S7 en
-6.33.0**. S8, S9 et S10 restent ouverts — leurs options sont documentées ci-dessous.
+**État au 2026-07-27** : **tous les constats sont corrigés** — S1-S3 en 6.31.0, S4-S5 en
+6.32.0, S6-S7 en 6.33.0, S8-S10 en 6.34.0. Les options non retenues restent documentées
+ci-dessous : plusieurs (notamment S1 options B/C) demeurent pertinentes comme correctif de
+fond, à arbitrer avec le constat **F2** de l'audit firmware.
 
 > Un audit jumeau couvre le dépôt firmware : `n3_firmwires/docs/AUDIT_BUGS_2026-07.md`.
 > Les constats **S1** (ici) et **F2** (là-bas) portent sur le même contrat HMAC.
@@ -25,9 +27,9 @@ avec leurs compromis, et indique lesquelles ont été **appliquées**.
 | S5 | 🟠 Moyen | Rôle manquant en session → repli sur `ROLE_ADMIN` | `AuthService.php` | ✅ **corrigé** (6.32.0) |
 | S6 | 🟡 Faible+ | `EXIT_FLOOD` renvoyé à chaque tick → log toutes les minutes | `FloodStateMachine.php` | ✅ **corrigé** (6.33.0) |
 | S7 | 🟡 Faible (latent) | Hystérésis inversée pour `DIRECTION_HIGH` sans seuil explicite | `AbstractVitalsDerivedAlertService.php` | ✅ **corrigé** (6.33.0) |
-| S8 | 🟡 Faible | `updated` compte les tentatives, pas les lignes modifiées | `OutputRepository.php` | ouvert |
-| S9 | 🟡 Faible | Rate-limit contournable via `X-Forwarded-For` | `AbstractPostDataController.php` | ouvert |
-| S10 | ⚪ Robustesse | Divers (division par zéro latente, `strtotime` false, fuseau, session) | divers | ouvert |
+| S8 | 🟡 Faible | `updated` compte les tentatives, pas les lignes modifiées | `OutputRepository.php` | ✅ **corrigé** (6.34.0) |
+| S9 | 🟡 Faible | Rate-limit contournable via `X-Forwarded-For` | `AbstractPostDataController.php` | ✅ **corrigé** (6.34.0) |
+| S10 | ⚪ Robustesse | Divers (division par zéro latente, `strtotime` false, fuseau, session) | divers | ✅ **corrigé** (6.34.0) |
 
 ---
 
@@ -454,7 +456,15 @@ symétrique : plus lisible, au prix d'un peu de duplication.
 
 ---
 
-## S8 — 🟡 `updated` compte les tentatives, pas les lignes modifiées
+## S8 — 🟡 `updated` compte les tentatives, pas les lignes modifiées — ✅ CORRIGÉ
+
+> **Correctif appliqué (6.34.0)** — **option A**. Le piège MySQL décrit ci-dessous (0 ligne
+> quand rien ne CHANGE) ne se matérialise pas ici : la requête écrit toujours
+> `requestTime`, donc la ligne change dès qu'elle existe. Seul un ré-enregistrement à
+> l'identique dans la MÊME seconde renverrait 0 — bénin. `PDO::MYSQL_ATTR_FOUND_ROWS` a été
+> écarté : il change la sémantique de `rowCount()` pour **toute** l'application.
+> `NOW()` → `CURRENT_TIMESTAMP` (synonyme exact en MySQL, portable SQLite) rend au passage
+> la méthode testable unitairement.
 
 `OutputRepository::updateMultipleParameters()` (`src/Repository/OutputRepository.php:270`) :
 
@@ -487,7 +497,14 @@ laisser l'UI choisir ce qu'elle affiche. Plus verbeux, mais sans ambiguïté.
 
 ---
 
-## S9 — 🟡 Rate-limit contournable via `X-Forwarded-For`
+## S9 — 🟡 Rate-limit contournable via `X-Forwarded-For` — ✅ CORRIGÉ
+
+> **Correctif appliqué (6.34.0)** — **option A**, mais par EXTRACTION plutôt que par
+> réécriture : `RateLimitMiddleware::clientIp()` implémentait déjà ce durcissement,
+> correctement et avec support IPv6. Il est déplacé verbatim dans
+> `App\Util\ClientIpResolver`, désormais utilisé par les trois appelants — les limiteurs
+> firmware héritent donc aussi d'IPv6 (`inet_pton`, CIDR v4/v6). L'option B (clé composite
+> IP + sensor) reste possible en complément si un jour plusieurs appareils partagent une IP.
 
 `AbstractPostDataController::enforceFirmwareRateLimit()`
 (`src/Controller/AbstractPostDataController.php:100-106`) et son jumeau dans
@@ -518,7 +535,12 @@ rien à lui seul.
 
 ---
 
-## S10 — ⚪ Robustesse (aucun déclencheur connu aujourd'hui)
+## S10 — ⚪ Robustesse (aucun déclencheur connu aujourd'hui) — ✅ CORRIGÉ
+
+> **Correctifs appliqués (6.34.0)** : les cinq points ci-dessous, chacun avec le *fix*
+> proposé. Tests ajoutés pour les trois testables (garde intervalle nul + `strtotime` faux
+> dans `RealtimeHealthTraitTest` ; `APP_TIMEZONE` dans `ReadingTimeParserTest` ; session
+> sans `auth_time` dans `AuthServiceTest`).
 
 Regroupés ici : constats corrects mais non déclenchables par la configuration
 actuelle. À traiter en défense en profondeur.
