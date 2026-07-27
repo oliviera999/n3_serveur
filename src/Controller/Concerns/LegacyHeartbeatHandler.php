@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace App\Controller\Concerns;
 
-use App\Middleware\RawPostBodyMiddleware;
 use App\Security\RateLimiter;
 use App\Security\SignatureValidator;
 use App\Service\HmacAuditLogger;
 use App\Service\HmacPolicyService;
 use App\Service\LogService;
 use App\Service\OperationalSettingsService;
+use App\Util\ClientIpResolver;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
+use App\Util\SignedBodyResolver;
 use PDO;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -87,15 +88,9 @@ final class LegacyHeartbeatHandler
             if ($window <= 0) {
                 $window = 60;
             }
-            $server = $request->getServerParams();
-            $ip = isset($server['REMOTE_ADDR']) && is_string($server['REMOTE_ADDR']) ? $server['REMOTE_ADDR'] : 'unknown';
-            $xff = $request->getHeaderLine('X-Forwarded-For');
-            if ($xff !== '') {
-                $first = trim(explode(',', $xff)[0]);
-                if ($first !== '') {
-                    $ip = $first;
-                }
-            }
+            // Même politique que /post-data : X-Forwarded-For n'est cru que derrière
+            // un proxy déclaré dans TRUSTED_PROXIES (corrigé en 6.34.0).
+            $ip = ClientIpResolver::resolve($request);
             if ((new RateLimiter())->hit("firmware:{$this->componentName}:{$ip}", $window) > $max) {
                 $this->logger->warning("{$this->componentName}: rejet rate limit code=429", ['ip' => $ip]);
                 return ResponseHelper::text($response, 'Trop de requetes', 429);
@@ -179,11 +174,15 @@ final class LegacyHeartbeatHandler
      */
     private function validateAuth(Request $request, array $params, Response $response): ?Response
     {
-        $headerError = $this->verifyOptionalHeaderHmac($request, $response);
+        // $headerVerified n'est vrai que si la signature X-Sig-* a REELLEMENT valide.
+        // Un repli souple (signature presente mais non verifiable) le laisse a false :
+        // la requete doit alors satisfaire le contrat legacy ou api_key ci-dessous.
+        $headerVerified = false;
+        $headerError = $this->verifyOptionalHeaderHmac($request, $response, $headerVerified);
         if ($headerError !== null) {
             return $headerError;
         }
-        if (trim($request->getHeaderLine('X-Sig-Hmac')) !== '') {
+        if ($headerVerified) {
             return null;
         }
 
@@ -227,9 +226,7 @@ final class LegacyHeartbeatHandler
         // Parite avec HmacAuthTrait (post-data) : en mode strict, l'absence de
         // signature HMAC est refusee au lieu de retomber sur l'api_key. Sans cela
         // le heartbeat restait laxiste meme quand /post-data etait durci.
-        $strict = $this->hmacPolicyService?->isStrictMode()
-            ?? filter_var($_ENV['HMAC_STRICT_MODE'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
-        if ($strict) {
+        if ($this->isStrictMode()) {
             $this->logger->warning("{$this->componentName}: rejet auth HMAC absent (strict) code=401", [
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
             ]);
@@ -258,10 +255,32 @@ final class LegacyHeartbeatHandler
     }
 
     /**
-     * Vérifie les en-têtes X-Sig-* si présents (parité FFP3 / post-data body-signing).
+     * Mode strict HMAC (réglage supervision BDD, repli `.env`).
      */
-    private function verifyOptionalHeaderHmac(Request $request, Response $response): ?Response
+    private function isStrictMode(): bool
     {
+        return $this->hmacPolicyService?->isStrictMode()
+            ?? filter_var($_ENV['HMAC_STRICT_MODE'] ?? 'false', FILTER_VALIDATE_BOOLEAN);
+    }
+
+    /**
+     * Vérifie les en-têtes X-Sig-* si présents (parité FFP3 / post-data body-signing).
+     *
+     * REPLI (6.31.0), parité {@see HmacAuthTrait::validateHmacOrFallback()} : une
+     * signature présente mais non vérifiable (corps brut vide sous mod_php, cf.
+     * CHANGELOG 5.1.12) ne rejette plus par elle-même — `$verified` reste false et
+     * l'appelant poursuit sur le contrat legacy (`timestamp`+`signature`, qui ne
+     * dépend PAS du corps) puis sur `api_key`. `HMAC_STRICT_MODE=true` restaure le
+     * rejet 401.
+     *
+     * @param bool $verified Sortie : true UNIQUEMENT si la signature a validé.
+     *                       Ne jamais court-circuiter l'auth sur la seule présence
+     *                       de l'en-tête — ce serait un contournement complet.
+     */
+    private function verifyOptionalHeaderHmac(Request $request, Response $response, bool &$verified): ?Response
+    {
+        $verified = false;
+
         $timestamp = trim($request->getHeaderLine('X-Sig-Timestamp'));
         $nonce = trim($request->getHeaderLine('X-Sig-Nonce'));
         $signature = trim($request->getHeaderLine('X-Sig-Hmac'));
@@ -270,9 +289,17 @@ final class LegacyHeartbeatHandler
             return null;
         }
 
+        $strict = $this->isStrictMode();
+
         if ($timestamp === '' || $nonce === '' || $signature === '') {
-            $this->logger->warning("{$this->componentName}: rejet auth X-Sig incomplete code=401");
-            return ResponseHelper::text($response, 'Signature incomplete', 401);
+            $this->logger->warning(
+                $strict
+                    ? "{$this->componentName}: rejet auth X-Sig incomplete code=401"
+                    : "{$this->componentName}: auth X-Sig incomplete, repli contrat legacy/api_key",
+                ['strict' => $strict]
+            );
+
+            return $strict ? ResponseHelper::text($response, 'Signature incomplete', 401) : null;
         }
 
         $sigSecret = $_ENV['API_SIG_SECRET'] ?? null;
@@ -285,32 +312,43 @@ final class LegacyHeartbeatHandler
             $sigWindow = 300;
         }
 
-        $body = $request->getAttribute(RawPostBodyMiddleware::ATTRIBUTE);
-        if (!is_string($body) || $body === '') {
-            $body = (string) $request->getBody();
-        }
+        // `body_source` tranche depuis les logs de production la question laissee
+        // ouverte par le correctif 5.1.12 : `php://input` est-il reellement vide
+        // sur cet hebergement ? Cf. App\Util\SignedBodyResolver.
+        $resolved = SignedBodyResolver::resolve($request);
+        $body = $resolved['body'];
+        $bodySource = $resolved['source'];
 
-        if (!SignatureValidator::isValidForBody($timestamp, $nonce, $body, $signature, $sigSecret, $sigWindow)) {
-            $this->logger->warning("{$this->componentName}: rejet auth X-Sig invalide code=401");
-            $this->hmacAuditLogger?->record($this->componentName, 'reject', 'x_sig_body', [
-                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+        if (SignatureValidator::isValidForBody($timestamp, $nonce, $body, $signature, $sigSecret, $sigWindow)) {
+            $verified = true;
+            $this->hmacAuditLogger?->record($this->componentName, 'ok', 'x_sig_body', [
+                'ip' => ClientIpResolver::resolve($request),
                 'ts_received' => $timestamp,
                 'nonce_len' => strlen($nonce),
                 'window_s' => $sigWindow,
                 'body_len' => strlen($body),
-            ], 'signature_invalid');
-            return ResponseHelper::text($response, 'Signature incorrecte', 401);
+                'body_source' => $bodySource,
+            ]);
+
+            return null;
         }
 
-        $this->hmacAuditLogger?->record($this->componentName, 'ok', 'x_sig_body', [
-            'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+        $this->logger->warning(
+            $strict
+                ? "{$this->componentName}: rejet auth X-Sig invalide code=401"
+                : "{$this->componentName}: auth X-Sig invalide, repli contrat legacy/api_key",
+            ['body_len' => strlen($body), 'body_source' => $bodySource, 'strict' => $strict]
+        );
+        $this->hmacAuditLogger?->record($this->componentName, 'reject', 'x_sig_body', [
+            'ip' => ClientIpResolver::resolve($request),
             'ts_received' => $timestamp,
             'nonce_len' => strlen($nonce),
             'window_s' => $sigWindow,
             'body_len' => strlen($body),
-        ]);
+            'body_source' => $bodySource,
+        ], $strict ? 'signature_invalid' : 'signature_invalid_soft_fallback');
 
-        return null;
+        return $strict ? ResponseHelper::text($response, 'Signature incorrecte', 401) : null;
     }
 
     private function sanitizeNumeric(string $data): string

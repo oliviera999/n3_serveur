@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Security;
 
 use App\Config\Env;
+use App\Domain\User;
 use App\Security\AuthService;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -162,6 +163,96 @@ final class AuthServiceTest extends TestCase
             } else {
                 $_SERVER['HTTP_AUTHORIZATION'] = $previous;
             }
+        }
+    }
+
+    /**
+     * RÉGRESSION 6.32.0 : une session authentifiée SANS clé `auth_role` retombait sur
+     * `ROLE_ADMIN` — un fail-open sur un contrôle d'accès (session antérieure à
+     * l'introduction du champ survivant à un déploiement, store partiellement
+     * désérialisé…). Le repli doit être le rôle le plus FAIBLE.
+     */
+    public function testMissingSessionRoleFallsBackToWeakestRole(): void
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $previousSession = $_SESSION;
+
+        try {
+            $_SESSION = ['authenticated' => true, 'auth_time' => time()];
+            unset($_SESSION['auth_role']);
+
+            $auth = new AuthService(null);
+
+            $this->assertSame(User::ROLE_READER, $auth->getCurrentRole());
+            $this->assertFalse($auth->isAdmin(), 'une session sans rôle ne doit pas être admin');
+            $this->assertFalse($auth->canAccessControl(), 'ni accéder au contrôle');
+        } finally {
+            $_SESSION = $previousSession;
+        }
+    }
+
+    /**
+     * Constat S10 (6.34.0) : le délai d'expiration n'était appliqué QUE si `auth_time`
+     * existait — une session dépourvue de la clé ne périmait donc jamais.
+     */
+    public function testSessionWithoutAuthTimeIsNotAuthenticated(): void
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $previousSession = $_SESSION;
+
+        try {
+            $_SESSION = ['authenticated' => true]; // pas d'auth_time
+            $auth = new AuthService(null);
+
+            $this->assertFalse($auth->isAuthenticated());
+            $this->assertNull($auth->getCurrentRole());
+        } finally {
+            $_SESSION = $previousSession;
+        }
+    }
+
+    public function testExpiredSessionIsNotAuthenticated(): void
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $previousSession = $_SESSION;
+
+        try {
+            $_SESSION = ['authenticated' => true, 'auth_time' => time() - 7201];
+            $auth = new AuthService(null);
+
+            $this->assertFalse($auth->isAuthenticated());
+        } finally {
+            $_SESSION = $previousSession;
+        }
+    }
+
+    public function testExplicitSessionRoleIsPreserved(): void
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $previousSession = $_SESSION;
+
+        try {
+            $_SESSION = [
+                'authenticated' => true,
+                'auth_time' => time(),
+                'auth_role' => User::ROLE_OPERATOR,
+            ];
+
+            $auth = new AuthService(null);
+
+            $this->assertSame(User::ROLE_OPERATOR, $auth->getCurrentRole());
+            $this->assertTrue($auth->canAccessControl());
+            $this->assertFalse($auth->isAdmin());
+        } finally {
+            $_SESSION = $previousSession;
         }
     }
 }

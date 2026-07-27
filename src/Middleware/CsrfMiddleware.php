@@ -86,9 +86,18 @@ class CsrfMiddleware implements MiddlewareInterface
             return $handler->handle($request);
         }
 
-        // Requête authentifiée par token explicite (query/en-tête, non-ambiant) :
-        // non falsifiable en cross-site, donc non vulnérable au CSRF.
-        if ($this->authService->isAuthenticatedByToken($request->getQueryParams())) {
+        // Requête authentifiée par token EXPLICITE (en-tête `Authorization: Bearer` /
+        // `X-Admin-Token`, ou `?token=`) : un secret que le navigateur n'envoie pas tout
+        // seul n'est pas falsifiable en cross-site, donc non vulnérable au CSRF.
+        //
+        // CORRECTION 6.32.0 : ce test appelait `isAuthenticatedByToken()`, qui vérifie
+        // AUSSI le cookie `admin_token` — ambiant par nature (posé 30 jours par
+        // `setAdminTokenCookie()`, réémis automatiquement par le navigateur). L'exemption
+        // contredisait donc sa propre justification. `SameSite=Lax` limitait la portée
+        // pratique (un POST cross-site ne transporte pas le cookie), mais ne couvre ni un
+        // sous-domaine same-site compromis, ni un assouplissement futur de l'attribut.
+        // On n'exempte plus que les deux canaux réellement non-ambiants.
+        if ($this->hasExplicitToken($request)) {
             return $handler->handle($request);
         }
 
@@ -105,6 +114,32 @@ class CsrfMiddleware implements MiddlewareInterface
         }
 
         return $handler->handle($request);
+    }
+
+    /**
+     * Vrai si la requête porte un token admin valide par un canal NON-AMBIANT :
+     * en-tête (`Authorization: Bearer` / `X-Admin-Token`) ou paramètre d'URL `?token=`.
+     *
+     * Exclut délibérément le cookie `admin_token` : le navigateur l'attache seul, donc
+     * il ne prouve pas l'intention de l'utilisateur — c'est exactement ce contre quoi
+     * le jeton CSRF protège. Une requête portée par le seul cookie devra donc fournir
+     * un `X-CSRF-Token` / `_csrf_token` valide, comme n'importe quelle écriture de session.
+     */
+    private function hasExplicitToken(Request $request): bool
+    {
+        if ($this->authService->hasValidHeaderToken()) {
+            return true;
+        }
+
+        // ⚠️ M4 : le token en query string fuit dans les logs, le Referer et l'historique.
+        // Conservé tant que le front propage le token par l'URL (cf. AuthService).
+        $queryToken = $request->getQueryParams()['token'] ?? null;
+        if (!is_scalar($queryToken)) {
+            return false;
+        }
+        $queryToken = (string) $queryToken;
+
+        return $queryToken !== '' && $this->authService->validateToken($queryToken);
     }
 
     private function isProtected(string $path): bool

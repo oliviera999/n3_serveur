@@ -4,6 +4,9 @@
  * Usage: php tools/diagnostic_esp32.php
  */
 
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\Config\Database;

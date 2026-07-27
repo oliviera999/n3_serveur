@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Config\TableConfig;
+use App\Util\TableValidator;
 use PDO;
 
 /**
@@ -13,6 +14,15 @@ use PDO;
  */
 class PumpService
 {
+    /**
+     * Source inscrite dans `lastModifiedBy` pour toute écriture de ce service
+     * (CRON : sécurité marée, redémarrage différé, reset ESP).
+     *
+     * Doit appartenir à {@see \App\Repository\OutputRepository::SERVER_OWNED_SOURCES},
+     * sans quoi le POST firmware suivant réécrirait immédiatement la commande.
+     */
+    public const MODIFIED_BY = 'cron';
+
     /**
      * Numéro du GPIO pour la pompe aquarium (configurable via .env)
      */
@@ -29,10 +39,13 @@ class PumpService
     private int $gpioResetMode;
 
     /**
-     * Indique si la table d'outputs expose une colonne `name`.
-     * Null = non encore déterminé.
+     * Colonnes présentes dans la table d'outputs, par table puis par colonne.
+     * Mémoïsé PAR TABLE : `TableConfig::setEnvironment()` peut changer la table
+     * cible au sein d'un même process (CRON multi-environnements).
+     *
+     * @var array<string, array<string, bool>>
      */
-    private ?bool $outputsTableHasNameColumn = null;
+    private array $outputsColumnCache = [];
 
     /**
      * @param PDO $pdo Connexion PDO à la base de données (injectée)
@@ -57,32 +70,60 @@ class PumpService
         return $default;
     }
 
-    private function outputsTableHasNameColumn(string $table): bool
+    /**
+     * Colonnes de la table d'outputs, détectées de façon PORTABLE.
+     *
+     * Historique (corrigé en 6.31.0) : la détection interrogeait `PRAGMA table_info`,
+     * syntaxe propre à SQLite. En MySQL — le seul moteur de production — la requête
+     * levait une PDOException (ERRMODE_EXCEPTION, cf. {@see \App\Config\Database}),
+     * silencieusement avalée : la garde `name` n'était donc JAMAIS appliquée en prod,
+     * et une requête invalide partait au serveur à chaque écriture.
+     *
+     * Même approche que {@see \App\Service\OutputCacheService} : on branche sur le
+     * driver PDO plutôt que de supposer un moteur.
+     *
+     * @return array<string, bool> colonne => présente
+     */
+    private function outputsColumns(string $table): array
     {
-        if ($this->outputsTableHasNameColumn !== null) {
-            return $this->outputsTableHasNameColumn;
+        if (isset($this->outputsColumnCache[$table])) {
+            return $this->outputsColumnCache[$table];
         }
 
+        $columns = [];
         try {
-            // Compatible SQLite (tests) ; si indisponible/erreur, on bascule en fallback sans filtre.
-            $stmt = $this->pdo->query("PRAGMA table_info({$table})");
-            if ($stmt === false) {
-                $this->outputsTableHasNameColumn = false;
-                return $this->outputsTableHasNameColumn;
-            }
-            $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($columns as $column) {
-                if (($column['name'] ?? null) === 'name') {
-                    $this->outputsTableHasNameColumn = true;
-                    return true;
+            $driver = (string) $this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+            $sql = $driver === 'mysql'
+                ? "SHOW COLUMNS FROM `{$table}`"
+                : "PRAGMA table_info(`{$table}`)";
+            $stmt = $this->pdo->query($sql);
+            if ($stmt !== false) {
+                // MySQL (SHOW COLUMNS) et SQLite (PRAGMA) exposent tous deux le nom
+                // de la colonne, sous la clé `Field` / `name` respectivement.
+                foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                    if (!is_array($row)) {
+                        continue;
+                    }
+                    $name = $row['Field'] ?? $row['name'] ?? null;
+                    if (is_string($name) && $name !== '') {
+                        $columns[$name] = true;
+                    }
                 }
             }
         } catch (\Throwable) {
-            // No-op: fallback ci-dessous.
+            // Introspection indisponible : on retombe sur l'UPDATE minimal (state seul),
+            // qui reste valide sur tout schéma.
+            $columns = [];
         }
 
-        $this->outputsTableHasNameColumn = false;
-        return false;
+        $this->outputsColumnCache[$table] = $columns;
+
+        return $columns;
+    }
+
+    private function outputsTableHasColumn(string $table, string $column): bool
+    {
+        return ($this->outputsColumns($table)[$column] ?? false) === true;
     }
 
     /**
@@ -93,8 +134,8 @@ class PumpService
      */
     public function getState(int $gpio): ?int
     {
-        $table = TableConfig::getOutputsTable();
-        $stmt = $this->pdo->prepare("SELECT state FROM {$table} WHERE gpio = :gpio");
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
+        $stmt = $this->pdo->prepare("SELECT state FROM `{$table}` WHERE gpio = :gpio");
         $stmt->execute([':gpio' => $gpio]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -103,42 +144,57 @@ class PumpService
 
     /**
      * Modifie l'état d'un GPIO donné.
-     * CORRECTION v11.38 : Ne met à jour QUE les GPIO existants avec des noms définis.
-     * Évite la création de lignes NULL/inutiles.
      *
-     * @param int $gpio  Numéro du GPIO
-     * @param int $state Nouvel état (1=ON, 0=OFF)
+     * CORRECTION v11.38 : ne met à jour QUE les GPIO existants avec un nom défini
+     * (garde appliquée dès que la colonne `name` existe — voir {@see outputsColumns()}).
+     *
+     * CORRECTION 6.31.0 : écrit AUSSI `requestTime` et `lastModifiedBy` quand ces
+     * colonnes existent. Sans elles, la commande n'était couverte par AUCUNE fenêtre
+     * de priorité : la clause anti-écrasement du POST firmware
+     * ({@see \App\Repository\OutputRepository::batchUpdateStatesSingleQuery()}) teste
+     * exactement `lastModifiedBy` / `requestTime`. L'arrêt de pompe « sécurité marée »
+     * du CRON laissait donc `lastModifiedBy = 'esp32'` et un `requestTime` ancien →
+     * le premier POST firmware (l'ESP32 poste bien plus souvent que la fenêtre de
+     * 12 s) remettait la pompe à l'état renvoyé par l'ESP32, annulant la sécurité
+     * avant même que l'appareil ait relu `/api/outputs/state` (poll 6 s).
+     *
+     * @param int    $gpio       Numéro du GPIO
+     * @param int    $state      Nouvel état (1=ON, 0=OFF)
+     * @param string $modifiedBy Source de l'écriture (défaut {@see self::MODIFIED_BY})
      */
-    public function setState(int $gpio, int $state): void
+    public function setState(int $gpio, int $state, string $modifiedBy = self::MODIFIED_BY): void
     {
-        $table = TableConfig::getOutputsTable();
+        $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
 
-        if ($this->outputsTableHasNameColumn($table)) {
-            // Préserve la règle de sécurité sur les schémas qui possèdent `name`.
-            $stmt = $this->pdo->prepare(
-                "UPDATE {$table}
-                 SET state = :state
-                 WHERE gpio = :gpio
-                   AND name IS NOT NULL
-                   AND name != ''"
-            );
-            $stmt->execute([
-                ':gpio' => $gpio,
-                ':state' => $state,
-            ]);
+        $assignments = ['state = :state'];
+        $params = [':gpio' => $gpio, ':state' => $state];
 
-            if ($stmt->rowCount() === 0) {
-                error_log(sprintf('[%s] PumpService: GPIO %d ignoré - pas de nom défini dans la table', date('Y-m-d H:i:s'), $gpio));
-            }
-            return;
+        if ($this->outputsTableHasColumn($table, 'requestTime')) {
+            // CURRENT_TIMESTAMP plutôt que NOW() : identique en MySQL, et portable SQLite.
+            $assignments[] = 'requestTime = CURRENT_TIMESTAMP';
+        }
+        if ($this->outputsTableHasColumn($table, 'lastModifiedBy')) {
+            $assignments[] = 'lastModifiedBy = :modifiedBy';
+            $params[':modifiedBy'] = $modifiedBy;
         }
 
-        // Fallback pour schémas legacy/minimaux (notamment tests SQLite).
-        $stmt = $this->pdo->prepare("UPDATE {$table} SET state = :state WHERE gpio = :gpio");
-        $stmt->execute([
-            ':gpio' => $gpio,
-            ':state' => $state,
-        ]);
+        $where = 'gpio = :gpio';
+        if ($this->outputsTableHasColumn($table, 'name')) {
+            $where .= " AND name IS NOT NULL AND name != ''";
+        }
+
+        $sql = 'UPDATE `' . $table . '` SET ' . implode(', ', $assignments) . ' WHERE ' . $where;
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);
+
+        if ($stmt->rowCount() === 0) {
+            error_log(sprintf(
+                '[%s] PumpService: GPIO %d non mis a jour (ligne absente ou sans nom) dans %s',
+                date('Y-m-d H:i:s'),
+                $gpio,
+                $table
+            ));
+        }
     }
 
     // ---------------------------------------------------------------------

@@ -142,7 +142,9 @@ abstract class AbstractVitalsDerivedAlertService
      *
      * `DIRECTION_HIGH` couvre la variante seuil HAUT (canicule) en réutilisant
      * l'évaluateur « valeur basse » sur les valeurs négées : Raise ⇔ `value > seuil`,
-     * Clear ⇔ `value < clearThreshold`, inégalités strictes préservées.
+     * Clear ⇔ `value < clearThreshold`, inégalités strictes préservées. Avec
+     * `$clearThreshold = null`, le défaut est `seuil - 5 %` (sous le déclenchement,
+     * comme il se doit pour une hystérésis) — voir le commentaire dans le corps.
      *
      * @param array<string, mixed>   $state          État persistant (par référence)
      * @param string                 $stateKey       Clé du drapeau latch (ex. 'frost')
@@ -166,11 +168,20 @@ abstract class AbstractVitalsDerivedAlertService
         $latched = (bool) ($state[$stateKey] ?? false);
 
         if ($direction === self::DIRECTION_HIGH) {
+            // Le seuil de ré-armement par DÉFAUT doit être calculé AVANT la négation
+            // (corrigé en 6.33.0). En le laissant à null, l'évaluateur appliquait sa
+            // formule `t + t/20` aux valeurs DÉJÀ niées, ce qui donnait
+            // `-1,05 × threshold` : le ré-armement se produisait alors à
+            // `value < 1,05 × threshold`, c'est-à-dire AU-DESSUS du seuil de
+            // déclenchement (`value > threshold`) au lieu d'en dessous. Toute valeur
+            // dans `]threshold ; 1,05 × threshold[` déclenchait puis ré-armait à chaque
+            // évaluation — alerte en battement.
+            $clearThreshold ??= $threshold - ($threshold / 20.0);
             $decision = LowValueAlertEvaluator::evaluate(
                 -$value,
                 -$threshold,
                 $latched,
-                $clearThreshold !== null ? -$clearThreshold : null,
+                -$clearThreshold,
             );
         } else {
             $decision = LowValueAlertEvaluator::evaluate($value, $threshold, $latched, $clearThreshold);

@@ -25,6 +25,25 @@ class OutputRepository extends AbstractRepository
     private const PHYSICAL_COMMAND_WEB_PRIORITY_SECONDS = 12;
 
     /**
+     * Sources d'écriture « détenues par le serveur » : leurs commandes sont protégées
+     * de l'écrasement par le POST firmware pendant la fenêtre de priorité.
+     *
+     * - `web`  : toggle depuis la page de contrôle (historique).
+     * - `cron` : commandes du CronOrchestrator via {@see \App\Service\PumpService}
+     *   (sécurité marée, redémarrage différé, reset ESP). Ajouté en 6.31.0 : sans
+     *   lui, l'arrêt de pompe de sécurité était réécrit par le POST firmware suivant.
+     *
+     * Toute nouvelle source serveur doit être ajoutée ICI **et** écrire
+     * `lastModifiedBy` (sinon la protection ne s'applique pas).
+     *
+     * Publique : c'est un contrat que tout écrivain serveur doit respecter
+     * (vérifié par PumpServiceTest).
+     *
+     * @var list<string>
+     */
+    public const SERVER_OWNED_SOURCES = ['web', 'cron'];
+
+    /**
      * GPIO 118-123 : angles servo nourrissage (défauts alignés OutputCacheService / migrate-gpio118-123).
      *
      * @var array<int, array{name: string, state: string}>
@@ -238,15 +257,29 @@ class OutputRepository extends AbstractRepository
      * Met à jour plusieurs paramètres depuis un formulaire.
      *
      * @param array<string, mixed> $params
+     * @return int Nombre de paramètres RÉELLEMENT persistés (lignes touchées).
+     *             Corrigé en 6.34.0 : le compteur incrémentait sur le retour de
+     *             `PDOStatement::execute()`, qui vaut `true` dès que la requête part
+     *             sans erreur — **y compris quand elle ne touche aucune ligne** (GPIO
+     *             absent de la table). L'API annonçait donc des paramètres
+     *             « enregistrés » qui ne l'étaient pas.
+     *             NB MySQL : `rowCount()` compte les lignes *modifiées*, pas trouvées.
+     *             Sans effet ici, la requête écrivant toujours `requestTime = NOW()` —
+     *             seul un ré-enregistrement à l'identique dans la MÊME seconde pourrait
+     *             renvoyer 0 (cas bénin).
      */
     public function updateMultipleParameters(array $params, string $modifiedBy = 'web'): int
     {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
         return $this->executeInTransaction(function () use ($params, $table, $modifiedBy): int {
             $updated = 0;
+            // CURRENT_TIMESTAMP plutôt que NOW() : synonyme exact en MySQL, et portable
+            // SQLite — ce qui rend enfin cette méthode couvrable par un test unitaire
+            // (OutputRepositoryUpdateCountTest), là où NOW() la réservait à la suite
+            // d'intégration MySQL.
             $sql = "UPDATE `{$table}`
                     SET state = :state,
-                        requestTime = NOW(),
+                        requestTime = CURRENT_TIMESTAMP,
                         lastModifiedBy = :modifiedBy
                     WHERE gpio = :gpio";
             $stmt = $this->pdo->prepare($sql);
@@ -267,7 +300,8 @@ class OutputRepository extends AbstractRepository
                 } else {
                     $value = is_numeric($value) ? (int) $value : 0;
                 }
-                if ($stmt->execute([':state' => $value, ':gpio' => $gpio, ':modifiedBy' => $modifiedBy])) {
+                $stmt->execute([':state' => $value, ':gpio' => $gpio, ':modifiedBy' => $modifiedBy]);
+                if ($stmt->rowCount() > 0) {
                     $updated++;
                 }
             }
@@ -366,19 +400,19 @@ class OutputRepository extends AbstractRepository
 
                 $stateValue = (string) $value;
 
-                // Protection contre écrasement des changements web récents
-                $sql = "UPDATE `{$table}` 
-                        SET state = :state, 
-                            requestTime = NOW(), 
+                // Protection contre écrasement des commandes serveur récentes
+                $sql = "UPDATE `{$table}`
+                        SET state = :state,
+                            requestTime = NOW(),
                             lastModifiedBy = :modifiedBy
-                        WHERE gpio = :gpio 
-                          AND name IS NOT NULL 
+                        WHERE gpio = :gpio
+                          AND name IS NOT NULL
                           AND name != ''
                           AND (
-                              lastModifiedBy != 'web' 
-                              OR requestTime IS NULL 
+                              " . self::serverOwnedSourcesSql() . '
+                              OR requestTime IS NULL
                               OR requestTime < DATE_SUB(NOW(), INTERVAL :priority SECOND)
-                          )";
+                          )';
 
                 $rowCount = $this->executeWithRowCount($sql, [
                     ':gpio' => $gpio,
@@ -491,7 +525,8 @@ class OutputRepository extends AbstractRepository
         $inList = implode(',', array_map('intval', $gpioList));
 
         $whereWebProtection = $prioritySeconds > 0
-            ? "AND (lastModifiedBy != 'web' OR requestTime IS NULL OR requestTime < DATE_SUB(NOW(), INTERVAL :priority SECOND))"
+            ? 'AND (' . self::serverOwnedSourcesSql()
+                . ' OR requestTime IS NULL OR requestTime < DATE_SUB(NOW(), INTERVAL :priority SECOND))'
             : '';
         $sql = "UPDATE `{$table}` SET state = {$caseSql}, requestTime = NOW(), lastModifiedBy = :modifiedBy
                 WHERE gpio IN ({$inList}) AND name IS NOT NULL AND name != '' {$whereWebProtection}";
@@ -682,6 +717,22 @@ class OutputRepository extends AbstractRepository
                 throw $e;
             }
         }
+    }
+
+    /**
+     * Fragment SQL « la ligne n'appartient PAS à une source serveur » — condition qui
+     * AUTORISE le POST firmware à écraser. Littéraux constants (liste blanche interne),
+     * jamais d'entrée utilisateur : pas de placeholder nécessaire ni possible ici
+     * (l'expression est concaténée dans plusieurs requêtes aux paramètres distincts).
+     */
+    private static function serverOwnedSourcesSql(): string
+    {
+        $quoted = array_map(
+            static fn (string $source): string => "'" . $source . "'",
+            self::SERVER_OWNED_SOURCES
+        );
+
+        return 'lastModifiedBy NOT IN (' . implode(', ', $quoted) . ')';
     }
 
     private function isDuplicateOutputRowException(PDOException $e): bool

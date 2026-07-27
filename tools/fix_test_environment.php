@@ -7,6 +7,9 @@
  * Solution: Forcer l'environnement TEST pour les endpoints /post-data-test
  */
 
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Config\TableConfig;

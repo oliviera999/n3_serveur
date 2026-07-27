@@ -11,6 +11,266 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.36.0] - 2026-07-27
+
+### Observabilité — d'où vient le corps signé par le firmware (`body_source`)
+
+Le correctif 5.1.12 a posé que « sous `x-www-form-urlencoded`, `php://input` est souvent vide
+côté mod_php », et toute une machinerie en découle : reconstitution canonique
+`Ffp3HmacPostBody`, repli souple de S1, et le constat **F2** côté n3_firmwires.
+
+Cette prémisse a été **déduite d'une série de 401, jamais mesurée** — et elle est en tension
+avec la documentation PHP (le vidage n'est prévu que pour `multipart/form-data` ; depuis PHP 5.6
+`php://input` est relisible pour `x-www-form-urlencoded`) et avec `slim/psr7` 1.8.0, qui met
+explicitement le flux en cache dans un `php://temp` pour qu'il soit relisible
+(`ServerRequestFactory::createFromGlobals()`).
+
+Impossible de trancher depuis un poste de développement, et un endpoint de diagnostic aurait
+créé une nouvelle surface exposée (cf. 6.35.0). La production répond donc elle-même :
+
+- **`App\Util\SignedBodyResolver`** (nouveau) : résout le corps signé **et** sa provenance —
+  `raw_middleware` (capté par `RawPostBodyMiddleware`), `raw_stream` (relu sur le flux),
+  `empty` (introuvable). FFP3 ajoute `canonical` quand il reconstruit.
+- `body_source` est désormais journalisé sur les quatre chemins de body-signing :
+  `HmacAuthTrait`, `AbstractHmacPostDataController`, `PglHmacAuthTrait`,
+  `LegacyHeartbeatHandler` — succès **et** rejet.
+- Procédure de décision documentée dans `docs/ENDPOINTS_ESP32_SERVEUR.md` et
+  `docs/AUDIT_BUGS_2026-07.md` (S1) : `raw_*` → toute la machinerie de reconstitution peut
+  être supprimée ; `empty` → la prémisse est confirmée.
+- **Robustesse** : côté FFP3, un attribut `RawPostBodyMiddleware` **présent mais vide** partait
+  directement en reconstitution canonique sans relire le flux. Le résolveur relit le flux avant
+  de conclure au vide.
+- **Cohérence** : `LegacyHeartbeatHandler` utilise `ClientIpResolver::resolve()` pour l'IP
+  d'audit X-Sig, comme les autres chemins depuis 6.34.0 (au lieu de `$_SERVER['REMOTE_ADDR']`).
+- **Tests** : `SignedBodyResolverTest` (attribut prioritaire, repli flux quand l'attribut est
+  absent / vide / non-string, `empty` quand rien n'est disponible, valeurs des constantes figées
+  car elles partent en journal).
+
+Aucun endpoint créé, aucune donnée nouvelle exposée, aucun changement du contrat HMAC.
+
+## [6.35.0] - 2026-07-27
+
+### Sécurité — les scripts de maintenance étaient exécutables par une requête web (S11)
+
+Constat ouvert par `docs/AUDIT_BUGS_2026-07.md` (**S11**), trouvé en enquêtant sur l'origine
+de `php://input` vide (S1).
+
+Le `.htaccess` racine refusait `vendor/ config/ src/ var/ templates/` mais **pas** `tools/`,
+`bin/`, `tests/` ni `migrations/`, et le routeur ne prend la main que sur les URL sans fichier
+correspondant (`RewriteCond %{REQUEST_FILENAME} !-f`). Avec le DocumentRoot sur la racine du
+dépôt — la configuration que ce `.htaccess` met justement en place — un `GET /tools/xxx.php`
+était exécuté directement par Apache, hors de Slim : sans authentification, sans CSRF,
+sans rate-limit.
+
+Atteignables sans authentification : `cleanup_whitespace.php` (`file_put_contents` sur les
+sources), `fix_test_environment.php` et `check_tables_server.php` (`INSERT`/`DELETE`),
+`run-phpunit.php` (`unlink`), `diagnostic_esp32.php` (divulgue les 5 premiers caractères de
+`API_KEY`), `check_env.php` (config BDD). Quatre scripts n'étaient protégés **que par accident**
+(shebang + `declare(strict_types=1)` → erreur fatale à la compilation sous SAPI web).
+
+`run-cron.php` avait bien une garde, mais elle acceptait tout SAPI contenant « cgi » — or
+`cgi-fcgi` est celui de **PHP-FPM en contexte web**. Derrière PHP-FPM, `GET /run-cron.php`
+déclenchait le `CronOrchestrator` complet (alertes, e-mails, `RestartPumpCommand`) à la demande.
+
+- **`App\Util\CliGuard`** (nouveau) : `isCli()` injectable (SAPI + `$_SERVER`), accepte
+  `cli`/`phpdbg`, accepte un SAPI `*cgi*` **uniquement sans marqueur HTTP** (`REQUEST_METHOD`,
+  `REQUEST_URI`, `SERVER_PROTOCOL`, `HTTP_HOST`, `REMOTE_ADDR`) — les crontabs `php-cgi`
+  continuent de fonctionner, PHP-FPM est fermé — et refuse tout le reste. `assertCli()`
+  journalise puis répond `403`.
+- **19 scripts** (`tools/`, `bin/`, `run-cron.php`) appellent la garde en tête, via un
+  `require_once` en chemin dur placé **avant `vendor/autoload.php`**.
+- **`.htaccess`** racine : refus de `tools/ bin/ tests/ migrations/ docker/ docs/ .github/
+  .claude/ .cursor`, de `run-cron.php`, des fichiers de configuration racine et des `.md` racine.
+- **`tools/.htaccess`**, **`bin/.htaccess`**, **`migrations/.htaccess`** : `Require all denied`,
+  indépendants du `.htaccess` racine (remplacé à chaque déploiement).
+- **Tests** : `CliGuardTest` (table de décision, 12 combinaisons SAPI × `$_SERVER`) et
+  `CliOnlyScriptsTest` (garde-fou structurel : découvre les scripts sur le disque, vérifie que
+  la garde précède tout effet de bord, que le chemin du `require_once` résout, que les `.htaccess`
+  sont en place et que les points d'entrée web ne sont **pas** gardés).
+
+> ⚠️ Reste côté hébergement : faire pointer le **DocumentRoot sur `public/`** supprimerait la
+> classe entière de problèmes. Cf. `docs/deployment/QUE_FAIRE_COTE_SERVEUR.md`.
+
+## [6.34.0] - 2026-07-27
+
+Solde les derniers constats de `docs/AUDIT_BUGS_2026-07.md` (**S8**, **S9**, **S10**).
+
+### Rate-limit firmware : `X-Forwarded-For` n'est plus cru sans condition (S9)
+
+`AbstractPostDataController::enforceFirmwareRateLimit()` et `LegacyHeartbeatHandler`
+construisaient leur clé de limitation à partir de `X-Forwarded-For` **pris tel quel**. Cet
+en-tête étant fourni par le client, il suffisait de le faire varier pour obtenir un compteur
+neuf à chaque requête — la limite était donc inopérante — et de l'usurper pour empoisonner
+le compteur d'une IP tierce.
+
+Le durcissement adéquat existait déjà, correct et couvert par des tests, dans
+`RateLimitMiddleware::clientIp()` (limiteur de login) : l'en-tête n'est cru que si
+`REMOTE_ADDR` appartient à `TRUSTED_PROXIES`. Plutôt que d'en écrire une troisième variante,
+cette logique est **extraite** dans `App\Util\ClientIpResolver`, dont les trois appelants
+dépendent désormais. Les limiteurs firmware héritent au passage du support **IPv6**
+(`inet_pton`, CIDR v4/v6) que la copie naïve n'avait pas. `TRUSTED_PROXIES` vide (défaut)
+= aucun proxy de confiance, `X-Forwarded-For` totalement ignoré.
+
+**Constat supplémentaire, mis au jour par les tests de l'extraction** : un masque CIDR
+malformé était traité comme `/0`, c'est-à-dire **« faire confiance à tout le monde »**.
+`(int) 'abc'` valant `0`, une simple coquille dans `TRUSTED_PROXIES` (`10.0.0.0/abc`, ou même
+`10.0.0.0/` avec un masque vide) rouvrait exactement le contournement que cette liste ferme —
+un fail-open sur un contrôle de sécurité, silencieux. Le masque doit désormais être
+strictement numérique ; un `/0` écrit explicitement reste honoré (choix assumé de
+l'exploitant). Le limiteur de login bénéficie du correctif par la même occasion.
+
+### `updated` compte enfin les paramètres réellement persistés (S8)
+
+`OutputRepository::updateMultipleParameters()` incrémentait son compteur sur le retour de
+`PDOStatement::execute()`, qui vaut `true` dès que la requête part sans erreur — **y compris
+quand elle ne touche aucune ligne** (GPIO absent de la table). L'API annonçait donc des
+paramètres « enregistrés » qui ne l'étaient pas. Le compteur s'appuie désormais sur
+`rowCount()`. `NOW()` devient `CURRENT_TIMESTAMP` (synonyme exact en MySQL, mais portable
+SQLite) : la méthode est enfin couvrable par un test unitaire, là où `NOW()` la réservait à
+la suite d'intégration MySQL.
+
+### Robustesse (S10)
+
+- **`RealtimeHealthTrait::sensorUptimePercentage()`** : un intervalle nul levait
+  `DivisionByZeroError` (fatale en PHP 8) ; retourne 0 %, comme le garde-fou déjà présent
+  dans `uptimePercentage()`.
+- **`RealtimeHealthTrait::moduleUptimeSecondsFromDate()`** : `strtotime()` renvoyant `false`
+  était additionné comme `0`, affichant une durée de fonctionnement d'environ 56 ans ; une
+  date illisible retourne désormais `null`.
+- **`ReadingTimeParser`** : le fuseau de stockage était codé en dur à `Europe/Paris` alors que
+  `DisplayTime` et `Database::currentUtcOffset()` lisent `APP_TIMEZONE` — changer ce réglage
+  aurait décalé silencieusement les horodatages Highcharts. Le fuseau est lu depuis
+  `APP_TIMEZONE` (mémoïsé par nom, repli sur le défaut historique si invalide).
+- **`AuthService::isAuthenticated()`** : le délai d'expiration n'était appliqué que si
+  `auth_time` existait — une session dépourvue de la clé ne périmait **jamais**. Son absence
+  est désormais traitée comme une expiration (fail-closed, cohérent avec le repli de rôle de
+  la 6.32.0).
+- **`SensorReadRepository::getLastReadings()`** : `ORDER BY reading_time DESC` seul rendait la
+  « dernière lecture » arbitraire entre deux lignes de la même seconde — or les alertes
+  dérivées et la page de contrôle en dépendent. Départage par `id DESC`.
+
+## [6.33.0] - 2026-07-27
+
+### `EXIT_FLOOD` est une transition, pas un état — fin du log toutes les minutes
+
+Constat **S6** de `docs/AUDIT_BUGS_2026-07.md`. `FloodStateMachine::evaluate()` renvoyait
+`DECISION_EXIT_FLOOD` dès que le niveau était stable au-dessus du seuil de ré-armement —
+**sans vérifier que l'on était effectivement en trop-plein**, et sans réarmer
+`aboveResetSinceTs`. Or c'est exactement la situation **nominale** : aquarium jamais en
+trop-plein, distance capteur→surface au-dessus de `limFlood + hystérésis`. La condition
+était donc vraie en permanence et, le CRON tournant **toutes les minutes**,
+`Ffp3DerivedAlertService::checkFlood()` journalisait « Sortie de l'état trop-plein »
+≈ 1 440 fois par jour. Aucun mail n'était envoyé, mais le signal était trompeur en
+exploitation et noyait les logs.
+
+Deux gardes : la décision n'est renvoyée que si `inFlood` était vrai, et
+`aboveResetSinceTs` est remis à zéro après la sortie (la sortie n'est donc émise
+qu'une fois). La machine firmware jumelle `ffp5cs/include/automatism/flood_alert.h` reçoit
+le même correctif (firmware 15.24) pour conserver la parité annoncée — sans effet
+observable de son côté, `_highAquaSent` (seul effet de `ExitedFlood` chez l'appelant)
+n'étant jamais lu.
+
+### Hystérésis inversée pour `DIRECTION_HIGH` sans seuil explicite (latent)
+
+Constat **S7**. `AbstractVitalsDerivedAlertService::evaluateLatchedLowValue()` implémente la
+variante seuil HAUT en niant valeur et seuils avant de réutiliser `LowValueAlertEvaluator`.
+Avec `$clearThreshold = null`, l'évaluateur appliquait sa formule par défaut (`t + t/20`)
+aux valeurs **déjà niées**, soit `-1,05 × seuil` : le ré-armement se produisait à
+`value < 1,05 × seuil`, c'est-à-dire **au-dessus** du seuil de déclenchement
+(`value > seuil`) au lieu d'en dessous. Toute valeur dans `]seuil ; 1,05 × seuil[`
+déclenchait puis ré-armait à chaque évaluation — alerte en battement.
+
+**Latent** : les deux seuls appels `DIRECTION_HIGH` (`MspDerivedAlertService::checkHeat()`)
+passent un seuil explicite (`seuil - 2 °C`). Le piège n'attendait qu'un appelant omettant le
+paramètre — ce que la signature autorise. Le défaut est désormais calculé **avant** la
+négation (`seuil - 5 %`). Nouveau `LatchedThresholdDirectionTest` couvrant les deux sens,
+avec et sans seuil explicite.
+
+## [6.32.0] - 2026-07-27
+
+### Défense en profondeur — deux fail-open sur des contrôles d'accès
+
+Suite de l'audit `docs/AUDIT_BUGS_2026-07.md` (constats **S4** et **S5**). Aucun des deux
+n'est exploitable en l'état, mais tous deux ouvrent dans le mauvais sens.
+
+**S5 — rôle manquant en session → `ROLE_ADMIN`.** `AuthService::getCurrentRole()` repliait
+sur le rôle le plus ÉLEVÉ quand `$_SESSION['auth_role']` était absent : une session
+authentifiée dépourvue de cette clé (session antérieure à l'introduction du champ survivant
+à un déploiement, store de sessions partiellement désérialisé) obtenait silencieusement les
+droits d'administration. Le repli est désormais `User::ROLE_READER`, cohérent avec
+`hasMinimumRole()` qui applique déjà `?? 99` (fail-closed) au rôle requis. `login()` pose
+toujours la clé : seules les sessions anormales sont concernées.
+
+**S4 — exemption CSRF accordée à un canal ambiant.** `CsrfMiddleware` exemptait de jeton CSRF
+toute requête acceptée par `AuthService::isAuthenticatedByToken()` — qui teste **en premier**
+le cookie `admin_token`, ambiant par nature (posé 30 jours par `setAdminTokenCookie()`, réémis
+seul par le navigateur). L'exemption contredisait donc sa propre justification (« un secret
+non-ambiant n'est pas falsifiable en cross-site »). `SameSite=Lax` limitait la portée pratique
+— un POST cross-site ne transporte pas le cookie — mais ne couvre ni un sous-domaine same-site
+compromis, ni un assouplissement futur de l'attribut.
+
+L'exemption ne retient plus que les deux canaux réellement non-ambiants, via le nouveau
+`CsrfMiddleware::hasExplicitToken()` : en-tête (`Authorization: Bearer` / `X-Admin-Token`,
+déjà exposé par `AuthService::hasValidHeaderToken()`) ou paramètre d'URL `?token=`. Une
+écriture portée par le seul cookie exige désormais un `X-CSRF-Token` / `_csrf_token`, comme
+n'importe quelle écriture de session. ⚠️ M4 inchangé : le token en query string reste accepté
+tant que le front le propage par l'URL.
+
+Tests : repli de rôle (faible + rôle explicite préservé) ; exemption par en-tête admin,
+non-exemption par cookie ambiant, et cookie ambiant + jeton CSRF valide → passe.
+
+## [6.31.0] - 2026-07-27
+
+### HMAC `X-Sig-*` : repli au lieu du 401 quand le corps signé est indisponible (N3PP / MSP1 / PGL)
+
+Suite de l'audit `docs/AUDIT_BUGS_2026-07.md` (constat **S1**). Le correctif **5.1.12**
+(`php://input` vide sous mod_php + `x-www-form-urlencoded`, corps signé reconstitué via
+`Ffp3HmacPostBody`) n'avait été appliqué **qu'à FFP3**. Les trois autres chemins de
+body-signing lisaient le corps brut seul et **rejetaient en 401 sans repli `api_key`** :
+
+- `AbstractHmacPostDataController` → `POST /post-data` N3PP / MSP1 ;
+- `LegacyHeartbeatHandler` → `POST /*-heartbeat` N3PP / MSP1 ;
+- `PglHmacAuthTrait` → `POST /pgl/post-data`, `POST /pgl/heartbeat`.
+
+Or `n3DataPost()` (dépôt n3_firmwires, `shared/n3_data`) pose les en-têtes `X-Sig-*` **dès que
+`API_SIG_SECRET` est non vide**, ce que `docs/API_MSP1_N3PP.md` recommande d'activer en
+production : suivre cette recommandation coupait toute l'ingestion N3PP/MSP1/PGL.
+
+**Correctif** — une signature `X-Sig-*` présente mais non vérifiable ne rejette plus à elle
+seule (même politique additive que `DeviceSignatureValidator` pour la galerie) : la requête
+poursuit sur le contrat legacy `timestamp`+`signature` — qui ne dépend PAS du corps et que
+`n3DataPost` place justement dans le body — puis sur `api_key`. `HMAC_STRICT_MODE=true`
+restaure le rejet 401.
+
+- `authenticatedByHmac` **reste false** en cas de repli : la clé API demeure exigée. La seule
+  présence d'un en-tête `X-Sig-*` ne vaut jamais authentification (garde-fou couvert par test).
+- L'audit HMAC continue de tracer chaque cas, avec le motif `signature_invalid_soft_fallback`
+  pour distinguer un repli d'un rejet.
+- FFP3 est **inchangé** (mode strict conservé) : il dispose de la reconstitution canonique.
+
+### Sécurité marée : l'arrêt de pompe du CRON n'était plus annulé par le POST firmware suivant
+
+Constat **S2** du même audit. `PumpService::setState()` écrivait `state` sans `requestTime` ni
+`lastModifiedBy`, alors que la clause anti-écrasement d'`OutputRepository` repose exactement sur
+ces deux colonnes. Après l'arrêt de pompe déclenché par `CronOrchestrator::checkTideSystem()`, la
+ligne portait toujours `lastModifiedBy = 'esp32'` et un `requestTime` ancien : le premier POST
+firmware remettait GPIO 16 à l'état renvoyé par l'ESP32 — la sécurité était annulée avant même
+que l'appareil ait relu `/api/outputs/state` (poll 6 s côté ffp5cs).
+
+- `PumpService` écrit désormais `requestTime` et `lastModifiedBy = 'cron'` (`PumpService::MODIFIED_BY`).
+- `OutputRepository::SERVER_OWNED_SOURCES` (`web`, `cron`) remplace le littéral `'web'` dans la
+  clause de priorité : toute source serveur y est protégée pendant sa fenêtre. Sémantique
+  inchangée pour `lastModifiedBy IS NULL` (la clause `requestTime IS NULL` reste le garde-fou).
+
+### Détection de colonnes portable (`PRAGMA` SQLite exécuté sur MySQL)
+
+Constat **S3**. `PumpService` interrogeait `PRAGMA table_info`, syntaxe propre à SQLite : en MySQL
+la requête levait une `PDOException` silencieusement avalée. Conséquences en production : la garde
+« v11.38 » (ne pas toucher aux lignes sans `name`) n'était **jamais** appliquée, et une requête
+invalide partait au serveur à chaque écriture de pompe. Détection désormais branchée sur
+`PDO::ATTR_DRIVER_NAME` (même approche qu'`OutputCacheService`), mémoïsée **par table** — l'ancien
+cache d'instance ignorait le nom de table et aurait réutilisé le verdict d'un autre environnement.
+
 ## [6.30.0] - 2026-07-27
 
 ### GPIO 18 (pompe réserve) : convention unifiée `1 = ON` — le seed faisait démarrer un remplissage

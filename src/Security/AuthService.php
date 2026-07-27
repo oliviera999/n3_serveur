@@ -150,14 +150,17 @@ class AuthService
             return false;
         }
 
-        if (isset($_SESSION['auth_time'])) {
-            $elapsed = time() - $_SESSION['auth_time'];
-            if ($elapsed > self::SESSION_TIMEOUT) {
-                $this->logout();
-                return false;
-            }
-            $_SESSION['auth_time'] = time();
+        // Corrigé en 6.34.0 : le délai n'était appliqué QUE si `auth_time` existait —
+        // une session dépourvue de la clé n'expirait donc JAMAIS. `login()` la pose
+        // toujours ; l'absence signale une session anormale, traitée comme expirée
+        // (fail-closed, cohérent avec le repli de rôle de la 6.32.0).
+        $authTime = $_SESSION['auth_time'] ?? null;
+        if (!is_int($authTime) || (time() - $authTime) > self::SESSION_TIMEOUT) {
+            $this->logout();
+
+            return false;
         }
+        $_SESSION['auth_time'] = time();
 
         return true;
     }
@@ -282,10 +285,25 @@ class AuthService
         return null;
     }
 
+    /**
+     * Rôle de la requête courante, ou null si non authentifiée.
+     *
+     * Le repli d'une session SANS rôle est {@see User::ROLE_READER} — le rôle le plus
+     * FAIBLE (corrigé en 6.32.0). Il valait auparavant `ROLE_ADMIN` : une session
+     * authentifiée dépourvue de la clé `auth_role` (session antérieure à l'introduction
+     * du champ et survivant à un déploiement, ou store de sessions partiellement
+     * désérialisé) obtenait silencieusement les droits d'administration. C'était un
+     * fail-open sur un contrôle d'accès, à contre-courant de {@see hasMinimumRole()}
+     * qui applique déjà `?? 99` (fail-closed) au rôle requis.
+     *
+     * `login()` pose toujours la clé : ce repli ne concerne que les sessions anormales.
+     */
     public function getCurrentRole(): ?string
     {
         if ($this->isAuthenticated()) {
-            return (string) ($_SESSION[self::SESSION_ROLE_KEY] ?? User::ROLE_ADMIN);
+            $role = $_SESSION[self::SESSION_ROLE_KEY] ?? null;
+
+            return is_string($role) && $role !== '' ? $role : User::ROLE_READER;
         }
 
         if ($this->isAuthenticatedByToken($_GET)) {

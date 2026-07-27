@@ -11,6 +11,9 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 // Chemins des répertoires de cache
 $projectRoot = dirname(__DIR__);
 $cacheDirs = [

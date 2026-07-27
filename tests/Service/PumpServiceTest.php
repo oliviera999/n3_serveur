@@ -64,4 +64,90 @@ class PumpServiceTest extends TestCase
         $this->service->rebootEsp();
         $this->assertSame(1, $this->service->getResetModeState());
     }
+
+    // ------------------------------------------------------------------
+    // Schéma complet (comme en production) : traçabilité de la commande.
+    // ------------------------------------------------------------------
+
+    /**
+     * Table proche du schéma réel : colonnes `name`, `requestTime`, `lastModifiedBy`.
+     */
+    private function serviceWithFullSchema(): array
+    {
+        $pdo = new PDO('sqlite::memory:');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->exec('CREATE TABLE ffp3Outputs (
+            gpio INTEGER PRIMARY KEY,
+            name TEXT,
+            state INTEGER,
+            requestTime TEXT,
+            lastModifiedBy TEXT
+        )');
+        $pdo->exec("INSERT INTO ffp3Outputs (gpio, name, state, requestTime, lastModifiedBy)
+                    VALUES (1, 'Pompe aquarium', 1, '2020-01-01 00:00:00', 'esp32'),
+                           (2, 'Pompe reserve', 1, '2020-01-01 00:00:00', 'esp32'),
+                           (9, '', 0, '2020-01-01 00:00:00', 'esp32')");
+
+        return [$pdo, new PumpService($pdo)];
+    }
+
+    /**
+     * RÉGRESSION 6.31.0 : l'arrêt de pompe du CRON (sécurité marée) doit horodater et
+     * signer la commande. Sans `requestTime`/`lastModifiedBy`, la clause anti-écrasement
+     * d'OutputRepository::batchUpdateStatesSingleQuery() ne s'appliquait pas et le POST
+     * firmware suivant remettait la pompe à l'état renvoyé par l'ESP32 — la sécurité
+     * était annulée avant que l'appareil ait relu /api/outputs/state.
+     */
+    public function testStopPompeAquaStampsRequestTimeAndSource(): void
+    {
+        [$pdo, $service] = $this->serviceWithFullSchema();
+
+        $service->stopPompeAqua();
+
+        $row = $pdo->query('SELECT state, requestTime, lastModifiedBy FROM ffp3Outputs WHERE gpio = 1')
+            ->fetch(PDO::FETCH_ASSOC);
+
+        $this->assertSame(0, (int) $row['state']);
+        $this->assertSame(PumpService::MODIFIED_BY, $row['lastModifiedBy']);
+        $this->assertNotSame('2020-01-01 00:00:00', $row['requestTime'], 'requestTime doit être rafraîchi');
+    }
+
+    /**
+     * La source écrite doit appartenir à la liste protégée d'OutputRepository, sinon la
+     * fenêtre de priorité ne couvre pas la commande (le bug d'origine).
+     */
+    public function testModifiedBySourceIsProtectedFromFirmwareOverwrite(): void
+    {
+        $this->assertContains(
+            PumpService::MODIFIED_BY,
+            \App\Repository\OutputRepository::SERVER_OWNED_SOURCES
+        );
+    }
+
+    /**
+     * La garde « v11.38 » (ne pas toucher aux lignes sans nom) doit s'appliquer dès que
+     * la colonne `name` existe. Elle était inerte en MySQL avant 6.31.0 : la détection
+     * passait par `PRAGMA table_info`, syntaxe SQLite qui levait une exception avalée.
+     */
+    public function testNamelessRowIsNotUpdatedWhenNameColumnExists(): void
+    {
+        [$pdo, $service] = $this->serviceWithFullSchema();
+
+        $service->setState(9, 1);
+
+        $this->assertSame(
+            0,
+            (int) $pdo->query('SELECT state FROM ffp3Outputs WHERE gpio = 9')->fetchColumn()
+        );
+    }
+
+    /**
+     * Rétro-compatibilité : sur un schéma minimal (sans les colonnes de traçabilité),
+     * l'UPDATE doit rester valide et ne porter que sur `state`.
+     */
+    public function testMinimalSchemaStillUpdatesState(): void
+    {
+        $this->service->setState(1, 1);
+        $this->assertSame(1, $this->service->getAquaPumpState());
+    }
 }

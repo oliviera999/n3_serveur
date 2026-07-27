@@ -163,4 +163,106 @@ final class MspHeartbeatControllerTest extends TestCase
 
         $this->assertSame(405, $result->getStatusCode());
     }
+
+    // ------------------------------------------------------------------
+    // Body-signing X-Sig-* : repli 6.31.0 (corps brut vide sous mod_php).
+    // n3DataSendHeartbeat passe par n3DataPost, qui pose les en-têtes X-Sig-*
+    // dès qu'API_SIG_SECRET est défini côté firmware.
+    // ------------------------------------------------------------------
+
+    private function signedRequest(array $body, string $signedBody)
+    {
+        $ts = (string) time();
+        $nonce = 'abcdef0123456789';
+
+        return $this->postRequest($body)
+            ->withHeader('X-Sig-Timestamp', $ts)
+            ->withHeader('X-Sig-Nonce', $nonce)
+            ->withHeader('X-Sig-Hmac', \App\Security\SignatureValidator::createSignatureForBody(
+                (int) $ts,
+                $nonce,
+                $signedBody,
+                'test-hb-sig-secret'
+            ));
+    }
+
+    /**
+     * Le firmware signe son corps complet, mais `php://input` est vide côté mod_php :
+     * le serveur ne peut pas reconstituer le corps signé pour MSP1/N3PP. Avant 6.31.0
+     * ce cas rejetait en 401 tout heartbeat signé. Il doit désormais retomber sur
+     * `api_key` (le heartbeat est enregistré).
+     */
+    public function testUnverifiableHeaderSignatureFallsBackToApiKey(): void
+    {
+        $table = TableConfig::getMspHeartbeatTable();
+        $pdo = $this->pdoWithTable($table);
+        $_ENV['API_SIG_SECRET'] = 'test-hb-sig-secret';
+        $controller = new MspHeartbeatController($this->createMock(LogService::class), $pdo);
+
+        // Corps signé par le firmware ≠ corps brut vu par le serveur (vide).
+        $result = $controller->handle($this->signedRequest([
+            'api_key' => 'test-hb-key',
+            'sensor' => 'msp1',
+            'version' => '4.42',
+            'uptime' => '3600',
+            'free' => '120000',
+            'min' => '80000',
+            'reboots' => '3',
+        ], 'api_key=test-hb-key&sensor=msp1&version=4.42&uptime=3600'), $this->response());
+
+        unset($_ENV['API_SIG_SECRET']);
+
+        $this->assertSame(200, $result->getStatusCode());
+        $this->assertSame(1, (int) $pdo->query("SELECT COUNT(*) FROM `{$table}`")->fetchColumn());
+    }
+
+    /**
+     * GARDE-FOU CRITIQUE : la seule PRÉSENCE d'en-têtes X-Sig-* ne doit jamais valoir
+     * authentification. Avec une signature non vérifiable ET une api_key fausse, la
+     * requête doit être rejetée — sinon le repli deviendrait un contournement complet.
+     */
+    public function testUnverifiableHeaderSignatureDoesNotBypassApiKey(): void
+    {
+        $table = TableConfig::getMspHeartbeatTable();
+        $pdo = $this->pdoWithTable($table);
+        $_ENV['API_SIG_SECRET'] = 'test-hb-sig-secret';
+        $controller = new MspHeartbeatController($this->createMock(LogService::class), $pdo);
+
+        $result = $controller->handle($this->signedRequest([
+            'api_key' => 'wrong',
+            'sensor' => 'msp1',
+            'uptime' => '3600',
+            'free' => '120000',
+            'min' => '80000',
+            'reboots' => '3',
+        ], 'peu-importe'), $this->response());
+
+        unset($_ENV['API_SIG_SECRET']);
+
+        $this->assertSame(401, $result->getStatusCode());
+        $this->assertSame(0, (int) $pdo->query("SELECT COUNT(*) FROM `{$table}`")->fetchColumn());
+    }
+
+    public function testUnverifiableHeaderSignatureRejectedInStrictMode(): void
+    {
+        $table = TableConfig::getMspHeartbeatTable();
+        $pdo = $this->pdoWithTable($table);
+        $_ENV['API_SIG_SECRET'] = 'test-hb-sig-secret';
+        $_ENV['HMAC_STRICT_MODE'] = 'true';
+        $controller = new MspHeartbeatController($this->createMock(LogService::class), $pdo);
+
+        $result = $controller->handle($this->signedRequest([
+            'api_key' => 'test-hb-key',
+            'sensor' => 'msp1',
+            'uptime' => '3600',
+            'free' => '120000',
+            'min' => '80000',
+            'reboots' => '3',
+        ], 'corps-signe-non-reconstituable'), $this->response());
+
+        unset($_ENV['API_SIG_SECRET'], $_ENV['HMAC_STRICT_MODE']);
+
+        $this->assertSame(401, $result->getStatusCode());
+        $this->assertSame(0, (int) $pdo->query("SELECT COUNT(*) FROM `{$table}`")->fetchColumn());
+    }
 }

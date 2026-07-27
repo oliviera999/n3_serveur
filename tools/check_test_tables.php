@@ -7,6 +7,9 @@
  * pour diagnostiquer l'erreur HTTP 500
  */
 
+require_once __DIR__ . '/../src/Util/CliGuard.php';
+\App\Util\CliGuard::assertCli();
+
 echo "========================================\n";
 echo "DIAGNOSTIC TABLES TEST - FFP3\n";
 echo "Date: " . date('Y-m-d H:i:s') . "\n";

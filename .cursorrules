@@ -189,6 +189,7 @@ php -S localhost:8080 -t public
 5. ❌ Ne PAS ignorer la validation de signature pour les endpoints POST d'API
 6. ❌ Ne PAS muter `$_ENV['ENV']` pour changer d'environnement → utiliser `TableConfig::setEnvironment()`
 7. ❌ Ne JAMAIS oublier d'incrémenter la version après chaque modification significative → mettre à jour `VERSION` et `CHANGELOG.md` (à la racine)
+8. ❌ Ne JAMAIS ajouter un script dans `tools/` ou `bin/` sans la garde `App\Util\CliGuard::assertCli()` en tête, **avant** `vendor/autoload.php` — le DocumentRoot pointe sur la racine du dépôt, donc tout `.php` existant est exécutable par une requête web (`tests/Security/CliOnlyScriptsTest` échoue sinon)
 
 ## 📚 Documentation de référence
 

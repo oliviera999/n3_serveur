@@ -19,7 +19,8 @@ use Psr\Http\Server\RequestHandlerInterface;
  * Garanties vérifiées :
  *  - méthodes sûres et chemins non listés : jamais bloqués (ESP32 préservé) ;
  *  - écriture protégée par cookie de session : token CSRF exigé ;
- *  - écriture authentifiée par ?token= : exemptée (non CSRF-able).
+ *  - écriture authentifiée par ?token= ou en-tête admin : exemptée (non CSRF-able) ;
+ *  - écriture portée par le seul cookie `admin_token` (AMBIANT) : jeton CSRF exigé.
  */
 final class CsrfMiddlewareTest extends TestCase
 {
@@ -68,10 +69,22 @@ final class CsrfMiddlewareTest extends TestCase
         return $request;
     }
 
-    private function authToken(bool $valid): AuthService
+    /**
+     * @param bool $headerToken   Token admin valide en en-tête (`Authorization: Bearer`
+     *                            / `X-Admin-Token`) — canal NON-ambiant.
+     * @param bool $queryToken    Token admin valide en `?token=` — canal non-ambiant.
+     * @param bool $ambientCookie Cookie `admin_token` valide — canal AMBIANT : depuis la
+     *                            6.32.0 il ne doit PLUS exempter du jeton CSRF.
+     */
+    private function auth(bool $headerToken = false, bool $queryToken = false, bool $ambientCookie = false): AuthService
     {
         $auth = $this->createMock(AuthService::class);
-        $auth->method('isAuthenticatedByToken')->willReturn($valid);
+        $auth->method('hasValidHeaderToken')->willReturn($headerToken);
+        $auth->method('validateToken')->willReturn($queryToken);
+        // isAuthenticatedByToken() englobe le cookie ambiant : le middleware ne doit
+        // plus l'utiliser pour décider de l'exemption. On le laisse répondre vrai afin
+        // que tout retour à cet appel fasse échouer le test de régression ci-dessous.
+        $auth->method('isAuthenticatedByToken')->willReturn($headerToken || $queryToken || $ambientCookie);
 
         return $auth;
     }
@@ -94,7 +107,7 @@ final class CsrfMiddlewareTest extends TestCase
 
     public function testSafeMethodPassesThrough(): void
     {
-        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth());
         $passed = $this->createMock(ResponseInterface::class);
 
         $result = $middleware->process(
@@ -107,7 +120,7 @@ final class CsrfMiddlewareTest extends TestCase
     public function testUnprotectedPathPassesThrough(): void
     {
         // Endpoint machine ESP32 : jamais soumis au CSRF.
-        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth());
         $passed = $this->createMock(ResponseInterface::class);
 
         $result = $middleware->process(
@@ -119,7 +132,7 @@ final class CsrfMiddlewareTest extends TestCase
 
     public function testProtectedPostWithoutTokenIsRejected(): void
     {
-        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth());
 
         $result = $middleware->process(
             $this->makeRequest('POST', '/api/outputs/toggle'),
@@ -131,7 +144,7 @@ final class CsrfMiddlewareTest extends TestCase
 
     public function testProtectedPostWithValidHeaderTokenPasses(): void
     {
-        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth());
         $passed = $this->createMock(ResponseInterface::class);
 
         $result = $middleware->process(
@@ -143,7 +156,7 @@ final class CsrfMiddlewareTest extends TestCase
 
     public function testProtectedPostWithInvalidTokenIsRejected(): void
     {
-        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth());
 
         $result = $middleware->process(
             $this->makeRequest('POST', '/api/outputs/toggle', ['X-CSRF-Token' => 'mauvais-jeton']),
@@ -155,7 +168,7 @@ final class CsrfMiddlewareTest extends TestCase
     public function testValidAccessTokenExemptsFromCsrf(): void
     {
         // Auth par ?token= explicite : non vulnérable au CSRF → pas de token requis.
-        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(true));
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth(queryToken: true));
         $passed = $this->createMock(ResponseInterface::class);
 
         $result = $middleware->process(
@@ -165,9 +178,57 @@ final class CsrfMiddlewareTest extends TestCase
         $this->assertSame($passed, $result);
     }
 
+    public function testValidHeaderAdminTokenExemptsFromCsrf(): void
+    {
+        // `X-Admin-Token` / `Authorization: Bearer` : le navigateur ne l'ajoute pas seul.
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth(headerToken: true));
+        $passed = $this->createMock(ResponseInterface::class);
+
+        $result = $middleware->process(
+            $this->makeRequest('POST', '/api/outputs/toggle'),
+            $this->expectPass($passed)
+        );
+        $this->assertSame($passed, $result);
+    }
+
+    /**
+     * RÉGRESSION 6.32.0 : le cookie `admin_token` est AMBIANT (posé 30 jours, réémis
+     * automatiquement par le navigateur). Il ne prouve pas l'intention de l'utilisateur,
+     * donc il ne doit pas exempter du jeton CSRF — c'est exactement ce contre quoi le
+     * jeton protège. Avant le correctif, l'exemption passait par
+     * `isAuthenticatedByToken()`, qui teste ce cookie en premier.
+     */
+    public function testAmbientCookieTokenDoesNotExemptFromCsrf(): void
+    {
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth(ambientCookie: true));
+
+        $result = $middleware->process(
+            $this->makeRequest('POST', '/api/outputs/toggle'),
+            $this->expectBlocked()
+        );
+        $this->assertSame(403, $result->getStatusCode());
+        $this->assertStringContainsString('CSRF', (string) $result->getBody());
+    }
+
+    /**
+     * Le cookie ambiant ne dispense pas du jeton, mais ne le BLOQUE pas non plus :
+     * avec un `X-CSRF-Token` valide, l'écriture passe normalement.
+     */
+    public function testAmbientCookieWithValidCsrfTokenPasses(): void
+    {
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth(ambientCookie: true));
+        $passed = $this->createMock(ResponseInterface::class);
+
+        $result = $middleware->process(
+            $this->makeRequest('POST', '/api/outputs/toggle', ['X-CSRF-Token' => $this->validToken]),
+            $this->expectPass($passed)
+        );
+        $this->assertSame($passed, $result);
+    }
+
     public function testTokenAcceptedFromBodyField(): void
     {
-        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth());
         $passed = $this->createMock(ResponseInterface::class);
 
         $result = $middleware->process(
@@ -179,7 +240,7 @@ final class CsrfMiddlewareTest extends TestCase
 
     public function testTestEnvironmentEndpointIsProtected(): void
     {
-        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth());
 
         $result = $middleware->process(
             $this->makeRequest('POST', '/api/outputs-test/toggle-test'),
@@ -197,7 +258,7 @@ final class CsrfMiddlewareTest extends TestCase
      */
     public function testNotificationPolicyEndpointIsProtected(string $path): void
     {
-        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth());
 
         $result = $middleware->process(
             $this->makeRequest('POST', $path),
@@ -209,7 +270,7 @@ final class CsrfMiddlewareTest extends TestCase
 
     public function testNotificationPolicyWithValidTokenPasses(): void
     {
-        $middleware = new CsrfMiddleware($this->csrf, $this->authToken(false));
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth());
         $passed = $this->createMock(ResponseInterface::class);
 
         $result = $middleware->process(

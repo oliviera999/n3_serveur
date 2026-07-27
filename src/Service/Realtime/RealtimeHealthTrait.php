@@ -51,6 +51,13 @@ trait RealtimeHealthTrait
      */
     protected function sensorUptimePercentage(int $days, int $intervalMinutes, int $actualReadings): float
     {
+        // Garde-fou (6.34.0) : un intervalle nul lèverait DivisionByZeroError — fatale en
+        // PHP 8. Les appelants passent des constantes non nulles, mais le paramètre est un
+        // `int` libre ; on répond 0 % comme le fait déjà uptimePercentage() sur un attendu nul.
+        if ($intervalMinutes <= 0) {
+            return 0.0;
+        }
+
         $expected = ($days * 24 * 60) / $intervalMinutes;
         return $this->uptimePercentage((float) $actualReadings, (float) $expected);
     }
@@ -64,7 +71,16 @@ trait RealtimeHealthTrait
         if ($firstReadingDate === null) {
             return null;
         }
-        return (int) (time() - strtotime($firstReadingDate));
+
+        // Corrigé en 6.34.0 : strtotime() renvoie false sur une date illisible, et
+        // `time() - false` valait `time() - 0` — soit une durée de fonctionnement
+        // affichée de ~56 ans. Une date illisible est une absence d'information : null.
+        $timestamp = strtotime($firstReadingDate);
+        if ($timestamp === false) {
+            return null;
+        }
+
+        return (int) (time() - $timestamp);
     }
 
     /**
