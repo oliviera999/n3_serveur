@@ -91,6 +91,44 @@ final class FloodStateMachineTest extends TestCase
         $this->assertFalse($state['inFlood']);
     }
 
+    /**
+     * RÉGRESSION 6.33.0 : `DECISION_EXIT_FLOOD` signale une TRANSITION, pas un état.
+     * Dans le cas NOMINAL (jamais de trop-plein, distance stable au-dessus de
+     * l'hystérésis), la condition de sortie est vraie en permanence — la machine
+     * renvoyait donc EXIT_FLOOD à chaque évaluation, et le CRON (toutes les minutes)
+     * journalisait « Sortie de l'état trop-plein » ~1 440 fois par jour.
+     */
+    public function testNoExitDecisionWhenNeverInFlood(): void
+    {
+        $state = FloodStateMachine::initialState();
+        $state['aboveResetSinceTs'] = 2000;
+
+        $decision = $this->evaluate($state, 120.0, 2180);
+
+        $this->assertSame(FloodStateMachine::DECISION_NONE, $decision);
+        $this->assertFalse($state['inFlood']);
+    }
+
+    /**
+     * Corollaire : la sortie n'est émise QU'UNE FOIS. Après l'EXIT_FLOOD initial,
+     * les évaluations suivantes au même niveau stable ne redécident plus rien.
+     */
+    public function testExitFloodIsEmittedOnlyOnce(): void
+    {
+        $state = FloodStateMachine::initialState();
+        $state['inFlood'] = true;
+        $state['aboveResetSinceTs'] = 2000;
+
+        $this->assertSame(
+            FloodStateMachine::DECISION_EXIT_FLOOD,
+            $this->evaluate($state, 120.0, 2180)
+        );
+
+        // Ticks CRON suivants, niveau toujours stable au-dessus de l'hystérésis.
+        $this->assertSame(FloodStateMachine::DECISION_NONE, $this->evaluate($state, 120.0, 2240));
+        $this->assertSame(FloodStateMachine::DECISION_NONE, $this->evaluate($state, 120.0, 9999));
+    }
+
     public function testNoExitWhenAboveLimitButUnderHysteresis(): void
     {
         $state = FloodStateMachine::initialState();

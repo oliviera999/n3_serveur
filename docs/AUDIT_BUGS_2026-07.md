@@ -8,8 +8,8 @@ constats non déclenchables aujourd'hui sont explicitement marqués **latent**.
 Pour chaque constat, ce document propose **une ou plusieurs options de correction**
 avec leurs compromis, et indique lesquelles ont été **appliquées**.
 
-**État au 2026-07-27** : **S1, S2 et S3 corrigés en 6.31.0** ; **S4 et S5 corrigés en
-6.32.0**. S6 à S10 restent ouverts — leurs options sont documentées ci-dessous.
+**État au 2026-07-27** : **S1-S3 corrigés en 6.31.0**, **S4-S5 en 6.32.0**, **S6-S7 en
+6.33.0**. S8, S9 et S10 restent ouverts — leurs options sont documentées ci-dessous.
 
 > Un audit jumeau couvre le dépôt firmware : `n3_firmwires/docs/AUDIT_BUGS_2026-07.md`.
 > Les constats **S1** (ici) et **F2** (là-bas) portent sur le même contrat HMAC.
@@ -23,8 +23,8 @@ avec leurs compromis, et indique lesquelles ont été **appliquées**.
 | S3 | 🟠 Moyen | `PRAGMA table_info` (SQLite) exécuté sur MySQL → garde `name` inerte | `PumpService.php` | ✅ **corrigé** (6.31.0) |
 | S4 | 🟠 Moyen | Exemption CSRF accordée à un canal **ambiant** (cookie) | `CsrfMiddleware.php` | ✅ **corrigé** (6.32.0) |
 | S5 | 🟠 Moyen | Rôle manquant en session → repli sur `ROLE_ADMIN` | `AuthService.php` | ✅ **corrigé** (6.32.0) |
-| S6 | 🟡 Faible+ | `EXIT_FLOOD` renvoyé à chaque tick → log toutes les minutes | `FloodStateMachine.php` | ouvert |
-| S7 | 🟡 Faible (latent) | Hystérésis inversée pour `DIRECTION_HIGH` sans seuil explicite | `AbstractVitalsDerivedAlertService.php` | ouvert |
+| S6 | 🟡 Faible+ | `EXIT_FLOOD` renvoyé à chaque tick → log toutes les minutes | `FloodStateMachine.php` | ✅ **corrigé** (6.33.0) |
+| S7 | 🟡 Faible (latent) | Hystérésis inversée pour `DIRECTION_HIGH` sans seuil explicite | `AbstractVitalsDerivedAlertService.php` | ✅ **corrigé** (6.33.0) |
 | S8 | 🟡 Faible | `updated` compte les tentatives, pas les lignes modifiées | `OutputRepository.php` | ouvert |
 | S9 | 🟡 Faible | Rate-limit contournable via `X-Forwarded-For` | `AbstractPostDataController.php` | ouvert |
 | S10 | ⚪ Robustesse | Divers (division par zéro latente, `strtotime` false, fuseau, session) | divers | ouvert |
@@ -353,7 +353,14 @@ Plus strict (l'utilisateur doit se reconnecter), et supprime toute ambiguïté.
 
 ---
 
-## S6 — 🟡 `EXIT_FLOOD` renvoyé à chaque tick → une ligne de log par minute
+## S6 — 🟡 `EXIT_FLOOD` renvoyé à chaque tick → une ligne de log par minute — ✅ CORRIGÉ
+
+> **Correctif appliqué (6.33.0)** — **option A** (correction de la machine), avec la
+> répercussion sur `flood_alert.h` que l'option prévoyait (firmware 15.24) : la parité
+> annoncée entre les deux machines est conservée. Vérification faite avant de toucher au
+> firmware : `_highAquaSent`, seul effet de `ExitedFlood` chez l'appelant ffp5cs, n'est
+> **jamais lu** — l'impact y est donc nul. L'option B (garder la parité stricte et gater le
+> log côté appelant) devenait sans objet.
 
 `FloodStateMachine::evaluate()` (`src/Service/DerivedAlert/FloodStateMachine.php:88-97`)
 renvoie `DECISION_EXIT_FLOOD` dès que le niveau est stable au-dessus du seuil de
@@ -398,7 +405,13 @@ machine renvoyer une décision non signifiante.
 
 ---
 
-## S7 — 🟡 (latent) Hystérésis inversée pour `DIRECTION_HIGH` sans seuil explicite
+## S7 — 🟡 (latent) Hystérésis inversée pour `DIRECTION_HIGH` sans seuil explicite — ✅ CORRIGÉ
+
+> **Correctif appliqué (6.33.0)** — **option A** : le défaut est calculé AVANT la négation
+> (`seuil - 5 %`). Options B (paramètre obligatoire) et C (`HighValueAlertEvaluator`
+> symétrique) écartées : la première casse la signature pour un cas qui a maintenant un
+> défaut correct, la seconde duplique la logique. Nouveau `LatchedThresholdDirectionTest`
+> couvrant les deux sens, avec et sans seuil explicite.
 
 `AbstractVitalsDerivedAlertService::evaluateLatchedLowValue()`
 (`src/Service/DerivedAlert/AbstractVitalsDerivedAlertService.php:168-177`) implémente

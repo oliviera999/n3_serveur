@@ -91,9 +91,21 @@ final class FloodStateMachine
             }
             $elapsedAbove = max(0, $nowTs - $state['aboveResetSinceTs']);
             if ($elapsedAbove >= $resetStableSec) {
+                // DECISION_EXIT_FLOOD signale une TRANSITION (on quitte le trop-plein),
+                // pas un état. Deux gardes ajoutés en 6.33.0 :
+                //  1. ne la renvoyer que si l'on ÉTAIT effectivement en trop-plein ;
+                //  2. réarmer `aboveResetSinceTs` après la sortie.
+                // Sans eux, le cas NOMINAL (aquarium jamais en trop-plein, distance
+                // stable au-dessus de l'hystérésis) satisfait la condition en
+                // permanence : la machine renvoyait EXIT_FLOOD à CHAQUE évaluation, et
+                // le CRON — qui tourne toutes les minutes — journalisait « Sortie de
+                // l'état trop-plein » ~1 440 fois par jour. Aucun mail n'était envoyé,
+                // mais le signal était trompeur en exploitation.
+                $wasInFlood = $state['inFlood'];
                 $state['inFlood'] = false;
+                $state['aboveResetSinceTs'] = 0;
 
-                return self::DECISION_EXIT_FLOOD;
+                return $wasInFlood ? self::DECISION_EXIT_FLOOD : self::DECISION_NONE;
             }
         } else {
             $state['aboveResetSinceTs'] = 0;

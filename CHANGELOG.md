@@ -11,6 +11,43 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.33.0] - 2026-07-27
+
+### `EXIT_FLOOD` est une transition, pas un état — fin du log toutes les minutes
+
+Constat **S6** de `docs/AUDIT_BUGS_2026-07.md`. `FloodStateMachine::evaluate()` renvoyait
+`DECISION_EXIT_FLOOD` dès que le niveau était stable au-dessus du seuil de ré-armement —
+**sans vérifier que l'on était effectivement en trop-plein**, et sans réarmer
+`aboveResetSinceTs`. Or c'est exactement la situation **nominale** : aquarium jamais en
+trop-plein, distance capteur→surface au-dessus de `limFlood + hystérésis`. La condition
+était donc vraie en permanence et, le CRON tournant **toutes les minutes**,
+`Ffp3DerivedAlertService::checkFlood()` journalisait « Sortie de l'état trop-plein »
+≈ 1 440 fois par jour. Aucun mail n'était envoyé, mais le signal était trompeur en
+exploitation et noyait les logs.
+
+Deux gardes : la décision n'est renvoyée que si `inFlood` était vrai, et
+`aboveResetSinceTs` est remis à zéro après la sortie (la sortie n'est donc émise
+qu'une fois). La machine firmware jumelle `ffp5cs/include/automatism/flood_alert.h` reçoit
+le même correctif (firmware 15.24) pour conserver la parité annoncée — sans effet
+observable de son côté, `_highAquaSent` (seul effet de `ExitedFlood` chez l'appelant)
+n'étant jamais lu.
+
+### Hystérésis inversée pour `DIRECTION_HIGH` sans seuil explicite (latent)
+
+Constat **S7**. `AbstractVitalsDerivedAlertService::evaluateLatchedLowValue()` implémente la
+variante seuil HAUT en niant valeur et seuils avant de réutiliser `LowValueAlertEvaluator`.
+Avec `$clearThreshold = null`, l'évaluateur appliquait sa formule par défaut (`t + t/20`)
+aux valeurs **déjà niées**, soit `-1,05 × seuil` : le ré-armement se produisait à
+`value < 1,05 × seuil`, c'est-à-dire **au-dessus** du seuil de déclenchement
+(`value > seuil`) au lieu d'en dessous. Toute valeur dans `]seuil ; 1,05 × seuil[`
+déclenchait puis ré-armait à chaque évaluation — alerte en battement.
+
+**Latent** : les deux seuls appels `DIRECTION_HIGH` (`MspDerivedAlertService::checkHeat()`)
+passent un seuil explicite (`seuil - 2 °C`). Le piège n'attendait qu'un appelant omettant le
+paramètre — ce que la signature autorise. Le défaut est désormais calculé **avant** la
+négation (`seuil - 5 %`). Nouveau `LatchedThresholdDirectionTest` couvrant les deux sens,
+avec et sans seuil explicite.
+
 ## [6.32.0] - 2026-07-27
 
 ### Défense en profondeur — deux fail-open sur des contrôles d'accès
