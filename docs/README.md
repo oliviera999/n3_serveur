@@ -59,6 +59,7 @@ données (msp1, n3pp, ffp3, poissonglouton), contrôle des sorties, galeries pho
 
 | Fichier | Description |
 |---------|-------------|
+| [AUDIT_BUGS_2026-07.md](AUDIT_BUGS_2026-07.md) | Audit de bugs transverse (sécurité, logique, robustesse) — constats vérifiés + options de correction. Jumeau : `n3_firmwires/docs/AUDIT_BUGS_2026-07.md`. |
 | [AUDIT_SIMPLIFICATION_BACKEND.md](AUDIT_SIMPLIFICATION_BACKEND.md) | Audit de simplification du backend. |
 | [PLAN_ACTION_BDD_2026_07.md](PLAN_ACTION_BDD_2026_07.md) | Plan d'action BDD (audits 05/07/2026) : 41 actions, arbitrages verrouillés, **Annexe B élagage qualitatif** (rétention temporelle annulée). |
 
