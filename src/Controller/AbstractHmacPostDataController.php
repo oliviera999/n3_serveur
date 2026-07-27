@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Controller\Concerns\HmacAuthTrait;
-use App\Middleware\RawPostBodyMiddleware;
 use App\Service\HmacAuditLogger;
 use App\Service\HmacPolicyService;
 use App\Service\LogService;
 use App\Service\OperationalSettingsService;
+use App\Util\SignedBodyResolver;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -60,11 +60,12 @@ abstract class AbstractHmacPostDataController extends AbstractPostDataController
     {
         $sigHmac = $request->getHeaderLine('X-Sig-Hmac');
         if ($sigHmac !== '') {
-            $rawBody = $request->getAttribute(RawPostBodyMiddleware::ATTRIBUTE);
+            $resolved = SignedBodyResolver::resolve($request);
             $params['__sig_ts'] = $request->getHeaderLine('X-Sig-Timestamp');
             $params['__sig_nonce'] = $request->getHeaderLine('X-Sig-Nonce');
             $params['__sig_hmac'] = $sigHmac;
-            $params['__sig_body'] = is_string($rawBody) ? $rawBody : (string) $request->getBody();
+            $params['__sig_body'] = $resolved['body'];
+            $params['__sig_body_source'] = $resolved['source'];
         }
 
         return $params;

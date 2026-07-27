@@ -73,6 +73,12 @@ trait HmacAuthTrait
             $bodyTs = (string) ($params['__sig_ts'] ?? '');
             $bodyNonce = (string) ($params['__sig_nonce'] ?? '');
             $bodyRaw = (string) ($params['__sig_body'] ?? '');
+            // Journalise d'ou vient le corps signe : c'est la seule facon de
+            // savoir, depuis la production, si `php://input` est reellement vide
+            // sur cet hebergement (hypothese jamais verifiee du 5.1.12) ou si la
+            // machinerie de reconstitution est devenue inutile.
+            // Cf. App\Util\SignedBodyResolver.
+            $bodySource = (string) ($params['__sig_body_source'] ?? 'unknown');
             if (SignatureValidator::isValidForBody(
                 $bodyTs,
                 $bodyNonce,
@@ -84,6 +90,7 @@ trait HmacAuthTrait
                 $this->authenticatedByHmac = true;
                 $this->logger->info("{$this->componentName()}: auth HMAC body OK", [
                     'sensor' => trim((string) ($params['sensor'] ?? '')),
+                    'body_source' => $bodySource,
                 ]);
                 $this->recordHmacAudit('ok', 'x_sig_body', [
                     'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
@@ -92,6 +99,7 @@ trait HmacAuthTrait
                     'ts_received' => $bodyTs,
                     'window_s' => $sigWindow,
                     'body_len' => strlen($bodyRaw),
+                    'body_source' => $bodySource,
                 ]);
 
                 return null;
@@ -108,6 +116,7 @@ trait HmacAuthTrait
                     'ts_received' => $bodyTs,
                     'window_s' => $sigWindow,
                     'body_len' => strlen($bodyRaw),
+                    'body_source' => $bodySource,
                     'strict' => $strictBody,
                 ]
             );
@@ -118,6 +127,7 @@ trait HmacAuthTrait
                 'ts_received' => $bodyTs,
                 'window_s' => $sigWindow,
                 'body_len' => strlen($bodyRaw),
+                'body_source' => $bodySource,
             ], $strictBody ? 'signature_invalid' : 'signature_invalid_soft_fallback');
 
             if ($strictBody) {

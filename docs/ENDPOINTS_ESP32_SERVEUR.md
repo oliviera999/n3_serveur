@@ -249,6 +249,27 @@ Pour isoler latence réseau/infra vs traitement PHP :
 - FFP5CS v13.80+ peut envoyer les en-têtes **X-Sig-Timestamp**, **X-Sig-Nonce** et **X-Sig-Hmac**.
 - Format du message HMAC signé par ces en-têtes : `HMAC-SHA256("<timestamp>\n<nonce>\n<body_brut>", API_SIG_SECRET)`.
 - **Corps signé** : chaîne `application/x-www-form-urlencoded` exacte envoyée par l’ESP32 (ex. `api_key=…&sensor=…&version=…&TempAir=…`). Sous mod_php, `php://input` est souvent vide après parsing : le serveur lit d’abord le corps via `RawPostBodyMiddleware`, sinon le **reconstruit** dans l’ordre firmware (`App\Security\Ffp3HmacPostBody`, aligné `automatism_sync.cpp` / `web_client.cpp`).
+- **Provenance du corps signé (`body_source`)** — chaque authentification par en-têtes journalise
+  d'où vient le corps (`App\Util\SignedBodyResolver`) :
+  `raw_middleware` (capté par `RawPostBodyMiddleware`), `raw_stream` (relu sur le flux de la
+  requête), `canonical` (reconstruit — FFP3 uniquement), `empty` (introuvable).
+
+  > 📌 **À vérifier une fois en production.** L'affirmation « `php://input` est souvent vide
+  > sous mod_php » vient du correctif 5.1.12 ; elle a été **déduite d'une série de 401**, jamais
+  > mesurée sur l'hébergement. La documentation PHP ne prévoit ce vidage que pour
+  > `multipart/form-data` — depuis PHP 5.6, `php://input` est relisible pour
+  > `x-www-form-urlencoded` — et `slim/psr7` 1.8.0 met en plus le flux en cache (`php://temp`)
+  > dans `ServerRequestFactory::createFromGlobals()` précisément pour qu'il soit relisible.
+  >
+  > Relever la valeur dans le journal applicatif :
+  > ```bash
+  > grep 'auth HMAC body OK' var/log/*.log | tail -20   # chercher body_source=...
+  > ```
+  > - `raw_middleware` ou `raw_stream` avec une signature **valide** → `php://input` fonctionne
+  >   ici : la reconstitution canonique (`Ffp3HmacPostBody`), le repli souple de S1 et le constat
+  >   **F2** côté n3_firmwires deviennent tous sans objet et peuvent être supprimés.
+  > - `empty` → l'hypothèse de 5.1.12 est confirmée ; garder le repli, et traiter F2 (parité de
+  >   formatage firmware ↔ serveur) par vecteurs témoins ou condensat signé.
 - Si ces en-têtes sont valides, la requête est authentifiée sans exiger `api_key` (mode dual de migration).
 - Si le client envoie **timestamp** et **signature** : le serveur valide la signature HMAC.
 - Si ces champs sont absents : fallback automatique sur la validation `api_key` (la clé API doit alors être valide).

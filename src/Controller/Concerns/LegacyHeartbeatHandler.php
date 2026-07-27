@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller\Concerns;
 
-use App\Middleware\RawPostBodyMiddleware;
 use App\Security\RateLimiter;
 use App\Security\SignatureValidator;
 use App\Service\HmacAuditLogger;
@@ -14,6 +13,7 @@ use App\Service\OperationalSettingsService;
 use App\Util\ClientIpResolver;
 use App\Util\RequestHelper;
 use App\Util\ResponseHelper;
+use App\Util\SignedBodyResolver;
 use PDO;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -312,19 +312,22 @@ final class LegacyHeartbeatHandler
             $sigWindow = 300;
         }
 
-        $body = $request->getAttribute(RawPostBodyMiddleware::ATTRIBUTE);
-        if (!is_string($body) || $body === '') {
-            $body = (string) $request->getBody();
-        }
+        // `body_source` tranche depuis les logs de production la question laissee
+        // ouverte par le correctif 5.1.12 : `php://input` est-il reellement vide
+        // sur cet hebergement ? Cf. App\Util\SignedBodyResolver.
+        $resolved = SignedBodyResolver::resolve($request);
+        $body = $resolved['body'];
+        $bodySource = $resolved['source'];
 
         if (SignatureValidator::isValidForBody($timestamp, $nonce, $body, $signature, $sigSecret, $sigWindow)) {
             $verified = true;
             $this->hmacAuditLogger?->record($this->componentName, 'ok', 'x_sig_body', [
-                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+                'ip' => ClientIpResolver::resolve($request),
                 'ts_received' => $timestamp,
                 'nonce_len' => strlen($nonce),
                 'window_s' => $sigWindow,
                 'body_len' => strlen($body),
+                'body_source' => $bodySource,
             ]);
 
             return null;
@@ -334,14 +337,15 @@ final class LegacyHeartbeatHandler
             $strict
                 ? "{$this->componentName}: rejet auth X-Sig invalide code=401"
                 : "{$this->componentName}: auth X-Sig invalide, repli contrat legacy/api_key",
-            ['body_len' => strlen($body), 'strict' => $strict]
+            ['body_len' => strlen($body), 'body_source' => $bodySource, 'strict' => $strict]
         );
         $this->hmacAuditLogger?->record($this->componentName, 'reject', 'x_sig_body', [
-            'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
+            'ip' => ClientIpResolver::resolve($request),
             'ts_received' => $timestamp,
             'nonce_len' => strlen($nonce),
             'window_s' => $sigWindow,
             'body_len' => strlen($body),
+            'body_source' => $bodySource,
         ], $strict ? 'signature_invalid' : 'signature_invalid_soft_fallback');
 
         return $strict ? ResponseHelper::text($response, 'Signature incorrecte', 401) : null;

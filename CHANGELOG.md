@@ -11,6 +11,43 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.36.0] - 2026-07-27
+
+### Observabilité — d'où vient le corps signé par le firmware (`body_source`)
+
+Le correctif 5.1.12 a posé que « sous `x-www-form-urlencoded`, `php://input` est souvent vide
+côté mod_php », et toute une machinerie en découle : reconstitution canonique
+`Ffp3HmacPostBody`, repli souple de S1, et le constat **F2** côté n3_firmwires.
+
+Cette prémisse a été **déduite d'une série de 401, jamais mesurée** — et elle est en tension
+avec la documentation PHP (le vidage n'est prévu que pour `multipart/form-data` ; depuis PHP 5.6
+`php://input` est relisible pour `x-www-form-urlencoded`) et avec `slim/psr7` 1.8.0, qui met
+explicitement le flux en cache dans un `php://temp` pour qu'il soit relisible
+(`ServerRequestFactory::createFromGlobals()`).
+
+Impossible de trancher depuis un poste de développement, et un endpoint de diagnostic aurait
+créé une nouvelle surface exposée (cf. 6.35.0). La production répond donc elle-même :
+
+- **`App\Util\SignedBodyResolver`** (nouveau) : résout le corps signé **et** sa provenance —
+  `raw_middleware` (capté par `RawPostBodyMiddleware`), `raw_stream` (relu sur le flux),
+  `empty` (introuvable). FFP3 ajoute `canonical` quand il reconstruit.
+- `body_source` est désormais journalisé sur les quatre chemins de body-signing :
+  `HmacAuthTrait`, `AbstractHmacPostDataController`, `PglHmacAuthTrait`,
+  `LegacyHeartbeatHandler` — succès **et** rejet.
+- Procédure de décision documentée dans `docs/ENDPOINTS_ESP32_SERVEUR.md` et
+  `docs/AUDIT_BUGS_2026-07.md` (S1) : `raw_*` → toute la machinerie de reconstitution peut
+  être supprimée ; `empty` → la prémisse est confirmée.
+- **Robustesse** : côté FFP3, un attribut `RawPostBodyMiddleware` **présent mais vide** partait
+  directement en reconstitution canonique sans relire le flux. Le résolveur relit le flux avant
+  de conclure au vide.
+- **Cohérence** : `LegacyHeartbeatHandler` utilise `ClientIpResolver::resolve()` pour l'IP
+  d'audit X-Sig, comme les autres chemins depuis 6.34.0 (au lieu de `$_SERVER['REMOTE_ADDR']`).
+- **Tests** : `SignedBodyResolverTest` (attribut prioritaire, repli flux quand l'attribut est
+  absent / vide / non-string, `empty` quand rien n'est disponible, valeurs des constantes figées
+  car elles partent en journal).
+
+Aucun endpoint créé, aucune donnée nouvelle exposée, aucun changement du contrat HMAC.
+
 ## [6.35.0] - 2026-07-27
 
 ### Sécurité — les scripts de maintenance étaient exécutables par une requête web (S11)

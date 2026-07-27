@@ -145,6 +145,50 @@ Ajouter à `PostDataHmacAuthTest` l'équivalent pour MSP/N3PP/PGL : requête ave
 `parsedBody` peuplé + **stream vide** + en-têtes `X-Sig-*` valides sur le corps
 réel → doit passer (et non 401).
 
+### La prémisse elle-même n'a jamais été vérifiée (instrumentation 6.36.0)
+
+Tout l'édifice — reconstitution canonique `Ffp3HmacPostBody`, repli souple ci-dessus,
+et **F2** côté n3_firmwires — repose sur une seule affirmation, posée par le `CHANGELOG.md`
+5.1.12 : « sous `x-www-form-urlencoded`, `php://input` est souvent vide côté mod_php ».
+
+Cette affirmation a été **déduite d'une série de 401**, jamais mesurée. Et elle est en
+tension avec trois faits vérifiables :
+
+1. La documentation PHP ne prévoit ce vidage que pour `multipart/form-data` ; depuis
+   PHP 5.6, `php://input` est **relisible** pour `x-www-form-urlencoded`.
+2. `slim/psr7` 1.8.0 met explicitement le flux en cache dans un `php://temp` —
+   `ServerRequestFactory::createFromGlobals()`, commentaire « *Cache the php://input stream
+   as it cannot be re-read* » — et `Stream::__toString()` / `getContents()` relisent ce
+   cache dès que `finished` est vrai. La relecture est donc gérée par la bibliothèque.
+3. `RawPostBodyMiddleware` est monté **en premier** (`$app->add()` en dernier) : il lit le
+   corps avant tout autre consommateur. Aucun code du dépôt ne consomme le flux avant lui.
+
+Ce qui manquait pour trancher : savoir, **en production**, d'où vient le corps réellement
+utilisé. Impossible depuis un poste de développement — et un endpoint de diagnostic aurait
+été une nouvelle surface exposée (cf. **S11**, qui vient précisément d'en révéler une famille).
+
+**Correctif retenu : faire répondre la production elle-même.**
+`App\Util\SignedBodyResolver` centralise la résolution du corps signé et retourne sa
+provenance — `raw_middleware`, `raw_stream`, `empty` — désormais journalisée sur les quatre
+chemins de body-signing (`HmacAuthTrait`, `AbstractHmacPostDataController`,
+`PglHmacAuthTrait`, `LegacyHeartbeatHandler`) et sur FFP3, qui ajoute `canonical`.
+Aucun endpoint créé, aucune donnée nouvelle exposée.
+
+**Décision, une fois quelques POST signés passés en production :**
+
+```bash
+grep 'auth HMAC body OK' var/log/*.log | tail -20     # relever body_source=...
+```
+
+| `body_source` observé | Conclusion |
+|---|---|
+| `raw_middleware` / `raw_stream` | `php://input` fonctionne sur cet hébergement → supprimer `Ffp3HmacPostBody`, le repli souple de S1, et **F2** côté firmware devient sans objet |
+| `empty` | Prémisse de 5.1.12 confirmée → garder le repli, et traiter F2 par vecteurs témoins ou condensat signé |
+
+Correctif de robustesse au passage : côté FFP3, un attribut `RawPostBodyMiddleware`
+**présent mais vide** partait directement en reconstitution canonique sans relire le flux ;
+le résolveur relit désormais le flux avant de conclure au vide.
+
 ---
 
 ## S2 — 🟠 L'arrêt de pompe « sécurité marée » est annulé par le POST firmware suivant — ✅ CORRIGÉ

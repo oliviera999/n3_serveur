@@ -7,7 +7,6 @@ namespace App\Controller\Ffp3;
 use App\Config\TableConfig;
 use App\Controller\AbstractPostDataController;
 use App\Domain\SensorData;
-use App\Middleware\RawPostBodyMiddleware;
 use App\Repository\BoardRepository;
 use App\Repository\OutputRepository;
 use App\Repository\SensorRepository;
@@ -19,6 +18,7 @@ use App\Service\HmacPolicyService;
 use App\Service\LogService;
 use App\Service\OperationalSettingsService;
 use App\Util\ResponseHelper;
+use App\Util\SignedBodyResolver;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -197,11 +197,15 @@ class PostDataController extends AbstractPostDataController
             return $params;
         }
 
-        $rawBody = $request->getAttribute(RawPostBodyMiddleware::ATTRIBUTE);
-        if (!is_string($rawBody)) {
-            $rawBody = (string) $request->getBody();
-        }
-        $bodySource = 'raw';
+        // `raw_middleware` / `raw_stream` / `empty` (puis `canonical` si vide) :
+        // distingue enfin, dans les logs de production, un `php://input` lisible
+        // d'un `php://input` vide — l'hypothese du 5.1.12 n'a jamais ete
+        // verifiee sur l'hebergement reel. Cf. App\Util\SignedBodyResolver.
+        // Au passage : un attribut present mais VIDE partait directement en
+        // reconstitution sans relire le flux.
+        $resolved = SignedBodyResolver::resolve($request);
+        $rawBody = $resolved['body'];
+        $bodySource = $resolved['source'];
         if ($rawBody === '') {
             $rawBody = Ffp3HmacPostBody::buildFromParams($params);
             $bodySource = 'canonical';
