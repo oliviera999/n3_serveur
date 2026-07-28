@@ -11,6 +11,42 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.37.0] - 2026-07-28
+
+### Hors ligne : un mail à la perte, un mail au retour — fin des notifications récurrentes
+
+Un appareil muet plusieurs jours — **N3PP** au premier chef, mais les trois familles étaient
+concernées — déclenchait le **même e-mail à chaque passage horaire du CRON**, et jusqu'à deux
+fois pour une seule panne FFP3 (supervision heartbeat *et* supervision du flux de données).
+En cause : le seul garde-fou était le cooldown de l'`AlertThrottler` (900 s pour une P1,
+soit moins que l'intervalle horaire). Un cooldown borne une *fréquence* ; il ne sait pas
+qu'il s'agit du même incident encore ouvert.
+
+La disponibilité est désormais suivie comme un **incident** :
+
+- **`App\Service\Availability\AvailabilityNotifier`** (nouveau) — machine à états
+  persistée entre deux runs CRON (`var/cache/availability_state.json`, via le nouveau
+  `App\Util\JsonFileStore` dont hérite `DerivedAlertStateStore`) :
+  **un e-mail P1 à la bascule en ligne → hors ligne**, **un e-mail P2 « de nouveau en ligne »
+  à la bascule inverse** (avec la durée de l'interruption), **rien entre les deux**.
+- **`AvailabilityIncident`** conserve les clés historiques (`heartbeat:offline:<famille>`,
+  `<famille>:offline`) : continuité du journal `notification_log` et de l'anti-spam, qui
+  reste en seconde ligne contre un battement online/offline rapide.
+- **Un seul e-mail par panne FFP3** : `DeviceHealthService` passe désormais **avant**
+  `SystemHealthService` dans le bucket horaire, et l'incident « appareil silencieux » qu'il
+  ouvre fait taire l'alerte « plus de données » du second (même panne, même mail).
+- **Aucune alerte perdue** : un envoi qui échoue (SMTP KO, politique muette) ne consomme pas
+  la bascule — 3 tentatives puis abandon silencieux, jamais de boucle. Symétriquement, une
+  panne dont l'ouverture n'est jamais partie ne déclenche pas d'e-mail de clôture.
+- `NotificationService::sendImmediateAlert()` (nouveau) : envoi hors file de synthèse, pour
+  que le « de nouveau en ligne » n'atterrisse pas dans un digest horaire.
+- Câblage explicite dans `config/dependencies.php` (dépendance optionnelle, donc jamais
+  autowirée) + garde-fous dans `ContainerWiringTest` ; tests de non-régression dans
+  `tests/Service/Availability/AvailabilityNotifierTest.php`, `DeviceHealthServiceTest`
+  et `SystemHealthServiceTest`.
+
+Documentation : `docs/ARCHITECTURE_MAILS_ARBITRAGE.md` (§ 2.3 et § 8).
+
 ## [6.36.0] - 2026-07-27
 
 ### Observabilité — d'où vient le corps signé par le firmware (`body_source`)

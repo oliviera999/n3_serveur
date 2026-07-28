@@ -209,6 +209,12 @@ final class ContainerWiringTest extends TestCase
             [\App\Command\CronOrchestrator::class, 'healthService.operationalSettings'],
             [\App\Service\SystemHealthService::class, 'outputRepo'],
             [\App\Service\SystemHealthService::class, 'operationalSettings'],
+            // Machine à états « disponibilité » : sans elle, les alertes hors-ligne
+            // repartiraient à CHAQUE passage horaire du CRON (spam d'e-mails identiques).
+            [\App\Service\SystemHealthService::class, 'availability'],
+            [\App\Service\DeviceHealthService::class, 'availability'],
+            [\App\Command\CronOrchestrator::class, 'healthService.availability'],
+            [\App\Command\CronOrchestrator::class, 'deviceHealthService.availability'],
             // Réglages opérationnels (BDD > .env).
             [\App\Repository\SensorReadRepository::class, 'operationalSettings'],
             [\App\Repository\GallerySyncRepository::class, 'operationalSettings'],

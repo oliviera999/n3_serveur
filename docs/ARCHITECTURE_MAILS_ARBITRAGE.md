@@ -87,6 +87,9 @@ OTA), **pas à la livraison SMTP confirmée**. Un envoi qui échoue hors ligne e
   (`OutputCacheService::maybeAttachAndConsumeOtaTrigger`) — patron pour tout signal descendant.
 - **Serveur déjà émetteur** de : aquarium bas, marées, offline, réserve (`CronOrchestrator`,
   `SystemHealthService`, `DeviceHealthService`, `NotificationService` avec throttle + digest).
+- **Machine à états « disponibilité »** (6.37.0) : `AvailabilityNotifier` transforme les
+  alertes hors-ligne en **incidents** — un mail à l'ouverture, un mail à la clôture, rien
+  entre les deux (cf. § 8, extension 6.37.0).
 - **Seuils déjà pilotés en BDD** (6.15.0) : `aqThreshold` (102), `tankThreshold` (103),
   `tideStddev` (129), `reserveLowThresholdMm` (130), facteur nuit (126-128).
 
@@ -288,6 +291,20 @@ redondant »** à **« un émetteur fiable unique + un relais ciblé et borné �
 > côté serveur et gatés côté firmware (ffp5cs 15.11, n3pp 4.54) — retirés de la liste
 > ci-dessus. S'y ajoutent des **alertes météo MSP1 serveur-only opt-in** (gel/canicule/pluie,
 > variables `MSP_*` dans `.env`) sans équivalent firmware.
+>
+> **Hors-ligne = incident, pas rappel (6.37.0)** : les alertes de disponibilité ne se
+> répètent plus. `App\Service\Availability\AvailabilityNotifier` tient une machine à états
+> par incident (`heartbeat:offline:<famille>` pour `DeviceHealthService`, `<famille>:offline`
+> pour `SystemHealthService`), persistée dans `var/cache/availability_state.json` :
+> **un e-mail P1 à la bascule en ligne → hors ligne**, **un e-mail P2 « de nouveau en ligne »
+> à la bascule inverse** (avec la durée de l'interruption), **aucun rappel** entre les deux,
+> même après des jours de silence. Avant, l'`AlertThrottler` seul (cooldown P1 = 15 min <
+> passage horaire du CRON) renvoyait le même mail à chaque passage, pour chaque famille et
+> pour chacune des deux supervisions — le cas N3PP muet était le plus visible.
+> Un e-mail non parti (SMTP KO, politique muette) ne consomme pas la bascule : 3 tentatives
+> puis abandon silencieux. Pour qu'une même panne FFP3 ne produise pas deux mails,
+> `DeviceHealthService` passe **avant** `SystemHealthService` dans le bucket horaire et
+> l'incident « appareil silencieux » fait taire l'alerte « plus de données ».
 >
 > **OTA réussie (6.17.0)** : le serveur émet désormais « Firmware mis à jour x → y » (P3,
 > Lifecycle) dérivé du changement de la colonne `version` au POST, pour **FFP3/N3PP/MSP1**

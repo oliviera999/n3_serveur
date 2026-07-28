@@ -7,10 +7,12 @@ namespace Tests\Service;
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\HeartbeatMonitorRepository;
+use App\Service\Availability\AvailabilityNotifier;
 use App\Service\DeviceHealthService;
 use App\Service\LogService;
 use App\Service\NotificationService;
 use App\Service\OfflineThresholdResolver;
+use App\Util\JsonFileStore;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -323,6 +325,112 @@ final class DeviceHealthServiceTest extends TestCase
         );
 
         self::assertSame(0, $service->checkAllFamilies());
+    }
+
+    public function testOfflineDeviceIsMailedOnceThenRecoveryOnce(): void
+    {
+        // Régression « notifications récurrentes » : N3PP muet pendant des jours ne doit
+        // produire qu'UN e-mail, puis UN autre à la reconnexion — pas un par passage CRON.
+        $stateFile = sys_get_temp_dir() . '/availability_devicehealth_' . uniqid('', true) . '.json';
+        $subjects = [];
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendAlert');
+        $notifier->method('sendImmediateAlert')->willReturnCallback(
+            static function (
+                Severity $severity,
+                NotificationCategory $category,
+                string $family,
+                string $subject
+            ) use (&$subjects): bool {
+                $subjects[] = $subject;
+
+                return true;
+            }
+        );
+
+        $availability = new AvailabilityNotifier(
+            $notifier,
+            $this->createMock(LogService::class),
+            new JsonFileStore($stateFile)
+        );
+
+        $silent = $this->repoReturning(['n3ppHeartbeat' => date('Y-m-d H:i:s', strtotime('-3 hours'))]);
+        $back = $this->repoReturning(['n3ppHeartbeat' => date('Y-m-d H:i:s', strtotime('-2 minutes'))]);
+        $families = [['family' => 'N3PP', 'table' => 'n3ppHeartbeat']];
+        $logger = $this->createMock(LogService::class);
+
+        try {
+            for ($i = 0; $i < 5; $i++) {
+                $service = new DeviceHealthService($silent, $notifier, $logger, 3600, $families, null, null, null, $availability);
+                self::assertSame(1, $service->checkAllFamilies(), 'la famille reste détectée silencieuse');
+            }
+
+            for ($i = 0; $i < 3; $i++) {
+                $service = new DeviceHealthService($back, $notifier, $logger, 3600, $families, null, null, null, $availability);
+                self::assertSame(0, $service->checkAllFamilies());
+            }
+
+            self::assertSame(
+                ['Appareil silencieux (heartbeat)', 'Appareil de nouveau en ligne'],
+                $subjects
+            );
+        } finally {
+            if (is_file($stateFile)) {
+                unlink($stateFile);
+            }
+        }
+    }
+
+    public function testFreshDataAlsoClosesTheAvailabilityIncident(): void
+    {
+        // Le heartbeat reste périmé mais les mesures reprennent : l'appareil transmet,
+        // l'incident doit être clôturé (e-mail de retour) et non laissé ouvert.
+        $stateFile = sys_get_temp_dir() . '/availability_devicehealth_' . uniqid('', true) . '.json';
+        $subjects = [];
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->method('sendImmediateAlert')->willReturnCallback(
+            static function (
+                Severity $severity,
+                NotificationCategory $category,
+                string $family,
+                string $subject
+            ) use (&$subjects): bool {
+                $subjects[] = $subject;
+
+                return true;
+            }
+        );
+
+        $availability = new AvailabilityNotifier(
+            $notifier,
+            $this->createMock(LogService::class),
+            new JsonFileStore($stateFile)
+        );
+
+        $repo = $this->repoReturning(['ffp3Heartbeat' => date('Y-m-d H:i:s', strtotime('-4 hours'))]);
+        $families = [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']];
+        $logger = $this->createMock(LogService::class);
+
+        try {
+            $noData = ['FFP3' => static fn (): ?string => date('Y-m-d H:i:s', strtotime('-5 hours'))];
+            (new DeviceHealthService($repo, $notifier, $logger, 3600, $families, null, null, $noData, $availability))
+                ->checkAllFamilies();
+
+            $freshData = ['FFP3' => static fn (): ?string => date('Y-m-d H:i:s', strtotime('-2 minutes'))];
+            (new DeviceHealthService($repo, $notifier, $logger, 3600, $families, null, null, $freshData, $availability))
+                ->checkAllFamilies();
+
+            self::assertSame(
+                ['Appareil silencieux (heartbeat)', 'Appareil de nouveau en ligne'],
+                $subjects
+            );
+        } finally {
+            if (is_file($stateFile)) {
+                unlink($stateFile);
+            }
+        }
     }
 
     public function testDefaultFamiliesCoverThreeFamilies(): void
