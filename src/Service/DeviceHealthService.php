@@ -8,6 +8,8 @@ use App\Config\TableConfig;
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\HeartbeatMonitorRepository;
+use App\Service\Availability\AvailabilityIncident;
+use App\Service\Availability\AvailabilityNotifier;
 
 /**
  * Supervision « appareil silencieux » (heartbeat) GÉNÉRALISÉE À TOUTES LES FAMILLES.
@@ -19,8 +21,11 @@ use App\Repository\HeartbeatMonitorRepository;
  * noms résolus via {@see TableConfig}) et, si le dernier battement dépasse le seuil
  * d'inactivité, route une alerte P1/Disponibilité via {@see NotificationService}.
  *
- * Anti-spam : chaque famille a sa propre clé de throttle (`heartbeat:offline:<family>`),
- * donc l'AlertThrottler dé-duplique sans jamais inonder (cooldown P1 par défaut).
+ * Anti-spam : chaque famille a son propre INCIDENT de disponibilité
+ * (`heartbeat:offline:<family>`) suivi par {@see AvailabilityNotifier} — UN e-mail quand
+ * l'appareil se tait, UN e-mail quand il réémet, RIEN entre les deux. Sans ce collaborateur
+ * (construction directe hors container), le service retombe sur l'ancien comportement :
+ * une alerte par passage, dé-dupliquée par le seul cooldown de l'AlertThrottler.
  *
  * Choix de robustesse : une table SANS aucun heartbeat (null) est IGNORÉE (l'appareil
  * n'a jamais émis = famille non déployée), afin de ne pas générer de fausses alertes à
@@ -57,6 +62,9 @@ class DeviceHealthService
      *        Par famille, une closure retournant la date SQL de la dernière MESURE reçue
      *        (table de données). Sert de contre-preuve : des mesures fraîches interdisent
      *        l'alerte « silencieux ». Absente → seul le heartbeat est consulté.
+     * @param AvailabilityNotifier|null $availability
+     *        Machine à états « un mail à la perte, un mail au retour ». Absente → ancien
+     *        comportement (une alerte par passage, bornée par le seul cooldown anti-spam).
      */
     public function __construct(
         private HeartbeatMonitorRepository $heartbeatRepo,
@@ -67,6 +75,7 @@ class DeviceHealthService
         private ?OfflineThresholdResolver $thresholdResolver = null,
         private ?OperationalSettingsService $operationalSettings = null,
         private ?array $lastDataProviders = null,
+        private ?AvailabilityNotifier $availability = null,
     ) {
         $this->offlineThresholdSeconds = $offlineThresholdSeconds
             ?? $this->operationalSettings?->int('HEARTBEAT_OFFLINE_THRESHOLD_SECONDS', self::DEFAULT_OFFLINE_THRESHOLD_SECONDS)
@@ -93,7 +102,9 @@ class DeviceHealthService
     /**
      * Vérifie chaque famille et alerte sur celles dont l'appareil est silencieux.
      *
-     * @return int Nombre de familles ayant déclenché une alerte (utile pour le log / les tests)
+     * @return int Nombre de familles DÉTECTÉES silencieuses (utile pour le log / les tests).
+     *             Ce n'est pas un compteur d'e-mails : un incident déjà annoncé reste compté
+     *             tout en restant muet (cf. {@see AvailabilityNotifier}).
      */
     public function checkAllFamilies(): int
     {
@@ -154,6 +165,7 @@ class DeviceHealthService
                 'age_seconds' => $ageSeconds,
                 'threshold_seconds' => $threshold,
             ]);
+            $this->markOnline($family);
 
             return false;
         }
@@ -168,6 +180,7 @@ class DeviceHealthService
                 'data_age_seconds' => $dataAge,
                 'threshold_seconds' => $threshold,
             ]);
+            $this->markOnline($family);
 
             return false;
         }
@@ -224,8 +237,22 @@ class DeviceHealthService
     }
 
     /**
-     * Émet l'alerte « appareil silencieux » pour une famille. L'anti-spam (clé par famille)
-     * empêche les doublons à chaque cycle CRON.
+     * Referme l'incident de disponibilité d'une famille : émet l'e-mail « de nouveau en
+     * ligne » si — et seulement si — une panne annoncée était en cours. No-op sans
+     * machine à états (ancien comportement) ou si l'appareil n'avait jamais été signalé.
+     */
+    private function markOnline(string $family): void
+    {
+        $this->availability?->reportOnline(AvailabilityIncident::heartbeat($family));
+    }
+
+    /**
+     * Signale la famille silencieuse. Avec la machine à états, l'e-mail P1 ne part qu'à la
+     * BASCULE (une seule fois par panne) ; sans elle, on retombe sur l'envoi par passage
+     * borné par le seul cooldown anti-spam.
+     *
+     * @return bool Toujours vrai : la famille EST détectée silencieuse, que l'e-mail parte
+     *              (première fois) ou soit tu (incident déjà annoncé)
      */
     private function alertOffline(string $family, int $ageSeconds, int $thresholdSeconds): bool
     {
@@ -244,7 +271,17 @@ class DeviceHealthService
             (int) round($thresholdSeconds / 60)
         );
 
-        return $this->notifier->sendAlert(
+        if ($this->availability !== null) {
+            $this->availability->reportOffline(
+                AvailabilityIncident::heartbeat($family),
+                $message . "\n\nCet e-mail ne sera pas répété : un second message vous préviendra "
+                . "dès que l'appareil réémettra."
+            );
+
+            return true;
+        }
+
+        $this->notifier->sendAlert(
             Severity::Critical,
             NotificationCategory::Availability,
             $family,
@@ -252,5 +289,7 @@ class DeviceHealthService
             $message,
             'heartbeat:offline:' . strtolower($family)
         );
+
+        return true;
     }
 }

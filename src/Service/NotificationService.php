@@ -221,6 +221,37 @@ class NotificationService
     }
 
     /**
+     * Comme {@see self::sendAlert()}, mais JAMAIS mise en file de synthèse : l'e-mail part
+     * immédiatement, y compris en P3/P4.
+     *
+     * Destiné aux notifications dont le sens dépend de l'instant où elles arrivent — au
+     * premier chef les bascules de disponibilité pilotées par
+     * {@see \App\Service\Availability\AvailabilityNotifier} (appareil perdu / retrouvé) :
+     * regrouper un « de nouveau en ligne » dans un digest horaire le viderait de son intérêt.
+     *
+     * La politique de notification et l'anti-spam restent appliqués.
+     */
+    public function sendImmediateAlert(
+        Severity $severity,
+        NotificationCategory $category,
+        string $family,
+        string $subject,
+        string $message,
+        ?string $throttleKey = null
+    ): bool {
+        return $this->dispatch(
+            $severity,
+            $category,
+            $subject,
+            $message,
+            $throttleKey,
+            $family,
+            null,
+            false
+        );
+    }
+
+    /**
      * Alerte personnalisée (rétro-compatibilité). Sévérité P2/Alerte, catégorie Système,
      * sans anti-spam dédié : l'appelant gère son propre throttling (ex. ErrorAlertService).
      */

@@ -15,6 +15,7 @@ use App\Repository\NotificationPolicyRepository;
 use App\Repository\OutputMonitorRepository;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
+use App\Service\Availability\AvailabilityNotifier;
 use App\Service\DerivedAlert\DerivedAlertStateStore;
 use App\Service\DerivedAlert\Ffp3DerivedAlertService;
 use App\Service\DerivedAlert\MspDerivedAlertService;
@@ -28,6 +29,7 @@ use App\Service\PumpService;
 use App\Service\SensorDataService;
 use App\Service\SensorStatisticsService;
 use App\Service\SystemHealthService;
+use App\Util\JsonFileStore;
 use PDO;
 
 /**
@@ -148,12 +150,25 @@ class CronOrchestrator
         $this->offlineResolver = $offlineResolver
             ?? ($pdo !== null ? new OfflineThresholdResolver(new OutputMonitorRepository($pdo)) : null);
 
+        $projectRoot = dirname(__DIR__, 2);
+        $this->lockDir = $lockDir ?? sys_get_temp_dir();
+        $this->stateDir = $stateDir ?? $projectRoot . '/var/cache';
+
+        // Machine à états « disponibilité » partagée par les deux supervisions hors-ligne :
+        // un e-mail à la perte de l'appareil, un à son retour, aucun rappel entre les deux.
+        $availability = new AvailabilityNotifier(
+            $this->notifier,
+            $this->logger,
+            new JsonFileStore($this->stateDir . '/availability_state.json')
+        );
+
         $this->healthService = $healthService ?? new SystemHealthService(
             $this->sensorReadRepo,
             $this->notifier,
             $this->logger,
             $this->outputRepo,
-            $operationalSettings
+            $operationalSettings,
+            $availability
         );
         $this->deviceHealthService = $deviceHealthService ?? new DeviceHealthService(
             new HeartbeatMonitorRepository($pdo ?? Database::getConnection()),
@@ -162,7 +177,9 @@ class CronOrchestrator
             null,
             null,
             $this->offlineResolver,
-            $operationalSettings
+            $operationalSettings,
+            null,
+            $availability
         );
 
         $this->aquaLowThreshold = $operationalSettings?->float(
@@ -176,9 +193,6 @@ class CronOrchestrator
         $this->hourlyIntervalSeconds = $operationalSettings?->int('CRON_HOURLY_INTERVAL_SECONDS', 3600)
             ?? (int) ($_ENV['CRON_HOURLY_INTERVAL_SECONDS'] ?? 3600);
 
-        $projectRoot = dirname(__DIR__, 2);
-        $this->lockDir = $lockDir ?? sys_get_temp_dir();
-        $this->stateDir = $stateDir ?? $projectRoot . '/var/cache';
         $this->pumpRestartFlagFile = $pumpRestartFlagFile
             ?? sys_get_temp_dir() . '/' . self::PUMP_RESTART_FLAG_FILENAME;
 
@@ -358,9 +372,11 @@ class CronOrchestrator
     protected function runHourlyTasks(): void
     {
         $this->logger->info('Lancement des tâches horaires CRON...');
-        $this->healthService->checkOnlineStatus($this->resolveFfp3OfflineThresholdSeconds());
         // Supervision « appareil silencieux » généralisée à toutes les familles (FFP3/N3PP/MSP1).
+        // Passe EN PREMIER : l'incident « appareil » qu'elle ouvre fait taire l'alerte
+        // « plus de données » ci-dessous pour la même panne FFP3 (un seul e-mail, pas deux).
         $this->deviceHealthService->checkAllFamilies();
+        $this->healthService->checkOnlineStatus($this->resolveFfp3OfflineThresholdSeconds());
         // Envoie un unique e-mail regroupant les alertes de faible sévérité accumulées.
         $this->notifier->flushDigest();
         $this->logger->info('Tâches horaires CRON terminées.');

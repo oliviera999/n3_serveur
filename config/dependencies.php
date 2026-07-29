@@ -98,6 +98,18 @@ return [
         );
     },
 
+    // Machine à états « disponibilité » : UN e-mail quand un appareil se tait, UN quand il
+    // réémet, aucun rappel entre les deux. Partagée par les deux supervisions hors-ligne
+    // (DeviceHealthService = heartbeat, SystemHealthService = flux de données) afin qu'une
+    // même panne ne produise qu'un seul e-mail. État persisté sous `var/cache/`.
+    \App\Service\Availability\AvailabilityNotifier::class => function (ContainerInterface $c): \App\Service\Availability\AvailabilityNotifier {
+        return new \App\Service\Availability\AvailabilityNotifier(
+            $c->get(\App\Service\NotificationService::class),
+            $c->get(\App\Service\LogService::class),
+            new \App\Util\JsonFileStore(dirname(__DIR__) . '/var/cache/availability_state.json')
+        );
+    },
+
     \App\Service\DeviceHealthService::class => function (ContainerInterface $c): \App\Service\DeviceHealthService {
         return new \App\Service\DeviceHealthService(
             $c->get(\App\Repository\HeartbeatMonitorRepository::class),
@@ -114,7 +126,9 @@ return [
                 'FFP3' => static fn (): ?string => $c->get(\App\Repository\SensorReadRepository::class)->getLastReadingDate(),
                 'N3PP' => static fn (): ?string => $c->get(\App\Repository\N3ppSensorRepository::class)->getLastReadingDate(),
                 'MSP1' => static fn (): ?string => $c->get(\App\Repository\MspSensorRepository::class)->getLastReadingDate(),
-            ]
+            ],
+            // Sans elle, une panne prolongée rappellerait son alerte à chaque passage horaire.
+            $c->get(\App\Service\Availability\AvailabilityNotifier::class)
         );
     },
 
@@ -189,7 +203,8 @@ return [
     // ====================================================================
     \App\Service\SystemHealthService::class => \DI\autowire()
         ->constructorParameter('outputRepo', \DI\get(\App\Repository\OutputRepository::class))
-        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class))
+        ->constructorParameter('availability', \DI\get(\App\Service\Availability\AvailabilityNotifier::class)),
 
     \App\Repository\SensorReadRepository::class => \DI\autowire()
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),

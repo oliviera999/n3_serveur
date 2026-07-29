@@ -8,22 +8,34 @@ use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
+use App\Service\Availability\AvailabilityIncident;
+use App\Service\Availability\AvailabilityNotifier;
 
 /**
  * Service de surveillance de l'état de santé du système.
  * Permet de vérifier si le système est en ligne (données récentes) et d'alerter en cas de problème.
  * Peut être enrichi pour surveiller d'autres indicateurs (niveau d'eau, batterie, etc.).
+ *
+ * La supervision « plus aucune donnée » est suivie comme un INCIDENT de disponibilité
+ * ({@see AvailabilityNotifier}) : un e-mail à la perte du flux, un à son rétablissement,
+ * rien entre les deux — au lieu d'un rappel à chaque passage horaire du CRON.
  */
 class SystemHealthService
 {
     /** GPIO server-only (FFP3) : seuil réserve basse en mm (vide/0 = alerte désactivée). */
     private const RESERVE_LOW_THRESHOLD_GPIO = 130;
 
+    /** Seule famille supervisée par ce service (tables de données FFP3). */
+    private const FAMILY = 'FFP3';
+
     /**
-     * @param SensorReadRepository  $sensorReadRepo Accès aux données capteurs
-     * @param NotificationService   $notifier       Service de notification (e-mail)
-     * @param LogService            $logger         Service de log
-     * @param OutputRepository|null $outputRepo     Lecture des seuils pilotés en BDD (optionnel)
+     * @param SensorReadRepository      $sensorReadRepo Accès aux données capteurs
+     * @param NotificationService       $notifier       Service de notification (e-mail)
+     * @param LogService                $logger         Service de log
+     * @param OutputRepository|null     $outputRepo     Lecture des seuils pilotés en BDD (optionnel)
+     * @param AvailabilityNotifier|null $availability   Machine à états « un mail à la perte,
+     *                                                  un mail au retour ». Absente → ancien
+     *                                                  comportement (rappel à chaque passage)
      */
     public function __construct(
         private SensorReadRepository $sensorReadRepo,
@@ -31,6 +43,7 @@ class SystemHealthService
         private LogService $logger,
         private ?OutputRepository $outputRepo = null,
         private ?OperationalSettingsService $operationalSettings = null,
+        private ?AvailabilityNotifier $availability = null,
     ) {
     }
 
@@ -45,8 +58,13 @@ class SystemHealthService
         $lastReadingDateStr = $this->sensorReadRepo->getLastReadingDate();
         if ($lastReadingDateStr === null) {
             $this->logger->warning('Aucune donnée de capteur trouvée, impossible de vérifier le statut en ligne.');
-            // Notification dédiée
-            $this->notifier->notifyNoSensorData();
+            $this->reportDataFlowDown(
+                "Le système n'a enregistré aucune donnée de capteur. Veuillez vérifier la connexion ou le capteur.",
+                Severity::Alert,
+                function (): void {
+                    $this->notifier->notifyNoSensorData();
+                }
+            );
             return;
         }
 
@@ -54,7 +72,14 @@ class SystemHealthService
         if ($lastReadingTimestamp === false) {
             // Format inattendu : on log et on considère le système offline
             $this->logger->error('Format de date invalide pour la dernière lecture', ['value' => $lastReadingDateStr]);
-            $this->notifier->notifySystemOffline();
+            $this->reportDataFlowDown(
+                "La date de la dernière mesure est illisible (« {$lastReadingDateStr} ») : le système est "
+                . 'considéré hors ligne. Veuillez intervenir.',
+                Severity::Critical,
+                function (): void {
+                    $this->notifier->notifySystemOffline();
+                }
+            );
             return;
         }
 
@@ -62,10 +87,57 @@ class SystemHealthService
 
         if (($now - $lastReadingTimestamp) > $maxOfflineSeconds) {
             $this->logger->critical('Le système semble hors ligne !');
-            $this->notifier->notifySystemOffline();
+            $this->reportDataFlowDown(
+                sprintf(
+                    "Aucune mesure reçue depuis %d minute(s) (seuil : %d minute(s)).\n"
+                    . 'Le système ne transmet plus de données. Veuillez intervenir.',
+                    (int) round(($now - $lastReadingTimestamp) / 60),
+                    (int) round($maxOfflineSeconds / 60)
+                ),
+                Severity::Critical,
+                function (): void {
+                    $this->notifier->notifySystemOffline();
+                }
+            );
         } else {
             $this->logger->info('Le système est en ligne.');
+            $this->availability?->reportOnline(AvailabilityIncident::dataFlow(self::FAMILY));
         }
+    }
+
+    /**
+     * Ouvre (une seule fois) l'incident « flux de données interrompu ».
+     *
+     * Subordination volontaire : si l'appareil est DÉJÀ signalé silencieux par
+     * {@see DeviceHealthService} (incident heartbeat ouvert), l'alerte données ferait
+     * doublon — même panne, deux e-mails. On se tait alors, et l'incident données reste
+     * fermé : rien à clôturer quand l'appareil reviendra, c'est l'incident heartbeat qui
+     * portera l'e-mail de rétablissement.
+     *
+     * @param callable(): void $legacyNotify Envoi historique, utilisé sans machine à états
+     */
+    private function reportDataFlowDown(string $message, Severity $severity, callable $legacyNotify): void
+    {
+        if ($this->availability === null) {
+            $legacyNotify();
+
+            return;
+        }
+
+        if ($this->availability->isOffline(AvailabilityIncident::heartbeat(self::FAMILY))) {
+            $this->logger->info(
+                'SystemHealthService: appareil déjà signalé silencieux, alerte « données » supprimée (doublon).'
+            );
+
+            return;
+        }
+
+        $this->availability->reportOffline(
+            AvailabilityIncident::dataFlow(self::FAMILY),
+            $message . "\n\nCet e-mail ne sera pas répété : un second message vous préviendra dès que "
+            . 'les données reprendront.',
+            $severity
+        );
     }
 
     /**
