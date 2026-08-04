@@ -9,7 +9,9 @@ use App\Domain\N3ppSensorData;
 use App\Repository\N3ppOutputRepository;
 use App\Repository\N3ppSensorRepository;
 use App\Service\HmacAuditLogger;
+use App\Service\HmacPolicyService;
 use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 
 /**
  * Reception des donnees POST du firmware n3pp (serre/aquaponie, board=3).
@@ -23,10 +25,12 @@ class N3ppPostDataController extends AbstractHmacPostDataController
     public function __construct(
         LogService $logger,
         ?HmacAuditLogger $hmacAuditLogger,
+        ?HmacPolicyService $hmacPolicyService,
+        ?OperationalSettingsService $operationalSettings,
         private N3ppSensorRepository $sensorRepo,
         private N3ppOutputRepository $outputRepo,
     ) {
-        parent::__construct($logger, $hmacAuditLogger);
+        parent::__construct($logger, $hmacAuditLogger, $hmacPolicyService, $operationalSettings);
     }
 
     protected function componentName(): string

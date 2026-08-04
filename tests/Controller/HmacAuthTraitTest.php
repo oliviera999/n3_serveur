@@ -6,7 +6,9 @@ namespace Tests\Controller;
 
 use App\Controller\AbstractPostDataController;
 use App\Controller\Concerns\HmacAuthTrait;
+use App\Repository\ServerSettingsRepository;
 use App\Security\SignatureValidator;
+use App\Service\HmacPolicyService;
 use App\Service\LogService;
 use PHPUnit\Framework\TestCase;
 use Slim\Psr7\Factory\ResponseFactory;
@@ -209,6 +211,28 @@ class HmacAuthTraitTest extends TestCase
         $this->assertFalse($ctrl->exposeAuthenticatedByHmac());
     }
 
+    /**
+     * Régression 6.37.1 : le mode strict piloté en BDD (supervision) doit s'appliquer
+     * même si `.env` reste à false — cas réel des POST MSP1/N3PP avant câblage DI.
+     */
+    public function testDatabaseStrictModeRejectsAbsentHmacWhenEnvIsFalse(): void
+    {
+        $_ENV['HMAC_STRICT_MODE'] = 'false';
+        $settings = $this->createMock(ServerSettingsRepository::class);
+        $settings->method('getBool')->willReturnCallback(
+            static fn (string $key, bool $default = false): bool => $key === ServerSettingsRepository::KEY_HMAC_STRICT_MODE
+                ? true
+                : $default
+        );
+
+        $ctrl = new HmacAuthTraitTestController($this->logger, new HmacPolicyService($settings));
+        $result = $ctrl->callValidate(['sensor' => 'msp1', 'api_key' => 'unit-test-api-key'], $this->newResponse());
+
+        $this->assertNotNull($result);
+        $this->assertSame(401, $result->getStatusCode());
+        $this->assertFalse($ctrl->exposeAuthenticatedByHmac());
+    }
+
     private function newResponse(): Response
     {
         return (new ResponseFactory())->createResponse();
@@ -222,6 +246,11 @@ class HmacAuthTraitTest extends TestCase
 final class HmacAuthTraitTestController extends AbstractPostDataController
 {
     use HmacAuthTrait;
+
+    public function __construct(LogService $logger, ?HmacPolicyService $hmacPolicyService = null)
+    {
+        parent::__construct($logger, null, $hmacPolicyService);
+    }
 
     public function componentName(): string
     {

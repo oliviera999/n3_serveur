@@ -256,6 +256,20 @@ return [
         ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
 
+    // POST data n3pp/msp : même trou que les heartbeats avant 6.28.0 — sans câblage
+    // explicite (et sans paramètres constructeur), HmacPolicyService restait null et le
+    // mode strict piloté en supervision retombait sur `.env`, alors que FFP3/PGL et les
+    // heartbeats MSP/N3PP appliquaient déjà la BDD.
+    \App\Controller\Msp\MspPostDataController::class => \DI\autowire()
+        ->constructorParameter('hmacAuditLogger', \DI\get(\App\Service\HmacAuditLogger::class))
+        ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Controller\N3pp\N3ppPostDataController::class => \DI\autowire()
+        ->constructorParameter('hmacAuditLogger', \DI\get(\App\Service\HmacAuditLogger::class))
+        ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
     // --------------------------------------------------------------------
     // Authentification et rendu — même défaut, conséquences non plus sur la
     // configuration mais sur le contrôle d'accès.

@@ -234,6 +234,13 @@ final class ContainerWiringTest extends TestCase
             [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.hmacAuditLogger'],
             [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.hmacPolicyService'],
             [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.operationalSettings'],
+            // POST data n3pp/msp : même politique HMAC stricte (supervision) que les heartbeats.
+            [\App\Controller\Msp\MspPostDataController::class, 'hmacAuditLogger'],
+            [\App\Controller\Msp\MspPostDataController::class, 'hmacPolicyService'],
+            [\App\Controller\Msp\MspPostDataController::class, 'operationalSettings'],
+            [\App\Controller\N3pp\N3ppPostDataController::class, 'hmacAuditLogger'],
+            [\App\Controller\N3pp\N3ppPostDataController::class, 'hmacPolicyService'],
+            [\App\Controller\N3pp\N3ppPostDataController::class, 'operationalSettings'],
             [\App\Service\FirmwareStateCompat::class, 'settings'],
             // Contrôle d'accès : sans ces dépendances, l'authentification BDD est inactive
             // et le filtrage par rôle laisse passer tous les chemins.

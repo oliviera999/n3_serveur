@@ -8,7 +8,9 @@ use App\Controller\AbstractHmacPostDataController;
 use App\Domain\MspSensorData;
 use App\Repository\MspSensorRepository;
 use App\Service\HmacAuditLogger;
+use App\Service\HmacPolicyService;
 use App\Service\LogService;
+use App\Service\OperationalSettingsService;
 
 /**
  * Reception des donnees POST du firmware msp (station meteo, board=2).
@@ -22,9 +24,11 @@ class MspPostDataController extends AbstractHmacPostDataController
     public function __construct(
         LogService $logger,
         ?HmacAuditLogger $hmacAuditLogger,
+        ?HmacPolicyService $hmacPolicyService,
+        ?OperationalSettingsService $operationalSettings,
         private MspSensorRepository $sensorRepo,
     ) {
-        parent::__construct($logger, $hmacAuditLogger);
+        parent::__construct($logger, $hmacAuditLogger, $hmacPolicyService, $operationalSettings);
     }
 
     protected function componentName(): string

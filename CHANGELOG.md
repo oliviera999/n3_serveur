@@ -11,6 +11,22 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.37.1] - 2026-08-04
+
+### Correctif : mode HMAC strict supervision ignoré sur POST MSP1/N3PP
+
+Le câblage DI de la 6.28.0 avait corrigé les **heartbeats** MSP/N3PP (`HmacPolicyService`
+piloté en BDD via la supervision), mais les contrôleurs **POST data**
+(`MspPostDataController`, `N3ppPostDataController`) ne déclaraient pas / ne
+recevaient pas cette dépendance : `isHmacStrictMode()` retombait sur `.env`.
+
+**Trigger** : admin active `HMAC_STRICT_MODE` en supervision alors que `.env` reste
+`false` → heartbeats refusés sans HMAC, mais `/msp1/post-data` et `/n3pp/post-data`
+acceptaient encore `api_key` seul.
+
+**Correctif** : constructeurs + `dependencies.php` + garde-fou `ContainerWiringTest` ;
+test unitaire de non-régression (politique BDD strict / `.env` false → 401).
+
 ## [6.37.0] - 2026-07-28
 
 ### Hors ligne : un mail à la perte, un mail au retour — fin des notifications récurrentes
