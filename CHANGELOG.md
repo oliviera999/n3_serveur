@@ -11,6 +11,31 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.37.2] - 2026-08-08
+
+### Correctif — trop-plein sévère effacé avant l'alerte + forçage pompe ignoré par le CRON
+
+Deux bugs HIGH du chemin CRON fréquent :
+
+1. **Trop-plein muet + perte de mesure** — `cleanAllSensorData()` nullifiait
+   `EauAquarium < CLEAN_MIN` (défaut **40 mm**) *avant* `checkFlood()`. Or
+   `EauAquarium` est une distance capteur→surface : une valeur faible = eau haute.
+   Avec `limFlood` typique à 80 mm, un débordement sévère (ex. 30 mm) était effacé
+   puis l'alerte dérivée voyait `NULL` et sortait sans armer le debounce.
+   - Défaut / catalogue / `.env.example` : `CLEAN_MIN_EAU_AQUARIUM=0`
+   - Ordre CRON : alertes hydrauliques et dérivées **avant** le nettoyage
+
+2. **Forçage OFF contourné** — après une sécurité marée, `RestartPumpCommand`
+   rappelait `runPompeAqua()` sans consulter GPIO 117. Un opérateur en « Forcer OFF »
+   voyait la pompe se rallumer à échéance du flag. `PumpService` respecte désormais
+   les modes 1/2 comme `OutputController`.
+
+### Tests
+
+- `SensorDataServiceTest::testDefaultCleanMinPreservesFloodZoneDistance`
+- `CronOrchestratorTest::testDerivedAlertsRunBeforeCleaning`
+- `PumpServiceTest::testRunPompeAquaRespectsForceOff` / `testStopPompeAquaRespectsForceOn`
+
 ## [6.37.0] - 2026-07-28
 
 ### Hors ligne : un mail à la perte, un mail au retour — fin des notifications récurrentes

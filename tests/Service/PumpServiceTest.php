@@ -150,4 +150,33 @@ class PumpServiceTest extends TestCase
         $this->service->setState(1, 1);
         $this->assertSame(1, $this->service->getAquaPumpState());
     }
+
+    /**
+     * Forçage OFF (GPIO 117 = 2) : le redémarrage CRON / runPompeAqua ne doit pas
+     * rallumer la pompe contre la consigne opérateur.
+     */
+    public function testRunPompeAquaRespectsForceOff(): void
+    {
+        [$pdo, $service] = $this->serviceWithFullSchema();
+        $pdo->exec("INSERT INTO ffp3Outputs (gpio, name, state) VALUES (117, 'Forcage pompe', 2)");
+        $pdo->exec('UPDATE ffp3Outputs SET state = 0 WHERE gpio = 1');
+
+        $service->runPompeAqua();
+
+        $this->assertSame(0, (int) $pdo->query('SELECT state FROM ffp3Outputs WHERE gpio = 1')->fetchColumn());
+    }
+
+    /**
+     * Forçage ON (GPIO 117 = 1) : stopPompeAqua (sécurité marée) ne doit pas éteindre.
+     */
+    public function testStopPompeAquaRespectsForceOn(): void
+    {
+        [$pdo, $service] = $this->serviceWithFullSchema();
+        $pdo->exec("INSERT INTO ffp3Outputs (gpio, name, state) VALUES (117, 'Forcage pompe', 1)");
+        $pdo->exec('UPDATE ffp3Outputs SET state = 1 WHERE gpio = 1');
+
+        $service->stopPompeAqua();
+
+        $this->assertSame(1, (int) $pdo->query('SELECT state FROM ffp3Outputs WHERE gpio = 1')->fetchColumn());
+    }
 }

@@ -86,6 +86,7 @@ class SensorDataServiceTest extends TestCase
 
     public function testCleanEauAquariumMmThresholds(): void
     {
+        // min explicite 40 : comportement configurable toujours disponible
         putenv('CLEAN_MIN_EAU_AQUARIUM=40');
         putenv('CLEAN_MAX_EAU_AQUARIUM=700');
 
@@ -102,6 +103,31 @@ class SensorDataServiceTest extends TestCase
 
         $this->assertSame(1, $stats['EauAquarium_low']);
         $this->assertSame(1, $stats['EauAquarium_high']);
+    }
+
+    /**
+     * Défaut CLEAN_MIN_EAU_AQUARIUM=0 : une distance trop-plein (30 mm < limFlood typique
+     * 80 mm) ne doit PAS être effacée — sinon l'alerte dérivée checkFlood reste muette.
+     */
+    public function testDefaultCleanMinPreservesFloodZoneDistance(): void
+    {
+        putenv('CLEAN_MIN_EAU_AQUARIUM');
+        putenv('CLEAN_MAX_EAU_AQUARIUM=700');
+        unset($_ENV['CLEAN_MIN_EAU_AQUARIUM']);
+
+        $this->pdo->exec('INSERT INTO ffp3Data (EauAquarium) VALUES (-1.0)');
+        $this->pdo->exec('INSERT INTO ffp3Data (EauAquarium) VALUES (30.0)');
+        $this->pdo->exec('INSERT INTO ffp3Data (EauAquarium) VALUES (209.0)');
+
+        $service = new SensorDataService($this->pdo, new LogService());
+        $stats = $service->cleanAllSensorData();
+
+        $this->assertNull($this->fetchColumnById('EauAquarium', 4));
+        $this->assertSame(30.0, (float) $this->fetchColumnById('EauAquarium', 5));
+        $this->assertSame(209.0, (float) $this->fetchColumnById('EauAquarium', 6));
+
+        $this->assertSame(1, $stats['EauAquarium_low'] ?? 0);
+        $this->assertArrayNotHasKey('EauAquarium_high', $stats);
     }
 
     private function fetchColumnById(string $column, int $id): ?float

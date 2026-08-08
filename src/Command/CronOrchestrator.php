@@ -321,15 +321,11 @@ class CronOrchestrator
         $this->logger->addEvent('Démarrage tâches fréquentes CRON');
         $this->logPumpStates();
 
-        // Fenêtre glissante : le nettoyage ne balaie que les lignes récentes
-        // (index reading_time) au lieu de toute la table à chaque minute.
-        $cleaningSince = date('Y-m-d H:i:s', time() - self::CLEANING_WINDOW_SECONDS);
-        $stats = $this->sensorDataService->cleanAllSensorData($cleaningSince);
-        foreach ($stats as $type => $count) {
-            $this->logger->addName("$type: ");
-            $this->logger->addTask("$count valeurs supprimées");
-        }
-
+        // Alertes et décisions hydrauliques AVANT le nettoyage des valeurs aberrantes.
+        // EauAquarium est une distance capteur→surface : une valeur faible = eau haute
+        // (zone trop-plein). Si le CRON nullifiait d'abord les distances < CLEAN_MIN,
+        // checkFlood() voyait NULL et les débordements les plus sévères restaient muets
+        // (debounce jamais armé). Même logique pour aquarium bas / marée / réserve.
         $this->checkLowWaterLevel();
         $this->checkTideSystem();
         // Phase 1 arbitrage mails : la réserve basse rejoint le bucket fréquent
@@ -339,6 +335,16 @@ class CronOrchestrator
         // Phase 2 arbitrage mails : alertes dérivées du POST (trop-plein, chauffage,
         // sol sec, batterie n3pp/msp, redémarrage) — serveur émetteur primaire.
         $this->runDerivedAlerts();
+
+        // Fenêtre glissante : le nettoyage ne balaie que les lignes récentes
+        // (index reading_time) au lieu de toute la table à chaque minute.
+        $cleaningSince = date('Y-m-d H:i:s', time() - self::CLEANING_WINDOW_SECONDS);
+        $stats = $this->sensorDataService->cleanAllSensorData($cleaningSince);
+        foreach ($stats as $type => $count) {
+            $this->logger->addValue("$type: ");
+            $this->logger->addTask("$count valeurs supprimées");
+        }
+
         $this->logHourlyStddev();
 
         $this->logger->addEvent('Fin tâches fréquentes CRON');

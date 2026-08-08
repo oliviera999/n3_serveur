@@ -56,17 +56,17 @@ run-cron.php (CLI uniquement)
 
 ### Tâches fréquentes (chaque exécution, ~1 min)
 
-1. Redémarrage pompe aquarium si flag `/tmp/pump_restart_scheduled.flag` expiré (délai horodaté 5 min)
+1. Redémarrage pompe aquarium si flag `/tmp/pump_restart_scheduled.flag` expiré (délai horodaté 5 min).
+   Respecte le forçage GPIO 117 (`PumpService` : mode 2 = OFF bloque le rallumage).
 2. Journalisation état pompes (aquarium, réserve, reset)
-3. Nettoyage valeurs aberrantes (`SensorDataService::cleanAllSensorData`)
-4. Alerte niveau eau aquarium bas (GPIO 102, seuil de remplissage) → **email seul, aucune action pompe** :
+3. Alerte niveau eau aquarium bas (GPIO 102, seuil de remplissage) → **email seul, aucune action pompe** :
    ce seuil est celui sur lequel le firmware *démarre* le remplissage ; le pilotage de la pompe
    réserve et ses sécurités (réserve basse, remplissage inefficace) restent côté ESP32 (depuis 6.27.0)
-5. Détection marée figée (écart-type faible) → arrêt pompe aqua + flag 5 min + email.
+4. Détection marée figée (écart-type faible) → arrêt pompe aqua + flag 5 min + email.
    ⚠️ Sautée tant qu'un redémarrage est déjà programmé (sinon, à 1 min, le flag serait
    réécrit à chaque tick et le redémarrage perpétuellement repoussé)
-6. **Alerte réserve basse** (`SystemHealthService::checkTankLevel`, opt-in) — déplacée du bucket horaire
-7. **Alertes dérivées du POST** (Phases 2+, `src/Service/DerivedAlert/`) :
+5. **Alerte réserve basse** (`SystemHealthService::checkTankLevel`, opt-in) — déplacée du bucket horaire
+6. **Alertes dérivées du POST** (Phases 2+, `src/Service/DerivedAlert/`) — **avant** le nettoyage :
    - FFP3 : trop-plein (machine debounce/cooldown portée du firmware), chauffage ON/OFF,
      remplissage démarré/terminé (`etatPompeTank`), firmware mis à jour (OTA réussie)
    - N3PP : sol sec (hystérésis +5 %), batterie faible, redémarrage (reset `bootCount`),
@@ -76,6 +76,9 @@ run-cron.php (CLI uniquement)
      (gel `MSP_FROST_ALERT_THRESHOLD_C`, canicule `MSP_HEAT_ALERT_THRESHOLD_C`,
      pluie `MSP_RAIN_WET_THRESHOLD` — désactivées si non définies dans `.env`)
    État inter-runs persisté dans `var/cache/derived_alerts_*.json`
+7. Nettoyage valeurs aberrantes (`SensorDataService::cleanAllSensorData`) — **après** les alertes
+   pour ne pas effacer une distance trop-plein (`EauAquarium` faible) avant `checkFlood`.
+   `CLEAN_MIN_EAU_AQUARIUM` défaut **0** (ne pas croiser la zone `limFlood`).
 8. Log écart-type sur la dernière heure (informatif)
 
 > **Anti-spam à 1 min** : chaque alerte passe par `NotificationService` → politique de

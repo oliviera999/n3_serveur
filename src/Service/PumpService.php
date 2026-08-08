@@ -39,6 +39,11 @@ class PumpService
     private int $gpioResetMode;
 
     /**
+     * GPIO du forçage pompe aquarium (0=auto, 1=ON, 2=OFF) — aligné Ffp3GpioMap / OutputRepository.
+     */
+    private int $gpioForcePompeAqua;
+
+    /**
      * Colonnes présentes dans la table d'outputs, par table puis par colonne.
      * Mémoïsé PAR TABLE : `TableConfig::setEnvironment()` peut changer la table
      * cible au sein d'un même process (CRON multi-environnements).
@@ -56,6 +61,7 @@ class PumpService
         $this->gpioPompeAqua = $this->getEnvInt('GPIO_POMPE_AQUA', 16);
         $this->gpioPompeTank = $this->getEnvInt('GPIO_POMPE_TANK', 18);
         $this->gpioResetMode = $this->getEnvInt('GPIO_RESET_MODE', 110);
+        $this->gpioForcePompeAqua = $this->getEnvInt('GPIO_FORCE_POMPE_AQUA', 117);
     }
 
     private function getEnvInt(string $key, int $default): int
@@ -202,18 +208,39 @@ class PumpService
     // ---------------------------------------------------------------------
 
     /**
-     * Arrête la pompe aquarium (GPIO à 0)
+     * Mode de forçage pompe aquarium (GPIO 117) : 0=auto, 1=forcer ON, 2=forcer OFF.
+     * Lecture directe (sans création de ligne) — le CRON ne doit pas inventer le forçage.
+     */
+    public function getAquariumPumpForceMode(): int
+    {
+        $mode = $this->getState($this->gpioForcePompeAqua);
+        return in_array($mode, [1, 2], true) ? $mode : 0;
+    }
+
+    /**
+     * Arrête la pompe aquarium (GPIO à 0).
+     * Respecte le forçage ON (GPIO 117=1) : même sémantique que OutputController.
      */
     public function stopPompeAqua(): void
     {
+        if ($this->getAquariumPumpForceMode() === 1) {
+            $this->setState($this->gpioPompeAqua, 1);
+            return;
+        }
         $this->setState($this->gpioPompeAqua, 0);
     }
 
     /**
-     * Démarre la pompe aquarium (GPIO à 1)
+     * Démarre la pompe aquarium (GPIO à 1).
+     * Respecte le forçage OFF (GPIO 117=2) : empêche RestartPumpCommand / sécurité marée
+     * de rallumer la pompe contre une consigne opérateur explicite.
      */
     public function runPompeAqua(): void
     {
+        if ($this->getAquariumPumpForceMode() === 2) {
+            $this->setState($this->gpioPompeAqua, 0);
+            return;
+        }
         $this->setState($this->gpioPompeAqua, 1);
     }
 

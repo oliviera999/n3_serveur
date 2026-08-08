@@ -81,8 +81,13 @@ class SensorDataService
             'Humidite' => [
                 'min' => $this->getConfigFloat('CLEAN_MIN_HUMIDITE', 3.0),
             ],
+            // EauAquarium = distance capteur→surface (mm). Une distance FAIBLE est un
+            // trop-plein légitime (limFlood typique 80 mm), pas une valeur aberrante.
+            // Défaut min = 0 : seuls les négatifs (glitch capteur) sont nullifiés.
+            // Un CLEAN_MIN trop haut (ex. ancien défaut 40) effaçait les débordements
+            // sévères avant l'alerte dérivée — voir CronOrchestrator::runFrequentTasks.
             'EauAquarium' => [
-                'min' => $this->getConfigFloat('CLEAN_MIN_EAU_AQUARIUM', 40.0),
+                'min' => $this->getConfigFloat('CLEAN_MIN_EAU_AQUARIUM', 0.0),
                 'max' => $this->getConfigFloat('CLEAN_MAX_EAU_AQUARIUM', 700.0),
             ],
             'EauReserve' => [

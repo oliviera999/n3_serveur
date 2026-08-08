@@ -392,8 +392,9 @@ final class OperationalSettingsCatalog
                 'type' => self::TYPE_FLOAT,
                 'group' => self::GROUP_DATA_QUALITY,
                 'label' => 'Nettoyage — EauAquarium min',
-                'hint' => 'Niveau aquarium (mm) trop bas → NULL.',
-                'default' => 40.0,
+                'hint' => 'Distance capteur→surface (mm) : sous ce seuil → NULL. '
+                    . 'Doit rester sous limFlood (trop-plein = distance faible). Défaut 0 = seuls les négatifs.',
+                'default' => 0.0,
                 'min' => 0,
                 'max' => 500,
                 'unit' => 'mm',

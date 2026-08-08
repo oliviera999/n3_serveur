@@ -231,6 +231,37 @@ class CronOrchestratorTest extends TestCase
         unlink($flagFile);
     }
 
+    public function testDerivedAlertsRunBeforeCleaning(): void
+    {
+        $order = [];
+
+        $sensorData = $this->createMock(SensorDataService::class);
+        $sensorData->expects($this->once())->method('cleanAllSensorData')->willReturnCallback(
+            function () use (&$order) {
+                $order[] = 'clean';
+                return [];
+            }
+        );
+
+        $ffp3 = $this->createMock(\App\Service\DerivedAlert\Ffp3DerivedAlertService::class);
+        $ffp3->expects($this->once())->method('run')->willReturnCallback(
+            function () use (&$order) {
+                $order[] = 'alerts';
+            }
+        );
+
+        $orchestrator = $this->buildOrchestrator(
+            sensorDataService: $sensorData,
+            statsService: $this->defaultStatsMock(),
+            sensorReadRepo: $this->defaultRepoMock(),
+            ffp3DerivedAlerts: $ffp3,
+        );
+
+        $orchestrator->execute();
+
+        $this->assertSame(['alerts', 'clean'], $order);
+    }
+
     public function testCleaningCalledOncePerRun(): void
     {
         $sensorData = $this->createMock(SensorDataService::class);
@@ -255,6 +286,7 @@ class CronOrchestratorTest extends TestCase
         ?SystemHealthService $healthService = null,
         ?DeviceHealthService $deviceHealthService = null,
         ?RestartPumpCommand $restartPumpCommand = null,
+        ?\App\Service\DerivedAlert\Ffp3DerivedAlertService $ffp3DerivedAlerts = null,
     ): CronOrchestrator {
         $logger ??= $this->createMock(LogService::class);
         $sensorDataService ??= $this->createMock(SensorDataService::class);
@@ -280,6 +312,7 @@ class CronOrchestratorTest extends TestCase
             healthService: $healthService,
             deviceHealthService: $deviceHealthService,
             restartPumpCommand: $restartPumpCommand,
+            ffp3DerivedAlerts: $ffp3DerivedAlerts,
             lockDir: $this->tempDir,
             stateDir: $this->tempDir,
             pumpRestartFlagFile: $this->tempDir . '/pump_restart_scheduled.flag',
