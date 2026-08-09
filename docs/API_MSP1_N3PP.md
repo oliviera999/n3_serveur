@@ -88,10 +88,12 @@ GET /msp1/msp1control/msp1-outputs-action.php?action=outputs_state&board=2
 ```
 
 > **Ne pas** utiliser `GET /n3pp/api/outputs/state` (ni `/msp1/...`) pour le firmware :
-> c’est l’API **realtime UI** (JSON nested `{timestamp, outputs:[…]}`) **sans**
-> acquittement one-shot. Un firmware qui la pollait laissait GPIO 110/13 à `1`
-> et rejouait reset / arrosage. Filet serveur ≥ 6.23 : ack si `X-Api-Key` valide
-> sur cette route ; le contrat firmware reste le GET plat ci-dessus.
+> c’est l’API **realtime UI** (JSON nested `{timestamp, outputs:[…]}`).
+> Filet serveur ≥ 6.23 / C1-C2 : si `X-Api-Key` valide **et**
+> `FIRMWARE_FLAT_STATE_MODE` ∈ {`safe`,`full`}, ack one-shot + clés plates
+> fusionnées. En mode `off` (défaut, ≥ 6.37.3) : **ni** clés plates **ni** ack —
+> les one-shots restent en attente (évite de les manger sans les livrer).
+> Le contrat firmware reste le GET plat ci-dessus.
 
 **Auth :** publique (lecture). En-tête `X-Api-Key` recommandé (obligatoire si
 `FIRMWARE_STATE_REQUIRE_KEY=true`).

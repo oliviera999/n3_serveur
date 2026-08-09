@@ -11,6 +11,22 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.37.3] - 2026-08-09
+
+### Correctif : one-shots n3pp/msp plus mangés en `FIRMWARE_FLAT_STATE_MODE=off`
+
+En mode `off` (défaut), `GET /{msp1|n3pp}/api/outputs/state` avec `X-Api-Key`
+acquittait quand même les one-shots (GPIO **110** reset, GPIO **13** arrosage
+manuel n3pp) via `getStateForFirmware()`, puis jetait les clés plates de la
+réponse. La flotte déployée (n3pp/msp tip) lit précisément cette URL et des
+clés plates `myObject["110"]`… : la commande était **consommée sans jamais être
+vue** (log firmware `[SERVER][GET][WARN] Cle 110 absente`).
+
+**Correctif** : en mode `off`, plus aucun ack sur la route nested. Les commandes
+restent en attente jusqu'au passage en `safe`/`full`, ou jusqu'à un GET sur
+`/api/firmware/outputs/state` (toujours plat + ack). Docs
+`COMPAT_FLOTTE_DEPLOYEE.md` + hint catalogue alignés.
+
 ## [6.37.0] - 2026-07-28
 
 ### Hors ligne : un mail à la perte, un mail au retour — fin des notifications récurrentes

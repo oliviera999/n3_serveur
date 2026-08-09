@@ -84,17 +84,17 @@ class RealtimeOutputsStateFirmwareFlatTest extends TestCase
         $this->assertArrayNotHasKey('110', $body);     // pas de clés plates sans auth
     }
 
-    public function testFlatStateOffKeepsNestedOnlyButStillAcknowledges(): void
+    public function testFlatStateOffKeepsNestedOnlyAndDoesNotAcknowledge(): void
     {
         // Rollback flotte déployée (défaut) : aucune clé plate renvoyée — un module non
-        // reflashable conserve sa config locale — mais l'ack one-shot reste effectué,
-        // strictement comme avant le correctif C1/C2.
+        // reflashable conserve sa config locale. Corrigé en 6.37.3 : l'ack one-shot
+        // n'est PLUS effectué ici, sinon reset (110) / arrosage manuel (13) seraient
+        // consommés sans jamais être livrés au firmware (réponse nested-only).
         $_ENV[FirmwareStateCompat::SETTING_KEY] = FirmwareStateCompat::MODE_OFF;
         $_ENV['API_KEY'] = 'secret';
         $provider = $this->makeProvider();
         $provider->method('getOutputsState')->willReturn([]);
-        $provider->expects($this->once())->method('acknowledgeFirmwareOneShots')
-            ->willReturn(['110' => '1', '107' => '3600']);
+        $provider->expects($this->never())->method('acknowledgeFirmwareOneShots');
 
         $request = (new ServerRequestFactory())
             ->createServerRequest('GET', 'http://x/api/outputs/state')

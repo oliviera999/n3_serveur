@@ -88,17 +88,23 @@ abstract class AbstractRealtimeApiController
             // inchangée (pas d'ack prématuré, pas de clés plates).
             //
             // Compatibilité flotte déployée : la fusion des clés plates est pilotée par
-            // FIRMWARE_FLAT_STATE_MODE ({@see FirmwareStateCompat}). En mode `off`
-            // (défaut) l'ack reste effectué — comportement strictement identique à celui
-            // d'avant le correctif C1/C2 — mais aucune clé plate n'est renvoyée, ce qui
-            // évite qu'un module non reflashable adopte une config BDD non validée.
-            $firmwareFlat = $this->maybeAcknowledgeFirmwareOneShots($request);
+            // FIRMWARE_FLAT_STATE_MODE ({@see FirmwareStateCompat}).
+            //
+            // Mode `off` (défaut) : AUCUNE clé plate n'est renvoyée (la flotte non
+            // reflashable garde sa config locale). Corrigé en 6.37.3 : on n'acquitte
+            // PLUS les one-shots dans ce cas. Avant, l'ack tournait quand même alors
+            // que la réponse restait nested-only → GPIO 110 (reset) / 13 (arrosage
+            // manuel n3pp) étaient consommés sans jamais être vus par le firmware
+            // déployé (URL `/api/outputs/state` + X-Api-Key). Les commandes restent
+            // en attente jusqu'au passage en `safe`/`full`, ou jusqu'à un GET sur la
+            // route dédiée `/api/firmware/outputs/state` (toujours plate + ack).
             $payload = [
                 'timestamp' => time(),
                 'outputs' => $data,
             ];
-            if ($firmwareFlat !== null && !$this->firmwareStateCompat->mergesFlatKeys()) {
-                $firmwareFlat = null;
+            $firmwareFlat = null;
+            if ($this->firmwareStateCompat->mergesFlatKeys()) {
+                $firmwareFlat = $this->maybeAcknowledgeFirmwareOneShots($request);
             }
             if ($firmwareFlat !== null) {
                 $firmwareFlat = $this->firmwareStateCompat->sanitize($firmwareFlat, $this->firmwareModule());
