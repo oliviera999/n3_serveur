@@ -42,7 +42,7 @@ class RestartPumpCommandTest extends TestCase
             $this->createMock(LogService::class),
             $this->flagFile
         );
-        $command->execute();
+        $this->assertFalse($command->execute());
     }
 
     public function testWaitsWhenDelayNotElapsed(): void
@@ -64,7 +64,7 @@ class RestartPumpCommandTest extends TestCase
             $this->flagFile,
             $baseTime
         );
-        $command->execute();
+        $this->assertFalse($command->execute());
 
         $this->assertFileExists($this->flagFile);
     }
@@ -83,7 +83,7 @@ class RestartPumpCommandTest extends TestCase
             $this->flagFile,
             $baseTime
         );
-        $command->execute();
+        $this->assertTrue($command->execute());
 
         $this->assertFileDoesNotExist($this->flagFile);
     }

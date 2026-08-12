@@ -64,7 +64,9 @@ run-cron.php (CLI uniquement)
    réserve et ses sécurités (réserve basse, remplissage inefficace) restent côté ESP32 (depuis 6.27.0)
 5. Détection marée figée (écart-type faible) → arrêt pompe aqua + flag 5 min + email.
    ⚠️ Sautée tant qu'un redémarrage est déjà programmé (sinon, à 1 min, le flag serait
-   réécrit à chaque tick et le redémarrage perpétuellement repoussé)
+   réécrit à chaque tick et le redémarrage perpétuellement repoussé).
+   ⚠️ Sautée aussi dans le run qui **consomme** le flag et redémarre la pompe (6.37.4) :
+   sinon l'écart-type encore bas recoupe immédiatement la pompe et annule la récupération.
 6. **Alerte réserve basse** (`SystemHealthService::checkTankLevel`, opt-in) — déplacée du bucket horaire
 7. **Alertes dérivées du POST** (Phases 2+, `src/Service/DerivedAlert/`) :
    - FFP3 : trop-plein (machine debounce/cooldown portée du firmware), chauffage ON/OFF,

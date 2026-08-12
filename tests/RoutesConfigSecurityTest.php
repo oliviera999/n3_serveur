@@ -67,6 +67,25 @@ class RoutesConfigSecurityTest extends TestCase
         }
     }
 
+
+    public function testGalleryToggleRoutesAreProtected(): void
+    {
+        // /gallery est un préfixe public (vitrine), mais les toggles sont listés
+        // explicitement dans protected_paths : AuthGuardMiddleware exige l'auth.
+        $togglePaths = [
+            '/gallery/msp1/api/outputs/toggle',
+            '/gallery/n3pp/api/outputs/toggle',
+            '/gallery/ffp3/api/outputs/toggle',
+        ];
+
+        foreach ($togglePaths as $path) {
+            $this->assertTrue(
+                $this->requiresAuth($path),
+                "Route gallery toggle {$path} doit exiger l'authentification"
+            );
+        }
+    }
+
     public function testParametersRoutesAreNotPublic(): void
     {
         $paramPaths = [

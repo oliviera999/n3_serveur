@@ -195,6 +195,40 @@ class CronOrchestratorTest extends TestCase
         $orchestrator->execute();
     }
 
+    public function testTideCheckSkippedWhenPumpJustRestarted(): void
+    {
+        // Après consommation du flag (délai écoulé), l'écart-type est encore bas :
+        // sans garde, checkTideSystem recouperait la pompe dans le même run.
+        $restartPump = $this->createMock(RestartPumpCommand::class);
+        $restartPump->expects($this->once())->method('execute')->willReturn(true);
+
+        $pump = $this->createMock(PumpService::class);
+        $pump->expects($this->never())->method('stopPompeAqua');
+        $pump->method('getAquaPumpState')->willReturn(1);
+        $pump->method('getTankPumpState')->willReturn(1);
+        $pump->method('getResetModeState')->willReturn(0);
+
+        $stats = $this->createMock(SensorStatisticsService::class);
+        $stats->expects($this->never())->method('stddevOnLastReadings');
+        $stats->method('stddev')->willReturn(0.2);
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('notifyMareesProblem');
+
+        $orchestrator = $this->buildOrchestrator(
+            pumpService: $pump,
+            statsService: $stats,
+            notifier: $notifier,
+            sensorReadRepo: $this->defaultRepoMock(),
+            restartPumpCommand: $restartPump,
+        );
+
+        $orchestrator->execute();
+
+        $flagFile = $this->tempDir . '/pump_restart_scheduled.flag';
+        $this->assertFileDoesNotExist($flagFile);
+    }
+
     public function testTideCheckSkippedWhileRestartFlagPending(): void
     {
         // Phase 1 (CRON 1 min) : tant qu'un redémarrage pompe est programmé, la
@@ -268,7 +302,10 @@ class CronOrchestratorTest extends TestCase
         $sensorReadRepo ??= $this->defaultRepoMock();
         $healthService ??= $this->createMock(SystemHealthService::class);
         $deviceHealthService ??= $this->createMock(DeviceHealthService::class);
-        $restartPumpCommand ??= $this->createMock(RestartPumpCommand::class);
+        if ($restartPumpCommand === null) {
+            $restartPumpCommand = $this->createMock(RestartPumpCommand::class);
+            $restartPumpCommand->method('execute')->willReturn(false);
+        }
 
         return new CronOrchestrator(
             logger: $logger,

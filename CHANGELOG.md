@@ -11,6 +11,29 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.37.4] - 2026-08-12
+
+### Correctif — CSRF GET toggle galerie + redémarrage pompe marée annulé dans le même run CRON
+
+Deux bugs HIGH indépendants corrigés :
+
+1. **CSRF toggle caméra (GET)** — `/gallery/{slug}/api/outputs/toggle` acceptait encore
+   `GET` alors que FFP3/MSP/N3PP avaient déjà été restreints au `POST`. `CsrfMiddleware`
+   traite `GET` comme méthode sûre : une page hostile pouvait naviguer le navigateur d'un
+   operator/admin authentifié vers
+   `/gallery/ffp3/api/outputs/toggle?gpio=106&state=1` (resetMode) ou `gpio=104` (forceWakeUp)
+   et muter le contrôle caméra. Route restreinte à **POST** (l'UI `control-actions.js` émet
+   déjà POST + `X-CSRF-Token`).
+
+2. **Récupération marée cassée** — `RestartPumpCommand` consommait le flag et redémarrait la
+   pompe, puis `checkTideSystem()` dans le **même** run `CronOrchestrator` voyait un
+   écart-type encore bas (pompe arrêtée 5 min) et recoupait immédiatement la pompe. Le délai
+   de récupération physique n'avait jamais lieu. Désormais, si un redémarrage vient d'être
+   exécuté, l'évaluation marée est sautée pour ce run.
+
+Tests : `RestartPumpCommandTest`, `CronOrchestratorTest::testTideCheckSkippedWhenPumpJustRestarted`,
+`GalleryToggleRouteMethodTest`, `RoutesConfigSecurityTest`.
+
 ## [6.37.0] - 2026-07-28
 
 ### Hors ligne : un mail à la perte, un mail au retour — fin des notifications récurrentes

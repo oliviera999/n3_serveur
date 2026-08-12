@@ -44,10 +44,15 @@ class RestartPumpCommand
         $this->currentTimeOverride = $currentTimeOverride;
     }
 
-    public function execute(): void
+    /**
+     * @return bool true si la pompe a effectivement été redémarrée (flag consommé).
+     *              Permet à CronOrchestrator de sauter checkTideSystem dans le même
+     *              run : sinon l'écart-type encore bas recoupe immédiatement la pompe.
+     */
+    public function execute(): bool
     {
         if (!file_exists($this->flagFile)) {
-            return;
+            return false;
         }
 
         $scheduledTime = (int) file_get_contents($this->flagFile);
@@ -59,10 +64,11 @@ class RestartPumpCommand
             $this->pumpService->runPompeAqua();
             unlink($this->flagFile);
             $this->logger->info('Pompe aquarium redémarrée avec succès.');
-            return;
+            return true;
         }
 
         $remainingTime = self::RESTART_DELAY - $elapsedTime;
         $this->logger->info("Redémarrage programmé dans {$remainingTime} secondes.");
+        return false;
     }
 }

@@ -243,8 +243,12 @@ class CronOrchestrator
         try {
             $this->logger->info('--- Début orchestrateur CRON ---');
 
-            $this->restartPumpCommand->execute();
-            $this->runFrequentTasks();
+            // Si un redémarrage pompe vient d'être exécuté, ne pas réévaluer la marée
+            // dans le même run : l'écart-type est encore bas (pompe à l'arrêt pendant
+            // 5 min) et checkTideSystem recouperait immédiatement la pompe, annulant
+            // le délai de récupération physique.
+            $pumpJustRestarted = $this->restartPumpCommand->execute();
+            $this->runFrequentTasks(skipTideCheck: $pumpJustRestarted);
 
             if ($this->isHourlyDue()) {
                 $this->runHourlyTasks();
@@ -316,7 +320,7 @@ class CronOrchestrator
         file_put_contents($this->getHourlyStatePath(), (string) time());
     }
 
-    protected function runFrequentTasks(): void
+    protected function runFrequentTasks(bool $skipTideCheck = false): void
     {
         $this->logger->addEvent('Démarrage tâches fréquentes CRON');
         $this->logPumpStates();
@@ -331,7 +335,11 @@ class CronOrchestrator
         }
 
         $this->checkLowWaterLevel();
-        $this->checkTideSystem();
+        if ($skipTideCheck) {
+            $this->logger->info('Marée : évaluation sautée (pompe aquarium juste redémarrée dans ce run).');
+        } else {
+            $this->checkTideSystem();
+        }
         // Phase 1 arbitrage mails : la réserve basse rejoint le bucket fréquent
         // (latence ≤ 1 min comme aquarium bas / marées). L'anti-spam est assuré par
         // AlertThrottler (clé ffp3:reserve-low, cooldown par sévérité).
@@ -456,6 +464,8 @@ class CronOrchestrator
         // ré-évaluer. La pompe étant coupée, l'écart-type reste faible : chaque tick
         // réécrirait le flag avec un nouvel horodatage et repousserait le redémarrage
         // à l'infini (comportement sûr à 5 min par ordonnancement, cassé à 1 min).
+        // Complément 6.37.4 : le run qui consomme le flag saute aussi cette évaluation
+        // (voir execute() / skipTideCheck) pour laisser une fenêtre de récupération.
         if (file_exists($this->pumpRestartFlagFile)) {
             $this->logger->info('Marée : redémarrage pompe déjà programmé, évaluation sautée.');
             return;

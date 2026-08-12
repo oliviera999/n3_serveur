@@ -37,7 +37,11 @@ $app->get('/gallery/ffp3', [GalleryViewController::class, 'showFfp3']);
 // Controle distant cameras (uploadphotosserver) — routes REST unifiees
 $app->get('/gallery/{slug}/control', [GalleryControlController::class, 'showControlPage']);
 $app->get('/gallery/{slug}/api/outputs/state', [GalleryControlController::class, 'getStateBySlug']);
-$app->map(['GET', 'POST'], '/gallery/{slug}/api/outputs/toggle', [GalleryControlController::class, 'toggleOutputBySlug']);
+// POST uniquement : CsrfMiddleware traite GET comme méthode sûre. Un GET inter-site
+// (ex. <img src=".../gallery/ffp3/api/outputs/toggle?gpio=106&state=1">) pouvait
+// basculer resetMode / forceWakeUp sur une session operator. Aligné FFP3/MSP/N3PP ;
+// l'UI gallery_control + control-actions.js émet déjà un POST + jeton CSRF.
+$app->post('/gallery/{slug}/api/outputs/toggle', [GalleryControlController::class, 'toggleOutputBySlug']);
 $app->post('/gallery/{slug}/api/outputs/parameters', [GalleryControlController::class, 'updateParametersBySlug']);
 $app->post('/gallery/{slug}/api/outputs/notification-policy', [GalleryControlController::class, 'saveNotificationPolicyBySlug']);
 $app->post('/gallery/{slug}/api/outputs/test-mail', [GalleryControlController::class, 'sendTestMailBySlug']);
