@@ -13,6 +13,11 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [6.38.0] - 2026-08-16
 
+### Securite
+- `guzzlehttp/guzzle` mis a jour (CVE-2026-69246 high / CVE-2026-69245 medium :
+  contournement de verifications basees sur l'hote via host non canonique) —
+  `composer audit` de nouveau vert.
+
 ### Ajoute
 - **Relais auxiliaires AUX1/AUX2 (famille FFP3)** : deux nouvelles sorties commandables
   depuis la page de controle (cartes "Relais AUX 1/2", colonne chauffage-lumiere),
