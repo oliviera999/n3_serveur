@@ -21,7 +21,7 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 ### Ajoute
 - **Relais auxiliaires AUX1/AUX2 (famille FFP3)** : deux nouvelles sorties commandables
   depuis la page de controle (cartes "Relais AUX 1/2", colonne chauffage-lumiere),
-  alignees sur le firmware ffp5cs v15.13 et la carte porteuse 230V 6 canaux.
+  alignees sur le firmware ffp5cs v15.26 et la carte porteuse 230V 6 canaux.
   - Rangees `ffp3Outputs` GPIO 23/25 auto-creees et reparees a la volee
     (`OutputRepository::ensureAuxRelayRowsExist()`, factorisation du corps commun
     avec les angles servo dans `ensureNamedRowsExist()`).

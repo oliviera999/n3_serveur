@@ -44,7 +44,7 @@ class OutputRepository extends AbstractRepository
     public const SERVER_OWNED_SOURCES = ['web', 'cron'];
 
     /**
-     * Relais auxiliaires AUX1/AUX2 (firmware ffp5cs v15.13, carte porteuse 230V
+     * Relais auxiliaires AUX1/AUX2 (firmware ffp5cs v15.26, carte porteuse 230V
      * 6 canaux — WROOM GPIO 23/25). Rangées auto-créées comme les angles servo.
      *
      * @var array<int, array{name: string, state: string}>

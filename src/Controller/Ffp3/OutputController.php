@@ -395,7 +395,7 @@ class OutputController
         // Liste des GPIOs critiques attendus par l'ESP32 (voir include/gpio_mapping.h)
         $gpioList = [
             2, 15, 16, 18, // actionneurs physiques: chauffage, lumière, pompe aqua, pompe tank
-            23, 25, // relais auxiliaires AUX1/AUX2 (carte porteuse 230V, firmware v15.13)
+            23, 25, // relais auxiliaires AUX1/AUX2 (carte porteuse 230V, firmware v15.26)
             100, 101, 102, 103, 104, 105, 106, 107, // email + params
             108, 109, 110, // commandes nourrissage + reset
             111, 112, 113, 114, 115, 116, // durées / limites / wake
