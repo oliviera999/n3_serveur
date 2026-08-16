@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.38.0] - 2026-08-16
+
+### Ajoute
+- **Relais auxiliaires AUX1/AUX2 (famille FFP3)** : deux nouvelles sorties commandables
+  depuis la page de controle (cartes "Relais AUX 1/2", colonne chauffage-lumiere),
+  alignees sur le firmware ffp5cs v15.13 et la carte porteuse 230V 6 canaux.
+  - Rangees `ffp3Outputs` GPIO 23/25 auto-creees et reparees a la volee
+    (`OutputRepository::ensureAuxRelayRowsExist()`, factorisation du corps commun
+    avec les angles servo dans `ensureNamedRowsExist()`).
+  - `GET /api/outputs/state` expose les cles numeriques `23`/`25` et les alias
+    symboliques `etatAux1`/`etatAux2` (variante S3 du firmware : GPIO physiques 47/48).
+  - Tri de la page de controle : relais AUX apres la lumiere.
+
 ## [6.37.0] - 2026-07-28
 
 ### Hors ligne : un mail à la perte, un mail au retour — fin des notifications récurrentes

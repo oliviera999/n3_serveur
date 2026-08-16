@@ -395,6 +395,7 @@ class OutputController
         // Liste des GPIOs critiques attendus par l'ESP32 (voir include/gpio_mapping.h)
         $gpioList = [
             2, 15, 16, 18, // actionneurs physiques: chauffage, lumière, pompe aqua, pompe tank
+            23, 25, // relais auxiliaires AUX1/AUX2 (carte porteuse 230V, firmware v15.13)
             100, 101, 102, 103, 104, 105, 106, 107, // email + params
             108, 109, 110, // commandes nourrissage + reset
             111, 112, 113, 114, 115, 116, // durées / limites / wake
@@ -410,9 +411,19 @@ class OutputController
 
         $this->outputService->ensureAquariumPumpForceOutputRow();
         $this->outputService->ensureServoAngleRows();
+        $this->outputService->ensureAuxRelayRows();
 
         $pdo = Database::getConnection();
         $result = $this->outputCache->getOutputsState($pdo, $gpioList, $skipCache, $consumeOtaTrigger);
+
+        // Alias symboliques AUX : la variante S3 du firmware a d'autres numéros
+        // physiques (47/48) — elle matche sur serverPostName (etatAux1/etatAux2).
+        if (isset($result['23'])) {
+            $result['etatAux1'] = $result['23'];
+        }
+        if (isset($result['25'])) {
+            $result['etatAux2'] = $result['25'];
+        }
 
         // Témoins "dernier état Data" pour la page de contrôle (ESP32 ignore ces clés)
         $lastData = $this->outputService->getLastDataStates();

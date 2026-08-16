@@ -44,6 +44,17 @@ class OutputRepository extends AbstractRepository
     public const SERVER_OWNED_SOURCES = ['web', 'cron'];
 
     /**
+     * Relais auxiliaires AUX1/AUX2 (firmware ffp5cs v15.13, carte porteuse 230V
+     * 6 canaux — WROOM GPIO 23/25). Rangées auto-créées comme les angles servo.
+     *
+     * @var array<int, array{name: string, state: string}>
+     */
+    private const AUX_RELAY_ROWS = [
+        23 => ['name' => 'Relais AUX 1', 'state' => '0'],
+        25 => ['name' => 'Relais AUX 2', 'state' => '0'],
+    ];
+
+    /**
      * GPIO 118-123 : angles servo nourrissage (défauts alignés OutputCacheService / migrate-gpio118-123).
      *
      * @var array<int, array{name: string, state: string}>
@@ -96,11 +107,12 @@ class OutputRepository extends AbstractRepository
                         WHEN name LIKE '%Pompe r%serve%' OR name LIKE '%pompe r%serve%' THEN 3
                         WHEN name LIKE '%Radiateur%' OR name LIKE '%radiateur%' THEN 4
                         WHEN name LIKE '%Lumi%re%' OR name LIKE '%lumi%re%' THEN 5
-                        WHEN gpio = 101 THEN 6  -- Notifications (switch)
-                        WHEN gpio = 115 THEN 7  -- Forçage réveil (switch)
-                        WHEN name LIKE '%petits poissons%' THEN 8
-                        WHEN name LIKE '%gros poissons%' THEN 9
-                        WHEN name LIKE '%reset%' OR name LIKE '%Reset%' THEN 10
+                        WHEN name LIKE '%AUX%' THEN 6 -- Relais auxiliaires 230V
+                        WHEN gpio = 101 THEN 7  -- Notifications (switch)
+                        WHEN gpio = 115 THEN 8  -- Forçage réveil (switch)
+                        WHEN name LIKE '%petits poissons%' THEN 9
+                        WHEN name LIKE '%gros poissons%' THEN 10
+                        WHEN name LIKE '%reset%' OR name LIKE '%Reset%' THEN 11
                         ELSE 99
                     END,
                     gpio ASC";
@@ -635,13 +647,33 @@ class OutputRepository extends AbstractRepository
      */
     public function ensureServoAngleRowsExist(): void
     {
+        $this->ensureNamedRowsExist(self::SERVO_ANGLE_ROWS);
+    }
+
+    /**
+     * Garantit les lignes GPIO 23/25 (relais auxiliaires AUX1/AUX2 de la carte
+     * porteuse 230V). Idempotent, même contrat que les angles servo.
+     */
+    public function ensureAuxRelayRowsExist(): void
+    {
+        $this->ensureNamedRowsExist(self::AUX_RELAY_ROWS);
+    }
+
+    /**
+     * Corps commun des « ensure rows » : crée/répare des lignes nommées sans
+     * jamais toucher au state d'une ligne existante.
+     *
+     * @param array<int, array{name: string, state: string}> $rowsByGpio
+     */
+    private function ensureNamedRowsExist(array $rowsByGpio): void
+    {
         $table = TableValidator::validateOutputsTable(TableConfig::getOutputsTable());
 
         // Perf : un seul SELECT ... WHERE gpio IN (118..123) au lieu de six SELECT
         // unitaires. On indexe l'existant par gpio pour décider insert/réparation
         // sans re-requêter. La board (SELECT supplémentaire) n'est résolue qu'à la
         // première écriture réelle — le cas stable ne coûte donc plus qu'un SELECT.
-        $gpios = array_keys(self::SERVO_ANGLE_ROWS);
+        $gpios = array_keys($rowsByGpio);
         $placeholders = [];
         $params = [];
         foreach ($gpios as $i => $gpio) {
@@ -674,7 +706,7 @@ class OutputRepository extends AbstractRepository
 
         $board = null; // résolution paresseuse (une seule fois, au premier write)
 
-        foreach (self::SERVO_ANGLE_ROWS as $gpio => $meta) {
+        foreach ($rowsByGpio as $gpio => $meta) {
             $exists = array_key_exists($gpio, $existingByGpio);
 
             if ($exists) {

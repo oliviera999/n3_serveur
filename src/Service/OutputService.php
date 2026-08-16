@@ -110,6 +110,14 @@ class OutputService
         $this->outputRepository->ensureServoAngleRowsExist();
     }
 
+    /**
+     * Crée les lignes GPIO 23/25 (relais auxiliaires 230V) si absentes.
+     */
+    public function ensureAuxRelayRows(): void
+    {
+        $this->outputRepository->ensureAuxRelayRowsExist();
+    }
+
     public function getParametersMap(): array
     {
         $this->outputRepository->ensureServoAngleRowsExist();
