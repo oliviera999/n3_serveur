@@ -18,9 +18,15 @@ use App\Service\OperationalSettingsService;
  *               ré-armement silencieux à seuil +2 °C) ;
  *  - CANICULE : `TempAirExt > MSP_HEAT_ALERT_THRESHOLD_C` (P2, latch,
  *               ré-armement silencieux à seuil -2 °C) ;
- *  - PLUIE    : capteur analogique `Pluie` (4095 = sec, plus bas = mouillé,
- *               ≤ 3 = sonde déconnectée) sous `MSP_RAIN_WET_THRESHOLD` (P3,
- *               latch, ré-armement à +5 %).
+ *  - PLUIE    : champ `Pluie` (4095 = sec, plus bas = mouillé, ≤ 3 = sonde
+ *               déconnectée) sous `MSP_RAIN_WET_THRESHOLD` (P3, latch,
+ *               ré-armement à +5 %). Depuis le firmware msp v2.72, la valeur
+ *               est BIMODALE : sortie numérique DO du module projetée sur
+ *               l'échelle historique (4095 = sec, 100 = mouillé) — GPIO27 est
+ *               sur l'ADC2 de l'ESP32, inutilisable en analogique WiFi actif,
+ *               l'ancienne lecture renvoyait toujours la sentinelle. Tout
+ *               seuil entre ~200 et 4000 fonctionne ; la logique (dont le
+ *               garde ≤ 3, désormais théorique) est inchangée.
  *
  * OPT-IN : chaque alerte est désactivée tant que sa variable `.env` n'est pas
  * définie (même approche que RESERVE_LOW_LEVEL_THRESHOLD). Garde-fou capteur :

@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.38.1] - 2026-08-17
+
+### Documentation
+- **Contrat `Pluie` (MSP1) documenté à jour du firmware msp v2.72** : la valeur
+  postée est désormais bimodale (sortie numérique DO du module projetée sur
+  l'échelle historique — 4095 = sec, 100 = mouillé), car GPIO27/ADC2 est
+  inutilisable en analogique quand le WiFi est actif et l'ancienne lecture
+  renvoyait systématiquement la sentinelle « sonde déconnectée ». Docblock de
+  `MspDerivedAlertService` mis à jour ; **aucun changement de logique** —
+  seuil `MSP_RAIN_WET_THRESHOLD`, latch et garde sentinelle inchangés (tout
+  seuil entre ~200 et 4000 reste valide).
+
 ## [6.38.0] - 2026-08-16
 
 ### Securite
