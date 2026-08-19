@@ -36,6 +36,7 @@ class MspSensorData
         public readonly ?string $mailNotif = null,
         public readonly ?int $resetMode = null,
         public readonly ?int $bootCount = null,
+        public readonly ?float $pression = null,
     ) {
     }
 }

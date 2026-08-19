@@ -114,6 +114,15 @@
                             <div class="stat-card-value"><span data-sensor="Humidite" data-decimals="0">{{ latest.Humidite|default('-')|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_humidite|default(0)|number_format(0) }}% | Min: {{ min_humidite|default(0)|number_format(0) }}% | Max: {{ max_humidite|default(0)|number_format(0) }}%</div>
                         </div>
+                        {# Pression atmosphérique (BME280, firmware n3pp >= 4.70) : carte affichée uniquement si le capteur remonte une valeur #}
+                        {% if latest.Pression is defined and latest.Pression is not null %}
+                        <div class="stat-card" style="border-left-color:#8e44ad">
+                            <i class="fas fa-tachometer-alt stat-card-icon" style="color:#8e44ad"></i>
+                            <div class="stat-card-label">Pression atm.</div>
+                            <div class="stat-card-value"><span data-sensor="Pression" data-decimals="0">{{ latest.Pression|number_format(0) }}</span> <span class="stat-card-unit">hPa</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_pression|default('-')|number_format(0) }} | Min: {{ min_pression|default('-')|number_format(0) }} | Max: {{ max_pression|default('-')|number_format(0) }}</div>
+                        </div>
+                        {% endif %}
                         <div class="stat-card" style="border-left-color:#f39c12">
                             <i class="fas fa-sun stat-card-icon" style="color:#f39c12"></i>
                             <div class="stat-card-label">Luminosité</div>
@@ -238,12 +247,14 @@
                     yAxis: [
                         { title: { text: 'Température (°C)' }, opposite: false },
                         { title: { text: 'Humidité (%)' }, opposite: true },
-                        { title: { text: 'Luminosité (UA)' }, opposite: true, offset: 60 }
+                        { title: { text: 'Luminosité (UA)' }, opposite: true, offset: 60 },
+                        { title: { text: 'Pression (hPa)' }, opposite: false, offset: 60 }
                     ],
                     series: [
                         { name: 'Temp. air', data: zipSeries(reading_time, TempAir), type: 'areaspline', color: '#e74c3c', fillColor: n3AreaGradientFill(231, 76, 60), lineWidth: 2, yAxis: 0, tooltip: { valueSuffix: ' °C' }},
                         { name: 'Humidité', data: zipSeries(reading_time, Humidite), type: 'areaspline', color: '#3498db', fillColor: n3AreaGradientFill(52, 152, 219), lineWidth: 2, yAxis: 1, tooltip: { valueSuffix: ' %' }},
-                        { name: 'Luminosité', data: zipSeries(reading_time, Luminosite), type: 'areaspline', color: '#f39c12', fillColor: n3AreaGradientFill(243, 156, 18), lineWidth: 2, yAxis: 2 }
+                        { name: 'Luminosité', data: zipSeries(reading_time, Luminosite), type: 'areaspline', color: '#f39c12', fillColor: n3AreaGradientFill(243, 156, 18), lineWidth: 2, yAxis: 2 },
+                        { name: 'Pression', data: zipSeries(reading_time, Pression), type: 'spline', color: '#8e44ad', lineWidth: 2, yAxis: 3, tooltip: { valueSuffix: ' hPa' }}
                     ]
                 });
                 var chartCycles = bootstrap.createStockChart('chart-cycles', 'cycles', {

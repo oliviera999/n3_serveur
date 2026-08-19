@@ -44,6 +44,7 @@ class N3ppPostDataController extends AbstractHmacPostDataController
             version: substr($sanitize('version') ?? '', 0, 30),
             tempAir: $toFloat('TempAir'),
             humidite: $toFloat('Humidite'),
+            pression: $toFloat('Pression'),
             luminosite: $toFloat('Luminosite'),
             humid1: $toFloat('Humid1'),
             humid2: $toFloat('Humid2'),

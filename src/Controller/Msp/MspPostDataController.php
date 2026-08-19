@@ -44,6 +44,7 @@ class MspPostDataController extends AbstractHmacPostDataController
             tempAirExt: $toFloat('TempAirExt'),
             humidAirInt: $toFloat('HumidAirInt'),
             humidAirExt: $toFloat('HumidAirExt'),
+            pression: $toFloat('Pression'),
             luminositeA: $toFloat('LuminositeA'),
             luminositeB: $toFloat('LuminositeB'),
             luminositeC: $toFloat('LuminositeC'),

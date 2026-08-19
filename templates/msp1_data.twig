@@ -151,6 +151,15 @@
                             <div class="stat-card-value"><span data-sensor="HumidAirExt" data-decimals="0">{{ latest.HumidAirExt|default('-')|number_format(0) }}</span> <span class="stat-card-unit">%</span></div>
                             <div class="stat-card-secondary">Moy: {{ avg_humidAirExt|default('-')|number_format(0) }}% | Min: {{ min_humidAirExt|default('-')|number_format(0) }}% | Max: {{ max_humidAirExt|default('-')|number_format(0) }}%</div>
                         </div>
+                        {# Pression atmosphérique (BME280, firmware msp >= 2.74) : carte affichée uniquement si le capteur remonte une valeur #}
+                        {% if latest.Pression is defined and latest.Pression is not null %}
+                        <div class="stat-card" style="border-left-color:#8e44ad">
+                            <i class="fas fa-tachometer-alt stat-card-icon" style="color:#8e44ad"></i>
+                            <div class="stat-card-label">Pression atm.</div>
+                            <div class="stat-card-value"><span data-sensor="Pression" data-decimals="0">{{ latest.Pression|number_format(0) }}</span> <span class="stat-card-unit">hPa</span></div>
+                            <div class="stat-card-secondary">Moy: {{ avg_pression|default('-')|number_format(0) }} | Min: {{ min_pression|default('-')|number_format(0) }} | Max: {{ max_pression|default('-')|number_format(0) }}</div>
+                        </div>
+                        {% endif %}
                         {% endif %}
                     </div>
                 </div>
@@ -258,13 +267,15 @@
                 var chartTemperatures = bootstrap.createStockChart('chart-temperatures', 'main', {
                     yAxis: [
                         { title: { text: 'Température (°C)' }, opposite: false },
-                        { title: { text: 'Humidité (%)' }, opposite: true }
+                        { title: { text: 'Humidité (%)' }, opposite: true },
+                        { title: { text: 'Pression (hPa)' }, opposite: true, offset: 60 }
                     ],
                     series: [
                         { name: 'Temp. int.', data: zipSeries(reading_time, TempAirInt), type: 'areaspline', color: '#e74c3c', fillColor: n3AreaGradientFill(231, 76, 60), lineWidth: 2, yAxis: 0, tooltip: { valueSuffix: ' °C' }},
                         { name: 'Temp. ext.', data: zipSeries(reading_time, TempAirExt), type: 'areaspline', color: '#c0392b', fillColor: n3AreaGradientFill(192, 57, 43), lineWidth: 2, yAxis: 0, tooltip: { valueSuffix: ' °C' }},
                         { name: 'Humid. int.', data: zipSeries(reading_time, HumidAirInt), type: 'areaspline', color: '#3498db', fillColor: n3AreaGradientFill(52, 152, 219), lineWidth: 2, yAxis: 1, tooltip: { valueSuffix: ' %' }},
-                        { name: 'Humid. ext.', data: zipSeries(reading_time, HumidAirExt), type: 'areaspline', color: '#2980b9', fillColor: n3AreaGradientFill(41, 128, 185), lineWidth: 2, yAxis: 1, tooltip: { valueSuffix: ' %' }}
+                        { name: 'Humid. ext.', data: zipSeries(reading_time, HumidAirExt), type: 'areaspline', color: '#2980b9', fillColor: n3AreaGradientFill(41, 128, 185), lineWidth: 2, yAxis: 1, tooltip: { valueSuffix: ' %' }},
+                        { name: 'Pression', data: zipSeries(reading_time, Pression), type: 'spline', color: '#8e44ad', lineWidth: 2, yAxis: 2, tooltip: { valueSuffix: ' hPa' }}
                     ]
                 });
                 var chartLights = bootstrap.createStockChart('chart-lights', 'main', {

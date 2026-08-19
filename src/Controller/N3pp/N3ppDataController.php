@@ -38,7 +38,7 @@ class N3ppDataController extends AbstractDataController
     protected function getChartColumns(): array
     {
         return [
-            'TempAir', 'Humidite', 'Luminosite',
+            'TempAir', 'Humidite', 'Pression', 'Luminosite',
             'Humid1', 'Humid2', 'Humid3', 'Humid4', 'HumidMoy',
             'PontDiv', 'bootCount',
             'etatPompe', 'resetMode',
@@ -48,7 +48,7 @@ class N3ppDataController extends AbstractDataController
     protected function getStatsColumns(): array
     {
         return [
-            'TempAir', 'Humidite', 'Luminosite',
+            'TempAir', 'Humidite', 'Pression', 'Luminosite',
             'Humid1', 'Humid2', 'Humid3', 'Humid4', 'HumidMoy',
             'PontDiv', 'bootCount', 'etatPompe',
         ];
@@ -99,6 +99,7 @@ class N3ppDataController extends AbstractDataController
         return [
             ['key' => 'TempAir', 'label' => 'Temp. air', 'icon' => 'fa-thermometer-half', 'class' => 'temp', 'unit' => '°C', 'decimals' => 1],
             ['key' => 'Humidite', 'label' => 'Humidité air', 'icon' => 'fa-tint', 'class' => 'humidity', 'unit' => '%', 'decimals' => 0, 'unit_suffix' => '%'],
+            ['key' => 'Pression', 'label' => 'Pression atm.', 'icon' => 'fa-tachometer-alt', 'class' => 'temp', 'unit' => 'hPa', 'decimals' => 0, 'unit_suffix' => ' hPa'],
             ['key' => 'Luminosite', 'label' => 'Luminosité', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
             ['key' => 'HumidMoy', 'label' => 'Humid. sol moy.', 'icon' => 'fa-seedling', 'class' => 'humidity', 'unit' => 'UA', 'decimals' => 0, 'unit_suffix' => ' UA'],
             ['icon' => 'fa-droplet', 'class' => 'humidity', 'unit' => 'UA', 'decimals' => 0, 'unit_suffix' => ' UA', 'loop' => ['from' => 1, 'to' => 4, 'prefix' => 'Humid', 'label_prefix' => 'Humid. sol']],
@@ -133,6 +134,7 @@ class N3ppDataController extends AbstractDataController
                     ['name' => 'Temp. air', 'color' => '#e74c3c'],
                     ['name' => 'Humidité', 'color' => '#3498db'],
                     ['name' => 'Luminosité', 'color' => '#f39c12'],
+                    ['name' => 'Pression', 'color' => '#8e44ad'],
                 ],
             ],
             [
@@ -161,6 +163,7 @@ class N3ppDataController extends AbstractDataController
             "TempAir":{"chartId":"chart-temperatures","seriesIndex":0},
             "Humidite":{"chartId":"chart-temperatures","seriesIndex":1},
             "Luminosite":{"chartId":"chart-temperatures","seriesIndex":2},
+            "Pression":{"chartId":"chart-temperatures","seriesIndex":3},
             "bootCount":{"chartId":"chart-cycles","seriesIndex":0},
             "PontDiv":{"chartId":"chart-cycles","seriesIndex":1}
         }';

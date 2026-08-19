@@ -39,7 +39,7 @@ class MspDataController extends AbstractDataController
     {
         return [
             'TempAirInt', 'TempAirExt',
-            'HumidAirInt', 'HumidAirExt',
+            'HumidAirInt', 'HumidAirExt', 'Pression',
             'LuminositeMoy', 'LuminositeA', 'LuminositeB', 'LuminositeC', 'LuminositeD',
             'HumidSol', 'TempEau', 'Pluie',
             'PontDiv', 'bootCount',
@@ -50,7 +50,7 @@ class MspDataController extends AbstractDataController
     protected function getStatsColumns(): array
     {
         return [
-            'TempAirInt', 'TempAirExt', 'HumidAirInt', 'HumidAirExt',
+            'TempAirInt', 'TempAirExt', 'HumidAirInt', 'HumidAirExt', 'Pression',
             'LuminositeMoy', 'LuminositeA', 'LuminositeB', 'LuminositeC', 'LuminositeD',
             'HumidSol', 'TempEau', 'Pluie', 'PontDiv', 'bootCount',
             'ServoHB', 'ServoGD',
@@ -104,6 +104,7 @@ class MspDataController extends AbstractDataController
             ['key' => 'TempAirExt', 'label' => 'Temp. air ext.', 'icon' => 'fa-temperature-low', 'class' => 'temp', 'unit' => '°C', 'decimals' => 1],
             ['key' => 'HumidAirInt', 'label' => 'Humid. air int.', 'icon' => 'fa-tint', 'class' => 'humidity', 'unit' => '%', 'decimals' => 0, 'unit_suffix' => '%'],
             ['key' => 'HumidAirExt', 'label' => 'Humid. air ext.', 'icon' => 'fa-cloud', 'class' => 'humidity', 'unit' => '%', 'decimals' => 0, 'unit_suffix' => '%'],
+            ['key' => 'Pression', 'label' => 'Pression atm.', 'icon' => 'fa-tachometer-alt', 'class' => 'temp', 'unit' => 'hPa', 'decimals' => 0, 'unit_suffix' => ' hPa'],
             ['key' => 'LuminositeMoy', 'label' => 'Luminosité moy.', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
             ['key' => 'LuminositeA', 'label' => 'Luminosité A', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
             ['key' => 'LuminositeB', 'label' => 'Luminosité B', 'icon' => 'fa-sun', 'class' => 'light', 'unit' => '', 'decimals' => 0],
@@ -131,6 +132,7 @@ class MspDataController extends AbstractDataController
                     ['name' => 'Temp. ext.', 'color' => '#c0392b'],
                     ['name' => 'Humid. int.', 'color' => '#3498db'],
                     ['name' => 'Humid. ext.', 'color' => '#2980b9'],
+                    ['name' => 'Pression', 'color' => '#8e44ad'],
                 ],
             ],
             [
@@ -178,6 +180,7 @@ class MspDataController extends AbstractDataController
             "TempAirExt":{"chartId":"chart-temperatures","seriesIndex":1},
             "HumidAirInt":{"chartId":"chart-temperatures","seriesIndex":2},
             "HumidAirExt":{"chartId":"chart-temperatures","seriesIndex":3},
+            "Pression":{"chartId":"chart-temperatures","seriesIndex":4},
             "LuminositeMoy":{"chartId":"chart-lights","seriesIndex":0},
             "LuminositeA":{"chartId":"chart-lights","seriesIndex":1},
             "LuminositeB":{"chartId":"chart-lights","seriesIndex":2},
