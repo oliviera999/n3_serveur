@@ -26,6 +26,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
   CSV inclus (colonne ajoutée aux `getSensorColumns()`), doc `API_MSP1_N3PP.md`
   à jour.
 
+### Securite
+- `paragonie/sodium_compat` mis a jour v2.5.0 → v2.5.2 (advisory
+  PKSA-32g2-byr9-drtw du 2026-08-18 : validation incorrecte de cle publique
+  Ed25519, corrige en 2.5.1) — dependance transitive de `web-token/jwt-library`,
+  `composer audit` de nouveau vert.
+
 ## [6.38.1] - 2026-08-17
 
 ### Documentation
