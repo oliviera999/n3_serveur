@@ -22,7 +22,7 @@ class MspSensorRepository extends AbstractSensorRepository
     public function getSensorColumns(): array
     {
         return [
-            'TempAirInt', 'TempAirExt', 'HumidAirInt', 'HumidAirExt',
+            'TempAirInt', 'TempAirExt', 'HumidAirInt', 'HumidAirExt', 'Pression',
             'LuminositeA', 'LuminositeB', 'LuminositeC', 'LuminositeD', 'LuminositeMoy',
             'HumidSol', 'Pluie', 'TempEau', 'PontDiv', 'bootCount',
             'ServoHB', 'ServoGD', 'resetMode',
@@ -33,7 +33,7 @@ class MspSensorRepository extends AbstractSensorRepository
     {
         $sql = 'INSERT INTO `' . $this->getTableName() . '` (
             sensor, version,
-            TempAirInt, TempAirExt, HumidAirInt, HumidAirExt,
+            TempAirInt, TempAirExt, HumidAirInt, HumidAirExt, Pression,
             LuminositeA, LuminositeB, LuminositeC, LuminositeD, LuminositeMoy,
             ServoHB, ServoGD, HumidSol, Pluie, TempEau, PontDiv,
             WakeUp, SeuilSec, FreqWakeUp, SeuilPontDiv,
@@ -41,7 +41,7 @@ class MspSensorRepository extends AbstractSensorRepository
             reading_time
         ) VALUES (
             :sensor, :version,
-            :tempAirInt, :tempAirExt, :humidAirInt, :humidAirExt,
+            :tempAirInt, :tempAirExt, :humidAirInt, :humidAirExt, :pression,
             :luminositeA, :luminositeB, :luminositeC, :luminositeD, :luminositeMoy,
             :servoHB, :servoGD, :humidSol, :pluie, :tempEau, :pontDiv,
             :wakeUp, :seuilSec, :freqWakeUp, :seuilPontDiv,
@@ -56,6 +56,7 @@ class MspSensorRepository extends AbstractSensorRepository
             ':tempAirExt' => $data->tempAirExt,
             ':humidAirInt' => $data->humidAirInt,
             ':humidAirExt' => $data->humidAirExt,
+            ':pression' => $data->pression,
             ':luminositeA' => $data->luminositeA,
             ':luminositeB' => $data->luminositeB,
             ':luminositeC' => $data->luminositeC,

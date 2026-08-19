@@ -34,6 +34,7 @@ class N3ppSensorData
         public readonly ?int $etatPompe = null,
         public readonly ?int $tempsArrosage = null,
         public readonly ?int $bootCount = null,
+        public readonly ?float $pression = null,
     ) {
     }
 }

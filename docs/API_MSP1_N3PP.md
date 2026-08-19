@@ -53,11 +53,11 @@ POST /msp1/post-data                         (alias moderne 2026-05)
 
 **Champs métier n3pp** (voir [`N3ppSensorData`](../src/Domain/N3ppSensorData.php)) :
 
-`TempAir`, `Humidite`, `Luminosite`, `Humid1`, `Humid2`, `Humid3`, `Humid4`, `HumidMoy`, `PontDiv`, `WakeUp`, `ArrosageManu`, `SeuilSec`, `FreqWakeUp`, `SeuilPontDiv`, `mail`, `mailNotif`, `HeureArrosage`, `resetMode`, `etatPompe`, `tempsArrosage`, `bootCount`.
+`TempAir`, `Humidite`, `Pression` (hPa, BME280 — vide/absent = NULL), `Luminosite`, `Humid1`, `Humid2`, `Humid3`, `Humid4`, `HumidMoy`, `PontDiv`, `WakeUp`, `ArrosageManu`, `SeuilSec`, `FreqWakeUp`, `SeuilPontDiv`, `mail`, `mailNotif`, `HeureArrosage`, `resetMode`, `etatPompe`, `tempsArrosage`, `bootCount`.
 
 **Champs métier msp** (voir [`MspSensorData`](../src/Domain/MspSensorData.php)) :
 
-`TempAirInt`, `TempAirExt`, `HumidAirInt`, `HumidAirExt`, `LuminositeA`, `LuminositeB`, `LuminositeC`, `LuminositeD`, `LuminositeMoy`, `ServoHB`, `ServoGD`, `HumidSol`, `Pluie`, `TempEau`, `PontDiv`, `WakeUp`, `SeuilSec`, `FreqWakeUp`, `SeuilPontDiv`, `mail`, `mailNotif`, `resetMode`, `bootCount`.
+`TempAirInt`, `TempAirExt`, `HumidAirInt`, `HumidAirExt`, `Pression` (hPa, BME280 — vide/absent = NULL), `LuminositeA`, `LuminositeB`, `LuminositeC`, `LuminositeD`, `LuminositeMoy`, `ServoHB`, `ServoGD`, `HumidSol`, `Pluie`, `TempEau`, `PontDiv`, `WakeUp`, `SeuilSec`, `FreqWakeUp`, `SeuilPontDiv`, `mail`, `mailNotif`, `resetMode`, `bootCount`.
 
 **Réponses :**
 

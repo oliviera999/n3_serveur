@@ -38,7 +38,7 @@ class LocalDataPagesController
         $series = [
             'reading_time' => [],
             'TempAirInt' => [], 'TempAirExt' => [],
-            'HumidAirInt' => [], 'HumidAirExt' => [],
+            'HumidAirInt' => [], 'HumidAirExt' => [], 'Pression' => [],
             'LuminositeMoy' => [], 'LuminositeA' => [], 'LuminositeB' => [], 'LuminositeC' => [], 'LuminositeD' => [],
             'HumidSol' => [], 'TempEau' => [], 'Pluie' => [],
             'PontDiv' => [], 'bootCount' => [],
@@ -47,7 +47,7 @@ class LocalDataPagesController
 
         $stats = [];
         foreach ([
-            'tempAirInt', 'tempAirExt', 'humidAirInt', 'humidAirExt', 'luminositeMoy',
+            'tempAirInt', 'tempAirExt', 'humidAirInt', 'humidAirExt', 'pression', 'luminositeMoy',
             'luminositeA', 'luminositeB', 'luminositeC', 'luminositeD',
             'humidSol', 'tempEau', 'pluie', 'pontDiv', 'bootCount',
             'servoHB', 'servoGD', 'resetMode',
@@ -79,7 +79,7 @@ class LocalDataPagesController
         $range = $this->getDefaultRange('-24 hours');
         $series = [
             'reading_time' => [],
-            'TempAir' => [], 'Humidite' => [], 'Luminosite' => [],
+            'TempAir' => [], 'Humidite' => [], 'Pression' => [], 'Luminosite' => [],
             'Humid1' => [], 'Humid2' => [], 'Humid3' => [], 'Humid4' => [], 'HumidMoy' => [],
             'PontDiv' => [], 'bootCount' => [],
             'etatPompe' => [], 'resetMode' => [],
@@ -87,7 +87,7 @@ class LocalDataPagesController
 
         $stats = [];
         foreach ([
-            'tempAir', 'humidite', 'luminosite',
+            'tempAir', 'humidite', 'pression', 'luminosite',
             'humid1', 'humid2', 'humid3', 'humid4', 'humidMoy',
             'pontDiv', 'bootCount', 'etatPompe',
         ] as $suffix) {

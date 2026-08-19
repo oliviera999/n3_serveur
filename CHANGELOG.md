@@ -11,6 +11,21 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.39.0] - 2026-08-19
+
+### Ajoute
+- **Pression atmosphérique (hPa) pour les familles MSP1 et N3PP** — phase 2 du
+  chantier BME280 (firmwares msp v2.74 / n3pp v4.70, détection auto du capteur
+  en v2.73/v4.69). Nouveau champ POST `Pression` accepté par `/msp1-post-data`
+  et `/n3pp-post-data` (colonne nullable `Pression` sur `msp1Data*` et
+  `n3ppData*`, migration `2026_08_add_pression_msp_n3pp.sql` + schéma Docker) :
+  le firmware envoie la valeur vide sans BME280 → NULL, aucun impact sur les
+  appareils non mis à jour. Affichage : carte « Pression atm. » (masquée tant
+  qu'aucune valeur n'existe) et série dédiée avec axe hPa propre sur le
+  graphique Températures des pages `/meteo` et `/serre`, temps réel et export
+  CSV inclus (colonne ajoutée aux `getSensorColumns()`), doc `API_MSP1_N3PP.md`
+  à jour.
+
 ## [6.38.1] - 2026-08-17
 
 ### Documentation

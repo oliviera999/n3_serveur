@@ -22,7 +22,7 @@ class N3ppSensorRepository extends AbstractSensorRepository
     public function getSensorColumns(): array
     {
         return [
-            'TempAir', 'Humidite', 'Luminosite',
+            'TempAir', 'Humidite', 'Pression', 'Luminosite',
             'Humid1', 'Humid2', 'Humid3', 'Humid4', 'HumidMoy',
             'PontDiv', 'bootCount', 'etatPompe', 'resetMode',
         ];
@@ -37,7 +37,7 @@ class N3ppSensorRepository extends AbstractSensorRepository
     {
         $sql = 'INSERT INTO `' . $this->getTableName() . '` (
             sensor, version,
-            TempAir, Humidite, Luminosite,
+            TempAir, Humidite, Pression, Luminosite,
             Humid1, Humid2, Humid3, Humid4, HumidMoy,
             PontDiv, WakeUp, ArrosageManu, SeuilSec, FreqWakeUp, SeuilPontDiv,
             mail, mailNotif, HeureArrosage, resetMode,
@@ -45,7 +45,7 @@ class N3ppSensorRepository extends AbstractSensorRepository
             reading_time
         ) VALUES (
             :sensor, :version,
-            :tempAir, :humidite, :luminosite,
+            :tempAir, :humidite, :pression, :luminosite,
             :humid1, :humid2, :humid3, :humid4, :humidMoy,
             :pontDiv, :wakeUp, :arrosageManu, :seuilSec, :freqWakeUp, :seuilPontDiv,
             :mail, :mailNotif, :heureArrosage, :resetMode,
@@ -58,6 +58,7 @@ class N3ppSensorRepository extends AbstractSensorRepository
             ':version' => $data->version,
             ':tempAir' => $data->tempAir,
             ':humidite' => $data->humidite,
+            ':pression' => $data->pression,
             ':luminosite' => $data->luminosite,
             ':humid1' => $data->humid1,
             ':humid2' => $data->humid2,
