@@ -34,8 +34,10 @@ namespace App\Service;
  *     `FreqWakeUp` (107) à 86400 espace les POST à un par jour.
  *
  * Ce service donne donc une manette de rollback graduée ({@see mode()}) :
- *  - `off`  : les clés plates ne sont PAS fusionnées → comportement strictement antérieur
- *             au correctif C1/C2 (la flotte reste sur sa config locale). DÉFAUT.
+ *  - `off`  : les clés plates ne sont PAS fusionnées (la flotte reste sur sa config
+ *             locale). DÉFAUT. L'acquittement one-shot sur la route nested
+ *             `/api/outputs/state` est aussi désactivé dans ce mode : ack sans
+ *             livraison mangeait reset (110) et arrosage manuel n3pp (13).
  *  - `safe` : clés plates fusionnées, mais NETTOYÉES — GPIO d'état miroir retirés, valeurs
  *             de config hors plage omises (le firmware conserve alors sa valeur locale et
  *             journalise `[SERVER][GET][WARN] Cle … absente`).

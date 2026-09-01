@@ -8,7 +8,7 @@ Le système d'authentification protège les pages suivantes :
 - Pages de contrôle : `/aquaponie-control`, `/aquaponie-control-test`, `/aquamobile-control`, `/aquamobile-control-test`
 - Pages d'administration : `/admin/*`
 - Dashboards : `/dashboard*`, `/supervision`, `/tide-stats*`
-- APIs sensibles (écriture) : `POST /api/outputs/toggle`, `POST /api/outputs/parameters`, `POST /api/outputs/trigger-ota-check`, et équivalents `*-test`, `outputs3*`, etc.
+- APIs sensibles (écriture) : `POST /api/outputs/toggle`, `POST /api/outputs/parameters`, `POST /api/outputs/trigger-ota-check`, `POST /gallery/{slug}/api/outputs/toggle` (POST uniquement), et équivalents `*-test`, `outputs3*`, etc.
 - Export de données : `/export-data*`
 
 **Pages et API publiques** (non protégées) :

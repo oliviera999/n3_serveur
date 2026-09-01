@@ -77,10 +77,11 @@ final class OperationalSettingsCatalog
                 'type' => self::TYPE_ENUM,
                 'group' => self::GROUP_MAINTENANCE,
                 'label' => 'Config distante n3pp/msp (clés plates)',
-                'hint' => 'off = la flotte garde sa config locale (contrat d\'avant v6.25.0, '
-                    . 'recommandé tant que les modules ne sont pas reflashés) ; safe = config '
-                    . 'appliquée mais nettoyée (état pompe miroir retiré, valeurs hors plage '
-                    . 'ignorées) ; full = tout est renvoyé tel quel.',
+                'hint' => 'off = la flotte garde sa config locale (pas de clés plates ni d\'ack '
+                    . 'one-shot sur /api/outputs/state ; recommandé tant que les modules ne '
+                    . 'sont pas reflashés) ; safe = config appliquée mais nettoyée (état pompe '
+                    . 'miroir retiré, valeurs hors plage ignorées) ; full = tout est renvoyé '
+                    . 'tel quel.',
                 'default' => 'off',
                 'options' => ['off', 'safe', 'full'],
             ],

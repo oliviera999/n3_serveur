@@ -61,9 +61,9 @@ Réglage opérationnel `FIRMWARE_FLAT_STATE_MODE` (supervision → Maintenance, 
 
 | Mode | Comportement | Quand |
 |------|--------------|-------|
-| `off` **(défaut)** | Aucune clé plate fusionnée → contrat strictement identique à celui d'avant la v6.25.0. L'acquittement one-shot reste effectué (comme avant). La flotte conserve sa config locale. | Tant que les modules ne sont pas reflashés, ou en cas de doute sur les valeurs en BDD. |
-| `safe` | Clés plates fusionnées **après nettoyage** : GPIO d'état miroir retirés (n3pp 12), valeurs de config hors plage omises — le firmware garde alors sa valeur locale et journalise `[SERVER][GET][WARN] Cle … absente`. | Après avoir vérifié les valeurs en BDD (voir la checklist ci-dessous), pour retrouver le pilotage distant sans risque de brique logicielle. |
-| `full` | Comportement v6.25.0 tel quel, aucun filtrage. | Flotte flashée avec des firmwares qui bornent eux-mêmes les valeurs reçues. |
+| `off` **(défaut)** | Aucune clé plate fusionnée → la flotte conserve sa config locale. **Pas d'acquittement one-shot** sur `/api/outputs/state` (un ack sans clés plates mangeait reset/arrosage manuel). Les commandes one-shot restent en attente jusqu'à `safe`/`full` ou un GET sur `/api/firmware/outputs/state`. | Tant que les modules ne sont pas reflashés, ou en cas de doute sur les valeurs en BDD. |
+| `safe` | Clés plates fusionnées **après nettoyage** : GPIO d'état miroir retirés (n3pp 12), valeurs de config hors plage omises — le firmware garde alors sa valeur locale et journalise `[SERVER][GET][WARN] Cle … absente`. Ack one-shot effectué. | Après avoir vérifié les valeurs en BDD (voir la checklist ci-dessous), pour retrouver le pilotage distant sans risque de brique logicielle. |
+| `full` | Comportement v6.25.0 tel quel, aucun filtrage. Ack one-shot effectué. | Flotte flashée avec des firmwares qui bornent eux-mêmes les valeurs reçues. |
 
 Le nettoyage `safe` s'applique **aussi** à la route firmware dédiée
 `GET /{module}/api/firmware/outputs/state`, qui elle reste toujours servie (le mode `off`

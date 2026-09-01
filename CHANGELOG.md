@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.39.1] - 2026-09-01
+
+### Correctif
+- **Toggle galerie POST-only** — `/gallery/{slug}/api/outputs/toggle` n'accepte plus
+  GET (`CsrfMiddleware` ignore les méthodes sûres) : une page hostile ne peut plus
+  muter resetMode / forceWakeUp via une session operator.
+- **Marée juste après redémarrage pompe** — le run CRON qui consomme le flag de
+  redémarrage saute `checkTideSystem` : l'écart-type encore bas ne recoupe plus
+  immédiatement la pompe.
+- **FLAT_STATE `off`** — plus d'acquittement one-shot sur `GET /{msp1|n3pp}/api/outputs/state`
+  sans livraison des clés plates (reset 110 / arrosage 13 n'étaient plus vus par la flotte).
+
 ## [6.39.0] - 2026-08-19
 
 ### Ajoute
