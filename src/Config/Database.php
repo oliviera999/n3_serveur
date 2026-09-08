@@ -50,6 +50,13 @@ class Database
                 }
                 self::$instance = new PDO($dsn, $user, $pass, $options);
             } catch (PDOException $e) {
+                if (PHP_SAPI === 'cli-server') {
+                    self::$instance = new PDO('sqlite::memory:', null, null, [
+                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                    ]);
+                    return self::$instance;
+                }
                 throw new \RuntimeException('DB connection failed: ' . $e->getMessage());
             }
         }
