@@ -11,6 +11,32 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.40.0] - 2026-10-03
+
+### Ajoute
+- **Nouvelle famille « énergie » (banc INA226)** — firmware `energie` (ESP32-S3,
+  3 × INA226 : panneau solaire, batterie plomb/AGM 12 V bidirectionnelle — courant
+  positif = charge, négatif = décharge —, consommation des périphériques), mesure chaque
+  seconde, agrégat POST toutes les 10 s. Même schéma que MSP1, en « mesure seule »
+  (ni outputs, ni heartbeat, ni alertes) :
+  - environnement `energie_test` (`TableConfig`, `EnvironmentMiddleware`, `Env`) et
+    `TableConfig::getEnergieDataTable()` → `energieData` (prod) / `energieDataTest` ;
+  - ingestion `POST /energie/post-data` et `/energie-test/post-data`
+    (`EnergiePostDataController`, auth HMAC `X-Sig-*` / `timestamp`+`signature` avec
+    repli `api_key`, secrets partagés ; dépendances HMAC/réglages câblées
+    explicitement dans `config/dependencies.php`) — champs numériques optionnels
+    (NULL si absents), `InaStatus` en bitmask (présence / saturation / ré-init) ;
+  - page publique `/energie` et `/energie-test` (cartes live, polling 15 s, 4
+    graphiques Highstock : Puissances, Tensions, Courants, Batterie & énergie ;
+    filtre de période et export CSV), API `/energie[-test]/api/realtime/*`
+    (en ligne si dernière mesure < 90 s, uptime sur 24 h) ;
+  - migration `2026_10_energie_tables.sql` (+ init Docker `92-energie.sql`) et
+    lien de menu « Énergie (banc) » → `/energie-test` (seed `navPages` ; liens prod
+    et banc pilotables depuis la supervision) ;
+  - doc `docs/API_ENERGIE.md` (contrat complet), endpoints et inventaire à jour.
+- Partial `_filter_health_row.twig` : libellé d'uptime paramétrable
+  (`health_uptime_label`, défaut « Uptime (30j) » inchangé).
+
 ## [6.39.1] - 2026-09-01
 
 ### Correctif

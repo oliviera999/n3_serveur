@@ -420,6 +420,8 @@ $msp1DataMethod = $useLocalDataFallback ? 'showMsp1' : 'show';
 $n3ppDataController = $useLocalDataFallback ? LocalDataPagesController::class : N3ppDataController::class;
 $n3ppDataMethod = $useLocalDataFallback ? 'showN3pp' : 'show';
 require __DIR__ . '/../config/routes_msp1_n3pp.php';
+// Routes ENERGIE (banc INA226, prod + energie_test) — config/routes_energie.php
+require __DIR__ . '/../config/routes_energie.php';
 
 // ====================================================================
 // Routes Galeries photo — config/routes_gallery.php

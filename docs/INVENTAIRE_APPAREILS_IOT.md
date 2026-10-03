@@ -27,6 +27,15 @@
 | n3pp | 7 | uploadphotosserver_n3pp |
 | ffp3 | 5 | uploadphotosserver_ffp3 |
 
+## Banc énergie INA226 (mesure seule)
+
+| Appareil | ENV serveur | Table données | Firmware | Endpoints |
+|----------|-------------|---------------|----------|-----------|
+| Banc énergie (ESP32-S3, 3 × INA226) | `energie_test` | `energieDataTest` | `energie` | `/energie-test/post-data`, `/energie-test/api/realtime/*` |
+| Module énergie réel (à venir) | `prod` | `energieData` | `energie` | `/energie/post-data`, `/energie/api/realtime/*` |
+
+Pas de table outputs ni de heartbeat ; contrat : [`API_ENERGIE.md`](API_ENERGIE.md).
+
 ## Poissonglouton
 
 | Board ID | Route |

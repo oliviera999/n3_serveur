@@ -33,6 +33,9 @@ return [
         '/serre-description',
         '/meteo',
         '/serre',
+        // Banc énergie INA226 : page, /post-data (HMAC/api_key) et /api/realtime (lecture seule).
+        '/energie',
+        '/energie-test',
         '/gallery',
         '/post-data',
         '/post-data-test',

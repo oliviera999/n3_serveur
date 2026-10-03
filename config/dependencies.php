@@ -256,6 +256,14 @@ return [
         ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
 
+    // POST banc énergie (INA226) : audit HMAC + mode strict / nonce + réglages opérationnels
+    // (fenêtre SIG_VALID_WINDOW, rate-limit firmware) pilotés en BDD — câblage explicite,
+    // les paramètres nullables ne doivent jamais retomber silencieusement à null.
+    \App\Controller\Energie\EnergiePostDataController::class => \DI\autowire()
+        ->constructorParameter('hmacAuditLogger', \DI\get(\App\Service\HmacAuditLogger::class))
+        ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
     // --------------------------------------------------------------------
     // Authentification et rendu — même défaut, conséquences non plus sur la
     // configuration mais sur le contrôle d'accès.

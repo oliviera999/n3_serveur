@@ -134,6 +134,24 @@ Codes de reponse :
 - `HTTP 400` : payload invalide (events manquant / vide)
 - `HTTP 401` : cle API invalide
 
+### Énergie (banc INA226, ESP32-S3) — serveur >= 6.40.0
+
+Firmware `n3_firmwires/energie/` (3 × INA226 : panneau solaire, batterie 12 V bidirectionnelle, conso).
+Mesure chaque seconde, POST agrégé toutes les 10 s. Famille **mesure seule** : pas d'outputs, pas de heartbeat.
+Contrat complet : [`API_ENERGIE.md`](API_ENERGIE.md).
+
+| Env | POST données | Page | API temps réel | Table |
+|-----|--------------|------|----------------|-------|
+| **Prod** (`prod`) | `POST /energie/post-data` | `GET /energie` | `/energie/api/realtime/*` | `energieData` |
+| **Test / banc** (`energie_test`) | `POST /energie-test/post-data` | `GET /energie-test` | `/energie-test/api/realtime/*` | `energieDataTest` |
+
+- **Auth** : identique MSP1/N3PP — en-têtes `X-Sig-*` (body-signing), sinon `timestamp`+`signature`, sinon `api_key` (`API_KEY` / `API_SIG_SECRET` partagés).
+- **Champs** : `sensor`, `version` (requis, ≤ 30) + mesures numériques optionnelles (`PanneauV/I/P/Imax`, `BatterieV/Vmin/I/Imin/Imax/P/Vadc`, `ConsoV/I/P/Imax`, `EnergiePanneauWh`, `EnergieConsoWh`, `BatterieAh`, `BatterieSoc`, `InaStatus`, `I2cErreurs`, `Rssi`, `FreeHeap`, `BootCount`, `Uptime`) — absent/non numérique → `NULL`.
+- **Signe** : `BatterieI` / `BatterieP` > 0 = charge, < 0 = décharge.
+- **Réponses** : `200` (texte), `400` (sensor/version manquants), `401` (auth), `500` (config/BDD) — comme MSP1.
+- **Santé** (`…/system/health`) : en ligne si dernière mesure < 90 s ; uptime sur 24 h (8640 lectures attendues).
+- **Migration** : `migrations/2026_10_energie_tables.sql` (Docker : `docker/mysql/init/92-energie.sql`).
+
 ### Environnement Actif: **TEST** (`wroom-test`)
 
 **Configuration**: `platformio.ini` ligne 90

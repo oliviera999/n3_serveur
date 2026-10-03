@@ -5,6 +5,7 @@
       - data_config.form_action : URL du POST
       - start_date, end_date, duration_str, measure_count
       - temps_total_module (optionnel)
+      - health_uptime_label (optionnel, défaut « Uptime (30j) » ; ex. « Uptime (24 h) » pour le banc énergie)
       - csrf_field
 #}
 <div class="filter-health-row">
@@ -160,7 +161,7 @@
         </div>
 
         <div class="health-item">
-            <div class="health-item-label">Uptime (30j)</div>
+            <div class="health-item-label">{{ health_uptime_label|default('Uptime (30j)') }}</div>
             <div class="health-item-value" id="system-uptime">
                 <i class="fas fa-spinner fa-spin"></i>
             </div>

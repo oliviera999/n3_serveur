@@ -78,6 +78,9 @@ final class ContainerWiringTest extends TestCase
             \App\Controller\Pgl\PglPostDataController::class,
             \App\Controller\Pgl\PglHeartbeatController::class,
             \App\Controller\Pgl\PglRealtimeApiController::class,
+            \App\Controller\Energie\EnergieDataController::class,
+            \App\Controller\Energie\EnergiePostDataController::class,
+            \App\Controller\Energie\EnergieRealtimeApiController::class,
             \App\Controller\Gallery\GalleryUploadController::class,
             \App\Controller\Gallery\GalleryControlController::class,
             \App\Controller\Gallery\GalleryViewController::class,
@@ -102,6 +105,7 @@ final class ContainerWiringTest extends TestCase
             \App\Repository\N3ppSensorRepository::class,
             \App\Repository\N3ppOutputRepository::class,
             \App\Repository\PglRepository::class,
+            \App\Repository\EnergieSensorRepository::class,
             \App\Repository\GalleryControlRepository::class,
             \App\Repository\UserRepository::class,
             // Services
@@ -129,6 +133,7 @@ final class ContainerWiringTest extends TestCase
             \App\Service\Realtime\MspRealtimeDataProvider::class,
             \App\Service\Realtime\N3ppRealtimeDataProvider::class,
             \App\Service\Realtime\PglRealtimeDataProvider::class,
+            \App\Service\Realtime\EnergieRealtimeDataProvider::class,
             // Sécurité
             \App\Security\AuthService::class,
             \App\Security\CsrfService::class,
@@ -235,6 +240,10 @@ final class ContainerWiringTest extends TestCase
             [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.hmacPolicyService'],
             [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.operationalSettings'],
             [\App\Service\FirmwareStateCompat::class, 'settings'],
+            // POST banc énergie (INA226) : audit HMAC + mode strict + réglages pilotés en BDD.
+            [\App\Controller\Energie\EnergiePostDataController::class, 'hmacAuditLogger'],
+            [\App\Controller\Energie\EnergiePostDataController::class, 'hmacPolicyService'],
+            [\App\Controller\Energie\EnergiePostDataController::class, 'operationalSettings'],
             // Contrôle d'accès : sans ces dépendances, l'authentification BDD est inactive
             // et le filtrage par rôle laisse passer tous les chemins.
             [\App\Security\AuthService::class, 'userRepository'],

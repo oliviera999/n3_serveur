@@ -31,7 +31,10 @@ class NavPageRepository extends AbstractRepository
     /**
      * Pages activées par défaut. Format : [clé, label, url, ordre].
      *
-     * - Les 6 premières entrées sont les liens historiques du menu.
+     * - Les 6 premières entrées sont les liens historiques du menu ; `energie-test`
+     *   (banc INA226, 6.40.0) s'y insère entre Poissonglouton et Galeries. Il pointe
+     *   vers la page du banc (/energie-test) tant que le module réel (/energie, prod)
+     *   n'existe pas — bascule pilotable depuis la supervision.
      * - `admin-users` est un lien de menu supplémentaire, filtré par la
      *   permission `canManageUsers` (cf. TemplateRenderer).
      * - Les clés `gallery-*` pilotent la page `/gallery` (pas le menu) et sont
@@ -45,6 +48,7 @@ class NavPageRepository extends AbstractRepository
         ['potager',     'Potager',        '/meteo',       30],
         ['elevage',     'Élevage',        '/serre',       40],
         ['pgl',         'Poissonglouton', '/pgl',         50],
+        ['energie-test', 'Énergie (banc)', '/energie-test', 55],
         ['gallery',     'Galeries',       '/gallery',     60],
         ['admin-users', 'Utilisateurs',   '/admin/users', 200],
         ['gallery-msp1', 'Galerie potager', '/gallery/msp1', 900],
