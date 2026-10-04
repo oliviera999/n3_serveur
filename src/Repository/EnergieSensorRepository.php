@@ -6,7 +6,6 @@ namespace App\Repository;
 
 use App\Config\TableConfig;
 use App\Domain\EnergieSensorData;
-use PDO;
 
 /**
  * Repository des mesures du banc énergie (3 × INA226 : panneau / batterie / conso).
@@ -86,38 +85,5 @@ class EnergieSensorRepository extends AbstractSensorRepository
             . ' VALUES (' . implode(', ', $placeholders) . ')';
 
         $this->execute($sql, $params);
-    }
-
-    /**
-     * Exporte les mesures d'une plage dans un fichier CSV (contrat attendu par
-     * {@see \App\Service\CsvExportService::export()}) et retourne le nombre de lignes écrites.
-     * L'en-tête est toujours écrit, même sans donnée (CSV vide valide).
-     */
-    public function exportCsv(string $start, string $end, string $filePath): int
-    {
-        $columns = ['id', 'sensor', 'version', ...$this->getSensorColumns(), 'reading_time'];
-        $columnList = implode(', ', $columns);
-        $sql = "SELECT {$columnList} FROM `{$this->getTableName()}`"
-            . ' WHERE reading_time BETWEEN :start AND :end ORDER BY reading_time ASC';
-
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([':start' => $start, ':end' => $end]);
-
-        $handle = fopen($filePath, 'w');
-        if ($handle === false) {
-            throw new \RuntimeException('Impossible d\'ouvrir le fichier ' . $filePath);
-        }
-
-        fputcsv($handle, $columns, ',', '"', '\\');
-
-        $count = 0;
-        while (($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false) {
-            fputcsv($handle, $row, ',', '"', '\\');
-            $count++;
-        }
-
-        fclose($handle);
-
-        return $count;
     }
 }

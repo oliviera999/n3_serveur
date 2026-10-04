@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.40.1] - 2026-10-04
+
+### Correctif
+- **Export CSV de `/meteo` et `/serre` (HTTP 500)** — `MspSensorRepository` et
+  `N3ppSensorRepository` n'implémentaient pas `exportCsv()`, appelée par
+  `CsvExportService` : le bouton « Exporter CSV » levait une `Error` (méthode
+  inexistante) depuis l'import initial. L'export est remonté dans
+  `AbstractSensorRepository` (commun MSP1 / N3PP / ENERGIE, doublon ENERGIE supprimé) :
+  colonnes `id, sensor, version`, colonnes capteurs, `reading_time` ; tri chronologique ;
+  même filtre qualité que les graphiques (N3PP : trames `msp1` et DHT muet 0/0 exclus) ;
+  en-tête toujours écrit. Tests de non-régression MSP / N3PP (`SensorCsvExportTest`).
+
 ## [6.40.0] - 2026-10-03
 
 ### Ajoute

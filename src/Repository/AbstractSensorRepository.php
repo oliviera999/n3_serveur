@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use PDO;
+
 /**
- * Classe abstraite pour les repositories de capteurs MSP1 et N3PP.
- * Fournit les méthodes communes : getLatest, fetchBetween, getLastReadingDate, countReadingsToday.
+ * Classe abstraite pour les repositories de capteurs MSP1, N3PP et ENERGIE.
+ * Fournit les méthodes communes : getLatest, fetchBetween, exportCsv, getLastReadingDate, countReadingsToday.
  * Les sous-classes définissent getTableName() et getSensorColumns().
  */
 abstract class AbstractSensorRepository extends AbstractRepository
@@ -61,6 +63,47 @@ abstract class AbstractSensorRepository extends AbstractRepository
         $whereFilter = $filter !== '' ? " AND ({$filter})" : '';
         $sql = "SELECT * FROM `{$table}` WHERE reading_time BETWEEN :start AND :end{$whereFilter} ORDER BY reading_time ASC";
         return $this->fetchAll($sql, [':start' => $start, ':end' => $end]);
+    }
+
+    /**
+     * Exporte les mesures d'une plage dans un fichier CSV et retourne le nombre de lignes
+     * de données écrites (contrat attendu par {@see \App\Service\CsvExportService::export()}).
+     *
+     * Commun à toutes les familles « capteurs » (MSP1, N3PP, ENERGIE) : avant 6.40.1, seul
+     * ENERGIE l'implémentait et l'export CSV de /meteo et /serre levait une Error (méthode
+     * inexistante) → HTTP 500. Colonnes = id, sensor, version, getSensorColumns(), reading_time.
+     * Le filtre qualité ({@see qualityFilterSql()}) est appliqué comme dans {@see fetchBetween()} :
+     * le CSV contient exactement les mesures affichées par la page. L'en-tête est toujours écrit,
+     * même sans donnée (CSV vide valide). Lecture en streaming (pas de fetchAll).
+     */
+    public function exportCsv(string $start, string $end, string $filePath): int
+    {
+        $columns = ['id', 'sensor', 'version', ...$this->getSensorColumns(), 'reading_time'];
+        $columnList = implode(', ', $columns);
+        $filter = $this->qualityFilterSql();
+        $whereFilter = $filter !== '' ? " AND ({$filter})" : '';
+        $sql = "SELECT {$columnList} FROM `{$this->getTableName()}`"
+            . " WHERE reading_time BETWEEN :start AND :end{$whereFilter} ORDER BY reading_time ASC";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':start' => $start, ':end' => $end]);
+
+        $handle = fopen($filePath, 'w');
+        if ($handle === false) {
+            throw new \RuntimeException('Impossible d\'ouvrir le fichier ' . $filePath);
+        }
+
+        fputcsv($handle, $columns, ',', '"', '\\');
+
+        $count = 0;
+        while (($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false) {
+            fputcsv($handle, $row, ',', '"', '\\');
+            $count++;
+        }
+
+        fclose($handle);
+
+        return $count;
     }
 
     /**
