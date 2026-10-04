@@ -147,6 +147,37 @@ final class AbstractSensorRepositoryTest extends TestCase
         );
     }
 
+    public function testExportCsvUsesSensorColumnsAndRange(): void
+    {
+        $today = date('Y-m-d');
+        $file = tempnam(sys_get_temp_dir(), 'abstract_csv_');
+        $this->assertIsString($file);
+
+        try {
+            $count = $this->repo->exportCsv($today . ' 00:00:00', $today . ' 23:59:59', $file);
+            $lines = file($file, FILE_IGNORE_NEW_LINES);
+        } finally {
+            @unlink($file);
+        }
+
+        $this->assertSame(3, $count);
+        $this->assertIsArray($lines);
+        $this->assertCount(4, $lines);
+        $this->assertSame(
+            ['id', 'sensor', 'version', 'TempAir', 'reading_time'],
+            str_getcsv($lines[0], ',', '"', '\\')
+        );
+        $first = str_getcsv($lines[1], ',', '"', '\\');
+        $this->assertSame('v1.0', $first[2]); // ASC
+        $this->assertSame($today . ' 08:00:00', $first[4]);
+    }
+
+    public function testExportCsvThrowsWhenFileCannotBeOpened(): void
+    {
+        $this->expectException(\RuntimeException::class);
+        @$this->repo->exportCsv('2000-01-01 00:00:00', '2100-01-01 00:00:00', sys_get_temp_dir() . '/missing-dir-' . uniqid() . '/x.csv');
+    }
+
     public function testGetLatestReturnsNullOnEmptyTable(): void
     {
         $this->pdo->exec('DELETE FROM sensors_test');
